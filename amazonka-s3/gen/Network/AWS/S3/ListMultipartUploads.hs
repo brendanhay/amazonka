@@ -43,6 +43,7 @@ module Network.AWS.S3.ListMultipartUploads
     -- ** Response lenses
     , lmurBucket
     , lmurCommonPrefixes
+    , lmurDelimiter
     , lmurEncodingType
     , lmurIsTruncated
     , lmurKeyMarker
@@ -153,6 +154,7 @@ instance ToHeaders ListMultipartUploads
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     { _lmurBucket             :: Maybe Text
     , _lmurCommonPrefixes     :: [CommonPrefix]
+    , _lmurDelimiter          :: Maybe Text
     , _lmurEncodingType       :: Maybe Text
     , _lmurIsTruncated        :: Maybe Bool
     , _lmurKeyMarker          :: Maybe Text
@@ -171,6 +173,8 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
 -- * 'lmurBucket' @::@ 'Maybe' 'Text'
 --
 -- * 'lmurCommonPrefixes' @::@ ['CommonPrefix']
+--
+-- * 'lmurDelimiter' @::@ 'Maybe' 'Text'
 --
 -- * 'lmurEncodingType' @::@ 'Maybe' 'Text'
 --
@@ -197,6 +201,7 @@ listMultipartUploadsResponse = ListMultipartUploadsResponse
     , _lmurUploadIdMarker     = Nothing
     , _lmurNextKeyMarker      = Nothing
     , _lmurPrefix             = Nothing
+    , _lmurDelimiter          = Nothing
     , _lmurNextUploadIdMarker = Nothing
     , _lmurMaxUploads         = Nothing
     , _lmurIsTruncated        = Nothing
@@ -212,6 +217,9 @@ lmurBucket = lens _lmurBucket (\s a -> s { _lmurBucket = a })
 lmurCommonPrefixes :: Lens' ListMultipartUploadsResponse [CommonPrefix]
 lmurCommonPrefixes =
     lens _lmurCommonPrefixes (\s a -> s { _lmurCommonPrefixes = a })
+
+lmurDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Text)
+lmurDelimiter = lens _lmurDelimiter (\s a -> s { _lmurDelimiter = a })
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
 lmurEncodingType :: Lens' ListMultipartUploadsResponse (Maybe Text)
@@ -270,6 +278,7 @@ instance AWSRequest ListMultipartUploads where
     response = xmlResponse $ \h x -> ListMultipartUploadsResponse
         <$> x %| "Bucket"
         <*> x %| "CommonPrefixes"
+        <*> x %| "Delimiter"
         <*> x %| "EncodingType"
         <*> x %| "IsTruncated"
         <*> x %| "KeyMarker"

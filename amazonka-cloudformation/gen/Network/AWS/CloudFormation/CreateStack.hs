@@ -115,14 +115,18 @@ createStack p1 = CreateStack
     , _csTags             = mempty
     }
 
--- | The list of capabilities that you want to allow in the stack. If your
--- template contains certain resources, you must specify the CAPABILITY_IAM
--- value for this parameter; otherwise, this action returns an
--- InsufficientCapabilities error. The following resources require you to
--- specify the capabilities parameter: AWS::CloudFormation::Stack,
+-- | A list of capabilities that you must specify before AWS CloudFormation
+-- can create or update certain stacks. Some stack templates might include
+-- resources that can affect permissions in your AWS account. For those
+-- stacks, you must explicitly acknowledge their capabilities by specifying
+-- this parameter. Currently, the only valid value is CAPABILITY_IAM, which
+-- is required for the following resources: AWS::CloudFormation::Stack,
 -- AWS::IAM::AccessKey, AWS::IAM::Group, AWS::IAM::InstanceProfile,
 -- AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, and
--- AWS::IAM::UserToGroupAddition.
+-- AWS::IAM::UserToGroupAddition. If your stack template contains these
+-- resources, we recommend that you review any permissions associated with
+-- them. If you don't specify this parameter, this action returns an
+-- InsufficientCapabilities error.
 csCapabilities :: Lens' CreateStack [Text]
 csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a })
 
@@ -152,7 +156,9 @@ csParameters :: Lens' CreateStack [Parameter]
 csParameters = lens _csParameters (\s a -> s { _csParameters = a })
 
 -- | The name associated with the stack. The name must be unique within your
--- AWS account.
+-- AWS account. Must contain only alphanumeric characters (case sensitive)
+-- and start with an alpha character. Maximum length of the name is 255
+-- characters.
 csStackName :: Lens' CreateStack Text
 csStackName = lens _csStackName (\s a -> s { _csStackName = a })
 

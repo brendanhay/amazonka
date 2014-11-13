@@ -17,9 +17,11 @@
             "Network.AWS.CloudFormation.EstimateTemplateCost",
             "Network.AWS.CloudFormation.GetStackPolicy",
             "Network.AWS.CloudFormation.GetTemplate",
+            "Network.AWS.CloudFormation.GetTemplateSummary",
             "Network.AWS.CloudFormation.ListStackResources",
             "Network.AWS.CloudFormation.ListStacks",
             "Network.AWS.CloudFormation.SetStackPolicy",
+            "Network.AWS.CloudFormation.SignalResource",
             "Network.AWS.CloudFormation.Types",
             "Network.AWS.CloudFormation.UpdateStack",
             "Network.AWS.CloudFormation.ValidateTemplate"
@@ -46,9 +48,11 @@
             "Network.AWS.CloudFormation.EstimateTemplateCost",
             "Network.AWS.CloudFormation.GetStackPolicy",
             "Network.AWS.CloudFormation.GetTemplate",
+            "Network.AWS.CloudFormation.GetTemplateSummary",
             "Network.AWS.CloudFormation.ListStackResources",
             "Network.AWS.CloudFormation.ListStacks",
             "Network.AWS.CloudFormation.SetStackPolicy",
+            "Network.AWS.CloudFormation.SignalResource",
             "Network.AWS.CloudFormation.Types",
             "Network.AWS.CloudFormation.UpdateStack",
             "Network.AWS.CloudFormation.ValidateTemplate"
@@ -77,9 +81,11 @@
                 "Network.AWS.CloudFormation.EstimateTemplateCost",
                 "Network.AWS.CloudFormation.GetStackPolicy",
                 "Network.AWS.CloudFormation.GetTemplate",
+                "Network.AWS.CloudFormation.GetTemplateSummary",
                 "Network.AWS.CloudFormation.ListStackResources",
                 "Network.AWS.CloudFormation.ListStacks",
                 "Network.AWS.CloudFormation.SetStackPolicy",
+                "Network.AWS.CloudFormation.SignalResource",
                 "Network.AWS.CloudFormation.Types",
                 "Network.AWS.CloudFormation.UpdateStack",
                 "Network.AWS.CloudFormation.ValidateTemplate"
@@ -1056,6 +1062,7 @@
                     "RSDeleteFailed": "DELETE_FAILED",
                     "RSUpdateComplete": "UPDATE_COMPLETE",
                     "RSDeleteComplete": "DELETE_COMPLETE",
+                    "RSDeleteSkipped": "DELETE_SKIPPED",
                     "RSCreateFailed": "CREATE_FAILED"
                 },
                 "valuePad": 19,
@@ -1200,7 +1207,165 @@
                     "Show",
                     "Generic"
                 ],
-                "fieldPad": 23,
+                "fieldPad": 16,
+                "ctor": "parameterDeclaration",
+                "payload": null,
+                "required": [],
+                "name": "ParameterDeclaration",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pdParameterKey",
+                        "name": "_pdParameterKey",
+                        "shape": "ParameterKey",
+                        "locationName": "ParameterKey",
+                        "documentation": "\u003cp\u003eThe name that is associated with the parameter.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pdDefaultValue",
+                        "name": "_pdDefaultValue",
+                        "shape": "ParameterValue",
+                        "locationName": "DefaultValue",
+                        "documentation": "\u003cp\u003eThe default value of the parameter.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pdParameterType",
+                        "name": "_pdParameterType",
+                        "shape": "ParameterType",
+                        "locationName": "ParameterType",
+                        "documentation": "\u003cp\u003eThe type of parameter.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pdNoEcho",
+                        "name": "_pdNoEcho",
+                        "shape": "NoEcho",
+                        "locationName": "NoEcho",
+                        "documentation": "\u003cp\u003eFlag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.\u003c/p\u003e",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pdDescription",
+                        "name": "_pdDescription",
+                        "shape": "Description",
+                        "locationName": "Description",
+                        "documentation": "\u003cp\u003eThe description that is associate with the parameter.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pdDefaultValue",
+                        "name": "_pdDefaultValue",
+                        "shape": "ParameterValue",
+                        "locationName": "DefaultValue",
+                        "documentation": "\u003cp\u003eThe default value of the parameter.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pdDescription",
+                        "name": "_pdDescription",
+                        "shape": "Description",
+                        "locationName": "Description",
+                        "documentation": "\u003cp\u003eThe description that is associate with the parameter.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pdNoEcho",
+                        "name": "_pdNoEcho",
+                        "shape": "NoEcho",
+                        "locationName": "NoEcho",
+                        "documentation": "\u003cp\u003eFlag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.\u003c/p\u003e",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pdParameterKey",
+                        "name": "_pdParameterKey",
+                        "shape": "ParameterKey",
+                        "locationName": "ParameterKey",
+                        "documentation": "\u003cp\u003eThe name that is associated with the parameter.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pdParameterType",
+                        "name": "_pdParameterType",
+                        "shape": "ParameterType",
+                        "locationName": "ParameterType",
+                        "documentation": "\u003cp\u003eThe type of parameter.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 24,
                 "ctor": "stackResource",
                 "payload": null,
                 "required": [
@@ -1210,8 +1375,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "srLogicalResourceId",
-                        "name": "_srLogicalResourceId",
+                        "lens": "sr1LogicalResourceId",
+                        "name": "_sr1LogicalResourceId",
                         "shape": "LogicalResourceId",
                         "locationName": "LogicalResourceId",
                         "documentation": "\u003cp\u003eThe logical name of the resource specified in the template.\u003c/p\u003e",
@@ -1224,8 +1389,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "srResourceType",
-                        "name": "_srResourceType",
+                        "lens": "sr1ResourceType",
+                        "name": "_sr1ResourceType",
                         "shape": "ResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eType of resource. (For more information, go to \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\"\u003e AWS Resource Types Reference\u003c/a\u003e in the AWS CloudFormation User Guide.)\u003c/p\u003e",
@@ -1238,8 +1403,8 @@
                         "lensMapping": "_Time",
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "srTimestamp",
-                        "name": "_srTimestamp",
+                        "lens": "sr1Timestamp",
+                        "name": "_sr1Timestamp",
                         "shape": "Timestamp",
                         "locationName": "Timestamp",
                         "documentation": "\u003cp\u003eTime the status was updated.\u003c/p\u003e",
@@ -1252,8 +1417,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "srResourceStatus",
-                        "name": "_srResourceStatus",
+                        "lens": "sr1ResourceStatus",
+                        "name": "_sr1ResourceStatus",
                         "shape": "ResourceStatus",
                         "locationName": "ResourceStatus",
                         "documentation": "\u003cp\u003eCurrent status of the resource.\u003c/p\u003e",
@@ -1270,8 +1435,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "srStackName",
-                        "name": "_srStackName",
+                        "lens": "sr1StackName",
+                        "name": "_sr1StackName",
                         "shape": "StackName",
                         "locationName": "StackName",
                         "documentation": "\u003cp\u003eThe name associated with the stack.\u003c/p\u003e",
@@ -1284,8 +1449,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "srStackId",
-                        "name": "_srStackId",
+                        "lens": "sr1StackId",
+                        "name": "_sr1StackId",
                         "shape": "StackId",
                         "locationName": "StackId",
                         "documentation": "\u003cp\u003eUnique identifier of the stack.\u003c/p\u003e",
@@ -1298,8 +1463,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "srPhysicalResourceId",
-                        "name": "_srPhysicalResourceId",
+                        "lens": "sr1PhysicalResourceId",
+                        "name": "_sr1PhysicalResourceId",
                         "shape": "PhysicalResourceId",
                         "locationName": "PhysicalResourceId",
                         "documentation": "\u003cp\u003eThe name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.\u003c/p\u003e",
@@ -1312,8 +1477,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "srResourceStatusReason",
-                        "name": "_srResourceStatusReason",
+                        "lens": "sr1ResourceStatusReason",
+                        "name": "_sr1ResourceStatusReason",
                         "shape": "ResourceStatusReason",
                         "locationName": "ResourceStatusReason",
                         "documentation": "\u003cp\u003eSuccess/failure message associated with the resource.\u003c/p\u003e",
@@ -1326,8 +1491,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "srDescription",
-                        "name": "_srDescription",
+                        "lens": "sr1Description",
+                        "name": "_sr1Description",
                         "shape": "Description",
                         "locationName": "Description",
                         "documentation": "\u003cp\u003eUser defined description associated with the resource.\u003c/p\u003e",
@@ -1342,8 +1507,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "srDescription",
-                        "name": "_srDescription",
+                        "lens": "sr1Description",
+                        "name": "_sr1Description",
                         "shape": "Description",
                         "locationName": "Description",
                         "documentation": "\u003cp\u003eUser defined description associated with the resource.\u003c/p\u003e",
@@ -1356,8 +1521,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "srLogicalResourceId",
-                        "name": "_srLogicalResourceId",
+                        "lens": "sr1LogicalResourceId",
+                        "name": "_sr1LogicalResourceId",
                         "shape": "LogicalResourceId",
                         "locationName": "LogicalResourceId",
                         "documentation": "\u003cp\u003eThe logical name of the resource specified in the template.\u003c/p\u003e",
@@ -1370,8 +1535,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "srPhysicalResourceId",
-                        "name": "_srPhysicalResourceId",
+                        "lens": "sr1PhysicalResourceId",
+                        "name": "_sr1PhysicalResourceId",
                         "shape": "PhysicalResourceId",
                         "locationName": "PhysicalResourceId",
                         "documentation": "\u003cp\u003eThe name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.\u003c/p\u003e",
@@ -1384,8 +1549,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "srResourceStatus",
-                        "name": "_srResourceStatus",
+                        "lens": "sr1ResourceStatus",
+                        "name": "_sr1ResourceStatus",
                         "shape": "ResourceStatus",
                         "locationName": "ResourceStatus",
                         "documentation": "\u003cp\u003eCurrent status of the resource.\u003c/p\u003e",
@@ -1398,8 +1563,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "srResourceStatusReason",
-                        "name": "_srResourceStatusReason",
+                        "lens": "sr1ResourceStatusReason",
+                        "name": "_sr1ResourceStatusReason",
                         "shape": "ResourceStatusReason",
                         "locationName": "ResourceStatusReason",
                         "documentation": "\u003cp\u003eSuccess/failure message associated with the resource.\u003c/p\u003e",
@@ -1412,8 +1577,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "srResourceType",
-                        "name": "_srResourceType",
+                        "lens": "sr1ResourceType",
+                        "name": "_sr1ResourceType",
                         "shape": "ResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eType of resource. (For more information, go to \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\"\u003e AWS Resource Types Reference\u003c/a\u003e in the AWS CloudFormation User Guide.)\u003c/p\u003e",
@@ -1426,8 +1591,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "srStackId",
-                        "name": "_srStackId",
+                        "lens": "sr1StackId",
+                        "name": "_sr1StackId",
                         "shape": "StackId",
                         "locationName": "StackId",
                         "documentation": "\u003cp\u003eUnique identifier of the stack.\u003c/p\u003e",
@@ -1440,8 +1605,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "srStackName",
-                        "name": "_srStackName",
+                        "lens": "sr1StackName",
+                        "name": "_sr1StackName",
                         "shape": "StackName",
                         "locationName": "StackName",
                         "documentation": "\u003cp\u003eThe name associated with the stack.\u003c/p\u003e",
@@ -1454,8 +1619,8 @@
                         "lensMapping": "_Time",
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "srTimestamp",
-                        "name": "_srTimestamp",
+                        "lens": "sr1Timestamp",
+                        "name": "_sr1Timestamp",
                         "shape": "Timestamp",
                         "locationName": "Timestamp",
                         "documentation": "\u003cp\u003eTime the status was updated.\u003c/p\u003e",
@@ -1768,6 +1933,23 @@
                 "name": "Capability",
                 "type": "nullary",
                 "branchPad": 13
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "Success": "SUCCESS",
+                    "Failure": "FAILURE"
+                },
+                "valuePad": 8,
+                "name": "ResourceSignalStatus",
+                "type": "nullary",
+                "branchPad": 7
             },
             {
                 "deriving": [
@@ -2332,7 +2514,7 @@
             ],
             "name": "CancelUpdateStack",
             "method": "post",
-            "documentation": "\u003cp\u003eCancels an update on the specified stack. If the call completes successfully, the stack will roll back the update and revert to the previous stack configuration.\u003c/p\u003e",
+            "documentation": "\u003cp\u003eCancels an update on the specified stack. If the call completes successfully, the stack will roll back the update and revert to the previous stack configuration.\u003c/p\u003e \u003cnote\u003eOnly stacks that are in the UPDATE_IN_PROGRESS state can be canceled.\u003c/note\u003e",
             "request": {
                 "deriving": [
                     "Eq",
@@ -2520,7 +2702,7 @@
                         "name": "_csStackName",
                         "shape": "StackName",
                         "locationName": "StackName",
-                        "documentation": "\u003cp\u003eThe name associated with the stack. The name must be unique within your AWS account.\u003c/p\u003e",
+                        "documentation": "\u003cp\u003eThe name associated with the stack. The name must be unique within your AWS account.\u003c/p\u003e \u003cnote\u003eMust contain only alphanumeric characters (case sensitive) and start with an alpha character. Maximum length of the name is 255 characters.\u003c/note\u003e",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2687,7 +2869,7 @@
                         "name": "_csCapabilities",
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
-                        "documentation": "\u003cp\u003eThe list of capabilities that you want to allow in the stack. If your template contains certain resources, you must specify the CAPABILITY_IAM value for this parameter; otherwise, this action returns an InsufficientCapabilities error. The following resources require you to specify the capabilities parameter: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003eAWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003eAWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003eAWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003eAWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003eAWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003eAWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003eAWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003eAWS::IAM::UserToGroupAddition\u003c/a\u003e.\u003c/p\u003e",
+                        "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.\u003c/p\u003e \u003cp\u003eCurrently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an \u003ccode\u003eInsufficientCapabilities\u003c/code\u003e error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
                         "type": "[Text]"
                     },
@@ -2759,7 +2941,7 @@
                         "name": "_csCapabilities",
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
-                        "documentation": "\u003cp\u003eThe list of capabilities that you want to allow in the stack. If your template contains certain resources, you must specify the CAPABILITY_IAM value for this parameter; otherwise, this action returns an InsufficientCapabilities error. The following resources require you to specify the capabilities parameter: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003eAWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003eAWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003eAWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003eAWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003eAWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003eAWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003eAWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003eAWS::IAM::UserToGroupAddition\u003c/a\u003e.\u003c/p\u003e",
+                        "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.\u003c/p\u003e \u003cp\u003eCurrently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an \u003ccode\u003eInsufficientCapabilities\u003c/code\u003e error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
                         "type": "[Text]"
                     },
@@ -2829,7 +3011,7 @@
                         "name": "_csStackName",
                         "shape": "StackName",
                         "locationName": "StackName",
-                        "documentation": "\u003cp\u003eThe name associated with the stack. The name must be unique within your AWS account.\u003c/p\u003e",
+                        "documentation": "\u003cp\u003eThe name associated with the stack. The name must be unique within your AWS account.\u003c/p\u003e \u003cnote\u003eMust contain only alphanumeric characters (case sensitive) and start with an alpha character. Maximum length of the name is 255 characters.\u003c/note\u003e",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3119,7 +3301,7 @@
             ],
             "name": "DescribeStackEvents",
             "method": "post",
-            "documentation": "\u003cp\u003eReturns all stack related events for a specified stack. For more information about a stack's event history, go to \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html\"\u003eStacks\u003c/a\u003e in the AWS CloudFormation User Guide.\u003c/p\u003e",
+            "documentation": "\u003cp\u003eReturns all stack related events for a specified stack. For more information about a stack's event history, go to \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html\"\u003eStacks\u003c/a\u003e in the AWS CloudFormation User Guide.\u003c/p\u003e \u003cnote\u003eYou can list events for stacks that have failed to create or have been deleted by specifying the unique stack identifier (stack ID).\u003c/note\u003e",
             "request": {
                 "deriving": [
                     "Eq",
@@ -3467,7 +3649,7 @@
             ],
             "name": "DescribeStackResources",
             "method": "post",
-            "documentation": "\u003cp\u003eReturns AWS resource descriptions for running and deleted stacks. If \u003ccode\u003eStackName\u003c/code\u003e is specified, all the associated resources that are part of the stack are returned. If \u003ccode\u003ePhysicalResourceId\u003c/code\u003e is specified, the associated resources of the stack that the resource belongs to are returned.\u003c/p\u003e \u003cp\u003eFor deleted stacks, \u003ccode\u003eDescribeStackResources\u003c/code\u003e returns resource information for up to 90 days after the stack has been deleted.\u003c/p\u003e \u003cp\u003eYou must specify either \u003ccode\u003eStackName\u003c/code\u003e or \u003ccode\u003ePhysicalResourceId\u003c/code\u003e, but not both. In addition, you can specify \u003ccode\u003eLogicalResourceId\u003c/code\u003e to filter the returned result. For more information about resources, the \u003ccode\u003eLogicalResourceId\u003c/code\u003e and \u003ccode\u003ePhysicalResourceId\u003c/code\u003e, go to the \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide\"\u003eAWS CloudFormation User Guide\u003c/a\u003e.\u003c/p\u003e",
+            "documentation": "\u003cp\u003eReturns AWS resource descriptions for running and deleted stacks. If \u003ccode\u003eStackName\u003c/code\u003e is specified, all the associated resources that are part of the stack are returned. If \u003ccode\u003ePhysicalResourceId\u003c/code\u003e is specified, the associated resources of the stack that the resource belongs to are returned.\u003c/p\u003e \u003cnote\u003eOnly the first 100 resources will be returned. If your stack has more resources than this, you should use \u003ccode\u003eListStackResources\u003c/code\u003e instead.\u003c/note\u003e \u003cp\u003eFor deleted stacks, \u003ccode\u003eDescribeStackResources\u003c/code\u003e returns resource information for up to 90 days after the stack has been deleted.\u003c/p\u003e \u003cp\u003eYou must specify either \u003ccode\u003eStackName\u003c/code\u003e or \u003ccode\u003ePhysicalResourceId\u003c/code\u003e, but not both. In addition, you can specify \u003ccode\u003eLogicalResourceId\u003c/code\u003e to filter the returned result. For more information about resources, the \u003ccode\u003eLogicalResourceId\u003c/code\u003e and \u003ccode\u003ePhysicalResourceId\u003c/code\u003e, go to the \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide\"\u003eAWS CloudFormation User Guide\u003c/a\u003e.\u003c/p\u003e \u003cnote\u003eA \u003ccode\u003eValidationError\u003c/code\u003e is returned if you specify both \u003ccode\u003eStackName\u003c/code\u003e and \u003ccode\u003ePhysicalResourceId\u003c/code\u003e in the same request.\u003c/note\u003e",
             "request": {
                 "deriving": [
                     "Eq",
@@ -4227,7 +4409,7 @@
             ],
             "name": "GetTemplate",
             "method": "post",
-            "documentation": "\u003cp\u003eReturns the template body for a specified stack. You can get the template for running or deleted stacks.\u003c/p\u003e \u003cp\u003eFor deleted stacks, GetTemplate returns the template for up to 90 days after the stack has been deleted.\u003c/p\u003e",
+            "documentation": "\u003cp\u003eReturns the template body for a specified stack. You can get the template for running or deleted stacks.\u003c/p\u003e \u003cp\u003eFor deleted stacks, GetTemplate returns the template for up to 90 days after the stack has been deleted.\u003c/p\u003e \u003cnote\u003e If the template does not exist, a \u003ccode\u003eValidationError\u003c/code\u003e is returned. \u003c/note\u003e",
             "request": {
                 "deriving": [
                     "Eq",
@@ -4306,6 +4488,309 @@
                         "documentation": "\u003cp\u003eThe name or the unique identifier associated with the stack, which are not always interchangeable:\u003c/p\u003e \u003cul\u003e \u003cli\u003eRunning stacks: You can specify either the stack's name or its unique stack ID.\u003c/li\u003e \u003cli\u003eDeleted stacks: You must specify the unique stack ID.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eDefault: There is no default value.\u003c/p\u003e",
                         "typeExposed": "Text",
                         "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudFormation",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 23,
+                "ctor": "getTemplateSummaryResponse",
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "GetTemplateSummaryResponse",
+                "resultWrapper": "GetTemplateSummaryResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "gtsrParameters",
+                        "name": "_gtsrParameters",
+                        "shape": "ParameterDeclarations",
+                        "locationName": "Parameters",
+                        "documentation": "\u003cp\u003eA list of parameter declarations that describe various properties for each parameter.\u003c/p\u003e",
+                        "typeExposed": "[ParameterDeclaration]",
+                        "type": "[ParameterDeclaration]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsrDescription",
+                        "name": "_gtsrDescription",
+                        "shape": "Description",
+                        "locationName": "Description",
+                        "documentation": "\u003cp\u003eThe value that is defined in the \u003ccode\u003eDescription\u003c/code\u003e property of the template.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "gtsrCapabilities",
+                        "name": "_gtsrCapabilities",
+                        "shape": "Capabilities",
+                        "locationName": "Capabilities",
+                        "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsrCapabilitiesReason",
+                        "name": "_gtsrCapabilitiesReason",
+                        "shape": "CapabilitiesReason",
+                        "locationName": "CapabilitiesReason",
+                        "documentation": "\u003cp\u003eThe capabilities reason found within the template.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsrVersion",
+                        "name": "_gtsrVersion",
+                        "shape": "Version",
+                        "locationName": "Version",
+                        "documentation": "\u003cp\u003eThe AWS template format version, which identifies the capabilities of the template.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "gtsrCapabilities",
+                        "name": "_gtsrCapabilities",
+                        "shape": "Capabilities",
+                        "locationName": "Capabilities",
+                        "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsrCapabilitiesReason",
+                        "name": "_gtsrCapabilitiesReason",
+                        "shape": "CapabilitiesReason",
+                        "locationName": "CapabilitiesReason",
+                        "documentation": "\u003cp\u003eThe capabilities reason found within the template.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsrDescription",
+                        "name": "_gtsrDescription",
+                        "shape": "Description",
+                        "locationName": "Description",
+                        "documentation": "\u003cp\u003eThe value that is defined in the \u003ccode\u003eDescription\u003c/code\u003e property of the template.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "gtsrParameters",
+                        "name": "_gtsrParameters",
+                        "shape": "ParameterDeclarations",
+                        "locationName": "Parameters",
+                        "documentation": "\u003cp\u003eA list of parameter declarations that describe various properties for each parameter.\u003c/p\u003e",
+                        "typeExposed": "[ParameterDeclaration]",
+                        "type": "[ParameterDeclaration]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsrVersion",
+                        "name": "_gtsrVersion",
+                        "shape": "Version",
+                        "locationName": "Version",
+                        "documentation": "\u003cp\u003eThe AWS template format version, which identifies the capabilities of the template.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CloudFormation.GetTemplateSummary",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudFormation.Types"
+            ],
+            "name": "GetTemplateSummary",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns information about a new or existing template. The \u003ccode\u003eGetTemplateSummary\u003c/code\u003e action is useful for viewing parameter information, such as default parameter values and parameter types, before you create or update a stack.\u003c/p\u003e \u003cp\u003eYou can use the \u003ccode\u003eGetTemplateSummary\u003c/code\u003e action when you submit a template, or you can get template information for a running or deleted stack.\u003c/p\u003e \u003cp\u003eFor deleted stacks, \u003ccode\u003eGetTemplateSummary\u003c/code\u003e returns the template information for up to 90 days after the stack has been deleted. If the template does not exist, a \u003ccode\u003eValidationError\u003c/code\u003e is returned.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 16,
+                "ctor": "getTemplateSummary",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 13,
+                "name": "GetTemplateSummary",
+                "query": [
+                    {
+                        "field": "_gtsTemplateBody",
+                        "locationName": "TemplateBody",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gtsTemplateURL",
+                        "locationName": "TemplateURL",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gtsStackName",
+                        "locationName": "StackName",
+                        "type": "field"
+                    }
+                ],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsTemplateBody",
+                        "name": "_gtsTemplateBody",
+                        "shape": "TemplateBody",
+                        "locationName": "TemplateBody",
+                        "documentation": "\u003cp\u003eStructure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\"\u003eTemplate Anatomy\u003c/a\u003e in the AWS CloudFormation User Guide.\u003c/p\u003e \u003cp\u003eConditional: You must specify only one of the following parameters: \u003ccode\u003eStackName\u003c/code\u003e, \u003ccode\u003eTemplateBody\u003c/code\u003e, or \u003ccode\u003eTemplateURL\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsTemplateURL",
+                        "name": "_gtsTemplateURL",
+                        "shape": "TemplateURL",
+                        "locationName": "TemplateURL",
+                        "documentation": "\u003cp\u003eLocation of file containing the template body. The URL must point to a template (max size: 307,200 bytes) located in an Amazon S3 bucket. For more information about templates, see \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\"\u003eTemplate Anatomy\u003c/a\u003e in the AWS CloudFormation User Guide.\u003c/p\u003e \u003cp\u003eConditional: You must specify only one of the following parameters: \u003ccode\u003eStackName\u003c/code\u003e, \u003ccode\u003eTemplateBody\u003c/code\u003e, or \u003ccode\u003eTemplateURL\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsStackName",
+                        "name": "_gtsStackName",
+                        "shape": "StackNameOrId",
+                        "locationName": "StackName",
+                        "documentation": "\u003cp\u003eThe name or the unique identifier associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.\u003c/p\u003e \u003cp\u003eConditional: You must specify only one of the following parameters: \u003ccode\u003eStackName\u003c/code\u003e, \u003ccode\u003eTemplateBody\u003c/code\u003e, or \u003ccode\u003eTemplateURL\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsStackName",
+                        "name": "_gtsStackName",
+                        "shape": "StackNameOrId",
+                        "locationName": "StackName",
+                        "documentation": "\u003cp\u003eThe name or the unique identifier associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.\u003c/p\u003e \u003cp\u003eConditional: You must specify only one of the following parameters: \u003ccode\u003eStackName\u003c/code\u003e, \u003ccode\u003eTemplateBody\u003c/code\u003e, or \u003ccode\u003eTemplateURL\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsTemplateBody",
+                        "name": "_gtsTemplateBody",
+                        "shape": "TemplateBody",
+                        "locationName": "TemplateBody",
+                        "documentation": "\u003cp\u003eStructure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\"\u003eTemplate Anatomy\u003c/a\u003e in the AWS CloudFormation User Guide.\u003c/p\u003e \u003cp\u003eConditional: You must specify only one of the following parameters: \u003ccode\u003eStackName\u003c/code\u003e, \u003ccode\u003eTemplateBody\u003c/code\u003e, or \u003ccode\u003eTemplateURL\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gtsTemplateURL",
+                        "name": "_gtsTemplateURL",
+                        "shape": "TemplateURL",
+                        "locationName": "TemplateURL",
+                        "documentation": "\u003cp\u003eLocation of file containing the template body. The URL must point to a template (max size: 307,200 bytes) located in an Amazon S3 bucket. For more information about templates, see \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\"\u003eTemplate Anatomy\u003c/a\u003e in the AWS CloudFormation User Guide.\u003c/p\u003e \u003cp\u003eConditional: You must specify only one of the following parameters: \u003ccode\u003eStackName\u003c/code\u003e, \u003ccode\u003eTemplateBody\u003c/code\u003e, or \u003ccode\u003eTemplateURL\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ]
             }
@@ -4852,6 +5337,200 @@
                     "Eq",
                     "Ord",
                     "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "signalResourceResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "SignalResourceResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.CloudFormation.SignalResource",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudFormation.Types"
+            ],
+            "name": "SignalResource",
+            "method": "post",
+            "documentation": "\u003cp\u003eSends a signal to the specified resource with a success or failure status. You can use the SignalResource API in conjunction with a creation policy or update policy. AWS CloudFormation doesn't proceed with a stack creation or update until resources receive the required number of signals or the timeout period is exceeded. The SignalResource API is useful in cases where you want to send signals from anywhere other than an Amazon EC2 instance.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 20,
+                "ctor": "signalResource",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "srStackName",
+                        "name": "_srStackName",
+                        "shape": "StackNameOrId",
+                        "locationName": "StackName",
+                        "documentation": "\u003cp\u003eThe stack name or ID that includes the resource that you want to signal.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "srLogicalResourceId",
+                        "name": "_srLogicalResourceId",
+                        "shape": "LogicalResourceId",
+                        "locationName": "LogicalResourceId",
+                        "documentation": "\u003cp\u003eThe logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "srUniqueId",
+                        "name": "_srUniqueId",
+                        "shape": "ResourceSignalUniqueId",
+                        "locationName": "UniqueId",
+                        "documentation": "\u003cp\u003eA unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "srStatus",
+                        "name": "_srStatus",
+                        "shape": "ResourceSignalStatus",
+                        "locationName": "Status",
+                        "documentation": "\u003cp\u003eThe status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 18,
+                "name": "SignalResource",
+                "query": [
+                    {
+                        "field": "_srStackName",
+                        "locationName": "StackName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_srLogicalResourceId",
+                        "locationName": "LogicalResourceId",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_srUniqueId",
+                        "locationName": "UniqueId",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_srStatus",
+                        "locationName": "Status",
+                        "type": "field"
+                    }
+                ],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "srLogicalResourceId",
+                        "name": "_srLogicalResourceId",
+                        "shape": "LogicalResourceId",
+                        "locationName": "LogicalResourceId",
+                        "documentation": "\u003cp\u003eThe logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "srStackName",
+                        "name": "_srStackName",
+                        "shape": "StackNameOrId",
+                        "locationName": "StackName",
+                        "documentation": "\u003cp\u003eThe stack name or ID that includes the resource that you want to signal.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "srStatus",
+                        "name": "_srStatus",
+                        "shape": "ResourceSignalStatus",
+                        "locationName": "Status",
+                        "documentation": "\u003cp\u003eThe status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "srUniqueId",
+                        "name": "_srUniqueId",
+                        "shape": "ResourceSignalUniqueId",
+                        "locationName": "UniqueId",
+                        "documentation": "\u003cp\u003eA unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudFormation",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
                     "Generic",
                     "Monoid"
                 ],
@@ -4950,7 +5629,7 @@
                         "name": "_usStackName",
                         "shape": "StackName",
                         "locationName": "StackName",
-                        "documentation": "\u003cp\u003eThe name or stack ID of the stack to update.\u003c/p\u003e",
+                        "documentation": "\u003cp\u003eThe name or stack ID of the stack to update.\u003c/p\u003e \u003cnote\u003e Must contain only alphanumeric characters (case sensitive) and start with an alpha character. Maximum length of the name is 255 characters. \u003c/note\u003e",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5112,7 +5791,7 @@
                         "name": "_usCapabilities",
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
-                        "documentation": "\u003cp\u003eThe list of capabilities that you want to allow in the stack. If your stack contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter; otherwise, this action returns an InsufficientCapabilities error. IAM resources are the following: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003eAWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003eAWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003eAWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003eAWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003eAWS::IAM::UserToGroupAddition\u003c/a\u003e.\u003c/p\u003e",
+                        "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter. Currently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an InsufficientCapabilities error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
                         "type": "[Text]"
                     },
@@ -5170,7 +5849,7 @@
                         "name": "_usCapabilities",
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
-                        "documentation": "\u003cp\u003eThe list of capabilities that you want to allow in the stack. If your stack contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter; otherwise, this action returns an InsufficientCapabilities error. IAM resources are the following: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003eAWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003eAWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003eAWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003eAWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003eAWS::IAM::UserToGroupAddition\u003c/a\u003e.\u003c/p\u003e",
+                        "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter. Currently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an InsufficientCapabilities error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
                         "type": "[Text]"
                     },
@@ -5212,7 +5891,7 @@
                         "name": "_usStackName",
                         "shape": "StackName",
                         "locationName": "StackName",
-                        "documentation": "\u003cp\u003eThe name or stack ID of the stack to update.\u003c/p\u003e",
+                        "documentation": "\u003cp\u003eThe name or stack ID of the stack to update.\u003c/p\u003e \u003cnote\u003e Must contain only alphanumeric characters (case sensitive) and start with an alpha character. Maximum length of the name is 255 characters. \u003c/note\u003e",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5374,7 +6053,7 @@
                         "name": "_vtrCapabilities",
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
-                        "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, CAPABILITY_IAM is the only capability detected. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
+                        "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
                         "type": "[Text]"
                     },
@@ -5404,7 +6083,7 @@
                         "name": "_vtrCapabilities",
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
-                        "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, CAPABILITY_IAM is the only capability detected. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
+                        "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
                         "type": "[Text]"
                     },

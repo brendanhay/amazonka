@@ -115,12 +115,18 @@ updateStack p1 = UpdateStack
     , _usNotificationARNs            = mempty
     }
 
--- | The list of capabilities that you want to allow in the stack. If your
--- stack contains IAM resources, you must specify the CAPABILITY_IAM value
--- for this parameter; otherwise, this action returns an
--- InsufficientCapabilities error. IAM resources are the following:
--- AWS::IAM::AccessKey, AWS::IAM::Group, AWS::IAM::Policy, AWS::IAM::User,
--- and AWS::IAM::UserToGroupAddition.
+-- | A list of capabilities that you must specify before AWS CloudFormation
+-- can create or update certain stacks. Some stack templates might include
+-- resources that can affect permissions in your AWS account. For those
+-- stacks, you must explicitly acknowledge their capabilities by specifying
+-- this parameter. Currently, the only valid value is CAPABILITY_IAM, which
+-- is required for the following resources: AWS::CloudFormation::Stack,
+-- AWS::IAM::AccessKey, AWS::IAM::Group, AWS::IAM::InstanceProfile,
+-- AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, and
+-- AWS::IAM::UserToGroupAddition. If your stack template contains these
+-- resources, we recommend that you review any permissions associated with
+-- them. If you don't specify this parameter, this action returns an
+-- InsufficientCapabilities error.
 usCapabilities :: Lens' UpdateStack [Text]
 usCapabilities = lens _usCapabilities (\s a -> s { _usCapabilities = a })
 
@@ -135,7 +141,9 @@ usNotificationARNs =
 usParameters :: Lens' UpdateStack [Parameter]
 usParameters = lens _usParameters (\s a -> s { _usParameters = a })
 
--- | The name or stack ID of the stack to update.
+-- | The name or stack ID of the stack to update. Must contain only
+-- alphanumeric characters (case sensitive) and start with an alpha
+-- character. Maximum length of the name is 255 characters.
 usStackName :: Lens' UpdateStack Text
 usStackName = lens _usStackName (\s a -> s { _usStackName = a })
 

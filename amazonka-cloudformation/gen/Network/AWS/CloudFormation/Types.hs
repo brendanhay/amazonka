@@ -88,18 +88,27 @@ module Network.AWS.CloudFormation.Types
     , tpNoEcho
     , tpParameterKey
 
+    -- * ParameterDeclaration
+    , ParameterDeclaration
+    , parameterDeclaration
+    , pdDefaultValue
+    , pdDescription
+    , pdNoEcho
+    , pdParameterKey
+    , pdParameterType
+
     -- * StackResource
     , StackResource
     , stackResource
-    , srDescription
-    , srLogicalResourceId
-    , srPhysicalResourceId
-    , srResourceStatus
-    , srResourceStatusReason
-    , srResourceType
-    , srStackId
-    , srStackName
-    , srTimestamp
+    , sr1Description
+    , sr1LogicalResourceId
+    , sr1PhysicalResourceId
+    , sr1ResourceStatus
+    , sr1ResourceStatusReason
+    , sr1ResourceType
+    , sr1StackId
+    , sr1StackName
+    , sr1Timestamp
 
     -- * Output
     , Output
@@ -120,6 +129,9 @@ module Network.AWS.CloudFormation.Types
 
     -- * Capability
     , Capability (..)
+
+    -- * ResourceSignalStatus
+    , ResourceSignalStatus (..)
 
     -- * Stack
     , Stack
@@ -592,6 +604,7 @@ data ResourceStatus
     | RSDeleteComplete   -- ^ DELETE_COMPLETE
     | RSDeleteFailed     -- ^ DELETE_FAILED
     | RSDeleteInProgress -- ^ DELETE_IN_PROGRESS
+    | RSDeleteSkipped    -- ^ DELETE_SKIPPED
     | RSUpdateComplete   -- ^ UPDATE_COMPLETE
     | RSUpdateFailed     -- ^ UPDATE_FAILED
     | RSUpdateInProgress -- ^ UPDATE_IN_PROGRESS
@@ -606,6 +619,7 @@ instance FromText ResourceStatus where
          <|> match "DELETE_COMPLETE"    RSDeleteComplete
          <|> match "DELETE_FAILED"      RSDeleteFailed
          <|> match "DELETE_IN_PROGRESS" RSDeleteInProgress
+         <|> match "DELETE_SKIPPED"     RSDeleteSkipped
          <|> match "UPDATE_COMPLETE"    RSUpdateComplete
          <|> match "UPDATE_FAILED"      RSUpdateFailed
          <|> match "UPDATE_IN_PROGRESS" RSUpdateInProgress
@@ -618,6 +632,7 @@ instance ToText ResourceStatus where
         RSDeleteComplete   -> "DELETE_COMPLETE"
         RSDeleteFailed     -> "DELETE_FAILED"
         RSDeleteInProgress -> "DELETE_IN_PROGRESS"
+        RSDeleteSkipped    -> "DELETE_SKIPPED"
         RSUpdateComplete   -> "UPDATE_COMPLETE"
         RSUpdateFailed     -> "UPDATE_FAILED"
         RSUpdateInProgress -> "UPDATE_IN_PROGRESS"
@@ -678,97 +693,156 @@ instance FromXML TemplateParameter where
 
 instance ToQuery TemplateParameter
 
+data ParameterDeclaration = ParameterDeclaration
+    { _pdDefaultValue  :: Maybe Text
+    , _pdDescription   :: Maybe Text
+    , _pdNoEcho        :: Maybe Bool
+    , _pdParameterKey  :: Maybe Text
+    , _pdParameterType :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'ParameterDeclaration' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pdDefaultValue' @::@ 'Maybe' 'Text'
+--
+-- * 'pdDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'pdNoEcho' @::@ 'Maybe' 'Bool'
+--
+-- * 'pdParameterKey' @::@ 'Maybe' 'Text'
+--
+-- * 'pdParameterType' @::@ 'Maybe' 'Text'
+--
+parameterDeclaration :: ParameterDeclaration
+parameterDeclaration = ParameterDeclaration
+    { _pdParameterKey  = Nothing
+    , _pdDefaultValue  = Nothing
+    , _pdParameterType = Nothing
+    , _pdNoEcho        = Nothing
+    , _pdDescription   = Nothing
+    }
+
+-- | The default value of the parameter.
+pdDefaultValue :: Lens' ParameterDeclaration (Maybe Text)
+pdDefaultValue = lens _pdDefaultValue (\s a -> s { _pdDefaultValue = a })
+
+-- | The description that is associate with the parameter.
+pdDescription :: Lens' ParameterDeclaration (Maybe Text)
+pdDescription = lens _pdDescription (\s a -> s { _pdDescription = a })
+
+-- | Flag that indicates whether the parameter value is shown as plain text in
+-- logs and in the AWS Management Console.
+pdNoEcho :: Lens' ParameterDeclaration (Maybe Bool)
+pdNoEcho = lens _pdNoEcho (\s a -> s { _pdNoEcho = a })
+
+-- | The name that is associated with the parameter.
+pdParameterKey :: Lens' ParameterDeclaration (Maybe Text)
+pdParameterKey = lens _pdParameterKey (\s a -> s { _pdParameterKey = a })
+
+-- | The type of parameter.
+pdParameterType :: Lens' ParameterDeclaration (Maybe Text)
+pdParameterType = lens _pdParameterType (\s a -> s { _pdParameterType = a })
+
+instance FromXML ParameterDeclaration where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ParameterDeclaration"
+
+instance ToQuery ParameterDeclaration
+
 data StackResource = StackResource
-    { _srDescription          :: Maybe Text
-    , _srLogicalResourceId    :: Text
-    , _srPhysicalResourceId   :: Maybe Text
-    , _srResourceStatus       :: Text
-    , _srResourceStatusReason :: Maybe Text
-    , _srResourceType         :: Text
-    , _srStackId              :: Maybe Text
-    , _srStackName            :: Maybe Text
-    , _srTimestamp            :: RFC822
+    { _sr1Description          :: Maybe Text
+    , _sr1LogicalResourceId    :: Text
+    , _sr1PhysicalResourceId   :: Maybe Text
+    , _sr1ResourceStatus       :: Text
+    , _sr1ResourceStatusReason :: Maybe Text
+    , _sr1ResourceType         :: Text
+    , _sr1StackId              :: Maybe Text
+    , _sr1StackName            :: Maybe Text
+    , _sr1Timestamp            :: RFC822
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StackResource' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srDescription' @::@ 'Maybe' 'Text'
+-- * 'sr1Description' @::@ 'Maybe' 'Text'
 --
--- * 'srLogicalResourceId' @::@ 'Text'
+-- * 'sr1LogicalResourceId' @::@ 'Text'
 --
--- * 'srPhysicalResourceId' @::@ 'Maybe' 'Text'
+-- * 'sr1PhysicalResourceId' @::@ 'Maybe' 'Text'
 --
--- * 'srResourceStatus' @::@ 'Text'
+-- * 'sr1ResourceStatus' @::@ 'Text'
 --
--- * 'srResourceStatusReason' @::@ 'Maybe' 'Text'
+-- * 'sr1ResourceStatusReason' @::@ 'Maybe' 'Text'
 --
--- * 'srResourceType' @::@ 'Text'
+-- * 'sr1ResourceType' @::@ 'Text'
 --
--- * 'srStackId' @::@ 'Maybe' 'Text'
+-- * 'sr1StackId' @::@ 'Maybe' 'Text'
 --
--- * 'srStackName' @::@ 'Maybe' 'Text'
+-- * 'sr1StackName' @::@ 'Maybe' 'Text'
 --
--- * 'srTimestamp' @::@ 'UTCTime'
+-- * 'sr1Timestamp' @::@ 'UTCTime'
 --
-stackResource :: Text -- ^ 'srLogicalResourceId'
-              -> Text -- ^ 'srResourceType'
-              -> UTCTime -- ^ 'srTimestamp'
-              -> Text -- ^ 'srResourceStatus'
+stackResource :: Text -- ^ 'sr1LogicalResourceId'
+              -> Text -- ^ 'sr1ResourceType'
+              -> UTCTime -- ^ 'sr1Timestamp'
+              -> Text -- ^ 'sr1ResourceStatus'
               -> StackResource
 stackResource p1 p2 p3 p4 = StackResource
-    { _srLogicalResourceId    = p1
-    , _srResourceType         = p2
-    , _srTimestamp            = withIso _Time (const id) p3
-    , _srResourceStatus       = p4
-    , _srStackName            = Nothing
-    , _srStackId              = Nothing
-    , _srPhysicalResourceId   = Nothing
-    , _srResourceStatusReason = Nothing
-    , _srDescription          = Nothing
+    { _sr1LogicalResourceId    = p1
+    , _sr1ResourceType         = p2
+    , _sr1Timestamp            = withIso _Time (const id) p3
+    , _sr1ResourceStatus       = p4
+    , _sr1StackName            = Nothing
+    , _sr1StackId              = Nothing
+    , _sr1PhysicalResourceId   = Nothing
+    , _sr1ResourceStatusReason = Nothing
+    , _sr1Description          = Nothing
     }
 
 -- | User defined description associated with the resource.
-srDescription :: Lens' StackResource (Maybe Text)
-srDescription = lens _srDescription (\s a -> s { _srDescription = a })
+sr1Description :: Lens' StackResource (Maybe Text)
+sr1Description = lens _sr1Description (\s a -> s { _sr1Description = a })
 
 -- | The logical name of the resource specified in the template.
-srLogicalResourceId :: Lens' StackResource Text
-srLogicalResourceId =
-    lens _srLogicalResourceId (\s a -> s { _srLogicalResourceId = a })
+sr1LogicalResourceId :: Lens' StackResource Text
+sr1LogicalResourceId =
+    lens _sr1LogicalResourceId (\s a -> s { _sr1LogicalResourceId = a })
 
 -- | The name or unique identifier that corresponds to a physical instance ID
 -- of a resource supported by AWS CloudFormation.
-srPhysicalResourceId :: Lens' StackResource (Maybe Text)
-srPhysicalResourceId =
-    lens _srPhysicalResourceId (\s a -> s { _srPhysicalResourceId = a })
+sr1PhysicalResourceId :: Lens' StackResource (Maybe Text)
+sr1PhysicalResourceId =
+    lens _sr1PhysicalResourceId (\s a -> s { _sr1PhysicalResourceId = a })
 
 -- | Current status of the resource.
-srResourceStatus :: Lens' StackResource Text
-srResourceStatus = lens _srResourceStatus (\s a -> s { _srResourceStatus = a })
+sr1ResourceStatus :: Lens' StackResource Text
+sr1ResourceStatus =
+    lens _sr1ResourceStatus (\s a -> s { _sr1ResourceStatus = a })
 
 -- | Success/failure message associated with the resource.
-srResourceStatusReason :: Lens' StackResource (Maybe Text)
-srResourceStatusReason =
-    lens _srResourceStatusReason (\s a -> s { _srResourceStatusReason = a })
+sr1ResourceStatusReason :: Lens' StackResource (Maybe Text)
+sr1ResourceStatusReason =
+    lens _sr1ResourceStatusReason (\s a -> s { _sr1ResourceStatusReason = a })
 
 -- | Type of resource. (For more information, go to AWS Resource Types
 -- Reference in the AWS CloudFormation User Guide.).
-srResourceType :: Lens' StackResource Text
-srResourceType = lens _srResourceType (\s a -> s { _srResourceType = a })
+sr1ResourceType :: Lens' StackResource Text
+sr1ResourceType = lens _sr1ResourceType (\s a -> s { _sr1ResourceType = a })
 
 -- | Unique identifier of the stack.
-srStackId :: Lens' StackResource (Maybe Text)
-srStackId = lens _srStackId (\s a -> s { _srStackId = a })
+sr1StackId :: Lens' StackResource (Maybe Text)
+sr1StackId = lens _sr1StackId (\s a -> s { _sr1StackId = a })
 
 -- | The name associated with the stack.
-srStackName :: Lens' StackResource (Maybe Text)
-srStackName = lens _srStackName (\s a -> s { _srStackName = a })
+sr1StackName :: Lens' StackResource (Maybe Text)
+sr1StackName = lens _sr1StackName (\s a -> s { _sr1StackName = a })
 
 -- | Time the status was updated.
-srTimestamp :: Lens' StackResource UTCTime
-srTimestamp = lens _srTimestamp (\s a -> s { _srTimestamp = a })
+sr1Timestamp :: Lens' StackResource UTCTime
+sr1Timestamp = lens _sr1Timestamp (\s a -> s { _sr1Timestamp = a })
     . _Time
 
 instance FromXML StackResource where
@@ -912,6 +986,28 @@ instance FromXML Capability where
     fromXMLRoot    = fromRoot "Capability"
 
 instance ToQuery Capability
+
+data ResourceSignalStatus
+    = Failure -- ^ FAILURE
+    | Success -- ^ SUCCESS
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable ResourceSignalStatus
+
+instance FromText ResourceSignalStatus where
+    parser = match "FAILURE" Failure
+         <|> match "SUCCESS" Success
+
+instance ToText ResourceSignalStatus where
+    toText = \case
+        Failure -> "FAILURE"
+        Success -> "SUCCESS"
+
+instance FromXML ResourceSignalStatus where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResourceSignalStatus"
+
+instance ToQuery ResourceSignalStatus
 
 data Stack = Stack
     { _sCapabilities      :: [Text]

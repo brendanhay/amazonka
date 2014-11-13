@@ -22,7 +22,8 @@
 
 -- | Cancels an update on the specified stack. If the call completes
 -- successfully, the stack will roll back the update and revert to the
--- previous stack configuration.
+-- previous stack configuration. Only stacks that are in the
+-- UPDATE_IN_PROGRESS state can be canceled.
 module Network.AWS.CloudFormation.CancelUpdateStack
     (
     -- * Request

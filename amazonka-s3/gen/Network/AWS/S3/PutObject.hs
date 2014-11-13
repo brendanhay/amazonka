@@ -48,6 +48,7 @@ module Network.AWS.S3.PutObject
     , poSSECustomerAlgorithm
     , poSSECustomerKey
     , poSSECustomerKeyMD5
+    , poSSEKMSKeyId
     , poServerSideEncryption
     , poStorageClass
     , poWebsiteRedirectLocation
@@ -61,6 +62,7 @@ module Network.AWS.S3.PutObject
     , porExpiration
     , porSSECustomerAlgorithm
     , porSSECustomerKeyMD5
+    , porSSEKMSKeyId
     , porServerSideEncryption
     , porVersionId
     ) where
@@ -90,6 +92,7 @@ data PutObject = PutObject
     , _poSSECustomerAlgorithm    :: Maybe Text
     , _poSSECustomerKey          :: Maybe (Sensitive Text)
     , _poSSECustomerKeyMD5       :: Maybe Text
+    , _poSSEKMSKeyId             :: Maybe (Sensitive Text)
     , _poServerSideEncryption    :: Maybe Text
     , _poStorageClass            :: Maybe Text
     , _poWebsiteRedirectLocation :: Maybe Text
@@ -139,6 +142,8 @@ data PutObject = PutObject
 --
 -- * 'poSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
+-- * 'poSSEKMSKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'poServerSideEncryption' @::@ 'Maybe' 'Text'
 --
 -- * 'poStorageClass' @::@ 'Maybe' 'Text'
@@ -173,12 +178,14 @@ putObject p1 p2 p3 = PutObject
     , _poSSECustomerAlgorithm    = Nothing
     , _poSSECustomerKey          = Nothing
     , _poSSECustomerKeyMD5       = Nothing
+    , _poSSEKMSKeyId             = Nothing
     }
 
 -- | The canned ACL to apply to the object.
 poACL :: Lens' PutObject (Maybe Text)
 poACL = lens _poACL (\s a -> s { _poACL = a })
 
+-- | Object data.
 poBody :: Lens' PutObject RqBody
 poBody = lens _poBody (\s a -> s { _poBody = a })
 
@@ -250,7 +257,7 @@ poMetadata = lens _poMetadata (\s a -> s { _poMetadata = a })
     . _Map
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256).
+-- AES256, aws:kms).
 poSSECustomerAlgorithm :: Lens' PutObject (Maybe Text)
 poSSECustomerAlgorithm =
     lens _poSSECustomerAlgorithm (\s a -> s { _poSSECustomerAlgorithm = a })
@@ -271,7 +278,13 @@ poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
 poSSECustomerKeyMD5 =
     lens _poSSECustomerKeyMD5 (\s a -> s { _poSSECustomerKeyMD5 = a })
 
--- | The Server-side encryption algorithm used when storing this object in S3.
+-- | Specifies the AWS KMS key ID to use for object encryption.
+poSSEKMSKeyId :: Lens' PutObject (Maybe Text)
+poSSEKMSKeyId = lens _poSSEKMSKeyId (\s a -> s { _poSSEKMSKeyId = a })
+    . mapping _Sensitive
+
+-- | The Server-side encryption algorithm used when storing this object in S3
+-- (e.g., AES256, aws:kms).
 poServerSideEncryption :: Lens' PutObject (Maybe Text)
 poServerSideEncryption =
     lens _poServerSideEncryption (\s a -> s { _poServerSideEncryption = a })
@@ -321,6 +334,7 @@ instance ToHeaders PutObject where
         , "x-amz-server-side-encryption-customer-algorithm" =: _poSSECustomerAlgorithm
         , "x-amz-server-side-encryption-customer-key"       =: _poSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _poSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _poSSEKMSKeyId
         ]
 
 instance ToBody PutObject where
@@ -331,6 +345,7 @@ data PutObjectResponse = PutObjectResponse
     , _porExpiration           :: Maybe RFC822
     , _porSSECustomerAlgorithm :: Maybe Text
     , _porSSECustomerKeyMD5    :: Maybe Text
+    , _porSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _porServerSideEncryption :: Maybe Text
     , _porVersionId            :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -347,6 +362,8 @@ data PutObjectResponse = PutObjectResponse
 --
 -- * 'porSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
+-- * 'porSSEKMSKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'porServerSideEncryption' @::@ 'Maybe' 'Text'
 --
 -- * 'porVersionId' @::@ 'Maybe' 'Text'
@@ -359,6 +376,7 @@ putObjectResponse = PutObjectResponse
     , _porVersionId            = Nothing
     , _porSSECustomerAlgorithm = Nothing
     , _porSSECustomerKeyMD5    = Nothing
+    , _porSSEKMSKeyId          = Nothing
     }
 
 -- | Entity tag for the uploaded object.
@@ -386,7 +404,13 @@ porSSECustomerKeyMD5 :: Lens' PutObjectResponse (Maybe Text)
 porSSECustomerKeyMD5 =
     lens _porSSECustomerKeyMD5 (\s a -> s { _porSSECustomerKeyMD5 = a })
 
--- | The Server-side encryption algorithm used when storing this object in S3.
+-- | If present, specifies the AWS KMS key used to encrypt the object.
+porSSEKMSKeyId :: Lens' PutObjectResponse (Maybe Text)
+porSSEKMSKeyId = lens _porSSEKMSKeyId (\s a -> s { _porSSEKMSKeyId = a })
+    . mapping _Sensitive
+
+-- | The Server-side encryption algorithm used when storing this object in S3
+-- (e.g., AES256, aws:kms).
 porServerSideEncryption :: Lens' PutObjectResponse (Maybe Text)
 porServerSideEncryption =
     lens _porServerSideEncryption (\s a -> s { _porServerSideEncryption = a })
@@ -408,5 +432,6 @@ instance AWSRequest PutObject where
         <*> h ~:? "x-amz-expiration"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"

@@ -43,6 +43,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     , cmur1Expiration
     , cmur1Key
     , cmur1Location
+    , cmur1SSEKMSKeyId
     , cmur1ServerSideEncryption
     , cmur1VersionId
     ) where
@@ -116,6 +117,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     , _cmur1Expiration           :: Maybe RFC822
     , _cmur1Key                  :: Maybe Text
     , _cmur1Location             :: Maybe Text
+    , _cmur1SSEKMSKeyId          :: Maybe (Sensitive Text)
     , _cmur1ServerSideEncryption :: Maybe Text
     , _cmur1VersionId            :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -134,6 +136,8 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
 --
 -- * 'cmur1Location' @::@ 'Maybe' 'Text'
 --
+-- * 'cmur1SSEKMSKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'cmur1ServerSideEncryption' @::@ 'Maybe' 'Text'
 --
 -- * 'cmur1VersionId' @::@ 'Maybe' 'Text'
@@ -147,6 +151,7 @@ completeMultipartUploadResponse = CompleteMultipartUploadResponse
     , _cmur1ETag                 = Nothing
     , _cmur1ServerSideEncryption = Nothing
     , _cmur1VersionId            = Nothing
+    , _cmur1SSEKMSKeyId          = Nothing
     }
 
 cmur1Bucket :: Lens' CompleteMultipartUploadResponse (Maybe Text)
@@ -169,7 +174,13 @@ cmur1Key = lens _cmur1Key (\s a -> s { _cmur1Key = a })
 cmur1Location :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmur1Location = lens _cmur1Location (\s a -> s { _cmur1Location = a })
 
--- | The Server-side encryption algorithm used when storing this object in S3.
+-- | If present, specifies the AWS KMS key used to encrypt the object.
+cmur1SSEKMSKeyId :: Lens' CompleteMultipartUploadResponse (Maybe Text)
+cmur1SSEKMSKeyId = lens _cmur1SSEKMSKeyId (\s a -> s { _cmur1SSEKMSKeyId = a })
+    . mapping _Sensitive
+
+-- | The Server-side encryption algorithm used when storing this object in S3
+-- (e.g., AES256, aws:kms).
 cmur1ServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmur1ServerSideEncryption =
     lens _cmur1ServerSideEncryption
@@ -193,5 +204,6 @@ instance AWSRequest CompleteMultipartUpload where
         <*> h ~:? "x-amz-expiration"
         <*> x %| "Key"
         <*> x %| "Location"
+        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"

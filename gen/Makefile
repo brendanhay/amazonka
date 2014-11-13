@@ -51,7 +51,9 @@ JSON := \
  swf \
  logs \
  cognito-identity \
- codedeploy
+ codedeploy \
+ kms \
+ config
 
 MODELS ?= $(RESTS3) $(RESTXML) $(QUERY) # $(RESTJSON) $(JSON)
 

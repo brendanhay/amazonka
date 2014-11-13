@@ -50,6 +50,7 @@ module Network.AWS.S3.CreateMultipartUpload
     , cmuSSECustomerAlgorithm
     , cmuSSECustomerKey
     , cmuSSECustomerKeyMD5
+    , cmuSSEKMSKeyId
     , cmuServerSideEncryption
     , cmuStorageClass
     , cmuWebsiteRedirectLocation
@@ -63,6 +64,7 @@ module Network.AWS.S3.CreateMultipartUpload
     , cmurKey
     , cmurSSECustomerAlgorithm
     , cmurSSECustomerKeyMD5
+    , cmurSSEKMSKeyId
     , cmurServerSideEncryption
     , cmurUploadId
     ) where
@@ -89,6 +91,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmuSSECustomerAlgorithm    :: Maybe Text
     , _cmuSSECustomerKey          :: Maybe (Sensitive Text)
     , _cmuSSECustomerKeyMD5       :: Maybe Text
+    , _cmuSSEKMSKeyId             :: Maybe (Sensitive Text)
     , _cmuServerSideEncryption    :: Maybe Text
     , _cmuStorageClass            :: Maybe Text
     , _cmuWebsiteRedirectLocation :: Maybe Text
@@ -132,6 +135,8 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- * 'cmuSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
+-- * 'cmuSSEKMSKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'cmuServerSideEncryption' @::@ 'Maybe' 'Text'
 --
 -- * 'cmuStorageClass' @::@ 'Maybe' 'Text'
@@ -162,6 +167,7 @@ createMultipartUpload p1 p2 = CreateMultipartUpload
     , _cmuSSECustomerAlgorithm    = Nothing
     , _cmuSSECustomerKey          = Nothing
     , _cmuSSECustomerKeyMD5       = Nothing
+    , _cmuSSEKMSKeyId             = Nothing
     }
 
 -- | The canned ACL to apply to the object.
@@ -228,7 +234,7 @@ cmuMetadata = lens _cmuMetadata (\s a -> s { _cmuMetadata = a })
     . _Map
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256).
+-- AES256, aws:kms).
 cmuSSECustomerAlgorithm :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerAlgorithm =
     lens _cmuSSECustomerAlgorithm (\s a -> s { _cmuSSECustomerAlgorithm = a })
@@ -250,7 +256,13 @@ cmuSSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerKeyMD5 =
     lens _cmuSSECustomerKeyMD5 (\s a -> s { _cmuSSECustomerKeyMD5 = a })
 
--- | The Server-side encryption algorithm used when storing this object in S3.
+-- | Specifies the AWS KMS key ID to use for object encryption.
+cmuSSEKMSKeyId :: Lens' CreateMultipartUpload (Maybe Text)
+cmuSSEKMSKeyId = lens _cmuSSEKMSKeyId (\s a -> s { _cmuSSEKMSKeyId = a })
+    . mapping _Sensitive
+
+-- | The Server-side encryption algorithm used when storing this object in S3
+-- (e.g., AES256, aws:kms).
 cmuServerSideEncryption :: Lens' CreateMultipartUpload (Maybe Text)
 cmuServerSideEncryption =
     lens _cmuServerSideEncryption (\s a -> s { _cmuServerSideEncryption = a })
@@ -298,6 +310,7 @@ instance ToHeaders CreateMultipartUpload where
         , "x-amz-server-side-encryption-customer-algorithm" =: _cmuSSECustomerAlgorithm
         , "x-amz-server-side-encryption-customer-key"       =: _cmuSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _cmuSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _cmuSSEKMSKeyId
         ]
 
 instance ToBody CreateMultipartUpload
@@ -307,6 +320,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
     , _cmurKey                  :: Maybe Text
     , _cmurSSECustomerAlgorithm :: Maybe Text
     , _cmurSSECustomerKeyMD5    :: Maybe Text
+    , _cmurSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _cmurServerSideEncryption :: Maybe Text
     , _cmurUploadId             :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -323,6 +337,8 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
 --
 -- * 'cmurSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
+-- * 'cmurSSEKMSKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'cmurServerSideEncryption' @::@ 'Maybe' 'Text'
 --
 -- * 'cmurUploadId' @::@ 'Maybe' 'Text'
@@ -335,6 +351,7 @@ createMultipartUploadResponse = CreateMultipartUploadResponse
     , _cmurServerSideEncryption = Nothing
     , _cmurSSECustomerAlgorithm = Nothing
     , _cmurSSECustomerKeyMD5    = Nothing
+    , _cmurSSEKMSKeyId          = Nothing
     }
 
 -- | Name of the bucket to which the multipart upload was initiated.
@@ -360,7 +377,13 @@ cmurSSECustomerKeyMD5 :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmurSSECustomerKeyMD5 =
     lens _cmurSSECustomerKeyMD5 (\s a -> s { _cmurSSECustomerKeyMD5 = a })
 
--- | The Server-side encryption algorithm used when storing this object in S3.
+-- | If present, specifies the AWS KMS key used to encrypt the object.
+cmurSSEKMSKeyId :: Lens' CreateMultipartUploadResponse (Maybe Text)
+cmurSSEKMSKeyId = lens _cmurSSEKMSKeyId (\s a -> s { _cmurSSEKMSKeyId = a })
+    . mapping _Sensitive
+
+-- | The Server-side encryption algorithm used when storing this object in S3
+-- (e.g., AES256, aws:kms).
 cmurServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmurServerSideEncryption =
     lens _cmurServerSideEncryption
@@ -383,5 +406,6 @@ instance AWSRequest CreateMultipartUpload where
         <*> x %| "Key"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
         <*> x %| "UploadId"

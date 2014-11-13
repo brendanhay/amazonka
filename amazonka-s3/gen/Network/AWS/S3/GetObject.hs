@@ -44,6 +44,7 @@ module Network.AWS.S3.GetObject
     , goSSECustomerAlgorithm
     , goSSECustomerKey
     , goSSECustomerKeyMD5
+    , goSSEKMSKeyId
     , goVersionId
 
     -- * Response
@@ -69,6 +70,7 @@ module Network.AWS.S3.GetObject
     , gorRestore
     , gorSSECustomerAlgorithm
     , gorSSECustomerKeyMD5
+    , gorSSEKMSKeyId
     , gorServerSideEncryption
     , gorVersionId
     , gorWebsiteRedirectLocation
@@ -95,6 +97,7 @@ data GetObject = GetObject
     , _goSSECustomerAlgorithm       :: Maybe Text
     , _goSSECustomerKey             :: Maybe (Sensitive Text)
     , _goSSECustomerKeyMD5          :: Maybe Text
+    , _goSSEKMSKeyId                :: Maybe (Sensitive Text)
     , _goVersionId                  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -134,6 +137,8 @@ data GetObject = GetObject
 --
 -- * 'goSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
+-- * 'goSSEKMSKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'goVersionId' @::@ 'Maybe' 'Text'
 --
 getObject :: Text -- ^ 'goBucket'
@@ -157,6 +162,7 @@ getObject p1 p2 = GetObject
     , _goSSECustomerAlgorithm       = Nothing
     , _goSSECustomerKey             = Nothing
     , _goSSECustomerKeyMD5          = Nothing
+    , _goSSEKMSKeyId                = Nothing
     }
 
 goBucket :: Lens' GetObject Text
@@ -230,7 +236,7 @@ goResponseExpires =
         . mapping _Time
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256).
+-- AES256, aws:kms).
 goSSECustomerAlgorithm :: Lens' GetObject (Maybe Text)
 goSSECustomerAlgorithm =
     lens _goSSECustomerAlgorithm (\s a -> s { _goSSECustomerAlgorithm = a })
@@ -250,6 +256,11 @@ goSSECustomerKey = lens _goSSECustomerKey (\s a -> s { _goSSECustomerKey = a })
 goSSECustomerKeyMD5 :: Lens' GetObject (Maybe Text)
 goSSECustomerKeyMD5 =
     lens _goSSECustomerKeyMD5 (\s a -> s { _goSSECustomerKeyMD5 = a })
+
+-- | Specifies the AWS KMS key ID to use for object encryption.
+goSSEKMSKeyId :: Lens' GetObject (Maybe Text)
+goSSEKMSKeyId = lens _goSSEKMSKeyId (\s a -> s { _goSSEKMSKeyId = a })
+    . mapping _Sensitive
 
 -- | VersionId used to reference a specific version of the object.
 goVersionId :: Lens' GetObject (Maybe Text)
@@ -284,6 +295,7 @@ instance ToHeaders GetObject where
         , "x-amz-server-side-encryption-customer-algorithm" =: _goSSECustomerAlgorithm
         , "x-amz-server-side-encryption-customer-key"       =: _goSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _goSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _goSSEKMSKeyId
         ]
 
 data GetObjectResponse = GetObjectResponse
@@ -305,6 +317,7 @@ data GetObjectResponse = GetObjectResponse
     , _gorRestore                 :: Maybe Text
     , _gorSSECustomerAlgorithm    :: Maybe Text
     , _gorSSECustomerKeyMD5       :: Maybe Text
+    , _gorSSEKMSKeyId             :: Maybe (Sensitive Text)
     , _gorServerSideEncryption    :: Maybe Text
     , _gorVersionId               :: Maybe Text
     , _gorWebsiteRedirectLocation :: Maybe Text
@@ -350,6 +363,8 @@ data GetObjectResponse = GetObjectResponse
 --
 -- * 'gorSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
+-- * 'gorSSEKMSKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'gorServerSideEncryption' @::@ 'Maybe' 'Text'
 --
 -- * 'gorVersionId' @::@ 'Maybe' 'Text'
@@ -380,6 +395,7 @@ getObjectResponse p1 = GetObjectResponse
     , _gorMetadata                = mempty
     , _gorSSECustomerAlgorithm    = Nothing
     , _gorSSECustomerKeyMD5       = Nothing
+    , _gorSSEKMSKeyId             = Nothing
     }
 
 gorAcceptRanges :: Lens' GetObjectResponse (Maybe Text)
@@ -479,7 +495,13 @@ gorSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
 gorSSECustomerKeyMD5 =
     lens _gorSSECustomerKeyMD5 (\s a -> s { _gorSSECustomerKeyMD5 = a })
 
--- | The Server-side encryption algorithm used when storing this object in S3.
+-- | If present, specifies the AWS KMS key used to encrypt the object.
+gorSSEKMSKeyId :: Lens' GetObjectResponse (Maybe Text)
+gorSSEKMSKeyId = lens _gorSSEKMSKeyId (\s a -> s { _gorSSEKMSKeyId = a })
+    . mapping _Sensitive
+
+-- | The Server-side encryption algorithm used when storing this object in S3
+-- (e.g., AES256, aws:kms).
 gorServerSideEncryption :: Lens' GetObjectResponse (Maybe Text)
 gorServerSideEncryption =
     lens _gorServerSideEncryption (\s a -> s { _gorServerSideEncryption = a })
@@ -523,6 +545,7 @@ instance AWSRequest GetObject where
         <*> h ~:? "x-amz-restore"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"
         <*> h ~:? "x-amz-website-redirect-location"

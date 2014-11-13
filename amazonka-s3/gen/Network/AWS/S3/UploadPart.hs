@@ -42,6 +42,7 @@ module Network.AWS.S3.UploadPart
     , upSSECustomerAlgorithm
     , upSSECustomerKey
     , upSSECustomerKeyMD5
+    , upSSEKMSKeyId
     , upUploadId
 
     -- * Response
@@ -52,6 +53,7 @@ module Network.AWS.S3.UploadPart
     , uprETag
     , uprSSECustomerAlgorithm
     , uprSSECustomerKeyMD5
+    , uprSSEKMSKeyId
     , uprServerSideEncryption
     ) where
 
@@ -69,6 +71,7 @@ data UploadPart = UploadPart
     , _upSSECustomerAlgorithm :: Maybe Text
     , _upSSECustomerKey       :: Maybe (Sensitive Text)
     , _upSSECustomerKeyMD5    :: Maybe Text
+    , _upSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _upUploadId             :: Text
     } deriving (Show, Generic)
 
@@ -94,6 +97,8 @@ data UploadPart = UploadPart
 --
 -- * 'upSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
+-- * 'upSSEKMSKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'upUploadId' @::@ 'Text'
 --
 uploadPart :: RqBody -- ^ 'upBody'
@@ -113,6 +118,7 @@ uploadPart p1 p2 p3 p4 p5 = UploadPart
     , _upSSECustomerAlgorithm = Nothing
     , _upSSECustomerKey       = Nothing
     , _upSSECustomerKeyMD5    = Nothing
+    , _upSSEKMSKeyId          = Nothing
     }
 
 upBody :: Lens' UploadPart RqBody
@@ -137,7 +143,7 @@ upPartNumber :: Lens' UploadPart Int
 upPartNumber = lens _upPartNumber (\s a -> s { _upPartNumber = a })
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256).
+-- AES256, aws:kms).
 upSSECustomerAlgorithm :: Lens' UploadPart (Maybe Text)
 upSSECustomerAlgorithm =
     lens _upSSECustomerAlgorithm (\s a -> s { _upSSECustomerAlgorithm = a })
@@ -159,6 +165,11 @@ upSSECustomerKey = lens _upSSECustomerKey (\s a -> s { _upSSECustomerKey = a })
 upSSECustomerKeyMD5 :: Lens' UploadPart (Maybe Text)
 upSSECustomerKeyMD5 =
     lens _upSSECustomerKeyMD5 (\s a -> s { _upSSECustomerKeyMD5 = a })
+
+-- | Specifies the AWS KMS key ID to use for object encryption.
+upSSEKMSKeyId :: Lens' UploadPart (Maybe Text)
+upSSEKMSKeyId = lens _upSSEKMSKeyId (\s a -> s { _upSSEKMSKeyId = a })
+    . mapping _Sensitive
 
 -- | Upload ID identifying the multipart upload whose part is being uploaded.
 upUploadId :: Lens' UploadPart Text
@@ -185,6 +196,7 @@ instance ToHeaders UploadPart where
         , "x-amz-server-side-encryption-customer-algorithm" =: _upSSECustomerAlgorithm
         , "x-amz-server-side-encryption-customer-key"       =: _upSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _upSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _upSSEKMSKeyId
         ]
 
 instance ToBody UploadPart where
@@ -194,6 +206,7 @@ data UploadPartResponse = UploadPartResponse
     { _uprETag                 :: Maybe Text
     , _uprSSECustomerAlgorithm :: Maybe Text
     , _uprSSECustomerKeyMD5    :: Maybe Text
+    , _uprSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _uprServerSideEncryption :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -207,6 +220,8 @@ data UploadPartResponse = UploadPartResponse
 --
 -- * 'uprSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
+-- * 'uprSSEKMSKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'uprServerSideEncryption' @::@ 'Maybe' 'Text'
 --
 uploadPartResponse :: UploadPartResponse
@@ -215,6 +230,7 @@ uploadPartResponse = UploadPartResponse
     , _uprETag                 = Nothing
     , _uprSSECustomerAlgorithm = Nothing
     , _uprSSECustomerKeyMD5    = Nothing
+    , _uprSSEKMSKeyId          = Nothing
     }
 
 -- | Entity tag for the uploaded object.
@@ -235,7 +251,13 @@ uprSSECustomerKeyMD5 :: Lens' UploadPartResponse (Maybe Text)
 uprSSECustomerKeyMD5 =
     lens _uprSSECustomerKeyMD5 (\s a -> s { _uprSSECustomerKeyMD5 = a })
 
--- | The Server-side encryption algorithm used when storing this object in S3.
+-- | If present, specifies the AWS KMS key used to encrypt the object.
+uprSSEKMSKeyId :: Lens' UploadPartResponse (Maybe Text)
+uprSSEKMSKeyId = lens _uprSSEKMSKeyId (\s a -> s { _uprSSEKMSKeyId = a })
+    . mapping _Sensitive
+
+-- | The Server-side encryption algorithm used when storing this object in S3
+-- (e.g., AES256, aws:kms).
 uprServerSideEncryption :: Lens' UploadPartResponse (Maybe Text)
 uprServerSideEncryption =
     lens _uprServerSideEncryption (\s a -> s { _uprServerSideEncryption = a })
@@ -252,4 +274,5 @@ instance AWSRequest UploadPart where
         <$> h ~:? "ETag"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"

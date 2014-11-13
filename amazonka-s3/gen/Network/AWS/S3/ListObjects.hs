@@ -44,6 +44,7 @@ module Network.AWS.S3.ListObjects
     -- ** Response lenses
     , lorCommonPrefixes
     , lorContents
+    , lorDelimiter
     , lorEncodingType
     , lorIsTruncated
     , lorMarker
@@ -136,6 +137,7 @@ instance ToHeaders ListObjects
 data ListObjectsResponse = ListObjectsResponse
     { _lorCommonPrefixes :: [CommonPrefix]
     , _lorContents       :: [Object]
+    , _lorDelimiter      :: Maybe Text
     , _lorEncodingType   :: Maybe Text
     , _lorIsTruncated    :: Maybe Bool
     , _lorMarker         :: Maybe Text
@@ -152,6 +154,8 @@ data ListObjectsResponse = ListObjectsResponse
 -- * 'lorCommonPrefixes' @::@ ['CommonPrefix']
 --
 -- * 'lorContents' @::@ ['Object']
+--
+-- * 'lorDelimiter' @::@ 'Maybe' 'Text'
 --
 -- * 'lorEncodingType' @::@ 'Maybe' 'Text'
 --
@@ -175,6 +179,7 @@ listObjectsResponse = ListObjectsResponse
     , _lorContents       = mempty
     , _lorName           = Nothing
     , _lorPrefix         = Nothing
+    , _lorDelimiter      = Nothing
     , _lorMaxKeys        = Nothing
     , _lorCommonPrefixes = mempty
     , _lorEncodingType   = Nothing
@@ -186,6 +191,9 @@ lorCommonPrefixes =
 
 lorContents :: Lens' ListObjectsResponse [Object]
 lorContents = lens _lorContents (\s a -> s { _lorContents = a })
+
+lorDelimiter :: Lens' ListObjectsResponse (Maybe Text)
+lorDelimiter = lens _lorDelimiter (\s a -> s { _lorDelimiter = a })
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
 lorEncodingType :: Lens' ListObjectsResponse (Maybe Text)
@@ -230,6 +238,7 @@ instance AWSRequest ListObjects where
     response = xmlResponse $ \h x -> ListObjectsResponse
         <$> x %| "CommonPrefixes"
         <*> x %| "Contents"
+        <*> x %| "Delimiter"
         <*> x %| "EncodingType"
         <*> x %| "IsTruncated"
         <*> x %| "Marker"

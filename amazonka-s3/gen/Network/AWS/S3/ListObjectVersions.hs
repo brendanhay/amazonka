@@ -43,6 +43,7 @@ module Network.AWS.S3.ListObjectVersions
     -- ** Response lenses
     , lovrCommonPrefixes
     , lovrDeleteMarkers
+    , lovrDelimiter
     , lovrEncodingType
     , lovrIsTruncated
     , lovrKeyMarker
@@ -149,6 +150,7 @@ instance ToHeaders ListObjectVersions
 data ListObjectVersionsResponse = ListObjectVersionsResponse
     { _lovrCommonPrefixes      :: [CommonPrefix]
     , _lovrDeleteMarkers       :: [DeleteMarkerEntry]
+    , _lovrDelimiter           :: Maybe Text
     , _lovrEncodingType        :: Maybe Text
     , _lovrIsTruncated         :: Maybe Bool
     , _lovrKeyMarker           :: Maybe Text
@@ -168,6 +170,8 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
 -- * 'lovrCommonPrefixes' @::@ ['CommonPrefix']
 --
 -- * 'lovrDeleteMarkers' @::@ ['DeleteMarkerEntry']
+--
+-- * 'lovrDelimiter' @::@ 'Maybe' 'Text'
 --
 -- * 'lovrEncodingType' @::@ 'Maybe' 'Text'
 --
@@ -200,6 +204,7 @@ listObjectVersionsResponse = ListObjectVersionsResponse
     , _lovrDeleteMarkers       = mempty
     , _lovrName                = Nothing
     , _lovrPrefix              = Nothing
+    , _lovrDelimiter           = Nothing
     , _lovrMaxKeys             = Nothing
     , _lovrCommonPrefixes      = mempty
     , _lovrEncodingType        = Nothing
@@ -212,6 +217,9 @@ lovrCommonPrefixes =
 lovrDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
 lovrDeleteMarkers =
     lens _lovrDeleteMarkers (\s a -> s { _lovrDeleteMarkers = a })
+
+lovrDelimiter :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrDelimiter = lens _lovrDelimiter (\s a -> s { _lovrDelimiter = a })
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
 lovrEncodingType :: Lens' ListObjectVersionsResponse (Maybe Text)
@@ -268,6 +276,7 @@ instance AWSRequest ListObjectVersions where
     response = xmlResponse $ \h x -> ListObjectVersionsResponse
         <$> x %| "CommonPrefixes"
         <*> x %| "DeleteMarker"
+        <*> x %| "Delimiter"
         <*> x %| "EncodingType"
         <*> x %| "IsTruncated"
         <*> x %| "KeyMarker"

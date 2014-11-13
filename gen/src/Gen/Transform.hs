@@ -194,9 +194,16 @@ operation a proto ns ss n o = op
         , _opResponse         = rs
         }
 
-    prefixURI x = o ^. oHttp.hRequestUri & uriSegments.segVars %~ mappend x
+    request = go (\x k s d -> Request (prefixURI x d) k s d) True
 
-    request = go (\x -> Request (prefixURI x)) True
+    prefixURI k d = o ^. oHttp.hRequestUri & uriSegments %~ f
+      where
+        f (Seg x)                     = Seg x
+        f (Var x)
+            | Just n <- x `lookup` ls = Var n
+            | otherwise               = Var (k <> x)
+
+        ls = fieldLocations d
 
     response r = go (const (Response w k)) False r
       where

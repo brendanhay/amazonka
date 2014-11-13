@@ -55,7 +55,7 @@ JSON := \
  kms \
  config
 
-MODELS ?= $(RESTS3) $(RESTXML) $(QUERY) # $(RESTJSON) $(JSON)
+MODELS ?= route53 # $(RESTS3) $(RESTXML) $(QUERY) # $(RESTJSON) $(JSON)
 
 .PHONY: gen
 

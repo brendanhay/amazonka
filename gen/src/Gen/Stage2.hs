@@ -30,6 +30,7 @@
 module Gen.Stage2 where
 
 import           Control.Applicative
+import           Control.Arrow            ((&&&))
 import           Control.Error
 import           Control.Lens             hiding ((.=), (<.>), op)
 import           Data.Aeson
@@ -433,19 +434,20 @@ dataRename k = \case
     x            -> x
 
 dataFields :: Traversal' Data Field
-dataFields f = go
-  where
-    go = \case
-        Newtype n x  -> Newtype n <$> f x
-        Record  n xs -> Record  n <$> traverse f xs
-        Product n xs -> pure (Product n xs)
-        Nullary n m  -> pure (Nullary n m)
-        Empty   n    -> pure (Empty n)
-        Void         -> pure Void
+dataFields f = \case
+    Newtype n x  -> Newtype n <$> f x
+    Record  n xs -> Record  n <$> traverse f xs
+    Product n xs -> pure (Product n xs)
+    Nullary n m  -> pure (Nullary n m)
+    Empty   n    -> pure (Empty n)
+    Void         -> pure Void
 
 fieldNames :: Data -> [Text]
 fieldNames (Nullary _ m) = Map.keys m
 fieldNames d             = toListOf (dataFields . nameOf) d
+
+fieldLocations :: Data -> [(Text, Text)]
+fieldLocations = map (_fLocationName &&& _fName) . toListOf dataFields
 
 fieldPrefix :: Data -> Maybe Text
 fieldPrefix = fmap (Text.takeWhile (not . isUpper)) . headMay . fieldNames

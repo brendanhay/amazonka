@@ -2745,7 +2745,7 @@
                         "type": "const"
                     },
                     {
-                        "value": "_avpcwhzId",
+                        "value": "_avpcwhzHostedZoneId",
                         "type": "var"
                     },
                     {
@@ -2969,7 +2969,7 @@
                         "type": "const"
                     },
                     {
-                        "value": "_crrsId",
+                        "value": "_crrsHostedZoneId",
                         "type": "var"
                     },
                     {
@@ -4521,7 +4521,7 @@
                         "type": "const"
                     },
                     {
-                        "value": "_dvpcfhzId",
+                        "value": "_dvpcfhzHostedZoneId",
                         "type": "var"
                     },
                     {
@@ -7372,7 +7372,7 @@
                         "type": "const"
                     },
                     {
-                        "value": "_lrrsId",
+                        "value": "_lrrsHostedZoneId",
                         "type": "var"
                     },
                     {

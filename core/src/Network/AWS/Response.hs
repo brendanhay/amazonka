@@ -71,14 +71,14 @@ xmlError f Service{..} s
     success = ServiceError _svcAbbrev s
     failure = SerializerError _svcAbbrev
 
-xmlResponse :: (MonadResource m, AWSService (Sv a), FromXML (Rs a))
+xmlResponse :: (MonadResource m, AWSService (Sv a))
             => (ResponseHeaders -> Cursor -> Either String (Rs a))
             -> a
             -> Either HttpException ClientResponse
             -> m (Response a)
 xmlResponse = deserialise (bimap show fromDocument . XML.parseLBS def)
 
-jsonResponse :: (MonadResource m, AWSService (Sv a), FromJSON (Rs a))
+jsonResponse :: (MonadResource m, AWSService (Sv a))
              => (ResponseHeaders -> Object -> Either String (Rs a))
              -> a
              -> Either HttpException ClientResponse

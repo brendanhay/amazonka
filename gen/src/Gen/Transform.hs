@@ -133,25 +133,102 @@ dataTypes o a s1 = (sort . Map.elems) `first` runState run ds
 -- the operations accordingly.
 requests :: Stage1 -> HashSet Text -> State (HashMap Text Data) Stage1
 requests s1 ss = do
-    os <- Map.traverseWithKey go (s1 ^. s1Operations)
+    os <- Map.traverseWithKey (const go) (s1 ^. s1Operations)
     return $! s1 & s1Operations .~ os
   where
-    go :: Text -> S1.Operation -> State (HashMap Text Data) S1.Operation
-    go k o
-        | Just r <- o ^. oInput
-        , n      <- r ^. refShape
-        , Set.member n ss = gets (Map.lookup n) >>= rename k o r
-        | otherwise       = return o
+    go :: S1.Operation -> State (HashMap Text Data) S1.Operation
+    go o = do
+        let name = o ^. oName
+        rq <- update name (o ^. oInput)
+        rs <- update (name <> "Response") (o ^. oOutput)
+        return $! o
+            & oInput  .~ rq
+            & oOutput .~ rs
 
-    rename :: Text
-           -> S1.Operation
-           -> Ref
-           -> Maybe Data
-           -> State (HashMap Text Data) S1.Operation
-    rename _ o _ Nothing  = return o
-    rename k o r (Just d) = do
+    update :: Text -> Maybe Ref -> State (HashMap Text Data) (Maybe Ref)
+    update _ Nothing            = return Nothing
+    update n (Just r) = do
+        let k = r ^. refShape
+        md <- gets (Map.lookup k)
+        case md of
+            Just d | Set.member k ss -> copy n r d
+            Just d                   -> move n k r d
+            Nothing                  -> return Nothing
+
+    move :: Text
+         -> Text
+         -> Ref
+         -> Data
+         -> State (HashMap Text Data) (Maybe Ref)
+    move n k r d = modify (Map.delete k) >> copy n r d
+
+    copy :: Text
+         -> Ref
+         -> Data
+         -> State (HashMap Text Data) (Maybe Ref)
+    copy k r d = do
         modify (Map.insert k (dataRename k d))
-        return (o & oInput ?~ (r & refShape .~ k))
+        return (Just (r & refShape .~ k))
+
+operation :: Abbrev
+          -> Protocol
+          -> [NS]
+          -> HashSet Text
+          -> Text
+          -> S1.Operation
+          -> State (HashMap Text Data) Operation
+operation a proto ns ss n o = op
+    <$> request  (o ^. oInput)
+    <*> response (o ^. oOutput)
+  where
+    op rq rs = Operation
+        { _opName             = n
+        , _opService          = a
+        , _opProtocol         = proto
+        , _opNamespace        = operationNS a (o ^. oName)
+        , _opImports          = requestNS proto : typesNS a : ns
+        , _opDocumentation    = documentation (o ^. oDocumentation)
+        , _opDocumentationUrl = o ^. oDocumentationUrl
+        , _opMethod           = o ^. oHttp.hMethod
+        , _opRequest          = rq
+        , _opResponse         = rs
+        }
+
+    prefixURI x = o ^. oHttp.hRequestUri & uriSegments.segVars %~ mappend x
+
+    request = go (\x -> Request (prefixURI x)) True
+
+    response r = go (const (Response w k)) False r
+      where
+        w = fromMaybe False (join (_refWrapper <$> r))
+        k = join (_refResultWrapper <$> r)
+
+    rqName = name
+    rsName = name <> "Response"
+
+    name = o ^. oName
+
+    go :: (Text -> Text -> Bool -> Data -> a)
+       -> Bool
+       -> Maybe Ref
+       -> State (HashMap Text Data) a
+    go c rq Nothing  = return $! placeholder c rq
+    go c rq (Just x) = do
+        let k = x ^. refShape
+        m <- gets (^. at k)
+        case m of
+            Nothing   -> return $! placeholder c rq
+            Just Void -> return $! placeholder c rq
+            Just d    -> do
+                let d' = setStreaming rq d
+                    t  = fromMaybe "" (fieldPrefix d')
+                    p  = Set.member k ss
+                unless p $
+                    modify (Map.delete k)
+                return $! c t k p d'
+
+    placeholder c True  = c "" rqName False (Empty rqName)
+    placeholder c False = c "" rsName False (Empty rsName)
 
 -- | Find any datatypes that are shared as operation inputs/outputs.
 shared :: Stage1 -> State (HashMap Text Data) (HashSet Text)
@@ -229,70 +306,6 @@ prefixed m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
 
             if | p         -> modify (mappend fs) >> return v2
                | otherwise -> go n (numericSuffix k) v1
-
-operation :: Abbrev
-          -> Protocol
-          -> [NS]
-          -> HashSet Text
-          -> Text
-          -> S1.Operation
-          -> State (HashMap Text Data) Operation
-operation a proto ns ss n o = op
-    <$> request  (o ^. oInput)
-    <*> response (o ^. oOutput)
-  where
-    op rq rs = Operation
-        { _opName             = n
-        , _opService          = a
-        , _opProtocol         = proto
-        , _opNamespace        = operationNS a (o ^. oName)
-        , _opImports          = requestNS proto : typesNS a : ns
-        , _opDocumentation    = documentation (o ^. oDocumentation)
-        , _opDocumentationUrl = o ^. oDocumentationUrl
-        , _opMethod           = o ^. oHttp.hMethod
-        , _opRequest          = rq
-        , _opResponse         = rs
-        }
-
-    prefixURI x = o ^. oHttp.hRequestUri & uriSegments.segVars %~ mappend x
-
-    request = go (\x -> Request (prefixURI x)) rqName True
-
-    response r = go (const (Response w k)) rsName False r
-      where
-        w = fromMaybe False (join (_refWrapper <$> r))
-        k = join (_refResultWrapper <$> r)
-
-    rqName = name
-    rsName = name <> "Response"
-
-    name = o ^. oName
-
-    go :: (Text -> Text -> Bool -> Data -> a)
-       -> Text
-       -> Bool
-       -> Maybe Ref
-       -> State (HashMap Text Data) a
-    go c _   rq Nothing  = return $! placeholder c rq
-    go c key rq (Just x) = do
-        let k = x ^. refShape
-            p = Set.member k ss
-        m <- gets (^. at k)
-        case m of
-            Nothing   -> return $! placeholder c rq
-            Just Void -> return $! placeholder c rq
-            Just d    -> do
-                let d' = setStreaming rq d
-                    k' = operationName k
-                    t  = fromMaybe "" (fieldPrefix d')
-                if not p
-                    then do
-                         modify (Map.delete k)
-                         return $! c t key p (dataRename k' d')
-                    else return $! c t k'  p (dataRename k' d')
-
-    placeholder c True  = c "" rqName False (Empty rqName)
-    placeholder c False = c "" rsName False (Empty rsName)
 
 overriden :: HashMap Text Override -> HashMap Text Data -> HashMap Text Data
 overriden = flip (Map.foldlWithKey' run)

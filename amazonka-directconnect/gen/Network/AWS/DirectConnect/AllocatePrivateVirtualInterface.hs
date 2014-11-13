@@ -60,6 +60,7 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     , apvirVlan
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types

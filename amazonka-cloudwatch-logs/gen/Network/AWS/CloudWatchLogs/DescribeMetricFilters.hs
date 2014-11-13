@@ -47,6 +47,7 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     , dmfrNextToken
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types

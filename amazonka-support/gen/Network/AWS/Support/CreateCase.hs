@@ -70,6 +70,7 @@ module Network.AWS.Support.CreateCase
     , ccrCaseId
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types

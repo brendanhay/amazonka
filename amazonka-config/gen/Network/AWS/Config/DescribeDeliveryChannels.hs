@@ -40,6 +40,7 @@ module Network.AWS.Config.DescribeDeliveryChannels
     , ddcrDeliveryChannels
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types

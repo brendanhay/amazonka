@@ -44,6 +44,7 @@ module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     , dmstrTimezone
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types

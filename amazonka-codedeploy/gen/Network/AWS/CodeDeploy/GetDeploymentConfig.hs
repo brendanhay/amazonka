@@ -38,6 +38,7 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
     , gdcrDeploymentConfigInfo
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types

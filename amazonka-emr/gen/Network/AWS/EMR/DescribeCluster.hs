@@ -40,6 +40,7 @@ module Network.AWS.EMR.DescribeCluster
     , dcrCluster
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types

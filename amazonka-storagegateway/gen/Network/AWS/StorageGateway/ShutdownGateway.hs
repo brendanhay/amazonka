@@ -48,6 +48,7 @@ module Network.AWS.StorageGateway.ShutdownGateway
     , sgr1GatewayARN
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types

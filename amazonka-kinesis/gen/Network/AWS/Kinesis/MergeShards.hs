@@ -64,6 +64,7 @@ module Network.AWS.Kinesis.MergeShards
     , mergeShardsResponse
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types

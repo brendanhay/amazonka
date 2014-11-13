@@ -47,6 +47,7 @@ module Network.AWS.CognitoSync.ListDatasets
     , ldrNextToken
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types

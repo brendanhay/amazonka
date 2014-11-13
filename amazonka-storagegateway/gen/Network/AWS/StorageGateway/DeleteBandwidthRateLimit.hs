@@ -43,6 +43,7 @@ module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     , dbrlr1GatewayARN
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types

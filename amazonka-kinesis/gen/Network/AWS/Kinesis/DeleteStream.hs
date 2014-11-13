@@ -48,6 +48,7 @@ module Network.AWS.Kinesis.DeleteStream
     , deleteStreamResponse
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types

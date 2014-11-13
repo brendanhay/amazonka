@@ -39,6 +39,7 @@ module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     , dipurIdentityPoolUsage
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types

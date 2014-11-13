@@ -39,6 +39,7 @@ module Network.AWS.EMR.ModifyInstanceGroups
     , modifyInstanceGroupsResponse
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types

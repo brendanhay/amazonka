@@ -37,6 +37,7 @@ module Network.AWS.Config.StopConfigurationRecorder
     , stopConfigurationRecorderResponse
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types

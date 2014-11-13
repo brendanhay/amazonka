@@ -48,6 +48,7 @@ module Network.AWS.CloudTrail.GetTrailStatus
     , gtsrStopLoggingTime
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudTrail.Types

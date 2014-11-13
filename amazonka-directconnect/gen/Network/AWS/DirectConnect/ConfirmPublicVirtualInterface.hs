@@ -40,6 +40,7 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     , cpvir3VirtualInterfaceState
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types

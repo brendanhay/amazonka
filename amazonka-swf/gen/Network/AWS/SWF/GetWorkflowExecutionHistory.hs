@@ -54,6 +54,7 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     , gwehrNextPageToken
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types

@@ -40,6 +40,7 @@ module Network.AWS.CognitoSync.SubscribeToDataset
     , subscribeToDatasetResponse
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types

@@ -37,6 +37,7 @@ module Network.AWS.CloudWatchLogs.DeleteLogGroup
     , deleteLogGroupResponse
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types

@@ -38,6 +38,7 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
     , dvirVirtualInterfaceState
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types

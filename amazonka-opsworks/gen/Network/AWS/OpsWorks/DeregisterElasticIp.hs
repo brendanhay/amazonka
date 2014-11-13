@@ -41,6 +41,7 @@ module Network.AWS.OpsWorks.DeregisterElasticIp
     , deregisterElasticIpResponse
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types

@@ -77,6 +77,7 @@ module Network.AWS.Kinesis.GetRecords
     , grrRecords
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types

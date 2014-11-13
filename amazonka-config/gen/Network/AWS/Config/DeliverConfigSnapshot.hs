@@ -43,6 +43,7 @@ module Network.AWS.Config.DeliverConfigSnapshot
     , dcsrConfigSnapshotId
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types

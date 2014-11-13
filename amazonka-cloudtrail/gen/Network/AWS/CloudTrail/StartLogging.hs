@@ -36,6 +36,7 @@ module Network.AWS.CloudTrail.StartLogging
     , startLoggingResponse
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudTrail.Types

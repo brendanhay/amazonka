@@ -39,6 +39,7 @@ module Network.AWS.OpsWorks.DescribeRdsDbInstances
     , drdirRdsDbInstances
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types

@@ -46,6 +46,7 @@ module Network.AWS.EMR.ListInstances
     , lirMarker
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types

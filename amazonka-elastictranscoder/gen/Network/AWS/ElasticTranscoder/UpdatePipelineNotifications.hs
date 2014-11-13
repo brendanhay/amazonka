@@ -42,6 +42,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     , upnrPipeline
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types

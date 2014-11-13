@@ -41,6 +41,7 @@ module Network.AWS.DataPipeline.CreatePipeline
     , cprPipelineId
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types

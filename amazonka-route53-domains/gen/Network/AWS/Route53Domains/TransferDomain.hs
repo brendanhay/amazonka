@@ -64,6 +64,7 @@ module Network.AWS.Route53Domains.TransferDomain
     , tdrOperationId
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types

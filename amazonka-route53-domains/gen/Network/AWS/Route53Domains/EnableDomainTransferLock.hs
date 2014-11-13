@@ -42,6 +42,7 @@ module Network.AWS.Route53Domains.EnableDomainTransferLock
     , edtlrOperationId
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types

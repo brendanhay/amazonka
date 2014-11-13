@@ -49,6 +49,7 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     , ciprSupportedLoginProviders
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types

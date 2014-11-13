@@ -39,6 +39,7 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     , gipcrPushSync
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types

@@ -42,6 +42,7 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     , dlbasrLoadBasedAutoScalingConfigurations
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types

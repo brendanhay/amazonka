@@ -39,6 +39,7 @@ module Network.AWS.CodeDeploy.GetDeploymentGroup
     , gdgrDeploymentGroupInfo
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types

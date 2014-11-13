@@ -79,7 +79,7 @@ import Control.Monad.Identity       as Export
 import Control.Monad.Reader         (MonadReader(..))
 import Control.Monad.State          (State)
 import Control.Monad.Trans.Resource (MonadResource(..))
-import Data.Aeson                   (FromJSON(..), ToJSON(..))
+import Data.Aeson                   (FromJSON(..), ToJSON(..), (.:))
 import Data.Bifunctor               as Export
 import Data.ByteString              (ByteString)
 import Data.Default.Class           as Export

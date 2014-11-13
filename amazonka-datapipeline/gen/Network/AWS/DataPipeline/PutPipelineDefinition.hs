@@ -49,6 +49,7 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     , ppdrValidationWarnings
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types

@@ -38,6 +38,7 @@ module Network.AWS.Config.StartConfigurationRecorder
     , startConfigurationRecorderResponse
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types

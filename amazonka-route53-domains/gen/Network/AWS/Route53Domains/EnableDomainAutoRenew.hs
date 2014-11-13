@@ -44,6 +44,7 @@ module Network.AWS.Route53Domains.EnableDomainAutoRenew
     , enableDomainAutoRenewResponse
     ) where
 
+import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types

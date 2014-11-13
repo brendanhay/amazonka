@@ -8,10 +8,10 @@ data {{ type.name }} = {{ type.name }}
 {% endfor %}
     } deriving{% include "deriving.ede" %}
 {% if type.listElement %}
-instance IsList {{ type.name }} where
+instance GHC.Exts.IsList {{ type.name }} where
     type Item {{ type.name }} = {{ type.listElement }}
 
-    fromList = {{ type.name }} . fromList
-    toList   = toList . {{ type.field.name }}
+    fromList = {{ type.name }} . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . {{ type.field.name }}
 
 {% endif %}

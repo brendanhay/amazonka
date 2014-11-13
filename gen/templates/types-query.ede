@@ -3,6 +3,7 @@
 import Network.AWS.Prelude
 import Network.AWS.Signing.{{ service.signature }}
 {% include "_include/imports.ede" %}
+import qualified GHC.Exts
 
 {% include "_include/service.ede" %}
 

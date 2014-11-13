@@ -2,6 +2,7 @@
 
 import Network.AWS.Prelude
 {% include "_include/imports.ede" %}
+import qualified GHC.Exts
 
 {% include "_include/datatype.ede" with type = request %}
 

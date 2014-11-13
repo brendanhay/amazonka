@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,52 +24,7 @@
 -- application and are used to deploy different versions of the application
 -- with the same configuration settings. Related Topics
 -- DescribeConfigurationOptions DescribeConfigurationSettings
--- ListAvailableSolutionStacks
--- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
--- &TemplateName=AppTemplate
--- &SolutionStackName=32bit%20Amazon%20Linux%20running%20Tomcat%207
--- &Description=ConfigTemplateDescription
--- &Operation=CreateConfigurationTemplate &AuthParams 32bit Amazon Linux
--- running Tomcat 7 ImageId ami-f2f0069b aws:autoscaling:launchconfiguration
--- Notification Endpoint aws:elasticbeanstalk:sns:topics PARAM4
--- aws:elasticbeanstalk:application:environment JDBC_CONNECTION_STRING
--- aws:elasticbeanstalk:application:environment SecurityGroups
--- elasticbeanstalk-default aws:autoscaling:launchconfiguration
--- UnhealthyThreshold 5 aws:elb:healthcheck InstanceType t1.micro
--- aws:autoscaling:launchconfiguration Statistic Average
--- aws:autoscaling:trigger LoadBalancerHTTPSPort OFF aws:elb:loadbalancer
--- Stickiness Cookie Expiration 0 aws:elb:policies PARAM5
--- aws:elasticbeanstalk:application:environment MeasureName NetworkOut
--- aws:autoscaling:trigger Interval 30 aws:elb:healthcheck Application
--- Healthcheck URL / aws:elasticbeanstalk:application Notification Topic ARN
--- aws:elasticbeanstalk:sns:topics LowerBreachScaleIncrement -1
--- aws:autoscaling:trigger XX:MaxPermSize 64m
--- aws:elasticbeanstalk:container:tomcat:jvmoptions UpperBreachScaleIncrement
--- 1 aws:autoscaling:trigger MinSize 1 aws:autoscaling:asg Custom Availability
--- Zones us-east-1a aws:autoscaling:asg Availability Zones Any 1
--- aws:autoscaling:asg LogPublicationControl false
--- aws:elasticbeanstalk:hostmanager JVM Options
--- aws:elasticbeanstalk:container:tomcat:jvmoptions Notification Topic Name
--- aws:elasticbeanstalk:sns:topics PARAM2
--- aws:elasticbeanstalk:application:environment LoadBalancerHTTPPort 80
--- aws:elb:loadbalancer Timeout 5 aws:elb:healthcheck BreachDuration 2
--- aws:autoscaling:trigger MonitoringInterval 5 minute
--- aws:autoscaling:launchconfiguration PARAM1
--- aws:elasticbeanstalk:application:environment MaxSize 4 aws:autoscaling:asg
--- LowerThreshold 2000000 aws:autoscaling:trigger AWS_SECRET_KEY
--- aws:elasticbeanstalk:application:environment AWS_ACCESS_KEY_ID
--- aws:elasticbeanstalk:application:environment UpperThreshold 6000000
--- aws:autoscaling:trigger Notification Protocol email
--- aws:elasticbeanstalk:sns:topics Unit Bytes aws:autoscaling:trigger Xmx 256m
--- aws:elasticbeanstalk:container:tomcat:jvmoptions Cooldown 360
--- aws:autoscaling:asg Period 1 aws:autoscaling:trigger Xms 256m
--- aws:elasticbeanstalk:container:tomcat:jvmoptions EC2KeyName
--- aws:autoscaling:launchconfiguration Stickiness Policy false
--- aws:elb:policies PARAM3 aws:elasticbeanstalk:application:environment
--- HealthyThreshold 3 aws:elb:healthcheck SSLCertificateId
--- aws:elb:loadbalancer ConfigTemplateDescription SampleApp
--- 2010-11-17T03:48:19.640Z AppTemplate 2010-11-17T03:48:19.640Z
--- 846cd905-f1fd-11df-8a78-9f77047e0d0c.
+-- ListAvailableSolutionStacks.
 module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     (
     -- * Request
@@ -76,202 +33,216 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     , createConfigurationTemplate
     -- ** Request lenses
     , cctApplicationName
-    , cctTemplateName
+    , cctDescription
+    , cctEnvironmentId
+    , cctOptionSettings
     , cctSolutionStackName
     , cctSourceConfiguration
-    , cctEnvironmentId
-    , cctDescription
-    , cctOptionSettings
+    , cctTemplateName
 
     -- * Response
     , CreateConfigurationTemplateResponse
     -- ** Response constructor
     , createConfigurationTemplateResponse
     -- ** Response lenses
-    , cctrSolutionStackName
     , cctrApplicationName
-    , cctrTemplateName
-    , cctrDescription
-    , cctrEnvironmentName
-    , cctrDeploymentStatus
     , cctrDateCreated
     , cctrDateUpdated
+    , cctrDeploymentStatus
+    , cctrDescription
+    , cctrEnvironmentName
     , cctrOptionSettings
+    , cctrSolutionStackName
+    , cctrTemplateName
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | This documentation target is not reported in the API reference.
 data CreateConfigurationTemplate = CreateConfigurationTemplate
-    { _cctApplicationName :: Text
-    , _cctTemplateName :: Text
-    , _cctSolutionStackName :: Maybe Text
+    { _cctApplicationName     :: Text
+    , _cctDescription         :: Maybe Text
+    , _cctEnvironmentId       :: Maybe Text
+    , _cctOptionSettings      :: [ConfigurationOptionSetting]
+    , _cctSolutionStackName   :: Maybe Text
     , _cctSourceConfiguration :: Maybe SourceConfiguration
-    , _cctEnvironmentId :: Maybe Text
-    , _cctDescription :: Maybe Text
-    , _cctOptionSettings :: [ConfigurationOptionSetting]
-    } deriving (Eq, Ord, Show, Generic)
+    , _cctTemplateName        :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateConfigurationTemplate' request.
+-- | 'CreateConfigurationTemplate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ApplicationName ::@ @Text@
+-- * 'cctApplicationName' @::@ 'Text'
 --
--- * @TemplateName ::@ @Text@
+-- * 'cctDescription' @::@ 'Maybe' 'Text'
 --
--- * @SolutionStackName ::@ @Maybe Text@
+-- * 'cctEnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * @SourceConfiguration ::@ @Maybe SourceConfiguration@
+-- * 'cctOptionSettings' @::@ ['ConfigurationOptionSetting']
 --
--- * @EnvironmentId ::@ @Maybe Text@
+-- * 'cctSolutionStackName' @::@ 'Maybe' 'Text'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'cctSourceConfiguration' @::@ 'Maybe' 'SourceConfiguration'
 --
--- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+-- * 'cctTemplateName' @::@ 'Text'
 --
 createConfigurationTemplate :: Text -- ^ 'cctApplicationName'
                             -> Text -- ^ 'cctTemplateName'
                             -> CreateConfigurationTemplate
 createConfigurationTemplate p1 p2 = CreateConfigurationTemplate
-    { _cctApplicationName = p1
-    , _cctTemplateName = p2
-    , _cctSolutionStackName = Nothing
+    { _cctApplicationName     = p1
+    , _cctTemplateName        = p2
+    , _cctSolutionStackName   = Nothing
     , _cctSourceConfiguration = Nothing
-    , _cctEnvironmentId = Nothing
-    , _cctDescription = Nothing
-    , _cctOptionSettings = mempty
+    , _cctEnvironmentId       = Nothing
+    , _cctDescription         = Nothing
+    , _cctOptionSettings      = mempty
     }
 
--- | The name of the application to associate with this configuration template.
--- If no application is found with this name, AWS Elastic Beanstalk returns an
--- InvalidParameterValue error.
+-- | The name of the application to associate with this configuration
+-- template. If no application is found with this name, AWS Elastic
+-- Beanstalk returns an InvalidParameterValue error.
 cctApplicationName :: Lens' CreateConfigurationTemplate Text
 cctApplicationName =
     lens _cctApplicationName (\s a -> s { _cctApplicationName = a })
-
--- | The name of the configuration template. Constraint: This name must be
--- unique per application. Default: If a configuration template already exists
--- with this name, AWS Elastic Beanstalk returns an InvalidParameterValue
--- error.
-cctTemplateName :: Lens' CreateConfigurationTemplate Text
-cctTemplateName = lens _cctTemplateName (\s a -> s { _cctTemplateName = a })
-
--- | The name of the solution stack used by this configuration. The solution
--- stack specifies the operating system, architecture, and application server
--- for a configuration template. It determines the set of configuration
--- options as well as the possible and default values. Use
--- ListAvailableSolutionStacks to obtain a list of available solution stacks.
--- A solution stack name or a source configuration parameter must be
--- specified, otherwise AWS Elastic Beanstalk returns an InvalidParameterValue
--- error. If a solution stack name is not specified and the source
--- configuration parameter is specified, AWS Elastic Beanstalk uses the same
--- solution stack as the source configuration template.
-cctSolutionStackName :: Lens' CreateConfigurationTemplate (Maybe Text)
-cctSolutionStackName =
-    lens _cctSolutionStackName (\s a -> s { _cctSolutionStackName = a })
-
--- | If specified, AWS Elastic Beanstalk uses the configuration values from the
--- specified configuration template to create a new configuration. Values
--- specified in the OptionSettings parameter of this call overrides any values
--- obtained from the SourceConfiguration. If no configuration template is
--- found, returns an InvalidParameterValue error. Constraint: If both the
--- solution stack name parameter and the source configuration parameters are
--- specified, the solution stack of the source configuration template must
--- match the specified solution stack name or else AWS Elastic Beanstalk
--- returns an InvalidParameterCombination error.
-cctSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
-cctSourceConfiguration =
-    lens _cctSourceConfiguration (\s a -> s { _cctSourceConfiguration = a })
-
--- | The ID of the environment used with this configuration template.
-cctEnvironmentId :: Lens' CreateConfigurationTemplate (Maybe Text)
-cctEnvironmentId =
-    lens _cctEnvironmentId (\s a -> s { _cctEnvironmentId = a })
 
 -- | Describes this configuration.
 cctDescription :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctDescription = lens _cctDescription (\s a -> s { _cctDescription = a })
 
--- | If specified, AWS Elastic Beanstalk sets the specified configuration option
--- to the requested value. The new value overrides the value obtained from the
--- solution stack or the source configuration template.
+-- | The ID of the environment used with this configuration template.
+cctEnvironmentId :: Lens' CreateConfigurationTemplate (Maybe Text)
+cctEnvironmentId = lens _cctEnvironmentId (\s a -> s { _cctEnvironmentId = a })
+
+-- | If specified, AWS Elastic Beanstalk sets the specified configuration
+-- option to the requested value. The new value overrides the value obtained
+-- from the solution stack or the source configuration template.
 cctOptionSettings :: Lens' CreateConfigurationTemplate [ConfigurationOptionSetting]
 cctOptionSettings =
     lens _cctOptionSettings (\s a -> s { _cctOptionSettings = a })
 
-instance ToQuery CreateConfigurationTemplate where
-    toQuery = genericQuery def
+-- | The name of the solution stack used by this configuration. The solution
+-- stack specifies the operating system, architecture, and application
+-- server for a configuration template. It determines the set of
+-- configuration options as well as the possible and default values. Use
+-- ListAvailableSolutionStacks to obtain a list of available solution
+-- stacks. A solution stack name or a source configuration parameter must be
+-- specified, otherwise AWS Elastic Beanstalk returns an
+-- InvalidParameterValue error. If a solution stack name is not specified
+-- and the source configuration parameter is specified, AWS Elastic
+-- Beanstalk uses the same solution stack as the source configuration
+-- template.
+cctSolutionStackName :: Lens' CreateConfigurationTemplate (Maybe Text)
+cctSolutionStackName =
+    lens _cctSolutionStackName (\s a -> s { _cctSolutionStackName = a })
 
--- | Describes the settings for a configuration set.
+-- | If specified, AWS Elastic Beanstalk uses the configuration values from
+-- the specified configuration template to create a new configuration.
+-- Values specified in the OptionSettings parameter of this call overrides
+-- any values obtained from the SourceConfiguration. If no configuration
+-- template is found, returns an InvalidParameterValue error. Constraint: If
+-- both the solution stack name parameter and the source configuration
+-- parameters are specified, the solution stack of the source configuration
+-- template must match the specified solution stack name or else AWS Elastic
+-- Beanstalk returns an InvalidParameterCombination error.
+cctSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
+cctSourceConfiguration =
+    lens _cctSourceConfiguration (\s a -> s { _cctSourceConfiguration = a })
+
+-- | The name of the configuration template. Constraint: This name must be
+-- unique per application. Default: If a configuration template already
+-- exists with this name, AWS Elastic Beanstalk returns an
+-- InvalidParameterValue error.
+cctTemplateName :: Lens' CreateConfigurationTemplate Text
+cctTemplateName = lens _cctTemplateName (\s a -> s { _cctTemplateName = a })
+
+instance ToQuery CreateConfigurationTemplate
+
+instance ToPath CreateConfigurationTemplate where
+    toPath = const "/"
+
 data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
-    { _cctrSolutionStackName :: Maybe Text
-    , _cctrApplicationName :: Maybe Text
-    , _cctrTemplateName :: Maybe Text
-    , _cctrDescription :: Maybe Text
-    , _cctrEnvironmentName :: Maybe Text
-    , _cctrDeploymentStatus :: Maybe ConfigurationDeploymentStatus
-    , _cctrDateCreated :: Maybe ISO8601
-    , _cctrDateUpdated :: Maybe ISO8601
-    , _cctrOptionSettings :: [ConfigurationOptionSetting]
-    } deriving (Eq, Ord, Show, Generic)
+    { _cctrApplicationName   :: Maybe Text
+    , _cctrDateCreated       :: Maybe RFC822
+    , _cctrDateUpdated       :: Maybe RFC822
+    , _cctrDeploymentStatus  :: Maybe Text
+    , _cctrDescription       :: Maybe Text
+    , _cctrEnvironmentName   :: Maybe Text
+    , _cctrOptionSettings    :: [ConfigurationOptionSetting]
+    , _cctrSolutionStackName :: Maybe Text
+    , _cctrTemplateName      :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateConfigurationTemplateResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateConfigurationTemplateResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SolutionStackName ::@ @Maybe Text@
+-- * 'cctrApplicationName' @::@ 'Maybe' 'Text'
 --
--- * @ApplicationName ::@ @Maybe Text@
+-- * 'cctrDateCreated' @::@ 'Maybe' 'UTCTime'
 --
--- * @TemplateName ::@ @Maybe Text@
+-- * 'cctrDateUpdated' @::@ 'Maybe' 'UTCTime'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'cctrDeploymentStatus' @::@ 'Maybe' 'Text'
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'cctrDescription' @::@ 'Maybe' 'Text'
 --
--- * @DeploymentStatus ::@ @Maybe ConfigurationDeploymentStatus@
+-- * 'cctrEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * @DateCreated ::@ @Maybe ISO8601@
+-- * 'cctrOptionSettings' @::@ ['ConfigurationOptionSetting']
 --
--- * @DateUpdated ::@ @Maybe ISO8601@
+-- * 'cctrSolutionStackName' @::@ 'Maybe' 'Text'
 --
--- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+-- * 'cctrTemplateName' @::@ 'Maybe' 'Text'
 --
 createConfigurationTemplateResponse :: CreateConfigurationTemplateResponse
 createConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     { _cctrSolutionStackName = Nothing
-    , _cctrApplicationName = Nothing
-    , _cctrTemplateName = Nothing
-    , _cctrDescription = Nothing
-    , _cctrEnvironmentName = Nothing
-    , _cctrDeploymentStatus = Nothing
-    , _cctrDateCreated = Nothing
-    , _cctrDateUpdated = Nothing
-    , _cctrOptionSettings = mempty
+    , _cctrApplicationName   = Nothing
+    , _cctrTemplateName      = Nothing
+    , _cctrDescription       = Nothing
+    , _cctrEnvironmentName   = Nothing
+    , _cctrDeploymentStatus  = Nothing
+    , _cctrDateCreated       = Nothing
+    , _cctrDateUpdated       = Nothing
+    , _cctrOptionSettings    = mempty
     }
-
--- | The name of the solution stack this configuration set uses.
-cctrSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-cctrSolutionStackName =
-    lens _cctrSolutionStackName (\s a -> s { _cctrSolutionStackName = a })
 
 -- | The name of the application associated with this configuration set.
 cctrApplicationName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrApplicationName =
     lens _cctrApplicationName (\s a -> s { _cctrApplicationName = a })
 
--- | If not null, the name of the configuration template for this configuration
--- set.
-cctrTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-cctrTemplateName =
-    lens _cctrTemplateName (\s a -> s { _cctrTemplateName = a })
+-- | The date (in UTC time) when this configuration set was created.
+cctrDateCreated :: Lens' CreateConfigurationTemplateResponse (Maybe UTCTime)
+cctrDateCreated = lens _cctrDateCreated (\s a -> s { _cctrDateCreated = a })
+    . mapping _Time
+
+-- | The date (in UTC time) when this configuration set was last modified.
+cctrDateUpdated :: Lens' CreateConfigurationTemplateResponse (Maybe UTCTime)
+cctrDateUpdated = lens _cctrDateUpdated (\s a -> s { _cctrDateUpdated = a })
+    . mapping _Time
+
+-- | If this configuration set is associated with an environment, the
+-- DeploymentStatus parameter indicates the deployment status of this
+-- configuration set: null: This configuration is not associated with a
+-- running environment. pending: This is a draft configuration that is not
+-- deployed to the associated environment but is in the process of
+-- deploying. deployed: This is the configuration that is currently deployed
+-- to the associated running environment. failed: This is a draft
+-- configuration, that failed to successfully deploy. null: This
+-- configuration is not associated with a running environment. pending: This
+-- is a draft configuration that is not deployed to the associated
+-- environment but is in the process of deploying. deployed: This is the
+-- configuration that is currently deployed to the associated running
+-- environment. failed: This is a draft configuration that failed to
+-- successfully deploy.
+cctrDeploymentStatus :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+cctrDeploymentStatus =
+    lens _cctrDeploymentStatus (\s a -> s { _cctrDeploymentStatus = a })
 
 -- | Describes this configuration set.
 cctrDescription :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
@@ -282,43 +253,34 @@ cctrEnvironmentName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrEnvironmentName =
     lens _cctrEnvironmentName (\s a -> s { _cctrEnvironmentName = a })
 
--- | If this configuration set is associated with an environment, the
--- DeploymentStatus parameter indicates the deployment status of this
--- configuration set: null: This configuration is not associated with a
--- running environment. pending: This is a draft configuration that is not
--- deployed to the associated environment but is in the process of deploying.
--- deployed: This is the configuration that is currently deployed to the
--- associated running environment. failed: This is a draft configuration, that
--- failed to successfully deploy. null: This configuration is not associated
--- with a running environment. pending: This is a draft configuration that is
--- not deployed to the associated environment but is in the process of
--- deploying. deployed: This is the configuration that is currently deployed
--- to the associated running environment. failed: This is a draft
--- configuration that failed to successfully deploy.
-cctrDeploymentStatus :: Lens' CreateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
-cctrDeploymentStatus =
-    lens _cctrDeploymentStatus (\s a -> s { _cctrDeploymentStatus = a })
-
--- | The date (in UTC time) when this configuration set was created.
-cctrDateCreated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
-cctrDateCreated = lens _cctrDateCreated (\s a -> s { _cctrDateCreated = a })
-
--- | The date (in UTC time) when this configuration set was last modified.
-cctrDateUpdated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
-cctrDateUpdated = lens _cctrDateUpdated (\s a -> s { _cctrDateUpdated = a })
-
--- | A list of the configuration options and their values in this configuration
--- set.
+-- | A list of the configuration options and their values in this
+-- configuration set.
 cctrOptionSettings :: Lens' CreateConfigurationTemplateResponse [ConfigurationOptionSetting]
 cctrOptionSettings =
     lens _cctrOptionSettings (\s a -> s { _cctrOptionSettings = a })
 
-instance FromXML CreateConfigurationTemplateResponse where
-    fromXMLOptions = xmlOptions
+-- | The name of the solution stack this configuration set uses.
+cctrSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+cctrSolutionStackName =
+    lens _cctrSolutionStackName (\s a -> s { _cctrSolutionStackName = a })
+
+-- | If not null, the name of the configuration template for this
+-- configuration set.
+cctrTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+cctrTemplateName = lens _cctrTemplateName (\s a -> s { _cctrTemplateName = a })
 
 instance AWSRequest CreateConfigurationTemplate where
     type Sv CreateConfigurationTemplate = ElasticBeanstalk
     type Rs CreateConfigurationTemplate = CreateConfigurationTemplateResponse
 
-    request = post "CreateConfigurationTemplate"
-    response _ = xmlResponse
+    request  = post "CreateConfigurationTemplate"
+    response = xmlResponse $ \h x -> CreateConfigurationTemplateResponse
+        <$> x %| "ApplicationName"
+        <*> x %| "DateCreated"
+        <*> x %| "DateUpdated"
+        <*> x %| "DeploymentStatus"
+        <*> x %| "Description"
+        <*> x %| "EnvironmentName"
+        <*> x %| "OptionSettings"
+        <*> x %| "SolutionStackName"
+        <*> x %| "TemplateName"

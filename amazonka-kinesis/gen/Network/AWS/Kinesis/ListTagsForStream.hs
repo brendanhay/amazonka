@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Kinesis.ListTagsForStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,18 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Lists the tags for the specified Amazon Kinesis stream. To list the tags
--- for a stream The following example lists the tags for the specified stream.
--- POST / HTTP/1.1 Host: kinesis.. x-amz-Date: Authorization: AWS4-HMAC-SHA256
--- Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Content-Type: application/x-amz-json-1.1
--- Content-Length: Connection: Keep-Alive]]> X-Amz-Target:
--- Kinesis_20131202.ListTagsForStream { "StreamName": "exampleStreamName" }
--- HTTP/1.1 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
--- Content-Length: Date: ]]> { "HasMoreTags": "false", "Tags" : [ { "Key":
--- "Project", "Value": "myProject" }, { "Key": "Environment", "Value":
--- "Production" } ] }.
+-- | Lists the tags for the specified Amazon Kinesis stream.
 module Network.AWS.Kinesis.ListTagsForStream
     (
     -- * Request
@@ -37,52 +28,46 @@ module Network.AWS.Kinesis.ListTagsForStream
     -- ** Request constructor
     , listTagsForStream
     -- ** Request lenses
-    , ltfsStreamName
     , ltfsExclusiveStartTagKey
     , ltfsLimit
+    , ltfsStreamName
 
     -- * Response
     , ListTagsForStreamResponse
     -- ** Response constructor
     , listTagsForStreamResponse
     -- ** Response lenses
-    , ltfsrTags
     , ltfsrHasMoreTags
+    , ltfsrTags
     ) where
 
-import Network.AWS.Kinesis.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Kinesis.Types
 
--- | Represents the input for ListTagsForStream.
 data ListTagsForStream = ListTagsForStream
-    { _ltfsStreamName :: Text
-    , _ltfsExclusiveStartTagKey :: Maybe Text
-    , _ltfsLimit :: Maybe Integer
+    { _ltfsExclusiveStartTagKey :: Maybe Text
+    , _ltfsLimit                :: Maybe Natural
+    , _ltfsStreamName           :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListTagsForStream' request.
+-- | 'ListTagsForStream' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StreamName ::@ @Text@
+-- * 'ltfsExclusiveStartTagKey' @::@ 'Maybe' 'Text'
 --
--- * @ExclusiveStartTagKey ::@ @Maybe Text@
+-- * 'ltfsLimit' @::@ 'Maybe' 'Natural'
 --
--- * @Limit ::@ @Maybe Integer@
+-- * 'ltfsStreamName' @::@ 'Text'
 --
 listTagsForStream :: Text -- ^ 'ltfsStreamName'
                   -> ListTagsForStream
 listTagsForStream p1 = ListTagsForStream
-    { _ltfsStreamName = p1
+    { _ltfsStreamName           = p1
     , _ltfsExclusiveStartTagKey = Nothing
-    , _ltfsLimit = Nothing
+    , _ltfsLimit                = Nothing
     }
-
--- | The name of the stream.
-ltfsStreamName :: Lens' ListTagsForStream Text
-ltfsStreamName = lens _ltfsStreamName (\s a -> s { _ltfsStreamName = a })
 
 -- | The key to use as the starting point for the list of tags. If this
 -- parameter is set, ListTagsForStream gets all tags that occur after
@@ -90,63 +75,67 @@ ltfsStreamName = lens _ltfsStreamName (\s a -> s { _ltfsStreamName = a })
 ltfsExclusiveStartTagKey :: Lens' ListTagsForStream (Maybe Text)
 ltfsExclusiveStartTagKey =
     lens _ltfsExclusiveStartTagKey
-         (\s a -> s { _ltfsExclusiveStartTagKey = a })
+        (\s a -> s { _ltfsExclusiveStartTagKey = a })
 
--- | The number of tags to return. If this number is less than the total number
--- of tags associated with the stream, HasMoreTags is set to true. To list
--- additional tags, set ExclusiveStartTagKey to the last key in the response.
-ltfsLimit :: Lens' ListTagsForStream (Maybe Integer)
+-- | The number of tags to return. If this number is less than the total
+-- number of tags associated with the stream, HasMoreTags is set to true. To
+-- list additional tags, set ExclusiveStartTagKey to the last key in the
+-- response.
+ltfsLimit :: Lens' ListTagsForStream (Maybe Natural)
 ltfsLimit = lens _ltfsLimit (\s a -> s { _ltfsLimit = a })
 
-instance ToPath ListTagsForStream
+-- | The name of the stream.
+ltfsStreamName :: Lens' ListTagsForStream Text
+ltfsStreamName = lens _ltfsStreamName (\s a -> s { _ltfsStreamName = a })
 
-instance ToQuery ListTagsForStream
+instance ToPath ListTagsForStream where
+    toPath = const "/"
+
+instance ToQuery ListTagsForStream where
+    toQuery = const mempty
 
 instance ToHeaders ListTagsForStream
 
-instance ToJSON ListTagsForStream
+instance ToBody ListTagsForStream where
+    toBody = toBody . encode . _ltfsStreamName
 
--- | Represents the output for ListTagsForStream.
 data ListTagsForStreamResponse = ListTagsForStreamResponse
-    { _ltfsrTags :: [Tag]
-    , _ltfsrHasMoreTags :: !Bool
-    } deriving (Eq, Ord, Show, Generic)
+    { _ltfsrHasMoreTags :: Bool
+    , _ltfsrTags        :: [Tag]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListTagsForStreamResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListTagsForStreamResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Tags ::@ @[Tag]@
+-- * 'ltfsrHasMoreTags' @::@ 'Bool'
 --
--- * @HasMoreTags ::@ @Bool@
+-- * 'ltfsrTags' @::@ ['Tag']
 --
-listTagsForStreamResponse :: [Tag] -- ^ 'ltfsrTags'
-                          -> Bool -- ^ 'ltfsrHasMoreTags'
+listTagsForStreamResponse :: Bool -- ^ 'ltfsrHasMoreTags'
                           -> ListTagsForStreamResponse
-listTagsForStreamResponse p1 p2 = ListTagsForStreamResponse
-    { _ltfsrTags = p1
-    , _ltfsrHasMoreTags = p2
+listTagsForStreamResponse p1 = ListTagsForStreamResponse
+    { _ltfsrHasMoreTags = p1
+    , _ltfsrTags        = mempty
     }
+
+-- | If set to true, more tags are available. To request additional tags, set
+-- ExclusiveStartTagKey to the key of the last tag returned.
+ltfsrHasMoreTags :: Lens' ListTagsForStreamResponse Bool
+ltfsrHasMoreTags = lens _ltfsrHasMoreTags (\s a -> s { _ltfsrHasMoreTags = a })
 
 -- | A list of tags associated with StreamName, starting with the first tag
 -- after ExclusiveStartTagKey and up to the specified Limit.
 ltfsrTags :: Lens' ListTagsForStreamResponse [Tag]
 ltfsrTags = lens _ltfsrTags (\s a -> s { _ltfsrTags = a })
 
--- | If set to true, more tags are available. To request additional tags, set
--- ExclusiveStartTagKey to the key of the last tag returned.
-ltfsrHasMoreTags :: Lens' ListTagsForStreamResponse Bool
-ltfsrHasMoreTags =
-    lens _ltfsrHasMoreTags (\s a -> s { _ltfsrHasMoreTags = a })
-
-instance FromJSON ListTagsForStreamResponse
+-- FromJSON
 
 instance AWSRequest ListTagsForStream where
     type Sv ListTagsForStream = Kinesis
     type Rs ListTagsForStream = ListTagsForStreamResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> ListTagsForStreamResponse
+        <$> o .: "HasMoreTags"
+        <*> o .: "Tags"

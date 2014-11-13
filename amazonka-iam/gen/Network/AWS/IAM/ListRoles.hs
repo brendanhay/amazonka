@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.ListRoles
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,18 +25,7 @@
 -- Working with Roles. You can paginate the results using the MaxItems and
 -- Marker parameters. The returned policy is URL-encoded according to RFC
 -- 3986. For more information about RFC 3986, go to
--- http://www.faqs.org/rfcs/rfc3986.html. https://iam.amazonaws.com/
--- ?Action=ListRoles &MaxItems=100 &PathPrefix=/application_abc/
--- &Version=2010-05-08 &AUTHPARAMS false /application_abc/component_xyz/
--- arn:aws:iam::123456789012:role/application_abc/component_xyz/S3Access
--- S3Access
--- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
--- 2012-05-09T15:45:35Z AROACVSVTSZYEXAMPLEYK /application_abc/component_xyz/
--- arn:aws:iam::123456789012:role/application_abc/component_xyz/SDBAccess
--- SDBAccess
--- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
--- 2012-05-09T15:45:45Z AROAC2ICXG32EXAMPLEWK
--- 20f7279f-99ee-11e1-a4c3-27EXAMPLE804.
+-- http://www.faqs.org/rfcs/rfc3986.html.
 module Network.AWS.IAM.ListRoles
     (
     -- * Request
@@ -42,54 +33,47 @@ module Network.AWS.IAM.ListRoles
     -- ** Request constructor
     , listRoles
     -- ** Request lenses
-    , lrPathPrefix
     , lrMarker
     , lrMaxItems
+    , lrPathPrefix
 
     -- * Response
     , ListRolesResponse
     -- ** Response constructor
     , listRolesResponse
     -- ** Response lenses
-    , lrrRoles
     , lrrIsTruncated
     , lrrMarker
+    , lrrRoles
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ListRoles = ListRoles
-    { _lrPathPrefix :: Maybe Text
-    , _lrMarker :: Maybe Text
-    , _lrMaxItems :: Maybe Integer
+    { _lrMarker     :: Maybe Text
+    , _lrMaxItems   :: Maybe Natural
+    , _lrPathPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListRoles' request.
+-- | 'ListRoles' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PathPrefix ::@ @Maybe Text@
+-- * 'lrMarker' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lrMaxItems' @::@ 'Maybe' 'Natural'
 --
--- * @MaxItems ::@ @Maybe Integer@
+-- * 'lrPathPrefix' @::@ 'Maybe' 'Text'
 --
 listRoles :: ListRoles
 listRoles = ListRoles
     { _lrPathPrefix = Nothing
-    , _lrMarker = Nothing
-    , _lrMaxItems = Nothing
+    , _lrMarker     = Nothing
+    , _lrMaxItems   = Nothing
     }
-
--- | The path prefix for filtering the results. For example:
--- /application_abc/component_xyz/, which would get all roles whose path
--- starts with /application_abc/component_xyz/. This parameter is optional. If
--- it is not included, it defaults to a slash (/), listing all roles.
-lrPathPrefix :: Lens' ListRoles (Maybe Text)
-lrPathPrefix = lens _lrPathPrefix (\s a -> s { _lrPathPrefix = a })
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
@@ -99,53 +83,51 @@ lrMarker :: Lens' ListRoles (Maybe Text)
 lrMarker = lens _lrMarker (\s a -> s { _lrMarker = a })
 
 -- | Use this parameter only when paginating results to indicate the maximum
--- number of user names you want in the response. If there are additional user
--- names beyond the maximum you specify, the IsTruncated response element is
--- true. This parameter is optional. If you do not include it, it defaults to
--- 100.
-lrMaxItems :: Lens' ListRoles (Maybe Integer)
+-- number of roles you want in the response. If there are additional roles
+-- beyond the maximum you specify, the IsTruncated response element is true.
+-- This parameter is optional. If you do not include it, it defaults to 100.
+lrMaxItems :: Lens' ListRoles (Maybe Natural)
 lrMaxItems = lens _lrMaxItems (\s a -> s { _lrMaxItems = a })
 
-instance ToQuery ListRoles where
-    toQuery = genericQuery def
+-- | The path prefix for filtering the results. For example, the prefix
+-- /application_abc/component_xyz/ gets all roles whose path starts with
+-- /application_abc/component_xyz/. This parameter is optional. If it is not
+-- included, it defaults to a slash (/), listing all roles.
+lrPathPrefix :: Lens' ListRoles (Maybe Text)
+lrPathPrefix = lens _lrPathPrefix (\s a -> s { _lrPathPrefix = a })
 
--- | Contains the result of a successful invocation of the ListRoles action.
+instance ToQuery ListRoles
+
+instance ToPath ListRoles where
+    toPath = const "/"
+
 data ListRolesResponse = ListRolesResponse
-    { _lrrRoles :: [Role]
-    , _lrrIsTruncated :: Bool
-    , _lrrMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _lrrIsTruncated :: Maybe Bool
+    , _lrrMarker      :: Maybe Text
+    , _lrrRoles       :: [Role]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListRolesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListRolesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Roles ::@ @[Role]@
+-- * 'lrrIsTruncated' @::@ 'Maybe' 'Bool'
 --
--- * @IsTruncated ::@ @Bool@
+-- * 'lrrMarker' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lrrRoles' @::@ ['Role']
 --
-listRolesResponse :: [Role] -- ^ 'lrrRoles'
-                  -> Bool -- ^ 'lrrIsTruncated'
-                  -> ListRolesResponse
-listRolesResponse p1 p2 = ListRolesResponse
-    { _lrrRoles = p1
-    , _lrrIsTruncated = p2
-    , _lrrMarker = Nothing
+listRolesResponse :: ListRolesResponse
+listRolesResponse = ListRolesResponse
+    { _lrrRoles       = mempty
+    , _lrrIsTruncated = Nothing
+    , _lrrMarker      = Nothing
     }
 
--- | A list of roles.
-lrrRoles :: Lens' ListRolesResponse [Role]
-lrrRoles = lens _lrrRoles (\s a -> s { _lrrRoles = a })
-
--- | A flag that indicates whether there are more roles to list. If your results
--- were truncated, you can make a subsequent pagination request using the
--- Marker request parameter to retrieve more roles in the list.
-lrrIsTruncated :: Lens' ListRolesResponse Bool
+-- | A flag that indicates whether there are more roles to list. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the Marker request parameter to retrieve more roles in the list.
+lrrIsTruncated :: Lens' ListRolesResponse (Maybe Bool)
 lrrIsTruncated = lens _lrrIsTruncated (\s a -> s { _lrrIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
@@ -153,18 +135,16 @@ lrrIsTruncated = lens _lrrIsTruncated (\s a -> s { _lrrIsTruncated = a })
 lrrMarker :: Lens' ListRolesResponse (Maybe Text)
 lrrMarker = lens _lrrMarker (\s a -> s { _lrrMarker = a })
 
-instance FromXML ListRolesResponse where
-    fromXMLOptions = xmlOptions
+-- | A list of roles.
+lrrRoles :: Lens' ListRolesResponse [Role]
+lrrRoles = lens _lrrRoles (\s a -> s { _lrrRoles = a })
 
 instance AWSRequest ListRoles where
     type Sv ListRoles = IAM
     type Rs ListRoles = ListRolesResponse
 
-    request = post "ListRoles"
-    response _ = xmlResponse
-
-instance AWSPager ListRoles where
-    next rq rs
-        | not (rs ^. lrrIsTruncated) = Nothing
-        | otherwise = Just $
-            rq & lrMarker .~ rs ^. lrrMarker
+    request  = post "ListRoles"
+    response = xmlResponse $ \h x -> ListRolesResponse
+        <$> x %| "IsTruncated"
+        <*> x %| "Marker"
+        <*> x %| "Roles"

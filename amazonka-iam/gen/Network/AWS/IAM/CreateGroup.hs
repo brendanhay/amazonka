@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.CreateGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,9 +22,6 @@
 
 -- | Creates a new group. For information about the number of groups you can
 -- create, see Limitations on IAM Entities in the Using IAM guide.
--- https://iam.amazonaws.com/ ?Action=CreateGroup &Path=/ &GroupName=Admins
--- &Version=2010-05-08 &AUTHPARAMS / Admins AGPACKCEVSQ6C2EXAMPLE
--- arn:aws:iam::123456789012:group/Admins 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 module Network.AWS.IAM.CreateGroup
     (
     -- * Request
@@ -30,8 +29,8 @@ module Network.AWS.IAM.CreateGroup
     -- ** Request constructor
     , createGroup
     -- ** Request lenses
-    , cgPath
     , cgGroupName
+    , cgPath
 
     -- * Response
     , CreateGroupResponse
@@ -41,57 +40,55 @@ module Network.AWS.IAM.CreateGroup
     , cgrGroup
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateGroup = CreateGroup
-    { _cgPath :: Maybe Text
-    , _cgGroupName :: Text
+    { _cgGroupName :: Text
+    , _cgPath      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateGroup' request.
+-- | 'CreateGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Path ::@ @Maybe Text@
+-- * 'cgGroupName' @::@ 'Text'
 --
--- * @GroupName ::@ @Text@
+-- * 'cgPath' @::@ 'Maybe' 'Text'
 --
 createGroup :: Text -- ^ 'cgGroupName'
             -> CreateGroup
-createGroup p2 = CreateGroup
-    { _cgPath = Nothing
-    , _cgGroupName = p2
+createGroup p1 = CreateGroup
+    { _cgGroupName = p1
+    , _cgPath      = Nothing
     }
 
--- | The path to the group. For more information about paths, see Identifiers
--- for IAM Entities in the Using IAM guide. This parameter is optional. If it
--- is not included, it defaults to a slash (/).
-cgPath :: Lens' CreateGroup (Maybe Text)
-cgPath = lens _cgPath (\s a -> s { _cgPath = a })
-
--- | Name of the group to create. Do not include the path in this value.
+-- | The name of the group to create. Do not include the path in this value.
 cgGroupName :: Lens' CreateGroup Text
 cgGroupName = lens _cgGroupName (\s a -> s { _cgGroupName = a })
 
-instance ToQuery CreateGroup where
-    toQuery = genericQuery def
+-- | The path to the group. For more information about paths, see IAM
+-- Identifiers in the Using IAM guide. This parameter is optional. If it is
+-- not included, it defaults to a slash (/).
+cgPath :: Lens' CreateGroup (Maybe Text)
+cgPath = lens _cgPath (\s a -> s { _cgPath = a })
 
--- | Contains the result of a successful invocation of the CreateGroup action.
+instance ToQuery CreateGroup
+
+instance ToPath CreateGroup where
+    toPath = const "/"
+
 newtype CreateGroupResponse = CreateGroupResponse
     { _cgrGroup :: Group
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Group ::@ @Group@
+-- * 'cgrGroup' @::@ 'Group'
 --
 createGroupResponse :: Group -- ^ 'cgrGroup'
                     -> CreateGroupResponse
@@ -103,12 +100,10 @@ createGroupResponse p1 = CreateGroupResponse
 cgrGroup :: Lens' CreateGroupResponse Group
 cgrGroup = lens _cgrGroup (\s a -> s { _cgrGroup = a })
 
-instance FromXML CreateGroupResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateGroup where
     type Sv CreateGroup = IAM
     type Rs CreateGroup = CreateGroupResponse
 
-    request = post "CreateGroup"
-    response _ = xmlResponse
+    request  = post "CreateGroup"
+    response = xmlResponse $ \h x -> CreateGroupResponse
+        <$> x %| "Group"

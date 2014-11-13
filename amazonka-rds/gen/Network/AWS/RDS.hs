@@ -17,7 +17,9 @@ module Network.AWS.RDS
     ( module Network.AWS.RDS.AddSourceIdentifierToSubscription
     , module Network.AWS.RDS.AddTagsToResource
     , module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
+    , module Network.AWS.RDS.CopyDBParameterGroup
     , module Network.AWS.RDS.CopyDBSnapshot
+    , module Network.AWS.RDS.CopyOptionGroup
     , module Network.AWS.RDS.CreateDBInstance
     , module Network.AWS.RDS.CreateDBInstanceReadReplica
     , module Network.AWS.RDS.CreateDBParameterGroup
@@ -72,7 +74,9 @@ module Network.AWS.RDS
 import Network.AWS.RDS.AddSourceIdentifierToSubscription
 import Network.AWS.RDS.AddTagsToResource
 import Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
+import Network.AWS.RDS.CopyDBParameterGroup
 import Network.AWS.RDS.CopyDBSnapshot
+import Network.AWS.RDS.CopyOptionGroup
 import Network.AWS.RDS.CreateDBInstance
 import Network.AWS.RDS.CreateDBInstanceReadReplica
 import Network.AWS.RDS.CreateDBParameterGroup

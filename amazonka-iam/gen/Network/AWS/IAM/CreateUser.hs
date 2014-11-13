@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.CreateUser
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,11 +22,7 @@
 
 -- | Creates a new user for your AWS account. For information about limitations
 -- on the number of users you can create, see Limitations on IAM Entities in
--- the Using IAM guide. https://iam.amazonaws.com/ ?Action=CreateUser
--- &Path=/division_abc/subdivision_xyz/ &UserName=Bob &Version=2010-05-08
--- &AUTHPARAMS /division_abc/subdivision_xyz/ Bob AIDACKCEVSQ6C2EXAMPLE
--- arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/Bob
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- the Using IAM guide.
 module Network.AWS.IAM.CreateUser
     (
     -- * Request
@@ -43,57 +41,55 @@ module Network.AWS.IAM.CreateUser
     , curUser
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateUser = CreateUser
-    { _cuPath :: Maybe Text
+    { _cuPath     :: Maybe Text
     , _cuUserName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateUser' request.
+-- | 'CreateUser' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Path ::@ @Maybe Text@
+-- * 'cuPath' @::@ 'Maybe' 'Text'
 --
--- * @UserName ::@ @Text@
+-- * 'cuUserName' @::@ 'Text'
 --
 createUser :: Text -- ^ 'cuUserName'
            -> CreateUser
-createUser p2 = CreateUser
-    { _cuPath = Nothing
-    , _cuUserName = p2
+createUser p1 = CreateUser
+    { _cuUserName = p1
+    , _cuPath     = Nothing
     }
 
--- | The path for the user name. For more information about paths, see
--- Identifiers for IAM Entities in the Using IAM guide. This parameter is
--- optional. If it is not included, it defaults to a slash (/).
+-- | The path for the user name. For more information about paths, see IAM
+-- Identifiers in the Using IAM guide. This parameter is optional. If it is
+-- not included, it defaults to a slash (/).
 cuPath :: Lens' CreateUser (Maybe Text)
 cuPath = lens _cuPath (\s a -> s { _cuPath = a })
 
--- | Name of the user to create.
+-- | The name of the user to create.
 cuUserName :: Lens' CreateUser Text
 cuUserName = lens _cuUserName (\s a -> s { _cuUserName = a })
 
-instance ToQuery CreateUser where
-    toQuery = genericQuery def
+instance ToQuery CreateUser
 
--- | Contains the result of a successful invocation of the CreateUser action.
+instance ToPath CreateUser where
+    toPath = const "/"
+
 newtype CreateUserResponse = CreateUserResponse
     { _curUser :: Maybe User
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateUserResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateUserResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @User ::@ @Maybe User@
+-- * 'curUser' @::@ 'Maybe' 'User'
 --
 createUserResponse :: CreateUserResponse
 createUserResponse = CreateUserResponse
@@ -104,12 +100,10 @@ createUserResponse = CreateUserResponse
 curUser :: Lens' CreateUserResponse (Maybe User)
 curUser = lens _curUser (\s a -> s { _curUser = a })
 
-instance FromXML CreateUserResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateUser where
     type Sv CreateUser = IAM
     type Rs CreateUser = CreateUserResponse
 
-    request = post "CreateUser"
-    response _ = xmlResponse
+    request  = post "CreateUser"
+    response = xmlResponse $ \h x -> CreateUserResponse
+        <$> x %| "User"

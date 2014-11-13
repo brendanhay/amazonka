@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,38 +39,37 @@ module Network.AWS.S3.PutBucketPolicy
     , putBucketPolicyResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutBucketPolicy = PutBucketPolicy
-    { _pbpBucket :: BucketName
+    { _pbpBucket     :: Text
     , _pbpContentMD5 :: Maybe Text
-    , _pbpPolicy :: Text
+    , _pbpPolicy     :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketPolicy' request.
+-- | 'PutBucketPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'pbpBucket' @::@ 'Text'
 --
--- * @ContentMD5 ::@ @Maybe Text@
+-- * 'pbpContentMD5' @::@ 'Maybe' 'Text'
 --
--- * @Policy ::@ @Text@
+-- * 'pbpPolicy' @::@ 'Text'
 --
-putBucketPolicy :: BucketName -- ^ 'pbpBucket'
+putBucketPolicy :: Text -- ^ 'pbpBucket'
                 -> Text -- ^ 'pbpPolicy'
                 -> PutBucketPolicy
-putBucketPolicy p1 p3 = PutBucketPolicy
-    { _pbpBucket = p1
+putBucketPolicy p1 p2 = PutBucketPolicy
+    { _pbpBucket     = p1
+    , _pbpPolicy     = p2
     , _pbpContentMD5 = Nothing
-    , _pbpPolicy = p3
     }
 
-pbpBucket :: Lens' PutBucketPolicy BucketName
+pbpBucket :: Lens' PutBucketPolicy Text
 pbpBucket = lens _pbpBucket (\s a -> s { _pbpBucket = a })
 
 pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
@@ -78,12 +79,17 @@ pbpContentMD5 = lens _pbpContentMD5 (\s a -> s { _pbpContentMD5 = a })
 pbpPolicy :: Lens' PutBucketPolicy Text
 pbpPolicy = lens _pbpPolicy (\s a -> s { _pbpPolicy = a })
 
-instance ToPath PutBucketPolicy
+instance ToPath PutBucketPolicy where
+    toPath PutBucketPolicy{..} = mconcat
+        [ "/"
+        , toText _pbpBucket
+        ]
 
-instance ToQuery PutBucketPolicy
+instance ToQuery PutBucketPolicy where
+    toQuery = const "policy"
 
 instance ToHeaders PutBucketPolicy where
-    toHeaders PutBucketPolicy{..} = concat
+    toHeaders PutBucketPolicy{..} = mconcat
         [ "Content-MD5" =: _pbpContentMD5
         ]
 
@@ -93,10 +99,7 @@ instance ToBody PutBucketPolicy where
 data PutBucketPolicyResponse = PutBucketPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutBucketPolicyResponse' constructor.
 putBucketPolicyResponse :: PutBucketPolicyResponse
 putBucketPolicyResponse = PutBucketPolicyResponse
 
@@ -104,5 +107,5 @@ instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3
     type Rs PutBucketPolicy = PutBucketPolicyResponse
 
-    request = get
-    response _ = nullaryResponse PutBucketPolicyResponse
+    request  = put
+    response = nullaryResponse PutBucketPolicyResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribePermissions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,28 +42,27 @@ module Network.AWS.OpsWorks.DescribePermissions
     , dprPermissions
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DescribePermissions = DescribePermissions
     { _dpIamUserArn :: Maybe Text
-    , _dpStackId :: Maybe Text
+    , _dpStackId    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribePermissions' request.
+-- | 'DescribePermissions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IamUserArn ::@ @Maybe Text@
+-- * 'dpIamUserArn' @::@ 'Maybe' 'Text'
 --
--- * @StackId ::@ @Maybe Text@
+-- * 'dpStackId' @::@ 'Maybe' 'Text'
 --
 describePermissions :: DescribePermissions
 describePermissions = DescribePermissions
     { _dpIamUserArn = Nothing
-    , _dpStackId = Nothing
+    , _dpStackId    = Nothing
     }
 
 -- | The user's IAM ARN. For more information about IAM ARNs, see Using
@@ -73,48 +74,54 @@ dpIamUserArn = lens _dpIamUserArn (\s a -> s { _dpIamUserArn = a })
 dpStackId :: Lens' DescribePermissions (Maybe Text)
 dpStackId = lens _dpStackId (\s a -> s { _dpStackId = a })
 
-instance ToPath DescribePermissions
+instance ToPath DescribePermissions where
+    toPath = const "/"
 
-instance ToQuery DescribePermissions
+instance ToQuery DescribePermissions where
+    toQuery = const mempty
 
 instance ToHeaders DescribePermissions
 
-instance ToJSON DescribePermissions
+instance ToBody DescribePermissions where
+    toBody = toBody . encode . _dpIamUserArn
 
--- | Contains the response to a DescribePermissions request.
 newtype DescribePermissionsResponse = DescribePermissionsResponse
     { _dprPermissions :: [Permission]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribePermissionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribePermissionsResponse where
+    type Item DescribePermissionsResponse = Permission
+
+    fromList = DescribePermissionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dprPermissions
+
+-- | 'DescribePermissionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Permissions ::@ @[Permission]@
+-- * 'dprPermissions' @::@ ['Permission']
 --
 describePermissionsResponse :: DescribePermissionsResponse
 describePermissionsResponse = DescribePermissionsResponse
     { _dprPermissions = mempty
     }
 
--- | An array of Permission objects that describe the stack permissions. If the
--- request object contains only a stack ID, the array contains a Permission
--- object with permissions for each of the stack IAM ARNs. If the request
--- object contains only an IAM ARN, the array contains a Permission object
--- with permissions for each of the user's stack IDs. If the request contains
--- a stack ID and an IAM ARN, the array contains a single Permission object
--- with permissions for the specified stack and IAM ARN.
+-- | An array of Permission objects that describe the stack permissions. If
+-- the request object contains only a stack ID, the array contains a
+-- Permission object with permissions for each of the stack IAM ARNs. If the
+-- request object contains only an IAM ARN, the array contains a Permission
+-- object with permissions for each of the user's stack IDs. If the request
+-- contains a stack ID and an IAM ARN, the array contains a single
+-- Permission object with permissions for the specified stack and IAM ARN.
 dprPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprPermissions = lens _dprPermissions (\s a -> s { _dprPermissions = a })
 
-instance FromJSON DescribePermissionsResponse
+-- FromJSON
 
 instance AWSRequest DescribePermissions where
     type Sv DescribePermissions = OpsWorks
     type Rs DescribePermissions = DescribePermissionsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribePermissionsResponse
+        <$> o .: "Permissions"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DataPipeline.ActivatePipeline
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,14 +24,7 @@
 -- pass validation, activation fails. Call this action to start processing
 -- pipeline tasks of a pipeline you've created using the CreatePipeline and
 -- PutPipelineDefinition actions. A pipeline cannot be modified after it has
--- been successfully activated. POST / HTTP/1.1 Content-Type:
--- application/x-amz-json-1.1 X-Amz-Target: DataPipeline.ActivatePipeline
--- Content-Length: 39 Host: datapipeline.us-east-1.amazonaws.com X-Amz-Date:
--- Mon, 12 Nov 2012 17:49:52 GMT Authorization: AuthParams {"pipelineId":
--- "df-06372391ZG65EXAMPLE"} HTTP/1.1 200 x-amzn-RequestId:
--- ee19d5bf-074e-11e2-af6f-6bc7a6be60d9 Content-Type:
--- application/x-amz-json-1.1 Content-Length: 2 Date: Mon, 12 Nov 2012
--- 17:50:53 GMT {}.
+-- been successfully activated.
 module Network.AWS.DataPipeline.ActivatePipeline
     (
     -- * Request
@@ -45,21 +40,19 @@ module Network.AWS.DataPipeline.ActivatePipeline
     , activatePipelineResponse
     ) where
 
-import Network.AWS.DataPipeline.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DataPipeline.Types
 
--- | The input of the ActivatePipeline action.
 newtype ActivatePipeline = ActivatePipeline
     { _apPipelineId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ActivatePipeline' request.
+-- | 'ActivatePipeline' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PipelineId ::@ @Text@
+-- * 'apPipelineId' @::@ 'Text'
 --
 activatePipeline :: Text -- ^ 'apPipelineId'
                  -> ActivatePipeline
@@ -71,28 +64,29 @@ activatePipeline p1 = ActivatePipeline
 apPipelineId :: Lens' ActivatePipeline Text
 apPipelineId = lens _apPipelineId (\s a -> s { _apPipelineId = a })
 
-instance ToPath ActivatePipeline
+instance ToPath ActivatePipeline where
+    toPath = const "/"
 
-instance ToQuery ActivatePipeline
+instance ToQuery ActivatePipeline where
+    toQuery = const mempty
 
 instance ToHeaders ActivatePipeline
 
-instance ToJSON ActivatePipeline
+instance ToBody ActivatePipeline where
+    toBody = toBody . encode . _apPipelineId
 
--- | Contains the output from the ActivatePipeline action.
 data ActivatePipelineResponse = ActivatePipelineResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ActivatePipelineResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ActivatePipelineResponse' constructor.
 activatePipelineResponse :: ActivatePipelineResponse
 activatePipelineResponse = ActivatePipelineResponse
+
+-- FromJSON
 
 instance AWSRequest ActivatePipeline where
     type Sv ActivatePipeline = DataPipeline
     type Rs ActivatePipeline = ActivatePipelineResponse
 
-    request = get
-    response _ = nullaryResponse ActivatePipelineResponse
+    request  = post'
+    response = nullaryResponse ActivatePipelineResponse

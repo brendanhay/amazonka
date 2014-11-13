@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.StopStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,7 +31,7 @@ module Network.AWS.OpsWorks.StopStack
     -- ** Request constructor
     , stopStack
     -- ** Request lenses
-    , ss2StackId
+    , ss1StackId
 
     -- * Response
     , StopStackResponse
@@ -37,52 +39,53 @@ module Network.AWS.OpsWorks.StopStack
     , stopStackResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype StopStack = StopStack
-    { _ss2StackId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _ss1StackId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StopStack' request.
+-- | 'StopStack' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Text@
+-- * 'ss1StackId' @::@ 'Text'
 --
-stopStack :: Text -- ^ 'ss2StackId'
+stopStack :: Text -- ^ 'ss1StackId'
           -> StopStack
 stopStack p1 = StopStack
-    { _ss2StackId = p1
+    { _ss1StackId = p1
     }
 
 -- | The stack ID.
-ss2StackId :: Lens' StopStack Text
-ss2StackId = lens _ss2StackId (\s a -> s { _ss2StackId = a })
+ss1StackId :: Lens' StopStack Text
+ss1StackId = lens _ss1StackId (\s a -> s { _ss1StackId = a })
 
-instance ToPath StopStack
+instance ToPath StopStack where
+    toPath = const "/"
 
-instance ToQuery StopStack
+instance ToQuery StopStack where
+    toQuery = const mempty
 
 instance ToHeaders StopStack
 
-instance ToJSON StopStack
+instance ToBody StopStack where
+    toBody = toBody . encode . _ss1StackId
 
 data StopStackResponse = StopStackResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StopStackResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'StopStackResponse' constructor.
 stopStackResponse :: StopStackResponse
 stopStackResponse = StopStackResponse
+
+-- FromJSON
 
 instance AWSRequest StopStack where
     type Sv StopStack = OpsWorks
     type Rs StopStack = StopStackResponse
 
-    request = get
-    response _ = nullaryResponse StopStackResponse
+    request  = post'
+    response = nullaryResponse StopStackResponse

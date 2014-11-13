@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.BuildSuggesters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,7 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Indexes the search suggestions.
+-- | Indexes the search suggestions. For more information, see Configuring
+-- Suggesters in the Amazon CloudSearch Developer Guide.
 module Network.AWS.CloudSearch.BuildSuggesters
     (
     -- * Request
@@ -36,22 +39,20 @@ module Network.AWS.CloudSearch.BuildSuggesters
     , bsrFieldNames
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the BuildSuggester operation. Specifies the
--- name of the domain you want to update.
 newtype BuildSuggesters = BuildSuggesters
     { _bsDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'BuildSuggesters' request.
+-- | 'BuildSuggesters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'bsDomainName' @::@ 'Text'
 --
 buildSuggesters :: Text -- ^ 'bsDomainName'
                 -> BuildSuggesters
@@ -59,46 +60,42 @@ buildSuggesters p1 = BuildSuggesters
     { _bsDomainName = p1
     }
 
--- | A string that represents the name of a domain. Domain names are unique
--- across the domains owned by an account within an AWS region. Domain names
--- start with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
 bsDomainName :: Lens' BuildSuggesters Text
 bsDomainName = lens _bsDomainName (\s a -> s { _bsDomainName = a })
 
-instance ToQuery BuildSuggesters where
-    toQuery = genericQuery def
+instance ToQuery BuildSuggesters
 
--- | The result of a BuildSuggester request. Contains a list of the fields used
--- for suggestions.
+instance ToPath BuildSuggesters where
+    toPath = const "/"
+
 newtype BuildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'BuildSuggestersResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList BuildSuggestersResponse where
+    type Item BuildSuggestersResponse = Text
+
+    fromList = BuildSuggestersResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _bsrFieldNames
+
+-- | 'BuildSuggestersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @FieldNames ::@ @[Text]@
+-- * 'bsrFieldNames' @::@ ['Text']
 --
 buildSuggestersResponse :: BuildSuggestersResponse
 buildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames = mempty
     }
 
--- | A list of field names.
 bsrFieldNames :: Lens' BuildSuggestersResponse [Text]
 bsrFieldNames = lens _bsrFieldNames (\s a -> s { _bsrFieldNames = a })
-
-instance FromXML BuildSuggestersResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest BuildSuggesters where
     type Sv BuildSuggesters = CloudSearch
     type Rs BuildSuggesters = BuildSuggestersResponse
 
-    request = post "BuildSuggesters"
-    response _ = xmlResponse
+    request  = post "BuildSuggesters"
+    response = xmlResponse $ \h x -> BuildSuggestersResponse
+        <$> x %| "FieldNames"

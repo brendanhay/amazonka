@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualInterfaces
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,89 +37,90 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     -- ** Request constructor
     , describeVirtualInterfaces
     -- ** Request lenses
-    , dvi1ConnectionId
-    , dvi1VirtualInterfaceId
+    , dviConnectionId
+    , dviVirtualInterfaceId
 
     -- * Response
     , DescribeVirtualInterfacesResponse
     -- ** Response constructor
     , describeVirtualInterfacesResponse
     -- ** Response lenses
-    , dvirrVirtualInterfaces
+    , dvirVirtualInterfaces
     ) where
 
-import Network.AWS.DirectConnect.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DirectConnect.Types
 
--- | Container for the parameters to the DescribeVirtualInterfaces operation.
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces
-    { _dvi1ConnectionId :: Maybe Text
-    , _dvi1VirtualInterfaceId :: Maybe Text
+    { _dviConnectionId       :: Maybe Text
+    , _dviVirtualInterfaceId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVirtualInterfaces' request.
+-- | 'DescribeVirtualInterfaces' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ConnectionId ::@ @Maybe Text@
+-- * 'dviConnectionId' @::@ 'Maybe' 'Text'
 --
--- * @VirtualInterfaceId ::@ @Maybe Text@
+-- * 'dviVirtualInterfaceId' @::@ 'Maybe' 'Text'
 --
 describeVirtualInterfaces :: DescribeVirtualInterfaces
 describeVirtualInterfaces = DescribeVirtualInterfaces
-    { _dvi1ConnectionId = Nothing
-    , _dvi1VirtualInterfaceId = Nothing
+    { _dviConnectionId       = Nothing
+    , _dviVirtualInterfaceId = Nothing
     }
 
--- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-dvi1ConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dvi1ConnectionId =
-    lens _dvi1ConnectionId (\s a -> s { _dvi1ConnectionId = a })
+dviConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
+dviConnectionId = lens _dviConnectionId (\s a -> s { _dviConnectionId = a })
 
--- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-dvi1VirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dvi1VirtualInterfaceId =
-    lens _dvi1VirtualInterfaceId (\s a -> s { _dvi1VirtualInterfaceId = a })
+dviVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
+dviVirtualInterfaceId =
+    lens _dviVirtualInterfaceId (\s a -> s { _dviVirtualInterfaceId = a })
 
-instance ToPath DescribeVirtualInterfaces
+instance ToPath DescribeVirtualInterfaces where
+    toPath = const "/"
 
-instance ToQuery DescribeVirtualInterfaces
+instance ToQuery DescribeVirtualInterfaces where
+    toQuery = const mempty
 
 instance ToHeaders DescribeVirtualInterfaces
 
-instance ToJSON DescribeVirtualInterfaces
+instance ToBody DescribeVirtualInterfaces where
+    toBody = toBody . encode . _dviConnectionId
 
--- | A structure containing a list of virtual interfaces.
 newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
-    { _dvirrVirtualInterfaces :: [VirtualInterface]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dvirVirtualInterfaces :: [VirtualInterface]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVirtualInterfacesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeVirtualInterfacesResponse where
+    type Item DescribeVirtualInterfacesResponse = VirtualInterface
+
+    fromList = DescribeVirtualInterfacesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dvirVirtualInterfaces
+
+-- | 'DescribeVirtualInterfacesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VirtualInterfaces ::@ @[VirtualInterface]@
+-- * 'dvirVirtualInterfaces' @::@ ['VirtualInterface']
 --
 describeVirtualInterfacesResponse :: DescribeVirtualInterfacesResponse
 describeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
-    { _dvirrVirtualInterfaces = mempty
+    { _dvirVirtualInterfaces = mempty
     }
 
 -- | A list of virtual interfaces.
-dvirrVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
-dvirrVirtualInterfaces =
-    lens _dvirrVirtualInterfaces (\s a -> s { _dvirrVirtualInterfaces = a })
+dvirVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
+dvirVirtualInterfaces =
+    lens _dvirVirtualInterfaces (\s a -> s { _dvirVirtualInterfaces = a })
 
-instance FromJSON DescribeVirtualInterfacesResponse
+-- FromJSON
 
 instance AWSRequest DescribeVirtualInterfaces where
     type Sv DescribeVirtualInterfaces = DirectConnect
     type Rs DescribeVirtualInterfaces = DescribeVirtualInterfacesResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeVirtualInterfacesResponse
+        <$> o .: "virtualInterfaces"

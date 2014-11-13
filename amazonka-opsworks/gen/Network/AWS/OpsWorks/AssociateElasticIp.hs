@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.AssociateElasticIp
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,28 +43,27 @@ module Network.AWS.OpsWorks.AssociateElasticIp
     , associateElasticIpResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data AssociateElasticIp = AssociateElasticIp
-    { _aeiElasticIp :: Text
+    { _aeiElasticIp  :: Text
     , _aeiInstanceId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AssociateElasticIp' request.
+-- | 'AssociateElasticIp' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ElasticIp ::@ @Text@
+-- * 'aeiElasticIp' @::@ 'Text'
 --
--- * @InstanceId ::@ @Maybe Text@
+-- * 'aeiInstanceId' @::@ 'Maybe' 'Text'
 --
 associateElasticIp :: Text -- ^ 'aeiElasticIp'
                    -> AssociateElasticIp
 associateElasticIp p1 = AssociateElasticIp
-    { _aeiElasticIp = p1
+    { _aeiElasticIp  = p1
     , _aeiInstanceId = Nothing
     }
 
@@ -74,27 +75,29 @@ aeiElasticIp = lens _aeiElasticIp (\s a -> s { _aeiElasticIp = a })
 aeiInstanceId :: Lens' AssociateElasticIp (Maybe Text)
 aeiInstanceId = lens _aeiInstanceId (\s a -> s { _aeiInstanceId = a })
 
-instance ToPath AssociateElasticIp
+instance ToPath AssociateElasticIp where
+    toPath = const "/"
 
-instance ToQuery AssociateElasticIp
+instance ToQuery AssociateElasticIp where
+    toQuery = const mempty
 
 instance ToHeaders AssociateElasticIp
 
-instance ToJSON AssociateElasticIp
+instance ToBody AssociateElasticIp where
+    toBody = toBody . encode . _aeiElasticIp
 
 data AssociateElasticIpResponse = AssociateElasticIpResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AssociateElasticIpResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AssociateElasticIpResponse' constructor.
 associateElasticIpResponse :: AssociateElasticIpResponse
 associateElasticIpResponse = AssociateElasticIpResponse
+
+-- FromJSON
 
 instance AWSRequest AssociateElasticIp where
     type Sv AssociateElasticIp = OpsWorks
     type Rs AssociateElasticIp = AssociateElasticIpResponse
 
-    request = get
-    response _ = nullaryResponse AssociateElasticIpResponse
+    request  = post'
+    response = nullaryResponse AssociateElasticIpResponse

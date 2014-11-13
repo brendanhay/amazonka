@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeCommands
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes the results of specified commands. You must specify at least one
--- of the parameters. Required Permissions: To use this action, an IAM user
--- must have a Show, Deploy, or Manage permissions level for the stack, or an
--- attached policy that explicitly grants permissions. For more information on
--- user permissions, see Managing User Permissions.
+-- | Describes the results of specified commands. Required Permissions: To use
+-- this action, an IAM user must have a Show, Deploy, or Manage permissions
+-- level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see Managing User
+-- Permissions.
 module Network.AWS.OpsWorks.DescribeCommands
     (
     -- * Request
@@ -30,9 +32,9 @@ module Network.AWS.OpsWorks.DescribeCommands
     -- ** Request constructor
     , describeCommands
     -- ** Request lenses
-    , dc1DeploymentId
-    , dc1InstanceId
-    , dc1CommandIds
+    , dcCommandIds
+    , dcDeploymentId
+    , dcInstanceId
 
     -- * Response
     , DescribeCommandsResponse
@@ -42,71 +44,76 @@ module Network.AWS.OpsWorks.DescribeCommands
     , dcrCommands
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DescribeCommands = DescribeCommands
-    { _dc1DeploymentId :: Maybe Text
-    , _dc1InstanceId :: Maybe Text
-    , _dc1CommandIds :: [Text]
+    { _dcCommandIds   :: [Text]
+    , _dcDeploymentId :: Maybe Text
+    , _dcInstanceId   :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeCommands' request.
+-- | 'DescribeCommands' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DeploymentId ::@ @Maybe Text@
+-- * 'dcCommandIds' @::@ ['Text']
 --
--- * @InstanceId ::@ @Maybe Text@
+-- * 'dcDeploymentId' @::@ 'Maybe' 'Text'
 --
--- * @CommandIds ::@ @[Text]@
+-- * 'dcInstanceId' @::@ 'Maybe' 'Text'
 --
 describeCommands :: DescribeCommands
 describeCommands = DescribeCommands
-    { _dc1DeploymentId = Nothing
-    , _dc1InstanceId = Nothing
-    , _dc1CommandIds = mempty
+    { _dcDeploymentId = Nothing
+    , _dcInstanceId   = Nothing
+    , _dcCommandIds   = mempty
     }
-
--- | The deployment ID. If you include this parameter, DescribeCommands returns
--- a description of the commands associated with the specified deployment.
-dc1DeploymentId :: Lens' DescribeCommands (Maybe Text)
-dc1DeploymentId = lens _dc1DeploymentId (\s a -> s { _dc1DeploymentId = a })
-
--- | The instance ID. If you include this parameter, DescribeCommands returns a
--- description of the commands associated with the specified instance.
-dc1InstanceId :: Lens' DescribeCommands (Maybe Text)
-dc1InstanceId = lens _dc1InstanceId (\s a -> s { _dc1InstanceId = a })
 
 -- | An array of command IDs. If you include this parameter, DescribeCommands
 -- returns a description of the specified commands. Otherwise, it returns a
 -- description of every command.
-dc1CommandIds :: Lens' DescribeCommands [Text]
-dc1CommandIds = lens _dc1CommandIds (\s a -> s { _dc1CommandIds = a })
+dcCommandIds :: Lens' DescribeCommands [Text]
+dcCommandIds = lens _dcCommandIds (\s a -> s { _dcCommandIds = a })
 
-instance ToPath DescribeCommands
+-- | The deployment ID. If you include this parameter, DescribeCommands
+-- returns a description of the commands associated with the specified
+-- deployment.
+dcDeploymentId :: Lens' DescribeCommands (Maybe Text)
+dcDeploymentId = lens _dcDeploymentId (\s a -> s { _dcDeploymentId = a })
 
-instance ToQuery DescribeCommands
+-- | The instance ID. If you include this parameter, DescribeCommands returns
+-- a description of the commands associated with the specified instance.
+dcInstanceId :: Lens' DescribeCommands (Maybe Text)
+dcInstanceId = lens _dcInstanceId (\s a -> s { _dcInstanceId = a })
+
+instance ToPath DescribeCommands where
+    toPath = const "/"
+
+instance ToQuery DescribeCommands where
+    toQuery = const mempty
 
 instance ToHeaders DescribeCommands
 
-instance ToJSON DescribeCommands
+instance ToBody DescribeCommands where
+    toBody = toBody . encode . _dcDeploymentId
 
--- | Contains the response to a DescribeCommands request.
 newtype DescribeCommandsResponse = DescribeCommandsResponse
     { _dcrCommands :: [Command]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeCommandsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeCommandsResponse where
+    type Item DescribeCommandsResponse = Command
+
+    fromList = DescribeCommandsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dcrCommands
+
+-- | 'DescribeCommandsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Commands ::@ @[Command]@
+-- * 'dcrCommands' @::@ ['Command']
 --
 describeCommandsResponse :: DescribeCommandsResponse
 describeCommandsResponse = DescribeCommandsResponse
@@ -117,11 +124,12 @@ describeCommandsResponse = DescribeCommandsResponse
 dcrCommands :: Lens' DescribeCommandsResponse [Command]
 dcrCommands = lens _dcrCommands (\s a -> s { _dcrCommands = a })
 
-instance FromJSON DescribeCommandsResponse
+-- FromJSON
 
 instance AWSRequest DescribeCommands where
     type Sv DescribeCommands = OpsWorks
     type Rs DescribeCommands = DescribeCommandsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeCommandsResponse
+        <$> o .: "Commands"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CognitoIdentity.ListIdentities
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,14 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Lists the identities in a pool. ListIdentities The following are examples
--- of a request and a response for the ListIdentities action. {
--- "IdentityPoolId": "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE",
--- "MaxResults": 10 } { "Identities": [ { "IdentityId":
--- "us-east-1:2345a6b7-8cc3-4a60-8aeb-e11bEXAMPLE4" }, { "IdentityId":
--- "us-east-1:852d4250-9eec-4006-8f84-4e82EXAMPLE3" }, { "IdentityId":
--- "us-east-1:921a3843-2dd6-46b8-ab2f-c679EXAMPLE5" } ], "IdentityPoolId":
--- "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE" }.
+-- | Lists the identities in a pool.
 module Network.AWS.CognitoIdentity.ListIdentities
     (
     -- * Request
@@ -42,108 +37,107 @@ module Network.AWS.CognitoIdentity.ListIdentities
     -- ** Response constructor
     , listIdentitiesResponse
     -- ** Response lenses
-    , lirIdentityPoolId
     , lirIdentities
+    , lirIdentityPoolId
     , lirNextToken
     ) where
 
-import Network.AWS.CognitoIdentity.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CognitoIdentity.Types
 
--- | Input to the ListIdentities action.
 data ListIdentities = ListIdentities
     { _liIdentityPoolId :: Text
-    , _liMaxResults :: !Integer
-    , _liNextToken :: Maybe Text
+    , _liMaxResults     :: Natural
+    , _liNextToken      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListIdentities' request.
+-- | 'ListIdentities' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IdentityPoolId ::@ @Text@
+-- * 'liIdentityPoolId' @::@ 'Text'
 --
--- * @MaxResults ::@ @Integer@
+-- * 'liMaxResults' @::@ 'Natural'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'liNextToken' @::@ 'Maybe' 'Text'
 --
 listIdentities :: Text -- ^ 'liIdentityPoolId'
-               -> Integer -- ^ 'liMaxResults'
+               -> Natural -- ^ 'liMaxResults'
                -> ListIdentities
 listIdentities p1 p2 = ListIdentities
     { _liIdentityPoolId = p1
-    , _liMaxResults = p2
-    , _liNextToken = Nothing
+    , _liMaxResults     = p2
+    , _liNextToken      = Nothing
     }
 
 -- | An identity pool ID in the format REGION:GUID.
 liIdentityPoolId :: Lens' ListIdentities Text
-liIdentityPoolId =
-    lens _liIdentityPoolId (\s a -> s { _liIdentityPoolId = a })
+liIdentityPoolId = lens _liIdentityPoolId (\s a -> s { _liIdentityPoolId = a })
 
 -- | The maximum number of identities to return.
-liMaxResults :: Lens' ListIdentities Integer
+liMaxResults :: Lens' ListIdentities Natural
 liMaxResults = lens _liMaxResults (\s a -> s { _liMaxResults = a })
 
 -- | A pagination token.
 liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
 
-instance ToPath ListIdentities
+instance ToPath ListIdentities where
+    toPath = const "/"
 
-instance ToQuery ListIdentities
+instance ToQuery ListIdentities where
+    toQuery = const mempty
 
 instance ToHeaders ListIdentities
 
-instance ToJSON ListIdentities
+instance ToBody ListIdentities where
+    toBody = toBody . encode . _liIdentityPoolId
 
--- | The response to a ListIdentities request.
 data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lirIdentityPoolId :: Maybe Text
-    , _lirIdentities :: [IdentityDescription]
-    , _lirNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _lirIdentities     :: [IdentityDescription]
+    , _lirIdentityPoolId :: Maybe Text
+    , _lirNextToken      :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListIdentitiesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListIdentitiesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IdentityPoolId ::@ @Maybe Text@
+-- * 'lirIdentities' @::@ ['IdentityDescription']
 --
--- * @Identities ::@ @[IdentityDescription]@
+-- * 'lirIdentityPoolId' @::@ 'Maybe' 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'lirNextToken' @::@ 'Maybe' 'Text'
 --
 listIdentitiesResponse :: ListIdentitiesResponse
 listIdentitiesResponse = ListIdentitiesResponse
     { _lirIdentityPoolId = Nothing
-    , _lirIdentities = mempty
-    , _lirNextToken = Nothing
+    , _lirIdentities     = mempty
+    , _lirNextToken      = Nothing
     }
+
+-- | An object containing a set of identities and associated mappings.
+lirIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
+lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a })
 
 -- | An identity pool ID in the format REGION:GUID.
 lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
 lirIdentityPoolId =
     lens _lirIdentityPoolId (\s a -> s { _lirIdentityPoolId = a })
 
--- | An object containing a set of identities and associated mappings.
-lirIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
-lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a })
-
 -- | A pagination token.
 lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
 
-instance FromJSON ListIdentitiesResponse
+-- FromJSON
 
 instance AWSRequest ListIdentities where
     type Sv ListIdentities = CognitoIdentity
     type Rs ListIdentities = ListIdentitiesResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> ListIdentitiesResponse
+        <$> o .: "Identities"
+        <*> o .: "IdentityPoolId"
+        <*> o .: "NextToken"

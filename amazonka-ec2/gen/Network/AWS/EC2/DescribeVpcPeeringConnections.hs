@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeVpcPeeringConnections
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,39 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes one or more of your VPC peering connections. Example 1 This
--- example describes all of your VPC peering connections.
--- https://ec2.amazonaws.com/?Action=DescribeVpcPeeringConnections
--- &amp;AUTHPARAMS &lt;DescribeVpcPeeringConnectionsResponse
--- xmlns=http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;vpcPeeringConnectionSet&gt; &lt;item&gt;
--- &lt;vpcPeeringConnectionId&gt;pcx-111aaa22&lt;/vpcPeeringConnectionId&gt;
--- &lt;requesterVpcInfo&gt; &lt;ownerId&gt;777788889999&lt;/ownerId&gt;
--- &lt;vpcId&gt;vpc-1a2b3c4d&lt;/vpcId&gt;
--- &lt;cidrBlock&gt;172.31.0.0/16&lt;/cidrBlock&gt; &lt;/requesterVpcInfo&gt;
--- &lt;accepterVpcInfo&gt; &lt;ownerId&gt;123456789012&lt;/ownerId&gt;
--- &lt;vpcId&gt;vpc-aa22cc33&lt;/vpcId&gt; &lt;/accepterVpcInfo&gt;"
--- &lt;status&gt; &lt;code&gt;pending-acceptance&lt;/code&gt;
--- &lt;message&gt;Pending Acceptance by 123456789012&lt;/message&gt;
--- &lt;/status&gt;
--- &lt;expirationTime&gt;2014-02-17T16:00:50.000Z&lt;/expirationTime&gt;
--- &lt;tagSet/&gt; &lt;/item&gt; &lt;/vpcPeeringConnectionSet&gt;
--- &lt;/DescribeVpcPeeringConnectionsResponse&gt; Example 2 This example
--- describes all of your VPC peering connections that are in the
--- pending-acceptance state.
--- https://ec2.amazonaws.com/?Action=DescribeVpcPeeringConnections
--- &amp;Filter.1.Name=status-code &amp;Filter.1.Value=pending-acceptance
--- &amp;AUTHPARAMS Example 3 This example describes all of your VPC peering
--- connections that have the tag Name=Finance or Name=Accounts.
--- https://ec2.amazonaws.com/?Action=DescribeVpcPeeringConnections
--- &amp;Filter.1.Name=tag:Name &amp;Filter.1.Value.1=Finance
--- &amp;Filter.1.Value.2=Accounts &amp;AUTHPARAMS Example 4 This example
--- describes all of the VPC peering connections for your specified VPC,
--- vpc-1a2b3c4d.
--- https://ec2.amazonaws.com/?Action=DescribeVpcPeeringConnections
--- &amp;Filter.1.Name=requester-vpc-info.vpc-id
--- &amp;Filter.1.Value=vpc-1a2b3c4d &amp;AUTHPARAMS.
+-- | Describes one or more of your VPC peering connections.
 module Network.AWS.EC2.DescribeVpcPeeringConnections
     (
     -- * Request
@@ -58,47 +28,48 @@ module Network.AWS.EC2.DescribeVpcPeeringConnections
     -- ** Request constructor
     , describeVpcPeeringConnections
     -- ** Request lenses
-    , dvpc1VpcPeeringConnectionIds
+    , dvpc1DryRun
     , dvpc1Filters
+    , dvpc1VpcPeeringConnectionIds
 
     -- * Response
     , DescribeVpcPeeringConnectionsResponse
     -- ** Response constructor
     , describeVpcPeeringConnectionsResponse
     -- ** Response lenses
-    , dvpcrrVpcPeeringConnections
+    , dvpcrVpcPeeringConnections
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
-    { _dvpc1VpcPeeringConnectionIds :: [Text]
-    , _dvpc1Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dvpc1DryRun                  :: Maybe Bool
+    , _dvpc1Filters                 :: [Filter]
+    , _dvpc1VpcPeeringConnectionIds :: [Text]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVpcPeeringConnections' request.
+-- | 'DescribeVpcPeeringConnections' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcPeeringConnectionIds ::@ @[Text]@
+-- * 'dvpc1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Filters ::@ @[Filter]@
+-- * 'dvpc1Filters' @::@ ['Filter']
+--
+-- * 'dvpc1VpcPeeringConnectionIds' @::@ ['Text']
 --
 describeVpcPeeringConnections :: DescribeVpcPeeringConnections
 describeVpcPeeringConnections = DescribeVpcPeeringConnections
-    { _dvpc1VpcPeeringConnectionIds = mempty
-    , _dvpc1Filters = mempty
+    { _dvpc1DryRun                  = Nothing
+    , _dvpc1VpcPeeringConnectionIds = mempty
+    , _dvpc1Filters                 = mempty
     }
 
--- | One or more VPC peering connection IDs. Default: Describes all your VPC
--- peering connections.
-dvpc1VpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
-dvpc1VpcPeeringConnectionIds =
-    lens _dvpc1VpcPeeringConnectionIds
-         (\s a -> s { _dvpc1VpcPeeringConnectionIds = a })
+dvpc1DryRun :: Lens' DescribeVpcPeeringConnections (Maybe Bool)
+dvpc1DryRun = lens _dvpc1DryRun (\s a -> s { _dvpc1DryRun = a })
 
 -- | One or more filters. accepter-vpc-info.cidr-block - The CIDR block of the
 -- peer VPC. accepter-vpc-info.owner-id - The AWS account ID of the owner of
@@ -108,54 +79,65 @@ dvpc1VpcPeeringConnectionIds =
 -- requester's VPC. requester-vpc-info.owner-id - The AWS account ID of the
 -- owner of the requester VPC. requester-vpc-info.vpc-id - The ID of the
 -- requester VPC. status-code - The status of the VPC peering connection
--- (pending-acceptance | failed | expired | provisioning | active | deleted |
--- rejected). status-message - A message that provides more information about
--- the status of the VPC peering connection, if applicable. tag:key=value -
--- The key/value combination of a tag assigned to the resource. tag-key - The
--- key of a tag assigned to the resource. This filter is independent of the
--- tag-value filter. For example, if you use both the filter "tag-key=Purpose"
--- and the filter "tag-value=X", you get any resources assigned both the tag
--- key Purpose (regardless of what the tag's value is), and the tag value X
--- (regardless of what the tag's key is). If you want to list only resources
--- where Purpose is X, see the tag:key=value filter. tag-value - The value of
--- a tag assigned to the resource. This filter is independent of the tag-key
--- filter. vpc-peering-connection-id - The ID of the VPC peering connection.
+-- (pending-acceptance | failed | expired | provisioning | active | deleted
+-- | rejected). status-message - A message that provides more information
+-- about the status of the VPC peering connection, if applicable.
+-- tag:key=value - The key/value combination of a tag assigned to the
+-- resource. tag-key - The key of a tag assigned to the resource. This
+-- filter is independent of the tag-value filter. For example, if you use
+-- both the filter "tag-key=Purpose" and the filter "tag-value=X", you get
+-- any resources assigned both the tag key Purpose (regardless of what the
+-- tag's value is), and the tag value X (regardless of what the tag's key
+-- is). If you want to list only resources where Purpose is X, see the
+-- tag:key=value filter. tag-value - The value of a tag assigned to the
+-- resource. This filter is independent of the tag-key filter.
+-- vpc-peering-connection-id - The ID of the VPC peering connection.
 dvpc1Filters :: Lens' DescribeVpcPeeringConnections [Filter]
 dvpc1Filters = lens _dvpc1Filters (\s a -> s { _dvpc1Filters = a })
 
-instance ToQuery DescribeVpcPeeringConnections where
-    toQuery = genericQuery def
+-- | One or more VPC peering connection IDs. Default: Describes all your VPC
+-- peering connections.
+dvpc1VpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
+dvpc1VpcPeeringConnectionIds =
+    lens _dvpc1VpcPeeringConnectionIds
+        (\s a -> s { _dvpc1VpcPeeringConnectionIds = a })
+
+instance ToQuery DescribeVpcPeeringConnections
+
+instance ToPath DescribeVpcPeeringConnections where
+    toPath = const "/"
 
 newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
-    { _dvpcrrVpcPeeringConnections :: [VpcPeeringConnection]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dvpcrVpcPeeringConnections :: [VpcPeeringConnection]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVpcPeeringConnectionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeVpcPeeringConnectionsResponse where
+    type Item DescribeVpcPeeringConnectionsResponse = VpcPeeringConnection
+
+    fromList = DescribeVpcPeeringConnectionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dvpcrVpcPeeringConnections
+
+-- | 'DescribeVpcPeeringConnectionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcPeeringConnections ::@ @[VpcPeeringConnection]@
+-- * 'dvpcrVpcPeeringConnections' @::@ ['VpcPeeringConnection']
 --
 describeVpcPeeringConnectionsResponse :: DescribeVpcPeeringConnectionsResponse
 describeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
-    { _dvpcrrVpcPeeringConnections = mempty
+    { _dvpcrVpcPeeringConnections = mempty
     }
 
 -- | Information about the VPC peering connections.
-dvpcrrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]
-dvpcrrVpcPeeringConnections =
-    lens _dvpcrrVpcPeeringConnections
-         (\s a -> s { _dvpcrrVpcPeeringConnections = a })
-
-instance FromXML DescribeVpcPeeringConnectionsResponse where
-    fromXMLOptions = xmlOptions
+dvpcrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]
+dvpcrVpcPeeringConnections =
+    lens _dvpcrVpcPeeringConnections
+        (\s a -> s { _dvpcrVpcPeeringConnections = a })
 
 instance AWSRequest DescribeVpcPeeringConnections where
     type Sv DescribeVpcPeeringConnections = EC2
     type Rs DescribeVpcPeeringConnections = DescribeVpcPeeringConnectionsResponse
 
-    request = post "DescribeVpcPeeringConnections"
-    response _ = xmlResponse
+    request  = post "DescribeVpcPeeringConnections"
+    response = xmlResponse $ \h x -> DescribeVpcPeeringConnectionsResponse
+        <$> x %| "vpcPeeringConnectionSet"

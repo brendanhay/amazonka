@@ -24,9 +24,13 @@ module Network.AWS.CognitoIdentity
     , module Network.AWS.CognitoIdentity.DescribeIdentityPool
     , module Network.AWS.CognitoIdentity.GetId
     , module Network.AWS.CognitoIdentity.GetOpenIdToken
+    , module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     , module Network.AWS.CognitoIdentity.ListIdentities
     , module Network.AWS.CognitoIdentity.ListIdentityPools
+    , module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
+    , module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     , module Network.AWS.CognitoIdentity.Types
+    , module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     , module Network.AWS.CognitoIdentity.UnlinkIdentity
     , module Network.AWS.CognitoIdentity.UpdateIdentityPool
     ) where
@@ -36,8 +40,12 @@ import Network.AWS.CognitoIdentity.DeleteIdentityPool
 import Network.AWS.CognitoIdentity.DescribeIdentityPool
 import Network.AWS.CognitoIdentity.GetId
 import Network.AWS.CognitoIdentity.GetOpenIdToken
+import Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
 import Network.AWS.CognitoIdentity.ListIdentities
 import Network.AWS.CognitoIdentity.ListIdentityPools
+import Network.AWS.CognitoIdentity.LookupDeveloperIdentity
+import Network.AWS.CognitoIdentity.MergeDeveloperIdentities
 import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
 import Network.AWS.CognitoIdentity.UnlinkIdentity
 import Network.AWS.CognitoIdentity.UpdateIdentityPool

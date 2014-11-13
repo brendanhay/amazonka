@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Kinesis.CreateStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,15 +46,7 @@
 -- you need to create a stream with more than 10 shards, contact AWS Support
 -- to increase the limit on your account. You can use DescribeStream to check
 -- the stream status, which is returned in StreamStatus. CreateStream has a
--- limit of 5 transactions per second per account. To create a stream The
--- following example creates a stream with 3 shards. POST / HTTP/1.1 Host:
--- kinesis.. x-amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Content-Type: application/x-amz-json-1.1
--- Content-Length: Connection: Keep-Alive]]> X-Amz-Target:
--- Kinesis_20131202.CreateStream { "StreamName": "exampleStreamName",
--- "ShardCount":3 } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
--- application/x-amz-json-1.1 Content-Length: Date: ]]>.
+-- limit of 5 transactions per second per account.
 module Network.AWS.Kinesis.CreateStream
     (
     -- * Request
@@ -60,8 +54,8 @@ module Network.AWS.Kinesis.CreateStream
     -- ** Request constructor
     , createStream
     -- ** Request lenses
-    , csStreamName
     , csShardCount
+    , csStreamName
 
     -- * Response
     , CreateStreamResponse
@@ -69,70 +63,71 @@ module Network.AWS.Kinesis.CreateStream
     , createStreamResponse
     ) where
 
-import Network.AWS.Kinesis.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Kinesis.Types
 
--- | Represents the input for CreateStream.
 data CreateStream = CreateStream
-    { _csStreamName :: Text
-    , _csShardCount :: !Integer
+    { _csShardCount :: Natural
+    , _csStreamName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateStream' request.
+-- | 'CreateStream' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StreamName ::@ @Text@
+-- * 'csShardCount' @::@ 'Natural'
 --
--- * @ShardCount ::@ @Integer@
+-- * 'csStreamName' @::@ 'Text'
 --
 createStream :: Text -- ^ 'csStreamName'
-             -> Integer -- ^ 'csShardCount'
+             -> Natural -- ^ 'csShardCount'
              -> CreateStream
 createStream p1 p2 = CreateStream
     { _csStreamName = p1
     , _csShardCount = p2
     }
 
--- | A name to identify the stream. The stream name is scoped to the AWS account
--- used by the application that creates the stream. It is also scoped by
--- region. That is, two streams in two different AWS accounts can have the
--- same name, and two streams in the same AWS account, but in two different
--- regions, can have the same name.
+-- | The number of shards that the stream will use. The throughput of the
+-- stream is a function of the number of shards; more shards are required
+-- for greater provisioned throughput. Note: The default limit for an AWS
+-- account is 10 shards per stream. If you need to create a stream with more
+-- than 10 shards, contact AWS Support to increase the limit on your
+-- account.
+csShardCount :: Lens' CreateStream Natural
+csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a })
+
+-- | A name to identify the stream. The stream name is scoped to the AWS
+-- account used by the application that creates the stream. It is also
+-- scoped by region. That is, two streams in two different AWS accounts can
+-- have the same name, and two streams in the same AWS account, but in two
+-- different regions, can have the same name.
 csStreamName :: Lens' CreateStream Text
 csStreamName = lens _csStreamName (\s a -> s { _csStreamName = a })
 
--- | The number of shards that the stream will use. The throughput of the stream
--- is a function of the number of shards; more shards are required for greater
--- provisioned throughput. Note: The default limit for an AWS account is 10
--- shards per stream. If you need to create a stream with more than 10 shards,
--- contact AWS Support to increase the limit on your account.
-csShardCount :: Lens' CreateStream Integer
-csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a })
+instance ToPath CreateStream where
+    toPath = const "/"
 
-instance ToPath CreateStream
-
-instance ToQuery CreateStream
+instance ToQuery CreateStream where
+    toQuery = const mempty
 
 instance ToHeaders CreateStream
 
-instance ToJSON CreateStream
+instance ToBody CreateStream where
+    toBody = toBody . encode . _csStreamName
 
 data CreateStreamResponse = CreateStreamResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateStreamResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateStreamResponse' constructor.
 createStreamResponse :: CreateStreamResponse
 createStreamResponse = CreateStreamResponse
+
+-- FromJSON
 
 instance AWSRequest CreateStream where
     type Sv CreateStream = Kinesis
     type Rs CreateStream = CreateStreamResponse
 
-    request = get
-    response _ = nullaryResponse CreateStreamResponse
+    request  = post'
+    response = nullaryResponse CreateStreamResponse

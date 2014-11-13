@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeIndexFields
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,101 +33,95 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     -- ** Request constructor
     , describeIndexFields
     -- ** Request lenses
-    , dif2DomainName
-    , dif2FieldNames
-    , dif2Deployed
+    , difDeployed
+    , difDomainName
+    , difFieldNames
 
     -- * Response
     , DescribeIndexFieldsResponse
     -- ** Response constructor
     , describeIndexFieldsResponse
     -- ** Response lenses
-    , difr1IndexFields
+    , difrIndexFields
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DescribeIndexFields operation.
--- Specifies the name of the domain you want to describe. To restrict the
--- response to particular index fields, specify the names of the index fields
--- you want to describe. To show the active configuration and exclude any
--- pending changes, set the Deployed option to true.
 data DescribeIndexFields = DescribeIndexFields
-    { _dif2DomainName :: Text
-    , _dif2FieldNames :: [Text]
-    , _dif2Deployed :: Maybe Bool
+    { _difDeployed   :: Maybe Bool
+    , _difDomainName :: Text
+    , _difFieldNames :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeIndexFields' request.
+-- | 'DescribeIndexFields' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'difDeployed' @::@ 'Maybe' 'Bool'
 --
--- * @FieldNames ::@ @[Text]@
+-- * 'difDomainName' @::@ 'Text'
 --
--- * @Deployed ::@ @Maybe Bool@
+-- * 'difFieldNames' @::@ ['Text']
 --
-describeIndexFields :: Text -- ^ 'dif2DomainName'
+describeIndexFields :: Text -- ^ 'difDomainName'
                     -> DescribeIndexFields
 describeIndexFields p1 = DescribeIndexFields
-    { _dif2DomainName = p1
-    , _dif2FieldNames = mempty
-    , _dif2Deployed = Nothing
+    { _difDomainName = p1
+    , _difFieldNames = mempty
+    , _difDeployed   = Nothing
     }
 
+-- | Whether to display the deployed configuration (true) or include any
+-- pending changes (false). Defaults to false.
+difDeployed :: Lens' DescribeIndexFields (Maybe Bool)
+difDeployed = lens _difDeployed (\s a -> s { _difDeployed = a })
+
 -- | The name of the domain you want to describe.
-dif2DomainName :: Lens' DescribeIndexFields Text
-dif2DomainName = lens _dif2DomainName (\s a -> s { _dif2DomainName = a })
+difDomainName :: Lens' DescribeIndexFields Text
+difDomainName = lens _difDomainName (\s a -> s { _difDomainName = a })
 
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
-dif2FieldNames :: Lens' DescribeIndexFields [Text]
-dif2FieldNames = lens _dif2FieldNames (\s a -> s { _dif2FieldNames = a })
+difFieldNames :: Lens' DescribeIndexFields [Text]
+difFieldNames = lens _difFieldNames (\s a -> s { _difFieldNames = a })
 
--- | Whether to display the deployed configuration (true) or include any pending
--- changes (false). Defaults to false.
-dif2Deployed :: Lens' DescribeIndexFields (Maybe Bool)
-dif2Deployed = lens _dif2Deployed (\s a -> s { _dif2Deployed = a })
+instance ToQuery DescribeIndexFields
 
-instance ToQuery DescribeIndexFields where
-    toQuery = genericQuery def
+instance ToPath DescribeIndexFields where
+    toPath = const "/"
 
--- | The result of a DescribeIndexFields request. Contains the index fields
--- configured for the domain specified in the request.
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
-    { _difr1IndexFields :: [IndexFieldStatus]
-    } deriving (Eq, Ord, Show, Generic)
+    { _difrIndexFields :: [IndexFieldStatus]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeIndexFieldsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeIndexFieldsResponse where
+    type Item DescribeIndexFieldsResponse = IndexFieldStatus
+
+    fromList = DescribeIndexFieldsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _difrIndexFields
+
+-- | 'DescribeIndexFieldsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IndexFields ::@ @[IndexFieldStatus]@
+-- * 'difrIndexFields' @::@ ['IndexFieldStatus']
 --
-describeIndexFieldsResponse :: [IndexFieldStatus] -- ^ 'difr1IndexFields'
-                            -> DescribeIndexFieldsResponse
-describeIndexFieldsResponse p1 = DescribeIndexFieldsResponse
-    { _difr1IndexFields = p1
+describeIndexFieldsResponse :: DescribeIndexFieldsResponse
+describeIndexFieldsResponse = DescribeIndexFieldsResponse
+    { _difrIndexFields = mempty
     }
 
 -- | The index fields configured for the domain.
-difr1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-difr1IndexFields =
-    lens _difr1IndexFields (\s a -> s { _difr1IndexFields = a })
-
-instance FromXML DescribeIndexFieldsResponse where
-    fromXMLOptions = xmlOptions
+difrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
+difrIndexFields = lens _difrIndexFields (\s a -> s { _difrIndexFields = a })
 
 instance AWSRequest DescribeIndexFields where
     type Sv DescribeIndexFields = CloudSearch
     type Rs DescribeIndexFields = DescribeIndexFieldsResponse
 
-    request = post "DescribeIndexFields"
-    response _ = xmlResponse
+    request  = post "DescribeIndexFields"
+    response = xmlResponse $ \h x -> DescribeIndexFieldsResponse
+        <$> x %| "IndexFields"

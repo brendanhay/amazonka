@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.DescribeEventCategories
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,49 +40,52 @@ module Network.AWS.Redshift.DescribeEventCategories
     , decrEventCategoriesMapList
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DescribeEventCategories = DescribeEventCategories
     { _decSourceType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeEventCategories' request.
+-- | 'DescribeEventCategories' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SourceType ::@ @Maybe Text@
+-- * 'decSourceType' @::@ 'Maybe' 'Text'
 --
 describeEventCategories :: DescribeEventCategories
 describeEventCategories = DescribeEventCategories
     { _decSourceType = Nothing
     }
 
--- | The source type, such as cluster or parameter group, to which the described
--- event categories apply. Valid values: cluster, snapshot, parameter group,
--- and security group.
+-- | The source type, such as cluster or parameter group, to which the
+-- described event categories apply. Valid values: cluster, snapshot,
+-- parameter group, and security group.
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
 
-instance ToQuery DescribeEventCategories where
-    toQuery = genericQuery def
+instance ToQuery DescribeEventCategories
 
--- | 
+instance ToPath DescribeEventCategories where
+    toPath = const "/"
+
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     { _decrEventCategoriesMapList :: [EventCategoriesMap]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeEventCategoriesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeEventCategoriesResponse where
+    type Item DescribeEventCategoriesResponse = EventCategoriesMap
+
+    fromList = DescribeEventCategoriesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _decrEventCategoriesMapList
+
+-- | 'DescribeEventCategoriesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EventCategoriesMapList ::@ @[EventCategoriesMap]@
+-- * 'decrEventCategoriesMapList' @::@ ['EventCategoriesMap']
 --
 describeEventCategoriesResponse :: DescribeEventCategoriesResponse
 describeEventCategoriesResponse = DescribeEventCategoriesResponse
@@ -91,14 +96,12 @@ describeEventCategoriesResponse = DescribeEventCategoriesResponse
 decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrEventCategoriesMapList =
     lens _decrEventCategoriesMapList
-         (\s a -> s { _decrEventCategoriesMapList = a })
-
-instance FromXML DescribeEventCategoriesResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _decrEventCategoriesMapList = a })
 
 instance AWSRequest DescribeEventCategories where
     type Sv DescribeEventCategories = Redshift
     type Rs DescribeEventCategories = DescribeEventCategoriesResponse
 
-    request = post "DescribeEventCategories"
-    response _ = xmlResponse
+    request  = post "DescribeEventCategories"
+    response = xmlResponse $ \h x -> DescribeEventCategoriesResponse
+        <$> x %| "EventCategoriesMapList"

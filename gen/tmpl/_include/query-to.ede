@@ -1,5 +1,0 @@
-{% if scope.direction.request %}
-
-instance ToQuery {{ scope.name }} where
-    toQuery = genericQuery def
-{% endif %}

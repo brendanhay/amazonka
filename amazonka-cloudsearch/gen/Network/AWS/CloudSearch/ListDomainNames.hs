@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.ListDomainNames
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,6 +27,7 @@ module Network.AWS.CloudSearch.ListDomainNames
       ListDomainNames
     -- ** Request constructor
     , listDomainNames
+
     -- * Response
     , ListDomainNamesResponse
     -- ** Response constructor
@@ -33,35 +36,32 @@ module Network.AWS.CloudSearch.ListDomainNames
     , ldnrDomainNames
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ListDomainNames = ListDomainNames
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListDomainNames' request.
+-- | 'ListDomainNames' constructor.
 listDomainNames :: ListDomainNames
 listDomainNames = ListDomainNames
 
-instance ToQuery ListDomainNames where
-    toQuery = genericQuery def
+instance ToQuery ListDomainNames
 
--- | The result of a ListDomainNames request. Contains a list of the domains
--- owned by an account.
+instance ToPath ListDomainNames where
+    toPath = const "/"
+
 newtype ListDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListDomainNamesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListDomainNamesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainNames ::@ @Map Text Text@
+-- * 'ldnrDomainNames' @::@ 'HashMap' 'Text' 'Text'
 --
 listDomainNamesResponse :: ListDomainNamesResponse
 listDomainNamesResponse = ListDomainNamesResponse
@@ -69,15 +69,14 @@ listDomainNamesResponse = ListDomainNamesResponse
     }
 
 -- | The names of the search domains owned by an account.
-ldnrDomainNames :: Lens' ListDomainNamesResponse (Map Text Text)
+ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a })
-
-instance FromXML ListDomainNamesResponse where
-    fromXMLOptions = xmlOptions
+    . _Map
 
 instance AWSRequest ListDomainNames where
     type Sv ListDomainNames = CloudSearch
     type Rs ListDomainNames = ListDomainNamesResponse
 
-    request = post "ListDomainNames"
-    response _ = xmlResponse
+    request  = post "ListDomainNames"
+    response = xmlResponse $ \h x -> ListDomainNamesResponse
+        <$> x %| "DomainNames"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteSubnet
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,12 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified subnet. You must terminate all running instances in
--- the subnet before you can delete the subnet. Example This example deletes
--- the specified subnet. https://ec2.amazonaws.com/?Action=DeleteSubnet
--- &amp;SubnetId=subnet-9d4a7b6c &amp;AUTHPARAMS &lt;DeleteSubnetResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSubnetResponse&gt;.
+-- the subnet before you can delete the subnet.
 module Network.AWS.EC2.DeleteSubnet
     (
     -- * Request
@@ -32,7 +29,8 @@ module Network.AWS.EC2.DeleteSubnet
     -- ** Request constructor
     , deleteSubnet
     -- ** Request lenses
-    , ds1SubnetId
+    , ds2DryRun
+    , ds2SubnetId
 
     -- * Response
     , DeleteSubnetResponse
@@ -40,41 +38,47 @@ module Network.AWS.EC2.DeleteSubnet
     , deleteSubnetResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteSubnet = DeleteSubnet
-    { _ds1SubnetId :: Text
+data DeleteSubnet = DeleteSubnet
+    { _ds2DryRun   :: Maybe Bool
+    , _ds2SubnetId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSubnet' request.
+-- | 'DeleteSubnet' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SubnetId ::@ @Text@
+-- * 'ds2DryRun' @::@ 'Maybe' 'Bool'
 --
-deleteSubnet :: Text -- ^ 'ds1SubnetId'
+-- * 'ds2SubnetId' @::@ 'Text'
+--
+deleteSubnet :: Text -- ^ 'ds2SubnetId'
              -> DeleteSubnet
 deleteSubnet p1 = DeleteSubnet
-    { _ds1SubnetId = p1
+    { _ds2SubnetId = p1
+    , _ds2DryRun   = Nothing
     }
 
--- | The ID of the subnet.
-ds1SubnetId :: Lens' DeleteSubnet Text
-ds1SubnetId = lens _ds1SubnetId (\s a -> s { _ds1SubnetId = a })
+ds2DryRun :: Lens' DeleteSubnet (Maybe Bool)
+ds2DryRun = lens _ds2DryRun (\s a -> s { _ds2DryRun = a })
 
-instance ToQuery DeleteSubnet where
-    toQuery = genericQuery def
+-- | The ID of the subnet.
+ds2SubnetId :: Lens' DeleteSubnet Text
+ds2SubnetId = lens _ds2SubnetId (\s a -> s { _ds2SubnetId = a })
+
+instance ToQuery DeleteSubnet
+
+instance ToPath DeleteSubnet where
+    toPath = const "/"
 
 data DeleteSubnetResponse = DeleteSubnetResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSubnetResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteSubnetResponse' constructor.
 deleteSubnetResponse :: DeleteSubnetResponse
 deleteSubnetResponse = DeleteSubnetResponse
 
@@ -82,5 +86,5 @@ instance AWSRequest DeleteSubnet where
     type Sv DeleteSubnet = EC2
     type Rs DeleteSubnet = DeleteSubnetResponse
 
-    request = post "DeleteSubnet"
-    response _ = nullaryResponse DeleteSubnetResponse
+    request  = post "DeleteSubnet"
+    response = nullaryResponse DeleteSubnetResponse

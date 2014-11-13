@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.RestoreObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,15 +25,13 @@ module Network.AWS.S3.RestoreObject
     (
     -- * Request
       RestoreObject
-    -- ** Request alias
-    , PostObjectRestore
     -- ** Request constructor
     , restoreObject
     -- ** Request lenses
     , roBucket
     , roKey
-    , roVersionId
     , roRestoreRequest
+    , roVersionId
 
     -- * Response
     , RestoreObjectResponse
@@ -39,59 +39,65 @@ module Network.AWS.S3.RestoreObject
     , restoreObjectResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
-
-type PostObjectRestore = RestoreObject
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data RestoreObject = RestoreObject
-    { _roBucket :: BucketName
-    , _roKey :: ObjectKey
-    , _roVersionId :: Maybe ObjectVersionId
+    { _roBucket         :: Text
+    , _roKey            :: Text
     , _roRestoreRequest :: Maybe RestoreRequest
-    } deriving (Eq, Ord, Show, Generic)
+    , _roVersionId      :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RestoreObject' request.
+-- | 'RestoreObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'roBucket' @::@ 'Text'
 --
--- * @Key ::@ @ObjectKey@
+-- * 'roKey' @::@ 'Text'
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * 'roRestoreRequest' @::@ 'Maybe' 'RestoreRequest'
 --
--- * @RestoreRequest ::@ @Maybe RestoreRequest@
+-- * 'roVersionId' @::@ 'Maybe' 'Text'
 --
-restoreObject :: BucketName -- ^ 'roBucket'
-              -> ObjectKey -- ^ 'roKey'
+restoreObject :: Text -- ^ 'roBucket'
+              -> Text -- ^ 'roKey'
               -> RestoreObject
 restoreObject p1 p2 = RestoreObject
-    { _roBucket = p1
-    , _roKey = p2
-    , _roVersionId = Nothing
+    { _roBucket         = p1
+    , _roKey            = p2
+    , _roVersionId      = Nothing
     , _roRestoreRequest = Nothing
     }
 
-roBucket :: Lens' RestoreObject BucketName
+roBucket :: Lens' RestoreObject Text
 roBucket = lens _roBucket (\s a -> s { _roBucket = a })
 
-roKey :: Lens' RestoreObject ObjectKey
+roKey :: Lens' RestoreObject Text
 roKey = lens _roKey (\s a -> s { _roKey = a })
 
-roVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
+roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
+roRestoreRequest = lens _roRestoreRequest (\s a -> s { _roRestoreRequest = a })
+
+roVersionId :: Lens' RestoreObject (Maybe Text)
 roVersionId = lens _roVersionId (\s a -> s { _roVersionId = a })
 
-roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
-roRestoreRequest =
-    lens _roRestoreRequest (\s a -> s { _roRestoreRequest = a })
+instance ToPath RestoreObject where
+    toPath RestoreObject{..} = mconcat
+        [ "/"
+        , toText _roBucket
+        , "/"
+        , toText _roKey
+        ]
 
-instance ToPath RestoreObject
-
-instance ToQuery RestoreObject
+instance ToQuery RestoreObject where
+    toQuery RestoreObject{..} = mconcat
+        [ "restore"
+        , "versionId" =? _roVersionId
+        ]
 
 instance ToHeaders RestoreObject
 
@@ -101,10 +107,7 @@ instance ToBody RestoreObject where
 data RestoreObjectResponse = RestoreObjectResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RestoreObjectResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RestoreObjectResponse' constructor.
 restoreObjectResponse :: RestoreObjectResponse
 restoreObjectResponse = RestoreObjectResponse
 
@@ -112,5 +115,5 @@ instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3
     type Rs RestoreObject = RestoreObjectResponse
 
-    request = get
-    response _ = nullaryResponse RestoreObjectResponse
+    request  = post
+    response = nullaryResponse RestoreObjectResponse

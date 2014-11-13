@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFormation.CancelUpdateStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,10 +24,6 @@
 -- successfully, the stack will roll back the update and revert to the
 -- previous stack configuration. Only stacks that are in the
 -- UPDATE_IN_PROGRESS state can be canceled.
--- https://cloudformation.us-east-1.amazonaws.com/ ?Action=CancelUpdateStack
--- &StackName=MyStack &Version=2010-05-15 &SignatureVersion=2
--- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
--- &Signature=[Signature].
 module Network.AWS.CloudFormation.CancelUpdateStack
     (
     -- * Request
@@ -41,21 +39,20 @@ module Network.AWS.CloudFormation.CancelUpdateStack
     , cancelUpdateStackResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for CancelUpdateStack action.
 newtype CancelUpdateStack = CancelUpdateStack
     { _cusStackName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelUpdateStack' request.
+-- | 'CancelUpdateStack' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackName ::@ @Text@
+-- * 'cusStackName' @::@ 'Text'
 --
 cancelUpdateStack :: Text -- ^ 'cusStackName'
                   -> CancelUpdateStack
@@ -67,16 +64,15 @@ cancelUpdateStack p1 = CancelUpdateStack
 cusStackName :: Lens' CancelUpdateStack Text
 cusStackName = lens _cusStackName (\s a -> s { _cusStackName = a })
 
-instance ToQuery CancelUpdateStack where
-    toQuery = genericQuery def
+instance ToQuery CancelUpdateStack
+
+instance ToPath CancelUpdateStack where
+    toPath = const "/"
 
 data CancelUpdateStackResponse = CancelUpdateStackResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelUpdateStackResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CancelUpdateStackResponse' constructor.
 cancelUpdateStackResponse :: CancelUpdateStackResponse
 cancelUpdateStackResponse = CancelUpdateStackResponse
 
@@ -84,5 +80,5 @@ instance AWSRequest CancelUpdateStack where
     type Sv CancelUpdateStack = CloudFormation
     type Rs CancelUpdateStack = CancelUpdateStackResponse
 
-    request = post "CancelUpdateStack"
-    response _ = nullaryResponse CancelUpdateStackResponse
+    request  = post "CancelUpdateStack"
+    response = nullaryResponse CancelUpdateStackResponse

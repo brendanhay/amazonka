@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.AddTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,10 +26,6 @@
 -- same key is already associated with the load balancer, this action will
 -- update the value of the key. For more information, see Tagging in the
 -- Elastic Load Balancing Developer Guide.
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerNames.member.1=my-test-loadbalancer
--- &Action=AddTags &Tags.member.1.Key=project
--- &Tags.member.1.Value=my-test-project &Version=2012-06-01 &AUTHPARAMS
--- 360e81f7-1100-11e4-b6ed-0f30EXAMPLE.
 module Network.AWS.ELB.AddTags
     (
     -- * Request
@@ -44,54 +42,51 @@ module Network.AWS.ELB.AddTags
     , addTagsResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the AddTags action.
 data AddTags = AddTags
     { _atLoadBalancerNames :: [Text]
-    , _atTags :: List1 Tag
-    } deriving (Eq, Ord, Show, Generic)
+    , _atTags              :: List1 Tag
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddTags' request.
+-- | 'AddTags' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerNames ::@ @[Text]@
+-- * 'atLoadBalancerNames' @::@ ['Text']
 --
--- * @Tags ::@ @List1 Tag@
+-- * 'atTags' @::@ 'NonEmpty' 'Tag'
 --
-addTags :: [Text] -- ^ 'atLoadBalancerNames'
-        -> List1 Tag -- ^ 'atTags'
+addTags :: NonEmpty Tag -- ^ 'atTags'
         -> AddTags
-addTags p1 p2 = AddTags
-    { _atLoadBalancerNames = p1
-    , _atTags = p2
+addTags p1 = AddTags
+    { _atTags              = withIso _List1 (const id) p1
+    , _atLoadBalancerNames = mempty
     }
 
--- | The name of the load balancer to tag. You can specify a maximum of one load
--- balancer name.
+-- | The name of the load balancer to tag. You can specify a maximum of one
+-- load balancer name.
 atLoadBalancerNames :: Lens' AddTags [Text]
 atLoadBalancerNames =
     lens _atLoadBalancerNames (\s a -> s { _atLoadBalancerNames = a })
 
 -- | A list of tags for each load balancer.
-atTags :: Lens' AddTags (List1 Tag)
+atTags :: Lens' AddTags (NonEmpty Tag)
 atTags = lens _atTags (\s a -> s { _atTags = a })
+    . _List1
 
-instance ToQuery AddTags where
-    toQuery = genericQuery def
+instance ToQuery AddTags
 
--- | The output for the AddTags action.
+instance ToPath AddTags where
+    toPath = const "/"
+
 data AddTagsResponse = AddTagsResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddTagsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AddTagsResponse' constructor.
 addTagsResponse :: AddTagsResponse
 addTagsResponse = AddTagsResponse
 
@@ -99,5 +94,5 @@ instance AWSRequest AddTags where
     type Sv AddTags = ELB
     type Rs AddTags = AddTagsResponse
 
-    request = post "AddTags"
-    response _ = nullaryResponse AddTagsResponse
+    request  = post "AddTags"
+    response = nullaryResponse AddTagsResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.CreateLoadBalancerPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,12 +24,6 @@
 -- the policy type. Policies are settings that are saved for your load
 -- balancer and that can be applied to the front-end listener, or the back-end
 -- application server, depending on your policy type.
--- https://elasticloadbalancing.amazonaws.com/?PolicyAttributes.member.1.AttributeName=ProxyProtocol
--- &PolicyAttributes.member.1.AttributeValue=true
--- &PolicyTypeName=ProxyProtocolPolicyType
--- &LoadBalancerName=my-test-loadbalancer &PolicyName=EnableProxyProtocol
--- &Version=2012-06-01 &Action=CreateLoadBalancerPolicy &AUTHPARAMS
--- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 module Network.AWS.ELB.CreateLoadBalancerPolicy
     (
     -- * Request
@@ -36,9 +32,9 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
     , createLoadBalancerPolicy
     -- ** Request lenses
     , clbpLoadBalancerName
+    , clbpPolicyAttributes
     , clbpPolicyName
     , clbpPolicyTypeName
-    , clbpPolicyAttributes
 
     -- * Response
     , CreateLoadBalancerPolicyResponse
@@ -46,29 +42,29 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
     , createLoadBalancerPolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
     { _clbpLoadBalancerName :: Text
-    , _clbpPolicyName :: Text
-    , _clbpPolicyTypeName :: Text
     , _clbpPolicyAttributes :: [PolicyAttribute]
-    } deriving (Eq, Ord, Show, Generic)
+    , _clbpPolicyName       :: Text
+    , _clbpPolicyTypeName   :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateLoadBalancerPolicy' request.
+-- | 'CreateLoadBalancerPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'clbpLoadBalancerName' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'clbpPolicyAttributes' @::@ ['PolicyAttribute']
 --
--- * @PolicyTypeName ::@ @Text@
+-- * 'clbpPolicyName' @::@ 'Text'
 --
--- * @PolicyAttributes ::@ @[PolicyAttribute]@
+-- * 'clbpPolicyTypeName' @::@ 'Text'
 --
 createLoadBalancerPolicy :: Text -- ^ 'clbpLoadBalancerName'
                          -> Text -- ^ 'clbpPolicyName'
@@ -76,8 +72,8 @@ createLoadBalancerPolicy :: Text -- ^ 'clbpLoadBalancerName'
                          -> CreateLoadBalancerPolicy
 createLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicy
     { _clbpLoadBalancerName = p1
-    , _clbpPolicyName = p2
-    , _clbpPolicyTypeName = p3
+    , _clbpPolicyName       = p2
+    , _clbpPolicyTypeName   = p3
     , _clbpPolicyAttributes = mempty
     }
 
@@ -87,8 +83,13 @@ clbpLoadBalancerName :: Lens' CreateLoadBalancerPolicy Text
 clbpLoadBalancerName =
     lens _clbpLoadBalancerName (\s a -> s { _clbpLoadBalancerName = a })
 
--- | The name of the load balancer policy being created. The name must be unique
--- within the set of policies for this load balancer.
+-- | A list of attributes associated with the policy being created.
+clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
+clbpPolicyAttributes =
+    lens _clbpPolicyAttributes (\s a -> s { _clbpPolicyAttributes = a })
+
+-- | The name of the load balancer policy being created. The name must be
+-- unique within the set of policies for this load balancer.
 clbpPolicyName :: Lens' CreateLoadBalancerPolicy Text
 clbpPolicyName = lens _clbpPolicyName (\s a -> s { _clbpPolicyName = a })
 
@@ -98,22 +99,15 @@ clbpPolicyTypeName :: Lens' CreateLoadBalancerPolicy Text
 clbpPolicyTypeName =
     lens _clbpPolicyTypeName (\s a -> s { _clbpPolicyTypeName = a })
 
--- | A list of attributes associated with the policy being created.
-clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
-clbpPolicyAttributes =
-    lens _clbpPolicyAttributes (\s a -> s { _clbpPolicyAttributes = a })
+instance ToQuery CreateLoadBalancerPolicy
 
-instance ToQuery CreateLoadBalancerPolicy where
-    toQuery = genericQuery def
+instance ToPath CreateLoadBalancerPolicy where
+    toPath = const "/"
 
--- | The output for the CreateLoadBalancerPolicy action.
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateLoadBalancerPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateLoadBalancerPolicyResponse' constructor.
 createLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse
 createLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
 
@@ -121,5 +115,5 @@ instance AWSRequest CreateLoadBalancerPolicy where
     type Sv CreateLoadBalancerPolicy = ELB
     type Rs CreateLoadBalancerPolicy = CreateLoadBalancerPolicyResponse
 
-    request = post "CreateLoadBalancerPolicy"
-    response _ = nullaryResponse CreateLoadBalancerPolicyResponse
+    request  = post "CreateLoadBalancerPolicy"
+    response = nullaryResponse CreateLoadBalancerPolicyResponse

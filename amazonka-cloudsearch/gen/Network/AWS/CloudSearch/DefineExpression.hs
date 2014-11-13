@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineExpression
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,8 +31,8 @@ module Network.AWS.CloudSearch.DefineExpression
     -- ** Request constructor
     , defineExpression
     -- ** Request lenses
-    , deDomainName
-    , deExpression
+    , de1DomainName
+    , de1Expression
 
     -- * Response
     , DefineExpressionResponse
@@ -40,64 +42,52 @@ module Network.AWS.CloudSearch.DefineExpression
     , derExpression
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DefineExpression operation. Specifies
--- the name of the domain you want to update and the expression you want to
--- configure.
 data DefineExpression = DefineExpression
-    { _deDomainName :: Text
-    , _deExpression :: Expression
-    } deriving (Eq, Ord, Show, Generic)
+    { _de1DomainName :: Text
+    , _de1Expression :: Expression
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DefineExpression' request.
+-- | 'DefineExpression' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'de1DomainName' @::@ 'Text'
 --
--- * @Expression ::@ @Expression@
+-- * 'de1Expression' @::@ 'Expression'
 --
-defineExpression :: Text -- ^ 'deDomainName'
-                 -> Expression -- ^ 'deExpression'
+defineExpression :: Text -- ^ 'de1DomainName'
+                 -> Expression -- ^ 'de1Expression'
                  -> DefineExpression
 defineExpression p1 p2 = DefineExpression
-    { _deDomainName = p1
-    , _deExpression = p2
+    { _de1DomainName = p1
+    , _de1Expression = p2
     }
 
--- | A string that represents the name of a domain. Domain names are unique
--- across the domains owned by an account within an AWS region. Domain names
--- start with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
-deDomainName :: Lens' DefineExpression Text
-deDomainName = lens _deDomainName (\s a -> s { _deDomainName = a })
+de1DomainName :: Lens' DefineExpression Text
+de1DomainName = lens _de1DomainName (\s a -> s { _de1DomainName = a })
 
--- | A named expression that can be evaluated at search time. Can be used for
--- sorting and filtering search results and constructing other expressions.
-deExpression :: Lens' DefineExpression Expression
-deExpression = lens _deExpression (\s a -> s { _deExpression = a })
+de1Expression :: Lens' DefineExpression Expression
+de1Expression = lens _de1Expression (\s a -> s { _de1Expression = a })
 
-instance ToQuery DefineExpression where
-    toQuery = genericQuery def
+instance ToQuery DefineExpression
 
--- | The result of a DefineExpression request. Contains the status of the
--- newly-configured expression.
+instance ToPath DefineExpression where
+    toPath = const "/"
+
 newtype DefineExpressionResponse = DefineExpressionResponse
     { _derExpression :: ExpressionStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DefineExpressionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DefineExpressionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Expression ::@ @ExpressionStatus@
+-- * 'derExpression' @::@ 'ExpressionStatus'
 --
 defineExpressionResponse :: ExpressionStatus -- ^ 'derExpression'
                          -> DefineExpressionResponse
@@ -105,16 +95,13 @@ defineExpressionResponse p1 = DefineExpressionResponse
     { _derExpression = p1
     }
 
--- | The value of an Expression and its current status.
 derExpression :: Lens' DefineExpressionResponse ExpressionStatus
 derExpression = lens _derExpression (\s a -> s { _derExpression = a })
-
-instance FromXML DefineExpressionResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DefineExpression where
     type Sv DefineExpression = CloudSearch
     type Rs DefineExpression = DefineExpressionResponse
 
-    request = post "DefineExpression"
-    response _ = xmlResponse
+    request  = post "DefineExpression"
+    response = xmlResponse $ \h x -> DefineExpressionResponse
+        <$> x %| "Expression"

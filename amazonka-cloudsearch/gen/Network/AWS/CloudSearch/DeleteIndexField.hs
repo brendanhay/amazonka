@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteIndexField
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,84 +37,73 @@ module Network.AWS.CloudSearch.DeleteIndexField
     -- ** Response constructor
     , deleteIndexFieldResponse
     -- ** Response lenses
-    , difrrIndexField
+    , difrIndexField
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DeleteIndexField operation. Specifies
--- the name of the domain you want to update and the name of the index field
--- you want to delete.
 data DeleteIndexField = DeleteIndexField
-    { _dif1DomainName :: Text
+    { _dif1DomainName     :: Text
     , _dif1IndexFieldName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteIndexField' request.
+-- | 'DeleteIndexField' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'dif1DomainName' @::@ 'Text'
 --
--- * @IndexFieldName ::@ @Text@
+-- * 'dif1IndexFieldName' @::@ 'Text'
 --
 deleteIndexField :: Text -- ^ 'dif1DomainName'
                  -> Text -- ^ 'dif1IndexFieldName'
                  -> DeleteIndexField
 deleteIndexField p1 p2 = DeleteIndexField
-    { _dif1DomainName = p1
+    { _dif1DomainName     = p1
     , _dif1IndexFieldName = p2
     }
 
--- | A string that represents the name of a domain. Domain names are unique
--- across the domains owned by an account within an AWS region. Domain names
--- start with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
 dif1DomainName :: Lens' DeleteIndexField Text
 dif1DomainName = lens _dif1DomainName (\s a -> s { _dif1DomainName = a })
 
--- | The name of the index field your want to remove from the domain's indexing
--- options.
+-- | The name of the index field your want to remove from the domain's
+-- indexing options.
 dif1IndexFieldName :: Lens' DeleteIndexField Text
 dif1IndexFieldName =
     lens _dif1IndexFieldName (\s a -> s { _dif1IndexFieldName = a })
 
-instance ToQuery DeleteIndexField where
-    toQuery = genericQuery def
+instance ToQuery DeleteIndexField
 
--- | The result of a DeleteIndexField request.
+instance ToPath DeleteIndexField where
+    toPath = const "/"
+
 newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
-    { _difrrIndexField :: IndexFieldStatus
-    } deriving (Eq, Ord, Show, Generic)
+    { _difrIndexField :: IndexFieldStatus
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteIndexFieldResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteIndexFieldResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IndexField ::@ @IndexFieldStatus@
+-- * 'difrIndexField' @::@ 'IndexFieldStatus'
 --
-deleteIndexFieldResponse :: IndexFieldStatus -- ^ 'difrrIndexField'
+deleteIndexFieldResponse :: IndexFieldStatus -- ^ 'difrIndexField'
                          -> DeleteIndexFieldResponse
 deleteIndexFieldResponse p1 = DeleteIndexFieldResponse
-    { _difrrIndexField = p1
+    { _difrIndexField = p1
     }
 
 -- | The status of the index field being deleted.
-difrrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
-difrrIndexField = lens _difrrIndexField (\s a -> s { _difrrIndexField = a })
-
-instance FromXML DeleteIndexFieldResponse where
-    fromXMLOptions = xmlOptions
+difrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
+difrIndexField = lens _difrIndexField (\s a -> s { _difrIndexField = a })
 
 instance AWSRequest DeleteIndexField where
     type Sv DeleteIndexField = CloudSearch
     type Rs DeleteIndexField = DeleteIndexFieldResponse
 
-    request = post "DeleteIndexField"
-    response _ = xmlResponse
+    request  = post "DeleteIndexField"
+    response = xmlResponse $ \h x -> DeleteIndexFieldResponse
+        <$> x %| "IndexField"

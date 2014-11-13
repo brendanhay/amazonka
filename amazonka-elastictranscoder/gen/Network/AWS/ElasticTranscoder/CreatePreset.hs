@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CreatePreset
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,47 +33,7 @@
 -- respect to the video that Elastic Transcoder produces. Elastic Transcoder
 -- uses the H.264 video-compression format. For more information, see the
 -- International Telecommunication Union publication Recommendation ITU-T
--- H.264: Advanced video coding for generic audiovisual services. POST
--- /2012-09-25/presets HTTP/1.1 Content-Type: application/json; charset=UTF-8
--- Accept: */* Host: elastictranscoder.[Elastic
--- Transcoder-endpoint].amazonaws.com:443 x-amz-date: 20130114T174952Z
--- Authorization: AWS4-HMAC-SHA256
--- Credential=[access-key-id]/[request-date]/[Elastic
--- Transcoder-endpoint]/ets/aws4_request,
--- SignedHeaders=host;x-amz-date;x-amz-target,
--- Signature=[calculated-signature] Content-Length:
--- [number-of-characters-in-JSON-string] { "Name":"DefaultPreset",
--- "Description":"Use for published videos", "Container":"mp4", "Audio":{
--- "Codec":"AAC", "SampleRate":"44100", "BitRate":"96", "Channels":"2" },
--- "Video":{ "Codec":"H.264", "CodecOptions":{ "Profile":"main",
--- "Level":"2.2", "MaxReferenceFrames":"3", "MaxBitRate":"", "BufferSize":""
--- }, "KeyframesMaxDist":"240", "FixedGOP":"false", "BitRate":"1600",
--- "FrameRate":"30", "MaxWidth": "auto", "MaxHeight": "auto", "SizingPolicy":
--- "Fit", "PaddingPolicy": "NoPad", "DisplayAspectRatio": "16:9",
--- "Watermarks":[ { "Id":"company logo", "MaxWidth":"20%", "MaxHeight":"20%",
--- "SizingPolicy":"ShrinkToFit", "HorizontalAlign":"Right",
--- "HorizontalOffset":"10px", "VerticalAlign":"Bottom",
--- "VerticalOffset":"10px", "Opacity":"55.5", "Target":"Content" } ]},
--- "Thumbnails":{ "Format":"png", "Interval":"120", "MaxWidth": "auto,
--- "MaxHeight": "auto", "SizingPolicy": "Fit", "PaddingPolicy": "NoPad" } }
--- Status: 201 Created x-amzn-RequestId: c321ec43-378e-11e2-8e4c-4d5b971203e9
--- Content-Type: application/json Content-Length:
--- [number-of-characters-in-response] Date: Mon, 14 Jan 2013 06:01:47 GMT {
--- "Preset":{ "Audio":{ "BitRate":"96", "Channels":"2", "Codec":"AAC",
--- "SampleRate":"44100" }, "Container":"mp4", "Description":"Use for published
--- videos", "Id":"5555555555555-abcde5", "Name":"DefaultPreset",
--- "Thumbnails":{ "Format":"png", "Interval":"120", "MaxWidth": "auto,
--- "MaxHeight": "auto", "SizingPolicy": "Fit", "PaddingPolicy": "NoPad" },
--- "Type":"Custom", "Video":{ "Codec":"H.264", "CodecOptions":{
--- "Profile":"main", "Level":"2.2", "MaxReferenceFrames":"3", "MaxBitRate":"",
--- "BufferSize":"" }, "KeyframesMaxDist":"240", "FixedGOP":"false",
--- "BitRate":"1600", "FrameRate":"30", "MaxWidth": "auto", "MaxHeight":
--- "auto", "SizingPolicy": "Fit", "PaddingPolicy": "NoPad",
--- "DisplayAspectRatio": "16:9", "Watermarks":[ { "Id":"company logo",
--- "MaxWidth":"20%", "MaxHeight":"20%", "SizingPolicy":"ShrinkToFit",
--- "HorizontalAlign":"Right", "HorizontalOffset":"10px",
--- "VerticalAlign":"Bottom", "VerticalOffset":"10px", "Opacity":"55.5",
--- "Target":"Content" } ] } }, "Warning":"" }.
+-- H.264: Advanced video coding for generic audiovisual services.
 module Network.AWS.ElasticTranscoder.CreatePreset
     (
     -- * Request
@@ -79,140 +41,140 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- ** Request constructor
     , createPreset
     -- ** Request lenses
-    , cp1Name
-    , cp1Description
-    , cp1Container
-    , cp1Video
-    , cp1Audio
-    , cp1Thumbnails
+    , cpAudio
+    , cpContainer
+    , cpDescription
+    , cpName
+    , cpThumbnails
+    , cpVideo
 
     -- * Response
     , CreatePresetResponse
     -- ** Response constructor
     , createPresetResponse
     -- ** Response lenses
-    , cprrPreset
-    , cprrWarning
+    , cprPreset
+    , cprWarning
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.ElasticTranscoder.Types
 
--- | The CreatePresetRequest structure.
 data CreatePreset = CreatePreset
-    { _cp1Name :: Text
-    , _cp1Description :: Maybe Text
-    , _cp1Container :: Text
-    , _cp1Video :: Maybe VideoParameters
-    , _cp1Audio :: Maybe AudioParameters
-    , _cp1Thumbnails :: Maybe Thumbnails
+    { _cpAudio       :: Maybe AudioParameters
+    , _cpContainer   :: Text
+    , _cpDescription :: Maybe Text
+    , _cpName        :: Text
+    , _cpThumbnails  :: Maybe Thumbnails
+    , _cpVideo       :: Maybe VideoParameters
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreatePreset' request.
+-- | 'CreatePreset' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Text@
+-- * 'cpAudio' @::@ 'Maybe' 'AudioParameters'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'cpContainer' @::@ 'Text'
 --
--- * @Container ::@ @Text@
+-- * 'cpDescription' @::@ 'Maybe' 'Text'
 --
--- * @Video ::@ @Maybe VideoParameters@
+-- * 'cpName' @::@ 'Text'
 --
--- * @Audio ::@ @Maybe AudioParameters@
+-- * 'cpThumbnails' @::@ 'Maybe' 'Thumbnails'
 --
--- * @Thumbnails ::@ @Maybe Thumbnails@
+-- * 'cpVideo' @::@ 'Maybe' 'VideoParameters'
 --
-createPreset :: Text -- ^ 'cp1Name'
-             -> Text -- ^ 'cp1Container'
+createPreset :: Text -- ^ 'cpName'
+             -> Text -- ^ 'cpContainer'
              -> CreatePreset
-createPreset p1 p3 = CreatePreset
-    { _cp1Name = p1
-    , _cp1Description = Nothing
-    , _cp1Container = p3
-    , _cp1Video = Nothing
-    , _cp1Audio = Nothing
-    , _cp1Thumbnails = Nothing
+createPreset p1 p2 = CreatePreset
+    { _cpName        = p1
+    , _cpContainer   = p2
+    , _cpDescription = Nothing
+    , _cpVideo       = Nothing
+    , _cpAudio       = Nothing
+    , _cpThumbnails  = Nothing
     }
 
--- | The name of the preset. We recommend that the name be unique within the AWS
--- account, but uniqueness is not enforced.
-cp1Name :: Lens' CreatePreset Text
-cp1Name = lens _cp1Name (\s a -> s { _cp1Name = a })
+-- | A section of the request body that specifies the audio parameters.
+cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
+cpAudio = lens _cpAudio (\s a -> s { _cpAudio = a })
+
+-- | The container type for the output file. Valid values include fmp4, mp3,
+-- mp4, ogg, ts, and webm.
+cpContainer :: Lens' CreatePreset Text
+cpContainer = lens _cpContainer (\s a -> s { _cpContainer = a })
 
 -- | A description of the preset.
-cp1Description :: Lens' CreatePreset (Maybe Text)
-cp1Description = lens _cp1Description (\s a -> s { _cp1Description = a })
+cpDescription :: Lens' CreatePreset (Maybe Text)
+cpDescription = lens _cpDescription (\s a -> s { _cpDescription = a })
 
--- | The container type for the output file. Valid values include mp3, mp4, ogg,
--- ts, and webm.
-cp1Container :: Lens' CreatePreset Text
-cp1Container = lens _cp1Container (\s a -> s { _cp1Container = a })
-
--- | A section of the request body that specifies the video parameters.
-cp1Video :: Lens' CreatePreset (Maybe VideoParameters)
-cp1Video = lens _cp1Video (\s a -> s { _cp1Video = a })
-
--- | A section of the request body that specifies the audio parameters.
-cp1Audio :: Lens' CreatePreset (Maybe AudioParameters)
-cp1Audio = lens _cp1Audio (\s a -> s { _cp1Audio = a })
+-- | The name of the preset. We recommend that the name be unique within the
+-- AWS account, but uniqueness is not enforced.
+cpName :: Lens' CreatePreset Text
+cpName = lens _cpName (\s a -> s { _cpName = a })
 
 -- | A section of the request body that specifies the thumbnail parameters, if
 -- any.
-cp1Thumbnails :: Lens' CreatePreset (Maybe Thumbnails)
-cp1Thumbnails = lens _cp1Thumbnails (\s a -> s { _cp1Thumbnails = a })
+cpThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
+cpThumbnails = lens _cpThumbnails (\s a -> s { _cpThumbnails = a })
 
-instance ToPath CreatePreset
+-- | A section of the request body that specifies the video parameters.
+cpVideo :: Lens' CreatePreset (Maybe VideoParameters)
+cpVideo = lens _cpVideo (\s a -> s { _cpVideo = a })
 
-instance ToQuery CreatePreset
+instance ToPath CreatePreset where
+    toPath = const "/2012-09-25/presets"
+
+instance ToQuery CreatePreset where
+    toQuery = const mempty
 
 instance ToHeaders CreatePreset
 
-instance ToJSON CreatePreset
+instance ToBody CreatePreset where
+    toBody = toBody . encode . _cpName
 
--- | The CreatePresetResponse structure.
 data CreatePresetResponse = CreatePresetResponse
-    { _cprrPreset :: Maybe Preset
-    , _cprrWarning :: Maybe Text
+    { _cprPreset  :: Maybe Preset
+    , _cprWarning :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreatePresetResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreatePresetResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Preset ::@ @Maybe Preset@
+-- * 'cprPreset' @::@ 'Maybe' 'Preset'
 --
--- * @Warning ::@ @Maybe Text@
+-- * 'cprWarning' @::@ 'Maybe' 'Text'
 --
 createPresetResponse :: CreatePresetResponse
 createPresetResponse = CreatePresetResponse
-    { _cprrPreset = Nothing
-    , _cprrWarning = Nothing
+    { _cprPreset  = Nothing
+    , _cprWarning = Nothing
     }
 
 -- | A section of the response body that provides information about the preset
 -- that is created.
-cprrPreset :: Lens' CreatePresetResponse (Maybe Preset)
-cprrPreset = lens _cprrPreset (\s a -> s { _cprrPreset = a })
+cprPreset :: Lens' CreatePresetResponse (Maybe Preset)
+cprPreset = lens _cprPreset (\s a -> s { _cprPreset = a })
 
--- | If the preset settings don't comply with the standards for the video codec
--- but Elastic Transcoder created the preset, this message explains the reason
--- the preset settings don't meet the standard. Elastic Transcoder created the
--- preset because the settings might produce acceptable output.
-cprrWarning :: Lens' CreatePresetResponse (Maybe Text)
-cprrWarning = lens _cprrWarning (\s a -> s { _cprrWarning = a })
+-- | If the preset settings don't comply with the standards for the video
+-- codec but Elastic Transcoder created the preset, this message explains
+-- the reason the preset settings don't meet the standard. Elastic
+-- Transcoder created the preset because the settings might produce
+-- acceptable output.
+cprWarning :: Lens' CreatePresetResponse (Maybe Text)
+cprWarning = lens _cprWarning (\s a -> s { _cprWarning = a })
 
-instance FromJSON CreatePresetResponse
+-- FromJSON
 
 instance AWSRequest CreatePreset where
     type Sv CreatePreset = ElasticTranscoder
     type Rs CreatePreset = CreatePresetResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> CreatePresetResponse
+        <$> o .: "Preset"
+        <*> o .: "Warning"

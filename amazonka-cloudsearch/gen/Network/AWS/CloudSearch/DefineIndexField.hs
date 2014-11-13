@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineIndexField
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,91 +35,78 @@ module Network.AWS.CloudSearch.DefineIndexField
     -- ** Request constructor
     , defineIndexField
     -- ** Request lenses
-    , difDomainName
-    , difIndexField
+    , dif2DomainName
+    , dif2IndexField
 
     -- * Response
     , DefineIndexFieldResponse
     -- ** Response constructor
     , defineIndexFieldResponse
     -- ** Response lenses
-    , difrIndexField
+    , difr1IndexField
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DefineIndexField operation. Specifies
--- the name of the domain you want to update and the index field
--- configuration.
 data DefineIndexField = DefineIndexField
-    { _difDomainName :: Text
-    , _difIndexField :: IndexField
-    } deriving (Eq, Ord, Show, Generic)
+    { _dif2DomainName :: Text
+    , _dif2IndexField :: IndexField
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DefineIndexField' request.
+-- | 'DefineIndexField' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'dif2DomainName' @::@ 'Text'
 --
--- * @IndexField ::@ @IndexField@
+-- * 'dif2IndexField' @::@ 'IndexField'
 --
-defineIndexField :: Text -- ^ 'difDomainName'
-                 -> IndexField -- ^ 'difIndexField'
+defineIndexField :: Text -- ^ 'dif2DomainName'
+                 -> IndexField -- ^ 'dif2IndexField'
                  -> DefineIndexField
 defineIndexField p1 p2 = DefineIndexField
-    { _difDomainName = p1
-    , _difIndexField = p2
+    { _dif2DomainName = p1
+    , _dif2IndexField = p2
     }
 
--- | A string that represents the name of a domain. Domain names are unique
--- across the domains owned by an account within an AWS region. Domain names
--- start with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
-difDomainName :: Lens' DefineIndexField Text
-difDomainName = lens _difDomainName (\s a -> s { _difDomainName = a })
+dif2DomainName :: Lens' DefineIndexField Text
+dif2DomainName = lens _dif2DomainName (\s a -> s { _dif2DomainName = a })
 
 -- | The index field and field options you want to configure.
-difIndexField :: Lens' DefineIndexField IndexField
-difIndexField = lens _difIndexField (\s a -> s { _difIndexField = a })
+dif2IndexField :: Lens' DefineIndexField IndexField
+dif2IndexField = lens _dif2IndexField (\s a -> s { _dif2IndexField = a })
 
-instance ToQuery DefineIndexField where
-    toQuery = genericQuery def
+instance ToQuery DefineIndexField
 
--- | The result of a DefineIndexField request. Contains the status of the
--- newly-configured index field.
+instance ToPath DefineIndexField where
+    toPath = const "/"
+
 newtype DefineIndexFieldResponse = DefineIndexFieldResponse
-    { _difrIndexField :: IndexFieldStatus
-    } deriving (Eq, Ord, Show, Generic)
+    { _difr1IndexField :: IndexFieldStatus
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DefineIndexFieldResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DefineIndexFieldResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IndexField ::@ @IndexFieldStatus@
+-- * 'difr1IndexField' @::@ 'IndexFieldStatus'
 --
-defineIndexFieldResponse :: IndexFieldStatus -- ^ 'difrIndexField'
+defineIndexFieldResponse :: IndexFieldStatus -- ^ 'difr1IndexField'
                          -> DefineIndexFieldResponse
 defineIndexFieldResponse p1 = DefineIndexFieldResponse
-    { _difrIndexField = p1
+    { _difr1IndexField = p1
     }
 
--- | The value of an IndexField and its current status.
-difrIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
-difrIndexField = lens _difrIndexField (\s a -> s { _difrIndexField = a })
-
-instance FromXML DefineIndexFieldResponse where
-    fromXMLOptions = xmlOptions
+difr1IndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
+difr1IndexField = lens _difr1IndexField (\s a -> s { _difr1IndexField = a })
 
 instance AWSRequest DefineIndexField where
     type Sv DefineIndexField = CloudSearch
     type Rs DefineIndexField = DefineIndexFieldResponse
 
-    request = post "DefineIndexField"
-    response _ = xmlResponse
+    request  = post "DefineIndexField"
+    response = xmlResponse $ \h x -> DefineIndexFieldResponse
+        <$> x %| "IndexField"

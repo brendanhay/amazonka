@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DynamoDB.CreateTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,23 +30,7 @@
 -- ACTIVE table. If you want to create multiple tables with secondary indexes
 -- on them, you must create them sequentially. Only one table with secondary
 -- indexes can be in the CREATING state at any given time. You can use the
--- DescribeTable API to check the table status. Create a Table This example
--- creates a table named Thread. The table primary key consists of ForumName
--- (hash) and Subject (range). A local secondary index is also created; its
--- key consists of ForumName (hash) and LastPostDateTime (range). {
--- "TableDescription": { "AttributeDefinitions": [ { "AttributeName":
--- "ForumName", "AttributeType": "S" }, { "AttributeName": "LastPostDateTime",
--- "AttributeType": "S" }, { "AttributeName": "Subject", "AttributeType": "S"
--- } ], "CreationDateTime": 1.36372808007E9, "ItemCount": 0, "KeySchema": [ {
--- "AttributeName": "ForumName", "KeyType": "HASH" }, { "AttributeName":
--- "Subject", "KeyType": "RANGE" } ], "LocalSecondaryIndexes": [ {
--- "IndexName": "LastPostIndex", "IndexSizeBytes": 0, "ItemCount": 0,
--- "KeySchema": [ { "AttributeName": "ForumName", "KeyType": "HASH" }, {
--- "AttributeName": "LastPostDateTime", "KeyType": "RANGE" } ], "Projection":
--- { "ProjectionType": "KEYS_ONLY" } } ], "ProvisionedThroughput": {
--- "NumberOfDecreasesToday": 0, "ReadCapacityUnits": 5, "WriteCapacityUnits":
--- 5 }, "TableName": "Thread", "TableSizeBytes": 0, "TableStatus": "CREATING"
--- } }.
+-- DescribeTable API to check the table status.
 module Network.AWS.DynamoDB.CreateTable
     (
     -- * Request
@@ -53,11 +39,11 @@ module Network.AWS.DynamoDB.CreateTable
     , createTable
     -- ** Request lenses
     , ctAttributeDefinitions
-    , ctTableName
+    , ctGlobalSecondaryIndexes
     , ctKeySchema
     , ctLocalSecondaryIndexes
-    , ctGlobalSecondaryIndexes
     , ctProvisionedThroughput
+    , ctTableName
 
     -- * Response
     , CreateTableResponse
@@ -67,49 +53,46 @@ module Network.AWS.DynamoDB.CreateTable
     , ctrTableDescription
     ) where
 
-import Network.AWS.DynamoDB.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DynamoDB.Types
 
--- | Represents the input of a CreateTable operation.
 data CreateTable = CreateTable
-    { _ctAttributeDefinitions :: [AttributeDefinition]
-    , _ctTableName :: Text
-    , _ctKeySchema :: List1 KeySchemaElement
-    , _ctLocalSecondaryIndexes :: [LocalSecondaryIndex]
+    { _ctAttributeDefinitions   :: [AttributeDefinition]
     , _ctGlobalSecondaryIndexes :: [GlobalSecondaryIndex]
-    , _ctProvisionedThroughput :: ProvisionedThroughput
-    } deriving (Eq, Ord, Show, Generic)
+    , _ctKeySchema              :: List1 KeySchemaElement
+    , _ctLocalSecondaryIndexes  :: [LocalSecondaryIndex]
+    , _ctProvisionedThroughput  :: ProvisionedThroughput
+    , _ctTableName              :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateTable' request.
+-- | 'CreateTable' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AttributeDefinitions ::@ @[AttributeDefinition]@
+-- * 'ctAttributeDefinitions' @::@ ['AttributeDefinition']
 --
--- * @TableName ::@ @Text@
+-- * 'ctGlobalSecondaryIndexes' @::@ ['GlobalSecondaryIndex']
 --
--- * @KeySchema ::@ @List1 KeySchemaElement@
+-- * 'ctKeySchema' @::@ 'NonEmpty' 'KeySchemaElement'
 --
--- * @LocalSecondaryIndexes ::@ @[LocalSecondaryIndex]@
+-- * 'ctLocalSecondaryIndexes' @::@ ['LocalSecondaryIndex']
 --
--- * @GlobalSecondaryIndexes ::@ @[GlobalSecondaryIndex]@
+-- * 'ctProvisionedThroughput' @::@ 'ProvisionedThroughput'
 --
--- * @ProvisionedThroughput ::@ @ProvisionedThroughput@
+-- * 'ctTableName' @::@ 'Text'
 --
-createTable :: [AttributeDefinition] -- ^ 'ctAttributeDefinitions'
-            -> Text -- ^ 'ctTableName'
-            -> List1 KeySchemaElement -- ^ 'ctKeySchema'
+createTable :: Text -- ^ 'ctTableName'
+            -> NonEmpty KeySchemaElement -- ^ 'ctKeySchema'
             -> ProvisionedThroughput -- ^ 'ctProvisionedThroughput'
             -> CreateTable
-createTable p1 p2 p3 p6 = CreateTable
-    { _ctAttributeDefinitions = p1
-    , _ctTableName = p2
-    , _ctKeySchema = p3
-    , _ctLocalSecondaryIndexes = mempty
+createTable p1 p2 p3 = CreateTable
+    { _ctTableName              = p1
+    , _ctKeySchema              = withIso _List1 (const id) p2
+    , _ctProvisionedThroughput  = p3
+    , _ctAttributeDefinitions   = mempty
+    , _ctLocalSecondaryIndexes  = mempty
     , _ctGlobalSecondaryIndexes = mempty
-    , _ctProvisionedThroughput = p6
     }
 
 -- | An array of attributes that describe the key schema for the table and
@@ -118,9 +101,30 @@ ctAttributeDefinitions :: Lens' CreateTable [AttributeDefinition]
 ctAttributeDefinitions =
     lens _ctAttributeDefinitions (\s a -> s { _ctAttributeDefinitions = a })
 
--- | The name of the table to create.
-ctTableName :: Lens' CreateTable Text
-ctTableName = lens _ctTableName (\s a -> s { _ctTableName = a })
+-- | One or more global secondary indexes (the maximum is five) to be created
+-- on the table. Each global secondary index in the array includes the
+-- following: IndexName - The name of the global secondary index. Must be
+-- unique only for this table. KeySchema - Specifies the key schema for the
+-- global secondary index. Projection - Specifies attributes that are copied
+-- (projected) from the table into the index. These are in addition to the
+-- primary key attributes and index key attributes, which are automatically
+-- projected. Each attribute specification is composed of: ProjectionType -
+-- One of the following: KEYS_ONLY - Only the index and primary keys are
+-- projected into the index. INCLUDE - Only the specified table attributes
+-- are projected into the index. The list of projected attributes are in
+-- NonKeyAttributes. ALL - All of the table attributes are projected into
+-- the index. NonKeyAttributes - A list of one or more non-key attribute
+-- names that are projected into the secondary index. The total count of
+-- attributes specified in NonKeyAttributes, summed across all of the
+-- secondary indexes, must not exceed 20. If you project the same attribute
+-- into two different indexes, this counts as two distinct attributes when
+-- determining the total. ProvisionedThroughput - The provisioned throughput
+-- settings for the global secondary index, consisting of read and write
+-- capacity units.
+ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
+ctGlobalSecondaryIndexes =
+    lens _ctGlobalSecondaryIndexes
+        (\s a -> s { _ctGlobalSecondaryIndexes = a })
 
 -- | Specifies the attributes that make up the primary key for a table or an
 -- index. The attributes in KeySchema must also be defined in the
@@ -130,18 +134,19 @@ ctTableName = lens _ctTableName (\s a -> s { _ctTableName = a })
 -- Determines whether the key attribute is HASH or RANGE. For a primary key
 -- that consists of a hash attribute, you must specify exactly one element
 -- with a KeyType of HASH. For a primary key that consists of hash and range
--- attributes, you must specify exactly two elements, in this order: The first
--- element must have a KeyType of HASH, and the second element must have a
--- KeyType of RANGE. For more information, see Specifying the Primary Key in
--- the Amazon DynamoDB Developer Guide.
-ctKeySchema :: Lens' CreateTable (List1 KeySchemaElement)
+-- attributes, you must specify exactly two elements, in this order: The
+-- first element must have a KeyType of HASH, and the second element must
+-- have a KeyType of RANGE. For more information, see Specifying the Primary
+-- Key in the Amazon DynamoDB Developer Guide.
+ctKeySchema :: Lens' CreateTable (NonEmpty KeySchemaElement)
 ctKeySchema = lens _ctKeySchema (\s a -> s { _ctKeySchema = a })
+    . _List1
 
--- | One or more local secondary indexes (the maximum is five) to be created on
--- the table. Each index is scoped to a given hash key value. There is a 10 GB
--- size limit per hash key; otherwise, the size of a local secondary index is
--- unconstrained. Each local secondary index in the array includes the
--- following: IndexName - The name of the local secondary index. Must be
+-- | One or more local secondary indexes (the maximum is five) to be created
+-- on the table. Each index is scoped to a given hash key value. There is a
+-- 10 GB size limit per hash key; otherwise, the size of a local secondary
+-- index is unconstrained. Each local secondary index in the array includes
+-- the following: IndexName - The name of the local secondary index. Must be
 -- unique only for this table. KeySchema - Specifies the key schema for the
 -- local secondary index. The key schema must begin with the same hash key
 -- attribute as the table. Projection - Specifies attributes that are copied
@@ -149,89 +154,63 @@ ctKeySchema = lens _ctKeySchema (\s a -> s { _ctKeySchema = a })
 -- primary key attributes and index key attributes, which are automatically
 -- projected. Each attribute specification is composed of: ProjectionType -
 -- One of the following: KEYS_ONLY - Only the index and primary keys are
--- projected into the index. INCLUDE - Only the specified table attributes are
--- projected into the index. The list of projected attributes are in
--- NonKeyAttributes. ALL - All of the table attributes are projected into the
--- index. NonKeyAttributes - A list of one or more non-key attribute names
--- that are projected into the secondary index. The total count of attributes
--- specified in NonKeyAttributes, summed across all of the secondary indexes,
--- must not exceed 20. If you project the same attribute into two different
--- indexes, this counts as two distinct attributes when determining the total.
+-- projected into the index. INCLUDE - Only the specified table attributes
+-- are projected into the index. The list of projected attributes are in
+-- NonKeyAttributes. ALL - All of the table attributes are projected into
+-- the index. NonKeyAttributes - A list of one or more non-key attribute
+-- names that are projected into the secondary index. The total count of
+-- attributes specified in NonKeyAttributes, summed across all of the
+-- secondary indexes, must not exceed 20. If you project the same attribute
+-- into two different indexes, this counts as two distinct attributes when
+-- determining the total.
 ctLocalSecondaryIndexes :: Lens' CreateTable [LocalSecondaryIndex]
 ctLocalSecondaryIndexes =
-    lens _ctLocalSecondaryIndexes
-         (\s a -> s { _ctLocalSecondaryIndexes = a })
+    lens _ctLocalSecondaryIndexes (\s a -> s { _ctLocalSecondaryIndexes = a })
 
--- | One or more global secondary indexes (the maximum is five) to be created on
--- the table. Each global secondary index in the array includes the following:
--- IndexName - The name of the global secondary index. Must be unique only for
--- this table. KeySchema - Specifies the key schema for the global secondary
--- index. Projection - Specifies attributes that are copied (projected) from
--- the table into the index. These are in addition to the primary key
--- attributes and index key attributes, which are automatically projected.
--- Each attribute specification is composed of: ProjectionType - One of the
--- following: KEYS_ONLY - Only the index and primary keys are projected into
--- the index. INCLUDE - Only the specified table attributes are projected into
--- the index. The list of projected attributes are in NonKeyAttributes. ALL -
--- All of the table attributes are projected into the index. NonKeyAttributes
--- - A list of one or more non-key attribute names that are projected into the
--- secondary index. The total count of attributes specified in
--- NonKeyAttributes, summed across all of the secondary indexes, must not
--- exceed 20. If you project the same attribute into two different indexes,
--- this counts as two distinct attributes when determining the total.
--- ProvisionedThroughput - The provisioned throughput settings for the global
--- secondary index, consisting of read and write capacity units.
-ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
-ctGlobalSecondaryIndexes =
-    lens _ctGlobalSecondaryIndexes
-         (\s a -> s { _ctGlobalSecondaryIndexes = a })
-
--- | Represents the provisioned throughput settings for a specified table or
--- index. The settings can be modified using the UpdateTable operation. For
--- current minimum and maximum provisioned throughput values, see Limits in
--- the Amazon DynamoDB Developer Guide.
 ctProvisionedThroughput :: Lens' CreateTable ProvisionedThroughput
 ctProvisionedThroughput =
-    lens _ctProvisionedThroughput
-         (\s a -> s { _ctProvisionedThroughput = a })
+    lens _ctProvisionedThroughput (\s a -> s { _ctProvisionedThroughput = a })
 
-instance ToPath CreateTable
+-- | The name of the table to create.
+ctTableName :: Lens' CreateTable Text
+ctTableName = lens _ctTableName (\s a -> s { _ctTableName = a })
 
-instance ToQuery CreateTable
+instance ToPath CreateTable where
+    toPath = const "/"
+
+instance ToQuery CreateTable where
+    toQuery = const mempty
 
 instance ToHeaders CreateTable
 
-instance ToJSON CreateTable
+instance ToBody CreateTable where
+    toBody = toBody . encode . _ctAttributeDefinitions
 
--- | Represents the output of a CreateTable operation.
 newtype CreateTableResponse = CreateTableResponse
     { _ctrTableDescription :: Maybe TableDescription
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateTableResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateTableResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TableDescription ::@ @Maybe TableDescription@
+-- * 'ctrTableDescription' @::@ 'Maybe' 'TableDescription'
 --
 createTableResponse :: CreateTableResponse
 createTableResponse = CreateTableResponse
     { _ctrTableDescription = Nothing
     }
 
--- | Represents the properties of a table.
 ctrTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
 ctrTableDescription =
     lens _ctrTableDescription (\s a -> s { _ctrTableDescription = a })
 
-instance FromJSON CreateTableResponse
+-- FromJSON
 
 instance AWSRequest CreateTable where
     type Sv CreateTable = DynamoDB
     type Rs CreateTable = CreateTableResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> CreateTableResponse
+        <$> o .: "TableDescription"

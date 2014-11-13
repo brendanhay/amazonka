@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.UpdateScalingParameters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,65 +45,53 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     , usprScalingParameters
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the UpdateScalingParameters operation.
--- Specifies the name of the domain you want to update and the scaling
--- parameters you want to configure.
 data UpdateScalingParameters = UpdateScalingParameters
-    { _uspDomainName :: Text
+    { _uspDomainName        :: Text
     , _uspScalingParameters :: ScalingParameters
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateScalingParameters' request.
+-- | 'UpdateScalingParameters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'uspDomainName' @::@ 'Text'
 --
--- * @ScalingParameters ::@ @ScalingParameters@
+-- * 'uspScalingParameters' @::@ 'ScalingParameters'
 --
 updateScalingParameters :: Text -- ^ 'uspDomainName'
                         -> ScalingParameters -- ^ 'uspScalingParameters'
                         -> UpdateScalingParameters
 updateScalingParameters p1 p2 = UpdateScalingParameters
-    { _uspDomainName = p1
+    { _uspDomainName        = p1
     , _uspScalingParameters = p2
     }
 
--- | A string that represents the name of a domain. Domain names are unique
--- across the domains owned by an account within an AWS region. Domain names
--- start with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
 uspDomainName :: Lens' UpdateScalingParameters Text
 uspDomainName = lens _uspDomainName (\s a -> s { _uspDomainName = a })
 
--- | The desired instance type and desired number of replicas of each index
--- partition.
 uspScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
 uspScalingParameters =
     lens _uspScalingParameters (\s a -> s { _uspScalingParameters = a })
 
-instance ToQuery UpdateScalingParameters where
-    toQuery = genericQuery def
+instance ToQuery UpdateScalingParameters
 
--- | The result of a UpdateScalingParameters request. Contains the status of the
--- newly-configured scaling parameters.
+instance ToPath UpdateScalingParameters where
+    toPath = const "/"
+
 newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
     { _usprScalingParameters :: ScalingParametersStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateScalingParametersResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateScalingParametersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ScalingParameters ::@ @ScalingParametersStatus@
+-- * 'usprScalingParameters' @::@ 'ScalingParametersStatus'
 --
 updateScalingParametersResponse :: ScalingParametersStatus -- ^ 'usprScalingParameters'
                                 -> UpdateScalingParametersResponse
@@ -109,17 +99,14 @@ updateScalingParametersResponse p1 = UpdateScalingParametersResponse
     { _usprScalingParameters = p1
     }
 
--- | The status and configuration of a search domain's scaling parameters.
 usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
 usprScalingParameters =
     lens _usprScalingParameters (\s a -> s { _usprScalingParameters = a })
-
-instance FromXML UpdateScalingParametersResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest UpdateScalingParameters where
     type Sv UpdateScalingParameters = CloudSearch
     type Rs UpdateScalingParameters = UpdateScalingParametersResponse
 
-    request = post "UpdateScalingParameters"
-    response _ = xmlResponse
+    request  = post "UpdateScalingParameters"
+    response = xmlResponse $ \h x -> UpdateScalingParametersResponse
+        <$> x %| "ScalingParameters"

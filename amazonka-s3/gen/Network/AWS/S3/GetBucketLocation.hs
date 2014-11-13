@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketLocation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,78 +28,74 @@ module Network.AWS.S3.GetBucketLocation
     -- ** Request constructor
     , getBucketLocation
     -- ** Request lenses
-    , gbl1Bucket
+    , gblBucket
 
     -- * Response
     , GetBucketLocationResponse
     -- ** Response constructor
     , getBucketLocationResponse
     -- ** Response lenses
-    , gblrrLocationConstraint
+    , gblrLocationConstraint
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketLocation = GetBucketLocation
-    { _gbl1Bucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _gblBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketLocation' request.
+-- | 'GetBucketLocation' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'gblBucket' @::@ 'Text'
 --
-getBucketLocation :: BucketName -- ^ 'gbl1Bucket'
+getBucketLocation :: Text -- ^ 'gblBucket'
                   -> GetBucketLocation
 getBucketLocation p1 = GetBucketLocation
-    { _gbl1Bucket = p1
+    { _gblBucket = p1
     }
 
-gbl1Bucket :: Lens' GetBucketLocation BucketName
-gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
+gblBucket :: Lens' GetBucketLocation Text
+gblBucket = lens _gblBucket (\s a -> s { _gblBucket = a })
 
-instance ToPath GetBucketLocation
+instance ToPath GetBucketLocation where
+    toPath GetBucketLocation{..} = mconcat
+        [ "/"
+        , toText _gblBucket
+        ]
 
-instance ToQuery GetBucketLocation
+instance ToQuery GetBucketLocation where
+    toQuery = const "location"
 
 instance ToHeaders GetBucketLocation
 
-instance ToBody GetBucketLocation
-
 newtype GetBucketLocationResponse = GetBucketLocationResponse
-    { _gblrrLocationConstraint :: Maybe Region
-    } deriving (Eq, Ord, Show, Generic)
+    { _gblrLocationConstraint :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketLocationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetBucketLocationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LocationConstraint ::@ @Maybe Region@
+-- * 'gblrLocationConstraint' @::@ 'Maybe' 'Text'
 --
 getBucketLocationResponse :: GetBucketLocationResponse
 getBucketLocationResponse = GetBucketLocationResponse
-    { _gblrrLocationConstraint = Nothing
+    { _gblrLocationConstraint = Nothing
     }
 
-gblrrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
-gblrrLocationConstraint =
-    lens _gblrrLocationConstraint
-         (\s a -> s { _gblrrLocationConstraint = a })
-
-instance FromXML GetBucketLocationResponse where
-    fromXMLOptions = xmlOptions
+gblrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Text)
+gblrLocationConstraint =
+    lens _gblrLocationConstraint (\s a -> s { _gblrLocationConstraint = a })
 
 instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
     type Rs GetBucketLocation = GetBucketLocationResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetBucketLocationResponse
+        <$> x %| "LocationConstraint"

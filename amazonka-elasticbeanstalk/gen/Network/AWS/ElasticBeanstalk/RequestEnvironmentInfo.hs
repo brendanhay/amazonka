@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,14 +23,8 @@
 -- | Initiates a request to compile the specified type of information of the
 -- deployed environment. Setting the InfoType to tail compiles the last lines
 -- from the application server log files of every Amazon EC2 instance in your
--- environment. Setting the InfoType to bundle compresses the application
--- server log files for every Amazon EC2 instance into a .zip file. Legacy and
--- .NET containers do not support bundle logs. Use RetrieveEnvironmentInfo to
--- obtain the set of logs. Related Topics RetrieveEnvironmentInfo
--- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
--- &EnvironmentName=SampleAppVersion &InfoType=tail
--- &Operation=RequestEnvironmentInfo &AuthParams
--- 126a4ff3-f28a-11df-8a78-9f77047e0d0c.
+-- environment. Use RetrieveEnvironmentInfo to access the compiled
+-- information. Related Topics RetrieveEnvironmentInfo.
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
     -- * Request
@@ -46,44 +42,42 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     , requestEnvironmentInfoResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | This documentation target is not reported in the API reference.
 data RequestEnvironmentInfo = RequestEnvironmentInfo
-    { _reiEnvironmentId :: Maybe Text
+    { _reiEnvironmentId   :: Maybe Text
     , _reiEnvironmentName :: Maybe Text
-    , _reiInfoType :: EnvironmentInfoType
+    , _reiInfoType        :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RequestEnvironmentInfo' request.
+-- | 'RequestEnvironmentInfo' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EnvironmentId ::@ @Maybe Text@
+-- * 'reiEnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'reiEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * @InfoType ::@ @EnvironmentInfoType@
+-- * 'reiInfoType' @::@ 'Text'
 --
-requestEnvironmentInfo :: EnvironmentInfoType -- ^ 'reiInfoType'
+requestEnvironmentInfo :: Text -- ^ 'reiInfoType'
                        -> RequestEnvironmentInfo
-requestEnvironmentInfo p3 = RequestEnvironmentInfo
-    { _reiEnvironmentId = Nothing
+requestEnvironmentInfo p1 = RequestEnvironmentInfo
+    { _reiInfoType        = p1
+    , _reiEnvironmentId   = Nothing
     , _reiEnvironmentName = Nothing
-    , _reiInfoType = p3
     }
 
--- | The ID of the environment of the requested data. If no such environment is
--- found, RequestEnvironmentInfo returns an InvalidParameterValue error.
--- Condition: You must specify either this or an EnvironmentName, or both. If
--- you do not specify either, AWS Elastic Beanstalk returns
+-- | The ID of the environment of the requested data. If no such environment
+-- is found, RequestEnvironmentInfo returns an InvalidParameterValue error.
+-- Condition: You must specify either this or an EnvironmentName, or both.
+-- If you do not specify either, AWS Elastic Beanstalk returns
 -- MissingRequiredParameter error.
 reiEnvironmentId :: Lens' RequestEnvironmentInfo (Maybe Text)
-reiEnvironmentId =
-    lens _reiEnvironmentId (\s a -> s { _reiEnvironmentId = a })
+reiEnvironmentId = lens _reiEnvironmentId (\s a -> s { _reiEnvironmentId = a })
 
 -- | The name of the environment of the requested data. If no such environment
 -- is found, RequestEnvironmentInfo returns an InvalidParameterValue error.
@@ -95,19 +89,18 @@ reiEnvironmentName =
     lens _reiEnvironmentName (\s a -> s { _reiEnvironmentName = a })
 
 -- | The type of information to request.
-reiInfoType :: Lens' RequestEnvironmentInfo EnvironmentInfoType
+reiInfoType :: Lens' RequestEnvironmentInfo Text
 reiInfoType = lens _reiInfoType (\s a -> s { _reiInfoType = a })
 
-instance ToQuery RequestEnvironmentInfo where
-    toQuery = genericQuery def
+instance ToQuery RequestEnvironmentInfo
+
+instance ToPath RequestEnvironmentInfo where
+    toPath = const "/"
 
 data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RequestEnvironmentInfoResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RequestEnvironmentInfoResponse' constructor.
 requestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse
 requestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
 
@@ -115,5 +108,5 @@ instance AWSRequest RequestEnvironmentInfo where
     type Sv RequestEnvironmentInfo = ElasticBeanstalk
     type Rs RequestEnvironmentInfo = RequestEnvironmentInfoResponse
 
-    request = post "RequestEnvironmentInfo"
-    response _ = nullaryResponse RequestEnvironmentInfoResponse
+    request  = post "RequestEnvironmentInfo"
+    response = nullaryResponse RequestEnvironmentInfoResponse

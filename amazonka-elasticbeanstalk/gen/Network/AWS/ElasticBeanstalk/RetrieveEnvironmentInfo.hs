@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,13 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves the compiled information from a RequestEnvironmentInfo request.
--- Related Topics RequestEnvironmentInfo
--- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
--- &EnvironmentName=SampleAppVersion &InfoType=tail
--- &Operation=RetrieveEnvironmentInfo &AuthParams
--- https://elasticbeanstalk.us-east-1.s3.amazonaws.com/environments%2Fa514386a-709f-4888-9683-068c38d744b4%2Flogs%2Fi-92a3ceff%2F278756a8-7d83-4bc1-93db-b1763163705a.log?Expires=1291236023
--- &AuthParams 2010-11-17T20:40:23.210Z tail i-92a3ceff
--- e8e785c9-f28a-11df-8a78-9f77047e0d0c.
+-- Related Topics RequestEnvironmentInfo.
 module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     (
     -- * Request
@@ -45,72 +41,75 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     , reirEnvironmentInfo
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | This documentation target is not reported in the API reference.
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
-    { _rei1EnvironmentId :: Maybe Text
+    { _rei1EnvironmentId   :: Maybe Text
     , _rei1EnvironmentName :: Maybe Text
-    , _rei1InfoType :: EnvironmentInfoType
+    , _rei1InfoType        :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RetrieveEnvironmentInfo' request.
+-- | 'RetrieveEnvironmentInfo' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EnvironmentId ::@ @Maybe Text@
+-- * 'rei1EnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'rei1EnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * @InfoType ::@ @EnvironmentInfoType@
+-- * 'rei1InfoType' @::@ 'Text'
 --
-retrieveEnvironmentInfo :: EnvironmentInfoType -- ^ 'rei1InfoType'
+retrieveEnvironmentInfo :: Text -- ^ 'rei1InfoType'
                         -> RetrieveEnvironmentInfo
-retrieveEnvironmentInfo p3 = RetrieveEnvironmentInfo
-    { _rei1EnvironmentId = Nothing
+retrieveEnvironmentInfo p1 = RetrieveEnvironmentInfo
+    { _rei1InfoType        = p1
+    , _rei1EnvironmentId   = Nothing
     , _rei1EnvironmentName = Nothing
-    , _rei1InfoType = p3
     }
 
--- | The ID of the data's environment. If no such environment is found, returns
--- an InvalidParameterValue error. Condition: You must specify either this or
--- an EnvironmentName, or both. If you do not specify either, AWS Elastic
--- Beanstalk returns MissingRequiredParameter error.
+-- | The ID of the data's environment. If no such environment is found,
+-- returns an InvalidParameterValue error. Condition: You must specify
+-- either this or an EnvironmentName, or both. If you do not specify either,
+-- AWS Elastic Beanstalk returns MissingRequiredParameter error.
 rei1EnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
 rei1EnvironmentId =
     lens _rei1EnvironmentId (\s a -> s { _rei1EnvironmentId = a })
 
 -- | The name of the data's environment. If no such environment is found,
--- returns an InvalidParameterValue error. Condition: You must specify either
--- this or an EnvironmentId, or both. If you do not specify either, AWS
--- Elastic Beanstalk returns MissingRequiredParameter error.
+-- returns an InvalidParameterValue error. Condition: You must specify
+-- either this or an EnvironmentId, or both. If you do not specify either,
+-- AWS Elastic Beanstalk returns MissingRequiredParameter error.
 rei1EnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
 rei1EnvironmentName =
     lens _rei1EnvironmentName (\s a -> s { _rei1EnvironmentName = a })
 
 -- | The type of information to retrieve.
-rei1InfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
+rei1InfoType :: Lens' RetrieveEnvironmentInfo Text
 rei1InfoType = lens _rei1InfoType (\s a -> s { _rei1InfoType = a })
 
-instance ToQuery RetrieveEnvironmentInfo where
-    toQuery = genericQuery def
+instance ToQuery RetrieveEnvironmentInfo
 
--- | Result message containing a description of the requested environment info.
+instance ToPath RetrieveEnvironmentInfo where
+    toPath = const "/"
+
 newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     { _reirEnvironmentInfo :: [EnvironmentInfoDescription]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RetrieveEnvironmentInfoResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList RetrieveEnvironmentInfoResponse where
+    type Item RetrieveEnvironmentInfoResponse = EnvironmentInfoDescription
+
+    fromList = RetrieveEnvironmentInfoResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _reirEnvironmentInfo
+
+-- | 'RetrieveEnvironmentInfoResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EnvironmentInfo ::@ @[EnvironmentInfoDescription]@
+-- * 'reirEnvironmentInfo' @::@ ['EnvironmentInfoDescription']
 --
 retrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResponse
 retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
@@ -122,12 +121,10 @@ reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDes
 reirEnvironmentInfo =
     lens _reirEnvironmentInfo (\s a -> s { _reirEnvironmentInfo = a })
 
-instance FromXML RetrieveEnvironmentInfoResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest RetrieveEnvironmentInfo where
     type Sv RetrieveEnvironmentInfo = ElasticBeanstalk
     type Rs RetrieveEnvironmentInfo = RetrieveEnvironmentInfoResponse
 
-    request = post "RetrieveEnvironmentInfo"
-    response _ = xmlResponse
+    request  = post "RetrieveEnvironmentInfo"
+    response = xmlResponse $ \h x -> RetrieveEnvironmentInfoResponse
+        <$> x %| "EnvironmentInfo"

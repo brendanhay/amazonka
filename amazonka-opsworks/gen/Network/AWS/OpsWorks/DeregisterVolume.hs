@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,20 +41,19 @@ module Network.AWS.OpsWorks.DeregisterVolume
     , deregisterVolumeResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype DeregisterVolume = DeregisterVolume
     { _dvVolumeId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterVolume' request.
+-- | 'DeregisterVolume' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeId ::@ @Text@
+-- * 'dvVolumeId' @::@ 'Text'
 --
 deregisterVolume :: Text -- ^ 'dvVolumeId'
                  -> DeregisterVolume
@@ -64,27 +65,29 @@ deregisterVolume p1 = DeregisterVolume
 dvVolumeId :: Lens' DeregisterVolume Text
 dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
 
-instance ToPath DeregisterVolume
+instance ToPath DeregisterVolume where
+    toPath = const "/"
 
-instance ToQuery DeregisterVolume
+instance ToQuery DeregisterVolume where
+    toQuery = const mempty
 
 instance ToHeaders DeregisterVolume
 
-instance ToJSON DeregisterVolume
+instance ToBody DeregisterVolume where
+    toBody = toBody . encode . _dvVolumeId
 
 data DeregisterVolumeResponse = DeregisterVolumeResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterVolumeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeregisterVolumeResponse' constructor.
 deregisterVolumeResponse :: DeregisterVolumeResponse
 deregisterVolumeResponse = DeregisterVolumeResponse
+
+-- FromJSON
 
 instance AWSRequest DeregisterVolume where
     type Sv DeregisterVolume = OpsWorks
     type Rs DeregisterVolume = DeregisterVolumeResponse
 
-    request = get
-    response _ = nullaryResponse DeregisterVolumeResponse
+    request  = post'
+    response = nullaryResponse DeregisterVolumeResponse

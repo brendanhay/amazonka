@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateApp
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,18 +32,17 @@ module Network.AWS.OpsWorks.CreateApp
     -- ** Request constructor
     , createApp
     -- ** Request lenses
-    , caStackId
-    , caShortname
-    , caName
-    , caDescription
-    , caDataSources
-    , caType
     , caAppSource
+    , caAttributes
+    , caDataSources
+    , caDescription
     , caDomains
     , caEnableSsl
+    , caName
+    , caShortname
     , caSslConfiguration
-    , caAttributes
-    , caEnvironment
+    , caStackId
+    , caType
 
     -- * Response
     , CreateAppResponse
@@ -51,103 +52,85 @@ module Network.AWS.OpsWorks.CreateApp
     , carAppId
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data CreateApp = CreateApp
-    { _caStackId :: Text
-    , _caShortname :: Maybe Text
-    , _caName :: Text
-    , _caDescription :: Maybe Text
-    , _caDataSources :: [DataSource]
-    , _caType :: AppType
-    , _caAppSource :: Maybe Source'
-    , _caDomains :: [Text]
-    , _caEnableSsl :: Maybe Bool
+    { _caAppSource        :: Maybe Source
+    , _caAttributes       :: Map Text Text
+    , _caDataSources      :: [DataSource]
+    , _caDescription      :: Maybe Text
+    , _caDomains          :: [Text]
+    , _caEnableSsl        :: Maybe Bool
+    , _caName             :: Text
+    , _caShortname        :: Maybe Text
     , _caSslConfiguration :: Maybe SslConfiguration
-    , _caAttributes :: Map AppAttributesKeys Text
-    , _caEnvironment :: [EnvironmentVariable]
+    , _caStackId          :: Text
+    , _caType             :: Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateApp' request.
+-- | 'CreateApp' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Text@
+-- * 'caAppSource' @::@ 'Maybe' 'Source'
 --
--- * @Shortname ::@ @Maybe Text@
+-- * 'caAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
--- * @Name ::@ @Text@
+-- * 'caDataSources' @::@ ['DataSource']
 --
--- * @Description ::@ @Maybe Text@
+-- * 'caDescription' @::@ 'Maybe' 'Text'
 --
--- * @DataSources ::@ @[DataSource]@
+-- * 'caDomains' @::@ ['Text']
 --
--- * @Type ::@ @AppType@
+-- * 'caEnableSsl' @::@ 'Maybe' 'Bool'
 --
--- * @AppSource ::@ @Maybe Source'@
+-- * 'caName' @::@ 'Text'
 --
--- * @Domains ::@ @[Text]@
+-- * 'caShortname' @::@ 'Maybe' 'Text'
 --
--- * @EnableSsl ::@ @Maybe Bool@
+-- * 'caSslConfiguration' @::@ 'Maybe' 'SslConfiguration'
 --
--- * @SslConfiguration ::@ @Maybe SslConfiguration@
+-- * 'caStackId' @::@ 'Text'
 --
--- * @Attributes ::@ @Map AppAttributesKeys Text@
---
--- * @Environment ::@ @[EnvironmentVariable]@
+-- * 'caType' @::@ 'Text'
 --
 createApp :: Text -- ^ 'caStackId'
           -> Text -- ^ 'caName'
-          -> AppType -- ^ 'caType'
+          -> Text -- ^ 'caType'
           -> CreateApp
-createApp p1 p3 p6 = CreateApp
-    { _caStackId = p1
-    , _caShortname = Nothing
-    , _caName = p3
-    , _caDescription = Nothing
-    , _caDataSources = mempty
-    , _caType = p6
-    , _caAppSource = Nothing
-    , _caDomains = mempty
-    , _caEnableSsl = Nothing
+createApp p1 p2 p3 = CreateApp
+    { _caStackId          = p1
+    , _caName             = p2
+    , _caType             = p3
+    , _caShortname        = Nothing
+    , _caDescription      = Nothing
+    , _caDataSources      = mempty
+    , _caAppSource        = Nothing
+    , _caDomains          = mempty
+    , _caEnableSsl        = Nothing
     , _caSslConfiguration = Nothing
-    , _caAttributes = mempty
-    , _caEnvironment = mempty
+    , _caAttributes       = mempty
     }
 
--- | The stack ID.
-caStackId :: Lens' CreateApp Text
-caStackId = lens _caStackId (\s a -> s { _caStackId = a })
+-- | A Source object that specifies the app repository.
+caAppSource :: Lens' CreateApp (Maybe Source)
+caAppSource = lens _caAppSource (\s a -> s { _caAppSource = a })
 
--- | The app's short name.
-caShortname :: Lens' CreateApp (Maybe Text)
-caShortname = lens _caShortname (\s a -> s { _caShortname = a })
-
--- | The app name.
-caName :: Lens' CreateApp Text
-caName = lens _caName (\s a -> s { _caName = a })
-
--- | A description of the app.
-caDescription :: Lens' CreateApp (Maybe Text)
-caDescription = lens _caDescription (\s a -> s { _caDescription = a })
+-- | One or more user-defined key/value pairs to be added to the stack
+-- attributes.
+caAttributes :: Lens' CreateApp (HashMap Text Text)
+caAttributes = lens _caAttributes (\s a -> s { _caAttributes = a })
+    . _Map
 
 -- | The app's data source.
 caDataSources :: Lens' CreateApp [DataSource]
 caDataSources = lens _caDataSources (\s a -> s { _caDataSources = a })
 
--- | The app type. Each supported type is associated with a particular layer.
--- For example, PHP applications are associated with a PHP layer. AWS OpsWorks
--- deploys an application to those instances that are members of the
--- corresponding layer.
-caType :: Lens' CreateApp AppType
-caType = lens _caType (\s a -> s { _caType = a })
-
--- | A Source object that specifies the app repository.
-caAppSource :: Lens' CreateApp (Maybe Source')
-caAppSource = lens _caAppSource (\s a -> s { _caAppSource = a })
+-- | A description of the app.
+caDescription :: Lens' CreateApp (Maybe Text)
+caDescription = lens _caDescription (\s a -> s { _caDescription = a })
 
 -- | The app virtual host settings, with multiple domains separated by commas.
 -- For example: 'www.example.com, example.com'.
@@ -158,46 +141,50 @@ caDomains = lens _caDomains (\s a -> s { _caDomains = a })
 caEnableSsl :: Lens' CreateApp (Maybe Bool)
 caEnableSsl = lens _caEnableSsl (\s a -> s { _caEnableSsl = a })
 
+-- | The app name.
+caName :: Lens' CreateApp Text
+caName = lens _caName (\s a -> s { _caName = a })
+
+-- | The app's short name.
+caShortname :: Lens' CreateApp (Maybe Text)
+caShortname = lens _caShortname (\s a -> s { _caShortname = a })
+
 -- | An SslConfiguration object with the SSL configuration.
 caSslConfiguration :: Lens' CreateApp (Maybe SslConfiguration)
 caSslConfiguration =
     lens _caSslConfiguration (\s a -> s { _caSslConfiguration = a })
 
--- | One or more user-defined key/value pairs to be added to the stack
--- attributes.
-caAttributes :: Lens' CreateApp (Map AppAttributesKeys Text)
-caAttributes = lens _caAttributes (\s a -> s { _caAttributes = a })
+-- | The stack ID.
+caStackId :: Lens' CreateApp Text
+caStackId = lens _caStackId (\s a -> s { _caStackId = a })
 
--- | An array of EnvironmentVariable objects that specify environment variables
--- to be associated with the app. You can specify up to ten environment
--- variables. After you deploy the app, these variables are defined on the
--- associated app server instance. This parameter is supported only by Chef
--- 11.10 stacks. If you have specified one or more environment variables, you
--- cannot modify the stack's Chef version.
-caEnvironment :: Lens' CreateApp [EnvironmentVariable]
-caEnvironment = lens _caEnvironment (\s a -> s { _caEnvironment = a })
+-- | The app type. Each supported type is associated with a particular layer.
+-- For example, PHP applications are associated with a PHP layer. AWS
+-- OpsWorks deploys an application to those instances that are members of
+-- the corresponding layer.
+caType :: Lens' CreateApp Text
+caType = lens _caType (\s a -> s { _caType = a })
 
-instance ToPath CreateApp
+instance ToPath CreateApp where
+    toPath = const "/"
 
-instance ToQuery CreateApp
+instance ToQuery CreateApp where
+    toQuery = const mempty
 
 instance ToHeaders CreateApp
 
-instance ToJSON CreateApp
+instance ToBody CreateApp where
+    toBody = toBody . encode . _caStackId
 
--- | Contains the response to a CreateApp request.
 newtype CreateAppResponse = CreateAppResponse
     { _carAppId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateAppResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateAppResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AppId ::@ @Maybe Text@
+-- * 'carAppId' @::@ 'Maybe' 'Text'
 --
 createAppResponse :: CreateAppResponse
 createAppResponse = CreateAppResponse
@@ -208,11 +195,12 @@ createAppResponse = CreateAppResponse
 carAppId :: Lens' CreateAppResponse (Maybe Text)
 carAppId = lens _carAppId (\s a -> s { _carAppId = a })
 
-instance FromJSON CreateAppResponse
+-- FromJSON
 
 instance AWSRequest CreateApp where
     type Sv CreateApp = OpsWorks
     type Rs CreateApp = CreateAppResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> CreateAppResponse
+        <$> o .: "AppId"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ImportExport.GetStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,39 +38,38 @@ module Network.AWS.ImportExport.GetStatus
     -- ** Response constructor
     , getStatusResponse
     -- ** Response lenses
+    , gsrAwsShippingAddress
+    , gsrCarrier
+    , gsrCreationDate
+    , gsrCurrentManifest
+    , gsrErrorCount
     , gsrJobId
     , gsrJobType
-    , gsrAwsShippingAddress
     , gsrLocationCode
     , gsrLocationMessage
-    , gsrProgressCode
-    , gsrProgressMessage
-    , gsrCarrier
-    , gsrTrackingNumber
     , gsrLogBucket
     , gsrLogKey
-    , gsrErrorCount
+    , gsrProgressCode
+    , gsrProgressMessage
     , gsrSignature
     , gsrSignatureFileContents
-    , gsrCurrentManifest
-    , gsrCreationDate
+    , gsrTrackingNumber
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input structure for the GetStatus operation.
 newtype GetStatus = GetStatus
     { _gsJobId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetStatus' request.
+-- | 'GetStatus' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @JobId ::@ @Text@
+-- * 'gsJobId' @::@ 'Text'
 --
 getStatus :: Text -- ^ 'gsJobId'
           -> GetStatus
@@ -76,180 +77,164 @@ getStatus p1 = GetStatus
     { _gsJobId = p1
     }
 
--- | A unique identifier which refers to a particular job.
 gsJobId :: Lens' GetStatus Text
 gsJobId = lens _gsJobId (\s a -> s { _gsJobId = a })
 
-instance ToQuery GetStatus where
-    toQuery = genericQuery def
+instance ToQuery GetStatus
 
--- | Output structure for the GetStatus operation.
+instance ToPath GetStatus where
+    toPath = const "/"
+
 data GetStatusResponse = GetStatusResponse
-    { _gsrJobId :: Maybe Text
-    , _gsrJobType :: Maybe JobType
-    , _gsrAwsShippingAddress :: Maybe Text
-    , _gsrLocationCode :: Maybe Text
-    , _gsrLocationMessage :: Maybe Text
-    , _gsrProgressCode :: Maybe Text
-    , _gsrProgressMessage :: Maybe Text
-    , _gsrCarrier :: Maybe Text
-    , _gsrTrackingNumber :: Maybe Text
-    , _gsrLogBucket :: Maybe Text
-    , _gsrLogKey :: Maybe Text
-    , _gsrErrorCount :: Maybe Integer
-    , _gsrSignature :: Maybe Text
+    { _gsrAwsShippingAddress    :: Maybe Text
+    , _gsrCarrier               :: Maybe Text
+    , _gsrCreationDate          :: Maybe RFC822
+    , _gsrCurrentManifest       :: Maybe Text
+    , _gsrErrorCount            :: Maybe Int
+    , _gsrJobId                 :: Maybe Text
+    , _gsrJobType               :: Maybe Text
+    , _gsrLocationCode          :: Maybe Text
+    , _gsrLocationMessage       :: Maybe Text
+    , _gsrLogBucket             :: Maybe Text
+    , _gsrLogKey                :: Maybe Text
+    , _gsrProgressCode          :: Maybe Text
+    , _gsrProgressMessage       :: Maybe Text
+    , _gsrSignature             :: Maybe Text
     , _gsrSignatureFileContents :: Maybe Text
-    , _gsrCurrentManifest :: Maybe Text
-    , _gsrCreationDate :: Maybe ISO8601
+    , _gsrTrackingNumber        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetStatusResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetStatusResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @JobId ::@ @Maybe Text@
+-- * 'gsrAwsShippingAddress' @::@ 'Maybe' 'Text'
 --
--- * @JobType ::@ @Maybe JobType@
+-- * 'gsrCarrier' @::@ 'Maybe' 'Text'
 --
--- * @AwsShippingAddress ::@ @Maybe Text@
+-- * 'gsrCreationDate' @::@ 'Maybe' 'UTCTime'
 --
--- * @LocationCode ::@ @Maybe Text@
+-- * 'gsrCurrentManifest' @::@ 'Maybe' 'Text'
 --
--- * @LocationMessage ::@ @Maybe Text@
+-- * 'gsrErrorCount' @::@ 'Maybe' 'Int'
 --
--- * @ProgressCode ::@ @Maybe Text@
+-- * 'gsrJobId' @::@ 'Maybe' 'Text'
 --
--- * @ProgressMessage ::@ @Maybe Text@
+-- * 'gsrJobType' @::@ 'Maybe' 'Text'
 --
--- * @Carrier ::@ @Maybe Text@
+-- * 'gsrLocationCode' @::@ 'Maybe' 'Text'
 --
--- * @TrackingNumber ::@ @Maybe Text@
+-- * 'gsrLocationMessage' @::@ 'Maybe' 'Text'
 --
--- * @LogBucket ::@ @Maybe Text@
+-- * 'gsrLogBucket' @::@ 'Maybe' 'Text'
 --
--- * @LogKey ::@ @Maybe Text@
+-- * 'gsrLogKey' @::@ 'Maybe' 'Text'
 --
--- * @ErrorCount ::@ @Maybe Integer@
+-- * 'gsrProgressCode' @::@ 'Maybe' 'Text'
 --
--- * @Signature ::@ @Maybe Text@
+-- * 'gsrProgressMessage' @::@ 'Maybe' 'Text'
 --
--- * @SignatureFileContents ::@ @Maybe Text@
+-- * 'gsrSignature' @::@ 'Maybe' 'Text'
 --
--- * @CurrentManifest ::@ @Maybe Text@
+-- * 'gsrSignatureFileContents' @::@ 'Maybe' 'Text'
 --
--- * @CreationDate ::@ @Maybe ISO8601@
+-- * 'gsrTrackingNumber' @::@ 'Maybe' 'Text'
 --
 getStatusResponse :: GetStatusResponse
 getStatusResponse = GetStatusResponse
-    { _gsrJobId = Nothing
-    , _gsrJobType = Nothing
-    , _gsrAwsShippingAddress = Nothing
-    , _gsrLocationCode = Nothing
-    , _gsrLocationMessage = Nothing
-    , _gsrProgressCode = Nothing
-    , _gsrProgressMessage = Nothing
-    , _gsrCarrier = Nothing
-    , _gsrTrackingNumber = Nothing
-    , _gsrLogBucket = Nothing
-    , _gsrLogKey = Nothing
-    , _gsrErrorCount = Nothing
-    , _gsrSignature = Nothing
+    { _gsrJobId                 = Nothing
+    , _gsrJobType               = Nothing
+    , _gsrAwsShippingAddress    = Nothing
+    , _gsrLocationCode          = Nothing
+    , _gsrLocationMessage       = Nothing
+    , _gsrProgressCode          = Nothing
+    , _gsrProgressMessage       = Nothing
+    , _gsrCarrier               = Nothing
+    , _gsrTrackingNumber        = Nothing
+    , _gsrLogBucket             = Nothing
+    , _gsrLogKey                = Nothing
+    , _gsrErrorCount            = Nothing
+    , _gsrSignature             = Nothing
     , _gsrSignatureFileContents = Nothing
-    , _gsrCurrentManifest = Nothing
-    , _gsrCreationDate = Nothing
+    , _gsrCurrentManifest       = Nothing
+    , _gsrCreationDate          = Nothing
     }
 
--- | A unique identifier which refers to a particular job.
-gsrJobId :: Lens' GetStatusResponse (Maybe Text)
-gsrJobId = lens _gsrJobId (\s a -> s { _gsrJobId = a })
-
--- | Specifies whether the job to initiate is an import or export job.
-gsrJobType :: Lens' GetStatusResponse (Maybe JobType)
-gsrJobType = lens _gsrJobType (\s a -> s { _gsrJobType = a })
-
--- | Address you ship your storage device to.
 gsrAwsShippingAddress :: Lens' GetStatusResponse (Maybe Text)
 gsrAwsShippingAddress =
     lens _gsrAwsShippingAddress (\s a -> s { _gsrAwsShippingAddress = a })
 
--- | A token representing the location of the storage device, such as "AtAWS".
-gsrLocationCode :: Lens' GetStatusResponse (Maybe Text)
-gsrLocationCode = lens _gsrLocationCode (\s a -> s { _gsrLocationCode = a })
-
--- | A more human readable form of the physical location of the storage device.
-gsrLocationMessage :: Lens' GetStatusResponse (Maybe Text)
-gsrLocationMessage =
-    lens _gsrLocationMessage (\s a -> s { _gsrLocationMessage = a })
-
--- | A token representing the state of the job, such as "Started".
-gsrProgressCode :: Lens' GetStatusResponse (Maybe Text)
-gsrProgressCode = lens _gsrProgressCode (\s a -> s { _gsrProgressCode = a })
-
--- | A more human readable form of the job status.
-gsrProgressMessage :: Lens' GetStatusResponse (Maybe Text)
-gsrProgressMessage =
-    lens _gsrProgressMessage (\s a -> s { _gsrProgressMessage = a })
-
--- | Name of the shipping company. This value is included when the LocationCode
--- is "Returned".
 gsrCarrier :: Lens' GetStatusResponse (Maybe Text)
 gsrCarrier = lens _gsrCarrier (\s a -> s { _gsrCarrier = a })
 
--- | The shipping tracking number assigned by AWS Import/Export to the storage
--- device when it's returned to you. We return this value when the
--- LocationCode is "Returned".
-gsrTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
-gsrTrackingNumber =
-    lens _gsrTrackingNumber (\s a -> s { _gsrTrackingNumber = a })
+gsrCreationDate :: Lens' GetStatusResponse (Maybe UTCTime)
+gsrCreationDate = lens _gsrCreationDate (\s a -> s { _gsrCreationDate = a })
+    . mapping _Time
 
--- | Amazon S3 bucket for user logs.
-gsrLogBucket :: Lens' GetStatusResponse (Maybe Text)
-gsrLogBucket = lens _gsrLogBucket (\s a -> s { _gsrLogBucket = a })
-
--- | The key where the user logs were stored.
-gsrLogKey :: Lens' GetStatusResponse (Maybe Text)
-gsrLogKey = lens _gsrLogKey (\s a -> s { _gsrLogKey = a })
-
--- | Number of errors. We return this value when the ProgressCode is Success or
--- SuccessWithErrors.
-gsrErrorCount :: Lens' GetStatusResponse (Maybe Integer)
-gsrErrorCount = lens _gsrErrorCount (\s a -> s { _gsrErrorCount = a })
-
--- | An encrypted code used to authenticate the request and response, for
--- example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to
--- create the signature file yourself. Generally you should use the
--- SignatureFileContents value.
-gsrSignature :: Lens' GetStatusResponse (Maybe Text)
-gsrSignature = lens _gsrSignature (\s a -> s { _gsrSignature = a })
-
--- | An encrypted code used to authenticate the request and response, for
--- example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to
--- create the signature file yourself. Generally you should use the
--- SignatureFileContents value.
-gsrSignatureFileContents :: Lens' GetStatusResponse (Maybe Text)
-gsrSignatureFileContents =
-    lens _gsrSignatureFileContents
-         (\s a -> s { _gsrSignatureFileContents = a })
-
--- | The last manifest submitted, which will be used to process the job.
 gsrCurrentManifest :: Lens' GetStatusResponse (Maybe Text)
 gsrCurrentManifest =
     lens _gsrCurrentManifest (\s a -> s { _gsrCurrentManifest = a })
 
--- | Timestamp of the CreateJob request in ISO8601 date format. For example
--- "2010-03-28T20:27:35Z".
-gsrCreationDate :: Lens' GetStatusResponse (Maybe ISO8601)
-gsrCreationDate = lens _gsrCreationDate (\s a -> s { _gsrCreationDate = a })
+gsrErrorCount :: Lens' GetStatusResponse (Maybe Int)
+gsrErrorCount = lens _gsrErrorCount (\s a -> s { _gsrErrorCount = a })
 
-instance FromXML GetStatusResponse where
-    fromXMLOptions = xmlOptions
+gsrJobId :: Lens' GetStatusResponse (Maybe Text)
+gsrJobId = lens _gsrJobId (\s a -> s { _gsrJobId = a })
+
+gsrJobType :: Lens' GetStatusResponse (Maybe Text)
+gsrJobType = lens _gsrJobType (\s a -> s { _gsrJobType = a })
+
+gsrLocationCode :: Lens' GetStatusResponse (Maybe Text)
+gsrLocationCode = lens _gsrLocationCode (\s a -> s { _gsrLocationCode = a })
+
+gsrLocationMessage :: Lens' GetStatusResponse (Maybe Text)
+gsrLocationMessage =
+    lens _gsrLocationMessage (\s a -> s { _gsrLocationMessage = a })
+
+gsrLogBucket :: Lens' GetStatusResponse (Maybe Text)
+gsrLogBucket = lens _gsrLogBucket (\s a -> s { _gsrLogBucket = a })
+
+gsrLogKey :: Lens' GetStatusResponse (Maybe Text)
+gsrLogKey = lens _gsrLogKey (\s a -> s { _gsrLogKey = a })
+
+gsrProgressCode :: Lens' GetStatusResponse (Maybe Text)
+gsrProgressCode = lens _gsrProgressCode (\s a -> s { _gsrProgressCode = a })
+
+gsrProgressMessage :: Lens' GetStatusResponse (Maybe Text)
+gsrProgressMessage =
+    lens _gsrProgressMessage (\s a -> s { _gsrProgressMessage = a })
+
+gsrSignature :: Lens' GetStatusResponse (Maybe Text)
+gsrSignature = lens _gsrSignature (\s a -> s { _gsrSignature = a })
+
+gsrSignatureFileContents :: Lens' GetStatusResponse (Maybe Text)
+gsrSignatureFileContents =
+    lens _gsrSignatureFileContents
+        (\s a -> s { _gsrSignatureFileContents = a })
+
+gsrTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
+gsrTrackingNumber =
+    lens _gsrTrackingNumber (\s a -> s { _gsrTrackingNumber = a })
 
 instance AWSRequest GetStatus where
     type Sv GetStatus = ImportExport
     type Rs GetStatus = GetStatusResponse
 
-    request = post "GetStatus"
-    response _ = xmlResponse
+    request  = post "GetStatus"
+    response = xmlResponse $ \h x -> GetStatusResponse
+        <$> x %| "AwsShippingAddress"
+        <*> x %| "Carrier"
+        <*> x %| "CreationDate"
+        <*> x %| "CurrentManifest"
+        <*> x %| "ErrorCount"
+        <*> x %| "JobId"
+        <*> x %| "JobType"
+        <*> x %| "LocationCode"
+        <*> x %| "LocationMessage"
+        <*> x %| "LogBucket"
+        <*> x %| "LogKey"
+        <*> x %| "ProgressCode"
+        <*> x %| "ProgressMessage"
+        <*> x %| "Signature"
+        <*> x %| "SignatureFileContents"
+        <*> x %| "TrackingNumber"

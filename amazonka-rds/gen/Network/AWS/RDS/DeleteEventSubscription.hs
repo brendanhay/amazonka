@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.DeleteEventSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,13 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes an RDS event notification subscription.
--- https://rds.us-east-1.amazonaws.com/ ?Action=DeleteEventSubscription
--- &SubscriptionName=EventSubscription01 &Version=2013-01-10
--- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20130128T012739Z
--- &AWSAccessKeyId= &Signature= true 012345678901 db-instance deleting
--- 2013-01-28 00:29:23.736 creation deletion EventSubscription01
--- arn:aws:sns:us-east-1:012345678901:EventSubscription01
--- e7cf30ac-68e9-11e2-bd13-a92da73b3119.
 module Network.AWS.RDS.DeleteEventSubscription
     (
     -- * Request
@@ -43,21 +38,20 @@ module Network.AWS.RDS.DeleteEventSubscription
     , desrEventSubscription
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DeleteEventSubscription = DeleteEventSubscription
     { _desSubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteEventSubscription' request.
+-- | 'DeleteEventSubscription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SubscriptionName ::@ @Text@
+-- * 'desSubscriptionName' @::@ 'Text'
 --
 deleteEventSubscription :: Text -- ^ 'desSubscriptionName'
                         -> DeleteEventSubscription
@@ -70,39 +64,34 @@ desSubscriptionName :: Lens' DeleteEventSubscription Text
 desSubscriptionName =
     lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })
 
-instance ToQuery DeleteEventSubscription where
-    toQuery = genericQuery def
+instance ToQuery DeleteEventSubscription
+
+instance ToPath DeleteEventSubscription where
+    toPath = const "/"
 
 newtype DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
     { _desrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteEventSubscriptionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteEventSubscriptionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EventSubscription ::@ @Maybe EventSubscription@
+-- * 'desrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
 deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
     { _desrEventSubscription = Nothing
     }
 
--- | Contains the results of a successful invocation of the
--- DescribeEventSubscriptions action.
 desrEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
 desrEventSubscription =
     lens _desrEventSubscription (\s a -> s { _desrEventSubscription = a })
-
-instance FromXML DeleteEventSubscriptionResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DeleteEventSubscription where
     type Sv DeleteEventSubscription = RDS
     type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
 
-    request = post "DeleteEventSubscription"
-    response _ = xmlResponse
+    request  = post "DeleteEventSubscription"
+    response = xmlResponse $ \h x -> DeleteEventSubscriptionResponse
+        <$> x %| "EventSubscription"

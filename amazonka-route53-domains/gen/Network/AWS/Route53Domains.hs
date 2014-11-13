@@ -11,7 +11,9 @@
 -- | Pending.
 module Network.AWS.Route53Domains
     ( module Network.AWS.Route53Domains.CheckDomainAvailability
+    , module Network.AWS.Route53Domains.DisableDomainAutoRenew
     , module Network.AWS.Route53Domains.DisableDomainTransferLock
+    , module Network.AWS.Route53Domains.EnableDomainAutoRenew
     , module Network.AWS.Route53Domains.EnableDomainTransferLock
     , module Network.AWS.Route53Domains.GetDomainDetail
     , module Network.AWS.Route53Domains.GetOperationDetail
@@ -27,7 +29,9 @@ module Network.AWS.Route53Domains
     ) where
 
 import Network.AWS.Route53Domains.CheckDomainAvailability
+import Network.AWS.Route53Domains.DisableDomainAutoRenew
 import Network.AWS.Route53Domains.DisableDomainTransferLock
+import Network.AWS.Route53Domains.EnableDomainAutoRenew
 import Network.AWS.Route53Domains.EnableDomainTransferLock
 import Network.AWS.Route53Domains.GetDomainDetail
 import Network.AWS.Route53Domains.GetOperationDetail

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeUserProfiles
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,7 +30,7 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     -- ** Request constructor
     , describeUserProfiles
     -- ** Request lenses
-    , dup1IamUserArns
+    , dupIamUserArns
 
     -- * Response
     , DescribeUserProfilesResponse
@@ -38,51 +40,61 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     , duprUserProfiles
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype DescribeUserProfiles = DescribeUserProfiles
-    { _dup1IamUserArns :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dupIamUserArns :: [Text]
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeUserProfiles' request.
+instance GHC.Exts.IsList DescribeUserProfiles where
+    type Item DescribeUserProfiles = Text
+
+    fromList = DescribeUserProfiles . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dupIamUserArns
+
+-- | 'DescribeUserProfiles' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IamUserArns ::@ @[Text]@
+-- * 'dupIamUserArns' @::@ ['Text']
 --
 describeUserProfiles :: DescribeUserProfiles
 describeUserProfiles = DescribeUserProfiles
-    { _dup1IamUserArns = mempty
+    { _dupIamUserArns = mempty
     }
 
 -- | An array of IAM user ARNs that identify the users to be described.
-dup1IamUserArns :: Lens' DescribeUserProfiles [Text]
-dup1IamUserArns = lens _dup1IamUserArns (\s a -> s { _dup1IamUserArns = a })
+dupIamUserArns :: Lens' DescribeUserProfiles [Text]
+dupIamUserArns = lens _dupIamUserArns (\s a -> s { _dupIamUserArns = a })
 
-instance ToPath DescribeUserProfiles
+instance ToPath DescribeUserProfiles where
+    toPath = const "/"
 
-instance ToQuery DescribeUserProfiles
+instance ToQuery DescribeUserProfiles where
+    toQuery = const mempty
 
 instance ToHeaders DescribeUserProfiles
 
-instance ToJSON DescribeUserProfiles
+instance ToBody DescribeUserProfiles where
+    toBody = toBody . encode . _dupIamUserArns
 
--- | Contains the response to a DescribeUserProfiles request.
 newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
     { _duprUserProfiles :: [UserProfile]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeUserProfilesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeUserProfilesResponse where
+    type Item DescribeUserProfilesResponse = UserProfile
+
+    fromList = DescribeUserProfilesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _duprUserProfiles
+
+-- | 'DescribeUserProfilesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserProfiles ::@ @[UserProfile]@
+-- * 'duprUserProfiles' @::@ ['UserProfile']
 --
 describeUserProfilesResponse :: DescribeUserProfilesResponse
 describeUserProfilesResponse = DescribeUserProfilesResponse
@@ -91,14 +103,14 @@ describeUserProfilesResponse = DescribeUserProfilesResponse
 
 -- | A Users object that describes the specified users.
 duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
-duprUserProfiles =
-    lens _duprUserProfiles (\s a -> s { _duprUserProfiles = a })
+duprUserProfiles = lens _duprUserProfiles (\s a -> s { _duprUserProfiles = a })
 
-instance FromJSON DescribeUserProfilesResponse
+-- FromJSON
 
 instance AWSRequest DescribeUserProfiles where
     type Sv DescribeUserProfiles = OpsWorks
     type Rs DescribeUserProfiles = DescribeUserProfilesResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeUserProfilesResponse
+        <$> o .: "UserProfiles"

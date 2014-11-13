@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.ListDistributions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,106 +24,92 @@
 module Network.AWS.CloudFront.ListDistributions
     (
     -- * Request
-      ListDistributions
+      ListDistributions2014_05_31
     -- ** Request constructor
-    , listDistributions
+    , listDistributions2014_05_31
     -- ** Request lenses
     , ldMarker
     , ldMaxItems
 
     -- * Response
-    , ListDistributionsResponse
+    , ListDistributions2014_05_31Response
     -- ** Response constructor
-    , listDistributionsResponse
+    , listDistributions2014_05_31Response
     -- ** Response lenses
     , ldrDistributionList
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to list your distributions.
-data ListDistributions = ListDistributions
-    { _ldMarker :: Maybe Text
+data ListDistributions2014_05_31 = ListDistributions2014_05_31
+    { _ldMarker   :: Maybe Text
     , _ldMaxItems :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListDistributions' request.
+-- | 'ListDistributions2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'ldMarker' @::@ 'Maybe' 'Text'
 --
--- * @MaxItems ::@ @Maybe Text@
+-- * 'ldMaxItems' @::@ 'Maybe' 'Text'
 --
-listDistributions :: ListDistributions
-listDistributions = ListDistributions
-    { _ldMarker = Nothing
+listDistributions2014_05_31 :: ListDistributions2014_05_31
+listDistributions2014_05_31 = ListDistributions2014_05_31
+    { _ldMarker   = Nothing
     , _ldMaxItems = Nothing
     }
 
--- | Use this when paginating results to indicate where to begin in your list of
--- distributions. The results include distributions in the list that occur
--- after the marker. To get the next page of results, set the Marker to the
--- value of the NextMarker from the current page's response (which is also the
--- ID of the last distribution on that page).
-ldMarker :: Lens' ListDistributions (Maybe Text)
+-- | Use this when paginating results to indicate where to begin in your list
+-- of distributions. The results include distributions in the list that
+-- occur after the marker. To get the next page of results, set the Marker
+-- to the value of the NextMarker from the current page's response (which is
+-- also the ID of the last distribution on that page).
+ldMarker :: Lens' ListDistributions2014_05_31 (Maybe Text)
 ldMarker = lens _ldMarker (\s a -> s { _ldMarker = a })
 
 -- | The maximum number of distributions you want in the response body.
-ldMaxItems :: Lens' ListDistributions (Maybe Text)
+ldMaxItems :: Lens' ListDistributions2014_05_31 (Maybe Text)
 ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
 
-instance ToPath ListDistributions
+instance ToPath ListDistributions2014_05_31 where
+    toPath = const "/2014-05-31/distribution"
 
-instance ToQuery ListDistributions
+instance ToQuery ListDistributions2014_05_31 where
+    toQuery ListDistributions2014_05_31{..} = mconcat
+        [ "Marker"   =? _ldMarker
+        , "MaxItems" =? _ldMaxItems
+        ]
 
-instance ToHeaders ListDistributions
+instance ToHeaders ListDistributions2014_05_31
 
-instance ToXML ListDistributions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListDistributions"
+newtype ListDistributions2014_05_31Response = ListDistributions2014_05_31Response
+    { _ldrDistributionList :: Maybe DistributionList
+    } deriving (Eq, Show, Generic)
 
--- | The returned result of the corresponding request.
-newtype ListDistributionsResponse = ListDistributionsResponse
-    { _ldrDistributionList :: DistributionList
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListDistributionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListDistributions2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DistributionList ::@ @DistributionList@
+-- * 'ldrDistributionList' @::@ 'Maybe' 'DistributionList'
 --
-listDistributionsResponse :: DistributionList -- ^ 'ldrDistributionList'
-                          -> ListDistributionsResponse
-listDistributionsResponse p1 = ListDistributionsResponse
-    { _ldrDistributionList = p1
+listDistributions2014_05_31Response :: ListDistributions2014_05_31Response
+listDistributions2014_05_31Response = ListDistributions2014_05_31Response
+    { _ldrDistributionList = Nothing
     }
 
 -- | The DistributionList type.
-ldrDistributionList :: Lens' ListDistributionsResponse DistributionList
+ldrDistributionList :: Lens' ListDistributions2014_05_31Response (Maybe DistributionList)
 ldrDistributionList =
     lens _ldrDistributionList (\s a -> s { _ldrDistributionList = a })
 
-instance FromXML ListDistributionsResponse where
-    fromXMLOptions = xmlOptions
+instance AWSRequest ListDistributions2014_05_31 where
+    type Sv ListDistributions2014_05_31 = CloudFront
+    type Rs ListDistributions2014_05_31 = ListDistributions2014_05_31Response
 
-instance AWSRequest ListDistributions where
-    type Sv ListDistributions = CloudFront
-    type Rs ListDistributions = ListDistributionsResponse
-
-    request = get
-    response _ = xmlResponse
-
-instance AWSPager ListDistributions where
-    next rq rs
-        | not (rs ^. ldrDistributionList . dlIsTruncated) = Nothing
-        | otherwise = Just $
-            rq & ldMarker .~ rs ^. ldrDistributionList . dlNextMarker
+    request  = get
+    response = xmlResponse $ \h x -> ListDistributions2014_05_31Response
+        <$> x %| "DistributionList"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.ListBuckets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,10 +26,9 @@ module Network.AWS.S3.ListBuckets
     (
     -- * Request
       ListBuckets
-    -- ** Request alias
-    , GetService
     -- ** Request constructor
     , listBuckets
+
     -- * Response
     , ListBucketsResponse
     -- ** Response constructor
@@ -37,49 +38,43 @@ module Network.AWS.S3.ListBuckets
     , lbrOwner
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
-
-type GetService = ListBuckets
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data ListBuckets = ListBuckets
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListBuckets' request.
+-- | 'ListBuckets' constructor.
 listBuckets :: ListBuckets
 listBuckets = ListBuckets
 
-instance ToPath ListBuckets
+instance ToPath ListBuckets where
+    toPath = const "/"
 
-instance ToQuery ListBuckets
+instance ToQuery ListBuckets where
+    toQuery = const mempty
 
 instance ToHeaders ListBuckets
 
-instance ToBody ListBuckets
-
 data ListBucketsResponse = ListBucketsResponse
     { _lbrBuckets :: [Bucket]
-    , _lbrOwner :: Maybe Owner
-    } deriving (Eq, Ord, Show, Generic)
+    , _lbrOwner   :: Maybe Owner
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListBucketsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListBucketsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Buckets ::@ @[Bucket]@
+-- * 'lbrBuckets' @::@ ['Bucket']
 --
--- * @Owner ::@ @Maybe Owner@
+-- * 'lbrOwner' @::@ 'Maybe' 'Owner'
 --
 listBucketsResponse :: ListBucketsResponse
 listBucketsResponse = ListBucketsResponse
     { _lbrBuckets = mempty
-    , _lbrOwner = Nothing
+    , _lbrOwner   = Nothing
     }
 
 lbrBuckets :: Lens' ListBucketsResponse [Bucket]
@@ -88,12 +83,11 @@ lbrBuckets = lens _lbrBuckets (\s a -> s { _lbrBuckets = a })
 lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrOwner = lens _lbrOwner (\s a -> s { _lbrOwner = a })
 
-instance FromXML ListBucketsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ListBuckets where
     type Sv ListBuckets = S3
     type Rs ListBuckets = ListBucketsResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> ListBucketsResponse
+        <$> x %| "Buckets"
+        <*> x %| "Owner"

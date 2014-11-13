@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DynamoDB.DeleteTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,15 +26,9 @@
 -- can delete it. If a table is in CREATING or UPDATING states, then DynamoDB
 -- returns a ResourceInUseException. If the specified table does not exist,
 -- DynamoDB returns a ResourceNotFoundException. If table is already in the
--- DELETING state, no error is returned. DynamoDB might continue to accept
--- data read and write operations, such as GetItem and PutItem, on a table in
--- the DELETING state until the table deletion is complete. When you delete a
--- table, any indexes on that table are also deleted. Use the DescribeTable
--- API to check the status of the table. Delete a Table This example deletes
--- the Reply table. { "TableDescription": { "ItemCount": 0,
--- "ProvisionedThroughput": { "NumberOfDecreasesToday": 0,
--- "ReadCapacityUnits": 5, "WriteCapacityUnits": 5 }, "TableName": "Reply",
--- "TableSizeBytes": 0, "TableStatus": "DELETING" } }.
+-- DELETING state, no error is returned. When you delete a table, any indexes
+-- on that table are also deleted. Use the DescribeTable API to check the
+-- status of the table.
 module Network.AWS.DynamoDB.DeleteTable
     (
     -- * Request
@@ -50,21 +46,19 @@ module Network.AWS.DynamoDB.DeleteTable
     , dtrTableDescription
     ) where
 
-import Network.AWS.DynamoDB.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DynamoDB.Types
 
--- | Represents the input of a DeleteTable operation.
 newtype DeleteTable = DeleteTable
     { _dtTableName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteTable' request.
+-- | 'DeleteTable' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TableName ::@ @Text@
+-- * 'dtTableName' @::@ 'Text'
 --
 deleteTable :: Text -- ^ 'dtTableName'
             -> DeleteTable
@@ -76,43 +70,42 @@ deleteTable p1 = DeleteTable
 dtTableName :: Lens' DeleteTable Text
 dtTableName = lens _dtTableName (\s a -> s { _dtTableName = a })
 
-instance ToPath DeleteTable
+instance ToPath DeleteTable where
+    toPath = const "/"
 
-instance ToQuery DeleteTable
+instance ToQuery DeleteTable where
+    toQuery = const mempty
 
 instance ToHeaders DeleteTable
 
-instance ToJSON DeleteTable
+instance ToBody DeleteTable where
+    toBody = toBody . encode . _dtTableName
 
--- | Represents the output of a DeleteTable operation.
 newtype DeleteTableResponse = DeleteTableResponse
     { _dtrTableDescription :: Maybe TableDescription
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteTableResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteTableResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TableDescription ::@ @Maybe TableDescription@
+-- * 'dtrTableDescription' @::@ 'Maybe' 'TableDescription'
 --
 deleteTableResponse :: DeleteTableResponse
 deleteTableResponse = DeleteTableResponse
     { _dtrTableDescription = Nothing
     }
 
--- | Represents the properties of a table.
 dtrTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
 dtrTableDescription =
     lens _dtrTableDescription (\s a -> s { _dtrTableDescription = a })
 
-instance FromJSON DeleteTableResponse
+-- FromJSON
 
 instance AWSRequest DeleteTable where
     type Sv DeleteTable = DynamoDB
     type Rs DeleteTable = DeleteTableResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DeleteTableResponse
+        <$> o .: "TableDescription"

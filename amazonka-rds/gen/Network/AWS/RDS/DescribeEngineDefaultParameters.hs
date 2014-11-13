@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.DescribeEngineDefaultParameters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,19 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the default engine and system parameter information for the
--- specified database engine. https://rds.amazonaws.com/
--- ?Action=DescribeEngineDefaultParameters &DBParameterGroupFamily=mysql5.1
--- &Version=2013-05-15 &MaxRecords=100 &SignatureVersion=2
--- &SignatureMethod=HmacSHA256 &Timestamp=2011-02-15T19%3A10%3A03.510Z
--- &AWSAccessKeyId= &Signature= bG93ZXJfY2FzZV90YWJsZV9uYW1lcw== mysql5.1
--- boolean engine-default false Controls whether user-defined functions that
--- have only an xxx symbol for the main function can be loaded static 0,1
--- allow-suspicious-udfs integer engine-default true Intended for use with
--- master-to-master replication, and can be used to control the operation of
--- AUTO_INCREMENT columns dynamic 1-65535 auto_increment_increment integer
--- engine-default true Determines the starting point for the AUTO_INCREMENT
--- column value dynamic 1-65535 auto_increment_offset
--- 6c1341eb-a124-11df-bf5c-973b09643c5d.
+-- specified database engine.
 module Network.AWS.RDS.DescribeEngineDefaultParameters
     (
     -- * Request
@@ -40,8 +30,9 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     , describeEngineDefaultParameters
     -- ** Request lenses
     , dedpDBParameterGroupFamily
-    , dedpMaxRecords
+    , dedpFilters
     , dedpMarker
+    , dedpMaxRecords
 
     -- * Response
     , DescribeEngineDefaultParametersResponse
@@ -51,48 +42,48 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     , dedprEngineDefaults
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
     { _dedpDBParameterGroupFamily :: Text
-    , _dedpMaxRecords :: Maybe Integer
-    , _dedpMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _dedpFilters                :: [Filter]
+    , _dedpMarker                 :: Maybe Text
+    , _dedpMaxRecords             :: Maybe Int
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeEngineDefaultParameters' request.
+-- | 'DescribeEngineDefaultParameters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBParameterGroupFamily ::@ @Text@
+-- * 'dedpDBParameterGroupFamily' @::@ 'Text'
 --
--- * @MaxRecords ::@ @Maybe Integer@
+-- * 'dedpFilters' @::@ ['Filter']
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'dedpMarker' @::@ 'Maybe' 'Text'
+--
+-- * 'dedpMaxRecords' @::@ 'Maybe' 'Int'
 --
 describeEngineDefaultParameters :: Text -- ^ 'dedpDBParameterGroupFamily'
                                 -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
     { _dedpDBParameterGroupFamily = p1
-    , _dedpMaxRecords = Nothing
-    , _dedpMarker = Nothing
+    , _dedpFilters                = mempty
+    , _dedpMaxRecords             = Nothing
+    , _dedpMarker                 = Nothing
     }
 
 -- | The name of the DB parameter group family.
 dedpDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
 dedpDBParameterGroupFamily =
     lens _dedpDBParameterGroupFamily
-         (\s a -> s { _dedpDBParameterGroupFamily = a })
+        (\s a -> s { _dedpDBParameterGroupFamily = a })
 
--- | The maximum number of records to include in the response. If more records
--- exist than the specified MaxRecords value, a pagination token called a
--- marker is included in the response so that the remaining results may be
--- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Integer)
-dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
+-- | Not currently supported.
+dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
+dedpFilters = lens _dedpFilters (\s a -> s { _dedpFilters = a })
 
 -- | An optional pagination token provided by a previous
 -- DescribeEngineDefaultParameters request. If this parameter is specified,
@@ -101,44 +92,41 @@ dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
 
-instance ToQuery DescribeEngineDefaultParameters where
-    toQuery = genericQuery def
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a pagination token called a
+-- marker is included in the response so that the remaining results may be
+-- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
+dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
+dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
+
+instance ToQuery DescribeEngineDefaultParameters
+
+instance ToPath DescribeEngineDefaultParameters where
+    toPath = const "/"
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
-    { _dedprEngineDefaults :: EngineDefaults
-    } deriving (Eq, Ord, Show, Generic)
+    { _dedprEngineDefaults :: Maybe EngineDefaults
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeEngineDefaultParametersResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeEngineDefaultParametersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EngineDefaults ::@ @EngineDefaults@
+-- * 'dedprEngineDefaults' @::@ 'Maybe' 'EngineDefaults'
 --
-describeEngineDefaultParametersResponse :: EngineDefaults -- ^ 'dedprEngineDefaults'
-                                        -> DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse p1 = DescribeEngineDefaultParametersResponse
-    { _dedprEngineDefaults = p1
+describeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResponse
+describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
+    { _dedprEngineDefaults = Nothing
     }
 
--- | Contains the result of a successful invocation of the
--- DescribeEngineDefaultParameters action.
-dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
+dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
 dedprEngineDefaults =
     lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
-
-instance FromXML DescribeEngineDefaultParametersResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DescribeEngineDefaultParameters where
     type Sv DescribeEngineDefaultParameters = RDS
     type Rs DescribeEngineDefaultParameters = DescribeEngineDefaultParametersResponse
 
-    request = post "DescribeEngineDefaultParameters"
-    response _ = xmlResponse
-
-instance AWSPager DescribeEngineDefaultParameters where
-    next rq rs = (\x -> rq & dedpMarker ?~ x)
-        <$> (rs ^. dedprEngineDefaults . edMarker)
+    request  = post "DescribeEngineDefaultParameters"
+    response = xmlResponse $ \h x -> DescribeEngineDefaultParametersResponse
+        <$> x %| "EngineDefaults"

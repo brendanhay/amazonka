@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.ActivateGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,25 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation activates the gateway you previously deployed on your host.
--- For more information, see Downloading and Deploying AWS Storage Gateway VM.
--- In the activation process you specify information such as the region you
--- want to use for storing snapshots, the time zone for scheduled snapshots
--- and the gateway schedule window, an activation key, and a name for your
+-- For more information, see Activate the AWS Storage Gateway. In the
+-- activation process, you specify information such as the region you want to
+-- use for storing snapshots, the time zone for scheduled snapshots the
+-- gateway snapshot schedule window, an activation key, and a name for your
 -- gateway. The activation process also associates your gateway with your
--- account (see UpdateGatewayInformation). You must power on the gateway VM
--- before you can activate your gateway. Example Request The following example
--- shows a request that activates a gateway. POST / HTTP/1.1 Host:
--- storagegateway.us-east-1.amazonaws.com x-amz-Date: 20120425T120000Z
--- Authorization: CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG
--- Content-type: application/x-amz-json-1.1 x-amz-target:
--- StorageGateway_20120630.ActivateGateway { "ActivationKey":
--- "29AV1-3OFV9-VVIUB-NKT0I-LRO6V", "GatewayName": "mygateway",
--- "GatewayTimezone": "GMT-12:00", "GatewayRegion": "us-east-1",
--- "GatewayType": "STORED" } HTTP/1.1 200 OK x-amzn-RequestId:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Date: Wed, 25 Apr 2012
--- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 80 {
--- "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
+-- account; for more information, see UpdateGatewayInformation.
 module Network.AWS.StorageGateway.ActivateGateway
     (
     -- * Request
@@ -47,9 +36,11 @@ module Network.AWS.StorageGateway.ActivateGateway
     -- ** Request lenses
     , agActivationKey
     , agGatewayName
-    , agGatewayTimezone
     , agGatewayRegion
+    , agGatewayTimezone
     , agGatewayType
+    , agMediumChangerType
+    , agTapeDriveType
 
     -- * Response
     , ActivateGatewayResponse
@@ -59,36 +50,37 @@ module Network.AWS.StorageGateway.ActivateGateway
     , agrGatewayARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
--- | A JSON object containing one or more of the following fields:
--- ActivateGatewayInput$ActivationKey GatewayName
--- ActivateGatewayInput$GatewayRegion ActivateGatewayInput$GatewayTimezone
--- ActivateGatewayInput$GatewayType.
 data ActivateGateway = ActivateGateway
-    { _agActivationKey :: Text
-    , _agGatewayName :: Text
-    , _agGatewayTimezone :: Text
-    , _agGatewayRegion :: Text
-    , _agGatewayType :: Maybe Text
+    { _agActivationKey     :: Text
+    , _agGatewayName       :: Text
+    , _agGatewayRegion     :: Text
+    , _agGatewayTimezone   :: Text
+    , _agGatewayType       :: Maybe Text
+    , _agMediumChangerType :: Maybe Text
+    , _agTapeDriveType     :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ActivateGateway' request.
+-- | 'ActivateGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ActivationKey ::@ @Text@
+-- * 'agActivationKey' @::@ 'Text'
 --
--- * @GatewayName ::@ @Text@
+-- * 'agGatewayName' @::@ 'Text'
 --
--- * @GatewayTimezone ::@ @Text@
+-- * 'agGatewayRegion' @::@ 'Text'
 --
--- * @GatewayRegion ::@ @Text@
+-- * 'agGatewayTimezone' @::@ 'Text'
 --
--- * @GatewayType ::@ @Maybe Text@
+-- * 'agGatewayType' @::@ 'Maybe' 'Text'
+--
+-- * 'agMediumChangerType' @::@ 'Maybe' 'Text'
+--
+-- * 'agTapeDriveType' @::@ 'Maybe' 'Text'
 --
 activateGateway :: Text -- ^ 'agActivationKey'
                 -> Text -- ^ 'agGatewayName'
@@ -96,28 +88,38 @@ activateGateway :: Text -- ^ 'agActivationKey'
                 -> Text -- ^ 'agGatewayRegion'
                 -> ActivateGateway
 activateGateway p1 p2 p3 p4 = ActivateGateway
-    { _agActivationKey = p1
-    , _agGatewayName = p2
-    , _agGatewayTimezone = p3
-    , _agGatewayRegion = p4
-    , _agGatewayType = Nothing
+    { _agActivationKey     = p1
+    , _agGatewayName       = p2
+    , _agGatewayTimezone   = p3
+    , _agGatewayRegion     = p4
+    , _agGatewayType       = Nothing
+    , _agTapeDriveType     = Nothing
+    , _agMediumChangerType = Nothing
     }
 
 -- | Your gateway activation key. You can obtain the activation key by sending
--- an HTTP GET request with redirects enabled to the gateway IP address (port
--- 80). The redirect URL returned in the response provides you the activation
--- key for your gateway in the query string parameter activationKey. It may
--- also include other activation-related parameters, however, these are merely
--- defaults -- the arguments you pass to the ActivateGateway API call
--- determine the actual configuration of your gateway.
+-- an HTTP GET request with redirects enabled to the gateway IP address
+-- (port 80). The redirect URL returned in the response provides you the
+-- activation key for your gateway in the query string parameter
+-- activationKey. It may also include other activation-related parameters,
+-- however, these are merely defaults -- the arguments you pass to the
+-- ActivateGateway API call determine the actual configuration of your
+-- gateway.
 agActivationKey :: Lens' ActivateGateway Text
 agActivationKey = lens _agActivationKey (\s a -> s { _agActivationKey = a })
 
--- | A unique identifier for your gateway. This name becomes part of the gateway
--- Amazon Resources Name (ARN) which is what you use as an input to other
--- operations.
 agGatewayName :: Lens' ActivateGateway Text
 agGatewayName = lens _agGatewayName (\s a -> s { _agGatewayName = a })
+
+-- | One of the values that indicates the region where you want to store the
+-- snapshot backups. The gateway region specified must be the same region as
+-- the region in your Host header in the request. For more information about
+-- available regions and endpoints for AWS Storage Gateway, see Regions and
+-- Endpoints in the Amazon Web Services Glossary. Valid Values: "us-east-1",
+-- "us-west-1", "us-west-2", "eu-west-1", "eu-central-1", "ap-northeast-1",
+-- "ap-southeast-1", "ap-southeast-2", "sa-east-1".
+agGatewayRegion :: Lens' ActivateGateway Text
+agGatewayRegion = lens _agGatewayRegion (\s a -> s { _agGatewayRegion = a })
 
 -- | One of the values that indicates the time zone you want to set for the
 -- gateway. The time zone is used, for example, for scheduling snapshots and
@@ -126,62 +128,58 @@ agGatewayTimezone :: Lens' ActivateGateway Text
 agGatewayTimezone =
     lens _agGatewayTimezone (\s a -> s { _agGatewayTimezone = a })
 
--- | One of the values that indicates the region where you want to store the
--- snapshot backups. The gateway region specified must be the same region as
--- the region in your Host header in the request. For more information about
--- available regions and endpoints for AWS Storage Gateway, see Regions and
--- Endpoints in the Amazon Web Services Glossary. Valid Values: "us-east-1",
--- "us-west-1", "us-west-2", "eu-west-1", "ap-northeast-1", "ap-southest-1",
--- "sa-east-1".
-agGatewayRegion :: Lens' ActivateGateway Text
-agGatewayRegion = lens _agGatewayRegion (\s a -> s { _agGatewayRegion = a })
-
 -- | One of the values that defines the type of gateway to activate. The type
 -- specified is critical to all later functions of the gateway and cannot be
 -- changed after activation. The default value is STORED.
 agGatewayType :: Lens' ActivateGateway (Maybe Text)
 agGatewayType = lens _agGatewayType (\s a -> s { _agGatewayType = a })
 
-instance ToPath ActivateGateway
+-- | The value that indicates the type of medium changer to use for
+-- gateway-VTL. This field is optional. Valid Values: "STK-L700".
+agMediumChangerType :: Lens' ActivateGateway (Maybe Text)
+agMediumChangerType =
+    lens _agMediumChangerType (\s a -> s { _agMediumChangerType = a })
 
-instance ToQuery ActivateGateway
+-- | The value that indicates the type of tape drive to use for gateway-VTL.
+-- This field is optional. Valid Values: "IBM-ULT3580-TD5".
+agTapeDriveType :: Lens' ActivateGateway (Maybe Text)
+agTapeDriveType = lens _agTapeDriveType (\s a -> s { _agTapeDriveType = a })
+
+instance ToPath ActivateGateway where
+    toPath = const "/"
+
+instance ToQuery ActivateGateway where
+    toQuery = const mempty
 
 instance ToHeaders ActivateGateway
 
-instance ToJSON ActivateGateway
+instance ToBody ActivateGateway where
+    toBody = toBody . encode . _agActivationKey
 
--- | AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated
--- gateway. It is a string made of information such as your account, gateway
--- name, and region. This ARN is used to reference the gateway in other API
--- operations as well as resource-based authorization.
 newtype ActivateGatewayResponse = ActivateGatewayResponse
     { _agrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ActivateGatewayResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ActivateGatewayResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Maybe Text@
+-- * 'agrGatewayARN' @::@ 'Maybe' 'Text'
 --
 activateGatewayResponse :: ActivateGatewayResponse
 activateGatewayResponse = ActivateGatewayResponse
     { _agrGatewayARN = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 agrGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
 agrGatewayARN = lens _agrGatewayARN (\s a -> s { _agrGatewayARN = a })
 
-instance FromJSON ActivateGatewayResponse
+-- FromJSON
 
 instance AWSRequest ActivateGateway where
     type Sv ActivateGateway = StorageGateway
     type Rs ActivateGateway = ActivateGatewayResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> ActivateGatewayResponse
+        <$> o .: "GatewayARN"

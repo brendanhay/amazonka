@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteSecurityGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,19 +23,7 @@
 -- | Deletes a security group. If you attempt to delete a security group that is
 -- associated with an instance, or is referenced by another security group,
 -- the operation fails with InvalidGroup.InUse in EC2-Classic or
--- DependencyViolation in EC2-VPC. Example for EC2-Classic This example
--- deletes the specified security group for EC2-Classic.
--- https://ec2.amazonaws.com/?Action=DeleteSecurityGroup &amp;GroupName=websrv
--- &amp;AUTHPARAMS &lt;DeleteSecurityGroupResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSecurityGroupResponse&gt;
--- Example for EC2-VPC his example deletes the specified security group for
--- EC2-VPC. https://ec2.amazonaws.com/?Action=DeleteSecurityGroup
--- &amp;GroupId=sg-1a2b3c4d &amp;AUTHPARAMS &lt;DeleteSecurityGroupResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSecurityGroupResponse&gt;.
+-- DependencyViolation in EC2-VPC.
 module Network.AWS.EC2.DeleteSecurityGroup
     (
     -- * Request
@@ -41,8 +31,9 @@ module Network.AWS.EC2.DeleteSecurityGroup
     -- ** Request constructor
     , deleteSecurityGroup
     -- ** Request lenses
-    , dsgGroupName
+    , dsgDryRun
     , dsgGroupId
+    , dsgGroupName
 
     -- * Response
     , DeleteSecurityGroupResponse
@@ -50,48 +41,55 @@ module Network.AWS.EC2.DeleteSecurityGroup
     , deleteSecurityGroupResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DeleteSecurityGroup = DeleteSecurityGroup
-    { _dsgGroupName :: Maybe Text
-    , _dsgGroupId :: Maybe Text
+    { _dsgDryRun    :: Maybe Bool
+    , _dsgGroupId   :: Maybe Text
+    , _dsgGroupName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSecurityGroup' request.
+-- | 'DeleteSecurityGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupName ::@ @Maybe Text@
+-- * 'dsgDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @GroupId ::@ @Maybe Text@
+-- * 'dsgGroupId' @::@ 'Maybe' 'Text'
+--
+-- * 'dsgGroupName' @::@ 'Maybe' 'Text'
 --
 deleteSecurityGroup :: DeleteSecurityGroup
 deleteSecurityGroup = DeleteSecurityGroup
-    { _dsgGroupName = Nothing
-    , _dsgGroupId = Nothing
+    { _dsgDryRun    = Nothing
+    , _dsgGroupName = Nothing
+    , _dsgGroupId   = Nothing
     }
 
--- | [EC2-Classic, default VPC] The name of the security group.
-dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgGroupName = lens _dsgGroupName (\s a -> s { _dsgGroupName = a })
+dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
+dsgDryRun = lens _dsgDryRun (\s a -> s { _dsgDryRun = a })
 
--- | The ID of the security group.
+-- | The ID of the security group. Required for a nondefault VPC.
 dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgGroupId = lens _dsgGroupId (\s a -> s { _dsgGroupId = a })
 
-instance ToQuery DeleteSecurityGroup where
-    toQuery = genericQuery def
+-- | [EC2-Classic, default VPC] The name of the security group. You can
+-- specify either the security group name or the security group ID.
+dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
+dsgGroupName = lens _dsgGroupName (\s a -> s { _dsgGroupName = a })
+
+instance ToQuery DeleteSecurityGroup
+
+instance ToPath DeleteSecurityGroup where
+    toPath = const "/"
 
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSecurityGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteSecurityGroupResponse' constructor.
 deleteSecurityGroupResponse :: DeleteSecurityGroupResponse
 deleteSecurityGroupResponse = DeleteSecurityGroupResponse
 
@@ -99,5 +97,5 @@ instance AWSRequest DeleteSecurityGroup where
     type Sv DeleteSecurityGroup = EC2
     type Rs DeleteSecurityGroup = DeleteSecurityGroupResponse
 
-    request = post "DeleteSecurityGroup"
-    response _ = nullaryResponse DeleteSecurityGroupResponse
+    request  = post "DeleteSecurityGroup"
+    response = nullaryResponse DeleteSecurityGroupResponse

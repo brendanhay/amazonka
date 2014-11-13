@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeVolumes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes an instance's Amazon EBS volumes. You must specify at least one
--- of the parameters. Required Permissions: To use this action, an IAM user
--- must have a Show, Deploy, or Manage permissions level for the stack, or an
--- attached policy that explicitly grants permissions. For more information on
--- user permissions, see Managing User Permissions.
+-- | Describes an instance's Amazon EBS volumes. Required Permissions: To use
+-- this action, an IAM user must have a Show, Deploy, or Manage permissions
+-- level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see Managing User
+-- Permissions.
 module Network.AWS.OpsWorks.DescribeVolumes
     (
     -- * Request
@@ -30,10 +32,10 @@ module Network.AWS.OpsWorks.DescribeVolumes
     -- ** Request constructor
     , describeVolumes
     -- ** Request lenses
-    , dv1InstanceId
-    , dv1StackId
-    , dv1RaidArrayId
-    , dv1VolumeIds
+    , dvInstanceId
+    , dvRaidArrayId
+    , dvStackId
+    , dvVolumeIds
 
     -- * Response
     , DescribeVolumesResponse
@@ -43,79 +45,84 @@ module Network.AWS.OpsWorks.DescribeVolumes
     , dvrVolumes
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DescribeVolumes = DescribeVolumes
-    { _dv1InstanceId :: Maybe Text
-    , _dv1StackId :: Maybe Text
-    , _dv1RaidArrayId :: Maybe Text
-    , _dv1VolumeIds :: [Text]
+    { _dvInstanceId  :: Maybe Text
+    , _dvRaidArrayId :: Maybe Text
+    , _dvStackId     :: Maybe Text
+    , _dvVolumeIds   :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVolumes' request.
+-- | 'DescribeVolumes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @Maybe Text@
+-- * 'dvInstanceId' @::@ 'Maybe' 'Text'
 --
--- * @StackId ::@ @Maybe Text@
+-- * 'dvRaidArrayId' @::@ 'Maybe' 'Text'
 --
--- * @RaidArrayId ::@ @Maybe Text@
+-- * 'dvStackId' @::@ 'Maybe' 'Text'
 --
--- * @VolumeIds ::@ @[Text]@
+-- * 'dvVolumeIds' @::@ ['Text']
 --
 describeVolumes :: DescribeVolumes
 describeVolumes = DescribeVolumes
-    { _dv1InstanceId = Nothing
-    , _dv1StackId = Nothing
-    , _dv1RaidArrayId = Nothing
-    , _dv1VolumeIds = mempty
+    { _dvInstanceId  = Nothing
+    , _dvStackId     = Nothing
+    , _dvRaidArrayId = Nothing
+    , _dvVolumeIds   = mempty
     }
 
 -- | The instance ID. If you use this parameter, DescribeVolumes returns
 -- descriptions of the volumes associated with the specified instance.
-dv1InstanceId :: Lens' DescribeVolumes (Maybe Text)
-dv1InstanceId = lens _dv1InstanceId (\s a -> s { _dv1InstanceId = a })
-
--- | A stack ID. The action describes the stack's registered Amazon EBS volumes.
-dv1StackId :: Lens' DescribeVolumes (Maybe Text)
-dv1StackId = lens _dv1StackId (\s a -> s { _dv1StackId = a })
+dvInstanceId :: Lens' DescribeVolumes (Maybe Text)
+dvInstanceId = lens _dvInstanceId (\s a -> s { _dvInstanceId = a })
 
 -- | The RAID array ID. If you use this parameter, DescribeVolumes returns
 -- descriptions of the volumes associated with the specified RAID array.
-dv1RaidArrayId :: Lens' DescribeVolumes (Maybe Text)
-dv1RaidArrayId = lens _dv1RaidArrayId (\s a -> s { _dv1RaidArrayId = a })
+dvRaidArrayId :: Lens' DescribeVolumes (Maybe Text)
+dvRaidArrayId = lens _dvRaidArrayId (\s a -> s { _dvRaidArrayId = a })
 
--- | Am array of volume IDs. If you use this parameter, DescribeVolumes returns
--- descriptions of the specified volumes. Otherwise, it returns a description
--- of every volume.
-dv1VolumeIds :: Lens' DescribeVolumes [Text]
-dv1VolumeIds = lens _dv1VolumeIds (\s a -> s { _dv1VolumeIds = a })
+-- | A stack ID. The action describes the stack's registered Amazon EBS
+-- volumes.
+dvStackId :: Lens' DescribeVolumes (Maybe Text)
+dvStackId = lens _dvStackId (\s a -> s { _dvStackId = a })
 
-instance ToPath DescribeVolumes
+-- | Am array of volume IDs. If you use this parameter, DescribeVolumes
+-- returns descriptions of the specified volumes. Otherwise, it returns a
+-- description of every volume.
+dvVolumeIds :: Lens' DescribeVolumes [Text]
+dvVolumeIds = lens _dvVolumeIds (\s a -> s { _dvVolumeIds = a })
 
-instance ToQuery DescribeVolumes
+instance ToPath DescribeVolumes where
+    toPath = const "/"
+
+instance ToQuery DescribeVolumes where
+    toQuery = const mempty
 
 instance ToHeaders DescribeVolumes
 
-instance ToJSON DescribeVolumes
+instance ToBody DescribeVolumes where
+    toBody = toBody . encode . _dvInstanceId
 
--- | Contains the response to a DescribeVolumes request.
 newtype DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes :: [Volume]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVolumesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeVolumesResponse where
+    type Item DescribeVolumesResponse = Volume
+
+    fromList = DescribeVolumesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dvrVolumes
+
+-- | 'DescribeVolumesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Volumes ::@ @[Volume]@
+-- * 'dvrVolumes' @::@ ['Volume']
 --
 describeVolumesResponse :: DescribeVolumesResponse
 describeVolumesResponse = DescribeVolumesResponse
@@ -126,11 +133,12 @@ describeVolumesResponse = DescribeVolumesResponse
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
 
-instance FromJSON DescribeVolumesResponse
+-- FromJSON
 
 instance AWSRequest DescribeVolumes where
     type Sv DescribeVolumes = OpsWorks
     type Rs DescribeVolumes = DescribeVolumesResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeVolumesResponse
+        <$> o .: "Volumes"

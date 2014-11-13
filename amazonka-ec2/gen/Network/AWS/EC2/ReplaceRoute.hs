@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ReplaceRoute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,18 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Replaces an existing route within a route table in a VPC. You must provide
--- only one of the following: Internet gateway, NAT instance, VPC peering
--- connection, or network interface. For more information about route tables,
--- see Route Tables in the Amazon Virtual Private Cloud User Guide. Example
--- This example replaces a route in the specified route table. The new route
--- matches the CIDR 10.0.0.0/8 and sends the traffic to the virtual private
--- gateway with the ID vgw-1d00376e.
--- https://ec2.amazonaws.com/?Action=ReplaceRoute
--- &amp;RouteTableId=rtb-e4ad488d &amp;DestinationCidrBlock=10.0.0.0/8
--- &amp;GatewayId=vgw-1d00376e &amp;AUTHPARAMS &lt;ReplaceRouteResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/ReplaceRouteResponse&gt;.
+-- only one of the following: Internet gateway or virtual private gateway, NAT
+-- instance, VPC peering connection, or network interface. For more
+-- information about route tables, see Route Tables in the Amazon Virtual
+-- Private Cloud User Guide.
 module Network.AWS.EC2.ReplaceRoute
     (
     -- * Request
@@ -38,12 +32,13 @@ module Network.AWS.EC2.ReplaceRoute
     -- ** Request constructor
     , replaceRoute
     -- ** Request lenses
-    , rr1RouteTableId
-    , rr1DestinationCidrBlock
-    , rr1GatewayId
-    , rr1InstanceId
-    , rr1NetworkInterfaceId
-    , rr1VpcPeeringConnectionId
+    , rrDestinationCidrBlock
+    , rrDryRun
+    , rrGatewayId
+    , rrInstanceId
+    , rrNetworkInterfaceId
+    , rrRouteTableId
+    , rrVpcPeeringConnectionId
 
     -- * Response
     , ReplaceRouteResponse
@@ -51,88 +46,93 @@ module Network.AWS.EC2.ReplaceRoute
     , replaceRouteResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ReplaceRoute = ReplaceRoute
-    { _rr1RouteTableId :: Text
-    , _rr1DestinationCidrBlock :: Text
-    , _rr1GatewayId :: Maybe Text
-    , _rr1InstanceId :: Maybe Text
-    , _rr1NetworkInterfaceId :: Maybe Text
-    , _rr1VpcPeeringConnectionId :: Maybe Text
+    { _rrDestinationCidrBlock   :: Text
+    , _rrDryRun                 :: Maybe Bool
+    , _rrGatewayId              :: Maybe Text
+    , _rrInstanceId             :: Maybe Text
+    , _rrNetworkInterfaceId     :: Maybe Text
+    , _rrRouteTableId           :: Text
+    , _rrVpcPeeringConnectionId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReplaceRoute' request.
+-- | 'ReplaceRoute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RouteTableId ::@ @Text@
+-- * 'rrDestinationCidrBlock' @::@ 'Text'
 --
--- * @DestinationCidrBlock ::@ @Text@
+-- * 'rrDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @GatewayId ::@ @Maybe Text@
+-- * 'rrGatewayId' @::@ 'Maybe' 'Text'
 --
--- * @InstanceId ::@ @Maybe Text@
+-- * 'rrInstanceId' @::@ 'Maybe' 'Text'
 --
--- * @NetworkInterfaceId ::@ @Maybe Text@
+-- * 'rrNetworkInterfaceId' @::@ 'Maybe' 'Text'
 --
--- * @VpcPeeringConnectionId ::@ @Maybe Text@
+-- * 'rrRouteTableId' @::@ 'Text'
 --
-replaceRoute :: Text -- ^ 'rr1RouteTableId'
-             -> Text -- ^ 'rr1DestinationCidrBlock'
+-- * 'rrVpcPeeringConnectionId' @::@ 'Maybe' 'Text'
+--
+replaceRoute :: Text -- ^ 'rrRouteTableId'
+             -> Text -- ^ 'rrDestinationCidrBlock'
              -> ReplaceRoute
 replaceRoute p1 p2 = ReplaceRoute
-    { _rr1RouteTableId = p1
-    , _rr1DestinationCidrBlock = p2
-    , _rr1GatewayId = Nothing
-    , _rr1InstanceId = Nothing
-    , _rr1NetworkInterfaceId = Nothing
-    , _rr1VpcPeeringConnectionId = Nothing
+    { _rrRouteTableId           = p1
+    , _rrDestinationCidrBlock   = p2
+    , _rrDryRun                 = Nothing
+    , _rrGatewayId              = Nothing
+    , _rrInstanceId             = Nothing
+    , _rrNetworkInterfaceId     = Nothing
+    , _rrVpcPeeringConnectionId = Nothing
     }
-
--- | The ID of the route table.
-rr1RouteTableId :: Lens' ReplaceRoute Text
-rr1RouteTableId = lens _rr1RouteTableId (\s a -> s { _rr1RouteTableId = a })
 
 -- | The CIDR address block used for the destination match. The value you
 -- provide must match the CIDR of an existing route in the table.
-rr1DestinationCidrBlock :: Lens' ReplaceRoute Text
-rr1DestinationCidrBlock =
-    lens _rr1DestinationCidrBlock
-         (\s a -> s { _rr1DestinationCidrBlock = a })
+rrDestinationCidrBlock :: Lens' ReplaceRoute Text
+rrDestinationCidrBlock =
+    lens _rrDestinationCidrBlock (\s a -> s { _rrDestinationCidrBlock = a })
 
--- | The ID of an Internet gateway attached to your VPC.
-rr1GatewayId :: Lens' ReplaceRoute (Maybe Text)
-rr1GatewayId = lens _rr1GatewayId (\s a -> s { _rr1GatewayId = a })
+rrDryRun :: Lens' ReplaceRoute (Maybe Bool)
+rrDryRun = lens _rrDryRun (\s a -> s { _rrDryRun = a })
+
+-- | The ID of an Internet gateway or virtual private gateway.
+rrGatewayId :: Lens' ReplaceRoute (Maybe Text)
+rrGatewayId = lens _rrGatewayId (\s a -> s { _rrGatewayId = a })
 
 -- | The ID of a NAT instance in your VPC.
-rr1InstanceId :: Lens' ReplaceRoute (Maybe Text)
-rr1InstanceId = lens _rr1InstanceId (\s a -> s { _rr1InstanceId = a })
+rrInstanceId :: Lens' ReplaceRoute (Maybe Text)
+rrInstanceId = lens _rrInstanceId (\s a -> s { _rrInstanceId = a })
 
 -- | The ID of a network interface.
-rr1NetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
-rr1NetworkInterfaceId =
-    lens _rr1NetworkInterfaceId (\s a -> s { _rr1NetworkInterfaceId = a })
+rrNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
+rrNetworkInterfaceId =
+    lens _rrNetworkInterfaceId (\s a -> s { _rrNetworkInterfaceId = a })
+
+-- | The ID of the route table.
+rrRouteTableId :: Lens' ReplaceRoute Text
+rrRouteTableId = lens _rrRouteTableId (\s a -> s { _rrRouteTableId = a })
 
 -- | The ID of a VPC peering connection.
-rr1VpcPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
-rr1VpcPeeringConnectionId =
-    lens _rr1VpcPeeringConnectionId
-         (\s a -> s { _rr1VpcPeeringConnectionId = a })
+rrVpcPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
+rrVpcPeeringConnectionId =
+    lens _rrVpcPeeringConnectionId
+        (\s a -> s { _rrVpcPeeringConnectionId = a })
 
-instance ToQuery ReplaceRoute where
-    toQuery = genericQuery def
+instance ToQuery ReplaceRoute
+
+instance ToPath ReplaceRoute where
+    toPath = const "/"
 
 data ReplaceRouteResponse = ReplaceRouteResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReplaceRouteResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ReplaceRouteResponse' constructor.
 replaceRouteResponse :: ReplaceRouteResponse
 replaceRouteResponse = ReplaceRouteResponse
 
@@ -140,5 +140,5 @@ instance AWSRequest ReplaceRoute where
     type Sv ReplaceRoute = EC2
     type Rs ReplaceRoute = ReplaceRouteResponse
 
-    request = post "ReplaceRoute"
-    response _ = nullaryResponse ReplaceRouteResponse
+    request  = post "ReplaceRoute"
+    response = nullaryResponse ReplaceRouteResponse

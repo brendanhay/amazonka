@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.GetUser
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,14 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Retrieves information about the specified user, including the user's path,
--- unique ID, and ARN. If you do not specify a user name, IAM determines the
--- user name implicitly based on the AWS access key ID signing the request.
--- https://iam.amazonaws.com/ ?Action=GetUser &UserName=Bob
--- &Version=2010-05-08 &AUTHPARAMS /division_abc/subdivision_xyz/ Bob
--- AIDACKCEVSQ6C2EXAMPLE
--- arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/Bob
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- | Retrieves information about the specified user, including the user's
+-- creation date, path, unique ID, and ARN. If you do not specify a user name,
+-- IAM determines the user name implicitly based on the AWS access key ID used
+-- to sign the request.
 module Network.AWS.IAM.GetUser
     (
     -- * Request
@@ -43,47 +41,46 @@ module Network.AWS.IAM.GetUser
     , gurUser
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype GetUser = GetUser
     { _guUserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetUser' request.
+-- | 'GetUser' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Maybe Text@
+-- * 'guUserName' @::@ 'Maybe' 'Text'
 --
 getUser :: GetUser
 getUser = GetUser
     { _guUserName = Nothing
     }
 
--- | Name of the user to get information about. This parameter is optional. If
--- it is not included, it defaults to the user making the request.
+-- | The name of the user to get information about. This parameter is
+-- optional. If it is not included, it defaults to the user making the
+-- request.
 guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\s a -> s { _guUserName = a })
 
-instance ToQuery GetUser where
-    toQuery = genericQuery def
+instance ToQuery GetUser
 
--- | Contains the result of a successful invocation of the GetUser action.
+instance ToPath GetUser where
+    toPath = const "/"
+
 newtype GetUserResponse = GetUserResponse
     { _gurUser :: User
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetUserResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetUserResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @User ::@ @User@
+-- * 'gurUser' @::@ 'User'
 --
 getUserResponse :: User -- ^ 'gurUser'
                 -> GetUserResponse
@@ -95,12 +92,10 @@ getUserResponse p1 = GetUserResponse
 gurUser :: Lens' GetUserResponse User
 gurUser = lens _gurUser (\s a -> s { _gurUser = a })
 
-instance FromXML GetUserResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetUser where
     type Sv GetUser = IAM
     type Rs GetUser = GetUserResponse
 
-    request = post "GetUser"
-    response _ = xmlResponse
+    request  = post "GetUser"
+    response = xmlResponse $ \h x -> GetUserResponse
+        <$> x %| "User"

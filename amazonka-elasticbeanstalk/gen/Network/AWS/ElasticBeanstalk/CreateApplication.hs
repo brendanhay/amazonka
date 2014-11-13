@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,14 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates an application that has one configuration template named default
--- and no application versions. The &lt;code&gt;default&lt;/code&gt;
--- configuration template is for a 32-bit version of the Amazon Linux
--- operating system running the Tomcat 6 application container.
--- &lt;/note&gt;">
--- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
--- &Description=Sample%20Description &Operation=CreateApplication &AuthParams
--- Sample Description SampleApp 2010-11-16T23:09:20.256Z
--- 2010-11-16T23:09:20.256Z Default 8b00e053-f1d6-11df-8a78-9f77047e0d0c.
+-- and no application versions.
 module Network.AWS.ElasticBeanstalk.CreateApplication
     (
     -- * Request
@@ -45,30 +40,29 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     , carApplication
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | This documentation target is not reported in the API reference.
 data CreateApplication = CreateApplication
     { _caApplicationName :: Text
-    , _caDescription :: Maybe Text
+    , _caDescription     :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateApplication' request.
+-- | 'CreateApplication' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ApplicationName ::@ @Text@
+-- * 'caApplicationName' @::@ 'Text'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'caDescription' @::@ 'Maybe' 'Text'
 --
 createApplication :: Text -- ^ 'caApplicationName'
                   -> CreateApplication
 createApplication p1 = CreateApplication
     { _caApplicationName = p1
-    , _caDescription = Nothing
+    , _caDescription     = Nothing
     }
 
 -- | The name of the application. Constraint: This name must be unique within
@@ -82,22 +76,20 @@ caApplicationName =
 caDescription :: Lens' CreateApplication (Maybe Text)
 caDescription = lens _caDescription (\s a -> s { _caDescription = a })
 
-instance ToQuery CreateApplication where
-    toQuery = genericQuery def
+instance ToQuery CreateApplication
 
--- | Result message containing a single description of an application.
+instance ToPath CreateApplication where
+    toPath = const "/"
+
 newtype CreateApplicationResponse = CreateApplicationResponse
     { _carApplication :: Maybe ApplicationDescription
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateApplicationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateApplicationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Application ::@ @Maybe ApplicationDescription@
+-- * 'carApplication' @::@ 'Maybe' 'ApplicationDescription'
 --
 createApplicationResponse :: CreateApplicationResponse
 createApplicationResponse = CreateApplicationResponse
@@ -108,12 +100,10 @@ createApplicationResponse = CreateApplicationResponse
 carApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
 carApplication = lens _carApplication (\s a -> s { _carApplication = a })
 
-instance FromXML CreateApplicationResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateApplication where
     type Sv CreateApplication = ElasticBeanstalk
     type Rs CreateApplication = CreateApplicationResponse
 
-    request = post "CreateApplication"
-    response _ = xmlResponse
+    request  = post "CreateApplication"
+    response = xmlResponse $ \h x -> CreateApplicationResponse
+        <$> x %| "Application"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatch.GetMetricStatistics
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,23 +21,26 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets statistics for the specified metric. The maximum number of data points
--- returned from a single GetMetricStatistics request is 1,440. If a request
--- is made that generates more than 1,440 data points, Amazon CloudWatch
--- returns an error. In such a case, alter the request by narrowing the
--- specified time range or increasing the specified period. Alternatively,
--- make multiple requests across adjacent time ranges. Amazon CloudWatch
--- aggregates data points based on the length of the period that you specify.
--- For example, if you request statistics with a one-minute granularity,
--- Amazon CloudWatch aggregates data points with time stamps that fall within
--- the same one-minute period. In such a case, the data points queried can
--- greatly outnumber the data points returned. The maximum number of data
--- points that can be queried is 50,850; whereas the maximum number of data
--- points returned is 1,440. The following examples show various statistics
--- allowed by the data point query maximum of 50,850 when you call
--- GetMetricStatistics on Amazon EC2 instances with detailed (one-minute)
--- monitoring enabled: Statistics for up to 400 instances for a span of one
--- hour Statistics for up to 35 instances over a span of 24 hours Statistics
--- for up to 2 instances over a span of 2 weeks.
+-- returned from a single GetMetricStatistics request is 1,440, wereas the
+-- maximum number of data points that can be queried is 50,850. If you make a
+-- request that generates more than 1,440 data points, Amazon CloudWatch
+-- returns an error. In such a case, you can alter the request by narrowing
+-- the specified time range or increasing the specified period. Alternatively,
+-- you can make multiple requests across adjacent time ranges. Amazon
+-- CloudWatch aggregates data points based on the length of the period that
+-- you specify. For example, if you request statistics with a one-minute
+-- granularity, Amazon CloudWatch aggregates data points with time stamps that
+-- fall within the same one-minute period. In such a case, the data points
+-- queried can greatly outnumber the data points returned. The following
+-- examples show various statistics allowed by the data point query maximum of
+-- 50,850 when you call GetMetricStatistics on Amazon EC2 instances with
+-- detailed (one-minute) monitoring enabled: Statistics for up to 400
+-- instances for a span of one hour Statistics for up to 35 instances over a
+-- span of 24 hours Statistics for up to 2 instances over a span of 2 weeks
+-- For information about the namespace, metric names, and dimensions that
+-- other Amazon Web Services products use to send metrics to Cloudwatch, go to
+-- Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference in the
+-- Amazon CloudWatch Developer Guide.
 module Network.AWS.CloudWatch.GetMetricStatistics
     (
     -- * Request
@@ -43,12 +48,12 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- ** Request constructor
     , getMetricStatistics
     -- ** Request lenses
-    , gmsNamespace
-    , gmsMetricName
     , gmsDimensions
-    , gmsStartTime
     , gmsEndTime
+    , gmsMetricName
+    , gmsNamespace
     , gmsPeriod
+    , gmsStartTime
     , gmsStatistics
     , gmsUnit
 
@@ -57,144 +62,145 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- ** Response constructor
     , getMetricStatisticsResponse
     -- ** Response lenses
-    , gmsrLabel
     , gmsrDatapoints
+    , gmsrLabel
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data GetMetricStatistics = GetMetricStatistics
-    { _gmsNamespace :: Text
+    { _gmsDimensions :: [Dimension]
+    , _gmsEndTime    :: RFC822
     , _gmsMetricName :: Text
-    , _gmsDimensions :: [Dimension]
-    , _gmsStartTime :: ISO8601
-    , _gmsEndTime :: ISO8601
-    , _gmsPeriod :: !Integer
-    , _gmsStatistics :: List1 Statistic
-    , _gmsUnit :: Maybe StandardUnit
-    } deriving (Eq, Ord, Show, Generic)
+    , _gmsNamespace  :: Text
+    , _gmsPeriod     :: Natural
+    , _gmsStartTime  :: RFC822
+    , _gmsStatistics :: List1 Text
+    , _gmsUnit       :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetMetricStatistics' request.
+-- | 'GetMetricStatistics' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Namespace ::@ @Text@
+-- * 'gmsDimensions' @::@ ['Dimension']
 --
--- * @MetricName ::@ @Text@
+-- * 'gmsEndTime' @::@ 'UTCTime'
 --
--- * @Dimensions ::@ @[Dimension]@
+-- * 'gmsMetricName' @::@ 'Text'
 --
--- * @StartTime ::@ @ISO8601@
+-- * 'gmsNamespace' @::@ 'Text'
 --
--- * @EndTime ::@ @ISO8601@
+-- * 'gmsPeriod' @::@ 'Natural'
 --
--- * @Period ::@ @Integer@
+-- * 'gmsStartTime' @::@ 'UTCTime'
 --
--- * @Statistics ::@ @List1 Statistic@
+-- * 'gmsStatistics' @::@ 'NonEmpty' 'Text'
 --
--- * @Unit ::@ @Maybe StandardUnit@
+-- * 'gmsUnit' @::@ 'Maybe' 'Text'
 --
 getMetricStatistics :: Text -- ^ 'gmsNamespace'
                     -> Text -- ^ 'gmsMetricName'
-                    -> ISO8601 -- ^ 'gmsStartTime'
-                    -> ISO8601 -- ^ 'gmsEndTime'
-                    -> Integer -- ^ 'gmsPeriod'
-                    -> List1 Statistic -- ^ 'gmsStatistics'
+                    -> UTCTime -- ^ 'gmsStartTime'
+                    -> UTCTime -- ^ 'gmsEndTime'
+                    -> Natural -- ^ 'gmsPeriod'
+                    -> NonEmpty Text -- ^ 'gmsStatistics'
                     -> GetMetricStatistics
-getMetricStatistics p1 p2 p4 p5 p6 p7 = GetMetricStatistics
-    { _gmsNamespace = p1
+getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatistics
+    { _gmsNamespace  = p1
     , _gmsMetricName = p2
+    , _gmsStartTime  = withIso _Time (const id) p3
+    , _gmsEndTime    = withIso _Time (const id) p4
+    , _gmsPeriod     = p5
+    , _gmsStatistics = withIso _List1 (const id) p6
     , _gmsDimensions = mempty
-    , _gmsStartTime = p4
-    , _gmsEndTime = p5
-    , _gmsPeriod = p6
-    , _gmsStatistics = p7
-    , _gmsUnit = Nothing
+    , _gmsUnit       = Nothing
     }
-
--- | The namespace of the metric.
-gmsNamespace :: Lens' GetMetricStatistics Text
-gmsNamespace = lens _gmsNamespace (\s a -> s { _gmsNamespace = a })
-
--- | The name of the metric.
-gmsMetricName :: Lens' GetMetricStatistics Text
-gmsMetricName = lens _gmsMetricName (\s a -> s { _gmsMetricName = a })
 
 -- | A list of dimensions describing qualities of the metric.
 gmsDimensions :: Lens' GetMetricStatistics [Dimension]
 gmsDimensions = lens _gmsDimensions (\s a -> s { _gmsDimensions = a })
 
--- | The time stamp to use for determining the first datapoint to return. The
--- value specified is inclusive; results include datapoints with the time
--- stamp specified. The specified start time is rounded down to the nearest
--- value. Datapoints are returned for start times up to two weeks in the past.
--- Specified start times that are more than two weeks in the past will not
--- return datapoints for metrics that are older than two weeks.
-gmsStartTime :: Lens' GetMetricStatistics ISO8601
-gmsStartTime = lens _gmsStartTime (\s a -> s { _gmsStartTime = a })
-
 -- | The time stamp to use for determining the last datapoint to return. The
 -- value specified is exclusive; results will include datapoints up to the
 -- time stamp specified.
-gmsEndTime :: Lens' GetMetricStatistics ISO8601
+gmsEndTime :: Lens' GetMetricStatistics UTCTime
 gmsEndTime = lens _gmsEndTime (\s a -> s { _gmsEndTime = a })
+    . _Time
 
--- | The granularity, in seconds, of the returned datapoints. Period must be at
--- least 60 seconds and must be a multiple of 60. The default value is 60.
-gmsPeriod :: Lens' GetMetricStatistics Integer
+-- | The name of the metric, with or without spaces.
+gmsMetricName :: Lens' GetMetricStatistics Text
+gmsMetricName = lens _gmsMetricName (\s a -> s { _gmsMetricName = a })
+
+-- | The namespace of the metric, with or without spaces.
+gmsNamespace :: Lens' GetMetricStatistics Text
+gmsNamespace = lens _gmsNamespace (\s a -> s { _gmsNamespace = a })
+
+-- | The granularity, in seconds, of the returned datapoints. Period must be
+-- at least 60 seconds and must be a multiple of 60. The default value is
+-- 60.
+gmsPeriod :: Lens' GetMetricStatistics Natural
 gmsPeriod = lens _gmsPeriod (\s a -> s { _gmsPeriod = a })
 
--- | The metric statistics to return.
-gmsStatistics :: Lens' GetMetricStatistics (List1 Statistic)
+-- | The time stamp to use for determining the first datapoint to return. The
+-- value specified is inclusive; results include datapoints with the time
+-- stamp specified.
+gmsStartTime :: Lens' GetMetricStatistics UTCTime
+gmsStartTime = lens _gmsStartTime (\s a -> s { _gmsStartTime = a })
+    . _Time
+
+-- | The metric statistics to return. For information about specific
+-- statistics returned by GetMetricStatistics, go to Statistics in the
+-- Amazon CloudWatch Developer Guide. Valid Values: Average | Sum |
+-- SampleCount | Maximum | Minimum.
+gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Text)
 gmsStatistics = lens _gmsStatistics (\s a -> s { _gmsStatistics = a })
+    . _List1
 
 -- | The unit for the metric.
-gmsUnit :: Lens' GetMetricStatistics (Maybe StandardUnit)
+gmsUnit :: Lens' GetMetricStatistics (Maybe Text)
 gmsUnit = lens _gmsUnit (\s a -> s { _gmsUnit = a })
 
-instance ToQuery GetMetricStatistics where
-    toQuery = genericQuery def
+instance ToQuery GetMetricStatistics
 
--- | The output for the GetMetricStatistics action.
+instance ToPath GetMetricStatistics where
+    toPath = const "/"
+
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
-    { _gmsrLabel :: Maybe Text
-    , _gmsrDatapoints :: [Datapoint]
-    } deriving (Eq, Ord, Show, Generic)
+    { _gmsrDatapoints :: [Datapoint]
+    , _gmsrLabel      :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetMetricStatisticsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetMetricStatisticsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Label ::@ @Maybe Text@
+-- * 'gmsrDatapoints' @::@ ['Datapoint']
 --
--- * @Datapoints ::@ @[Datapoint]@
+-- * 'gmsrLabel' @::@ 'Maybe' 'Text'
 --
 getMetricStatisticsResponse :: GetMetricStatisticsResponse
 getMetricStatisticsResponse = GetMetricStatisticsResponse
-    { _gmsrLabel = Nothing
+    { _gmsrLabel      = Nothing
     , _gmsrDatapoints = mempty
     }
-
--- | A label describing the specified metric.
-gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
-gmsrLabel = lens _gmsrLabel (\s a -> s { _gmsrLabel = a })
 
 -- | The datapoints for the specified metric.
 gmsrDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
 gmsrDatapoints = lens _gmsrDatapoints (\s a -> s { _gmsrDatapoints = a })
 
-instance FromXML GetMetricStatisticsResponse where
-    fromXMLOptions = xmlOptions
+-- | A label describing the specified metric.
+gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
+gmsrLabel = lens _gmsrLabel (\s a -> s { _gmsrLabel = a })
 
 instance AWSRequest GetMetricStatistics where
     type Sv GetMetricStatistics = CloudWatch
     type Rs GetMetricStatistics = GetMetricStatisticsResponse
 
-    request = post "GetMetricStatistics"
-    response _ = xmlResponse
+    request  = post "GetMetricStatistics"
+    response = xmlResponse $ \h x -> GetMetricStatisticsResponse
+        <$> x %| "Datapoints"
+        <*> x %| "Label"

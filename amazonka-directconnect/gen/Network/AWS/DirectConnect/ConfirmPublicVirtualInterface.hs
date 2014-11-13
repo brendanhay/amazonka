@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,25 +37,22 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     -- ** Response constructor
     , confirmPublicVirtualInterfaceResponse
     -- ** Response lenses
-    , cpvirrVirtualInterfaceState
+    , cpvir3VirtualInterfaceState
     ) where
 
-import Network.AWS.DirectConnect.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DirectConnect.Types
 
--- | Container for the parameters to the ConfirmPublicVirtualInterface
--- operation.
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
     { _cpvi1VirtualInterfaceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfirmPublicVirtualInterface' request.
+-- | 'ConfirmPublicVirtualInterface' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VirtualInterfaceId ::@ @Text@
+-- * 'cpvi1VirtualInterfaceId' @::@ 'Text'
 --
 confirmPublicVirtualInterface :: Text -- ^ 'cpvi1VirtualInterfaceId'
                               -> ConfirmPublicVirtualInterface
@@ -61,65 +60,47 @@ confirmPublicVirtualInterface p1 = ConfirmPublicVirtualInterface
     { _cpvi1VirtualInterfaceId = p1
     }
 
--- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
 cpvi1VirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
 cpvi1VirtualInterfaceId =
-    lens _cpvi1VirtualInterfaceId
-         (\s a -> s { _cpvi1VirtualInterfaceId = a })
+    lens _cpvi1VirtualInterfaceId (\s a -> s { _cpvi1VirtualInterfaceId = a })
 
-instance ToPath ConfirmPublicVirtualInterface
+instance ToPath ConfirmPublicVirtualInterface where
+    toPath = const "/"
 
-instance ToQuery ConfirmPublicVirtualInterface
+instance ToQuery ConfirmPublicVirtualInterface where
+    toQuery = const mempty
 
 instance ToHeaders ConfirmPublicVirtualInterface
 
-instance ToJSON ConfirmPublicVirtualInterface
+instance ToBody ConfirmPublicVirtualInterface where
+    toBody = toBody . encode . _cpvi1VirtualInterfaceId
 
--- | The response received when ConfirmPublicVirtualInterface is called.
 newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
-    { _cpvirrVirtualInterfaceState :: Maybe VirtualInterfaceState
-    } deriving (Eq, Ord, Show, Generic)
+    { _cpvir3VirtualInterfaceState :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfirmPublicVirtualInterfaceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ConfirmPublicVirtualInterfaceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
+-- * 'cpvir3VirtualInterfaceState' @::@ 'Maybe' 'Text'
 --
 confirmPublicVirtualInterfaceResponse :: ConfirmPublicVirtualInterfaceResponse
 confirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
-    { _cpvirrVirtualInterfaceState = Nothing
+    { _cpvir3VirtualInterfaceState = Nothing
     }
 
--- | State of the virtual interface. Confirming: The creation of the virtual
--- interface is pending confirmation from the virtual interface owner. If the
--- owner of the virtual interface is different from the owner of the
--- connection on which it is provisioned, then the virtual interface will
--- remain in this state until it is confirmed by the virtual interface owner.
--- Verifying: This state only applies to public virtual interfaces. Each
--- public virtual interface needs validation before the virtual interface can
--- be created. Pending: A virtual interface is in this state from the time
--- that it is created until the virtual interface is ready to forward traffic.
--- Available: A virtual interface that is able to forward traffic. Deleting: A
--- virtual interface is in this state immediately after calling
--- DeleteVirtualInterface until it can no longer forward traffic. Deleted: A
--- virtual interface that cannot forward traffic. Rejected: The virtual
--- interface owner has declined creation of the virtual interface. If a
--- virtual interface in the 'Confirming' state is deleted by the virtual
--- interface owner, the virtual interface will enter the 'Rejected' state.
-cpvirrVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-cpvirrVirtualInterfaceState =
-    lens _cpvirrVirtualInterfaceState
-         (\s a -> s { _cpvirrVirtualInterfaceState = a })
+cpvir3VirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe Text)
+cpvir3VirtualInterfaceState =
+    lens _cpvir3VirtualInterfaceState
+        (\s a -> s { _cpvir3VirtualInterfaceState = a })
 
-instance FromJSON ConfirmPublicVirtualInterfaceResponse
+-- FromJSON
 
 instance AWSRequest ConfirmPublicVirtualInterface where
     type Sv ConfirmPublicVirtualInterface = DirectConnect
     type Rs ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterfaceResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> ConfirmPublicVirtualInterfaceResponse
+        <$> o .: "virtualInterfaceState"

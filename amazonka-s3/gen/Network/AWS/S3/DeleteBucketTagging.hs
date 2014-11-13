@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketTagging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,46 +36,45 @@ module Network.AWS.S3.DeleteBucketTagging
     , deleteBucketTaggingResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype DeleteBucketTagging = DeleteBucketTagging
-    { _dbtBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _dbtBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteBucketTagging' request.
+-- | 'DeleteBucketTagging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'dbtBucket' @::@ 'Text'
 --
-deleteBucketTagging :: BucketName -- ^ 'dbtBucket'
+deleteBucketTagging :: Text -- ^ 'dbtBucket'
                     -> DeleteBucketTagging
 deleteBucketTagging p1 = DeleteBucketTagging
     { _dbtBucket = p1
     }
 
-dbtBucket :: Lens' DeleteBucketTagging BucketName
+dbtBucket :: Lens' DeleteBucketTagging Text
 dbtBucket = lens _dbtBucket (\s a -> s { _dbtBucket = a })
 
-instance ToPath DeleteBucketTagging
+instance ToPath DeleteBucketTagging where
+    toPath DeleteBucketTagging{..} = mconcat
+        [ "/"
+        , toText _dbtBucket
+        ]
 
-instance ToQuery DeleteBucketTagging
+instance ToQuery DeleteBucketTagging where
+    toQuery = const "tagging"
 
 instance ToHeaders DeleteBucketTagging
-
-instance ToBody DeleteBucketTagging
 
 data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteBucketTaggingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteBucketTaggingResponse' constructor.
 deleteBucketTaggingResponse :: DeleteBucketTaggingResponse
 deleteBucketTaggingResponse = DeleteBucketTaggingResponse
 
@@ -81,5 +82,5 @@ instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3
     type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
 
-    request = get
-    response _ = nullaryResponse DeleteBucketTaggingResponse
+    request  = delete
+    response = nullaryResponse DeleteBucketTaggingResponse

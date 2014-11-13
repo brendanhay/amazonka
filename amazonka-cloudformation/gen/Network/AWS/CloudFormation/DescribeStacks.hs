@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStacks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,13 +22,6 @@
 
 -- | Returns the description for the specified stack; if no stack name was
 -- specified, then it returns the description for all the stacks created.
--- https://cloudformation.us-east-1.amazonaws.com/ ?Action=DescribeStacks
--- &StackName=MyStack &Version=2010-05-15 &SignatureVersion=2
--- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
--- &Signature=[Signature] MyStack
--- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83
--- 2010-07-27T22:28:28Z CREATE_COMPLETE false StartPage
--- http://my-load-balancer.amazonaws.com:80/index.html.
 module Network.AWS.CloudFormation.DescribeStacks
     (
     -- * Request
@@ -34,36 +29,35 @@ module Network.AWS.CloudFormation.DescribeStacks
     -- ** Request constructor
     , describeStacks
     -- ** Request lenses
-    , ds1StackName
     , ds1NextToken
+    , ds1StackName
 
     -- * Response
     , DescribeStacksResponse
     -- ** Response constructor
     , describeStacksResponse
     -- ** Response lenses
-    , dsr1rStacks
-    , dsr1rNextToken
+    , dsrNextToken
+    , dsrStacks
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for DescribeStacks action.
 data DescribeStacks = DescribeStacks
-    { _ds1StackName :: Maybe Text
-    , _ds1NextToken :: Maybe Text
+    { _ds1NextToken :: Maybe Text
+    , _ds1StackName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeStacks' request.
+-- | 'DescribeStacks' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackName ::@ @Maybe Text@
+-- * 'ds1NextToken' @::@ 'Maybe' 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'ds1StackName' @::@ 'Maybe' 'Text'
 --
 describeStacks :: DescribeStacks
 describeStacks = DescribeStacks
@@ -71,63 +65,56 @@ describeStacks = DescribeStacks
     , _ds1NextToken = Nothing
     }
 
--- | The name or the unique identifier associated with the stack, which are not
--- always interchangeable: Running stacks: You can specify either the stack's
--- name or its unique stack ID. Deleted stacks: You must specify the unique
--- stack ID. Default: There is no default value.
-ds1StackName :: Lens' DescribeStacks (Maybe Text)
-ds1StackName = lens _ds1StackName (\s a -> s { _ds1StackName = a })
-
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
 ds1NextToken :: Lens' DescribeStacks (Maybe Text)
 ds1NextToken = lens _ds1NextToken (\s a -> s { _ds1NextToken = a })
 
-instance ToQuery DescribeStacks where
-    toQuery = genericQuery def
+-- | The name or the unique identifier associated with the stack, which are
+-- not always interchangeable: Running stacks: You can specify either the
+-- stack's name or its unique stack ID. Deleted stacks: You must specify the
+-- unique stack ID. Default: There is no default value.
+ds1StackName :: Lens' DescribeStacks (Maybe Text)
+ds1StackName = lens _ds1StackName (\s a -> s { _ds1StackName = a })
 
--- | The output for a DescribeStacks action.
+instance ToQuery DescribeStacks
+
+instance ToPath DescribeStacks where
+    toPath = const "/"
+
 data DescribeStacksResponse = DescribeStacksResponse
-    { _dsr1rStacks :: [Stack]
-    , _dsr1rNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dsrNextToken :: Maybe Text
+    , _dsrStacks    :: [Stack]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeStacksResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeStacksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Stacks ::@ @[Stack]@
+-- * 'dsrNextToken' @::@ 'Maybe' 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dsrStacks' @::@ ['Stack']
 --
 describeStacksResponse :: DescribeStacksResponse
 describeStacksResponse = DescribeStacksResponse
-    { _dsr1rStacks = mempty
-    , _dsr1rNextToken = Nothing
+    { _dsrStacks    = mempty
+    , _dsrNextToken = Nothing
     }
-
--- | A list of stack structures.
-dsr1rStacks :: Lens' DescribeStacksResponse [Stack]
-dsr1rStacks = lens _dsr1rStacks (\s a -> s { _dsr1rStacks = a })
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-dsr1rNextToken :: Lens' DescribeStacksResponse (Maybe Text)
-dsr1rNextToken = lens _dsr1rNextToken (\s a -> s { _dsr1rNextToken = a })
+dsrNextToken :: Lens' DescribeStacksResponse (Maybe Text)
+dsrNextToken = lens _dsrNextToken (\s a -> s { _dsrNextToken = a })
 
-instance FromXML DescribeStacksResponse where
-    fromXMLOptions = xmlOptions
+-- | A list of stack structures.
+dsrStacks :: Lens' DescribeStacksResponse [Stack]
+dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a })
 
 instance AWSRequest DescribeStacks where
     type Sv DescribeStacks = CloudFormation
     type Rs DescribeStacks = DescribeStacksResponse
 
-    request = post "DescribeStacks"
-    response _ = xmlResponse
-
-instance AWSPager DescribeStacks where
-    next rq rs = (\x -> rq & ds1NextToken ?~ x)
-        <$> (rs ^. dsr1rNextToken)
+    request  = post "DescribeStacks"
+    response = xmlResponse $ \h x -> DescribeStacksResponse
+        <$> x %| "NextToken"
+        <*> x %| "Stacks"

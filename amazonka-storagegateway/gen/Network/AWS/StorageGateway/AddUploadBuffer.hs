@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.AddUploadBuffer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,8 +33,8 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     -- ** Request constructor
     , addUploadBuffer
     -- ** Request lenses
-    , aubGatewayARN
     , aubDiskIds
+    , aubGatewayARN
 
     -- * Response
     , AddUploadBufferResponse
@@ -42,76 +44,71 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     , aubrGatewayARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 data AddUploadBuffer = AddUploadBuffer
-    { _aubGatewayARN :: Text
-    , _aubDiskIds :: [Text]
+    { _aubDiskIds    :: [Text]
+    , _aubGatewayARN :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddUploadBuffer' request.
+-- | 'AddUploadBuffer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'aubDiskIds' @::@ ['Text']
 --
--- * @DiskIds ::@ @[Text]@
+-- * 'aubGatewayARN' @::@ 'Text'
 --
 addUploadBuffer :: Text -- ^ 'aubGatewayARN'
-                -> [Text] -- ^ 'aubDiskIds'
                 -> AddUploadBuffer
-addUploadBuffer p1 p2 = AddUploadBuffer
+addUploadBuffer p1 = AddUploadBuffer
     { _aubGatewayARN = p1
-    , _aubDiskIds = p2
+    , _aubDiskIds    = mempty
     }
-
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
-aubGatewayARN :: Lens' AddUploadBuffer Text
-aubGatewayARN = lens _aubGatewayARN (\s a -> s { _aubGatewayARN = a })
 
 aubDiskIds :: Lens' AddUploadBuffer [Text]
 aubDiskIds = lens _aubDiskIds (\s a -> s { _aubDiskIds = a })
 
-instance ToPath AddUploadBuffer
+aubGatewayARN :: Lens' AddUploadBuffer Text
+aubGatewayARN = lens _aubGatewayARN (\s a -> s { _aubGatewayARN = a })
 
-instance ToQuery AddUploadBuffer
+instance ToPath AddUploadBuffer where
+    toPath = const "/"
+
+instance ToQuery AddUploadBuffer where
+    toQuery = const mempty
 
 instance ToHeaders AddUploadBuffer
 
-instance ToJSON AddUploadBuffer
+instance ToBody AddUploadBuffer where
+    toBody = toBody . encode . _aubGatewayARN
 
 newtype AddUploadBufferResponse = AddUploadBufferResponse
     { _aubrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddUploadBufferResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AddUploadBufferResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Maybe Text@
+-- * 'aubrGatewayARN' @::@ 'Maybe' 'Text'
 --
 addUploadBufferResponse :: AddUploadBufferResponse
 addUploadBufferResponse = AddUploadBufferResponse
     { _aubrGatewayARN = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 aubrGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrGatewayARN = lens _aubrGatewayARN (\s a -> s { _aubrGatewayARN = a })
 
-instance FromJSON AddUploadBufferResponse
+-- FromJSON
 
 instance AWSRequest AddUploadBuffer where
     type Sv AddUploadBuffer = StorageGateway
     type Rs AddUploadBuffer = AddUploadBufferResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> AddUploadBufferResponse
+        <$> o .: "GatewayARN"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStackResources
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,16 +33,6 @@
 -- resources, the LogicalResourceId and PhysicalResourceId, go to the AWS
 -- CloudFormation User Guide. A ValidationError is returned if you specify
 -- both StackName and PhysicalResourceId in the same request.
--- https://cloudformation.us-east-1.amazonaws.com/
--- ?Action=DescribeStackResources &StackName=MyStack &Version=2010-05-15
--- &SignatureVersion=2 &Timestamp=2010-07-27T22%3A26%3A28.000Z
--- &AWSAccessKeyId=[AWS Access KeyID] &Signature=[Signature]
--- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83
--- MyStack MyDBInstance MyStack_DB1 AWS::DBInstance 2010-07-27T22:27:28Z
--- CREATE_COMPLETE
--- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83
--- MyStack MyAutoScalingGroup MyStack_ASG1 AWS::AutoScalingGroup
--- 2010-07-27T22:28:28Z CREATE_IN_PROGRESS.
 module Network.AWS.CloudFormation.DescribeStackResources
     (
     -- * Request
@@ -48,106 +40,108 @@ module Network.AWS.CloudFormation.DescribeStackResources
     -- ** Request constructor
     , describeStackResources
     -- ** Request lenses
-    , dsr1StackName
-    , dsr1LogicalResourceId
-    , dsr1PhysicalResourceId
+    , dsrLogicalResourceId
+    , dsrPhysicalResourceId
+    , dsrStackName
 
     -- * Response
     , DescribeStackResourcesResponse
     -- ** Response constructor
     , describeStackResourcesResponse
     -- ** Response lenses
-    , dsrrrStackResources
+    , dsrrStackResources
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for DescribeStackResources action.
 data DescribeStackResources = DescribeStackResources
-    { _dsr1StackName :: Maybe Text
-    , _dsr1LogicalResourceId :: Maybe Text
-    , _dsr1PhysicalResourceId :: Maybe Text
+    { _dsrLogicalResourceId  :: Maybe Text
+    , _dsrPhysicalResourceId :: Maybe Text
+    , _dsrStackName          :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeStackResources' request.
+-- | 'DescribeStackResources' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackName ::@ @Maybe Text@
+-- * 'dsrLogicalResourceId' @::@ 'Maybe' 'Text'
 --
--- * @LogicalResourceId ::@ @Maybe Text@
+-- * 'dsrPhysicalResourceId' @::@ 'Maybe' 'Text'
 --
--- * @PhysicalResourceId ::@ @Maybe Text@
+-- * 'dsrStackName' @::@ 'Maybe' 'Text'
 --
 describeStackResources :: DescribeStackResources
 describeStackResources = DescribeStackResources
-    { _dsr1StackName = Nothing
-    , _dsr1LogicalResourceId = Nothing
-    , _dsr1PhysicalResourceId = Nothing
+    { _dsrStackName          = Nothing
+    , _dsrLogicalResourceId  = Nothing
+    , _dsrPhysicalResourceId = Nothing
     }
-
--- | The name or the unique identifier associated with the stack, which are not
--- always interchangeable: Running stacks: You can specify either the stack's
--- name or its unique stack ID. Deleted stacks: You must specify the unique
--- stack ID. Default: There is no default value. Required: Conditional. If you
--- do not specify StackName, you must specify PhysicalResourceId.
-dsr1StackName :: Lens' DescribeStackResources (Maybe Text)
-dsr1StackName = lens _dsr1StackName (\s a -> s { _dsr1StackName = a })
 
 -- | The logical name of the resource as specified in the template. Default:
 -- There is no default value.
-dsr1LogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsr1LogicalResourceId =
-    lens _dsr1LogicalResourceId (\s a -> s { _dsr1LogicalResourceId = a })
+dsrLogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
+dsrLogicalResourceId =
+    lens _dsrLogicalResourceId (\s a -> s { _dsrLogicalResourceId = a })
 
--- | The name or unique identifier that corresponds to a physical instance ID of
--- a resource supported by AWS CloudFormation. For example, for an Amazon
--- Elastic Compute Cloud (EC2) instance, PhysicalResourceId corresponds to the
--- InstanceId. You can pass the EC2 InstanceId to DescribeStackResources to
--- find which stack the instance belongs to and what other resources are part
--- of the stack. Required: Conditional. If you do not specify
+-- | The name or unique identifier that corresponds to a physical instance ID
+-- of a resource supported by AWS CloudFormation. For example, for an Amazon
+-- Elastic Compute Cloud (EC2) instance, PhysicalResourceId corresponds to
+-- the InstanceId. You can pass the EC2 InstanceId to DescribeStackResources
+-- to find which stack the instance belongs to and what other resources are
+-- part of the stack. Required: Conditional. If you do not specify
 -- PhysicalResourceId, you must specify StackName. Default: There is no
 -- default value.
-dsr1PhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsr1PhysicalResourceId =
-    lens _dsr1PhysicalResourceId (\s a -> s { _dsr1PhysicalResourceId = a })
+dsrPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
+dsrPhysicalResourceId =
+    lens _dsrPhysicalResourceId (\s a -> s { _dsrPhysicalResourceId = a })
 
-instance ToQuery DescribeStackResources where
-    toQuery = genericQuery def
+-- | The name or the unique identifier associated with the stack, which are
+-- not always interchangeable: Running stacks: You can specify either the
+-- stack's name or its unique stack ID. Deleted stacks: You must specify the
+-- unique stack ID. Default: There is no default value. Required:
+-- Conditional. If you do not specify StackName, you must specify
+-- PhysicalResourceId.
+dsrStackName :: Lens' DescribeStackResources (Maybe Text)
+dsrStackName = lens _dsrStackName (\s a -> s { _dsrStackName = a })
 
--- | The output for a DescribeStackResources action.
+instance ToQuery DescribeStackResources
+
+instance ToPath DescribeStackResources where
+    toPath = const "/"
+
 newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
-    { _dsrrrStackResources :: [StackResource]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dsrrStackResources :: [StackResource]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeStackResourcesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeStackResourcesResponse where
+    type Item DescribeStackResourcesResponse = StackResource
+
+    fromList = DescribeStackResourcesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsrrStackResources
+
+-- | 'DescribeStackResourcesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackResources ::@ @[StackResource]@
+-- * 'dsrrStackResources' @::@ ['StackResource']
 --
 describeStackResourcesResponse :: DescribeStackResourcesResponse
 describeStackResourcesResponse = DescribeStackResourcesResponse
-    { _dsrrrStackResources = mempty
+    { _dsrrStackResources = mempty
     }
 
 -- | A list of StackResource structures.
-dsrrrStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
-dsrrrStackResources =
-    lens _dsrrrStackResources (\s a -> s { _dsrrrStackResources = a })
-
-instance FromXML DescribeStackResourcesResponse where
-    fromXMLOptions = xmlOptions
+dsrrStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
+dsrrStackResources =
+    lens _dsrrStackResources (\s a -> s { _dsrrStackResources = a })
 
 instance AWSRequest DescribeStackResources where
     type Sv DescribeStackResources = CloudFormation
     type Rs DescribeStackResources = DescribeStackResourcesResponse
 
-    request = post "DescribeStackResources"
-    response _ = xmlResponse
+    request  = post "DescribeStackResources"
+    response = xmlResponse $ \h x -> DescribeStackResourcesResponse
+        <$> x %| "StackResources"

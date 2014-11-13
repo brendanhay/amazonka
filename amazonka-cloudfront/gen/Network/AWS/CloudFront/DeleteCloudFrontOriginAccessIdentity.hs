@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,81 +24,77 @@
 module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     (
     -- * Request
-      DeleteCloudFrontOriginAccessIdentity
+      DeleteCloudFrontOriginAccessIdentity2014_05_31
     -- ** Request constructor
-    , deleteCloudFrontOriginAccessIdentity
+    , deleteCloudFrontOriginAccessIdentity2014_05_31
     -- ** Request lenses
     , dcfoaiId
     , dcfoaiIfMatch
 
     -- * Response
-    , DeleteCloudFrontOriginAccessIdentityResponse
+    , DeleteCloudFrontOriginAccessIdentity2014_05_31Response
     -- ** Response constructor
-    , deleteCloudFrontOriginAccessIdentityResponse
+    , deleteCloudFrontOriginAccessIdentity2014_05_31Response
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to delete a origin access identity.
-data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
-    { _dcfoaiId :: Text
+data DeleteCloudFrontOriginAccessIdentity2014_05_31 = DeleteCloudFrontOriginAccessIdentity2014_05_31
+    { _dcfoaiId      :: Text
     , _dcfoaiIfMatch :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteCloudFrontOriginAccessIdentity' request.
+-- | 'DeleteCloudFrontOriginAccessIdentity2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'dcfoaiId' @::@ 'Text'
 --
--- * @IfMatch ::@ @Maybe Text@
+-- * 'dcfoaiIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteCloudFrontOriginAccessIdentity :: Text -- ^ 'dcfoaiId'
-                                     -> DeleteCloudFrontOriginAccessIdentity
-deleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
-    { _dcfoaiId = p1
+deleteCloudFrontOriginAccessIdentity2014_05_31 :: Text -- ^ 'dcfoaiId'
+                                               -> DeleteCloudFrontOriginAccessIdentity2014_05_31
+deleteCloudFrontOriginAccessIdentity2014_05_31 p1 = DeleteCloudFrontOriginAccessIdentity2014_05_31
+    { _dcfoaiId      = p1
     , _dcfoaiIfMatch = Nothing
     }
 
 -- | The origin access identity's id.
-dcfoaiId :: Lens' DeleteCloudFrontOriginAccessIdentity Text
+dcfoaiId :: Lens' DeleteCloudFrontOriginAccessIdentity2014_05_31 Text
 dcfoaiId = lens _dcfoaiId (\s a -> s { _dcfoaiId = a })
 
 -- | The value of the ETag header you received from a previous GET or PUT
 -- request. For example: E2QWRUHAPOMQZL.
-dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
+dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity2014_05_31 (Maybe Text)
 dcfoaiIfMatch = lens _dcfoaiIfMatch (\s a -> s { _dcfoaiIfMatch = a })
 
-instance ToPath DeleteCloudFrontOriginAccessIdentity
+instance ToPath DeleteCloudFrontOriginAccessIdentity2014_05_31 where
+    toPath DeleteCloudFrontOriginAccessIdentity2014_05_31{..} = mconcat
+        [ "/2014-05-31/origin-access-identity/cloudfront/"
+        , toText _dcfoaiId
+        ]
 
-instance ToQuery DeleteCloudFrontOriginAccessIdentity
+instance ToQuery DeleteCloudFrontOriginAccessIdentity2014_05_31 where
+    toQuery = const mempty
 
-instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
-    toHeaders DeleteCloudFrontOriginAccessIdentity{..} = concat
+instance ToHeaders DeleteCloudFrontOriginAccessIdentity2014_05_31 where
+    toHeaders DeleteCloudFrontOriginAccessIdentity2014_05_31{..} = mconcat
         [ "If-Match" =: _dcfoaiIfMatch
         ]
 
-instance ToXML DeleteCloudFrontOriginAccessIdentity where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteCloudFrontOriginAccessIdentity"
-
-data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
+data DeleteCloudFrontOriginAccessIdentity2014_05_31Response = DeleteCloudFrontOriginAccessIdentity2014_05_31Response
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteCloudFrontOriginAccessIdentityResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
-deleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse
-deleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
+-- | 'DeleteCloudFrontOriginAccessIdentity2014_05_31Response' constructor.
+deleteCloudFrontOriginAccessIdentity2014_05_31Response :: DeleteCloudFrontOriginAccessIdentity2014_05_31Response
+deleteCloudFrontOriginAccessIdentity2014_05_31Response = DeleteCloudFrontOriginAccessIdentity2014_05_31Response
 
-instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
-    type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront
-    type Rs DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentityResponse
+instance AWSRequest DeleteCloudFrontOriginAccessIdentity2014_05_31 where
+    type Sv DeleteCloudFrontOriginAccessIdentity2014_05_31 = CloudFront
+    type Rs DeleteCloudFrontOriginAccessIdentity2014_05_31 = DeleteCloudFrontOriginAccessIdentity2014_05_31Response
 
-    request = get
-    response _ = nullaryResponse DeleteCloudFrontOriginAccessIdentityResponse
+    request  = delete
+    response = nullaryResponse DeleteCloudFrontOriginAccessIdentity2014_05_31Response

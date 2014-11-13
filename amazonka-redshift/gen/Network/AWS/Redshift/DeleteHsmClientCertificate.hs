@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.DeleteHsmClientCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.Redshift.DeleteHsmClientCertificate
     -- ** Request constructor
     , deleteHsmClientCertificate
     -- ** Request lenses
-    , dhccHsmClientCertificateIdentifier
+    , dhcc1HsmClientCertificateIdentifier
 
     -- * Response
     , DeleteHsmClientCertificateResponse
@@ -34,44 +36,42 @@ module Network.AWS.Redshift.DeleteHsmClientCertificate
     , deleteHsmClientCertificateResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DeleteHsmClientCertificate = DeleteHsmClientCertificate
-    { _dhccHsmClientCertificateIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dhcc1HsmClientCertificateIdentifier :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteHsmClientCertificate' request.
+-- | 'DeleteHsmClientCertificate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HsmClientCertificateIdentifier ::@ @Text@
+-- * 'dhcc1HsmClientCertificateIdentifier' @::@ 'Text'
 --
-deleteHsmClientCertificate :: Text -- ^ 'dhccHsmClientCertificateIdentifier'
+deleteHsmClientCertificate :: Text -- ^ 'dhcc1HsmClientCertificateIdentifier'
                            -> DeleteHsmClientCertificate
 deleteHsmClientCertificate p1 = DeleteHsmClientCertificate
-    { _dhccHsmClientCertificateIdentifier = p1
+    { _dhcc1HsmClientCertificateIdentifier = p1
     }
 
 -- | The identifier of the HSM client certificate to be deleted.
-dhccHsmClientCertificateIdentifier :: Lens' DeleteHsmClientCertificate Text
-dhccHsmClientCertificateIdentifier =
-    lens _dhccHsmClientCertificateIdentifier
-         (\s a -> s { _dhccHsmClientCertificateIdentifier = a })
+dhcc1HsmClientCertificateIdentifier :: Lens' DeleteHsmClientCertificate Text
+dhcc1HsmClientCertificateIdentifier =
+    lens _dhcc1HsmClientCertificateIdentifier
+        (\s a -> s { _dhcc1HsmClientCertificateIdentifier = a })
 
-instance ToQuery DeleteHsmClientCertificate where
-    toQuery = genericQuery def
+instance ToQuery DeleteHsmClientCertificate
+
+instance ToPath DeleteHsmClientCertificate where
+    toPath = const "/"
 
 data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteHsmClientCertificateResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteHsmClientCertificateResponse' constructor.
 deleteHsmClientCertificateResponse :: DeleteHsmClientCertificateResponse
 deleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
 
@@ -79,5 +79,5 @@ instance AWSRequest DeleteHsmClientCertificate where
     type Sv DeleteHsmClientCertificate = Redshift
     type Rs DeleteHsmClientCertificate = DeleteHsmClientCertificateResponse
 
-    request = post "DeleteHsmClientCertificate"
-    response _ = nullaryResponse DeleteHsmClientCertificateResponse
+    request  = post "DeleteHsmClientCertificate"
+    response = nullaryResponse DeleteHsmClientCertificateResponse

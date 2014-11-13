@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,22 +25,7 @@
 -- name. By default, this operation returns up to 50 log groups. If there are
 -- more log groups to list, the response would contain a nextToken value in
 -- the response body. You can also limit the number of log groups returned in
--- the response by specifying the limit parameter in the request. List the log
--- groups for an AWS Account The following is an example of a
--- DescribeLogGroups request and response. POST / HTTP/1.1 Host: logs..
--- X-Amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Accept: application/json Content-Type:
--- application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]>
--- X-Amz-Target: Logs_20140328.DescribeLogGroups HTTP/1.1 200 OK
--- x-amzn-RequestId: Content-Type: application/x-amz-json-1.1 Content-Length:
--- Date: ]]> { "logGroups": [ { "storageBytes": 1048576, "arn":
--- "arn:aws:logs:us-east-1:123456789:log-group:exampleLogGroupName1:*",
--- "creationTime": 1393545600000, "logGroupName": "exampleLogGroupName1",
--- "metricFilterCount": 0, "retentionInDays": 14 }, { "storageBytes": 5242880,
--- "arn": "arn:aws:logs:us-east-1:123456789:log-group:exampleLogGroupName2:*",
--- "creationTime": 1396224000000, "logGroupName": "exampleLogGroupName2",
--- "metricFilterCount": 0, "retentionInDays": 30 } ] }.
+-- the response by specifying the limit parameter in the request.
 module Network.AWS.CloudWatchLogs.DescribeLogGroups
     (
     -- * Request
@@ -46,9 +33,9 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     -- ** Request constructor
     , describeLogGroups
     -- ** Request lenses
-    , dlg1LogGroupNamePrefix
-    , dlg1NextToken
-    , dlg1Limit
+    , dlgLimit
+    , dlgLogGroupNamePrefix
+    , dlgNextToken
 
     -- * Response
     , DescribeLogGroupsResponse
@@ -59,72 +46,71 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     , dlgrNextToken
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudWatchLogs.Types
 
 data DescribeLogGroups = DescribeLogGroups
-    { _dlg1LogGroupNamePrefix :: Maybe Text
-    , _dlg1NextToken :: Maybe Text
-    , _dlg1Limit :: Maybe Integer
+    { _dlgLimit              :: Maybe Natural
+    , _dlgLogGroupNamePrefix :: Maybe Text
+    , _dlgNextToken          :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLogGroups' request.
+-- | 'DescribeLogGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogGroupNamePrefix ::@ @Maybe Text@
+-- * 'dlgLimit' @::@ 'Maybe' 'Natural'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dlgLogGroupNamePrefix' @::@ 'Maybe' 'Text'
 --
--- * @Limit ::@ @Maybe Integer@
+-- * 'dlgNextToken' @::@ 'Maybe' 'Text'
 --
 describeLogGroups :: DescribeLogGroups
 describeLogGroups = DescribeLogGroups
-    { _dlg1LogGroupNamePrefix = Nothing
-    , _dlg1NextToken = Nothing
-    , _dlg1Limit = Nothing
+    { _dlgLogGroupNamePrefix = Nothing
+    , _dlgNextToken          = Nothing
+    , _dlgLimit              = Nothing
     }
 
-dlg1LogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
-dlg1LogGroupNamePrefix =
-    lens _dlg1LogGroupNamePrefix (\s a -> s { _dlg1LogGroupNamePrefix = a })
+-- | The maximum number of items returned in the response. If you don't
+-- specify a value, the request would return up to 50 items.
+dlgLimit :: Lens' DescribeLogGroups (Maybe Natural)
+dlgLimit = lens _dlgLimit (\s a -> s { _dlgLimit = a })
 
--- | A string token used for pagination that points to the next page of results.
--- It must be a value obtained from the response of the previous
+dlgLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
+dlgLogGroupNamePrefix =
+    lens _dlgLogGroupNamePrefix (\s a -> s { _dlgLogGroupNamePrefix = a })
+
+-- | A string token used for pagination that points to the next page of
+-- results. It must be a value obtained from the response of the previous
 -- DescribeLogGroups request.
-dlg1NextToken :: Lens' DescribeLogGroups (Maybe Text)
-dlg1NextToken = lens _dlg1NextToken (\s a -> s { _dlg1NextToken = a })
+dlgNextToken :: Lens' DescribeLogGroups (Maybe Text)
+dlgNextToken = lens _dlgNextToken (\s a -> s { _dlgNextToken = a })
 
--- | The maximum number of items returned in the response. If you don't specify
--- a value, the request would return up to 50 items.
-dlg1Limit :: Lens' DescribeLogGroups (Maybe Integer)
-dlg1Limit = lens _dlg1Limit (\s a -> s { _dlg1Limit = a })
+instance ToPath DescribeLogGroups where
+    toPath = const "/"
 
-instance ToPath DescribeLogGroups
-
-instance ToQuery DescribeLogGroups
+instance ToQuery DescribeLogGroups where
+    toQuery = const mempty
 
 instance ToHeaders DescribeLogGroups
 
-instance ToJSON DescribeLogGroups
+instance ToBody DescribeLogGroups where
+    toBody = toBody . encode . _dlgLogGroupNamePrefix
 
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse
     { _dlgrLogGroups :: [LogGroup]
     , _dlgrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLogGroupsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeLogGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogGroups ::@ @[LogGroup]@
+-- * 'dlgrLogGroups' @::@ ['LogGroup']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dlgrNextToken' @::@ 'Maybe' 'Text'
 --
 describeLogGroupsResponse :: DescribeLogGroupsResponse
 describeLogGroupsResponse = DescribeLogGroupsResponse
@@ -132,25 +118,19 @@ describeLogGroupsResponse = DescribeLogGroupsResponse
     , _dlgrNextToken = Nothing
     }
 
--- | A list of log groups.
 dlgrLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
 dlgrLogGroups = lens _dlgrLogGroups (\s a -> s { _dlgrLogGroups = a })
 
--- | A string token used for pagination that points to the next page of results.
--- It must be a value obtained from the response of the previous request. The
--- token expires after 24 hours.
 dlgrNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrNextToken = lens _dlgrNextToken (\s a -> s { _dlgrNextToken = a })
 
-instance FromJSON DescribeLogGroupsResponse
+-- FromJSON
 
 instance AWSRequest DescribeLogGroups where
     type Sv DescribeLogGroups = CloudWatchLogs
     type Rs DescribeLogGroups = DescribeLogGroupsResponse
 
-    request = get
-    response _ = jsonResponse
-
-instance AWSPager DescribeLogGroups where
-    next rq rs = (\x -> rq & dlg1NextToken ?~ x)
-        <$> (rs ^. dlgrNextToken)
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeLogGroupsResponse
+        <$> o .: "logGroups"
+        <*> o .: "nextToken"

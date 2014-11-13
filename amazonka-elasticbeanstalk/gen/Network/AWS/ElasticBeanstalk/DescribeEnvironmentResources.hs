@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,13 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns AWS resources for this environment.
--- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
--- &EnvironmentName=SampleAppVersion &Operation=DescribeEnvironmentResources
--- &AuthParams elasticbeanstalk-SampleAppVersion
--- elasticbeanstalk-SampleAppVersion-hbAc8cSZH7
--- elasticbeanstalk-SampleAppVersion-us-east-1c SampleAppVersion
--- elasticbeanstalk-SampleAppVersion-us-east-1c
--- e1cb7b96-f287-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     (
     -- * Request
@@ -44,63 +39,59 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     , derrEnvironmentResources
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | This documentation target is not reported in the API reference.
 data DescribeEnvironmentResources = DescribeEnvironmentResources
-    { _derEnvironmentId :: Maybe Text
+    { _derEnvironmentId   :: Maybe Text
     , _derEnvironmentName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeEnvironmentResources' request.
+-- | 'DescribeEnvironmentResources' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EnvironmentId ::@ @Maybe Text@
+-- * 'derEnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'derEnvironmentName' @::@ 'Maybe' 'Text'
 --
 describeEnvironmentResources :: DescribeEnvironmentResources
 describeEnvironmentResources = DescribeEnvironmentResources
-    { _derEnvironmentId = Nothing
+    { _derEnvironmentId   = Nothing
     , _derEnvironmentName = Nothing
     }
 
 -- | The ID of the environment to retrieve AWS resource usage data. Condition:
--- You must specify either this or an EnvironmentName, or both. If you do not
--- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
--- error.
+-- You must specify either this or an EnvironmentName, or both. If you do
+-- not specify either, AWS Elastic Beanstalk returns
+-- MissingRequiredParameter error.
 derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
-derEnvironmentId =
-    lens _derEnvironmentId (\s a -> s { _derEnvironmentId = a })
+derEnvironmentId = lens _derEnvironmentId (\s a -> s { _derEnvironmentId = a })
 
--- | The name of the environment to retrieve AWS resource usage data. Condition:
--- You must specify either this or an EnvironmentId, or both. If you do not
--- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
--- error.
+-- | The name of the environment to retrieve AWS resource usage data.
+-- Condition: You must specify either this or an EnvironmentId, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns
+-- MissingRequiredParameter error.
 derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentName =
     lens _derEnvironmentName (\s a -> s { _derEnvironmentName = a })
 
-instance ToQuery DescribeEnvironmentResources where
-    toQuery = genericQuery def
+instance ToQuery DescribeEnvironmentResources
 
--- | Result message containing a list of environment resource descriptions.
+instance ToPath DescribeEnvironmentResources where
+    toPath = const "/"
+
 newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     { _derrEnvironmentResources :: Maybe EnvironmentResourceDescription
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeEnvironmentResourcesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeEnvironmentResourcesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EnvironmentResources ::@ @Maybe EnvironmentResourceDescription@
+-- * 'derrEnvironmentResources' @::@ 'Maybe' 'EnvironmentResourceDescription'
 --
 describeEnvironmentResourcesResponse :: DescribeEnvironmentResourcesResponse
 describeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
@@ -111,14 +102,12 @@ describeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
 derrEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
 derrEnvironmentResources =
     lens _derrEnvironmentResources
-         (\s a -> s { _derrEnvironmentResources = a })
-
-instance FromXML DescribeEnvironmentResourcesResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _derrEnvironmentResources = a })
 
 instance AWSRequest DescribeEnvironmentResources where
     type Sv DescribeEnvironmentResources = ElasticBeanstalk
     type Rs DescribeEnvironmentResources = DescribeEnvironmentResourcesResponse
 
-    request = post "DescribeEnvironmentResources"
-    response _ = xmlResponse
+    request  = post "DescribeEnvironmentResources"
+    response = xmlResponse $ \h x -> DescribeEnvironmentResourcesResponse
+        <$> x %| "EnvironmentResources"

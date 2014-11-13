@@ -1,11 +1,11 @@
 name:                  amazonka-elastictranscoder
 version:               0.0.0
-synopsis:              Amazon Elastic Transcoder SDK
+synopsis:              Amazon Elastic Transcoder SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,9 +13,12 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Elastic Transcoder lets you convert media files that you have stored in Amazon Simple Storage Service (Amazon S3) into media files in the formats required by consumer playback devices.
-    .
-    For example, you can convert large, high-quality digital media files into formats that users can play back on mobile devices, tablets, web browsers, and connected televisions.
+    Amazon Elastic Transcoder lets you convert media files that you have
+    stored in Amazon Simple Storage Service (Amazon S3) into media files in
+    the formats required by consumer playback devices. For example, you can
+    convert large, high-quality digital media files into formats that users
+    can play back on mobile devices, tablets, web browsers, and connected
+    televisions.
 
 source-repository head
     type:     git
@@ -29,7 +32,6 @@ library
 
     exposed-modules:
           Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder.Types
         , Network.AWS.ElasticTranscoder.CancelJob
         , Network.AWS.ElasticTranscoder.CreateJob
         , Network.AWS.ElasticTranscoder.CreatePipeline
@@ -44,9 +46,12 @@ library
         , Network.AWS.ElasticTranscoder.ReadPipeline
         , Network.AWS.ElasticTranscoder.ReadPreset
         , Network.AWS.ElasticTranscoder.TestRole
+        , Network.AWS.ElasticTranscoder.Types
         , Network.AWS.ElasticTranscoder.UpdatePipeline
         , Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
         , Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+
+    other-modules:
 
     build-depends:
           amazonka-core

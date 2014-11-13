@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeApps
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Requests a description of a specified set of apps. You must specify at
--- least one of the parameters. Required Permissions: To use this action, an
--- IAM user must have a Show, Deploy, or Manage permissions level for the
--- stack, or an attached policy that explicitly grants permissions. For more
--- information on user permissions, see Managing User Permissions.
+-- | Requests a description of a specified set of apps. Required Permissions: To
+-- use this action, an IAM user must have a Show, Deploy, or Manage
+-- permissions level for the stack, or an attached policy that explicitly
+-- grants permissions. For more information on user permissions, see Managing
+-- User Permissions.
 module Network.AWS.OpsWorks.DescribeApps
     (
     -- * Request
@@ -30,8 +32,8 @@ module Network.AWS.OpsWorks.DescribeApps
     -- ** Request constructor
     , describeApps
     -- ** Request lenses
-    , da1StackId
-    , da1AppIds
+    , daAppIds
+    , daStackId
 
     -- * Response
     , DescribeAppsResponse
@@ -41,62 +43,66 @@ module Network.AWS.OpsWorks.DescribeApps
     , darApps
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DescribeApps = DescribeApps
-    { _da1StackId :: Maybe Text
-    , _da1AppIds :: [Text]
+    { _daAppIds  :: [Text]
+    , _daStackId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeApps' request.
+-- | 'DescribeApps' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Maybe Text@
+-- * 'daAppIds' @::@ ['Text']
 --
--- * @AppIds ::@ @[Text]@
+-- * 'daStackId' @::@ 'Maybe' 'Text'
 --
 describeApps :: DescribeApps
 describeApps = DescribeApps
-    { _da1StackId = Nothing
-    , _da1AppIds = mempty
+    { _daStackId = Nothing
+    , _daAppIds  = mempty
     }
-
--- | The app stack ID. If you use this parameter, DescribeApps returns a
--- description of the apps in the specified stack.
-da1StackId :: Lens' DescribeApps (Maybe Text)
-da1StackId = lens _da1StackId (\s a -> s { _da1StackId = a })
 
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, DescribeApps returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
-da1AppIds :: Lens' DescribeApps [Text]
-da1AppIds = lens _da1AppIds (\s a -> s { _da1AppIds = a })
+daAppIds :: Lens' DescribeApps [Text]
+daAppIds = lens _daAppIds (\s a -> s { _daAppIds = a })
 
-instance ToPath DescribeApps
+-- | The app stack ID. If you use this parameter, DescribeApps returns a
+-- description of the apps in the specified stack.
+daStackId :: Lens' DescribeApps (Maybe Text)
+daStackId = lens _daStackId (\s a -> s { _daStackId = a })
 
-instance ToQuery DescribeApps
+instance ToPath DescribeApps where
+    toPath = const "/"
+
+instance ToQuery DescribeApps where
+    toQuery = const mempty
 
 instance ToHeaders DescribeApps
 
-instance ToJSON DescribeApps
+instance ToBody DescribeApps where
+    toBody = toBody . encode . _daStackId
 
--- | Contains the response to a DescribeApps request.
 newtype DescribeAppsResponse = DescribeAppsResponse
     { _darApps :: [App]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAppsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeAppsResponse where
+    type Item DescribeAppsResponse = App
+
+    fromList = DescribeAppsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _darApps
+
+-- | 'DescribeAppsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Apps ::@ @[App]@
+-- * 'darApps' @::@ ['App']
 --
 describeAppsResponse :: DescribeAppsResponse
 describeAppsResponse = DescribeAppsResponse
@@ -107,11 +113,12 @@ describeAppsResponse = DescribeAppsResponse
 darApps :: Lens' DescribeAppsResponse [App]
 darApps = lens _darApps (\s a -> s { _darApps = a })
 
-instance FromJSON DescribeAppsResponse
+-- FromJSON
 
 instance AWSRequest DescribeApps where
     type Sv DescribeApps = OpsWorks
     type Rs DescribeApps = DescribeAppsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeAppsResponse
+        <$> o .: "Apps"

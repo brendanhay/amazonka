@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.AddRoleToInstanceProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,9 +23,6 @@
 -- | Adds the specified role to the specified instance profile. For more
 -- information about roles, go to Working with Roles. For more information
 -- about instance profiles, go to About Instance Profiles.
--- https://iam.amazonaws.com/ ?Action=AddRoleToInstanceProfile
--- &InstanceProfileName=Webserver &RoleName=S3Access &Version=2010-05-08
--- &AUTHPARAMS 12657608-99f2-11e1-a4c3-27EXAMPLE804.
 module Network.AWS.IAM.AddRoleToInstanceProfile
     (
     -- * Request
@@ -40,52 +39,51 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
     , addRoleToInstanceProfileResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
     { _artipInstanceProfileName :: Text
-    , _artipRoleName :: Text
+    , _artipRoleName            :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddRoleToInstanceProfile' request.
+-- | 'AddRoleToInstanceProfile' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceProfileName ::@ @Text@
+-- * 'artipInstanceProfileName' @::@ 'Text'
 --
--- * @RoleName ::@ @Text@
+-- * 'artipRoleName' @::@ 'Text'
 --
 addRoleToInstanceProfile :: Text -- ^ 'artipInstanceProfileName'
                          -> Text -- ^ 'artipRoleName'
                          -> AddRoleToInstanceProfile
 addRoleToInstanceProfile p1 p2 = AddRoleToInstanceProfile
     { _artipInstanceProfileName = p1
-    , _artipRoleName = p2
+    , _artipRoleName            = p2
     }
 
--- | Name of the instance profile to update.
+-- | The name of the instance profile to update.
 artipInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
 artipInstanceProfileName =
     lens _artipInstanceProfileName
-         (\s a -> s { _artipInstanceProfileName = a })
+        (\s a -> s { _artipInstanceProfileName = a })
 
--- | Name of the role to add.
+-- | The name of the role to add.
 artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\s a -> s { _artipRoleName = a })
 
-instance ToQuery AddRoleToInstanceProfile where
-    toQuery = genericQuery def
+instance ToQuery AddRoleToInstanceProfile
+
+instance ToPath AddRoleToInstanceProfile where
+    toPath = const "/"
 
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddRoleToInstanceProfileResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AddRoleToInstanceProfileResponse' constructor.
 addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
 addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
 
@@ -93,5 +91,5 @@ instance AWSRequest AddRoleToInstanceProfile where
     type Sv AddRoleToInstanceProfile = IAM
     type Rs AddRoleToInstanceProfile = AddRoleToInstanceProfileResponse
 
-    request = post "AddRoleToInstanceProfile"
-    response _ = nullaryResponse AddRoleToInstanceProfileResponse
+    request  = post "AddRoleToInstanceProfile"
+    response = nullaryResponse AddRoleToInstanceProfileResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DataPipeline.ValidatePipelineDefinition
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,43 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Tests the pipeline definition with a set of validation checks to ensure
--- that it is well formed and can run without error. Example 1 This example
--- sets an valid pipeline configuration and returns success. POST / HTTP/1.1
--- Content-Type: application/x-amz-json-1.1 X-Amz-Target:
--- DataPipeline.ValidatePipelineDefinition Content-Length: 936 Host:
--- datapipeline.us-east-1.amazonaws.com X-Amz-Date: Mon, 12 Nov 2012 17:49:52
--- GMT Authorization: AuthParams {"pipelineId": "df-06372391ZG65EXAMPLE",
--- "pipelineObjects": [ {"id": "Default", "name": "Default", "fields": [
--- {"key": "workerGroup", "stringValue": "MyworkerGroup"} ] }, {"id":
--- "Schedule", "name": "Schedule", "fields": [ {"key": "startDateTime",
--- "stringValue": "2012-09-25T17:00:00"}, {"key": "type", "stringValue":
--- "Schedule"}, {"key": "period", "stringValue": "1 hour"}, {"key":
--- "endDateTime", "stringValue": "2012-09-25T18:00:00"} ] }, {"id":
--- "SayHello", "name": "SayHello", "fields": [ {"key": "type", "stringValue":
--- "ShellCommandActivity"}, {"key": "command", "stringValue": "echo hello"},
--- {"key": "parent", "refValue": "Default"}, {"key": "schedule", "refValue":
--- "Schedule"} ] } ] } x-amzn-RequestId: 92c9f347-0776-11e2-8a14-21bb8a1f50ef
--- Content-Type: application/x-amz-json-1.1 Content-Length: 18 Date: Mon, 12
--- Nov 2012 17:50:53 GMT {"errored": false} Example 2 This example sets an
--- invalid pipeline configuration and returns the associated set of validation
--- errors. POST / HTTP/1.1 Content-Type: application/x-amz-json-1.1
--- X-Amz-Target: DataPipeline.ValidatePipelineDefinition Content-Length: 903
--- Host: datapipeline.us-east-1.amazonaws.com X-Amz-Date: Mon, 12 Nov 2012
--- 17:49:52 GMT Authorization: AuthParams {"pipelineId":
--- "df-06372391ZG65EXAMPLE", "pipelineObjects": [ {"id": "Default", "name":
--- "Default", "fields": [ {"key": "workerGroup", "stringValue":
--- "MyworkerGroup"} ] }, {"id": "Schedule", "name": "Schedule", "fields": [
--- {"key": "startDateTime", "stringValue": "bad-time"}, {"key": "type",
--- "stringValue": "Schedule"}, {"key": "period", "stringValue": "1 hour"},
--- {"key": "endDateTime", "stringValue": "2012-09-25T18:00:00"} ] }, {"id":
--- "SayHello", "name": "SayHello", "fields": [ {"key": "type", "stringValue":
--- "ShellCommandActivity"}, {"key": "command", "stringValue": "echo hello"},
--- {"key": "parent", "refValue": "Default"}, {"key": "schedule", "refValue":
--- "Schedule"} ] } ] } x-amzn-RequestId: 496a1f5a-0e6a-11e2-a61c-bd6312c92ddd
--- Content-Type: application/x-amz-json-1.1 Content-Length: 278 Date: Mon, 12
--- Nov 2012 17:50:53 GMT {"errored": true, "validationErrors": [ {"errors":
--- ["INVALID_FIELD_VALUE: 'startDateTime' value must be a literal datetime
--- value."], "id": "Schedule"} ] }.
+-- that it is well formed and can run without error.
 module Network.AWS.DataPipeline.ValidatePipelineDefinition
     (
     -- * Request
@@ -71,85 +37,86 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     -- ** Response constructor
     , validatePipelineDefinitionResponse
     -- ** Response lenses
+    , vpdrErrored
     , vpdrValidationErrors
     , vpdrValidationWarnings
-    , vpdrErrored
     ) where
 
-import Network.AWS.DataPipeline.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DataPipeline.Types
 
--- | The input of the ValidatePipelineDefinition action.
 data ValidatePipelineDefinition = ValidatePipelineDefinition
-    { _vpdPipelineId :: Text
+    { _vpdPipelineId      :: Text
     , _vpdPipelineObjects :: [PipelineObject]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ValidatePipelineDefinition' request.
+-- | 'ValidatePipelineDefinition' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PipelineId ::@ @Text@
+-- * 'vpdPipelineId' @::@ 'Text'
 --
--- * @PipelineObjects ::@ @[PipelineObject]@
+-- * 'vpdPipelineObjects' @::@ ['PipelineObject']
 --
 validatePipelineDefinition :: Text -- ^ 'vpdPipelineId'
-                           -> [PipelineObject] -- ^ 'vpdPipelineObjects'
                            -> ValidatePipelineDefinition
-validatePipelineDefinition p1 p2 = ValidatePipelineDefinition
-    { _vpdPipelineId = p1
-    , _vpdPipelineObjects = p2
+validatePipelineDefinition p1 = ValidatePipelineDefinition
+    { _vpdPipelineId      = p1
+    , _vpdPipelineObjects = mempty
     }
 
 -- | Identifies the pipeline whose definition is to be validated.
 vpdPipelineId :: Lens' ValidatePipelineDefinition Text
 vpdPipelineId = lens _vpdPipelineId (\s a -> s { _vpdPipelineId = a })
 
--- | A list of objects that define the pipeline changes to validate against the
--- pipeline.
+-- | A list of objects that define the pipeline changes to validate against
+-- the pipeline.
 vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
 vpdPipelineObjects =
     lens _vpdPipelineObjects (\s a -> s { _vpdPipelineObjects = a })
 
-instance ToPath ValidatePipelineDefinition
+instance ToPath ValidatePipelineDefinition where
+    toPath = const "/"
 
-instance ToQuery ValidatePipelineDefinition
+instance ToQuery ValidatePipelineDefinition where
+    toQuery = const mempty
 
 instance ToHeaders ValidatePipelineDefinition
 
-instance ToJSON ValidatePipelineDefinition
+instance ToBody ValidatePipelineDefinition where
+    toBody = toBody . encode . _vpdPipelineId
 
--- | Contains the output from the ValidatePipelineDefinition action.
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
-    { _vpdrValidationErrors :: [ValidationError]
+    { _vpdrErrored            :: Bool
+    , _vpdrValidationErrors   :: [ValidationError]
     , _vpdrValidationWarnings :: [ValidationWarning]
-    , _vpdrErrored :: !Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ValidatePipelineDefinitionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ValidatePipelineDefinitionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ValidationErrors ::@ @[ValidationError]@
+-- * 'vpdrErrored' @::@ 'Bool'
 --
--- * @ValidationWarnings ::@ @[ValidationWarning]@
+-- * 'vpdrValidationErrors' @::@ ['ValidationError']
 --
--- * @Errored ::@ @Bool@
+-- * 'vpdrValidationWarnings' @::@ ['ValidationWarning']
 --
 validatePipelineDefinitionResponse :: Bool -- ^ 'vpdrErrored'
                                    -> ValidatePipelineDefinitionResponse
-validatePipelineDefinitionResponse p3 = ValidatePipelineDefinitionResponse
-    { _vpdrValidationErrors = mempty
+validatePipelineDefinitionResponse p1 = ValidatePipelineDefinitionResponse
+    { _vpdrErrored            = p1
+    , _vpdrValidationErrors   = mempty
     , _vpdrValidationWarnings = mempty
-    , _vpdrErrored = p3
     }
 
--- | Lists the validation errors that were found by ValidatePipelineDefinition.
+-- | If True, there were validation errors.
+vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
+vpdrErrored = lens _vpdrErrored (\s a -> s { _vpdrErrored = a })
+
+-- | Lists the validation errors that were found by
+-- ValidatePipelineDefinition.
 vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
 vpdrValidationErrors =
     lens _vpdrValidationErrors (\s a -> s { _vpdrValidationErrors = a })
@@ -160,15 +127,14 @@ vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWa
 vpdrValidationWarnings =
     lens _vpdrValidationWarnings (\s a -> s { _vpdrValidationWarnings = a })
 
--- | If True, there were validation errors.
-vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
-vpdrErrored = lens _vpdrErrored (\s a -> s { _vpdrErrored = a })
-
-instance FromJSON ValidatePipelineDefinitionResponse
+-- FromJSON
 
 instance AWSRequest ValidatePipelineDefinition where
     type Sv ValidatePipelineDefinition = DataPipeline
     type Rs ValidatePipelineDefinition = ValidatePipelineDefinitionResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> ValidatePipelineDefinitionResponse
+        <$> o .: "errored"
+        <*> o .: "validationErrors"
+        <*> o .: "validationWarnings"

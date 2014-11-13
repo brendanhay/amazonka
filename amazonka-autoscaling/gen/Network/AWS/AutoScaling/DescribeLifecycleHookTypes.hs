@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLifecycleHookTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,6 +27,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
       DescribeLifecycleHookTypes
     -- ** Request constructor
     , describeLifecycleHookTypes
+
     -- * Response
     , DescribeLifecycleHookTypesResponse
     -- ** Response constructor
@@ -33,33 +36,38 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     , dlhtrLifecycleHookTypes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLifecycleHookTypes' request.
+-- | 'DescribeLifecycleHookTypes' constructor.
 describeLifecycleHookTypes :: DescribeLifecycleHookTypes
 describeLifecycleHookTypes = DescribeLifecycleHookTypes
 
-instance ToQuery DescribeLifecycleHookTypes where
-    toQuery = genericQuery def
+instance ToQuery DescribeLifecycleHookTypes
+
+instance ToPath DescribeLifecycleHookTypes where
+    toPath = const "/"
 
 newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtrLifecycleHookTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLifecycleHookTypesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeLifecycleHookTypesResponse where
+    type Item DescribeLifecycleHookTypesResponse = Text
+
+    fromList = DescribeLifecycleHookTypesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlhtrLifecycleHookTypes
+
+-- | 'DescribeLifecycleHookTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LifecycleHookTypes ::@ @[Text]@
+-- * 'dlhtrLifecycleHookTypes' @::@ ['Text']
 --
 describeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesResponse
 describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
@@ -71,15 +79,12 @@ describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
 -- autoscaling:EC2_INSTANCE_TERMINATING.
 dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrLifecycleHookTypes =
-    lens _dlhtrLifecycleHookTypes
-         (\s a -> s { _dlhtrLifecycleHookTypes = a })
-
-instance FromXML DescribeLifecycleHookTypesResponse where
-    fromXMLOptions = xmlOptions
+    lens _dlhtrLifecycleHookTypes (\s a -> s { _dlhtrLifecycleHookTypes = a })
 
 instance AWSRequest DescribeLifecycleHookTypes where
     type Sv DescribeLifecycleHookTypes = AutoScaling
     type Rs DescribeLifecycleHookTypes = DescribeLifecycleHookTypesResponse
 
-    request = post "DescribeLifecycleHookTypes"
-    response _ = xmlResponse
+    request  = post "DescribeLifecycleHookTypes"
+    response = xmlResponse $ \h x -> DescribeLifecycleHookTypesResponse
+        <$> x %| "LifecycleHookTypes"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Support.AddAttachmentsToSet
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,35 +48,33 @@ module Network.AWS.Support.AddAttachmentsToSet
     , aatsrExpiryTime
     ) where
 
-import Network.AWS.Support.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Support.Types
 
 data AddAttachmentsToSet = AddAttachmentsToSet
     { _aatsAttachmentSetId :: Maybe Text
-    , _aatsAttachments :: [Attachment]
-    } deriving (Eq, Ord, Show, Generic)
+    , _aatsAttachments     :: [Attachment]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddAttachmentsToSet' request.
+-- | 'AddAttachmentsToSet' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AttachmentSetId ::@ @Maybe Text@
+-- * 'aatsAttachmentSetId' @::@ 'Maybe' 'Text'
 --
--- * @Attachments ::@ @[Attachment]@
+-- * 'aatsAttachments' @::@ ['Attachment']
 --
-addAttachmentsToSet :: [Attachment] -- ^ 'aatsAttachments'
-                    -> AddAttachmentsToSet
-addAttachmentsToSet p2 = AddAttachmentsToSet
+addAttachmentsToSet :: AddAttachmentsToSet
+addAttachmentsToSet = AddAttachmentsToSet
     { _aatsAttachmentSetId = Nothing
-    , _aatsAttachments = p2
+    , _aatsAttachments     = mempty
     }
 
--- | The ID of the attachment set. If an AttachmentSetId is not specified, a new
--- attachment set is created, and the ID of the set is returned in the
--- response. If an AttachmentSetId is specified, the attachments are added to
--- the specified set, if it exists.
+-- | The ID of the attachment set. If an AttachmentSetId is not specified, a
+-- new attachment set is created, and the ID of the set is returned in the
+-- response. If an AttachmentSetId is specified, the attachments are added
+-- to the specified set, if it exists.
 aatsAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
 aatsAttachmentSetId =
     lens _aatsAttachmentSetId (\s a -> s { _aatsAttachmentSetId = a })
@@ -84,42 +84,40 @@ aatsAttachmentSetId =
 aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
 aatsAttachments = lens _aatsAttachments (\s a -> s { _aatsAttachments = a })
 
-instance ToPath AddAttachmentsToSet
+instance ToPath AddAttachmentsToSet where
+    toPath = const "/"
 
-instance ToQuery AddAttachmentsToSet
+instance ToQuery AddAttachmentsToSet where
+    toQuery = const mempty
 
 instance ToHeaders AddAttachmentsToSet
 
-instance ToJSON AddAttachmentsToSet
+instance ToBody AddAttachmentsToSet where
+    toBody = toBody . encode . _aatsAttachmentSetId
 
--- | The ID and expiry time of the attachment set returned by the
--- AddAttachmentsToSet operation.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
     { _aatsrAttachmentSetId :: Maybe Text
-    , _aatsrExpiryTime :: Maybe Text
+    , _aatsrExpiryTime      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddAttachmentsToSetResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AddAttachmentsToSetResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AttachmentSetId ::@ @Maybe Text@
+-- * 'aatsrAttachmentSetId' @::@ 'Maybe' 'Text'
 --
--- * @ExpiryTime ::@ @Maybe Text@
+-- * 'aatsrExpiryTime' @::@ 'Maybe' 'Text'
 --
 addAttachmentsToSetResponse :: AddAttachmentsToSetResponse
 addAttachmentsToSetResponse = AddAttachmentsToSetResponse
     { _aatsrAttachmentSetId = Nothing
-    , _aatsrExpiryTime = Nothing
+    , _aatsrExpiryTime      = Nothing
     }
 
 -- | The ID of the attachment set. If an AttachmentSetId was not specified, a
 -- new attachment set is created, and the ID of the set is returned in the
--- response. If an AttachmentSetId was specified, the attachments are added to
--- the specified set, if it exists.
+-- response. If an AttachmentSetId was specified, the attachments are added
+-- to the specified set, if it exists.
 aatsrAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrAttachmentSetId =
     lens _aatsrAttachmentSetId (\s a -> s { _aatsrAttachmentSetId = a })
@@ -128,11 +126,13 @@ aatsrAttachmentSetId =
 aatsrExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrExpiryTime = lens _aatsrExpiryTime (\s a -> s { _aatsrExpiryTime = a })
 
-instance FromJSON AddAttachmentsToSetResponse
+-- FromJSON
 
 instance AWSRequest AddAttachmentsToSet where
     type Sv AddAttachmentsToSet = Support
     type Rs AddAttachmentsToSet = AddAttachmentsToSetResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> AddAttachmentsToSetResponse
+        <$> o .: "attachmentSetId"
+        <*> o .: "expiryTime"

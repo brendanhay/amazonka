@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,9 +27,6 @@
 -- update fails. The DeploymentStatus for the draft configuration indicates
 -- whether the deployment is in process or has failed. The draft configuration
 -- remains in existence until it is deleted with this action.
--- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
--- &EnvironmentName=SampleApp &Operation=DeleteEnvironmentConfiguration
--- &AuthParams fdf76507-f26d-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     (
     -- * Request
@@ -44,24 +43,23 @@ module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     , deleteEnvironmentConfigurationResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | This documentation target is not reported in the API reference.
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
     { _decApplicationName :: Text
     , _decEnvironmentName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteEnvironmentConfiguration' request.
+-- | 'DeleteEnvironmentConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ApplicationName ::@ @Text@
+-- * 'decApplicationName' @::@ 'Text'
 --
--- * @EnvironmentName ::@ @Text@
+-- * 'decEnvironmentName' @::@ 'Text'
 --
 deleteEnvironmentConfiguration :: Text -- ^ 'decApplicationName'
                                -> Text -- ^ 'decEnvironmentName'
@@ -81,16 +79,15 @@ decEnvironmentName :: Lens' DeleteEnvironmentConfiguration Text
 decEnvironmentName =
     lens _decEnvironmentName (\s a -> s { _decEnvironmentName = a })
 
-instance ToQuery DeleteEnvironmentConfiguration where
-    toQuery = genericQuery def
+instance ToQuery DeleteEnvironmentConfiguration
+
+instance ToPath DeleteEnvironmentConfiguration where
+    toPath = const "/"
 
 data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteEnvironmentConfigurationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteEnvironmentConfigurationResponse' constructor.
 deleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
 deleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
 
@@ -98,5 +95,5 @@ instance AWSRequest DeleteEnvironmentConfiguration where
     type Sv DeleteEnvironmentConfiguration = ElasticBeanstalk
     type Rs DeleteEnvironmentConfiguration = DeleteEnvironmentConfigurationResponse
 
-    request = post "DeleteEnvironmentConfiguration"
-    response _ = nullaryResponse DeleteEnvironmentConfigurationResponse
+    request  = post "DeleteEnvironmentConfiguration"
+    response = nullaryResponse DeleteEnvironmentConfigurationResponse

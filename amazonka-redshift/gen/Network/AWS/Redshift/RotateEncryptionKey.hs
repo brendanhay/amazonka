@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.RotateEncryptionKey
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,21 +38,20 @@ module Network.AWS.Redshift.RotateEncryptionKey
     , rekrCluster
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype RotateEncryptionKey = RotateEncryptionKey
     { _rekClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RotateEncryptionKey' request.
+-- | 'RotateEncryptionKey' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ClusterIdentifier ::@ @Text@
+-- * 'rekClusterIdentifier' @::@ 'Text'
 --
 rotateEncryptionKey :: Text -- ^ 'rekClusterIdentifier'
                     -> RotateEncryptionKey
@@ -58,44 +59,40 @@ rotateEncryptionKey p1 = RotateEncryptionKey
     { _rekClusterIdentifier = p1
     }
 
--- | The unique identifier of the cluster that you want to rotate the encryption
--- keys for. Constraints: Must be the name of valid cluster that has
--- encryption enabled.
+-- | The unique identifier of the cluster that you want to rotate the
+-- encryption keys for. Constraints: Must be the name of valid cluster that
+-- has encryption enabled.
 rekClusterIdentifier :: Lens' RotateEncryptionKey Text
 rekClusterIdentifier =
     lens _rekClusterIdentifier (\s a -> s { _rekClusterIdentifier = a })
 
-instance ToQuery RotateEncryptionKey where
-    toQuery = genericQuery def
+instance ToQuery RotateEncryptionKey
+
+instance ToPath RotateEncryptionKey where
+    toPath = const "/"
 
 newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _rekrCluster :: Maybe Cluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RotateEncryptionKeyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RotateEncryptionKeyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Cluster ::@ @Maybe Cluster@
+-- * 'rekrCluster' @::@ 'Maybe' 'Cluster'
 --
 rotateEncryptionKeyResponse :: RotateEncryptionKeyResponse
 rotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _rekrCluster = Nothing
     }
 
--- | Describes a cluster.
 rekrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrCluster = lens _rekrCluster (\s a -> s { _rekrCluster = a })
-
-instance FromXML RotateEncryptionKeyResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest RotateEncryptionKey where
     type Sv RotateEncryptionKey = Redshift
     type Rs RotateEncryptionKey = RotateEncryptionKeyResponse
 
-    request = post "RotateEncryptionKey"
-    response _ = xmlResponse
+    request  = post "RotateEncryptionKey"
+    response = xmlResponse $ \h x -> RotateEncryptionKeyResponse
+        <$> x %| "Cluster"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudTrail.StartLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.CloudTrail.StartLogging
     -- ** Request constructor
     , startLogging
     -- ** Request lenses
-    , slName
+    , sl1Name
 
     -- * Response
     , StartLoggingResponse
@@ -34,55 +36,53 @@ module Network.AWS.CloudTrail.StartLogging
     , startLoggingResponse
     ) where
 
-import Network.AWS.CloudTrail.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudTrail.Types
 
--- | The request to CloudTrail to start logging AWS API calls for an account.
 newtype StartLogging = StartLogging
-    { _slName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _sl1Name :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartLogging' request.
+-- | 'StartLogging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Text@
+-- * 'sl1Name' @::@ 'Text'
 --
-startLogging :: Text -- ^ 'slName'
+startLogging :: Text -- ^ 'sl1Name'
              -> StartLogging
 startLogging p1 = StartLogging
-    { _slName = p1
+    { _sl1Name = p1
     }
 
 -- | The name of the trail for which CloudTrail logs AWS API calls.
-slName :: Lens' StartLogging Text
-slName = lens _slName (\s a -> s { _slName = a })
+sl1Name :: Lens' StartLogging Text
+sl1Name = lens _sl1Name (\s a -> s { _sl1Name = a })
 
-instance ToPath StartLogging
+instance ToPath StartLogging where
+    toPath = const "/"
 
-instance ToQuery StartLogging
+instance ToQuery StartLogging where
+    toQuery = const mempty
 
 instance ToHeaders StartLogging
 
-instance ToJSON StartLogging
+instance ToBody StartLogging where
+    toBody = toBody . encode . _sl1Name
 
--- | Returns the objects or data listed below if successful. Otherwise, returns
--- an error.
 data StartLoggingResponse = StartLoggingResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartLoggingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'StartLoggingResponse' constructor.
 startLoggingResponse :: StartLoggingResponse
 startLoggingResponse = StartLoggingResponse
+
+-- FromJSON
 
 instance AWSRequest StartLogging where
     type Sv StartLogging = CloudTrail
     type Rs StartLogging = StartLoggingResponse
 
-    request = get
-    response _ = nullaryResponse StartLoggingResponse
+    request  = post'
+    response = nullaryResponse StartLoggingResponse

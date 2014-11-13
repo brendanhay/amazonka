@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.DeleteLoginProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,8 +26,7 @@
 -- command line interface or the API. To prevent all user access you must also
 -- either make the access key inactive or delete it. For more information
 -- about making keys inactive or deleting them, see UpdateAccessKey and
--- DeleteAccessKey. https://iam.amazonaws.com/ ?Action=DeleteLoginProfile
--- &UserName=Bob &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- DeleteAccessKey.
 module Network.AWS.IAM.DeleteLoginProfile
     (
     -- * Request
@@ -41,20 +42,20 @@ module Network.AWS.IAM.DeleteLoginProfile
     , deleteLoginProfileResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype DeleteLoginProfile = DeleteLoginProfile
     { _dlpUserName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLoginProfile' request.
+-- | 'DeleteLoginProfile' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Text@
+-- * 'dlpUserName' @::@ 'Text'
 --
 deleteLoginProfile :: Text -- ^ 'dlpUserName'
                    -> DeleteLoginProfile
@@ -62,20 +63,19 @@ deleteLoginProfile p1 = DeleteLoginProfile
     { _dlpUserName = p1
     }
 
--- | Name of the user whose password you want to delete.
+-- | The name of the user whose password you want to delete.
 dlpUserName :: Lens' DeleteLoginProfile Text
 dlpUserName = lens _dlpUserName (\s a -> s { _dlpUserName = a })
 
-instance ToQuery DeleteLoginProfile where
-    toQuery = genericQuery def
+instance ToQuery DeleteLoginProfile
+
+instance ToPath DeleteLoginProfile where
+    toPath = const "/"
 
 data DeleteLoginProfileResponse = DeleteLoginProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLoginProfileResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteLoginProfileResponse' constructor.
 deleteLoginProfileResponse :: DeleteLoginProfileResponse
 deleteLoginProfileResponse = DeleteLoginProfileResponse
 
@@ -83,5 +83,5 @@ instance AWSRequest DeleteLoginProfile where
     type Sv DeleteLoginProfile = IAM
     type Rs DeleteLoginProfile = DeleteLoginProfileResponse
 
-    request = post "DeleteLoginProfile"
-    response _ = nullaryResponse DeleteLoginProfileResponse
+    request  = post "DeleteLoginProfile"
+    response = nullaryResponse DeleteLoginProfileResponse

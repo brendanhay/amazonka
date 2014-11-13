@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.UnassignVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,20 +41,19 @@ module Network.AWS.OpsWorks.UnassignVolume
     , unassignVolumeResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype UnassignVolume = UnassignVolume
     { _uvVolumeId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UnassignVolume' request.
+-- | 'UnassignVolume' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeId ::@ @Text@
+-- * 'uvVolumeId' @::@ 'Text'
 --
 unassignVolume :: Text -- ^ 'uvVolumeId'
                -> UnassignVolume
@@ -64,27 +65,29 @@ unassignVolume p1 = UnassignVolume
 uvVolumeId :: Lens' UnassignVolume Text
 uvVolumeId = lens _uvVolumeId (\s a -> s { _uvVolumeId = a })
 
-instance ToPath UnassignVolume
+instance ToPath UnassignVolume where
+    toPath = const "/"
 
-instance ToQuery UnassignVolume
+instance ToQuery UnassignVolume where
+    toQuery = const mempty
 
 instance ToHeaders UnassignVolume
 
-instance ToJSON UnassignVolume
+instance ToBody UnassignVolume where
+    toBody = toBody . encode . _uvVolumeId
 
 data UnassignVolumeResponse = UnassignVolumeResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UnassignVolumeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UnassignVolumeResponse' constructor.
 unassignVolumeResponse :: UnassignVolumeResponse
 unassignVolumeResponse = UnassignVolumeResponse
+
+-- FromJSON
 
 instance AWSRequest UnassignVolume where
     type Sv UnassignVolume = OpsWorks
     type Rs UnassignVolume = UnassignVolumeResponse
 
-    request = get
-    response _ = nullaryResponse UnassignVolumeResponse
+    request  = post'
+    response = nullaryResponse UnassignVolumeResponse

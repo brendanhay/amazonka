@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeExportTasks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,26 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes one or more of your export tasks. Example This example describes
--- a single export task. https://ec2.amazonaws.com/?Action=DescribeExportTasks
--- &amp;exportTaskId.1=export-i-1234wxyz &amp;AUTHPARAMS
--- &lt;DescribeExportTasksResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;exportTaskSet&gt; &lt;item&gt;
--- &lt;exportTaskId&gt;export-i-1234wxyz&lt;/exportTaskId&gt;
--- &lt;description&gt;Example for docs&lt;/description&gt;
--- &lt;state&gt;active&lt;/state&gt;
--- &lt;statusMessage&gt;Running&lt;/statusMessage&gt; &lt;instanceExport&gt;
--- &lt;instanceId&gt;i-12345678&lt;/instanceId&gt;
--- &lt;targetEnvironment&gt;VMWare&lt;/targetEnvironment&gt;
--- &lt;/instanceExport&gt; &lt;exportToS3&gt;
--- &lt;diskImageFormat&gt;VMDK&lt;/diskImageFormat&gt;
--- &lt;containerFormat&gt;OVA&lt;/containerFormat&gt;
--- &lt;s3Bucket&gt;my-bucket-for-exported-vm&lt;/s3Bucket&gt;
--- &lt;s3Key&gt;my-exports/ export-i-1234wxyz .ova&lt;/s3Key&gt;
--- &lt;/exportToS3&gt; &lt;/item&gt; &lt;/exportTaskSet&gt; &lt;/
--- DescribeExportTasksResponse&gt;.
+-- | Describes one or more of your export tasks.
 module Network.AWS.EC2.DescribeExportTasks
     (
     -- * Request
@@ -55,20 +38,26 @@ module Network.AWS.EC2.DescribeExportTasks
     , detrExportTasks
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype DescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeExportTasks' request.
+instance GHC.Exts.IsList DescribeExportTasks where
+    type Item DescribeExportTasks = Text
+
+    fromList = DescribeExportTasks . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _detExportTaskIds
+
+-- | 'DescribeExportTasks' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ExportTaskIds ::@ @[Text]@
+-- * 'detExportTaskIds' @::@ ['Text']
 --
 describeExportTasks :: DescribeExportTasks
 describeExportTasks = DescribeExportTasks
@@ -77,40 +66,41 @@ describeExportTasks = DescribeExportTasks
 
 -- | One or more export task IDs.
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
-detExportTaskIds =
-    lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a })
+detExportTaskIds = lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a })
 
-instance ToQuery DescribeExportTasks where
-    toQuery = genericQuery def
+instance ToQuery DescribeExportTasks
+
+instance ToPath DescribeExportTasks where
+    toPath = const "/"
 
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks :: [ExportTask]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeExportTasksResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeExportTasksResponse where
+    type Item DescribeExportTasksResponse = ExportTask
+
+    fromList = DescribeExportTasksResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _detrExportTasks
+
+-- | 'DescribeExportTasksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ExportTasks ::@ @[ExportTask]@
+-- * 'detrExportTasks' @::@ ['ExportTask']
 --
 describeExportTasksResponse :: DescribeExportTasksResponse
 describeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks = mempty
     }
 
--- | 
 detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a })
-
-instance FromXML DescribeExportTasksResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DescribeExportTasks where
     type Sv DescribeExportTasks = EC2
     type Rs DescribeExportTasks = DescribeExportTasksResponse
 
-    request = post "DescribeExportTasks"
-    response _ = xmlResponse
+    request  = post "DescribeExportTasks"
+    response = xmlResponse $ \h x -> DescribeExportTasksResponse
+        <$> x %| "exportTaskSet"

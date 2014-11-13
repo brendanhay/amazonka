@@ -1,11 +1,11 @@
 name:                  amazonka-iam
 version:               0.0.0
-synopsis:              AWS Identity and Access Management SDK
+synopsis:              Amazon Identity and Access Management SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,9 +13,10 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS Identity and Access Management (IAM) enables you to securely control access to AWS services and resources for your users.
-    .
-    Using IAM, you can create and manage AWS users and groups and use permissions to allow and deny their access to AWS resources.
+    AWS Identity and Access Management (IAM) enables you to securely
+    control access to AWS services and resources for your users. Using IAM,
+    you can create and manage AWS users and groups and use permissions to
+    allow and deny their access to AWS resources.
 
 source-repository head
     type:     git
@@ -29,7 +30,7 @@ library
 
     exposed-modules:
           Network.AWS.IAM
-        , Network.AWS.IAM.Types
+        , Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
         , Network.AWS.IAM.AddRoleToInstanceProfile
         , Network.AWS.IAM.AddUserToGroup
         , Network.AWS.IAM.ChangePassword
@@ -38,6 +39,7 @@ library
         , Network.AWS.IAM.CreateGroup
         , Network.AWS.IAM.CreateInstanceProfile
         , Network.AWS.IAM.CreateLoginProfile
+        , Network.AWS.IAM.CreateOpenIDConnectProvider
         , Network.AWS.IAM.CreateRole
         , Network.AWS.IAM.CreateSAMLProvider
         , Network.AWS.IAM.CreateUser
@@ -50,6 +52,7 @@ library
         , Network.AWS.IAM.DeleteGroupPolicy
         , Network.AWS.IAM.DeleteInstanceProfile
         , Network.AWS.IAM.DeleteLoginProfile
+        , Network.AWS.IAM.DeleteOpenIDConnectProvider
         , Network.AWS.IAM.DeleteRole
         , Network.AWS.IAM.DeleteRolePolicy
         , Network.AWS.IAM.DeleteSAMLProvider
@@ -67,6 +70,7 @@ library
         , Network.AWS.IAM.GetGroupPolicy
         , Network.AWS.IAM.GetInstanceProfile
         , Network.AWS.IAM.GetLoginProfile
+        , Network.AWS.IAM.GetOpenIDConnectProvider
         , Network.AWS.IAM.GetRole
         , Network.AWS.IAM.GetRolePolicy
         , Network.AWS.IAM.GetSAMLProvider
@@ -81,6 +85,7 @@ library
         , Network.AWS.IAM.ListInstanceProfiles
         , Network.AWS.IAM.ListInstanceProfilesForRole
         , Network.AWS.IAM.ListMFADevices
+        , Network.AWS.IAM.ListOpenIDConnectProviders
         , Network.AWS.IAM.ListRolePolicies
         , Network.AWS.IAM.ListRoles
         , Network.AWS.IAM.ListSAMLProviders
@@ -92,20 +97,25 @@ library
         , Network.AWS.IAM.PutGroupPolicy
         , Network.AWS.IAM.PutRolePolicy
         , Network.AWS.IAM.PutUserPolicy
+        , Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
         , Network.AWS.IAM.RemoveRoleFromInstanceProfile
         , Network.AWS.IAM.RemoveUserFromGroup
         , Network.AWS.IAM.ResyncMFADevice
+        , Network.AWS.IAM.Types
         , Network.AWS.IAM.UpdateAccessKey
         , Network.AWS.IAM.UpdateAccountPasswordPolicy
         , Network.AWS.IAM.UpdateAssumeRolePolicy
         , Network.AWS.IAM.UpdateGroup
         , Network.AWS.IAM.UpdateLoginProfile
+        , Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
         , Network.AWS.IAM.UpdateSAMLProvider
         , Network.AWS.IAM.UpdateServerCertificate
         , Network.AWS.IAM.UpdateSigningCertificate
         , Network.AWS.IAM.UpdateUser
         , Network.AWS.IAM.UploadServerCertificate
         , Network.AWS.IAM.UploadSigningCertificate
+
+    other-modules:
 
     build-depends:
           amazonka-core

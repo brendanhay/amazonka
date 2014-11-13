@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SQS.ReceiveMessage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,22 +42,6 @@
 -- response. If you do not include the parameter, the overall visibility
 -- timeout for the queue is used for the returned messages. For more
 -- information, see Visibility Timeout in the Amazon SQS Developer Guide.
--- Going forward, new attributes might be added. If you are writing code that
--- calls this action, we recommend that you structure your code so that it can
--- handle new attributes gracefully. The following example Query request
--- receives messages from the specified queue.
--- http://sqs.us-east-1.amazonaws.com/123456789012/testQueue/
--- ?Action=ReceiveMessage &MaxNumberOfMessages=5 &VisibilityTimeout=15
--- &AttributeName=All; &Version=2009-02-01 &SignatureMethod=HmacSHA256
--- &Expires=2009-04-18T22%3A52%3A43PST &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
--- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
--- 5fea7756-0ea4-451a-a703-a558b933e274
--- MbZj6wDWli+JvwwJaBV+3dcjk2YW2vA3+STFFljTM8tJJg6HRG6PYSasuWXPJB+Cw
--- Lj1FjgXUv1uSj1gUPAWV66FU/WeR4mq2OKpEGYWbnLmpRCJVAyeMjeU5ZBdtcQ+QE
--- auMZc8ZRv37sIW2iJKq3M9MFx1YvV11A2x/KSbkJ0= fafb00f5732ab283681e124bf8747ed1
--- This is a test message SenderId 195004372649 SentTimestamp 1238099229000
--- ApproximateReceiveCount 5 ApproximateFirstReceiveTimestamp 1250700979248
--- b6633655-283d-45b4-aee4-4e84e0ae6afa.
 module Network.AWS.SQS.ReceiveMessage
     (
     -- * Request
@@ -63,10 +49,10 @@ module Network.AWS.SQS.ReceiveMessage
     -- ** Request constructor
     , receiveMessage
     -- ** Request lenses
-    , rmQueueUrl
     , rmAttributeNames
-    , rmMessageAttributeNames
     , rmMaxNumberOfMessages
+    , rmMessageAttributeNames
+    , rmQueueUrl
     , rmVisibilityTimeout
     , rmWaitTimeSeconds
 
@@ -78,114 +64,116 @@ module Network.AWS.SQS.ReceiveMessage
     , rmrMessages
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ReceiveMessage = ReceiveMessage
-    { _rmQueueUrl :: Text
-    , _rmAttributeNames :: [QueueAttributeName]
+    { _rmAttributeNames        :: [Text]
+    , _rmMaxNumberOfMessages   :: Maybe Int
     , _rmMessageAttributeNames :: [Text]
-    , _rmMaxNumberOfMessages :: Maybe Integer
-    , _rmVisibilityTimeout :: Maybe Integer
-    , _rmWaitTimeSeconds :: Maybe Integer
+    , _rmQueueUrl              :: Text
+    , _rmVisibilityTimeout     :: Maybe Int
+    , _rmWaitTimeSeconds       :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReceiveMessage' request.
+-- | 'ReceiveMessage' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @QueueUrl ::@ @Text@
+-- * 'rmAttributeNames' @::@ ['Text']
 --
--- * @AttributeNames ::@ @[QueueAttributeName]@
+-- * 'rmMaxNumberOfMessages' @::@ 'Maybe' 'Int'
 --
--- * @MessageAttributeNames ::@ @[Text]@
+-- * 'rmMessageAttributeNames' @::@ ['Text']
 --
--- * @MaxNumberOfMessages ::@ @Maybe Integer@
+-- * 'rmQueueUrl' @::@ 'Text'
 --
--- * @VisibilityTimeout ::@ @Maybe Integer@
+-- * 'rmVisibilityTimeout' @::@ 'Maybe' 'Int'
 --
--- * @WaitTimeSeconds ::@ @Maybe Integer@
+-- * 'rmWaitTimeSeconds' @::@ 'Maybe' 'Int'
 --
 receiveMessage :: Text -- ^ 'rmQueueUrl'
                -> ReceiveMessage
 receiveMessage p1 = ReceiveMessage
-    { _rmQueueUrl = p1
-    , _rmAttributeNames = mempty
+    { _rmQueueUrl              = p1
+    , _rmAttributeNames        = mempty
     , _rmMessageAttributeNames = mempty
-    , _rmMaxNumberOfMessages = Nothing
-    , _rmVisibilityTimeout = Nothing
-    , _rmWaitTimeSeconds = Nothing
+    , _rmMaxNumberOfMessages   = Nothing
+    , _rmVisibilityTimeout     = Nothing
+    , _rmWaitTimeSeconds       = Nothing
     }
 
--- | The URL of the Amazon SQS queue to take action on.
-rmQueueUrl :: Lens' ReceiveMessage Text
-rmQueueUrl = lens _rmQueueUrl (\s a -> s { _rmQueueUrl = a })
-
--- | A list of attributes that need to be returned along with each message. The
--- following lists the names and descriptions of the attributes that can be
--- returned: All - returns all values. ApproximateFirstReceiveTimestamp -
+-- | A list of attributes that need to be returned along with each message.
+-- The following lists the names and descriptions of the attributes that can
+-- be returned: All - returns all values. ApproximateFirstReceiveTimestamp -
 -- returns the time when the message was first received (epoch time in
 -- milliseconds). ApproximateReceiveCount - returns the number of times a
 -- message has been received but not deleted. SenderId - returns the AWS
 -- account number (or the IP address, if anonymous access is allowed) of the
 -- sender. SentTimestamp - returns the time when the message was sent (epoch
 -- time in milliseconds).
-rmAttributeNames :: Lens' ReceiveMessage [QueueAttributeName]
-rmAttributeNames =
-    lens _rmAttributeNames (\s a -> s { _rmAttributeNames = a })
-
--- | The message attribute Name can contain the following characters: A-Z, a-z,
--- 0-9, underscore(_), hyphen(-), and period (.). The message attribute name
--- must not start or end with a period, and it should not have successive
--- periods. The message attribute name is case sensitive and must be unique
--- among all attribute names for the message. The message attribute name can
--- be up to 256 characters long. Attribute names cannot start with "AWS." or
--- "Amazon." because these prefixes are reserved for use by Amazon Web
--- Services.
-rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
-rmMessageAttributeNames =
-    lens _rmMessageAttributeNames
-         (\s a -> s { _rmMessageAttributeNames = a })
+rmAttributeNames :: Lens' ReceiveMessage [Text]
+rmAttributeNames = lens _rmAttributeNames (\s a -> s { _rmAttributeNames = a })
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
--- messages than this value but may return fewer. Values can be from 1 to 10.
--- Default is 1. All of the messages are not necessarily returned.
-rmMaxNumberOfMessages :: Lens' ReceiveMessage (Maybe Integer)
+-- messages than this value but may return fewer. Values can be from 1 to
+-- 10. Default is 1. All of the messages are not necessarily returned.
+rmMaxNumberOfMessages :: Lens' ReceiveMessage (Maybe Int)
 rmMaxNumberOfMessages =
     lens _rmMaxNumberOfMessages (\s a -> s { _rmMaxNumberOfMessages = a })
+
+-- | The message attribute Name can contain the following characters: A-Z,
+-- a-z, 0-9, underscore(_), hyphen(-), and period (.). The message attribute
+-- name must not start or end with a period, and it should not have
+-- successive periods. The message attribute name is case sensitive and must
+-- be unique among all attribute names for the message. The message
+-- attribute name can be up to 256 characters long. Attribute names cannot
+-- start with "AWS." or "Amazon." because these prefixes are reserved for
+-- use by Amazon Web Services.
+rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
+rmMessageAttributeNames =
+    lens _rmMessageAttributeNames (\s a -> s { _rmMessageAttributeNames = a })
+
+-- | The URL of the Amazon SQS queue to take action on.
+rmQueueUrl :: Lens' ReceiveMessage Text
+rmQueueUrl = lens _rmQueueUrl (\s a -> s { _rmQueueUrl = a })
 
 -- | The duration (in seconds) that the received messages are hidden from
 -- subsequent retrieve requests after being retrieved by a ReceiveMessage
 -- request.
-rmVisibilityTimeout :: Lens' ReceiveMessage (Maybe Integer)
+rmVisibilityTimeout :: Lens' ReceiveMessage (Maybe Int)
 rmVisibilityTimeout =
     lens _rmVisibilityTimeout (\s a -> s { _rmVisibilityTimeout = a })
 
 -- | The duration (in seconds) for which the call will wait for a message to
 -- arrive in the queue before returning. If a message is available, the call
 -- will return sooner than WaitTimeSeconds.
-rmWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Integer)
+rmWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Int)
 rmWaitTimeSeconds =
     lens _rmWaitTimeSeconds (\s a -> s { _rmWaitTimeSeconds = a })
 
-instance ToQuery ReceiveMessage where
-    toQuery = genericQuery def
+instance ToQuery ReceiveMessage
 
--- | A list of received messages.
+instance ToPath ReceiveMessage where
+    toPath = const "/"
+
 newtype ReceiveMessageResponse = ReceiveMessageResponse
     { _rmrMessages :: [Message]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReceiveMessageResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList ReceiveMessageResponse where
+    type Item ReceiveMessageResponse = Message
+
+    fromList = ReceiveMessageResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _rmrMessages
+
+-- | 'ReceiveMessageResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Messages ::@ @[Message]@
+-- * 'rmrMessages' @::@ ['Message']
 --
 receiveMessageResponse :: ReceiveMessageResponse
 receiveMessageResponse = ReceiveMessageResponse
@@ -196,12 +184,10 @@ receiveMessageResponse = ReceiveMessageResponse
 rmrMessages :: Lens' ReceiveMessageResponse [Message]
 rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a })
 
-instance FromXML ReceiveMessageResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ReceiveMessage where
     type Sv ReceiveMessage = SQS
     type Rs ReceiveMessage = ReceiveMessageResponse
 
-    request = post "ReceiveMessage"
-    response _ = xmlResponse
+    request  = post "ReceiveMessage"
+    response = xmlResponse $ \h x -> ReceiveMessageResponse
+        <$> x %| "Messages"

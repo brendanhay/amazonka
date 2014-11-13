@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.AbortMultipartUpload
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,62 +40,63 @@ module Network.AWS.S3.AbortMultipartUpload
     , abortMultipartUploadResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data AbortMultipartUpload = AbortMultipartUpload
-    { _amuBucket :: BucketName
-    , _amuKey :: ObjectKey
+    { _amuBucket   :: Text
+    , _amuKey      :: Text
     , _amuUploadId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AbortMultipartUpload' request.
+-- | 'AbortMultipartUpload' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'amuBucket' @::@ 'Text'
 --
--- * @Key ::@ @ObjectKey@
+-- * 'amuKey' @::@ 'Text'
 --
--- * @UploadId ::@ @Text@
+-- * 'amuUploadId' @::@ 'Text'
 --
-abortMultipartUpload :: BucketName -- ^ 'amuBucket'
-                     -> ObjectKey -- ^ 'amuKey'
+abortMultipartUpload :: Text -- ^ 'amuBucket'
+                     -> Text -- ^ 'amuKey'
                      -> Text -- ^ 'amuUploadId'
                      -> AbortMultipartUpload
 abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
-    { _amuBucket = p1
-    , _amuKey = p2
+    { _amuBucket   = p1
+    , _amuKey      = p2
     , _amuUploadId = p3
     }
 
-amuBucket :: Lens' AbortMultipartUpload BucketName
+amuBucket :: Lens' AbortMultipartUpload Text
 amuBucket = lens _amuBucket (\s a -> s { _amuBucket = a })
 
-amuKey :: Lens' AbortMultipartUpload ObjectKey
+amuKey :: Lens' AbortMultipartUpload Text
 amuKey = lens _amuKey (\s a -> s { _amuKey = a })
 
 amuUploadId :: Lens' AbortMultipartUpload Text
 amuUploadId = lens _amuUploadId (\s a -> s { _amuUploadId = a })
 
-instance ToPath AbortMultipartUpload
+instance ToPath AbortMultipartUpload where
+    toPath AbortMultipartUpload{..} = mconcat
+        [ "/"
+        , toText _amuBucket
+        , "/"
+        , toText _amuKey
+        ]
 
-instance ToQuery AbortMultipartUpload
+instance ToQuery AbortMultipartUpload where
+    toQuery rq = "uploadId" =? _amuUploadId rq
 
 instance ToHeaders AbortMultipartUpload
-
-instance ToBody AbortMultipartUpload
 
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AbortMultipartUploadResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AbortMultipartUploadResponse' constructor.
 abortMultipartUploadResponse :: AbortMultipartUploadResponse
 abortMultipartUploadResponse = AbortMultipartUploadResponse
 
@@ -101,5 +104,5 @@ instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3
     type Rs AbortMultipartUpload = AbortMultipartUploadResponse
 
-    request = get
-    response _ = nullaryResponse AbortMultipartUploadResponse
+    request  = delete
+    response = nullaryResponse AbortMultipartUploadResponse

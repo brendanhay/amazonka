@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SimpleDB.Select
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,9 +36,9 @@ module Network.AWS.SimpleDB.Select
     -- ** Request constructor
     , select
     -- ** Request lenses
-    , sSelectExpression
-    , sNextToken
     , sConsistentRead
+    , sNextToken
+    , sSelectExpression
 
     -- * Response
     , SelectResponse
@@ -47,74 +49,74 @@ module Network.AWS.SimpleDB.Select
     , srNextToken
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data Select = Select
-    { _sSelectExpression :: Text
-    , _sNextToken :: Maybe Text
-    , _sConsistentRead :: Maybe Bool
+    { _sConsistentRead   :: Maybe Bool
+    , _sNextToken        :: Maybe Text
+    , _sSelectExpression :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'Select' request.
+-- | 'Select' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SelectExpression ::@ @Text@
+-- * 'sConsistentRead' @::@ 'Maybe' 'Bool'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'sNextToken' @::@ 'Maybe' 'Text'
 --
--- * @ConsistentRead ::@ @Maybe Bool@
+-- * 'sSelectExpression' @::@ 'Text'
 --
 select :: Text -- ^ 'sSelectExpression'
        -> Select
 select p1 = Select
     { _sSelectExpression = p1
-    , _sNextToken = Nothing
-    , _sConsistentRead = Nothing
+    , _sNextToken        = Nothing
+    , _sConsistentRead   = Nothing
     }
 
--- | The expression used to query the domain.
-sSelectExpression :: Lens' Select Text
-sSelectExpression =
-    lens _sSelectExpression (\s a -> s { _sSelectExpression = a })
+-- | Determines whether or not strong consistency should be enforced when data
+-- is read from SimpleDB. If true, any data previously written to SimpleDB
+-- will be returned. Otherwise, results will be consistent eventually, and
+-- the client may not see data that was written immediately before your
+-- read.
+sConsistentRead :: Lens' Select (Maybe Bool)
+sConsistentRead = lens _sConsistentRead (\s a -> s { _sConsistentRead = a })
 
 -- | A string informing Amazon SimpleDB where to start the next list of
 -- ItemNames.
 sNextToken :: Lens' Select (Maybe Text)
 sNextToken = lens _sNextToken (\s a -> s { _sNextToken = a })
 
--- | Determines whether or not strong consistency should be enforced when data
--- is read from SimpleDB. If true, any data previously written to SimpleDB
--- will be returned. Otherwise, results will be consistent eventually, and the
--- client may not see data that was written immediately before your read.
-sConsistentRead :: Lens' Select (Maybe Bool)
-sConsistentRead = lens _sConsistentRead (\s a -> s { _sConsistentRead = a })
+-- | The expression used to query the domain.
+sSelectExpression :: Lens' Select Text
+sSelectExpression =
+    lens _sSelectExpression (\s a -> s { _sSelectExpression = a })
 
-instance ToQuery Select where
-    toQuery = genericQuery def
+instance ToQuery Select
+
+instance ToPath Select where
+    toPath = const "/"
 
 data SelectResponse = SelectResponse
-    { _srItems :: [Item]
+    { _srItems     :: [Item]
     , _srNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SelectResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SelectResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Items ::@ @[Item]@
+-- * 'srItems' @::@ ['Item']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'srNextToken' @::@ 'Maybe' 'Text'
 --
 selectResponse :: SelectResponse
 selectResponse = SelectResponse
-    { _srItems = mempty
+    { _srItems     = mempty
     , _srNextToken = Nothing
     }
 
@@ -128,16 +130,11 @@ srItems = lens _srItems (\s a -> s { _srItems = a })
 srNextToken :: Lens' SelectResponse (Maybe Text)
 srNextToken = lens _srNextToken (\s a -> s { _srNextToken = a })
 
-instance FromXML SelectResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest Select where
     type Sv Select = SimpleDB
     type Rs Select = SelectResponse
 
-    request = post "Select"
-    response _ = xmlResponse
-
-instance AWSPager Select where
-    next rq rs = (\x -> rq & sNextToken ?~ x)
-        <$> (rs ^. srNextToken)
+    request  = post "Select"
+    response = xmlResponse $ \h x -> SelectResponse
+        <$> x %| "Items"
+        <*> x %| "NextToken"

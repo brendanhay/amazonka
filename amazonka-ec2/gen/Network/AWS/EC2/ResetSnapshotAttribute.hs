@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ResetSnapshotAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,15 +22,7 @@
 
 -- | Resets permission settings for the specified snapshot. For more information
 -- on modifying snapshot permissions, see Sharing Snapshots in the Amazon
--- Elastic Compute Cloud User Guide. Example This example resets the
--- permissions for snap-1a2b3c4d, making it a private snapshot that can only
--- be used by the account that created it.
--- https://ec2.amazonaws.com/?Action=ResetSnapshotAttribute
--- &amp;SnapshotId=snap-1a2b3c4d &amp;Attribute=createVolumePermission
--- &amp;AUTHPARAMS &lt;ResetSnapshotAttributeResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/ResetSnapshotAttributeResponse&gt;.
+-- Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.ResetSnapshotAttribute
     (
     -- * Request
@@ -36,8 +30,9 @@ module Network.AWS.EC2.ResetSnapshotAttribute
     -- ** Request constructor
     , resetSnapshotAttribute
     -- ** Request lenses
-    , rsaSnapshotId
     , rsaAttribute
+    , rsaDryRun
+    , rsaSnapshotId
 
     -- * Response
     , ResetSnapshotAttributeResponse
@@ -45,51 +40,57 @@ module Network.AWS.EC2.ResetSnapshotAttribute
     , resetSnapshotAttributeResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ResetSnapshotAttribute = ResetSnapshotAttribute
-    { _rsaSnapshotId :: Text
-    , _rsaAttribute :: SnapshotAttributeName
+    { _rsaAttribute  :: Text
+    , _rsaDryRun     :: Maybe Bool
+    , _rsaSnapshotId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetSnapshotAttribute' request.
+-- | 'ResetSnapshotAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SnapshotId ::@ @Text@
+-- * 'rsaAttribute' @::@ 'Text'
 --
--- * @Attribute ::@ @SnapshotAttributeName@
+-- * 'rsaDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'rsaSnapshotId' @::@ 'Text'
 --
 resetSnapshotAttribute :: Text -- ^ 'rsaSnapshotId'
-                       -> SnapshotAttributeName -- ^ 'rsaAttribute'
+                       -> Text -- ^ 'rsaAttribute'
                        -> ResetSnapshotAttribute
 resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
     { _rsaSnapshotId = p1
-    , _rsaAttribute = p2
+    , _rsaAttribute  = p2
+    , _rsaDryRun     = Nothing
     }
+
+-- | The attribute to reset (currently only the attribute for permission to
+-- create volumes can be reset).
+rsaAttribute :: Lens' ResetSnapshotAttribute Text
+rsaAttribute = lens _rsaAttribute (\s a -> s { _rsaAttribute = a })
+
+rsaDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)
+rsaDryRun = lens _rsaDryRun (\s a -> s { _rsaDryRun = a })
 
 -- | The ID of the snapshot.
 rsaSnapshotId :: Lens' ResetSnapshotAttribute Text
 rsaSnapshotId = lens _rsaSnapshotId (\s a -> s { _rsaSnapshotId = a })
 
--- | The attribute to reset (currently only the attribute for permission to
--- create volumes can be reset).
-rsaAttribute :: Lens' ResetSnapshotAttribute SnapshotAttributeName
-rsaAttribute = lens _rsaAttribute (\s a -> s { _rsaAttribute = a })
+instance ToQuery ResetSnapshotAttribute
 
-instance ToQuery ResetSnapshotAttribute where
-    toQuery = genericQuery def
+instance ToPath ResetSnapshotAttribute where
+    toPath = const "/"
 
 data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetSnapshotAttributeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ResetSnapshotAttributeResponse' constructor.
 resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
 resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
 
@@ -97,5 +98,5 @@ instance AWSRequest ResetSnapshotAttribute where
     type Sv ResetSnapshotAttribute = EC2
     type Rs ResetSnapshotAttribute = ResetSnapshotAttributeResponse
 
-    request = post "ResetSnapshotAttribute"
-    response _ = nullaryResponse ResetSnapshotAttributeResponse
+    request  = post "ResetSnapshotAttribute"
+    response = nullaryResponse ResetSnapshotAttributeResponse

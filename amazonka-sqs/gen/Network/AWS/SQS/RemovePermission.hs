@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SQS.RemovePermission
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,15 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Revokes any permissions in the queue policy that matches the specified
--- Label parameter. Only the owner of the queue can remove permissions. The
--- following example Query request removes the testLabel permission on the
--- queue named testQueue.
--- http://sqs.us-east-1.amazonaws.com/123456789012/testQueue/
--- ?Action=RemovePermission &Label=testLabel &Version=2009-02-01
--- &SignatureMethod=HmacSHA256 &Expires=2009-04-18T22%3A52%3A43PST
--- &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &SignatureVersion=2
--- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
--- f8bdb362-6616-42c0-977a-ce9a8bcce3bb.
+-- Label parameter. Only the owner of the queue can remove permissions.
 module Network.AWS.SQS.RemovePermission
     (
     -- * Request
@@ -35,8 +29,8 @@ module Network.AWS.SQS.RemovePermission
     -- ** Request constructor
     , removePermission
     -- ** Request lenses
-    , rpQueueUrl
     , rpLabel
+    , rpQueueUrl
 
     -- * Response
     , RemovePermissionResponse
@@ -44,51 +38,50 @@ module Network.AWS.SQS.RemovePermission
     , removePermissionResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data RemovePermission = RemovePermission
-    { _rpQueueUrl :: Text
-    , _rpLabel :: Text
+    { _rpLabel    :: Text
+    , _rpQueueUrl :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemovePermission' request.
+-- | 'RemovePermission' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @QueueUrl ::@ @Text@
+-- * 'rpLabel' @::@ 'Text'
 --
--- * @Label ::@ @Text@
+-- * 'rpQueueUrl' @::@ 'Text'
 --
 removePermission :: Text -- ^ 'rpQueueUrl'
                  -> Text -- ^ 'rpLabel'
                  -> RemovePermission
 removePermission p1 p2 = RemovePermission
     { _rpQueueUrl = p1
-    , _rpLabel = p2
+    , _rpLabel    = p2
     }
-
--- | The URL of the Amazon SQS queue to take action on.
-rpQueueUrl :: Lens' RemovePermission Text
-rpQueueUrl = lens _rpQueueUrl (\s a -> s { _rpQueueUrl = a })
 
 -- | The identification of the permission to remove. This is the label added
 -- with the AddPermission action.
 rpLabel :: Lens' RemovePermission Text
 rpLabel = lens _rpLabel (\s a -> s { _rpLabel = a })
 
-instance ToQuery RemovePermission where
-    toQuery = genericQuery def
+-- | The URL of the Amazon SQS queue to take action on.
+rpQueueUrl :: Lens' RemovePermission Text
+rpQueueUrl = lens _rpQueueUrl (\s a -> s { _rpQueueUrl = a })
+
+instance ToQuery RemovePermission
+
+instance ToPath RemovePermission where
+    toPath = const "/"
 
 data RemovePermissionResponse = RemovePermissionResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemovePermissionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RemovePermissionResponse' constructor.
 removePermissionResponse :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse
 
@@ -96,5 +89,5 @@ instance AWSRequest RemovePermission where
     type Sv RemovePermission = SQS
     type Rs RemovePermission = RemovePermissionResponse
 
-    request = post "RemovePermission"
-    response _ = nullaryResponse RemovePermissionResponse
+    request  = post "RemovePermission"
+    response = nullaryResponse RemovePermissionResponse

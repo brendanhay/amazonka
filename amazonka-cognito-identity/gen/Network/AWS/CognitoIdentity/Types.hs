@@ -1,13 +1,13 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoIdentity.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,38 +19,28 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Cognito is a web service that facilitates the delivery of scoped,
--- temporary credentials to mobile devices or other untrusted environments.
--- Amazon Cognito uniquely identifies a device or user and supplies the user
--- with a consistent identity throughout the lifetime of an application.
--- Amazon Cognito lets users authenticate with third-party identity providers
--- (Facebook, Google, or Login with Amazon). As a developer, you decide which
--- identity providers to trust. You can also choose to support unauthenticated
--- access from your application. Your users are provided with Cognito tokens
--- that uniquely identify their device and any information provided about
--- third-party logins.
 module Network.AWS.CognitoIdentity.Types
     (
     -- * Service
       CognitoIdentity
-    -- ** Errors
-    , CognitoIdentityError (..)
-    , _CognitoIdentityClient
-    , _CognitoIdentitySerializer
-    , _CognitoIdentityService
-    , _InternalErrorException
-    , _InvalidParameterException
-    , _LimitExceededException
-    , _NotAuthorizedException
-    , _ResourceConflictException
-    , _ResourceNotFoundException
-    , _TooManyRequestsException
+    -- ** Error
+    , CognitoIdentityError
 
     -- * IdentityDescription
     , IdentityDescription
     , identityDescription
     , idIdentityId
     , idLogins
+
+    -- * IdentityPool
+    , IdentityPool
+    , identityPool
+    , ipAllowUnauthenticatedIdentities
+    , ipDeveloperProviderName
+    , ipIdentityPoolId
+    , ipIdentityPoolName
+    , ipOpenIdConnectProviderARNs
+    , ipSupportedLoginProviders
 
     -- * IdentityPoolShortDescription
     , IdentityPoolShortDescription
@@ -62,8 +52,7 @@ module Network.AWS.CognitoIdentity.Types
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
--- | Supported version (@2014-06-30@) of the
--- @Amazon Cognito Identity@ service.
+-- | Supported version (@2014-06-30@) of the Amazon Cognito Identity.
 data CognitoIdentity deriving (Typeable)
 
 instance AWSService CognitoIdentity where
@@ -71,218 +60,129 @@ instance AWSService CognitoIdentity where
     type Er CognitoIdentity = CognitoIdentityError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
+        , _svcAbbrev   = "CognitoIdentity"
         , _svcPrefix   = "cognito-identity"
         , _svcVersion  = "2014-06-30"
         , _svcTarget   = Nothing
         }
 
--- | A sum type representing possible errors returned by the 'CognitoIdentity' service.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data CognitoIdentityError
-    = CognitoIdentityClient HttpException
-    | CognitoIdentitySerializer String
-    | CognitoIdentityService String
-      -- | Thrown when the service encounters an error during processing the
-      -- request.
-    | InternalErrorException
-        { _ieeMessage :: Maybe Text
-        }
-      -- | Thrown for missing or bad input parameter(s).
-    | InvalidParameterException
-        { _ipeMessage :: Maybe Text
-        }
-      -- | Thrown when the total number of user pools has exceeded a preset
-      -- limit.
-    | LimitExceededException
-        { _leeMessage :: Maybe Text
-        }
-      -- | Thrown when a user is not authorized to access the requested
-      -- resource.
-    | NotAuthorizedException
-        { _naeMessage :: Maybe Text
-        }
-      -- | Thrown when a user tries to use a login which is already linked
-      -- to another account.
-    | ResourceConflictException
-        { _rceMessage :: Maybe Text
-        }
-      -- | Thrown when the requested resource (for example, a dataset or
-      -- record) does not exist.
-    | ResourceNotFoundException
-        { _rnfeMessage :: Maybe Text
-        }
-      -- | Thrown when a request is throttled.
-    | TooManyRequestsException
-        { _tmreMessage :: Maybe Text
-        }
-      deriving (Show, Typeable, Generic)
+    handle = xmlError alwaysFail
 
-instance AWSError CognitoIdentityError where
-    awsError = const "CognitoIdentityError"
-
-instance AWSServiceError CognitoIdentityError where
-    serviceError    = CognitoIdentityService
-    clientError     = CognitoIdentityClient
-    serializerError = CognitoIdentitySerializer
-
-instance Exception CognitoIdentityError
-
--- | See: 'CognitoIdentityClient'
-_CognitoIdentityClient :: Prism' CognitoIdentityError HttpException
-_CognitoIdentityClient = prism
-    CognitoIdentityClient
-    (\case
-        CognitoIdentityClient p1 -> Right p1
-        x -> Left x)
-
--- | See: 'CognitoIdentitySerializer'
-_CognitoIdentitySerializer :: Prism' CognitoIdentityError String
-_CognitoIdentitySerializer = prism
-    CognitoIdentitySerializer
-    (\case
-        CognitoIdentitySerializer p1 -> Right p1
-        x -> Left x)
-
--- | See: 'CognitoIdentityService'
-_CognitoIdentityService :: Prism' CognitoIdentityError String
-_CognitoIdentityService = prism
-    CognitoIdentityService
-    (\case
-        CognitoIdentityService p1 -> Right p1
-        x -> Left x)
-
--- | Thrown when the service encounters an error during processing the request.
---
--- See: 'InternalErrorException'
-_InternalErrorException :: Prism' CognitoIdentityError (Maybe Text)
-_InternalErrorException = prism
-    InternalErrorException
-    (\case
-        InternalErrorException p1 -> Right p1
-        x -> Left x)
-
--- | Thrown for missing or bad input parameter(s).
---
--- See: 'InvalidParameterException'
-_InvalidParameterException :: Prism' CognitoIdentityError (Maybe Text)
-_InvalidParameterException = prism
-    InvalidParameterException
-    (\case
-        InvalidParameterException p1 -> Right p1
-        x -> Left x)
-
--- | Thrown when the total number of user pools has exceeded a preset limit.
---
--- See: 'LimitExceededException'
-_LimitExceededException :: Prism' CognitoIdentityError (Maybe Text)
-_LimitExceededException = prism
-    LimitExceededException
-    (\case
-        LimitExceededException p1 -> Right p1
-        x -> Left x)
-
--- | Thrown when a user is not authorized to access the requested resource.
---
--- See: 'NotAuthorizedException'
-_NotAuthorizedException :: Prism' CognitoIdentityError (Maybe Text)
-_NotAuthorizedException = prism
-    NotAuthorizedException
-    (\case
-        NotAuthorizedException p1 -> Right p1
-        x -> Left x)
-
--- | Thrown when a user tries to use a login which is already linked to another
--- account.
---
--- See: 'ResourceConflictException'
-_ResourceConflictException :: Prism' CognitoIdentityError (Maybe Text)
-_ResourceConflictException = prism
-    ResourceConflictException
-    (\case
-        ResourceConflictException p1 -> Right p1
-        x -> Left x)
-
--- | Thrown when the requested resource (for example, a dataset or record) does
--- not exist.
---
--- See: 'ResourceNotFoundException'
-_ResourceNotFoundException :: Prism' CognitoIdentityError (Maybe Text)
-_ResourceNotFoundException = prism
-    ResourceNotFoundException
-    (\case
-        ResourceNotFoundException p1 -> Right p1
-        x -> Left x)
-
--- | Thrown when a request is throttled.
---
--- See: 'TooManyRequestsException'
-_TooManyRequestsException :: Prism' CognitoIdentityError (Maybe Text)
-_TooManyRequestsException = prism
-    TooManyRequestsException
-    (\case
-        TooManyRequestsException p1 -> Right p1
-        x -> Left x)
-
--- | A description of the identity.
 data IdentityDescription = IdentityDescription
     { _idIdentityId :: Maybe Text
-    , _idLogins :: [Text]
+    , _idLogins     :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'IdentityDescription' data type.
---
--- 'IdentityDescription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'IdentityDescription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IdentityId ::@ @Maybe Text@
+-- * 'idIdentityId' @::@ 'Maybe' 'Text'
 --
--- * @Logins ::@ @[Text]@
+-- * 'idLogins' @::@ ['Text']
 --
 identityDescription :: IdentityDescription
 identityDescription = IdentityDescription
     { _idIdentityId = Nothing
-    , _idLogins = mempty
+    , _idLogins     = mempty
     }
 
 -- | A unique identifier in the format REGION:GUID.
 idIdentityId :: Lens' IdentityDescription (Maybe Text)
 idIdentityId = lens _idIdentityId (\s a -> s { _idIdentityId = a })
 
--- | A set of optional name/value pairs that map provider names to provider
+-- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
 idLogins :: Lens' IdentityDescription [Text]
 idLogins = lens _idLogins (\s a -> s { _idLogins = a })
 
-instance FromJSON IdentityDescription
+data IdentityPool = IdentityPool
+    { _ipAllowUnauthenticatedIdentities :: Bool
+    , _ipDeveloperProviderName          :: Maybe Text
+    , _ipIdentityPoolId                 :: Text
+    , _ipIdentityPoolName               :: Text
+    , _ipOpenIdConnectProviderARNs      :: [Text]
+    , _ipSupportedLoginProviders        :: Map Text Text
+    } deriving (Eq, Show, Generic)
 
--- | A description of the identity pool.
-data IdentityPoolShortDescription = IdentityPoolShortDescription
-    { _ipsdIdentityPoolId :: Maybe Text
-    , _ipsdIdentityPoolName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'IdentityPoolShortDescription' data type.
---
--- 'IdentityPoolShortDescription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'IdentityPool' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IdentityPoolId ::@ @Maybe Text@
+-- * 'ipAllowUnauthenticatedIdentities' @::@ 'Bool'
 --
--- * @IdentityPoolName ::@ @Maybe Text@
+-- * 'ipDeveloperProviderName' @::@ 'Maybe' 'Text'
+--
+-- * 'ipIdentityPoolId' @::@ 'Text'
+--
+-- * 'ipIdentityPoolName' @::@ 'Text'
+--
+-- * 'ipOpenIdConnectProviderARNs' @::@ ['Text']
+--
+-- * 'ipSupportedLoginProviders' @::@ 'HashMap' 'Text' 'Text'
+--
+identityPool :: Text -- ^ 'ipIdentityPoolId'
+             -> Text -- ^ 'ipIdentityPoolName'
+             -> Bool -- ^ 'ipAllowUnauthenticatedIdentities'
+             -> IdentityPool
+identityPool p1 p2 p3 = IdentityPool
+    { _ipIdentityPoolId                 = p1
+    , _ipIdentityPoolName               = p2
+    , _ipAllowUnauthenticatedIdentities = p3
+    , _ipSupportedLoginProviders        = mempty
+    , _ipDeveloperProviderName          = Nothing
+    , _ipOpenIdConnectProviderARNs      = mempty
+    }
+
+-- | TRUE if the identity pool supports unauthenticated logins.
+ipAllowUnauthenticatedIdentities :: Lens' IdentityPool Bool
+ipAllowUnauthenticatedIdentities =
+    lens _ipAllowUnauthenticatedIdentities
+        (\s a -> s { _ipAllowUnauthenticatedIdentities = a })
+
+-- | The "domain" by which Cognito will refer to your users.
+ipDeveloperProviderName :: Lens' IdentityPool (Maybe Text)
+ipDeveloperProviderName =
+    lens _ipDeveloperProviderName (\s a -> s { _ipDeveloperProviderName = a })
+
+-- | An identity pool ID in the format REGION:GUID.
+ipIdentityPoolId :: Lens' IdentityPool Text
+ipIdentityPoolId = lens _ipIdentityPoolId (\s a -> s { _ipIdentityPoolId = a })
+
+-- | A string that you provide.
+ipIdentityPoolName :: Lens' IdentityPool Text
+ipIdentityPoolName =
+    lens _ipIdentityPoolName (\s a -> s { _ipIdentityPoolName = a })
+
+ipOpenIdConnectProviderARNs :: Lens' IdentityPool [Text]
+ipOpenIdConnectProviderARNs =
+    lens _ipOpenIdConnectProviderARNs
+        (\s a -> s { _ipOpenIdConnectProviderARNs = a })
+
+-- | Optional key:value pairs mapping provider names to provider app IDs.
+ipSupportedLoginProviders :: Lens' IdentityPool (HashMap Text Text)
+ipSupportedLoginProviders =
+    lens _ipSupportedLoginProviders
+        (\s a -> s { _ipSupportedLoginProviders = a })
+            . _Map
+
+data IdentityPoolShortDescription = IdentityPoolShortDescription
+    { _ipsdIdentityPoolId   :: Maybe Text
+    , _ipsdIdentityPoolName :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'IdentityPoolShortDescription' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ipsdIdentityPoolId' @::@ 'Maybe' 'Text'
+--
+-- * 'ipsdIdentityPoolName' @::@ 'Maybe' 'Text'
 --
 identityPoolShortDescription :: IdentityPoolShortDescription
 identityPoolShortDescription = IdentityPoolShortDescription
-    { _ipsdIdentityPoolId = Nothing
+    { _ipsdIdentityPoolId   = Nothing
     , _ipsdIdentityPoolName = Nothing
     }
 
@@ -295,5 +195,3 @@ ipsdIdentityPoolId =
 ipsdIdentityPoolName :: Lens' IdentityPoolShortDescription (Maybe Text)
 ipsdIdentityPoolName =
     lens _ipsdIdentityPoolName (\s a -> s { _ipsdIdentityPoolName = a })
-
-instance FromJSON IdentityPoolShortDescription

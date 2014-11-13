@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SNS.CreatePlatformApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,24 +33,7 @@
 -- secret". The PlatformApplicationArn that is returned when using
 -- CreatePlatformApplication is then used as an attribute for the
 -- CreatePlatformEndpoint action. For more information, see Using Amazon SNS
--- Mobile Push Notifications. POST http://sns.us-west-2.amazonaws.com/
--- HTTP/1.1 ... Attributes.entry.2.key=PlatformPrincipal
--- &amp;SignatureMethod=HmacSHA256
--- &amp;Attributes.entry.1.value=AIzaSyClE2lcV2zEKTLYYo645zfk2jhQPFeyxDo
--- &amp;Attributes.entry.2.value=There+is+no+principal+for+GCM
--- &amp;AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
--- &amp;Signature=82sHzg1Wfbgisw3i%2BHA2OgBmRktsqUKFinknkq3u%2FQ4%3D
--- &amp;Timestamp=2013-07-01T15%3A49%3A50.354Z &amp;Name=gcmpushapp
--- &amp;Attributes.entry.1.key=PlatformCredential
--- &amp;Action=CreatePlatformApplication &amp;Version=2010-03-31
--- &amp;SignatureVersion=2 &amp;Platform=GCM HTTP/1.1 200 OK ...
--- &lt;CreatePlatformApplicationResponse
--- xmlns="http://sns.amazonaws.com/doc/2010-03-31/"&gt;
--- &lt;CreatePlatformApplicationResult&gt;
--- &lt;PlatformApplicationArn&gt;arn:aws:sns:us-west-2:123456789012:app/GCM/gcmpushapp&lt;/PlatformApplicationArn&gt;
--- &lt;/CreatePlatformApplicationResult&gt; &lt;ResponseMetadata&gt;
--- &lt;RequestId&gt;b6f0e78b-e9d4-5a0e-b973-adc04e8a4ff9&lt;/RequestId&gt;
--- &lt;/ResponseMetadata&gt; &lt;/CreatePlatformApplicationResponse&gt;.
+-- Mobile Push Notifications.
 module Network.AWS.SNS.CreatePlatformApplication
     (
     -- * Request
@@ -56,9 +41,9 @@ module Network.AWS.SNS.CreatePlatformApplication
     -- ** Request constructor
     , createPlatformApplication
     -- ** Request lenses
+    , cpaAttributes
     , cpaName
     , cpaPlatform
-    , cpaAttributes
 
     -- * Response
     , CreatePlatformApplicationResponse
@@ -68,70 +53,67 @@ module Network.AWS.SNS.CreatePlatformApplication
     , cparPlatformApplicationArn
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input for CreatePlatformApplication action.
 data CreatePlatformApplication = CreatePlatformApplication
-    { _cpaName :: Text
-    , _cpaPlatform :: Text
-    , _cpaAttributes :: Map Text Text
+    { _cpaAttributes :: Map Text Text
+    , _cpaName       :: Text
+    , _cpaPlatform   :: Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreatePlatformApplication' request.
+-- | 'CreatePlatformApplication' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Text@
+-- * 'cpaAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
--- * @Platform ::@ @Text@
+-- * 'cpaName' @::@ 'Text'
 --
--- * @Attributes ::@ @Map Text Text@
+-- * 'cpaPlatform' @::@ 'Text'
 --
 createPlatformApplication :: Text -- ^ 'cpaName'
                           -> Text -- ^ 'cpaPlatform'
-                          -> Map Text Text -- ^ 'cpaAttributes'
                           -> CreatePlatformApplication
-createPlatformApplication p1 p2 p3 = CreatePlatformApplication
-    { _cpaName = p1
-    , _cpaPlatform = p2
-    , _cpaAttributes = p3
+createPlatformApplication p1 p2 = CreatePlatformApplication
+    { _cpaName       = p1
+    , _cpaPlatform   = p2
+    , _cpaAttributes = mempty
     }
 
+-- | For a list of attributes, see SetPlatformApplicationAttributes.
+cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
+cpaAttributes = lens _cpaAttributes (\s a -> s { _cpaAttributes = a })
+    . _Map
+
 -- | Application names must be made up of only uppercase and lowercase ASCII
--- letters, numbers, underscores, hyphens, and periods, and must be between 1
--- and 256 characters long.
+-- letters, numbers, underscores, hyphens, and periods, and must be between
+-- 1 and 256 characters long.
 cpaName :: Lens' CreatePlatformApplication Text
 cpaName = lens _cpaName (\s a -> s { _cpaName = a })
 
--- | The following platforms are supported: ADM (Amazon Device Messaging), APNS
--- (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud
--- Messaging).
+-- | The following platforms are supported: ADM (Amazon Device Messaging),
+-- APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google
+-- Cloud Messaging).
 cpaPlatform :: Lens' CreatePlatformApplication Text
 cpaPlatform = lens _cpaPlatform (\s a -> s { _cpaPlatform = a })
 
--- | For a list of attributes, see SetPlatformApplicationAttributes.
-cpaAttributes :: Lens' CreatePlatformApplication (Map Text Text)
-cpaAttributes = lens _cpaAttributes (\s a -> s { _cpaAttributes = a })
+instance ToQuery CreatePlatformApplication
 
-instance ToQuery CreatePlatformApplication where
-    toQuery = genericQuery def
+instance ToPath CreatePlatformApplication where
+    toPath = const "/"
 
--- | Response from CreatePlatformApplication action.
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreatePlatformApplicationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreatePlatformApplicationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PlatformApplicationArn ::@ @Maybe Text@
+-- * 'cparPlatformApplicationArn' @::@ 'Maybe' 'Text'
 --
 createPlatformApplicationResponse :: CreatePlatformApplicationResponse
 createPlatformApplicationResponse = CreatePlatformApplicationResponse
@@ -142,14 +124,12 @@ createPlatformApplicationResponse = CreatePlatformApplicationResponse
 cparPlatformApplicationArn :: Lens' CreatePlatformApplicationResponse (Maybe Text)
 cparPlatformApplicationArn =
     lens _cparPlatformApplicationArn
-         (\s a -> s { _cparPlatformApplicationArn = a })
-
-instance FromXML CreatePlatformApplicationResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _cparPlatformApplicationArn = a })
 
 instance AWSRequest CreatePlatformApplication where
     type Sv CreatePlatformApplication = SNS
     type Rs CreatePlatformApplication = CreatePlatformApplicationResponse
 
-    request = post "CreatePlatformApplication"
-    response _ = xmlResponse
+    request  = post "CreatePlatformApplication"
+    response = xmlResponse $ \h x -> CreatePlatformApplicationResponse
+        <$> x %| "PlatformApplicationArn"

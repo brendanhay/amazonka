@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketRequestPayment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,51 +38,50 @@ module Network.AWS.S3.GetBucketRequestPayment
     , gbrprPayer
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketRequestPayment = GetBucketRequestPayment
-    { _gbrpBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbrpBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketRequestPayment' request.
+-- | 'GetBucketRequestPayment' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'gbrpBucket' @::@ 'Text'
 --
-getBucketRequestPayment :: BucketName -- ^ 'gbrpBucket'
+getBucketRequestPayment :: Text -- ^ 'gbrpBucket'
                         -> GetBucketRequestPayment
 getBucketRequestPayment p1 = GetBucketRequestPayment
     { _gbrpBucket = p1
     }
 
-gbrpBucket :: Lens' GetBucketRequestPayment BucketName
+gbrpBucket :: Lens' GetBucketRequestPayment Text
 gbrpBucket = lens _gbrpBucket (\s a -> s { _gbrpBucket = a })
 
-instance ToPath GetBucketRequestPayment
+instance ToPath GetBucketRequestPayment where
+    toPath GetBucketRequestPayment{..} = mconcat
+        [ "/"
+        , toText _gbrpBucket
+        ]
 
-instance ToQuery GetBucketRequestPayment
+instance ToQuery GetBucketRequestPayment where
+    toQuery = const "requestPayment"
 
 instance ToHeaders GetBucketRequestPayment
 
-instance ToBody GetBucketRequestPayment
-
 newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
-    { _gbrprPayer :: Maybe Payer
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbrprPayer :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketRequestPaymentResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetBucketRequestPaymentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Payer ::@ @Maybe Payer@
+-- * 'gbrprPayer' @::@ 'Maybe' 'Text'
 --
 getBucketRequestPaymentResponse :: GetBucketRequestPaymentResponse
 getBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
@@ -88,15 +89,13 @@ getBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     }
 
 -- | Specifies who pays for the download and request fees.
-gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
+gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Text)
 gbrprPayer = lens _gbrprPayer (\s a -> s { _gbrprPayer = a })
-
-instance FromXML GetBucketRequestPaymentResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
     type Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetBucketRequestPaymentResponse
+        <$> x %| "Payer"

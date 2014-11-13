@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeServiceErrors
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,9 +31,9 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     -- ** Request constructor
     , describeServiceErrors
     -- ** Request lenses
-    , dseStackId
     , dseInstanceId
     , dseServiceErrorIds
+    , dseStackId
 
     -- * Response
     , DescribeServiceErrorsResponse
@@ -41,38 +43,32 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     , dserServiceErrors
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DescribeServiceErrors = DescribeServiceErrors
-    { _dseStackId :: Maybe Text
-    , _dseInstanceId :: Maybe Text
+    { _dseInstanceId      :: Maybe Text
     , _dseServiceErrorIds :: [Text]
+    , _dseStackId         :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeServiceErrors' request.
+-- | 'DescribeServiceErrors' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Maybe Text@
+-- * 'dseInstanceId' @::@ 'Maybe' 'Text'
 --
--- * @InstanceId ::@ @Maybe Text@
+-- * 'dseServiceErrorIds' @::@ ['Text']
 --
--- * @ServiceErrorIds ::@ @[Text]@
+-- * 'dseStackId' @::@ 'Maybe' 'Text'
 --
 describeServiceErrors :: DescribeServiceErrors
 describeServiceErrors = DescribeServiceErrors
-    { _dseStackId = Nothing
-    , _dseInstanceId = Nothing
+    { _dseStackId         = Nothing
+    , _dseInstanceId      = Nothing
     , _dseServiceErrorIds = mempty
     }
-
--- | The stack ID. If you use this parameter, DescribeServiceErrors returns
--- descriptions of the errors associated with the specified stack.
-dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
-dseStackId = lens _dseStackId (\s a -> s { _dseStackId = a })
 
 -- | The instance ID. If you use this parameter, DescribeServiceErrors returns
 -- descriptions of the errors associated with the specified instance.
@@ -86,27 +82,37 @@ dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
 dseServiceErrorIds =
     lens _dseServiceErrorIds (\s a -> s { _dseServiceErrorIds = a })
 
-instance ToPath DescribeServiceErrors
+-- | The stack ID. If you use this parameter, DescribeServiceErrors returns
+-- descriptions of the errors associated with the specified stack.
+dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
+dseStackId = lens _dseStackId (\s a -> s { _dseStackId = a })
 
-instance ToQuery DescribeServiceErrors
+instance ToPath DescribeServiceErrors where
+    toPath = const "/"
+
+instance ToQuery DescribeServiceErrors where
+    toQuery = const mempty
 
 instance ToHeaders DescribeServiceErrors
 
-instance ToJSON DescribeServiceErrors
+instance ToBody DescribeServiceErrors where
+    toBody = toBody . encode . _dseStackId
 
--- | Contains the response to a DescribeServiceErrors request.
 newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
     { _dserServiceErrors :: [ServiceError]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeServiceErrorsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeServiceErrorsResponse where
+    type Item DescribeServiceErrorsResponse = ServiceError
+
+    fromList = DescribeServiceErrorsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dserServiceErrors
+
+-- | 'DescribeServiceErrorsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ServiceErrors ::@ @[ServiceError]@
+-- * 'dserServiceErrors' @::@ ['ServiceError']
 --
 describeServiceErrorsResponse :: DescribeServiceErrorsResponse
 describeServiceErrorsResponse = DescribeServiceErrorsResponse
@@ -119,11 +125,12 @@ dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError]
 dserServiceErrors =
     lens _dserServiceErrors (\s a -> s { _dserServiceErrors = a })
 
-instance FromJSON DescribeServiceErrorsResponse
+-- FromJSON
 
 instance AWSRequest DescribeServiceErrors where
     type Sv DescribeServiceErrors = OpsWorks
     type Rs DescribeServiceErrors = DescribeServiceErrorsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeServiceErrorsResponse
+        <$> o .: "ServiceErrors"

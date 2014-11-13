@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CreateKeyPair
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,35 +24,11 @@
 -- the public key and displays the private key for you to save to a file. The
 -- private key is returned as an unencrypted PEM encoded PKCS#8 private key.
 -- If a key with the specified name already exists, Amazon EC2 returns an
--- error. You can have up to five thousand key pairs per region. For more
--- information about key pairs, see Key Pairs in the Amazon Elastic Compute
--- Cloud User Guide. Example This example request creates a key pair named
--- my-key-pair. https://ec2.amazonaws.com/?Action=CreateKeyPair
--- &amp;KeyName=my-key-pair &amp;AUTHPARAMS &lt;CreateKeyPairResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt; my-key-pair
--- 1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f ---- BEGIN RSA
--- PRIVATE KEY ----
--- MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMC
--- VVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6
--- b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAd
--- BgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wHhcNMTEwNDI1MjA0NTIxWhcN
--- MTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYD
--- VQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25z
--- b2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFt
--- YXpvbi5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMaK0dn+a4GmWIWJ
--- 21uUSfwfEvySWtC2XADZ4nB+BLYgVIk60CpiwsZ3G93vUEIO3IyNoH/f0wYK8m9T
--- rDHudUZg3qX4waLG5M43q7Wgc/MbQITxOUSQv7c7ugFFDzQGBzZswY6786m86gpE
--- Ibb3OhjZnzcvQAaRHhdlQWIMm2nrAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAtCu4
--- nUhVVxYUntneD9+h8Mg9q6q+auNKyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0Fkb
--- FFBjvSfpJIlJ00zbhNYS5f6GuoEDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTb
--- NYiytVbZPQUQ5Yaxu2jXnimvw3rrszlaEXAMPLE -----END RSA PRIVATE KEY-----
--- Saving the File Create a file named my-key-pair.pem and paste the entire
--- key from the response into this file. Keep this file in a safe place; it is
--- required to decrypt login information when you connect to an instance that
--- you launched using this key pair. If you're using an SSH client on a Linux
--- computer to connect to your instance, use the following command to set the
--- permissions of your private key file so that only you can read it. chmod
--- 400 my-key-pair.pem.
+-- error. You can have up to five thousand key pairs per region. The key pair
+-- returned to you is available only in the region in which you create it. To
+-- create a key pair that is available in all regions, use ImportKeyPair. For
+-- more information about key pairs, see Key Pairs in the Amazon Elastic
+-- Compute Cloud User Guide.
 module Network.AWS.EC2.CreateKeyPair
     (
     -- * Request
@@ -58,6 +36,7 @@ module Network.AWS.EC2.CreateKeyPair
     -- ** Request constructor
     , createKeyPair
     -- ** Request lenses
+    , ckpDryRun
     , ckpKeyName
 
     -- * Response
@@ -65,87 +44,90 @@ module Network.AWS.EC2.CreateKeyPair
     -- ** Response constructor
     , createKeyPairResponse
     -- ** Response lenses
-    , ckprKeyName
     , ckprKeyFingerprint
     , ckprKeyMaterial
+    , ckprKeyName
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype CreateKeyPair = CreateKeyPair
-    { _ckpKeyName :: Text
+data CreateKeyPair = CreateKeyPair
+    { _ckpDryRun  :: Maybe Bool
+    , _ckpKeyName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateKeyPair' request.
+-- | 'CreateKeyPair' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @KeyName ::@ @Text@
+-- * 'ckpDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'ckpKeyName' @::@ 'Text'
 --
 createKeyPair :: Text -- ^ 'ckpKeyName'
               -> CreateKeyPair
 createKeyPair p1 = CreateKeyPair
     { _ckpKeyName = p1
+    , _ckpDryRun  = Nothing
     }
 
--- | A unique name for the key pair.
+ckpDryRun :: Lens' CreateKeyPair (Maybe Bool)
+ckpDryRun = lens _ckpDryRun (\s a -> s { _ckpDryRun = a })
+
+-- | A unique name for the key pair. Constraints: Up to 255 ASCII characters.
 ckpKeyName :: Lens' CreateKeyPair Text
 ckpKeyName = lens _ckpKeyName (\s a -> s { _ckpKeyName = a })
 
-instance ToQuery CreateKeyPair where
-    toQuery = genericQuery def
+instance ToQuery CreateKeyPair
+
+instance ToPath CreateKeyPair where
+    toPath = const "/"
 
 data CreateKeyPairResponse = CreateKeyPairResponse
-    { _ckprKeyName :: Text
-    , _ckprKeyFingerprint :: Text
-    , _ckprKeyMaterial :: Text
+    { _ckprKeyFingerprint :: Maybe Text
+    , _ckprKeyMaterial    :: Maybe Text
+    , _ckprKeyName        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateKeyPairResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateKeyPairResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @KeyName ::@ @Text@
+-- * 'ckprKeyFingerprint' @::@ 'Maybe' 'Text'
 --
--- * @KeyFingerprint ::@ @Text@
+-- * 'ckprKeyMaterial' @::@ 'Maybe' 'Text'
 --
--- * @KeyMaterial ::@ @Text@
+-- * 'ckprKeyName' @::@ 'Maybe' 'Text'
 --
-createKeyPairResponse :: Text -- ^ 'ckprKeyName'
-                      -> Text -- ^ 'ckprKeyFingerprint'
-                      -> Text -- ^ 'ckprKeyMaterial'
-                      -> CreateKeyPairResponse
-createKeyPairResponse p1 p2 p3 = CreateKeyPairResponse
-    { _ckprKeyName = p1
-    , _ckprKeyFingerprint = p2
-    , _ckprKeyMaterial = p3
+createKeyPairResponse :: CreateKeyPairResponse
+createKeyPairResponse = CreateKeyPairResponse
+    { _ckprKeyName        = Nothing
+    , _ckprKeyFingerprint = Nothing
+    , _ckprKeyMaterial    = Nothing
     }
 
--- | The name of the key pair.
-ckprKeyName :: Lens' CreateKeyPairResponse Text
-ckprKeyName = lens _ckprKeyName (\s a -> s { _ckprKeyName = a })
-
 -- | The SHA-1 digest of the DER encoded private key.
-ckprKeyFingerprint :: Lens' CreateKeyPairResponse Text
+ckprKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
 ckprKeyFingerprint =
     lens _ckprKeyFingerprint (\s a -> s { _ckprKeyFingerprint = a })
 
 -- | An unencrypted PEM encoded RSA private key.
-ckprKeyMaterial :: Lens' CreateKeyPairResponse Text
+ckprKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)
 ckprKeyMaterial = lens _ckprKeyMaterial (\s a -> s { _ckprKeyMaterial = a })
 
-instance FromXML CreateKeyPairResponse where
-    fromXMLOptions = xmlOptions
+-- | The name of the key pair.
+ckprKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyName = lens _ckprKeyName (\s a -> s { _ckprKeyName = a })
 
 instance AWSRequest CreateKeyPair where
     type Sv CreateKeyPair = EC2
     type Rs CreateKeyPair = CreateKeyPairResponse
 
-    request = post "CreateKeyPair"
-    response _ = xmlResponse
+    request  = post "CreateKeyPair"
+    response = xmlResponse $ \h x -> CreateKeyPairResponse
+        <$> x %| "keyFingerprint"
+        <*> x %| "keyMaterial"
+        <*> x %| "keyName"

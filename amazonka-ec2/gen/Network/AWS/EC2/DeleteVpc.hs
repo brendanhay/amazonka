@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteVpc
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,12 +25,7 @@
 -- example, you must terminate all instances running in the VPC, delete all
 -- security groups associated with the VPC (except the default one), delete
 -- all route tables associated with the VPC (except the default one), and so
--- on. Example This example deletes the specified VPC.
--- https://ec2.amazonaws.com/?Action=DeleteVpc &amp;VpcId=vpc-1a2b3c4d
--- &amp;AUTHPARAMS &lt;DeleteVpcResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpcResponse&gt;.
+-- on.
 module Network.AWS.EC2.DeleteVpc
     (
     -- * Request
@@ -36,7 +33,8 @@ module Network.AWS.EC2.DeleteVpc
     -- ** Request constructor
     , deleteVpc
     -- ** Request lenses
-    , dv1VpcId
+    , dv3DryRun
+    , dv3VpcId
 
     -- * Response
     , DeleteVpcResponse
@@ -44,41 +42,47 @@ module Network.AWS.EC2.DeleteVpc
     , deleteVpcResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteVpc = DeleteVpc
-    { _dv1VpcId :: Text
+data DeleteVpc = DeleteVpc
+    { _dv3DryRun :: Maybe Bool
+    , _dv3VpcId  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpc' request.
+-- | 'DeleteVpc' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcId ::@ @Text@
+-- * 'dv3DryRun' @::@ 'Maybe' 'Bool'
 --
-deleteVpc :: Text -- ^ 'dv1VpcId'
+-- * 'dv3VpcId' @::@ 'Text'
+--
+deleteVpc :: Text -- ^ 'dv3VpcId'
           -> DeleteVpc
 deleteVpc p1 = DeleteVpc
-    { _dv1VpcId = p1
+    { _dv3VpcId  = p1
+    , _dv3DryRun = Nothing
     }
 
--- | The ID of the VPC.
-dv1VpcId :: Lens' DeleteVpc Text
-dv1VpcId = lens _dv1VpcId (\s a -> s { _dv1VpcId = a })
+dv3DryRun :: Lens' DeleteVpc (Maybe Bool)
+dv3DryRun = lens _dv3DryRun (\s a -> s { _dv3DryRun = a })
 
-instance ToQuery DeleteVpc where
-    toQuery = genericQuery def
+-- | The ID of the VPC.
+dv3VpcId :: Lens' DeleteVpc Text
+dv3VpcId = lens _dv3VpcId (\s a -> s { _dv3VpcId = a })
+
+instance ToQuery DeleteVpc
+
+instance ToPath DeleteVpc where
+    toPath = const "/"
 
 data DeleteVpcResponse = DeleteVpcResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpcResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteVpcResponse' constructor.
 deleteVpcResponse :: DeleteVpcResponse
 deleteVpcResponse = DeleteVpcResponse
 
@@ -86,5 +90,5 @@ instance AWSRequest DeleteVpc where
     type Sv DeleteVpc = EC2
     type Rs DeleteVpc = DeleteVpcResponse
 
-    request = post "DeleteVpc"
-    response _ = nullaryResponse DeleteVpcResponse
+    request  = post "DeleteVpc"
+    response = nullaryResponse DeleteVpcResponse

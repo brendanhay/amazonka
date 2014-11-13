@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RestartAppServer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,9 +22,6 @@
 
 -- | Causes the environment to restart the application container server running
 -- on each Amazon EC2 instance.
--- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
--- &EnvironmentName=SampleAppVersion &Operation=RestartAppServer &AuthParams
--- 90e8d1d5-f28a-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.RestartAppServer
     (
     -- * Request
@@ -39,28 +38,27 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     , restartAppServerResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data RestartAppServer = RestartAppServer
-    { _rasEnvironmentId :: Maybe Text
+    { _rasEnvironmentId   :: Maybe Text
     , _rasEnvironmentName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RestartAppServer' request.
+-- | 'RestartAppServer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EnvironmentId ::@ @Maybe Text@
+-- * 'rasEnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'rasEnvironmentName' @::@ 'Maybe' 'Text'
 --
 restartAppServer :: RestartAppServer
 restartAppServer = RestartAppServer
-    { _rasEnvironmentId = Nothing
+    { _rasEnvironmentId   = Nothing
     , _rasEnvironmentName = Nothing
     }
 
@@ -68,26 +66,25 @@ restartAppServer = RestartAppServer
 -- specify either this or an EnvironmentName, or both. If you do not specify
 -- either, AWS Elastic Beanstalk returns MissingRequiredParameter error.
 rasEnvironmentId :: Lens' RestartAppServer (Maybe Text)
-rasEnvironmentId =
-    lens _rasEnvironmentId (\s a -> s { _rasEnvironmentId = a })
+rasEnvironmentId = lens _rasEnvironmentId (\s a -> s { _rasEnvironmentId = a })
 
--- | The name of the environment to restart the server for. Condition: You must
--- specify either this or an EnvironmentId, or both. If you do not specify
--- either, AWS Elastic Beanstalk returns MissingRequiredParameter error.
+-- | The name of the environment to restart the server for. Condition: You
+-- must specify either this or an EnvironmentId, or both. If you do not
+-- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
+-- error.
 rasEnvironmentName :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentName =
     lens _rasEnvironmentName (\s a -> s { _rasEnvironmentName = a })
 
-instance ToQuery RestartAppServer where
-    toQuery = genericQuery def
+instance ToQuery RestartAppServer
+
+instance ToPath RestartAppServer where
+    toPath = const "/"
 
 data RestartAppServerResponse = RestartAppServerResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RestartAppServerResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RestartAppServerResponse' constructor.
 restartAppServerResponse :: RestartAppServerResponse
 restartAppServerResponse = RestartAppServerResponse
 
@@ -95,5 +92,5 @@ instance AWSRequest RestartAppServer where
     type Sv RestartAppServer = ElasticBeanstalk
     type Rs RestartAppServer = RestartAppServerResponse
 
-    request = post "RestartAppServer"
-    response _ = nullaryResponse RestartAppServerResponse
+    request  = post "RestartAppServer"
+    response = nullaryResponse RestartAppServerResponse

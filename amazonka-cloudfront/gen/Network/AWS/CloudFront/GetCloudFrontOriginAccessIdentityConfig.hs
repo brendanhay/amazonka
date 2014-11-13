@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,97 +24,92 @@
 module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
     (
     -- * Request
-      GetCloudFrontOriginAccessIdentityConfig
+      GetCloudFrontOriginAccessIdentityConfig2014_05_31
     -- ** Request constructor
-    , getCloudFrontOriginAccessIdentityConfig
+    , getCloudFrontOriginAccessIdentityConfig2014_05_31
     -- ** Request lenses
     , gcfoaicId
 
     -- * Response
-    , GetCloudFrontOriginAccessIdentityConfigResponse
+    , GetCloudFrontOriginAccessIdentityConfig2014_05_31Response
     -- ** Response constructor
-    , getCloudFrontOriginAccessIdentityConfigResponse
+    , getCloudFrontOriginAccessIdentityConfig2014_05_31Response
     -- ** Response lenses
     , gcfoaicrCloudFrontOriginAccessIdentityConfig
     , gcfoaicrETag
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to get an origin access identity's configuration.
-newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfig
+newtype GetCloudFrontOriginAccessIdentityConfig2014_05_31 = GetCloudFrontOriginAccessIdentityConfig2014_05_31
     { _gcfoaicId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetCloudFrontOriginAccessIdentityConfig' request.
+-- | 'GetCloudFrontOriginAccessIdentityConfig2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'gcfoaicId' @::@ 'Text'
 --
-getCloudFrontOriginAccessIdentityConfig :: Text -- ^ 'gcfoaicId'
-                                        -> GetCloudFrontOriginAccessIdentityConfig
-getCloudFrontOriginAccessIdentityConfig p1 = GetCloudFrontOriginAccessIdentityConfig
+getCloudFrontOriginAccessIdentityConfig2014_05_31 :: Text -- ^ 'gcfoaicId'
+                                                  -> GetCloudFrontOriginAccessIdentityConfig2014_05_31
+getCloudFrontOriginAccessIdentityConfig2014_05_31 p1 = GetCloudFrontOriginAccessIdentityConfig2014_05_31
     { _gcfoaicId = p1
     }
 
 -- | The identity's id.
-gcfoaicId :: Lens' GetCloudFrontOriginAccessIdentityConfig Text
+gcfoaicId :: Lens' GetCloudFrontOriginAccessIdentityConfig2014_05_31 Text
 gcfoaicId = lens _gcfoaicId (\s a -> s { _gcfoaicId = a })
 
-instance ToPath GetCloudFrontOriginAccessIdentityConfig
+instance ToPath GetCloudFrontOriginAccessIdentityConfig2014_05_31 where
+    toPath GetCloudFrontOriginAccessIdentityConfig2014_05_31{..} = mconcat
+        [ "/2014-05-31/origin-access-identity/cloudfront/"
+        , toText _gcfoaicId
+        , "/config"
+        ]
 
-instance ToQuery GetCloudFrontOriginAccessIdentityConfig
+instance ToQuery GetCloudFrontOriginAccessIdentityConfig2014_05_31 where
+    toQuery = const mempty
 
-instance ToHeaders GetCloudFrontOriginAccessIdentityConfig
+instance ToHeaders GetCloudFrontOriginAccessIdentityConfig2014_05_31
 
-instance ToXML GetCloudFrontOriginAccessIdentityConfig where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetCloudFrontOriginAccessIdentityConfig"
-
--- | The returned result of the corresponding request.
-data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse
+data GetCloudFrontOriginAccessIdentityConfig2014_05_31Response = GetCloudFrontOriginAccessIdentityConfig2014_05_31Response
     { _gcfoaicrCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
-    , _gcfoaicrETag :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _gcfoaicrETag                                 :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetCloudFrontOriginAccessIdentityConfigResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetCloudFrontOriginAccessIdentityConfig2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CloudFrontOriginAccessIdentityConfig ::@ @Maybe CloudFrontOriginAccessIdentityConfig@
+-- * 'gcfoaicrCloudFrontOriginAccessIdentityConfig' @::@ 'Maybe' 'CloudFrontOriginAccessIdentityConfig'
 --
--- * @ETag ::@ @Maybe Text@
+-- * 'gcfoaicrETag' @::@ 'Maybe' 'Text'
 --
-getCloudFrontOriginAccessIdentityConfigResponse :: GetCloudFrontOriginAccessIdentityConfigResponse
-getCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse
+getCloudFrontOriginAccessIdentityConfig2014_05_31Response :: GetCloudFrontOriginAccessIdentityConfig2014_05_31Response
+getCloudFrontOriginAccessIdentityConfig2014_05_31Response = GetCloudFrontOriginAccessIdentityConfig2014_05_31Response
     { _gcfoaicrCloudFrontOriginAccessIdentityConfig = Nothing
-    , _gcfoaicrETag = Nothing
+    , _gcfoaicrETag                                 = Nothing
     }
 
 -- | The origin access identity's configuration information.
-gcfoaicrCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe CloudFrontOriginAccessIdentityConfig)
+gcfoaicrCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfig2014_05_31Response (Maybe CloudFrontOriginAccessIdentityConfig)
 gcfoaicrCloudFrontOriginAccessIdentityConfig =
     lens _gcfoaicrCloudFrontOriginAccessIdentityConfig
-         (\s a -> s { _gcfoaicrCloudFrontOriginAccessIdentityConfig = a })
+        (\s a -> s { _gcfoaicrCloudFrontOriginAccessIdentityConfig = a })
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gcfoaicrETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
+gcfoaicrETag :: Lens' GetCloudFrontOriginAccessIdentityConfig2014_05_31Response (Maybe Text)
 gcfoaicrETag = lens _gcfoaicrETag (\s a -> s { _gcfoaicrETag = a })
 
-instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where
-    type Sv GetCloudFrontOriginAccessIdentityConfig = CloudFront
-    type Rs GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfigResponse
+instance AWSRequest GetCloudFrontOriginAccessIdentityConfig2014_05_31 where
+    type Sv GetCloudFrontOriginAccessIdentityConfig2014_05_31 = CloudFront
+    type Rs GetCloudFrontOriginAccessIdentityConfig2014_05_31 = GetCloudFrontOriginAccessIdentityConfig2014_05_31Response
 
-    request = get
-    response _ = cursorResponse $ \hs xml ->
-        pure GetCloudFrontOriginAccessIdentityConfigResponse
-            <*> xml %|? "CloudFrontOriginAccessIdentityConfig"
-            <*> hs ~:? "ETag"
+    request  = get
+    response = xmlResponse $ \h x -> GetCloudFrontOriginAccessIdentityConfig2014_05_31Response
+        <$> x %| "CloudFrontOriginAccessIdentityConfig"
+        <*> h ~:? "ETag"

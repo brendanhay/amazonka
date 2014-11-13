@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.AddTagsToResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,54 +41,50 @@ module Network.AWS.RDS.AddTagsToResource
     , addTagsToResourceResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data AddTagsToResource = AddTagsToResource
     { _attrResourceName :: Text
-    , _attrTags :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    , _attrTags         :: [Tag]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddTagsToResource' request.
+-- | 'AddTagsToResource' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ResourceName ::@ @Text@
+-- * 'attrResourceName' @::@ 'Text'
 --
--- * @Tags ::@ @[Tag]@
+-- * 'attrTags' @::@ ['Tag']
 --
 addTagsToResource :: Text -- ^ 'attrResourceName'
-                  -> [Tag] -- ^ 'attrTags'
                   -> AddTagsToResource
-addTagsToResource p1 p2 = AddTagsToResource
+addTagsToResource p1 = AddTagsToResource
     { _attrResourceName = p1
-    , _attrTags = p2
+    , _attrTags         = mempty
     }
 
--- | The Amazon RDS resource the tags will be added to. This value is an Amazon
--- Resource Name (ARN). For information about creating an ARN, see
+-- | The Amazon RDS resource the tags will be added to. This value is an
+-- Amazon Resource Name (ARN). For information about creating an ARN, see
 -- Constructing an RDS Amazon Resource Name (ARN).
 attrResourceName :: Lens' AddTagsToResource Text
-attrResourceName =
-    lens _attrResourceName (\s a -> s { _attrResourceName = a })
+attrResourceName = lens _attrResourceName (\s a -> s { _attrResourceName = a })
 
 -- | The tags to be assigned to the Amazon RDS resource.
 attrTags :: Lens' AddTagsToResource [Tag]
 attrTags = lens _attrTags (\s a -> s { _attrTags = a })
 
-instance ToQuery AddTagsToResource where
-    toQuery = genericQuery def
+instance ToQuery AddTagsToResource
+
+instance ToPath AddTagsToResource where
+    toPath = const "/"
 
 data AddTagsToResourceResponse = AddTagsToResourceResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddTagsToResourceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AddTagsToResourceResponse' constructor.
 addTagsToResourceResponse :: AddTagsToResourceResponse
 addTagsToResourceResponse = AddTagsToResourceResponse
 
@@ -94,5 +92,5 @@ instance AWSRequest AddTagsToResource where
     type Sv AddTagsToResource = RDS
     type Rs AddTagsToResource = AddTagsToResourceResponse
 
-    request = post "AddTagsToResource"
-    response _ = nullaryResponse AddTagsToResourceResponse
+    request  = post "AddTagsToResource"
+    response = nullaryResponse AddTagsToResourceResponse

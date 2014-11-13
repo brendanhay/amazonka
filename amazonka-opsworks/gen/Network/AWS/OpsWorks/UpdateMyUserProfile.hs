@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateMyUserProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,20 +39,19 @@ module Network.AWS.OpsWorks.UpdateMyUserProfile
     , updateMyUserProfileResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype UpdateMyUserProfile = UpdateMyUserProfile
     { _umupSshPublicKey :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateMyUserProfile' request.
+-- | 'UpdateMyUserProfile' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SshPublicKey ::@ @Maybe Text@
+-- * 'umupSshPublicKey' @::@ 'Maybe' 'Text'
 --
 updateMyUserProfile :: UpdateMyUserProfile
 updateMyUserProfile = UpdateMyUserProfile
@@ -59,30 +60,31 @@ updateMyUserProfile = UpdateMyUserProfile
 
 -- | The user's SSH public key.
 umupSshPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
-umupSshPublicKey =
-    lens _umupSshPublicKey (\s a -> s { _umupSshPublicKey = a })
+umupSshPublicKey = lens _umupSshPublicKey (\s a -> s { _umupSshPublicKey = a })
 
-instance ToPath UpdateMyUserProfile
+instance ToPath UpdateMyUserProfile where
+    toPath = const "/"
 
-instance ToQuery UpdateMyUserProfile
+instance ToQuery UpdateMyUserProfile where
+    toQuery = const mempty
 
 instance ToHeaders UpdateMyUserProfile
 
-instance ToJSON UpdateMyUserProfile
+instance ToBody UpdateMyUserProfile where
+    toBody = toBody . encode . _umupSshPublicKey
 
 data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateMyUserProfileResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateMyUserProfileResponse' constructor.
 updateMyUserProfileResponse :: UpdateMyUserProfileResponse
 updateMyUserProfileResponse = UpdateMyUserProfileResponse
+
+-- FromJSON
 
 instance AWSRequest UpdateMyUserProfile where
     type Sv UpdateMyUserProfile = OpsWorks
     type Rs UpdateMyUserProfile = UpdateMyUserProfileResponse
 
-    request = get
-    response _ = nullaryResponse UpdateMyUserProfileResponse
+    request  = post'
+    response = nullaryResponse UpdateMyUserProfileResponse

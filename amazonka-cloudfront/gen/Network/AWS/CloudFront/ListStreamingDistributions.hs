@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.ListStreamingDistributions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,108 +24,94 @@
 module Network.AWS.CloudFront.ListStreamingDistributions
     (
     -- * Request
-      ListStreamingDistributions
+      ListStreamingDistributions2014_05_31
     -- ** Request constructor
-    , listStreamingDistributions
+    , listStreamingDistributions2014_05_31
     -- ** Request lenses
     , lsdMarker
     , lsdMaxItems
 
     -- * Response
-    , ListStreamingDistributionsResponse
+    , ListStreamingDistributions2014_05_31Response
     -- ** Response constructor
-    , listStreamingDistributionsResponse
+    , listStreamingDistributions2014_05_31Response
     -- ** Response lenses
     , lsdrStreamingDistributionList
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to list your streaming distributions.
-data ListStreamingDistributions = ListStreamingDistributions
-    { _lsdMarker :: Maybe Text
+data ListStreamingDistributions2014_05_31 = ListStreamingDistributions2014_05_31
+    { _lsdMarker   :: Maybe Text
     , _lsdMaxItems :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListStreamingDistributions' request.
+-- | 'ListStreamingDistributions2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lsdMarker' @::@ 'Maybe' 'Text'
 --
--- * @MaxItems ::@ @Maybe Text@
+-- * 'lsdMaxItems' @::@ 'Maybe' 'Text'
 --
-listStreamingDistributions :: ListStreamingDistributions
-listStreamingDistributions = ListStreamingDistributions
-    { _lsdMarker = Nothing
+listStreamingDistributions2014_05_31 :: ListStreamingDistributions2014_05_31
+listStreamingDistributions2014_05_31 = ListStreamingDistributions2014_05_31
+    { _lsdMarker   = Nothing
     , _lsdMaxItems = Nothing
     }
 
--- | Use this when paginating results to indicate where to begin in your list of
--- streaming distributions. The results include distributions in the list that
--- occur after the marker. To get the next page of results, set the Marker to
--- the value of the NextMarker from the current page's response (which is also
--- the ID of the last distribution on that page).
-lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
+-- | Use this when paginating results to indicate where to begin in your list
+-- of streaming distributions. The results include distributions in the list
+-- that occur after the marker. To get the next page of results, set the
+-- Marker to the value of the NextMarker from the current page's response
+-- (which is also the ID of the last distribution on that page).
+lsdMarker :: Lens' ListStreamingDistributions2014_05_31 (Maybe Text)
 lsdMarker = lens _lsdMarker (\s a -> s { _lsdMarker = a })
 
 -- | The maximum number of streaming distributions you want in the response
 -- body.
-lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
+lsdMaxItems :: Lens' ListStreamingDistributions2014_05_31 (Maybe Text)
 lsdMaxItems = lens _lsdMaxItems (\s a -> s { _lsdMaxItems = a })
 
-instance ToPath ListStreamingDistributions
+instance ToPath ListStreamingDistributions2014_05_31 where
+    toPath = const "/2014-05-31/streaming-distribution"
 
-instance ToQuery ListStreamingDistributions
+instance ToQuery ListStreamingDistributions2014_05_31 where
+    toQuery ListStreamingDistributions2014_05_31{..} = mconcat
+        [ "Marker"   =? _lsdMarker
+        , "MaxItems" =? _lsdMaxItems
+        ]
 
-instance ToHeaders ListStreamingDistributions
+instance ToHeaders ListStreamingDistributions2014_05_31
 
-instance ToXML ListStreamingDistributions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListStreamingDistributions"
+newtype ListStreamingDistributions2014_05_31Response = ListStreamingDistributions2014_05_31Response
+    { _lsdrStreamingDistributionList :: Maybe StreamingDistributionList
+    } deriving (Eq, Show, Generic)
 
--- | The returned result of the corresponding request.
-newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
-    { _lsdrStreamingDistributionList :: StreamingDistributionList
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListStreamingDistributionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListStreamingDistributions2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StreamingDistributionList ::@ @StreamingDistributionList@
+-- * 'lsdrStreamingDistributionList' @::@ 'Maybe' 'StreamingDistributionList'
 --
-listStreamingDistributionsResponse :: StreamingDistributionList -- ^ 'lsdrStreamingDistributionList'
-                                   -> ListStreamingDistributionsResponse
-listStreamingDistributionsResponse p1 = ListStreamingDistributionsResponse
-    { _lsdrStreamingDistributionList = p1
+listStreamingDistributions2014_05_31Response :: ListStreamingDistributions2014_05_31Response
+listStreamingDistributions2014_05_31Response = ListStreamingDistributions2014_05_31Response
+    { _lsdrStreamingDistributionList = Nothing
     }
 
 -- | The StreamingDistributionList type.
-lsdrStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
+lsdrStreamingDistributionList :: Lens' ListStreamingDistributions2014_05_31Response (Maybe StreamingDistributionList)
 lsdrStreamingDistributionList =
     lens _lsdrStreamingDistributionList
-         (\s a -> s { _lsdrStreamingDistributionList = a })
+        (\s a -> s { _lsdrStreamingDistributionList = a })
 
-instance FromXML ListStreamingDistributionsResponse where
-    fromXMLOptions = xmlOptions
+instance AWSRequest ListStreamingDistributions2014_05_31 where
+    type Sv ListStreamingDistributions2014_05_31 = CloudFront
+    type Rs ListStreamingDistributions2014_05_31 = ListStreamingDistributions2014_05_31Response
 
-instance AWSRequest ListStreamingDistributions where
-    type Sv ListStreamingDistributions = CloudFront
-    type Rs ListStreamingDistributions = ListStreamingDistributionsResponse
-
-    request = get
-    response _ = xmlResponse
-
-instance AWSPager ListStreamingDistributions where
-    next rq rs
-        | not (rs ^. lsdrStreamingDistributionList . sdlIsTruncated) = Nothing
-        | otherwise = Just $
-            rq & lsdMarker .~ rs ^. lsdrStreamingDistributionList . sdlNextMarker
+    request  = get
+    response = xmlResponse $ \h x -> ListStreamingDistributions2014_05_31Response
+        <$> x %| "StreamingDistributionList"

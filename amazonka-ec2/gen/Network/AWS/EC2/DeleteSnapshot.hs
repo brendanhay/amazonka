@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,13 +29,7 @@
 -- the volume. You cannot delete a snapshot of the root device of an Amazon
 -- EBS volume used by a registered AMI. You must first de-register the AMI
 -- before you can delete the snapshot. For more information, see Deleting an
--- Amazon EBS Snapshot in the Amazon Elastic Compute Cloud User Guide. Example
--- This example request deletes the snapshot with the ID snap-1a2b3c4d.
--- https://ec2.amazonaws.com/?Action=DeleteSnapshot
--- &amp;SnapshotId.1=snap-1a2b3c4d &amp;AUTHPARAMS &lt;DeleteSnapshotResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSnapshotResponse&gt;.
+-- Amazon EBS Snapshot in the Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.DeleteSnapshot
     (
     -- * Request
@@ -41,7 +37,8 @@ module Network.AWS.EC2.DeleteSnapshot
     -- ** Request constructor
     , deleteSnapshot
     -- ** Request lenses
-    , dsSnapshotId
+    , ds3DryRun
+    , ds3SnapshotId
 
     -- * Response
     , DeleteSnapshotResponse
@@ -49,41 +46,47 @@ module Network.AWS.EC2.DeleteSnapshot
     , deleteSnapshotResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteSnapshot = DeleteSnapshot
-    { _dsSnapshotId :: Text
+data DeleteSnapshot = DeleteSnapshot
+    { _ds3DryRun     :: Maybe Bool
+    , _ds3SnapshotId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSnapshot' request.
+-- | 'DeleteSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SnapshotId ::@ @Text@
+-- * 'ds3DryRun' @::@ 'Maybe' 'Bool'
 --
-deleteSnapshot :: Text -- ^ 'dsSnapshotId'
+-- * 'ds3SnapshotId' @::@ 'Text'
+--
+deleteSnapshot :: Text -- ^ 'ds3SnapshotId'
                -> DeleteSnapshot
 deleteSnapshot p1 = DeleteSnapshot
-    { _dsSnapshotId = p1
+    { _ds3SnapshotId = p1
+    , _ds3DryRun     = Nothing
     }
 
--- | The ID of the Amazon EBS snapshot.
-dsSnapshotId :: Lens' DeleteSnapshot Text
-dsSnapshotId = lens _dsSnapshotId (\s a -> s { _dsSnapshotId = a })
+ds3DryRun :: Lens' DeleteSnapshot (Maybe Bool)
+ds3DryRun = lens _ds3DryRun (\s a -> s { _ds3DryRun = a })
 
-instance ToQuery DeleteSnapshot where
-    toQuery = genericQuery def
+-- | The ID of the Amazon EBS snapshot.
+ds3SnapshotId :: Lens' DeleteSnapshot Text
+ds3SnapshotId = lens _ds3SnapshotId (\s a -> s { _ds3SnapshotId = a })
+
+instance ToQuery DeleteSnapshot
+
+instance ToPath DeleteSnapshot where
+    toPath = const "/"
 
 data DeleteSnapshotResponse = DeleteSnapshotResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSnapshotResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteSnapshotResponse' constructor.
 deleteSnapshotResponse :: DeleteSnapshotResponse
 deleteSnapshotResponse = DeleteSnapshotResponse
 
@@ -91,5 +94,5 @@ instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = EC2
     type Rs DeleteSnapshot = DeleteSnapshotResponse
 
-    request = post "DeleteSnapshot"
-    response _ = nullaryResponse DeleteSnapshotResponse
+    request  = post "DeleteSnapshot"
+    response = nullaryResponse DeleteSnapshotResponse

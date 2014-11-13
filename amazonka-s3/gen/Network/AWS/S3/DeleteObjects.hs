@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteObjects
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,8 +26,6 @@ module Network.AWS.S3.DeleteObjects
     (
     -- * Request
       DeleteObjects
-    -- ** Request alias
-    , DeleteMultipleObjects
     -- ** Request constructor
     , deleteObjects
     -- ** Request lenses
@@ -38,44 +38,41 @@ module Network.AWS.S3.DeleteObjects
     -- ** Response constructor
     , deleteObjectsResponse
     -- ** Response lenses
-    , dorrDeleted
-    , dorrErrors
+    , dorDeleted
+    , dorErrors
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
-
-type DeleteMultipleObjects = DeleteObjects
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data DeleteObjects = DeleteObjects
-    { _do1Bucket :: BucketName
+    { _do1Bucket :: Text
     , _do1Delete :: Delete
-    , _do1MFA :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _do1MFA    :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteObjects' request.
+-- | 'DeleteObjects' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'do1Bucket' @::@ 'Text'
 --
--- * @Delete ::@ @Delete@
+-- * 'do1Delete' @::@ 'Delete'
 --
--- * @MFA ::@ @Maybe Text@
+-- * 'do1MFA' @::@ 'Maybe' 'Text'
 --
-deleteObjects :: BucketName -- ^ 'do1Bucket'
+deleteObjects :: Text -- ^ 'do1Bucket'
               -> Delete -- ^ 'do1Delete'
               -> DeleteObjects
 deleteObjects p1 p2 = DeleteObjects
     { _do1Bucket = p1
     , _do1Delete = p2
-    , _do1MFA = Nothing
+    , _do1MFA    = Nothing
     }
 
-do1Bucket :: Lens' DeleteObjects BucketName
+do1Bucket :: Lens' DeleteObjects Text
 do1Bucket = lens _do1Bucket (\s a -> s { _do1Bucket = a })
 
 do1Delete :: Lens' DeleteObjects Delete
@@ -86,12 +83,17 @@ do1Delete = lens _do1Delete (\s a -> s { _do1Delete = a })
 do1MFA :: Lens' DeleteObjects (Maybe Text)
 do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
 
-instance ToPath DeleteObjects
+instance ToPath DeleteObjects where
+    toPath DeleteObjects{..} = mconcat
+        [ "/"
+        , toText _do1Bucket
+        ]
 
-instance ToQuery DeleteObjects
+instance ToQuery DeleteObjects where
+    toQuery = const "delete"
 
 instance ToHeaders DeleteObjects where
-    toHeaders DeleteObjects{..} = concat
+    toHeaders DeleteObjects{..} = mconcat
         [ "x-amz-mfa" =: _do1MFA
         ]
 
@@ -99,39 +101,35 @@ instance ToBody DeleteObjects where
     toBody = toBody . encodeXML . _do1Delete
 
 data DeleteObjectsResponse = DeleteObjectsResponse
-    { _dorrDeleted :: [DeletedObject]
-    , _dorrErrors :: [Error]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dorDeleted :: [S3ServiceError]
+    , _dorErrors  :: [S3ServiceError]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteObjectsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteObjectsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Deleted ::@ @[DeletedObject]@
+-- * 'dorDeleted' @::@ ['S3ServiceError']
 --
--- * @Errors ::@ @[Error]@
+-- * 'dorErrors' @::@ ['S3ServiceError']
 --
 deleteObjectsResponse :: DeleteObjectsResponse
 deleteObjectsResponse = DeleteObjectsResponse
-    { _dorrDeleted = mempty
-    , _dorrErrors = mempty
+    { _dorDeleted = mempty
+    , _dorErrors  = mempty
     }
 
-dorrDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
-dorrDeleted = lens _dorrDeleted (\s a -> s { _dorrDeleted = a })
+dorDeleted :: Lens' DeleteObjectsResponse [S3ServiceError]
+dorDeleted = lens _dorDeleted (\s a -> s { _dorDeleted = a })
 
-dorrErrors :: Lens' DeleteObjectsResponse [Error]
-dorrErrors = lens _dorrErrors (\s a -> s { _dorrErrors = a })
-
-instance FromXML DeleteObjectsResponse where
-    fromXMLOptions = xmlOptions
+dorErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
+dorErrors = lens _dorErrors (\s a -> s { _dorErrors = a })
 
 instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
     type Rs DeleteObjects = DeleteObjectsResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = post
+    response = xmlResponse $ \h x -> DeleteObjectsResponse
+        <$> x %| "Deleted"
+        <*> x %| "Error"

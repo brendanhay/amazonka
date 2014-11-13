@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.DeleteSAMLProvider
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,10 +23,7 @@
 -- | Deletes a SAML provider. Deleting the provider does not update any roles
 -- that reference the SAML provider as a principal in their trust policies.
 -- Any attempt to assume a role that references a SAML provider that has been
--- deleted will fail. This operation requires Signature Version 4.
--- https://iam.amazonaws.com/ ?Action=DeleteSAMLProvider
--- &Name=arn:aws:iam::123456789012:saml-metadata/MyUniversity
--- &Version=2010-05-08 &AUTHPARAMS.
+-- deleted will fail.
 module Network.AWS.IAM.DeleteSAMLProvider
     (
     -- * Request
@@ -40,20 +39,20 @@ module Network.AWS.IAM.DeleteSAMLProvider
     , deleteSAMLProviderResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype DeleteSAMLProvider = DeleteSAMLProvider
     { _dsamlpSAMLProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSAMLProvider' request.
+-- | 'DeleteSAMLProvider' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SAMLProviderArn ::@ @Text@
+-- * 'dsamlpSAMLProviderArn' @::@ 'Text'
 --
 deleteSAMLProvider :: Text -- ^ 'dsamlpSAMLProviderArn'
                    -> DeleteSAMLProvider
@@ -66,16 +65,15 @@ dsamlpSAMLProviderArn :: Lens' DeleteSAMLProvider Text
 dsamlpSAMLProviderArn =
     lens _dsamlpSAMLProviderArn (\s a -> s { _dsamlpSAMLProviderArn = a })
 
-instance ToQuery DeleteSAMLProvider where
-    toQuery = genericQuery def
+instance ToQuery DeleteSAMLProvider
+
+instance ToPath DeleteSAMLProvider where
+    toPath = const "/"
 
 data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSAMLProviderResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteSAMLProviderResponse' constructor.
 deleteSAMLProviderResponse :: DeleteSAMLProviderResponse
 deleteSAMLProviderResponse = DeleteSAMLProviderResponse
 
@@ -83,5 +81,5 @@ instance AWSRequest DeleteSAMLProvider where
     type Sv DeleteSAMLProvider = IAM
     type Rs DeleteSAMLProvider = DeleteSAMLProviderResponse
 
-    request = post "DeleteSAMLProvider"
-    response _ = nullaryResponse DeleteSAMLProviderResponse
+    request  = post "DeleteSAMLProvider"
+    response = nullaryResponse DeleteSAMLProviderResponse

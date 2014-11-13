@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,16 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of all termination policies supported by Auto Scaling.
--- https://autoscaling.amazonaws.com/?Version=2011-01-01
--- &Action=DescribeTerminationPolicyTypes &AUTHPARAMS
--- ClosestToNextInstanceHour Default NewestInstance OldestInstance
--- OldestLaunchConfiguration d9a05827-b735-11e2-a40c-c79a5EXAMPLE.
 module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     (
     -- * Request
       DescribeTerminationPolicyTypes
     -- ** Request constructor
     , describeTerminationPolicyTypes
+
     -- * Response
     , DescribeTerminationPolicyTypesResponse
     -- ** Response constructor
@@ -37,34 +36,38 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     , dtptrTerminationPolicyTypes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTerminationPolicyTypes' request.
+-- | 'DescribeTerminationPolicyTypes' constructor.
 describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
 describeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 
-instance ToQuery DescribeTerminationPolicyTypes where
-    toQuery = genericQuery def
+instance ToQuery DescribeTerminationPolicyTypes
 
--- | The TerminationPolicyTypes data type.
+instance ToPath DescribeTerminationPolicyTypes where
+    toPath = const "/"
+
 newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     { _dtptrTerminationPolicyTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTerminationPolicyTypesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeTerminationPolicyTypesResponse where
+    type Item DescribeTerminationPolicyTypesResponse = Text
+
+    fromList = DescribeTerminationPolicyTypesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dtptrTerminationPolicyTypes
+
+-- | 'DescribeTerminationPolicyTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TerminationPolicyTypes ::@ @[Text]@
+-- * 'dtptrTerminationPolicyTypes' @::@ ['Text']
 --
 describeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesResponse
 describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
@@ -77,14 +80,12 @@ describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
 dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
 dtptrTerminationPolicyTypes =
     lens _dtptrTerminationPolicyTypes
-         (\s a -> s { _dtptrTerminationPolicyTypes = a })
-
-instance FromXML DescribeTerminationPolicyTypesResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _dtptrTerminationPolicyTypes = a })
 
 instance AWSRequest DescribeTerminationPolicyTypes where
     type Sv DescribeTerminationPolicyTypes = AutoScaling
     type Rs DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypesResponse
 
-    request = post "DescribeTerminationPolicyTypes"
-    response _ = xmlResponse
+    request  = post "DescribeTerminationPolicyTypes"
+    response = xmlResponse $ \h x -> DescribeTerminationPolicyTypesResponse
+        <$> x %| "TerminationPolicyTypes"

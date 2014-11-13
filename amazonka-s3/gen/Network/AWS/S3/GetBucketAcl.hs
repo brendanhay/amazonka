@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,78 +35,76 @@ module Network.AWS.S3.GetBucketAcl
     -- ** Response constructor
     , getBucketAclResponse
     -- ** Response lenses
-    , gbarOwner
     , gbarGrants
+    , gbarOwner
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketAcl = GetBucketAcl
-    { _gbaBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbaBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketAcl' request.
+-- | 'GetBucketAcl' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'gbaBucket' @::@ 'Text'
 --
-getBucketAcl :: BucketName -- ^ 'gbaBucket'
+getBucketAcl :: Text -- ^ 'gbaBucket'
              -> GetBucketAcl
 getBucketAcl p1 = GetBucketAcl
     { _gbaBucket = p1
     }
 
-gbaBucket :: Lens' GetBucketAcl BucketName
+gbaBucket :: Lens' GetBucketAcl Text
 gbaBucket = lens _gbaBucket (\s a -> s { _gbaBucket = a })
 
-instance ToPath GetBucketAcl
+instance ToPath GetBucketAcl where
+    toPath GetBucketAcl{..} = mconcat
+        [ "/"
+        , toText _gbaBucket
+        ]
 
-instance ToQuery GetBucketAcl
+instance ToQuery GetBucketAcl where
+    toQuery = const "acl"
 
 instance ToHeaders GetBucketAcl
 
-instance ToBody GetBucketAcl
-
 data GetBucketAclResponse = GetBucketAclResponse
-    { _gbarOwner :: Maybe Owner
-    , _gbarGrants :: [Grant]
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbarGrants :: [Grant]
+    , _gbarOwner  :: Maybe Owner
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketAclResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetBucketAclResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Owner ::@ @Maybe Owner@
+-- * 'gbarGrants' @::@ ['Grant']
 --
--- * @Grants ::@ @[Grant]@
+-- * 'gbarOwner' @::@ 'Maybe' 'Owner'
 --
 getBucketAclResponse :: GetBucketAclResponse
 getBucketAclResponse = GetBucketAclResponse
-    { _gbarOwner = Nothing
+    { _gbarOwner  = Nothing
     , _gbarGrants = mempty
     }
-
-gbarOwner :: Lens' GetBucketAclResponse (Maybe Owner)
-gbarOwner = lens _gbarOwner (\s a -> s { _gbarOwner = a })
 
 -- | A list of grants.
 gbarGrants :: Lens' GetBucketAclResponse [Grant]
 gbarGrants = lens _gbarGrants (\s a -> s { _gbarGrants = a })
 
-instance FromXML GetBucketAclResponse where
-    fromXMLOptions = xmlOptions
+gbarOwner :: Lens' GetBucketAclResponse (Maybe Owner)
+gbarOwner = lens _gbarOwner (\s a -> s { _gbarOwner = a })
 
 instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
     type Rs GetBucketAcl = GetBucketAclResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetBucketAclResponse
+        <$> x %| "AccessControlList"
+        <*> x %| "Owner"

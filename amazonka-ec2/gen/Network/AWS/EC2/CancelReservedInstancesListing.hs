@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CancelReservedInstancesListing
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,16 +22,7 @@
 
 -- | Cancels the specified Reserved Instance listing in the Reserved Instance
 -- Marketplace. For more information, see Reserved Instance Marketplace in the
--- Amazon Elastic Compute Cloud User Guide. Example This example request
--- cancels a Reserved Instance listing in the Reserved Instance Marketplace.
--- https://ec2.amazonaws.com/?Action=CancelReservedInstancesListing
--- &amp;ReservedInstancesListingId=3ebe97b5-f273-43b6-a204-7a18cEXAMPLE
--- &amp;AUTHPARAMS bec2cf62-98ef-434a-8a15-886fcexample
--- 3ebe97b5-f273-43b6-a204-7a18cEXAMPLE e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE
--- 2012-07-12T16:55:28.000Z 2012-07-12T16:55:28.000Z cancelled CANCELLED
--- Available 0 Sold 0 Cancelled 1 Pending 0 5 166.64 USD false 4 133.32 USD
--- false 3 99.99 USD false 2 66.66 USD false 1 33.33 USD false
--- XqJIt1342112125076.
+-- Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.CancelReservedInstancesListing
     (
     -- * Request
@@ -47,20 +40,20 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     , crilrReservedInstancesListings
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing
     { _crilReservedInstancesListingId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelReservedInstancesListing' request.
+-- | 'CancelReservedInstancesListing' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesListingId ::@ @Text@
+-- * 'crilReservedInstancesListingId' @::@ 'Text'
 --
 cancelReservedInstancesListing :: Text -- ^ 'crilReservedInstancesListingId'
                                -> CancelReservedInstancesListing
@@ -72,23 +65,28 @@ cancelReservedInstancesListing p1 = CancelReservedInstancesListing
 crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
 crilReservedInstancesListingId =
     lens _crilReservedInstancesListingId
-         (\s a -> s { _crilReservedInstancesListingId = a })
+        (\s a -> s { _crilReservedInstancesListingId = a })
 
-instance ToQuery CancelReservedInstancesListing where
-    toQuery = genericQuery def
+instance ToQuery CancelReservedInstancesListing
+
+instance ToPath CancelReservedInstancesListing where
+    toPath = const "/"
 
 newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilrReservedInstancesListings :: [ReservedInstancesListing]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelReservedInstancesListingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList CancelReservedInstancesListingResponse where
+    type Item CancelReservedInstancesListingResponse = ReservedInstancesListing
+
+    fromList = CancelReservedInstancesListingResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _crilrReservedInstancesListings
+
+-- | 'CancelReservedInstancesListingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesListings ::@ @[ReservedInstancesListing]@
+-- * 'crilrReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
 cancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse
 cancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
@@ -99,14 +97,12 @@ cancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
 crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
 crilrReservedInstancesListings =
     lens _crilrReservedInstancesListings
-         (\s a -> s { _crilrReservedInstancesListings = a })
-
-instance FromXML CancelReservedInstancesListingResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _crilrReservedInstancesListings = a })
 
 instance AWSRequest CancelReservedInstancesListing where
     type Sv CancelReservedInstancesListing = EC2
     type Rs CancelReservedInstancesListing = CancelReservedInstancesListingResponse
 
-    request = post "CancelReservedInstancesListing"
-    response _ = xmlResponse
+    request  = post "CancelReservedInstancesListing"
+    response = xmlResponse $ \h x -> CancelReservedInstancesListingResponse
+        <$> x %| "reservedInstancesListingsSet"

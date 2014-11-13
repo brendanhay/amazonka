@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.StopInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,7 +35,7 @@ module Network.AWS.OpsWorks.StopInstance
     -- ** Request constructor
     , stopInstance
     -- ** Request lenses
-    , si1InstanceId
+    , siInstanceId
 
     -- * Response
     , StopInstanceResponse
@@ -41,52 +43,53 @@ module Network.AWS.OpsWorks.StopInstance
     , stopInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype StopInstance = StopInstance
-    { _si1InstanceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _siInstanceId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StopInstance' request.
+-- | 'StopInstance' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @Text@
+-- * 'siInstanceId' @::@ 'Text'
 --
-stopInstance :: Text -- ^ 'si1InstanceId'
+stopInstance :: Text -- ^ 'siInstanceId'
              -> StopInstance
 stopInstance p1 = StopInstance
-    { _si1InstanceId = p1
+    { _siInstanceId = p1
     }
 
 -- | The instance ID.
-si1InstanceId :: Lens' StopInstance Text
-si1InstanceId = lens _si1InstanceId (\s a -> s { _si1InstanceId = a })
+siInstanceId :: Lens' StopInstance Text
+siInstanceId = lens _siInstanceId (\s a -> s { _siInstanceId = a })
 
-instance ToPath StopInstance
+instance ToPath StopInstance where
+    toPath = const "/"
 
-instance ToQuery StopInstance
+instance ToQuery StopInstance where
+    toQuery = const mempty
 
 instance ToHeaders StopInstance
 
-instance ToJSON StopInstance
+instance ToBody StopInstance where
+    toBody = toBody . encode . _siInstanceId
 
 data StopInstanceResponse = StopInstanceResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StopInstanceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'StopInstanceResponse' constructor.
 stopInstanceResponse :: StopInstanceResponse
 stopInstanceResponse = StopInstanceResponse
+
+-- FromJSON
 
 instance AWSRequest StopInstance where
     type Sv StopInstance = OpsWorks
     type Rs StopInstance = StopInstanceResponse
 
-    request = get
-    response _ = nullaryResponse StopInstanceResponse
+    request  = post'
+    response = nullaryResponse StopInstanceResponse

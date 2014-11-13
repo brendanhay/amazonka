@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetObjectTorrent
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,59 +39,60 @@ module Network.AWS.S3.GetObjectTorrent
     , gotrBody
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data GetObjectTorrent = GetObjectTorrent
-    { _gotBucket :: BucketName
-    , _gotKey :: ObjectKey
+    { _gotBucket :: Text
+    , _gotKey    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetObjectTorrent' request.
+-- | 'GetObjectTorrent' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'gotBucket' @::@ 'Text'
 --
--- * @Key ::@ @ObjectKey@
+-- * 'gotKey' @::@ 'Text'
 --
-getObjectTorrent :: BucketName -- ^ 'gotBucket'
-                 -> ObjectKey -- ^ 'gotKey'
+getObjectTorrent :: Text -- ^ 'gotBucket'
+                 -> Text -- ^ 'gotKey'
                  -> GetObjectTorrent
 getObjectTorrent p1 p2 = GetObjectTorrent
     { _gotBucket = p1
-    , _gotKey = p2
+    , _gotKey    = p2
     }
 
-gotBucket :: Lens' GetObjectTorrent BucketName
+gotBucket :: Lens' GetObjectTorrent Text
 gotBucket = lens _gotBucket (\s a -> s { _gotBucket = a })
 
-gotKey :: Lens' GetObjectTorrent ObjectKey
+gotKey :: Lens' GetObjectTorrent Text
 gotKey = lens _gotKey (\s a -> s { _gotKey = a })
 
-instance ToPath GetObjectTorrent
+instance ToPath GetObjectTorrent where
+    toPath GetObjectTorrent{..} = mconcat
+        [ "/"
+        , toText _gotBucket
+        , "/"
+        , toText _gotKey
+        ]
 
-instance ToQuery GetObjectTorrent
+instance ToQuery GetObjectTorrent where
+    toQuery = const "torrent"
 
 instance ToHeaders GetObjectTorrent
-
-instance ToBody GetObjectTorrent
 
 newtype GetObjectTorrentResponse = GetObjectTorrentResponse
     { _gotrBody :: RsBody
     } deriving (Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetObjectTorrentResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetObjectTorrentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Body ::@ @RsBody@
+-- * 'gotrBody' @::@ 'RsBody'
 --
 getObjectTorrentResponse :: RsBody -- ^ 'gotrBody'
                          -> GetObjectTorrentResponse
@@ -104,7 +107,6 @@ instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3
     type Rs GetObjectTorrent = GetObjectTorrentResponse
 
-    request = get
-    response _ = bodyResponse $ \_ bdy ->
-        return $! pure GetObjectTorrentResponse
-            <*> pure (RsBody bdy)
+    request  = get
+    response = bodyResponse $ \h b -> GetObjectTorrentResponse
+        <$> pure (RsBody b)

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeChapCredentials
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,21 +22,7 @@
 
 -- | This operation returns an array of Challenge-Handshake Authentication
 -- Protocol (CHAP) credentials information for a specified iSCSI target, one
--- for each target-initiator pair. Example Request The following example shows
--- a request that returns the CHAP credentials of an iSCSI target. POST /
--- HTTP/1.1 Host: storagegateway.us-east-1.amazonaws.com x-amz-Date:
--- 20120425T120000Z Authorization:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Content-type:
--- application/x-amz-json-1.1 x-amz-target:
--- StorageGateway_20120630.DescribeChapCredentials { "TargetARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume"
--- } HTTP/1.1 200 OK x-amzn-RequestId:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Date: Wed, 25 Apr 2012
--- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 235 {
--- "ChapCredentials": { "TargetName": "iqn.1997-05.com.amazon:myvolume",
--- "SecretToAuthenticateInitiator": "111111111111", "InitiatorName":
--- "iqn.1991-05.com.microsoft:computername.domain.example.com",
--- "SecretToAuthenticateTarget": "222222222222" } }.
+-- for each target-initiator pair.
 module Network.AWS.StorageGateway.DescribeChapCredentials
     (
     -- * Request
@@ -42,91 +30,95 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
     -- ** Request constructor
     , describeChapCredentials
     -- ** Request lenses
-    , dcc1TargetARN
+    , dccTargetARN
 
     -- * Response
     , DescribeChapCredentialsResponse
     -- ** Response constructor
     , describeChapCredentialsResponse
     -- ** Response lenses
-    , dccrrChapCredentials
+    , dccrChapCredentials
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
--- | A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume
--- target.
 newtype DescribeChapCredentials = DescribeChapCredentials
-    { _dcc1TargetARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dccTargetARN :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeChapCredentials' request.
+-- | 'DescribeChapCredentials' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TargetARN ::@ @Text@
+-- * 'dccTargetARN' @::@ 'Text'
 --
-describeChapCredentials :: Text -- ^ 'dcc1TargetARN'
+describeChapCredentials :: Text -- ^ 'dccTargetARN'
                         -> DescribeChapCredentials
 describeChapCredentials p1 = DescribeChapCredentials
-    { _dcc1TargetARN = p1
+    { _dccTargetARN = p1
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-dcc1TargetARN :: Lens' DescribeChapCredentials Text
-dcc1TargetARN = lens _dcc1TargetARN (\s a -> s { _dcc1TargetARN = a })
+dccTargetARN :: Lens' DescribeChapCredentials Text
+dccTargetARN = lens _dccTargetARN (\s a -> s { _dccTargetARN = a })
 
-instance ToPath DescribeChapCredentials
+instance ToPath DescribeChapCredentials where
+    toPath = const "/"
 
-instance ToQuery DescribeChapCredentials
+instance ToQuery DescribeChapCredentials where
+    toQuery = const mempty
 
 instance ToHeaders DescribeChapCredentials
 
-instance ToJSON DescribeChapCredentials
+instance ToBody DescribeChapCredentials where
+    toBody = toBody . encode . _dccTargetARN
 
--- | A JSON object containing a .
 newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
-    { _dccrrChapCredentials :: [ChapInfo]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dccrChapCredentials :: [ChapInfo]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeChapCredentialsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeChapCredentialsResponse where
+    type Item DescribeChapCredentialsResponse = ChapInfo
+
+    fromList = DescribeChapCredentialsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dccrChapCredentials
+
+-- | 'DescribeChapCredentialsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ChapCredentials ::@ @[ChapInfo]@
+-- * 'dccrChapCredentials' @::@ ['ChapInfo']
 --
 describeChapCredentialsResponse :: DescribeChapCredentialsResponse
 describeChapCredentialsResponse = DescribeChapCredentialsResponse
-    { _dccrrChapCredentials = mempty
+    { _dccrChapCredentials = mempty
     }
 
 -- | An array of ChapInfo objects that represent CHAP credentials. Each object
--- in the array contains CHAP credential information for one target-initiator
--- pair. If no CHAP credentials are set, an empty array is returned. CHAP
--- credential information is provided in a JSON object with the following
--- fields: InitiatorName: The iSCSI initiator that connects to the target.
--- SecretToAuthenticateInitiator: The secret key that the initiator (e.g.
--- Windows client) must provide to participate in mutual CHAP with the target.
--- SecretToAuthenticateTarget: The secret key that the target must provide to
--- participate in mutual CHAP with the initiator (e.g. Windows client).
--- TargetARN: The Amazon Resource Name (ARN) of the storage volume.
-dccrrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
-dccrrChapCredentials =
-    lens _dccrrChapCredentials (\s a -> s { _dccrrChapCredentials = a })
+-- in the array contains CHAP credential information for one
+-- target-initiator pair. If no CHAP credentials are set, an empty array is
+-- returned. CHAP credential information is provided in a JSON object with
+-- the following fields: InitiatorName: The iSCSI initiator that connects to
+-- the target. SecretToAuthenticateInitiator: The secret key that the
+-- initiator (e.g. Windows client) must provide to participate in mutual
+-- CHAP with the target. SecretToAuthenticateTarget: The secret key that the
+-- target must provide to participate in mutual CHAP with the initiator
+-- (e.g. Windows client). TargetARN: The Amazon Resource Name (ARN) of the
+-- storage volume.
+dccrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
+dccrChapCredentials =
+    lens _dccrChapCredentials (\s a -> s { _dccrChapCredentials = a })
 
-instance FromJSON DescribeChapCredentialsResponse
+-- FromJSON
 
 instance AWSRequest DescribeChapCredentials where
     type Sv DescribeChapCredentials = StorageGateway
     type Rs DescribeChapCredentials = DescribeChapCredentialsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeChapCredentialsResponse
+        <$> o .: "ChapCredentials"

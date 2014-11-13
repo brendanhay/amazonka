@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DisableVgwRoutePropagation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,17 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Disables a virtual private gateway (VGW) from propagating routes to the
--- routing tables of a VPC. Example This example disables the virtual private
--- gateway vgw-d8e09e8a from automatically propagating routes to the routing
--- table with ID rtb-c98a35a0.
--- https://ec2.amazonaws.com/?Action=DisableVgwRoutePropagationResponse
--- &amp;RouteTableID=rtb-c98a35a0 &amp;GatewayId= vgw-d8e09e8a &amp;AUTHPARAMS
--- &lt;DisableVgwRoutePropagationResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;4f35a1b2-c2c3-4093-b51f-abb9d7311990&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt;
--- &lt;/DisableVgwRoutePropagationResponse&gt;.
+-- | Disables a virtual private gateway (VGW) from propagating routes to a
+-- specified route table of a VPC.
 module Network.AWS.EC2.DisableVgwRoutePropagation
     (
     -- * Request
@@ -36,8 +29,8 @@ module Network.AWS.EC2.DisableVgwRoutePropagation
     -- ** Request constructor
     , disableVgwRoutePropagation
     -- ** Request lenses
-    , dvrpRouteTableId
     , dvrpGatewayId
+    , dvrpRouteTableId
 
     -- * Response
     , DisableVgwRoutePropagationResponse
@@ -45,51 +38,49 @@ module Network.AWS.EC2.DisableVgwRoutePropagation
     , disableVgwRoutePropagationResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
-    { _dvrpRouteTableId :: Text
-    , _dvrpGatewayId :: Text
+    { _dvrpGatewayId    :: Text
+    , _dvrpRouteTableId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableVgwRoutePropagation' request.
+-- | 'DisableVgwRoutePropagation' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RouteTableId ::@ @Text@
+-- * 'dvrpGatewayId' @::@ 'Text'
 --
--- * @GatewayId ::@ @Text@
+-- * 'dvrpRouteTableId' @::@ 'Text'
 --
 disableVgwRoutePropagation :: Text -- ^ 'dvrpRouteTableId'
                            -> Text -- ^ 'dvrpGatewayId'
                            -> DisableVgwRoutePropagation
 disableVgwRoutePropagation p1 p2 = DisableVgwRoutePropagation
     { _dvrpRouteTableId = p1
-    , _dvrpGatewayId = p2
+    , _dvrpGatewayId    = p2
     }
-
--- | The ID of the routing table.
-dvrpRouteTableId :: Lens' DisableVgwRoutePropagation Text
-dvrpRouteTableId =
-    lens _dvrpRouteTableId (\s a -> s { _dvrpRouteTableId = a })
 
 -- | The ID of the virtual private gateway.
 dvrpGatewayId :: Lens' DisableVgwRoutePropagation Text
 dvrpGatewayId = lens _dvrpGatewayId (\s a -> s { _dvrpGatewayId = a })
 
-instance ToQuery DisableVgwRoutePropagation where
-    toQuery = genericQuery def
+-- | The ID of the route table.
+dvrpRouteTableId :: Lens' DisableVgwRoutePropagation Text
+dvrpRouteTableId = lens _dvrpRouteTableId (\s a -> s { _dvrpRouteTableId = a })
+
+instance ToQuery DisableVgwRoutePropagation
+
+instance ToPath DisableVgwRoutePropagation where
+    toPath = const "/"
 
 data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableVgwRoutePropagationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DisableVgwRoutePropagationResponse' constructor.
 disableVgwRoutePropagationResponse :: DisableVgwRoutePropagationResponse
 disableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
 
@@ -97,5 +88,5 @@ instance AWSRequest DisableVgwRoutePropagation where
     type Sv DisableVgwRoutePropagation = EC2
     type Rs DisableVgwRoutePropagation = DisableVgwRoutePropagationResponse
 
-    request = post "DisableVgwRoutePropagation"
-    response _ = nullaryResponse DisableVgwRoutePropagationResponse
+    request  = post "DisableVgwRoutePropagation"
+    response = nullaryResponse DisableVgwRoutePropagationResponse

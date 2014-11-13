@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeConnections
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,70 +36,73 @@ module Network.AWS.DirectConnect.DescribeConnections
     -- ** Response constructor
     , describeConnectionsResponse
     -- ** Response lenses
-    , dcrrConnections
+    , dcrConnections
     ) where
 
-import Network.AWS.DirectConnect.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DirectConnect.Types
 
--- | Container for the parameters to the DescribeConnections operation.
 newtype DescribeConnections = DescribeConnections
     { _dc1ConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeConnections' request.
+-- | 'DescribeConnections' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ConnectionId ::@ @Maybe Text@
+-- * 'dc1ConnectionId' @::@ 'Maybe' 'Text'
 --
 describeConnections :: DescribeConnections
 describeConnections = DescribeConnections
     { _dc1ConnectionId = Nothing
     }
 
--- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 dc1ConnectionId :: Lens' DescribeConnections (Maybe Text)
 dc1ConnectionId = lens _dc1ConnectionId (\s a -> s { _dc1ConnectionId = a })
 
-instance ToPath DescribeConnections
+instance ToPath DescribeConnections where
+    toPath = const "/"
 
-instance ToQuery DescribeConnections
+instance ToQuery DescribeConnections where
+    toQuery = const mempty
 
 instance ToHeaders DescribeConnections
 
-instance ToJSON DescribeConnections
+instance ToBody DescribeConnections where
+    toBody = toBody . encode . _dc1ConnectionId
 
--- | A structure containing a list of connections.
 newtype DescribeConnectionsResponse = DescribeConnectionsResponse
-    { _dcrrConnections :: [Connection]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dcrConnections :: [Connection]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeConnectionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeConnectionsResponse where
+    type Item DescribeConnectionsResponse = Connection
+
+    fromList = DescribeConnectionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dcrConnections
+
+-- | 'DescribeConnectionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Connections ::@ @[Connection]@
+-- * 'dcrConnections' @::@ ['Connection']
 --
 describeConnectionsResponse :: DescribeConnectionsResponse
 describeConnectionsResponse = DescribeConnectionsResponse
-    { _dcrrConnections = mempty
+    { _dcrConnections = mempty
     }
 
 -- | A list of connections.
-dcrrConnections :: Lens' DescribeConnectionsResponse [Connection]
-dcrrConnections = lens _dcrrConnections (\s a -> s { _dcrrConnections = a })
+dcrConnections :: Lens' DescribeConnectionsResponse [Connection]
+dcrConnections = lens _dcrConnections (\s a -> s { _dcrConnections = a })
 
-instance FromJSON DescribeConnectionsResponse
+-- FromJSON
 
 instance AWSRequest DescribeConnections where
     type Sv DescribeConnections = DirectConnect
     type Rs DescribeConnections = DescribeConnectionsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeConnectionsResponse
+        <$> o .: "connections"

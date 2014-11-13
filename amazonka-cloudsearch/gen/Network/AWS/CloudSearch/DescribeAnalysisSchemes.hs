@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeAnalysisSchemes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,102 +34,96 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     -- ** Request constructor
     , describeAnalysisSchemes
     -- ** Request lenses
-    , das2DomainName
-    , das2AnalysisSchemeNames
-    , das2Deployed
+    , das1AnalysisSchemeNames
+    , das1Deployed
+    , das1DomainName
 
     -- * Response
     , DescribeAnalysisSchemesResponse
     -- ** Response constructor
     , describeAnalysisSchemesResponse
     -- ** Response lenses
-    , dasr1AnalysisSchemes
+    , dasrAnalysisSchemes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DescribeAnalysisSchemes operation.
--- Specifies the name of the domain you want to describe. To limit the
--- response to particular analysis schemes, specify the names of the analysis
--- schemes you want to describe. To show the active configuration and exclude
--- any pending changes, set the Deployed option to true.
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes
-    { _das2DomainName :: Text
-    , _das2AnalysisSchemeNames :: [Text]
-    , _das2Deployed :: Maybe Bool
+    { _das1AnalysisSchemeNames :: [Text]
+    , _das1Deployed            :: Maybe Bool
+    , _das1DomainName          :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAnalysisSchemes' request.
+-- | 'DescribeAnalysisSchemes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'das1AnalysisSchemeNames' @::@ ['Text']
 --
--- * @AnalysisSchemeNames ::@ @[Text]@
+-- * 'das1Deployed' @::@ 'Maybe' 'Bool'
 --
--- * @Deployed ::@ @Maybe Bool@
+-- * 'das1DomainName' @::@ 'Text'
 --
-describeAnalysisSchemes :: Text -- ^ 'das2DomainName'
+describeAnalysisSchemes :: Text -- ^ 'das1DomainName'
                         -> DescribeAnalysisSchemes
 describeAnalysisSchemes p1 = DescribeAnalysisSchemes
-    { _das2DomainName = p1
-    , _das2AnalysisSchemeNames = mempty
-    , _das2Deployed = Nothing
+    { _das1DomainName          = p1
+    , _das1AnalysisSchemeNames = mempty
+    , _das1Deployed            = Nothing
     }
 
--- | The name of the domain you want to describe.
-das2DomainName :: Lens' DescribeAnalysisSchemes Text
-das2DomainName = lens _das2DomainName (\s a -> s { _das2DomainName = a })
-
 -- | The analysis schemes you want to describe.
-das2AnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
-das2AnalysisSchemeNames =
-    lens _das2AnalysisSchemeNames
-         (\s a -> s { _das2AnalysisSchemeNames = a })
+das1AnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
+das1AnalysisSchemeNames =
+    lens _das1AnalysisSchemeNames (\s a -> s { _das1AnalysisSchemeNames = a })
 
--- | Whether to display the deployed configuration (true) or include any pending
--- changes (false). Defaults to false.
-das2Deployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
-das2Deployed = lens _das2Deployed (\s a -> s { _das2Deployed = a })
+-- | Whether to display the deployed configuration (true) or include any
+-- pending changes (false). Defaults to false.
+das1Deployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
+das1Deployed = lens _das1Deployed (\s a -> s { _das1Deployed = a })
 
-instance ToQuery DescribeAnalysisSchemes where
-    toQuery = genericQuery def
+-- | The name of the domain you want to describe.
+das1DomainName :: Lens' DescribeAnalysisSchemes Text
+das1DomainName = lens _das1DomainName (\s a -> s { _das1DomainName = a })
 
--- | The result of a DescribeAnalysisSchemes request. Contains the analysis
--- schemes configured for the domain specified in the request.
+instance ToQuery DescribeAnalysisSchemes
+
+instance ToPath DescribeAnalysisSchemes where
+    toPath = const "/"
+
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
-    { _dasr1AnalysisSchemes :: [AnalysisSchemeStatus]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dasrAnalysisSchemes :: [AnalysisSchemeStatus]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAnalysisSchemesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeAnalysisSchemesResponse where
+    type Item DescribeAnalysisSchemesResponse = AnalysisSchemeStatus
+
+    fromList = DescribeAnalysisSchemesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dasrAnalysisSchemes
+
+-- | 'DescribeAnalysisSchemesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AnalysisSchemes ::@ @[AnalysisSchemeStatus]@
+-- * 'dasrAnalysisSchemes' @::@ ['AnalysisSchemeStatus']
 --
-describeAnalysisSchemesResponse :: [AnalysisSchemeStatus] -- ^ 'dasr1AnalysisSchemes'
-                                -> DescribeAnalysisSchemesResponse
-describeAnalysisSchemesResponse p1 = DescribeAnalysisSchemesResponse
-    { _dasr1AnalysisSchemes = p1
+describeAnalysisSchemesResponse :: DescribeAnalysisSchemesResponse
+describeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
+    { _dasrAnalysisSchemes = mempty
     }
 
 -- | The analysis scheme descriptions.
-dasr1AnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
-dasr1AnalysisSchemes =
-    lens _dasr1AnalysisSchemes (\s a -> s { _dasr1AnalysisSchemes = a })
-
-instance FromXML DescribeAnalysisSchemesResponse where
-    fromXMLOptions = xmlOptions
+dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
+dasrAnalysisSchemes =
+    lens _dasrAnalysisSchemes (\s a -> s { _dasrAnalysisSchemes = a })
 
 instance AWSRequest DescribeAnalysisSchemes where
     type Sv DescribeAnalysisSchemes = CloudSearch
     type Rs DescribeAnalysisSchemes = DescribeAnalysisSchemesResponse
 
-    request = post "DescribeAnalysisSchemes"
-    response _ = xmlResponse
+    request  = post "DescribeAnalysisSchemes"
+    response = xmlResponse $ \h x -> DescribeAnalysisSchemesResponse
+        <$> x %| "AnalysisSchemes"

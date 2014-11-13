@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatch.DisableAlarmActions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,42 +38,45 @@ module Network.AWS.CloudWatch.DisableAlarmActions
     , disableAlarmActionsResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DisableAlarmActions = DisableAlarmActions
     { _daaAlarmNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableAlarmActions' request.
+instance GHC.Exts.IsList DisableAlarmActions where
+    type Item DisableAlarmActions = Text
+
+    fromList = DisableAlarmActions . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _daaAlarmNames
+
+-- | 'DisableAlarmActions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AlarmNames ::@ @[Text]@
+-- * 'daaAlarmNames' @::@ ['Text']
 --
-disableAlarmActions :: [Text] -- ^ 'daaAlarmNames'
-                    -> DisableAlarmActions
-disableAlarmActions p1 = DisableAlarmActions
-    { _daaAlarmNames = p1
+disableAlarmActions :: DisableAlarmActions
+disableAlarmActions = DisableAlarmActions
+    { _daaAlarmNames = mempty
     }
 
 -- | The names of the alarms to disable actions for.
 daaAlarmNames :: Lens' DisableAlarmActions [Text]
 daaAlarmNames = lens _daaAlarmNames (\s a -> s { _daaAlarmNames = a })
 
-instance ToQuery DisableAlarmActions where
-    toQuery = genericQuery def
+instance ToQuery DisableAlarmActions
+
+instance ToPath DisableAlarmActions where
+    toPath = const "/"
 
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableAlarmActionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DisableAlarmActionsResponse' constructor.
 disableAlarmActionsResponse :: DisableAlarmActionsResponse
 disableAlarmActionsResponse = DisableAlarmActionsResponse
 
@@ -79,5 +84,5 @@ instance AWSRequest DisableAlarmActions where
     type Sv DisableAlarmActions = CloudWatch
     type Rs DisableAlarmActions = DisableAlarmActionsResponse
 
-    request = post "DisableAlarmActions"
-    response _ = nullaryResponse DisableAlarmActionsResponse
+    request  = post "DisableAlarmActions"
+    response = nullaryResponse DisableAlarmActionsResponse

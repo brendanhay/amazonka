@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CreateVpcPeeringConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,31 +28,7 @@
 -- connection request expires after 7 days, after which it cannot be accepted
 -- or rejected. A CreateVpcPeeringConnection request between VPCs with
 -- overlapping CIDR blocks results in the VPC peering connection having a
--- status of failed. Example 1 This example requests a peering connection
--- between your VPC (vpc-1a2b3c4d), and a VPC (vpc-a1b2c3d4) that belongs to
--- AWS account 123456789012.
--- https://ec2.amazonaws.com/?Action=CreateVpcPeeringConnection
--- &amp;VpcId=vpc-1a2b3c4d &amp;PeerVpcId=vpc-a1b2c3d4
--- &amp;PeerOwnerId=123456789012 &amp;AUTHPARAMS
--- &lt;CreateVpcPeeringConnectionResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;vpcPeeringConnection&gt;
--- &lt;vpcPeeringConnectionId&gt;pcx-73a5401a&lt;/vpcPeeringConnectionId&gt;
--- &lt;requesterVpcInfo&gt; &lt;ownerId&gt;777788889999&lt;/ownerId&gt;
--- &lt;vpcId&gt;vpc-vpc-1a2b3c4d&lt;/vpcId&gt;
--- &lt;cidrBlock&gt;10.0.0.0/28&lt;/cidrBlock&gt; &lt;/requesterVpcInfo&gt;
--- &lt;accepterVpcInfo&gt; &lt;ownerId&gt;123456789012&lt;/ownerId&gt;
--- &lt;vpcId&gt;vpc-a1b2c3d4&lt;/vpcId&gt; &lt;/accepterVpcInfo&gt;
--- &lt;status&gt; &lt;code&gt;initiating-request&lt;/code&gt;
--- &lt;message&gt;Initiating Request to 123456789012&lt;/message&gt;
--- &lt;/status&gt;
--- &lt;expirationTime&gt;2014-02-18T14:37:25.000Z&lt;/expirationTime&gt;
--- &lt;tagSet/&gt; &lt;/vpcPeeringConnection&gt;
--- &lt;/CreateVpcPeeringConnectionResponse&gt; Example 2 This example requests
--- a peering connection between your VPCs vpc-1a2b3c4d and vpc-11122233.
--- https://ec2.amazonaws.com/?Action=CreateVpcPeeringConnection
--- &amp;VpcId=vpc-1a2b3c4d &amp;PeerVpcId=vpc-11122233 &amp;AUTHPARAMS.
+-- status of failed.
 module Network.AWS.EC2.CreateVpcPeeringConnection
     (
     -- * Request
@@ -58,9 +36,10 @@ module Network.AWS.EC2.CreateVpcPeeringConnection
     -- ** Request constructor
     , createVpcPeeringConnection
     -- ** Request lenses
-    , cvpcVpcId
-    , cvpcPeerVpcId
+    , cvpcDryRun
     , cvpcPeerOwnerId
+    , cvpcPeerVpcId
+    , cvpcVpcId
 
     -- * Response
     , CreateVpcPeeringConnectionResponse
@@ -70,62 +49,68 @@ module Network.AWS.EC2.CreateVpcPeeringConnection
     , cvpcrVpcPeeringConnection
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
-    { _cvpcVpcId :: Maybe Text
-    , _cvpcPeerVpcId :: Maybe Text
+    { _cvpcDryRun      :: Maybe Bool
     , _cvpcPeerOwnerId :: Maybe Text
+    , _cvpcPeerVpcId   :: Maybe Text
+    , _cvpcVpcId       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateVpcPeeringConnection' request.
+-- | 'CreateVpcPeeringConnection' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcId ::@ @Maybe Text@
+-- * 'cvpcDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @PeerVpcId ::@ @Maybe Text@
+-- * 'cvpcPeerOwnerId' @::@ 'Maybe' 'Text'
 --
--- * @PeerOwnerId ::@ @Maybe Text@
+-- * 'cvpcPeerVpcId' @::@ 'Maybe' 'Text'
+--
+-- * 'cvpcVpcId' @::@ 'Maybe' 'Text'
 --
 createVpcPeeringConnection :: CreateVpcPeeringConnection
 createVpcPeeringConnection = CreateVpcPeeringConnection
-    { _cvpcVpcId = Nothing
-    , _cvpcPeerVpcId = Nothing
+    { _cvpcDryRun      = Nothing
+    , _cvpcVpcId       = Nothing
+    , _cvpcPeerVpcId   = Nothing
     , _cvpcPeerOwnerId = Nothing
     }
 
--- | The ID of the requester VPC.
-cvpcVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
-cvpcVpcId = lens _cvpcVpcId (\s a -> s { _cvpcVpcId = a })
+cvpcDryRun :: Lens' CreateVpcPeeringConnection (Maybe Bool)
+cvpcDryRun = lens _cvpcDryRun (\s a -> s { _cvpcDryRun = a })
+
+-- | The AWS account ID of the owner of the peer VPC. Default: Your AWS
+-- account ID.
+cvpcPeerOwnerId :: Lens' CreateVpcPeeringConnection (Maybe Text)
+cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\s a -> s { _cvpcPeerOwnerId = a })
 
 -- | The ID of the VPC with which you are creating the VPC peering connection.
 cvpcPeerVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcPeerVpcId = lens _cvpcPeerVpcId (\s a -> s { _cvpcPeerVpcId = a })
 
--- | The AWS account ID of the owner of the peer VPC. Default: Your AWS account
--- ID.
-cvpcPeerOwnerId :: Lens' CreateVpcPeeringConnection (Maybe Text)
-cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\s a -> s { _cvpcPeerOwnerId = a })
+-- | The ID of the requester VPC.
+cvpcVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
+cvpcVpcId = lens _cvpcVpcId (\s a -> s { _cvpcVpcId = a })
 
-instance ToQuery CreateVpcPeeringConnection where
-    toQuery = genericQuery def
+instance ToQuery CreateVpcPeeringConnection
+
+instance ToPath CreateVpcPeeringConnection where
+    toPath = const "/"
 
 newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateVpcPeeringConnectionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateVpcPeeringConnectionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcPeeringConnection ::@ @Maybe VpcPeeringConnection@
+-- * 'cvpcrVpcPeeringConnection' @::@ 'Maybe' 'VpcPeeringConnection'
 --
 createVpcPeeringConnectionResponse :: CreateVpcPeeringConnectionResponse
 createVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
@@ -136,14 +121,12 @@ createVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
 cvpcrVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 cvpcrVpcPeeringConnection =
     lens _cvpcrVpcPeeringConnection
-         (\s a -> s { _cvpcrVpcPeeringConnection = a })
-
-instance FromXML CreateVpcPeeringConnectionResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _cvpcrVpcPeeringConnection = a })
 
 instance AWSRequest CreateVpcPeeringConnection where
     type Sv CreateVpcPeeringConnection = EC2
     type Rs CreateVpcPeeringConnection = CreateVpcPeeringConnectionResponse
 
-    request = post "CreateVpcPeeringConnection"
-    response _ = xmlResponse
+    request  = post "CreateVpcPeeringConnection"
+    response = xmlResponse $ \h x -> CreateVpcPeeringConnectionResponse
+        <$> x %| "vpcPeeringConnection"

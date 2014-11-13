@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteVpnGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,12 +24,7 @@
 -- delete a virtual private gateway, you detach it from the VPC and delete the
 -- VPN connection. Note that you don't need to delete the virtual private
 -- gateway if you plan to delete and recreate the VPN connection between your
--- VPC and your network. Example This example deletes the specified virtual
--- private gateway. https://ec2.amazonaws.com/?Action=DeleteVpnGateway
--- &amp;vpnGatewayId=vgw-8db04f81 &amp;AUTHPARAMS &lt;DeleteVpnGatewayResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpnGatewayResponse&gt;.
+-- VPC and your network.
 module Network.AWS.EC2.DeleteVpnGateway
     (
     -- * Request
@@ -35,6 +32,7 @@ module Network.AWS.EC2.DeleteVpnGateway
     -- ** Request constructor
     , deleteVpnGateway
     -- ** Request lenses
+    , dvgDryRun
     , dvgVpnGatewayId
 
     -- * Response
@@ -43,41 +41,47 @@ module Network.AWS.EC2.DeleteVpnGateway
     , deleteVpnGatewayResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteVpnGateway = DeleteVpnGateway
-    { _dvgVpnGatewayId :: Text
+data DeleteVpnGateway = DeleteVpnGateway
+    { _dvgDryRun       :: Maybe Bool
+    , _dvgVpnGatewayId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpnGateway' request.
+-- | 'DeleteVpnGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpnGatewayId ::@ @Text@
+-- * 'dvgDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'dvgVpnGatewayId' @::@ 'Text'
 --
 deleteVpnGateway :: Text -- ^ 'dvgVpnGatewayId'
                  -> DeleteVpnGateway
 deleteVpnGateway p1 = DeleteVpnGateway
     { _dvgVpnGatewayId = p1
+    , _dvgDryRun       = Nothing
     }
+
+dvgDryRun :: Lens' DeleteVpnGateway (Maybe Bool)
+dvgDryRun = lens _dvgDryRun (\s a -> s { _dvgDryRun = a })
 
 -- | The ID of the virtual private gateway.
 dvgVpnGatewayId :: Lens' DeleteVpnGateway Text
 dvgVpnGatewayId = lens _dvgVpnGatewayId (\s a -> s { _dvgVpnGatewayId = a })
 
-instance ToQuery DeleteVpnGateway where
-    toQuery = genericQuery def
+instance ToQuery DeleteVpnGateway
+
+instance ToPath DeleteVpnGateway where
+    toPath = const "/"
 
 data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpnGatewayResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteVpnGatewayResponse' constructor.
 deleteVpnGatewayResponse :: DeleteVpnGatewayResponse
 deleteVpnGatewayResponse = DeleteVpnGatewayResponse
 
@@ -85,5 +89,5 @@ instance AWSRequest DeleteVpnGateway where
     type Sv DeleteVpnGateway = EC2
     type Rs DeleteVpnGateway = DeleteVpnGatewayResponse
 
-    request = post "DeleteVpnGateway"
-    response _ = nullaryResponse DeleteVpnGatewayResponse
+    request  = post "DeleteVpnGateway"
+    response = nullaryResponse DeleteVpnGatewayResponse

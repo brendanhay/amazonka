@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CancelSpotInstanceRequests
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,17 +27,7 @@
 -- Instance requests. For more information about Spot Instances, see Spot
 -- Instances in the Amazon Elastic Compute Cloud User Guide. Canceling a Spot
 -- Instance request does not terminate running Spot Instances associated with
--- the request. Example This example cancels the specified Spot Instance
--- request. https://ec2.amazonaws.com/?Action=CancelSpotInstanceRequests
--- &amp;SpotInstanceRequestId.1=sir-1a2b3c4d &amp;AUTHPARAMS
--- &lt;CancelSpotInstanceRequestsResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;spotInstanceRequestSet&gt; &lt;item&gt;
--- &lt;spotInstanceRequestId&gt;sir-1a2b3c4d&lt;/spotInstanceRequestId&gt;
--- &lt;state&gt;cancelled&lt;/state&gt; &lt;/item&gt;
--- &lt;/spotInstanceRequestSet&gt;
--- &lt;/CancelSpotInstanceRequestsResponse&gt;.
+-- the request.
 module Network.AWS.EC2.CancelSpotInstanceRequests
     (
     -- * Request
@@ -43,6 +35,7 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     -- ** Request constructor
     , cancelSpotInstanceRequests
     -- ** Request lenses
+    , csirDryRun
     , csirSpotInstanceRequestIds
 
     -- * Response
@@ -53,48 +46,59 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     , csirrCancelledSpotInstanceRequests
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype CancelSpotInstanceRequests = CancelSpotInstanceRequests
-    { _csirSpotInstanceRequestIds :: [Text]
+data CancelSpotInstanceRequests = CancelSpotInstanceRequests
+    { _csirDryRun                 :: Maybe Bool
+    , _csirSpotInstanceRequestIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelSpotInstanceRequests' request.
+-- | 'CancelSpotInstanceRequests' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SpotInstanceRequestIds ::@ @[Text]@
+-- * 'csirDryRun' @::@ 'Maybe' 'Bool'
 --
-cancelSpotInstanceRequests :: [Text] -- ^ 'csirSpotInstanceRequestIds'
-                           -> CancelSpotInstanceRequests
-cancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
-    { _csirSpotInstanceRequestIds = p1
+-- * 'csirSpotInstanceRequestIds' @::@ ['Text']
+--
+cancelSpotInstanceRequests :: CancelSpotInstanceRequests
+cancelSpotInstanceRequests = CancelSpotInstanceRequests
+    { _csirDryRun                 = Nothing
+    , _csirSpotInstanceRequestIds = mempty
     }
+
+csirDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
+csirDryRun = lens _csirDryRun (\s a -> s { _csirDryRun = a })
 
 -- | One or more Spot Instance request IDs.
 csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
 csirSpotInstanceRequestIds =
     lens _csirSpotInstanceRequestIds
-         (\s a -> s { _csirSpotInstanceRequestIds = a })
+        (\s a -> s { _csirSpotInstanceRequestIds = a })
 
-instance ToQuery CancelSpotInstanceRequests where
-    toQuery = genericQuery def
+instance ToQuery CancelSpotInstanceRequests
+
+instance ToPath CancelSpotInstanceRequests where
+    toPath = const "/"
 
 newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelSpotInstanceRequestsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList CancelSpotInstanceRequestsResponse where
+    type Item CancelSpotInstanceRequestsResponse = CancelledSpotInstanceRequest
+
+    fromList = CancelSpotInstanceRequestsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _csirrCancelledSpotInstanceRequests
+
+-- | 'CancelSpotInstanceRequestsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CancelledSpotInstanceRequests ::@ @[CancelledSpotInstanceRequest]@
+-- * 'csirrCancelledSpotInstanceRequests' @::@ ['CancelledSpotInstanceRequest']
 --
 cancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse
 cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
@@ -105,14 +109,12 @@ cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
 csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
 csirrCancelledSpotInstanceRequests =
     lens _csirrCancelledSpotInstanceRequests
-         (\s a -> s { _csirrCancelledSpotInstanceRequests = a })
-
-instance FromXML CancelSpotInstanceRequestsResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _csirrCancelledSpotInstanceRequests = a })
 
 instance AWSRequest CancelSpotInstanceRequests where
     type Sv CancelSpotInstanceRequests = EC2
     type Rs CancelSpotInstanceRequests = CancelSpotInstanceRequestsResponse
 
-    request = post "CancelSpotInstanceRequests"
-    response _ = xmlResponse
+    request  = post "CancelSpotInstanceRequests"
+    response = xmlResponse $ \h x -> CancelSpotInstanceRequestsResponse
+        <$> x %| "spotInstanceRequestSet"

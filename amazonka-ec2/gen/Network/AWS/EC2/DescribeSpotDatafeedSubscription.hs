@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,17 +21,16 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes the datafeed for Spot Instances. For more information, see Spot
--- Instances in the Amazon Elastic Compute Cloud User Guide. Example This
--- example describes the datafeed for the account.
--- https://ec2.amazonaws.com/?Action=DescribeSpotDatafeedSubscription
--- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE 123456789012
--- my-s3-bucket spotdata_ Active.
+-- Instances in the Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     (
     -- * Request
       DescribeSpotDatafeedSubscription
     -- ** Request constructor
     , describeSpotDatafeedSubscription
+    -- ** Request lenses
+    , dsdsDryRun
+
     -- * Response
     , DescribeSpotDatafeedSubscriptionResponse
     -- ** Response constructor
@@ -38,33 +39,43 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     , dsdsrSpotDatafeedSubscription
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-    deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSpotDatafeedSubscription' request.
-describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
-describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-
-instance ToQuery DescribeSpotDatafeedSubscription where
-    toQuery = genericQuery def
-
-newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
-    { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
+newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
+    { _dsdsDryRun :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSpotDatafeedSubscriptionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeSpotDatafeedSubscription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SpotDatafeedSubscription ::@ @Maybe SpotDatafeedSubscription@
+-- * 'dsdsDryRun' @::@ 'Maybe' 'Bool'
+--
+describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
+describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
+    { _dsdsDryRun = Nothing
+    }
+
+dsdsDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
+dsdsDryRun = lens _dsdsDryRun (\s a -> s { _dsdsDryRun = a })
+
+instance ToQuery DescribeSpotDatafeedSubscription
+
+instance ToPath DescribeSpotDatafeedSubscription where
+    toPath = const "/"
+
+newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
+    { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
+    } deriving (Eq, Show, Generic)
+
+-- | 'DescribeSpotDatafeedSubscriptionResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dsdsrSpotDatafeedSubscription' @::@ 'Maybe' 'SpotDatafeedSubscription'
 --
 describeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResponse
 describeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
@@ -75,14 +86,12 @@ describeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionRespo
 dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdsrSpotDatafeedSubscription =
     lens _dsdsrSpotDatafeedSubscription
-         (\s a -> s { _dsdsrSpotDatafeedSubscription = a })
-
-instance FromXML DescribeSpotDatafeedSubscriptionResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _dsdsrSpotDatafeedSubscription = a })
 
 instance AWSRequest DescribeSpotDatafeedSubscription where
     type Sv DescribeSpotDatafeedSubscription = EC2
     type Rs DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscriptionResponse
 
-    request = post "DescribeSpotDatafeedSubscription"
-    response _ = xmlResponse
+    request  = post "DescribeSpotDatafeedSubscription"
+    response = xmlResponse $ \h x -> DescribeSpotDatafeedSubscriptionResponse
+        <$> x %| "spotDatafeedSubscription"

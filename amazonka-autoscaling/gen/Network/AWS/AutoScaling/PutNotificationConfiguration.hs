@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.PutNotificationConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,8 +34,8 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
     , putNotificationConfiguration
     -- ** Request lenses
     , pncAutoScalingGroupName
-    , pncTopicARN
     , pncNotificationTypes
+    , pncTopicARN
 
     -- * Response
     , PutNotificationConfigurationResponse
@@ -41,65 +43,62 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
     , putNotificationConfigurationResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data PutNotificationConfiguration = PutNotificationConfiguration
     { _pncAutoScalingGroupName :: Text
-    , _pncTopicARN :: Text
-    , _pncNotificationTypes :: [Text]
+    , _pncNotificationTypes    :: [Text]
+    , _pncTopicARN             :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutNotificationConfiguration' request.
+-- | 'PutNotificationConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AutoScalingGroupName ::@ @Text@
+-- * 'pncAutoScalingGroupName' @::@ 'Text'
 --
--- * @TopicARN ::@ @Text@
+-- * 'pncNotificationTypes' @::@ ['Text']
 --
--- * @NotificationTypes ::@ @[Text]@
+-- * 'pncTopicARN' @::@ 'Text'
 --
 putNotificationConfiguration :: Text -- ^ 'pncAutoScalingGroupName'
                              -> Text -- ^ 'pncTopicARN'
-                             -> [Text] -- ^ 'pncNotificationTypes'
                              -> PutNotificationConfiguration
-putNotificationConfiguration p1 p2 p3 = PutNotificationConfiguration
+putNotificationConfiguration p1 p2 = PutNotificationConfiguration
     { _pncAutoScalingGroupName = p1
-    , _pncTopicARN = p2
-    , _pncNotificationTypes = p3
+    , _pncTopicARN             = p2
+    , _pncNotificationTypes    = mempty
     }
 
 -- | The name of the Auto Scaling group.
 pncAutoScalingGroupName :: Lens' PutNotificationConfiguration Text
 pncAutoScalingGroupName =
-    lens _pncAutoScalingGroupName
-         (\s a -> s { _pncAutoScalingGroupName = a })
+    lens _pncAutoScalingGroupName (\s a -> s { _pncAutoScalingGroupName = a })
+
+-- | The type of event that will cause the notification to be sent. For
+-- details about notification types supported by Auto Scaling, see
+-- DescribeAutoScalingNotificationTypes.
+pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
+pncNotificationTypes =
+    lens _pncNotificationTypes (\s a -> s { _pncNotificationTypes = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
 pncTopicARN :: Lens' PutNotificationConfiguration Text
 pncTopicARN = lens _pncTopicARN (\s a -> s { _pncTopicARN = a })
 
--- | The type of event that will cause the notification to be sent. For details
--- about notification types supported by Auto Scaling, see
--- DescribeAutoScalingNotificationTypes.
-pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
-pncNotificationTypes =
-    lens _pncNotificationTypes (\s a -> s { _pncNotificationTypes = a })
+instance ToQuery PutNotificationConfiguration
 
-instance ToQuery PutNotificationConfiguration where
-    toQuery = genericQuery def
+instance ToPath PutNotificationConfiguration where
+    toPath = const "/"
 
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutNotificationConfigurationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutNotificationConfigurationResponse' constructor.
 putNotificationConfigurationResponse :: PutNotificationConfigurationResponse
 putNotificationConfigurationResponse = PutNotificationConfigurationResponse
 
@@ -107,5 +106,5 @@ instance AWSRequest PutNotificationConfiguration where
     type Sv PutNotificationConfiguration = AutoScaling
     type Rs PutNotificationConfiguration = PutNotificationConfigurationResponse
 
-    request = post "PutNotificationConfiguration"
-    response _ = nullaryResponse PutNotificationConfigurationResponse
+    request  = post "PutNotificationConfiguration"
+    response = nullaryResponse PutNotificationConfigurationResponse

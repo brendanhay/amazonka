@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.AuthorizeSnapshotAccess
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,9 +30,9 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     -- ** Request constructor
     , authorizeSnapshotAccess
     -- ** Request lenses
-    , asaSnapshotIdentifier
-    , asaSnapshotClusterIdentifier
     , asaAccountWithRestoreAccess
+    , asaSnapshotClusterIdentifier
+    , asaSnapshotIdentifier
 
     -- * Response
     , AuthorizeSnapshotAccessResponse
@@ -40,88 +42,84 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     , asarSnapshot
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
-    { _asaSnapshotIdentifier :: Text
+    { _asaAccountWithRestoreAccess  :: Text
     , _asaSnapshotClusterIdentifier :: Maybe Text
-    , _asaAccountWithRestoreAccess :: Text
+    , _asaSnapshotIdentifier        :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AuthorizeSnapshotAccess' request.
+-- | 'AuthorizeSnapshotAccess' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SnapshotIdentifier ::@ @Text@
+-- * 'asaAccountWithRestoreAccess' @::@ 'Text'
 --
--- * @SnapshotClusterIdentifier ::@ @Maybe Text@
+-- * 'asaSnapshotClusterIdentifier' @::@ 'Maybe' 'Text'
 --
--- * @AccountWithRestoreAccess ::@ @Text@
+-- * 'asaSnapshotIdentifier' @::@ 'Text'
 --
 authorizeSnapshotAccess :: Text -- ^ 'asaSnapshotIdentifier'
                         -> Text -- ^ 'asaAccountWithRestoreAccess'
                         -> AuthorizeSnapshotAccess
-authorizeSnapshotAccess p1 p3 = AuthorizeSnapshotAccess
-    { _asaSnapshotIdentifier = p1
+authorizeSnapshotAccess p1 p2 = AuthorizeSnapshotAccess
+    { _asaSnapshotIdentifier        = p1
+    , _asaAccountWithRestoreAccess  = p2
     , _asaSnapshotClusterIdentifier = Nothing
-    , _asaAccountWithRestoreAccess = p3
     }
-
--- | The identifier of the snapshot the account is authorized to restore.
-asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
-asaSnapshotIdentifier =
-    lens _asaSnapshotIdentifier (\s a -> s { _asaSnapshotIdentifier = a })
-
--- | The identifier of the cluster the snapshot was created from. This parameter
--- is required if your IAM user has a policy containing a snapshot resource
--- element that specifies anything other than * for the cluster name.
-asaSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
-asaSnapshotClusterIdentifier =
-    lens _asaSnapshotClusterIdentifier
-         (\s a -> s { _asaSnapshotClusterIdentifier = a })
 
 -- | The identifier of the AWS customer account authorized to restore the
 -- specified snapshot.
 asaAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
 asaAccountWithRestoreAccess =
     lens _asaAccountWithRestoreAccess
-         (\s a -> s { _asaAccountWithRestoreAccess = a })
+        (\s a -> s { _asaAccountWithRestoreAccess = a })
 
-instance ToQuery AuthorizeSnapshotAccess where
-    toQuery = genericQuery def
+-- | The identifier of the cluster the snapshot was created from. This
+-- parameter is required if your IAM user has a policy containing a snapshot
+-- resource element that specifies anything other than * for the cluster
+-- name.
+asaSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
+asaSnapshotClusterIdentifier =
+    lens _asaSnapshotClusterIdentifier
+        (\s a -> s { _asaSnapshotClusterIdentifier = a })
+
+-- | The identifier of the snapshot the account is authorized to restore.
+asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
+asaSnapshotIdentifier =
+    lens _asaSnapshotIdentifier (\s a -> s { _asaSnapshotIdentifier = a })
+
+instance ToQuery AuthorizeSnapshotAccess
+
+instance ToPath AuthorizeSnapshotAccess where
+    toPath = const "/"
 
 newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _asarSnapshot :: Maybe Snapshot
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AuthorizeSnapshotAccessResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AuthorizeSnapshotAccessResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Snapshot ::@ @Maybe Snapshot@
+-- * 'asarSnapshot' @::@ 'Maybe' 'Snapshot'
 --
 authorizeSnapshotAccessResponse :: AuthorizeSnapshotAccessResponse
 authorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _asarSnapshot = Nothing
     }
 
--- | Describes a snapshot.
 asarSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarSnapshot = lens _asarSnapshot (\s a -> s { _asarSnapshot = a })
-
-instance FromXML AuthorizeSnapshotAccessResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest AuthorizeSnapshotAccess where
     type Sv AuthorizeSnapshotAccess = Redshift
     type Rs AuthorizeSnapshotAccess = AuthorizeSnapshotAccessResponse
 
-    request = post "AuthorizeSnapshotAccess"
-    response _ = xmlResponse
+    request  = post "AuthorizeSnapshotAccess"
+    response = xmlResponse $ \h x -> AuthorizeSnapshotAccessResponse
+        <$> x %| "Snapshot"

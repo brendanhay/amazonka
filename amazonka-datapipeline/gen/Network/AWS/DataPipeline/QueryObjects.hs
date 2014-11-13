@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DataPipeline.QueryObjects
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,16 +25,7 @@
 -- filtered by the value you set for query. This means the action may return
 -- an empty result set with a value set for marker. If HasMoreResults is set
 -- to True, you should continue to call QueryObjects, passing in the returned
--- value for marker, until HasMoreResults returns False. POST / HTTP/1.1
--- Content-Type: application/x-amz-json-1.1 X-Amz-Target:
--- DataPipeline.QueryObjects Content-Length: 123 Host:
--- datapipeline.us-east-1.amazonaws.com X-Amz-Date: Mon, 12 Nov 2012 17:49:52
--- GMT Authorization: AuthParams {"pipelineId": "df-06372391ZG65EXAMPLE",
--- "query": {"selectors": [ ] }, "sphere": "PO", "marker": "", "limit": 10}
--- x-amzn-RequestId: 14d704c1-0775-11e2-af6f-6bc7a6be60d9 Content-Type:
--- application/x-amz-json-1.1 Content-Length: 72 Date: Mon, 12 Nov 2012
--- 17:50:53 GMT {"hasMoreResults": false, "ids":
--- ["@SayHello_1_2012-09-25T17:00:00"] }.
+-- value for marker, until HasMoreResults returns False.
 module Network.AWS.DataPipeline.QueryObjects
     (
     -- * Request
@@ -40,69 +33,79 @@ module Network.AWS.DataPipeline.QueryObjects
     -- ** Request constructor
     , queryObjects
     -- ** Request lenses
+    , qoLimit
+    , qoMarker
     , qoPipelineId
     , qoQuery
     , qoSphere
-    , qoMarker
-    , qoLimit
 
     -- * Response
     , QueryObjectsResponse
     -- ** Response constructor
     , queryObjectsResponse
     -- ** Response lenses
+    , qorHasMoreResults
     , qorIds
     , qorMarker
-    , qorHasMoreResults
     ) where
 
-import Network.AWS.DataPipeline.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DataPipeline.Types
 
--- | The input for the QueryObjects action.
 data QueryObjects = QueryObjects
-    { _qoPipelineId :: Text
-    , _qoQuery :: Maybe Query
-    , _qoSphere :: Text
-    , _qoMarker :: Maybe Text
-    , _qoLimit :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    { _qoLimit      :: Maybe Int
+    , _qoMarker     :: Maybe Text
+    , _qoPipelineId :: Text
+    , _qoQuery      :: Maybe Query
+    , _qoSphere     :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'QueryObjects' request.
+-- | 'QueryObjects' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PipelineId ::@ @Text@
+-- * 'qoLimit' @::@ 'Maybe' 'Int'
 --
--- * @Query ::@ @Maybe Query@
+-- * 'qoMarker' @::@ 'Maybe' 'Text'
 --
--- * @Sphere ::@ @Text@
+-- * 'qoPipelineId' @::@ 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'qoQuery' @::@ 'Maybe' 'Query'
 --
--- * @Limit ::@ @Maybe Integer@
+-- * 'qoSphere' @::@ 'Text'
 --
 queryObjects :: Text -- ^ 'qoPipelineId'
              -> Text -- ^ 'qoSphere'
              -> QueryObjects
-queryObjects p1 p3 = QueryObjects
+queryObjects p1 p2 = QueryObjects
     { _qoPipelineId = p1
-    , _qoQuery = Nothing
-    , _qoSphere = p3
-    , _qoMarker = Nothing
-    , _qoLimit = Nothing
+    , _qoSphere     = p2
+    , _qoQuery      = Nothing
+    , _qoMarker     = Nothing
+    , _qoLimit      = Nothing
     }
+
+-- | Specifies the maximum number of object names that QueryObjects will
+-- return in a single call. The default value is 100.
+qoLimit :: Lens' QueryObjects (Maybe Int)
+qoLimit = lens _qoLimit (\s a -> s { _qoLimit = a })
+
+-- | The starting point for the results to be returned. The first time you
+-- call QueryObjects, this value should be empty. As long as the action
+-- returns HasMoreResults as True, you can call QueryObjects again and pass
+-- the marker value from the response to retrieve the next set of results.
+qoMarker :: Lens' QueryObjects (Maybe Text)
+qoMarker = lens _qoMarker (\s a -> s { _qoMarker = a })
 
 -- | Identifier of the pipeline to be queried for object names.
 qoPipelineId :: Lens' QueryObjects Text
 qoPipelineId = lens _qoPipelineId (\s a -> s { _qoPipelineId = a })
 
--- | Query that defines the objects to be returned. The Query object can contain
--- a maximum of ten selectors. The conditions in the query are limited to
--- top-level String fields in the object. These filters can be applied to
--- components, instances, and attempts.
+-- | Query that defines the objects to be returned. The Query object can
+-- contain a maximum of ten selectors. The conditions in the query are
+-- limited to top-level String fields in the object. These filters can be
+-- applied to components, instances, and attempts.
 qoQuery :: Lens' QueryObjects (Maybe Query)
 qoQuery = lens _qoQuery (\s a -> s { _qoQuery = a })
 
@@ -111,53 +114,45 @@ qoQuery = lens _qoQuery (\s a -> s { _qoQuery = a })
 qoSphere :: Lens' QueryObjects Text
 qoSphere = lens _qoSphere (\s a -> s { _qoSphere = a })
 
--- | The starting point for the results to be returned. The first time you call
--- QueryObjects, this value should be empty. As long as the action returns
--- HasMoreResults as True, you can call QueryObjects again and pass the marker
--- value from the response to retrieve the next set of results.
-qoMarker :: Lens' QueryObjects (Maybe Text)
-qoMarker = lens _qoMarker (\s a -> s { _qoMarker = a })
+instance ToPath QueryObjects where
+    toPath = const "/"
 
--- | Specifies the maximum number of object names that QueryObjects will return
--- in a single call. The default value is 100.
-qoLimit :: Lens' QueryObjects (Maybe Integer)
-qoLimit = lens _qoLimit (\s a -> s { _qoLimit = a })
-
-instance ToPath QueryObjects
-
-instance ToQuery QueryObjects
+instance ToQuery QueryObjects where
+    toQuery = const mempty
 
 instance ToHeaders QueryObjects
 
-instance ToJSON QueryObjects
+instance ToBody QueryObjects where
+    toBody = toBody . encode . _qoPipelineId
 
--- | Contains the output from the QueryObjects action.
 data QueryObjectsResponse = QueryObjectsResponse
-    { _qorIds :: [Text]
-    , _qorMarker :: Maybe Text
-    , _qorHasMoreResults :: Bool
+    { _qorHasMoreResults :: Maybe Bool
+    , _qorIds            :: [Text]
+    , _qorMarker         :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'QueryObjectsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'QueryObjectsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Ids ::@ @[Text]@
+-- * 'qorHasMoreResults' @::@ 'Maybe' 'Bool'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'qorIds' @::@ ['Text']
 --
--- * @HasMoreResults ::@ @Bool@
+-- * 'qorMarker' @::@ 'Maybe' 'Text'
 --
-queryObjectsResponse :: Bool -- ^ 'qorHasMoreResults'
-                     -> QueryObjectsResponse
-queryObjectsResponse p3 = QueryObjectsResponse
-    { _qorIds = mempty
-    , _qorMarker = Nothing
-    , _qorHasMoreResults = p3
+queryObjectsResponse :: QueryObjectsResponse
+queryObjectsResponse = QueryObjectsResponse
+    { _qorIds            = mempty
+    , _qorMarker         = Nothing
+    , _qorHasMoreResults = Nothing
     }
+
+-- | If True, there are more results that can be obtained by a subsequent call
+-- to QueryObjects.
+qorHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
+qorHasMoreResults =
+    lens _qorHasMoreResults (\s a -> s { _qorHasMoreResults = a })
 
 -- | A list of identifiers that match the query selectors.
 qorIds :: Lens' QueryObjectsResponse [Text]
@@ -169,23 +164,14 @@ qorIds = lens _qorIds (\s a -> s { _qorIds = a })
 qorMarker :: Lens' QueryObjectsResponse (Maybe Text)
 qorMarker = lens _qorMarker (\s a -> s { _qorMarker = a })
 
--- | If True, there are more results that can be obtained by a subsequent call
--- to QueryObjects.
-qorHasMoreResults :: Lens' QueryObjectsResponse Bool
-qorHasMoreResults =
-    lens _qorHasMoreResults (\s a -> s { _qorHasMoreResults = a })
-
-instance FromJSON QueryObjectsResponse
+-- FromJSON
 
 instance AWSRequest QueryObjects where
     type Sv QueryObjects = DataPipeline
     type Rs QueryObjects = QueryObjectsResponse
 
-    request = get
-    response _ = jsonResponse
-
-instance AWSPager QueryObjects where
-    next rq rs
-        | not (rs ^. qorHasMoreResults) = Nothing
-        | otherwise = Just $
-            rq & qoMarker .~ rs ^. qorMarker
+    request  = post'
+    response = jsonResponse $ \h o -> QueryObjectsResponse
+        <$> o .: "hasMoreResults"
+        <*> o .: "ids"
+        <*> o .: "marker"

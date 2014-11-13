@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.RemoveTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,11 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Removes one or more tags from the specified load balancer. Remove Two Tag
--- Keys from the Load Balancer
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
--- &Tags.member.1.Key=owner &Tags.member.2.Key=project &Action=RemoveTags
--- &Version=2012-06-01 &AUTHPARAMS 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
+-- | Removes one or more tags from the specified load balancer.
 module Network.AWS.ELB.RemoveTags
     (
     -- * Request
@@ -39,31 +37,29 @@ module Network.AWS.ELB.RemoveTags
     , removeTagsResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the RemoveTags action.
 data RemoveTags = RemoveTags
     { _rtLoadBalancerNames :: [Text]
-    , _rtTags :: List1 TagKeyOnly
-    } deriving (Eq, Ord, Show, Generic)
+    , _rtTags              :: List1 TagKeyOnly
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemoveTags' request.
+-- | 'RemoveTags' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerNames ::@ @[Text]@
+-- * 'rtLoadBalancerNames' @::@ ['Text']
 --
--- * @Tags ::@ @List1 TagKeyOnly@
+-- * 'rtTags' @::@ 'NonEmpty' 'TagKeyOnly'
 --
-removeTags :: [Text] -- ^ 'rtLoadBalancerNames'
-           -> List1 TagKeyOnly -- ^ 'rtTags'
+removeTags :: NonEmpty TagKeyOnly -- ^ 'rtTags'
            -> RemoveTags
-removeTags p1 p2 = RemoveTags
-    { _rtLoadBalancerNames = p1
-    , _rtTags = p2
+removeTags p1 = RemoveTags
+    { _rtTags              = withIso _List1 (const id) p1
+    , _rtLoadBalancerNames = mempty
     }
 
 -- | The name of the load balancer. You can specify a maximum of one load
@@ -73,20 +69,19 @@ rtLoadBalancerNames =
     lens _rtLoadBalancerNames (\s a -> s { _rtLoadBalancerNames = a })
 
 -- | A list of tag keys to remove.
-rtTags :: Lens' RemoveTags (List1 TagKeyOnly)
+rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
 rtTags = lens _rtTags (\s a -> s { _rtTags = a })
+    . _List1
 
-instance ToQuery RemoveTags where
-    toQuery = genericQuery def
+instance ToQuery RemoveTags
 
--- | The output for the RemoveTags action.
+instance ToPath RemoveTags where
+    toPath = const "/"
+
 data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemoveTagsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RemoveTagsResponse' constructor.
 removeTagsResponse :: RemoveTagsResponse
 removeTagsResponse = RemoveTagsResponse
 
@@ -94,5 +89,5 @@ instance AWSRequest RemoveTags where
     type Sv RemoveTags = ELB
     type Rs RemoveTags = RemoveTagsResponse
 
-    request = post "RemoveTags"
-    response _ = nullaryResponse RemoveTagsResponse
+    request  = post "RemoveTags"
+    response = nullaryResponse RemoveTagsResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53.GetCheckerIpRanges
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,6 +31,7 @@ module Network.AWS.Route53.GetCheckerIpRanges
       GetCheckerIpRanges
     -- ** Request constructor
     , getCheckerIpRanges
+
     -- * Response
     , GetCheckerIpRangesResponse
     -- ** Response constructor
@@ -37,48 +40,45 @@ module Network.AWS.Route53.GetCheckerIpRanges
     , gcirrCheckerIpRanges
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
--- | Empty request.
 data GetCheckerIpRanges = GetCheckerIpRanges
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetCheckerIpRanges' request.
+-- | 'GetCheckerIpRanges' constructor.
 getCheckerIpRanges :: GetCheckerIpRanges
 getCheckerIpRanges = GetCheckerIpRanges
 
-instance ToPath GetCheckerIpRanges
+instance ToPath GetCheckerIpRanges where
+    toPath = const "/2013-04-01/checkeripranges"
 
-instance ToQuery GetCheckerIpRanges
+instance ToQuery GetCheckerIpRanges where
+    toQuery = const mempty
 
 instance ToHeaders GetCheckerIpRanges
 
-instance ToXML GetCheckerIpRanges where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetCheckerIpRanges"
-
--- | A complex type that contains the CheckerIpRanges element.
 newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
     { _gcirrCheckerIpRanges :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetCheckerIpRangesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList GetCheckerIpRangesResponse where
+    type Item GetCheckerIpRangesResponse = Text
+
+    fromList = GetCheckerIpRangesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gcirrCheckerIpRanges
+
+-- | 'GetCheckerIpRangesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CheckerIpRanges ::@ @[Text]@
+-- * 'gcirrCheckerIpRanges' @::@ ['Text']
 --
-getCheckerIpRangesResponse :: [Text] -- ^ 'gcirrCheckerIpRanges'
-                           -> GetCheckerIpRangesResponse
-getCheckerIpRangesResponse p1 = GetCheckerIpRangesResponse
-    { _gcirrCheckerIpRanges = p1
+getCheckerIpRangesResponse :: GetCheckerIpRangesResponse
+getCheckerIpRangesResponse = GetCheckerIpRangesResponse
+    { _gcirrCheckerIpRanges = mempty
     }
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
@@ -87,12 +87,10 @@ gcirrCheckerIpRanges :: Lens' GetCheckerIpRangesResponse [Text]
 gcirrCheckerIpRanges =
     lens _gcirrCheckerIpRanges (\s a -> s { _gcirrCheckerIpRanges = a })
 
-instance FromXML GetCheckerIpRangesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetCheckerIpRanges where
     type Sv GetCheckerIpRanges = Route53
     type Rs GetCheckerIpRanges = GetCheckerIpRangesResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetCheckerIpRangesResponse
+        <$> x %| "CheckerIpRanges"

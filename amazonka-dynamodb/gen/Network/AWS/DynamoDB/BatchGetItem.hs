@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DynamoDB.BatchGetItem
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,19 +22,30 @@
 
 -- | The BatchGetItem operation returns the attributes of one or more items from
 -- one or more tables. You identify requested items by primary key. A single
--- operation can retrieve up to 1 MB of data, which can contain as many as 100
--- items. BatchGetItem will return a partial result if the response size limit
--- is exceeded, the table's provisioned throughput is exceeded, or an internal
--- processing failure occurs. If a partial result is returned, the operation
--- returns a value for UnprocessedKeys. You can use this value to retry the
--- operation starting with the next item to get. For example, if you ask to
--- retrieve 100 items, but each individual item is 50 KB in size, the system
--- returns 20 items (1 MB) and an appropriate UnprocessedKeys value so you can
--- get the next page of results. If desired, your application can include its
--- own logic to assemble the pages of results into one dataset. If no items
--- can be processed because of insufficient provisioned throughput on each of
--- the tables involved in the request, BatchGetItem throws
--- ProvisionedThroughputExceededException. By default, BatchGetItem performs
+-- operation can retrieve up to 16 MB of data, which can contain as many as
+-- 100 items. BatchGetItem will return a partial result if the response size
+-- limit is exceeded, the table's provisioned throughput is exceeded, or an
+-- internal processing failure occurs. If a partial result is returned, the
+-- operation returns a value for UnprocessedKeys. You can use this value to
+-- retry the operation starting with the next item to get. For example, if you
+-- ask to retrieve 100 items, but each individual item is 300 KB in size, the
+-- system returns 52 items (so as not to exceed the 16 MB limit). It also
+-- returns an appropriate UnprocessedKeys value so you can get the next page
+-- of results. If desired, your application can include its own logic to
+-- assemble the pages of results into one data set. If none of the items can
+-- be processed due to insufficient provisioned throughput on all of the
+-- tables in the request, then BatchGetItem will return a
+-- ProvisionedThroughputExceededException. If at least one of the items is
+-- successfully processed, then BatchGetItem completes successfully, while
+-- returning the keys of the unread items in UnprocessedKeys. If DynamoDB
+-- returns any unprocessed items, you should retry the batch operation on
+-- those items. However, we strongly recommend that you use an exponential
+-- backoff algorithm. If you retry the batch operation immediately, the
+-- underlying read or write requests can still fail due to throttling on the
+-- individual tables. If you delay the batch operation using exponential
+-- backoff, the individual requests in the batch are much more likely to
+-- succeed. For more information, go to Batch Operations and Error Handling in
+-- the Amazon DynamoDB Developer Guide. By default, BatchGetItem performs
 -- eventually consistent reads on every table in the request. If you want
 -- strongly consistent reads instead, you can set ConsistentRead to true for
 -- any or all tables. In order to minimize response latency, BatchGetItem
@@ -43,17 +56,7 @@
 -- exist, it is not returned in the result. Requests for nonexistent items
 -- consume the minimum read capacity units according to the type of read. For
 -- more information, see Capacity Units Calculations in the Amazon DynamoDB
--- Developer Guide. Retrieve Items From Multiple Tables The following sample
--- requests attributes from two different tables. { "Responses": { "Forum": [
--- { "Name":{ "S":"Amazon DynamoDB" }, "Threads":{ "N":"5" }, "Messages":{
--- "N":"19" }, "Views":{ "N":"35" } }, { "Name":{ "S":"Amazon RDS" },
--- "Threads":{ "N":"8" }, "Messages":{ "N":"32" }, "Views":{ "N":"38" } }, {
--- "Name":{ "S":"Amazon Redshift" }, "Threads":{ "N":"12" }, "Messages":{
--- "N":"55" }, "Views":{ "N":"47" } } ] "Thread": [ { "Tags":{
--- "SS":["Reads","MultipleUsers"] }, "Message":{ "S":"How many users can read
--- a single data item at a time? Are there any limits?" } } ] },
--- "UnprocessedKeys": { }, "ConsumedCapacity": [ { "TableName": "Forum",
--- "CapacityUnits": 3 }, { "TableName": "Thread", "CapacityUnits": 1 } ] }.
+-- Developer Guide.
 module Network.AWS.DynamoDB.BatchGetItem
     (
     -- * Request
@@ -69,113 +72,91 @@ module Network.AWS.DynamoDB.BatchGetItem
     -- ** Response constructor
     , batchGetItemResponse
     -- ** Response lenses
+    , bgirConsumedCapacity
     , bgirResponses
     , bgirUnprocessedKeys
-    , bgirConsumedCapacity
     ) where
 
-import Network.AWS.DynamoDB.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DynamoDB.Types
 
--- | Represents the input of a BatchGetItem operation.
 data BatchGetItem = BatchGetItem
-    { _bgiRequestItems :: Map Text KeysAndAttributes
-    , _bgiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
+    { _bgiRequestItems           :: Map Text KeysAndAttributes
+    , _bgiReturnConsumedCapacity :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'BatchGetItem' request.
+-- | 'BatchGetItem' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RequestItems ::@ @Map Text KeysAndAttributes@
+-- * 'bgiRequestItems' @::@ 'HashMap' 'Text' 'KeysAndAttributes'
 --
--- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
+-- * 'bgiReturnConsumedCapacity' @::@ 'Maybe' 'Text'
 --
-batchGetItem :: Map Text KeysAndAttributes -- ^ 'bgiRequestItems'
-             -> BatchGetItem
-batchGetItem p1 = BatchGetItem
-    { _bgiRequestItems = p1
+batchGetItem :: BatchGetItem
+batchGetItem = BatchGetItem
+    { _bgiRequestItems           = mempty
     , _bgiReturnConsumedCapacity = Nothing
     }
 
 -- | A map of one or more table names and, for each table, the corresponding
--- primary keys for the items to retrieve. Each table name can be invoked only
--- once. Each element in the map consists of the following: Keys - An array of
--- primary key attribute values that define specific items in the table.
--- AttributesToGet - One or more attributes to be retrieved from the table. By
--- default, all attributes are returned. If a specified attribute is not
--- found, it does not appear in the result. ConsistentRead - If true, a
--- strongly consistent read is used; if false (the default), an eventually
--- consistent read is used.
-bgiRequestItems :: Lens' BatchGetItem (Map Text KeysAndAttributes)
+-- primary keys for the items to retrieve. Each table name can be invoked
+-- only once. Each element in the map consists of the following: Keys - An
+-- array of primary key attribute values that define specific items in the
+-- table. For each primary key, you must provide all of the key attributes.
+-- For example, with a hash type primary key, you only need to specify the
+-- hash attribute. For a hash-and-range type primary key, you must specify
+-- both the hash attribute and the range attribute. AttributesToGet - One or
+-- more attributes to be retrieved from the table. By default, all
+-- attributes are returned. If a specified attribute is not found, it does
+-- not appear in the result. Note that AttributesToGet has no effect on
+-- provisioned throughput consumption. DynamoDB determines capacity units
+-- consumed based on item size, not on the amount of data that is returned
+-- to an application. ConsistentRead - If true, a strongly consistent read
+-- is used; if false (the default), an eventually consistent read is used.
+bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
 bgiRequestItems = lens _bgiRequestItems (\s a -> s { _bgiRequestItems = a })
+    . _Map
 
--- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
--- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
--- indexes. If set to NONE (the default), ConsumedCapacity is not included in
--- the response.
-bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
+bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe Text)
 bgiReturnConsumedCapacity =
     lens _bgiReturnConsumedCapacity
-         (\s a -> s { _bgiReturnConsumedCapacity = a })
+        (\s a -> s { _bgiReturnConsumedCapacity = a })
 
-instance ToPath BatchGetItem
+instance ToPath BatchGetItem where
+    toPath = const "/"
 
-instance ToQuery BatchGetItem
+instance ToQuery BatchGetItem where
+    toQuery = const mempty
 
 instance ToHeaders BatchGetItem
 
-instance ToJSON BatchGetItem
+instance ToBody BatchGetItem where
+    toBody = toBody . encode . _bgiRequestItems
 
--- | Represents the output of a BatchGetItem operation.
 data BatchGetItemResponse = BatchGetItemResponse
-    { _bgirResponses :: Map Text [Map Text AttributeValue]
-    , _bgirUnprocessedKeys :: Map Text KeysAndAttributes
-    , _bgirConsumedCapacity :: [ConsumedCapacity]
+    { _bgirConsumedCapacity :: [ConsumedCapacity]
+    , _bgirResponses        :: Map Text ([(Map Text AttributeValue)])
+    , _bgirUnprocessedKeys  :: Map Text KeysAndAttributes
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'BatchGetItemResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'BatchGetItemResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Responses ::@ @Map Text [Map Text AttributeValue]@
+-- * 'bgirConsumedCapacity' @::@ ['ConsumedCapacity']
 --
--- * @UnprocessedKeys ::@ @Map Text KeysAndAttributes@
+-- * 'bgirResponses' @::@ 'HashMap' 'Text' ('[(HashMap' 'Text' 'AttributeValue)]')
 --
--- * @ConsumedCapacity ::@ @[ConsumedCapacity]@
+-- * 'bgirUnprocessedKeys' @::@ 'HashMap' 'Text' 'KeysAndAttributes'
 --
 batchGetItemResponse :: BatchGetItemResponse
 batchGetItemResponse = BatchGetItemResponse
-    { _bgirResponses = mempty
-    , _bgirUnprocessedKeys = mempty
+    { _bgirResponses        = mempty
+    , _bgirUnprocessedKeys  = mempty
     , _bgirConsumedCapacity = mempty
     }
-
--- | A map of table name to a list of items. Each object in Responses consists
--- of a table name, along with a map of attribute data consisting of the data
--- type and attribute value.
-bgirResponses :: Lens' BatchGetItemResponse (Map Text [Map Text AttributeValue])
-bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a })
-
--- | A map of tables and their respective keys that were not processed with the
--- current response. The UnprocessedKeys value is in the same form as
--- RequestItems, so the value can be provided directly to a subsequent
--- BatchGetItem operation. For more information, see RequestItems in the
--- Request Parameters section. Each element consists of: Keys - An array of
--- primary key attribute values that define specific items in the table.
--- AttributesToGet - One or more attributes to be retrieved from the table or
--- index. By default, all attributes are returned. If a specified attribute is
--- not found, it does not appear in the result. ConsistentRead - The
--- consistency of a read operation. If set to true, then a strongly consistent
--- read is used; otherwise, an eventually consistent read is used.
-bgirUnprocessedKeys :: Lens' BatchGetItemResponse (Map Text KeysAndAttributes)
-bgirUnprocessedKeys =
-    lens _bgirUnprocessedKeys (\s a -> s { _bgirUnprocessedKeys = a })
 
 -- | The write capacity units consumed by the operation. Each element consists
 -- of: TableName - The table that consumed the provisioned throughput.
@@ -184,11 +165,39 @@ bgirConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
 bgirConsumedCapacity =
     lens _bgirConsumedCapacity (\s a -> s { _bgirConsumedCapacity = a })
 
-instance FromJSON BatchGetItemResponse
+-- | A map of table name to a list of items. Each object in Responses consists
+-- of a table name, along with a map of attribute data consisting of the
+-- data type and attribute value.
+bgirResponses :: Lens' BatchGetItemResponse (HashMap Text ([(HashMap Text AttributeValue)]))
+bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a })
+    . _Map
+
+-- | A map of tables and their respective keys that were not processed with
+-- the current response. The UnprocessedKeys value is in the same form as
+-- RequestItems, so the value can be provided directly to a subsequent
+-- BatchGetItem operation. For more information, see RequestItems in the
+-- Request Parameters section. Each element consists of: Keys - An array of
+-- primary key attribute values that define specific items in the table.
+-- AttributesToGet - One or more attributes to be retrieved from the table
+-- or index. By default, all attributes are returned. If a specified
+-- attribute is not found, it does not appear in the result. ConsistentRead
+-- - The consistency of a read operation. If set to true, then a strongly
+-- consistent read is used; otherwise, an eventually consistent read is
+-- used. If there are no unprocessed keys remaining, the response contains
+-- an empty UnprocessedKeys map.
+bgirUnprocessedKeys :: Lens' BatchGetItemResponse (HashMap Text KeysAndAttributes)
+bgirUnprocessedKeys =
+    lens _bgirUnprocessedKeys (\s a -> s { _bgirUnprocessedKeys = a })
+        . _Map
+
+-- FromJSON
 
 instance AWSRequest BatchGetItem where
     type Sv BatchGetItem = DynamoDB
     type Rs BatchGetItem = BatchGetItemResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> BatchGetItemResponse
+        <$> o .: "ConsumedCapacity"
+        <*> o .: "Responses"
+        <*> o .: "UnprocessedKeys"

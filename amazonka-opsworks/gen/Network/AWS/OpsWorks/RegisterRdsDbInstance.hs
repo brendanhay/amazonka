@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterRdsDbInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,10 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Registers an Amazon RDS instance with a stack. Required Permissions: To use
--- this action, an IAM user must have a Manage permissions level for the
--- stack, or an attached policy that explicitly grants permissions. For more
--- information on user permissions, see Managing User Permissions.
+-- | Registers an Amazon RDS instance with a stack.
 module Network.AWS.OpsWorks.RegisterRdsDbInstance
     (
     -- * Request
@@ -29,10 +28,10 @@ module Network.AWS.OpsWorks.RegisterRdsDbInstance
     -- ** Request constructor
     , registerRdsDbInstance
     -- ** Request lenses
-    , rrdiStackId
-    , rrdiRdsDbInstanceArn
-    , rrdiDbUser
     , rrdiDbPassword
+    , rrdiDbUser
+    , rrdiRdsDbInstanceArn
+    , rrdiStackId
 
     -- * Response
     , RegisterRdsDbInstanceResponse
@@ -40,29 +39,28 @@ module Network.AWS.OpsWorks.RegisterRdsDbInstance
     , registerRdsDbInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data RegisterRdsDbInstance = RegisterRdsDbInstance
-    { _rrdiStackId :: Text
+    { _rrdiDbPassword       :: Text
+    , _rrdiDbUser           :: Text
     , _rrdiRdsDbInstanceArn :: Text
-    , _rrdiDbUser :: Text
-    , _rrdiDbPassword :: Text
+    , _rrdiStackId          :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RegisterRdsDbInstance' request.
+-- | 'RegisterRdsDbInstance' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Text@
+-- * 'rrdiDbPassword' @::@ 'Text'
 --
--- * @RdsDbInstanceArn ::@ @Text@
+-- * 'rrdiDbUser' @::@ 'Text'
 --
--- * @DbUser ::@ @Text@
+-- * 'rrdiRdsDbInstanceArn' @::@ 'Text'
 --
--- * @DbPassword ::@ @Text@
+-- * 'rrdiStackId' @::@ 'Text'
 --
 registerRdsDbInstance :: Text -- ^ 'rrdiStackId'
                       -> Text -- ^ 'rrdiRdsDbInstanceArn'
@@ -70,50 +68,52 @@ registerRdsDbInstance :: Text -- ^ 'rrdiStackId'
                       -> Text -- ^ 'rrdiDbPassword'
                       -> RegisterRdsDbInstance
 registerRdsDbInstance p1 p2 p3 p4 = RegisterRdsDbInstance
-    { _rrdiStackId = p1
+    { _rrdiStackId          = p1
     , _rrdiRdsDbInstanceArn = p2
-    , _rrdiDbUser = p3
-    , _rrdiDbPassword = p4
+    , _rrdiDbUser           = p3
+    , _rrdiDbPassword       = p4
     }
 
--- | The stack ID.
-rrdiStackId :: Lens' RegisterRdsDbInstance Text
-rrdiStackId = lens _rrdiStackId (\s a -> s { _rrdiStackId = a })
+-- | The database password.
+rrdiDbPassword :: Lens' RegisterRdsDbInstance Text
+rrdiDbPassword = lens _rrdiDbPassword (\s a -> s { _rrdiDbPassword = a })
+
+-- | The database's master user name.
+rrdiDbUser :: Lens' RegisterRdsDbInstance Text
+rrdiDbUser = lens _rrdiDbUser (\s a -> s { _rrdiDbUser = a })
 
 -- | The Amazon RDS instance's ARN.
 rrdiRdsDbInstanceArn :: Lens' RegisterRdsDbInstance Text
 rrdiRdsDbInstanceArn =
     lens _rrdiRdsDbInstanceArn (\s a -> s { _rrdiRdsDbInstanceArn = a })
 
--- | The database's master user name.
-rrdiDbUser :: Lens' RegisterRdsDbInstance Text
-rrdiDbUser = lens _rrdiDbUser (\s a -> s { _rrdiDbUser = a })
+-- | The stack ID.
+rrdiStackId :: Lens' RegisterRdsDbInstance Text
+rrdiStackId = lens _rrdiStackId (\s a -> s { _rrdiStackId = a })
 
--- | The database password.
-rrdiDbPassword :: Lens' RegisterRdsDbInstance Text
-rrdiDbPassword = lens _rrdiDbPassword (\s a -> s { _rrdiDbPassword = a })
+instance ToPath RegisterRdsDbInstance where
+    toPath = const "/"
 
-instance ToPath RegisterRdsDbInstance
-
-instance ToQuery RegisterRdsDbInstance
+instance ToQuery RegisterRdsDbInstance where
+    toQuery = const mempty
 
 instance ToHeaders RegisterRdsDbInstance
 
-instance ToJSON RegisterRdsDbInstance
+instance ToBody RegisterRdsDbInstance where
+    toBody = toBody . encode . _rrdiStackId
 
 data RegisterRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RegisterRdsDbInstanceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RegisterRdsDbInstanceResponse' constructor.
 registerRdsDbInstanceResponse :: RegisterRdsDbInstanceResponse
 registerRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
+
+-- FromJSON
 
 instance AWSRequest RegisterRdsDbInstance where
     type Sv RegisterRdsDbInstance = OpsWorks
     type Rs RegisterRdsDbInstance = RegisterRdsDbInstanceResponse
 
-    request = get
-    response _ = nullaryResponse RegisterRdsDbInstanceResponse
+    request  = post'
+    response = nullaryResponse RegisterRdsDbInstanceResponse

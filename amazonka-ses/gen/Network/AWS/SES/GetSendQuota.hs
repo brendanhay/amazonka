@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SES.GetSendQuota
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,21 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the user's current sending limits. This action is throttled at one
--- request per second. POST / HTTP/1.1 Date: Thu, 18 Aug 2011 22:22:36 GMT
--- Host: email.us-east-1.amazonaws.com Content-Type:
--- application/x-www-form-urlencoded X-Amzn-Authorization: AWS3
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
--- Signature=W1YdiNOtf0jN3t7Lv63qhz7UZc3RrcmQpkGbopvnj/Y=,
--- Algorithm=HmacSHA256, SignedHeaders=Date;Host Content-Length: 94
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=GetSendQuota
--- &Timestamp=2011-08-18T22%3A22%3A36.000Z 127.0 200.0 1.0
--- 273021c6-c866-11e0-b926-699e21c3af9e.
+-- request per second.
 module Network.AWS.SES.GetSendQuota
     (
     -- * Request
       GetSendQuota
     -- ** Request constructor
     , getSendQuota
+
     -- * Response
     , GetSendQuotaResponse
     -- ** Response constructor
@@ -44,46 +39,43 @@ module Network.AWS.SES.GetSendQuota
     , gsqrSentLast24Hours
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data GetSendQuota = GetSendQuota
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetSendQuota' request.
+-- | 'GetSendQuota' constructor.
 getSendQuota :: GetSendQuota
 getSendQuota = GetSendQuota
 
-instance ToQuery GetSendQuota where
-    toQuery = genericQuery def
+instance ToQuery GetSendQuota
 
--- | Represents the user's current activity limits returned from a successful
--- GetSendQuota request.
+instance ToPath GetSendQuota where
+    toPath = const "/"
+
 data GetSendQuotaResponse = GetSendQuotaResponse
-    { _gsqrMax24HourSend :: Maybe Double
-    , _gsqrMaxSendRate :: Maybe Double
+    { _gsqrMax24HourSend   :: Maybe Double
+    , _gsqrMaxSendRate     :: Maybe Double
     , _gsqrSentLast24Hours :: Maybe Double
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetSendQuotaResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetSendQuotaResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Max24HourSend ::@ @Maybe Double@
+-- * 'gsqrMax24HourSend' @::@ 'Maybe' 'Double'
 --
--- * @MaxSendRate ::@ @Maybe Double@
+-- * 'gsqrMaxSendRate' @::@ 'Maybe' 'Double'
 --
--- * @SentLast24Hours ::@ @Maybe Double@
+-- * 'gsqrSentLast24Hours' @::@ 'Maybe' 'Double'
 --
 getSendQuotaResponse :: GetSendQuotaResponse
 getSendQuotaResponse = GetSendQuotaResponse
-    { _gsqrMax24HourSend = Nothing
-    , _gsqrMaxSendRate = Nothing
+    { _gsqrMax24HourSend   = Nothing
+    , _gsqrMaxSendRate     = Nothing
     , _gsqrSentLast24Hours = Nothing
     }
 
@@ -102,12 +94,12 @@ gsqrSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrSentLast24Hours =
     lens _gsqrSentLast24Hours (\s a -> s { _gsqrSentLast24Hours = a })
 
-instance FromXML GetSendQuotaResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetSendQuota where
     type Sv GetSendQuota = SES
     type Rs GetSendQuota = GetSendQuotaResponse
 
-    request = post "GetSendQuota"
-    response _ = xmlResponse
+    request  = post "GetSendQuota"
+    response = xmlResponse $ \h x -> GetSendQuotaResponse
+        <$> x %| "Max24HourSend"
+        <*> x %| "MaxSendRate"
+        <*> x %| "SentLast24Hours"

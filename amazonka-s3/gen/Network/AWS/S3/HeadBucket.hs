@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.HeadBucket
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,46 +37,45 @@ module Network.AWS.S3.HeadBucket
     , headBucketResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype HeadBucket = HeadBucket
-    { _hbBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _hbBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'HeadBucket' request.
+-- | 'HeadBucket' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'hbBucket' @::@ 'Text'
 --
-headBucket :: BucketName -- ^ 'hbBucket'
+headBucket :: Text -- ^ 'hbBucket'
            -> HeadBucket
 headBucket p1 = HeadBucket
     { _hbBucket = p1
     }
 
-hbBucket :: Lens' HeadBucket BucketName
+hbBucket :: Lens' HeadBucket Text
 hbBucket = lens _hbBucket (\s a -> s { _hbBucket = a })
 
-instance ToPath HeadBucket
+instance ToPath HeadBucket where
+    toPath HeadBucket{..} = mconcat
+        [ "/"
+        , toText _hbBucket
+        ]
 
-instance ToQuery HeadBucket
+instance ToQuery HeadBucket where
+    toQuery = const mempty
 
 instance ToHeaders HeadBucket
-
-instance ToBody HeadBucket
 
 data HeadBucketResponse = HeadBucketResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'HeadBucketResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'HeadBucketResponse' constructor.
 headBucketResponse :: HeadBucketResponse
 headBucketResponse = HeadBucketResponse
 
@@ -82,5 +83,5 @@ instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3
     type Rs HeadBucket = HeadBucketResponse
 
-    request = get
-    response _ = nullaryResponse HeadBucketResponse
+    request  = head
+    response = nullaryResponse HeadBucketResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.ListSigningCertificates
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,26 +27,8 @@
 -- parameters. If the UserName field is not specified, the user name is
 -- determined implicitly based on the AWS access key ID used to sign the
 -- request. Because this action works for access keys under the AWS account,
--- this API can be used to manage root credentials even if the AWS account has
--- no associated users. https://iam.amazonaws.com/
--- ?Action=ListSigningCertificates &UserName=Bob &Version=2010-05-08
--- &AUTHPARAMS Bob Bob TA7SMP42TDN5Z26OBPJE7EXAMPLE -----BEGIN
--- CERTIFICATE-----
--- MIICdzCCAeCgAwIBAgIGANc+Ha2wMA0GCSqGSIb3DQEBBQUAMFMxCzAJBgNVBAYT
--- AlVTMRMwEQYDVQQKEwpBbWF6b24uY29tMQwwCgYDVQQLEwNBV1MxITAfBgNVBAMT
--- GEFXUyBMaW1pdGVkLUFzc3VyYW5jZSBDQTAeFw0wOTAyMDQxNzE5MjdaFw0xMDAy
--- MDQxNzE5MjdaMFIxCzAJBgNVBAYTAlVTMRMwEQYDVQQKEwpBbWF6b24uY29tMRcw
--- FQYDVQQLEw5BV1MtRGV2ZWxvcGVyczEVMBMGA1UEAxMMNTdxNDl0c3ZwYjRtMIGf
--- MA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCpB/vsOwmT/O0td1RqzKjttSBaPjbr
--- dqwNe9BrOyB08fw2+Ch5oonZYXfGUrT6mkYXH5fQot9HvASrzAKHO596FdJA6DmL
--- ywdWe1Oggk7zFSXO1Xv+3vPrJtaYxYo3eRIp7w80PMkiOv6M0XK8ubcTouODeJbf
--- suDqcLnLDxwsvwIDAQABo1cwVTAOBgNVHQ8BAf8EBAMCBaAwFgYDVR0lAQH/BAww
--- CgYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQULGNaBphBumaKbDRK
--- CAi0mH8B3mowDQYJKoZIhvcNAQEFBQADgYEAuKxhkXaCLGcqDuweKtO/AEw9ZePH
--- wr0XqsaIK2HZboqruebXEGsojK4Ks0WzwgrEynuHJwTn760xe39rSqXWIOGrOBaX
--- wFpWHVjTFMKk+tSDG1lssLHyYWWdFFU4AnejRGORJYNaRHgVTKjHphc5jEhHm0BX
--- AEaHzTpmEXAMPLE= -----END CERTIFICATE----- Active false
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- you can use this action to manage root credentials even if the AWS account
+-- has no associated users.
 module Network.AWS.IAM.ListSigningCertificates
     (
     -- * Request
@@ -52,55 +36,51 @@ module Network.AWS.IAM.ListSigningCertificates
     -- ** Request constructor
     , listSigningCertificates
     -- ** Request lenses
-    , lsc1UserName
     , lsc1Marker
     , lsc1MaxItems
+    , lsc1UserName
 
     -- * Response
     , ListSigningCertificatesResponse
     -- ** Response constructor
     , listSigningCertificatesResponse
     -- ** Response lenses
-    , lscrrCertificates
-    , lscrrIsTruncated
-    , lscrrMarker
+    , lscr1Certificates
+    , lscr1IsTruncated
+    , lscr1Marker
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ListSigningCertificates = ListSigningCertificates
-    { _lsc1UserName :: Maybe Text
-    , _lsc1Marker :: Maybe Text
-    , _lsc1MaxItems :: Maybe Integer
+    { _lsc1Marker   :: Maybe Text
+    , _lsc1MaxItems :: Maybe Natural
+    , _lsc1UserName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListSigningCertificates' request.
+-- | 'ListSigningCertificates' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Maybe Text@
+-- * 'lsc1Marker' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lsc1MaxItems' @::@ 'Maybe' 'Natural'
 --
--- * @MaxItems ::@ @Maybe Integer@
+-- * 'lsc1UserName' @::@ 'Maybe' 'Text'
 --
 listSigningCertificates :: ListSigningCertificates
 listSigningCertificates = ListSigningCertificates
     { _lsc1UserName = Nothing
-    , _lsc1Marker = Nothing
+    , _lsc1Marker   = Nothing
     , _lsc1MaxItems = Nothing
     }
 
--- | The name of the user.
-lsc1UserName :: Lens' ListSigningCertificates (Maybe Text)
-lsc1UserName = lens _lsc1UserName (\s a -> s { _lsc1UserName = a })
-
 -- | Use this only when paginating results, and only in a subsequent request
--- after you've received a response where the results are truncated. Set it to
--- the value of the Marker element in the response you just received.
+-- after you've received a response where the results are truncated. Set it
+-- to the value of the Marker element in the response you just received.
 lsc1Marker :: Lens' ListSigningCertificates (Maybe Text)
 lsc1Marker = lens _lsc1Marker (\s a -> s { _lsc1Marker = a })
 
@@ -109,72 +89,64 @@ lsc1Marker = lens _lsc1Marker (\s a -> s { _lsc1Marker = a })
 -- certificate IDs beyond the maximum you specify, the IsTruncated response
 -- element is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-lsc1MaxItems :: Lens' ListSigningCertificates (Maybe Integer)
+lsc1MaxItems :: Lens' ListSigningCertificates (Maybe Natural)
 lsc1MaxItems = lens _lsc1MaxItems (\s a -> s { _lsc1MaxItems = a })
 
-instance ToQuery ListSigningCertificates where
-    toQuery = genericQuery def
+-- | The name of the user.
+lsc1UserName :: Lens' ListSigningCertificates (Maybe Text)
+lsc1UserName = lens _lsc1UserName (\s a -> s { _lsc1UserName = a })
 
--- | Contains the result of a successful invocation of the
--- ListSigningCertificates action.
+instance ToQuery ListSigningCertificates
+
+instance ToPath ListSigningCertificates where
+    toPath = const "/"
+
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
-    { _lscrrCertificates :: [SigningCertificate]
-    , _lscrrIsTruncated :: Bool
-    , _lscrrMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _lscr1Certificates :: [SigningCertificate]
+    , _lscr1IsTruncated  :: Maybe Bool
+    , _lscr1Marker       :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListSigningCertificatesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListSigningCertificatesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Certificates ::@ @[SigningCertificate]@
+-- * 'lscr1Certificates' @::@ ['SigningCertificate']
 --
--- * @IsTruncated ::@ @Bool@
+-- * 'lscr1IsTruncated' @::@ 'Maybe' 'Bool'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lscr1Marker' @::@ 'Maybe' 'Text'
 --
-listSigningCertificatesResponse :: [SigningCertificate] -- ^ 'lscrrCertificates'
-                                -> Bool -- ^ 'lscrrIsTruncated'
-                                -> ListSigningCertificatesResponse
-listSigningCertificatesResponse p1 p2 = ListSigningCertificatesResponse
-    { _lscrrCertificates = p1
-    , _lscrrIsTruncated = p2
-    , _lscrrMarker = Nothing
+listSigningCertificatesResponse :: ListSigningCertificatesResponse
+listSigningCertificatesResponse = ListSigningCertificatesResponse
+    { _lscr1Certificates = mempty
+    , _lscr1IsTruncated  = Nothing
+    , _lscr1Marker       = Nothing
     }
 
 -- | A list of the user's signing certificate information.
-lscrrCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
-lscrrCertificates =
-    lens _lscrrCertificates (\s a -> s { _lscrrCertificates = a })
+lscr1Certificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
+lscr1Certificates =
+    lens _lscr1Certificates (\s a -> s { _lscr1Certificates = a })
 
 -- | A flag that indicates whether there are more certificate IDs to list. If
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more certificates in the
 -- list.
-lscrrIsTruncated :: Lens' ListSigningCertificatesResponse Bool
-lscrrIsTruncated =
-    lens _lscrrIsTruncated (\s a -> s { _lscrrIsTruncated = a })
+lscr1IsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
+lscr1IsTruncated = lens _lscr1IsTruncated (\s a -> s { _lscr1IsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lscrrMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
-lscrrMarker = lens _lscrrMarker (\s a -> s { _lscrrMarker = a })
-
-instance FromXML ListSigningCertificatesResponse where
-    fromXMLOptions = xmlOptions
+lscr1Marker :: Lens' ListSigningCertificatesResponse (Maybe Text)
+lscr1Marker = lens _lscr1Marker (\s a -> s { _lscr1Marker = a })
 
 instance AWSRequest ListSigningCertificates where
     type Sv ListSigningCertificates = IAM
     type Rs ListSigningCertificates = ListSigningCertificatesResponse
 
-    request = post "ListSigningCertificates"
-    response _ = xmlResponse
-
-instance AWSPager ListSigningCertificates where
-    next rq rs
-        | not (rs ^. lscrrIsTruncated) = Nothing
-        | otherwise = Just $
-            rq & lsc1Marker .~ rs ^. lscrrMarker
+    request  = post "ListSigningCertificates"
+    response = xmlResponse $ \h x -> ListSigningCertificatesResponse
+        <$> x %| "Certificates"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"

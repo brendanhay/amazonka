@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.UpdateAccessKey
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,12 +25,9 @@
 -- key rotation work flow. If the UserName field is not specified, the
 -- UserName is determined implicitly based on the AWS access key ID used to
 -- sign the request. Because this action works for access keys under the AWS
--- account, this API can be used to manage root credentials even if the AWS
+-- account, you can use this action to manage root credentials even if the AWS
 -- account has no associated users. For information about rotating keys, see
 -- Managing Keys and Certificates in the Using IAM guide.
--- https://iam.amazonaws.com/ ?Action=UpdateAccessKey &UserName=Bob
--- &AccessKeyId=AKIAIOSFODNN7EXAMPLE &Status=Inactive &Version=2010-05-08
--- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 module Network.AWS.IAM.UpdateAccessKey
     (
     -- * Request
@@ -36,9 +35,9 @@ module Network.AWS.IAM.UpdateAccessKey
     -- ** Request constructor
     , updateAccessKey
     -- ** Request lenses
-    , uakUserName
     , uakAccessKeyId
     , uakStatus
+    , uakUserName
 
     -- * Response
     , UpdateAccessKeyResponse
@@ -46,39 +45,35 @@ module Network.AWS.IAM.UpdateAccessKey
     , updateAccessKeyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data UpdateAccessKey = UpdateAccessKey
-    { _uakUserName :: Maybe Text
-    , _uakAccessKeyId :: Text
-    , _uakStatus :: StatusType
+    { _uakAccessKeyId :: Text
+    , _uakStatus      :: Text
+    , _uakUserName    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateAccessKey' request.
+-- | 'UpdateAccessKey' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Maybe Text@
+-- * 'uakAccessKeyId' @::@ 'Text'
 --
--- * @AccessKeyId ::@ @Text@
+-- * 'uakStatus' @::@ 'Text'
 --
--- * @Status ::@ @StatusType@
+-- * 'uakUserName' @::@ 'Maybe' 'Text'
 --
 updateAccessKey :: Text -- ^ 'uakAccessKeyId'
-                -> StatusType -- ^ 'uakStatus'
+                -> Text -- ^ 'uakStatus'
                 -> UpdateAccessKey
-updateAccessKey p2 p3 = UpdateAccessKey
-    { _uakUserName = Nothing
-    , _uakAccessKeyId = p2
-    , _uakStatus = p3
+updateAccessKey p1 p2 = UpdateAccessKey
+    { _uakAccessKeyId = p1
+    , _uakStatus      = p2
+    , _uakUserName    = Nothing
     }
-
--- | Name of the user whose key you want to update.
-uakUserName :: Lens' UpdateAccessKey (Maybe Text)
-uakUserName = lens _uakUserName (\s a -> s { _uakUserName = a })
 
 -- | The access key ID of the secret access key you want to update.
 uakAccessKeyId :: Lens' UpdateAccessKey Text
@@ -87,19 +82,22 @@ uakAccessKeyId = lens _uakAccessKeyId (\s a -> s { _uakAccessKeyId = a })
 -- | The status you want to assign to the secret access key. Active means the
 -- key can be used for API calls to AWS, while Inactive means the key cannot
 -- be used.
-uakStatus :: Lens' UpdateAccessKey StatusType
+uakStatus :: Lens' UpdateAccessKey Text
 uakStatus = lens _uakStatus (\s a -> s { _uakStatus = a })
 
-instance ToQuery UpdateAccessKey where
-    toQuery = genericQuery def
+-- | The name of the user whose key you want to update.
+uakUserName :: Lens' UpdateAccessKey (Maybe Text)
+uakUserName = lens _uakUserName (\s a -> s { _uakUserName = a })
+
+instance ToQuery UpdateAccessKey
+
+instance ToPath UpdateAccessKey where
+    toPath = const "/"
 
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateAccessKeyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateAccessKeyResponse' constructor.
 updateAccessKeyResponse :: UpdateAccessKeyResponse
 updateAccessKeyResponse = UpdateAccessKeyResponse
 
@@ -107,5 +105,5 @@ instance AWSRequest UpdateAccessKey where
     type Sv UpdateAccessKey = IAM
     type Rs UpdateAccessKey = UpdateAccessKeyResponse
 
-    request = post "UpdateAccessKey"
-    response _ = nullaryResponse UpdateAccessKeyResponse
+    request  = post "UpdateAccessKey"
+    response = nullaryResponse UpdateAccessKeyResponse

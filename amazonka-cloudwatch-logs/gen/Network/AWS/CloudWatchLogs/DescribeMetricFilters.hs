@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeMetricFilters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,21 +25,7 @@
 -- default, this operation returns up to 50 metric filters. If there are more
 -- metric filters to list, the response would contain a nextToken value in the
 -- response body. You can also limit the number of metric filters returned in
--- the response by specifying the limit parameter in the request. List the
--- metric filters associated with a log group The following is an example of a
--- DescribeMetricFilters request and response. POST / HTTP/1.1 Host: logs..
--- X-Amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Accept: application/json Content-Type:
--- application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]>
--- X-Amz-Target: Logs_20140328.DescribeMetricFilters { "logGroupName":
--- "exampleLogGroupName" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
--- application/x-amz-json-1.1 Content-Length: Date: ]]> { "metricFilters": [ {
--- "creationTime": 1396224000000, "filterName": "exampleFilterName",
--- "filterPattern": "[ip, identity, user_id, timestamp, request, status_code,
--- size]", "metricTransformations": [ { "metricValue": "$size",
--- "metricNamespace": "MyApp", "metricName": "Volume" }, { "metricValue": "1",
--- "metricNamespace": "MyApp", "metricName": "RequestCount" } ] } ] }.
+-- the response by specifying the limit parameter in the request.
 module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     (
     -- * Request
@@ -45,10 +33,10 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     -- ** Request constructor
     , describeMetricFilters
     -- ** Request lenses
-    , dmf1LogGroupName
-    , dmf1FilterNamePrefix
-    , dmf1NextToken
-    , dmf1Limit
+    , dmfFilterNamePrefix
+    , dmfLimit
+    , dmfLogGroupName
+    , dmfNextToken
 
     -- * Response
     , DescribeMetricFiltersResponse
@@ -59,108 +47,100 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     , dmfrNextToken
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudWatchLogs.Types
 
 data DescribeMetricFilters = DescribeMetricFilters
-    { _dmf1LogGroupName :: Text
-    , _dmf1FilterNamePrefix :: Maybe Text
-    , _dmf1NextToken :: Maybe Text
-    , _dmf1Limit :: Maybe Integer
+    { _dmfFilterNamePrefix :: Maybe Text
+    , _dmfLimit            :: Maybe Natural
+    , _dmfLogGroupName     :: Text
+    , _dmfNextToken        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeMetricFilters' request.
+-- | 'DescribeMetricFilters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogGroupName ::@ @Text@
+-- * 'dmfFilterNamePrefix' @::@ 'Maybe' 'Text'
 --
--- * @FilterNamePrefix ::@ @Maybe Text@
+-- * 'dmfLimit' @::@ 'Maybe' 'Natural'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dmfLogGroupName' @::@ 'Text'
 --
--- * @Limit ::@ @Maybe Integer@
+-- * 'dmfNextToken' @::@ 'Maybe' 'Text'
 --
-describeMetricFilters :: Text -- ^ 'dmf1LogGroupName'
+describeMetricFilters :: Text -- ^ 'dmfLogGroupName'
                       -> DescribeMetricFilters
 describeMetricFilters p1 = DescribeMetricFilters
-    { _dmf1LogGroupName = p1
-    , _dmf1FilterNamePrefix = Nothing
-    , _dmf1NextToken = Nothing
-    , _dmf1Limit = Nothing
+    { _dmfLogGroupName     = p1
+    , _dmfFilterNamePrefix = Nothing
+    , _dmfNextToken        = Nothing
+    , _dmfLimit            = Nothing
     }
 
-dmf1LogGroupName :: Lens' DescribeMetricFilters Text
-dmf1LogGroupName =
-    lens _dmf1LogGroupName (\s a -> s { _dmf1LogGroupName = a })
+dmfFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
+dmfFilterNamePrefix =
+    lens _dmfFilterNamePrefix (\s a -> s { _dmfFilterNamePrefix = a })
 
--- | The name of the metric filter.
-dmf1FilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
-dmf1FilterNamePrefix =
-    lens _dmf1FilterNamePrefix (\s a -> s { _dmf1FilterNamePrefix = a })
+-- | The maximum number of items returned in the response. If you don't
+-- specify a value, the request would return up to 50 items.
+dmfLimit :: Lens' DescribeMetricFilters (Maybe Natural)
+dmfLimit = lens _dmfLimit (\s a -> s { _dmfLimit = a })
 
--- | A string token used for pagination that points to the next page of results.
--- It must be a value obtained from the response of the previous
+dmfLogGroupName :: Lens' DescribeMetricFilters Text
+dmfLogGroupName = lens _dmfLogGroupName (\s a -> s { _dmfLogGroupName = a })
+
+-- | A string token used for pagination that points to the next page of
+-- results. It must be a value obtained from the response of the previous
 -- DescribeMetricFilters request.
-dmf1NextToken :: Lens' DescribeMetricFilters (Maybe Text)
-dmf1NextToken = lens _dmf1NextToken (\s a -> s { _dmf1NextToken = a })
+dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
+dmfNextToken = lens _dmfNextToken (\s a -> s { _dmfNextToken = a })
 
--- | The maximum number of items returned in the response. If you don't specify
--- a value, the request would return up to 50 items.
-dmf1Limit :: Lens' DescribeMetricFilters (Maybe Integer)
-dmf1Limit = lens _dmf1Limit (\s a -> s { _dmf1Limit = a })
+instance ToPath DescribeMetricFilters where
+    toPath = const "/"
 
-instance ToPath DescribeMetricFilters
-
-instance ToQuery DescribeMetricFilters
+instance ToQuery DescribeMetricFilters where
+    toQuery = const mempty
 
 instance ToHeaders DescribeMetricFilters
 
-instance ToJSON DescribeMetricFilters
+instance ToBody DescribeMetricFilters where
+    toBody = toBody . encode . _dmfLogGroupName
 
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
     { _dmfrMetricFilters :: [MetricFilter]
-    , _dmfrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _dmfrNextToken     :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeMetricFiltersResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeMetricFiltersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @MetricFilters ::@ @[MetricFilter]@
+-- * 'dmfrMetricFilters' @::@ ['MetricFilter']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dmfrNextToken' @::@ 'Maybe' 'Text'
 --
 describeMetricFiltersResponse :: DescribeMetricFiltersResponse
 describeMetricFiltersResponse = DescribeMetricFiltersResponse
     { _dmfrMetricFilters = mempty
-    , _dmfrNextToken = Nothing
+    , _dmfrNextToken     = Nothing
     }
 
 dmfrMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
 dmfrMetricFilters =
     lens _dmfrMetricFilters (\s a -> s { _dmfrMetricFilters = a })
 
--- | A string token used for pagination that points to the next page of results.
--- It must be a value obtained from the response of the previous request. The
--- token expires after 24 hours.
 dmfrNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
 dmfrNextToken = lens _dmfrNextToken (\s a -> s { _dmfrNextToken = a })
 
-instance FromJSON DescribeMetricFiltersResponse
+-- FromJSON
 
 instance AWSRequest DescribeMetricFilters where
     type Sv DescribeMetricFilters = CloudWatchLogs
     type Rs DescribeMetricFilters = DescribeMetricFiltersResponse
 
-    request = get
-    response _ = jsonResponse
-
-instance AWSPager DescribeMetricFilters where
-    next rq rs = (\x -> rq & dmf1NextToken ?~ x)
-        <$> (rs ^. dmfrNextToken)
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeMetricFiltersResponse
+        <$> o .: "metricFilters"
+        <*> o .: "nextToken"

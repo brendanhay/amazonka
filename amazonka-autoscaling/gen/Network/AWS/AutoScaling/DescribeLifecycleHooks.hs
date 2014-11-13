@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLifecycleHooks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,87 +29,88 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     -- ** Request constructor
     , describeLifecycleHooks
     -- ** Request lenses
-    , dlh1AutoScalingGroupName
-    , dlh1LifecycleHookNames
+    , dlhAutoScalingGroupName
+    , dlhLifecycleHookNames
 
     -- * Response
     , DescribeLifecycleHooksResponse
     -- ** Response constructor
     , describeLifecycleHooksResponse
     -- ** Response lenses
-    , dlhrrLifecycleHooks
+    , dlhrLifecycleHooks
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeLifecycleHooks = DescribeLifecycleHooks
-    { _dlh1AutoScalingGroupName :: Text
-    , _dlh1LifecycleHookNames :: [Text]
+    { _dlhAutoScalingGroupName :: Text
+    , _dlhLifecycleHookNames   :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLifecycleHooks' request.
+-- | 'DescribeLifecycleHooks' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AutoScalingGroupName ::@ @Text@
+-- * 'dlhAutoScalingGroupName' @::@ 'Text'
 --
--- * @LifecycleHookNames ::@ @[Text]@
+-- * 'dlhLifecycleHookNames' @::@ ['Text']
 --
-describeLifecycleHooks :: Text -- ^ 'dlh1AutoScalingGroupName'
+describeLifecycleHooks :: Text -- ^ 'dlhAutoScalingGroupName'
                        -> DescribeLifecycleHooks
 describeLifecycleHooks p1 = DescribeLifecycleHooks
-    { _dlh1AutoScalingGroupName = p1
-    , _dlh1LifecycleHookNames = mempty
+    { _dlhAutoScalingGroupName = p1
+    , _dlhLifecycleHookNames   = mempty
     }
 
 -- | The name of one or more Auto Scaling groups.
-dlh1AutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
-dlh1AutoScalingGroupName =
-    lens _dlh1AutoScalingGroupName
-         (\s a -> s { _dlh1AutoScalingGroupName = a })
+dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
+dlhAutoScalingGroupName =
+    lens _dlhAutoScalingGroupName (\s a -> s { _dlhAutoScalingGroupName = a })
 
 -- | The name of one or more lifecycle hooks.
-dlh1LifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
-dlh1LifecycleHookNames =
-    lens _dlh1LifecycleHookNames (\s a -> s { _dlh1LifecycleHookNames = a })
+dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
+dlhLifecycleHookNames =
+    lens _dlhLifecycleHookNames (\s a -> s { _dlhLifecycleHookNames = a })
 
-instance ToQuery DescribeLifecycleHooks where
-    toQuery = genericQuery def
+instance ToQuery DescribeLifecycleHooks
 
--- | The output of the DescribeLifecycleHooks action.
+instance ToPath DescribeLifecycleHooks where
+    toPath = const "/"
+
 newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
-    { _dlhrrLifecycleHooks :: [LifecycleHook]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dlhrLifecycleHooks :: [LifecycleHook]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLifecycleHooksResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeLifecycleHooksResponse where
+    type Item DescribeLifecycleHooksResponse = LifecycleHook
+
+    fromList = DescribeLifecycleHooksResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlhrLifecycleHooks
+
+-- | 'DescribeLifecycleHooksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LifecycleHooks ::@ @[LifecycleHook]@
+-- * 'dlhrLifecycleHooks' @::@ ['LifecycleHook']
 --
 describeLifecycleHooksResponse :: DescribeLifecycleHooksResponse
 describeLifecycleHooksResponse = DescribeLifecycleHooksResponse
-    { _dlhrrLifecycleHooks = mempty
+    { _dlhrLifecycleHooks = mempty
     }
 
 -- | A list describing the lifecycle hooks that belong to the specified Auto
 -- Scaling group.
-dlhrrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
-dlhrrLifecycleHooks =
-    lens _dlhrrLifecycleHooks (\s a -> s { _dlhrrLifecycleHooks = a })
-
-instance FromXML DescribeLifecycleHooksResponse where
-    fromXMLOptions = xmlOptions
+dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
+dlhrLifecycleHooks =
+    lens _dlhrLifecycleHooks (\s a -> s { _dlhrLifecycleHooks = a })
 
 instance AWSRequest DescribeLifecycleHooks where
     type Sv DescribeLifecycleHooks = AutoScaling
     type Rs DescribeLifecycleHooks = DescribeLifecycleHooksResponse
 
-    request = post "DescribeLifecycleHooks"
-    response _ = xmlResponse
+    request  = post "DescribeLifecycleHooks"
+    response = xmlResponse $ \h x -> DescribeLifecycleHooksResponse
+        <$> x %| "LifecycleHooks"

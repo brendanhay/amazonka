@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,9 +32,9 @@ module Network.AWS.OpsWorks.UpdateVolume
     -- ** Request constructor
     , updateVolume
     -- ** Request lenses
-    , uv1VolumeId
-    , uv1Name
     , uv1MountPoint
+    , uv1Name
+    , uv1VolumeId
 
     -- * Response
     , UpdateVolumeResponse
@@ -40,68 +42,69 @@ module Network.AWS.OpsWorks.UpdateVolume
     , updateVolumeResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data UpdateVolume = UpdateVolume
-    { _uv1VolumeId :: Text
-    , _uv1Name :: Maybe Text
-    , _uv1MountPoint :: Maybe Text
+    { _uv1MountPoint :: Maybe Text
+    , _uv1Name       :: Maybe Text
+    , _uv1VolumeId   :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateVolume' request.
+-- | 'UpdateVolume' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeId ::@ @Text@
+-- * 'uv1MountPoint' @::@ 'Maybe' 'Text'
 --
--- * @Name ::@ @Maybe Text@
+-- * 'uv1Name' @::@ 'Maybe' 'Text'
 --
--- * @MountPoint ::@ @Maybe Text@
+-- * 'uv1VolumeId' @::@ 'Text'
 --
 updateVolume :: Text -- ^ 'uv1VolumeId'
              -> UpdateVolume
 updateVolume p1 = UpdateVolume
-    { _uv1VolumeId = p1
-    , _uv1Name = Nothing
+    { _uv1VolumeId   = p1
+    , _uv1Name       = Nothing
     , _uv1MountPoint = Nothing
     }
-
--- | The volume ID.
-uv1VolumeId :: Lens' UpdateVolume Text
-uv1VolumeId = lens _uv1VolumeId (\s a -> s { _uv1VolumeId = a })
-
--- | The new name.
-uv1Name :: Lens' UpdateVolume (Maybe Text)
-uv1Name = lens _uv1Name (\s a -> s { _uv1Name = a })
 
 -- | The new mount point.
 uv1MountPoint :: Lens' UpdateVolume (Maybe Text)
 uv1MountPoint = lens _uv1MountPoint (\s a -> s { _uv1MountPoint = a })
 
-instance ToPath UpdateVolume
+-- | The new name.
+uv1Name :: Lens' UpdateVolume (Maybe Text)
+uv1Name = lens _uv1Name (\s a -> s { _uv1Name = a })
 
-instance ToQuery UpdateVolume
+-- | The volume ID.
+uv1VolumeId :: Lens' UpdateVolume Text
+uv1VolumeId = lens _uv1VolumeId (\s a -> s { _uv1VolumeId = a })
+
+instance ToPath UpdateVolume where
+    toPath = const "/"
+
+instance ToQuery UpdateVolume where
+    toQuery = const mempty
 
 instance ToHeaders UpdateVolume
 
-instance ToJSON UpdateVolume
+instance ToBody UpdateVolume where
+    toBody = toBody . encode . _uv1VolumeId
 
 data UpdateVolumeResponse = UpdateVolumeResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateVolumeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateVolumeResponse' constructor.
 updateVolumeResponse :: UpdateVolumeResponse
 updateVolumeResponse = UpdateVolumeResponse
+
+-- FromJSON
 
 instance AWSRequest UpdateVolume where
     type Sv UpdateVolume = OpsWorks
     type Rs UpdateVolume = UpdateVolumeResponse
 
-    request = get
-    response _ = nullaryResponse UpdateVolumeResponse
+    request  = post'
+    response = nullaryResponse UpdateVolumeResponse

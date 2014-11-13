@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.ListRolePolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,10 +23,6 @@
 -- | Lists the names of the policies associated with the specified role. If
 -- there are none, the action returns an empty list. You can paginate the
 -- results using the MaxItems and Marker parameters.
--- https://iam.amazonaws.com/ ?Action=ListRolePolicies &MaxItems=100
--- &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
--- CloudwatchPutMetricPolicy S3AccessPolicy false
--- 8c7e1816-99f0-11e1-a4c3-27EXAMPLE804.
 module Network.AWS.IAM.ListRolePolicies
     (
     -- * Request
@@ -32,52 +30,48 @@ module Network.AWS.IAM.ListRolePolicies
     -- ** Request constructor
     , listRolePolicies
     -- ** Request lenses
-    , lrpRoleName
     , lrpMarker
     , lrpMaxItems
+    , lrpRoleName
 
     -- * Response
     , ListRolePoliciesResponse
     -- ** Response constructor
     , listRolePoliciesResponse
     -- ** Response lenses
-    , lrprPolicyNames
     , lrprIsTruncated
     , lrprMarker
+    , lrprPolicyNames
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ListRolePolicies = ListRolePolicies
-    { _lrpRoleName :: Text
-    , _lrpMarker :: Maybe Text
-    , _lrpMaxItems :: Maybe Integer
+    { _lrpMarker   :: Maybe Text
+    , _lrpMaxItems :: Maybe Natural
+    , _lrpRoleName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListRolePolicies' request.
+-- | 'ListRolePolicies' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RoleName ::@ @Text@
+-- * 'lrpMarker' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lrpMaxItems' @::@ 'Maybe' 'Natural'
 --
--- * @MaxItems ::@ @Maybe Integer@
+-- * 'lrpRoleName' @::@ 'Text'
 --
 listRolePolicies :: Text -- ^ 'lrpRoleName'
                  -> ListRolePolicies
 listRolePolicies p1 = ListRolePolicies
     { _lrpRoleName = p1
-    , _lrpMarker = Nothing
+    , _lrpMarker   = Nothing
     , _lrpMaxItems = Nothing
     }
-
--- | The name of the role to list policies for.
-lrpRoleName :: Lens' ListRolePolicies Text
-lrpRoleName = lens _lrpRoleName (\s a -> s { _lrpRoleName = a })
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
@@ -87,54 +81,50 @@ lrpMarker :: Lens' ListRolePolicies (Maybe Text)
 lrpMarker = lens _lrpMarker (\s a -> s { _lrpMarker = a })
 
 -- | Use this parameter only when paginating results to indicate the maximum
--- number of user names you want in the response. If there are additional user
--- names beyond the maximum you specify, the IsTruncated response element is
--- true. This parameter is optional. If you do not include it, it defaults to
--- 100.
-lrpMaxItems :: Lens' ListRolePolicies (Maybe Integer)
+-- number of role policies you want in the response. If there are additional
+-- role policies beyond the maximum you specify, the IsTruncated response
+-- element is true. This parameter is optional. If you do not include it, it
+-- defaults to 100.
+lrpMaxItems :: Lens' ListRolePolicies (Maybe Natural)
 lrpMaxItems = lens _lrpMaxItems (\s a -> s { _lrpMaxItems = a })
 
-instance ToQuery ListRolePolicies where
-    toQuery = genericQuery def
+-- | The name of the role to list policies for.
+lrpRoleName :: Lens' ListRolePolicies Text
+lrpRoleName = lens _lrpRoleName (\s a -> s { _lrpRoleName = a })
 
--- | Contains the result of a successful invocation of the ListRolePolicies
--- action.
+instance ToQuery ListRolePolicies
+
+instance ToPath ListRolePolicies where
+    toPath = const "/"
+
 data ListRolePoliciesResponse = ListRolePoliciesResponse
-    { _lrprPolicyNames :: [Text]
-    , _lrprIsTruncated :: Bool
-    , _lrprMarker :: Maybe Text
+    { _lrprIsTruncated :: Maybe Bool
+    , _lrprMarker      :: Maybe Text
+    , _lrprPolicyNames :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListRolePoliciesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListRolePoliciesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PolicyNames ::@ @[Text]@
+-- * 'lrprIsTruncated' @::@ 'Maybe' 'Bool'
 --
--- * @IsTruncated ::@ @Bool@
+-- * 'lrprMarker' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lrprPolicyNames' @::@ ['Text']
 --
-listRolePoliciesResponse :: [Text] -- ^ 'lrprPolicyNames'
-                         -> Bool -- ^ 'lrprIsTruncated'
-                         -> ListRolePoliciesResponse
-listRolePoliciesResponse p1 p2 = ListRolePoliciesResponse
-    { _lrprPolicyNames = p1
-    , _lrprIsTruncated = p2
-    , _lrprMarker = Nothing
+listRolePoliciesResponse :: ListRolePoliciesResponse
+listRolePoliciesResponse = ListRolePoliciesResponse
+    { _lrprPolicyNames = mempty
+    , _lrprIsTruncated = Nothing
+    , _lrprMarker      = Nothing
     }
 
--- | A list of policy names.
-lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]
-lrprPolicyNames = lens _lrprPolicyNames (\s a -> s { _lrprPolicyNames = a })
-
--- | A flag that indicates whether there are more policy names to list. If your
--- results were truncated, you can make a subsequent pagination request using
--- the Marker request parameter to retrieve more policy names in the list.
-lrprIsTruncated :: Lens' ListRolePoliciesResponse Bool
+-- | A flag that indicates whether there are more policy names to list. If
+-- your results were truncated, you can make a subsequent pagination request
+-- using the Marker request parameter to retrieve more policy names in the
+-- list.
+lrprIsTruncated :: Lens' ListRolePoliciesResponse (Maybe Bool)
 lrprIsTruncated = lens _lrprIsTruncated (\s a -> s { _lrprIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
@@ -142,18 +132,16 @@ lrprIsTruncated = lens _lrprIsTruncated (\s a -> s { _lrprIsTruncated = a })
 lrprMarker :: Lens' ListRolePoliciesResponse (Maybe Text)
 lrprMarker = lens _lrprMarker (\s a -> s { _lrprMarker = a })
 
-instance FromXML ListRolePoliciesResponse where
-    fromXMLOptions = xmlOptions
+-- | A list of policy names.
+lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]
+lrprPolicyNames = lens _lrprPolicyNames (\s a -> s { _lrprPolicyNames = a })
 
 instance AWSRequest ListRolePolicies where
     type Sv ListRolePolicies = IAM
     type Rs ListRolePolicies = ListRolePoliciesResponse
 
-    request = post "ListRolePolicies"
-    response _ = xmlResponse
-
-instance AWSPager ListRolePolicies where
-    next rq rs
-        | not (rs ^. lrprIsTruncated) = Nothing
-        | otherwise = Just $
-            rq & lrpMarker .~ rs ^. lrprMarker
+    request  = post "ListRolePolicies"
+    response = xmlResponse $ \h x -> ListRolePoliciesResponse
+        <$> x %| "IsTruncated"
+        <*> x %| "Marker"
+        <*> x %| "PolicyNames"

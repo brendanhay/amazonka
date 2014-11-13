@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.PurchaseReservedNodeOffering
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,16 +27,6 @@
 -- reserved node offering and the number of nodes you want to reserve. For
 -- more information about managing parameter groups, go to Purchasing Reserved
 -- Nodes in the Amazon Redshift Management Guide.
--- https://redshift.us-east-1.amazonaws.com/
--- ?Action=PurchaseReservedNodeOffering
--- &ReservedNodeOfferingId=3a98bf7d-979a-49cc-b568-18f24315baf0 &NodeCount=2
--- &Version=2012-12-01 &x-amz-algorithm=AWS4-HMAC-SHA256
--- &x-amz-credential=AKIAIOSFODNN7EXAMPLE/20130117/us-east-1/redshift/aws4_request
--- &x-amz-date=20130117T232351Z
--- &x-amz-signedheaders=content-type;host;x-amz-date 2013-01-18T21:42:44.402Z
--- Heavy Utilization 94608000 Hourly 0.21 12452.0 0.0 payment-pending
--- dw1.8xlarge 2 1ba8e2e3-dacf-48d9-841f-cc675182a8a6
--- fcb117cc-61b7-11e2-b6e9-87e586e4ca38.
 module Network.AWS.Redshift.PurchaseReservedNodeOffering
     (
     -- * Request
@@ -42,8 +34,8 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     -- ** Request constructor
     , purchaseReservedNodeOffering
     -- ** Request lenses
-    , prnoReservedNodeOfferingId
     , prnoNodeCount
+    , prnoReservedNodeOfferingId
 
     -- * Response
     , PurchaseReservedNodeOfferingResponse
@@ -53,74 +45,69 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     , prnorReservedNode
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
-    { _prnoReservedNodeOfferingId :: Text
-    , _prnoNodeCount :: Maybe Integer
+    { _prnoNodeCount              :: Maybe Int
+    , _prnoReservedNodeOfferingId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PurchaseReservedNodeOffering' request.
+-- | 'PurchaseReservedNodeOffering' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedNodeOfferingId ::@ @Text@
+-- * 'prnoNodeCount' @::@ 'Maybe' 'Int'
 --
--- * @NodeCount ::@ @Maybe Integer@
+-- * 'prnoReservedNodeOfferingId' @::@ 'Text'
 --
 purchaseReservedNodeOffering :: Text -- ^ 'prnoReservedNodeOfferingId'
                              -> PurchaseReservedNodeOffering
 purchaseReservedNodeOffering p1 = PurchaseReservedNodeOffering
     { _prnoReservedNodeOfferingId = p1
-    , _prnoNodeCount = Nothing
+    , _prnoNodeCount              = Nothing
     }
+
+-- | The number of reserved nodes you want to purchase. Default: 1.
+prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
+prnoNodeCount = lens _prnoNodeCount (\s a -> s { _prnoNodeCount = a })
 
 -- | The unique identifier of the reserved node offering you want to purchase.
 prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
 prnoReservedNodeOfferingId =
     lens _prnoReservedNodeOfferingId
-         (\s a -> s { _prnoReservedNodeOfferingId = a })
+        (\s a -> s { _prnoReservedNodeOfferingId = a })
 
--- | The number of reserved nodes you want to purchase. Default: 1.
-prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Integer)
-prnoNodeCount = lens _prnoNodeCount (\s a -> s { _prnoNodeCount = a })
+instance ToQuery PurchaseReservedNodeOffering
 
-instance ToQuery PurchaseReservedNodeOffering where
-    toQuery = genericQuery def
+instance ToPath PurchaseReservedNodeOffering where
+    toPath = const "/"
 
 newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _prnorReservedNode :: Maybe ReservedNode
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PurchaseReservedNodeOfferingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PurchaseReservedNodeOfferingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedNode ::@ @Maybe ReservedNode@
+-- * 'prnorReservedNode' @::@ 'Maybe' 'ReservedNode'
 --
 purchaseReservedNodeOfferingResponse :: PurchaseReservedNodeOfferingResponse
 purchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _prnorReservedNode = Nothing
     }
 
--- | Describes a reserved node.
 prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
 prnorReservedNode =
     lens _prnorReservedNode (\s a -> s { _prnorReservedNode = a })
-
-instance FromXML PurchaseReservedNodeOfferingResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest PurchaseReservedNodeOffering where
     type Sv PurchaseReservedNodeOffering = Redshift
     type Rs PurchaseReservedNodeOffering = PurchaseReservedNodeOfferingResponse
 
-    request = post "PurchaseReservedNodeOffering"
-    response _ = xmlResponse
+    request  = post "PurchaseReservedNodeOffering"
+    response = xmlResponse $ \h x -> PurchaseReservedNodeOfferingResponse
+        <$> x %| "ReservedNode"

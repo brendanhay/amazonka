@@ -1,11 +1,11 @@
 name:                  amazonka-datapipeline
 version:               0.0.0
-synopsis:              AWS Data Pipeline SDK
+synopsis:              Amazon Data Pipeline SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,9 +13,10 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS Data Pipeline is a web service that you can use to automate the movement and transformation of data.
-    .
-    With AWS Data Pipeline, you can define data-driven workflows, so that tasks can be dependent on the successful completion of previous tasks.
+    AWS Data Pipeline is a web service that you can use to automate the
+    movement and transformation of data. With AWS Data Pipeline, you can
+    define data-driven workflows, so that tasks can be dependent on the
+    successful completion of previous tasks.
 
 source-repository head
     type:     git
@@ -29,7 +30,6 @@ library
 
     exposed-modules:
           Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline.Types
         , Network.AWS.DataPipeline.ActivatePipeline
         , Network.AWS.DataPipeline.CreatePipeline
         , Network.AWS.DataPipeline.DeletePipeline
@@ -45,7 +45,10 @@ library
         , Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
         , Network.AWS.DataPipeline.SetStatus
         , Network.AWS.DataPipeline.SetTaskStatus
+        , Network.AWS.DataPipeline.Types
         , Network.AWS.DataPipeline.ValidatePipelineDefinition
+
+    other-modules:
 
     build-depends:
           amazonka-core

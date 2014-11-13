@@ -1,11 +1,11 @@
 name:                  amazonka-core
 version:               0.0.0
-synopsis:              Comprehensive Amazon Web Services SDK
+synopsis:              Core functionality, serialisation primitives, and data types for Amazon Web Service SDKs.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -30,14 +30,11 @@ library
         , Network.AWS
         , Network.AWS.Auth
         , Network.AWS.Data
-        , Network.AWS.Data.List1
-        , Network.AWS.Data.Map
         , Network.AWS.EC2.Metadata
+        , Network.AWS.Error
         , Network.AWS.Prelude
-        , Network.AWS.Request.JSON
+        , Network.AWS.Request
         , Network.AWS.Request.Query
-        , Network.AWS.Request.RestS3
-        , Network.AWS.Request.RestXML
         , Network.AWS.Response
         , Network.AWS.Signing.V2
         , Network.AWS.Signing.V3
@@ -45,17 +42,18 @@ library
         , Network.AWS.Types
 
     other-modules:
-          Network.AWS.Internal.Data.Body
-        , Network.AWS.Internal.Data.ByteString
-        , Network.AWS.Internal.Data.Header
-        , Network.AWS.Internal.Data.Path
-        , Network.AWS.Internal.Data.Query
-        , Network.AWS.Internal.Data.Text
-        , Network.AWS.Internal.Data.Time
-        , Network.AWS.Internal.Data.URI
-        , Network.AWS.Internal.Data.XML
-        , Network.AWS.Internal.Request
-        , Network.AWS.Internal.Signing
+          Network.AWS.Data.Internal.Body
+        , Network.AWS.Data.Internal.ByteString
+        , Network.AWS.Data.Internal.Header
+        , Network.AWS.Data.Internal.List1
+        , Network.AWS.Data.Internal.Map
+        , Network.AWS.Data.Internal.Path
+        , Network.AWS.Data.Internal.Query
+        , Network.AWS.Data.Internal.Text
+        , Network.AWS.Data.Internal.Time
+        , Network.AWS.Data.Internal.URI
+        , Network.AWS.Data.Internal.XML
+        , Network.AWS.Signing.Internal
 
     build-depends:
           aeson                 == 0.8.*
@@ -70,17 +68,17 @@ library
         , conduit-extra
         , cryptohash
         , cryptohash-conduit
-        , data-default
+        , data-default-class
         , exceptions            == 0.6.*
         , hashable
         , http-client           >= 0.3.6   && < 0.4
         , http-conduit          == 2.1.4.*
         , http-types
         , lens                  == 4.4.*
-        , lifted-async
         , mmorph
         , monad-control
         , mtl
+        , nats
         , old-locale
         , resourcet             == 1.1.*
         , semigroups

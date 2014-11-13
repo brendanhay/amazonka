@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Kinesis.RemoveTagsFromStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,16 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes tags from the specified Amazon Kinesis stream. If you specify a tag
--- that does not exist, it is ignored. To remove tags from a stream The
--- following example removes the specified tag from the specified stream. POST
--- / HTTP/1.1 Host: kinesis.. x-amz-Date: Authorization: AWS4-HMAC-SHA256
--- Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Content-Type: application/x-amz-json-1.1
--- Content-Length: Connection: Keep-Alive]]> X-Amz-Target:
--- Kinesis_20131202.RemoveTagsFromStream { "StreamName": "exampleStreamName",
--- "TagKeys": ["Project", "Environment"] } HTTP/1.1 200 OK x-amzn-RequestId:
--- Content-Type: application/x-amz-json-1.1 Content-Length: Date: ]]>.
+-- that does not exist, it is ignored.
 module Network.AWS.Kinesis.RemoveTagsFromStream
     (
     -- * Request
@@ -45,62 +38,63 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
     , removeTagsFromStreamResponse
     ) where
 
-import Network.AWS.Kinesis.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Kinesis.Types
 
--- | Represents the input for RemoveTagsFromStream.
 data RemoveTagsFromStream = RemoveTagsFromStream
     { _rtfsStreamName :: Text
-    , _rtfsTagKeys :: List1 Text
+    , _rtfsTagKeys    :: List1 Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemoveTagsFromStream' request.
+-- | 'RemoveTagsFromStream' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StreamName ::@ @Text@
+-- * 'rtfsStreamName' @::@ 'Text'
 --
--- * @TagKeys ::@ @List1 Text@
+-- * 'rtfsTagKeys' @::@ 'NonEmpty' 'Text'
 --
 removeTagsFromStream :: Text -- ^ 'rtfsStreamName'
-                     -> List1 Text -- ^ 'rtfsTagKeys'
+                     -> NonEmpty Text -- ^ 'rtfsTagKeys'
                      -> RemoveTagsFromStream
 removeTagsFromStream p1 p2 = RemoveTagsFromStream
     { _rtfsStreamName = p1
-    , _rtfsTagKeys = p2
+    , _rtfsTagKeys    = withIso _List1 (const id) p2
     }
 
 -- | The name of the stream.
 rtfsStreamName :: Lens' RemoveTagsFromStream Text
 rtfsStreamName = lens _rtfsStreamName (\s a -> s { _rtfsStreamName = a })
 
--- | A list of tag keys. Each corresponding tag is deleted from the stream.
-rtfsTagKeys :: Lens' RemoveTagsFromStream (List1 Text)
+-- | A list of tag keys. Each corresponding tag is removed from the stream.
+rtfsTagKeys :: Lens' RemoveTagsFromStream (NonEmpty Text)
 rtfsTagKeys = lens _rtfsTagKeys (\s a -> s { _rtfsTagKeys = a })
+    . _List1
 
-instance ToPath RemoveTagsFromStream
+instance ToPath RemoveTagsFromStream where
+    toPath = const "/"
 
-instance ToQuery RemoveTagsFromStream
+instance ToQuery RemoveTagsFromStream where
+    toQuery = const mempty
 
 instance ToHeaders RemoveTagsFromStream
 
-instance ToJSON RemoveTagsFromStream
+instance ToBody RemoveTagsFromStream where
+    toBody = toBody . encode . _rtfsStreamName
 
 data RemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemoveTagsFromStreamResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RemoveTagsFromStreamResponse' constructor.
 removeTagsFromStreamResponse :: RemoveTagsFromStreamResponse
 removeTagsFromStreamResponse = RemoveTagsFromStreamResponse
+
+-- FromJSON
 
 instance AWSRequest RemoveTagsFromStream where
     type Sv RemoveTagsFromStream = Kinesis
     type Rs RemoveTagsFromStream = RemoveTagsFromStreamResponse
 
-    request = get
-    response _ = nullaryResponse RemoveTagsFromStreamResponse
+    request  = post'
+    response = nullaryResponse RemoveTagsFromStreamResponse

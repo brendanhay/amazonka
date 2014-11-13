@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53.ListHealthChecks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,43 +45,33 @@ module Network.AWS.Route53.ListHealthChecks
     , listHealthChecksResponse
     -- ** Response lenses
     , lhcrHealthChecks
-    , lhcrMarker
     , lhcrIsTruncated
-    , lhcrNextMarker
+    , lhcrMarker
     , lhcrMaxItems
+    , lhcrNextMarker
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
--- | To retrieve a list of your health checks, send a GET request to the
--- 2013-04-01/healthcheck resource. The response to this request includes a
--- HealthChecks element with zero or more HealthCheck child elements. By
--- default, the list of health checks is displayed on a single page. You can
--- control the length of the page that is displayed by using the MaxItems
--- parameter. You can use the Marker parameter to control the health check
--- that the list begins with. Route 53 returns a maximum of 100 items. If you
--- set MaxItems to a value greater than 100, Route 53 returns only the first
--- 100.
 data ListHealthChecks = ListHealthChecks
-    { _lhcMarker :: Maybe Text
+    { _lhcMarker   :: Maybe Text
     , _lhcMaxItems :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListHealthChecks' request.
+-- | 'ListHealthChecks' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lhcMarker' @::@ 'Maybe' 'Text'
 --
--- * @MaxItems ::@ @Maybe Text@
+-- * 'lhcMaxItems' @::@ 'Maybe' 'Text'
 --
 listHealthChecks :: ListHealthChecks
 listHealthChecks = ListHealthChecks
-    { _lhcMarker = Nothing
+    { _lhcMarker   = Nothing
     , _lhcMaxItems = Nothing
     }
 
@@ -89,64 +81,67 @@ listHealthChecks = ListHealthChecks
 lhcMarker :: Lens' ListHealthChecks (Maybe Text)
 lhcMarker = lens _lhcMarker (\s a -> s { _lhcMarker = a })
 
--- | Specify the maximum number of health checks to return per page of results.
+-- | Specify the maximum number of health checks to return per page of
+-- results.
 lhcMaxItems :: Lens' ListHealthChecks (Maybe Text)
 lhcMaxItems = lens _lhcMaxItems (\s a -> s { _lhcMaxItems = a })
 
-instance ToPath ListHealthChecks
+instance ToPath ListHealthChecks where
+    toPath = const "/2013-04-01/healthcheck"
 
-instance ToQuery ListHealthChecks
+instance ToQuery ListHealthChecks where
+    toQuery ListHealthChecks{..} = mconcat
+        [ "marker"   =? _lhcMarker
+        , "maxitems" =? _lhcMaxItems
+        ]
 
 instance ToHeaders ListHealthChecks
 
-instance ToXML ListHealthChecks where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListHealthChecks"
-
--- | A complex type that contains the response for the request.
 data ListHealthChecksResponse = ListHealthChecksResponse
     { _lhcrHealthChecks :: [HealthCheck]
-    , _lhcrMarker :: Text
-    , _lhcrIsTruncated :: !Bool
-    , _lhcrNextMarker :: Maybe Text
-    , _lhcrMaxItems :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _lhcrIsTruncated  :: Bool
+    , _lhcrMarker       :: Text
+    , _lhcrMaxItems     :: Text
+    , _lhcrNextMarker   :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListHealthChecksResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListHealthChecksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HealthChecks ::@ @[HealthCheck]@
+-- * 'lhcrHealthChecks' @::@ ['HealthCheck']
 --
--- * @Marker ::@ @Text@
+-- * 'lhcrIsTruncated' @::@ 'Bool'
 --
--- * @IsTruncated ::@ @Bool@
+-- * 'lhcrMarker' @::@ 'Text'
 --
--- * @NextMarker ::@ @Maybe Text@
+-- * 'lhcrMaxItems' @::@ 'Text'
 --
--- * @MaxItems ::@ @Text@
+-- * 'lhcrNextMarker' @::@ 'Maybe' 'Text'
 --
-listHealthChecksResponse :: [HealthCheck] -- ^ 'lhcrHealthChecks'
-                         -> Text -- ^ 'lhcrMarker'
+listHealthChecksResponse :: Text -- ^ 'lhcrMarker'
                          -> Bool -- ^ 'lhcrIsTruncated'
                          -> Text -- ^ 'lhcrMaxItems'
                          -> ListHealthChecksResponse
-listHealthChecksResponse p1 p2 p3 p5 = ListHealthChecksResponse
-    { _lhcrHealthChecks = p1
-    , _lhcrMarker = p2
-    , _lhcrIsTruncated = p3
-    , _lhcrNextMarker = Nothing
-    , _lhcrMaxItems = p5
+listHealthChecksResponse p1 p2 p3 = ListHealthChecksResponse
+    { _lhcrMarker       = p1
+    , _lhcrIsTruncated  = p2
+    , _lhcrMaxItems     = p3
+    , _lhcrHealthChecks = mempty
+    , _lhcrNextMarker   = Nothing
     }
 
--- | A complex type that contains information about the health checks associated
--- with the current AWS account.
+-- | A complex type that contains information about the health checks
+-- associated with the current AWS account.
 lhcrHealthChecks :: Lens' ListHealthChecksResponse [HealthCheck]
-lhcrHealthChecks =
-    lens _lhcrHealthChecks (\s a -> s { _lhcrHealthChecks = a })
+lhcrHealthChecks = lens _lhcrHealthChecks (\s a -> s { _lhcrHealthChecks = a })
+
+-- | A flag indicating whether there are more health checks to be listed. If
+-- your results were truncated, you can make a follow-up request for the
+-- next page of results by using the Marker element. Valid Values: true |
+-- false.
+lhcrIsTruncated :: Lens' ListHealthChecksResponse Bool
+lhcrIsTruncated = lens _lhcrIsTruncated (\s a -> s { _lhcrIsTruncated = a })
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of NextMarker from the last response in the
@@ -154,11 +149,14 @@ lhcrHealthChecks =
 lhcrMarker :: Lens' ListHealthChecksResponse Text
 lhcrMarker = lens _lhcrMarker (\s a -> s { _lhcrMarker = a })
 
--- | A flag indicating whether there are more health checks to be listed. If
--- your results were truncated, you can make a follow-up request for the next
--- page of results by using the Marker element. Valid Values: true | false.
-lhcrIsTruncated :: Lens' ListHealthChecksResponse Bool
-lhcrIsTruncated = lens _lhcrIsTruncated (\s a -> s { _lhcrIsTruncated = a })
+-- | The maximum number of health checks to be included in the response body.
+-- If the number of health checks associated with this AWS account exceeds
+-- MaxItems, the value of ListHealthChecksResponse$IsTruncated in the
+-- response is true. Call ListHealthChecks again and specify the value of
+-- ListHealthChecksResponse$NextMarker in the ListHostedZonesRequest$Marker
+-- element to get the next page of results.
+lhcrMaxItems :: Lens' ListHealthChecksResponse Text
+lhcrMaxItems = lens _lhcrMaxItems (\s a -> s { _lhcrMaxItems = a })
 
 -- | Indicates where to continue listing health checks. If
 -- ListHealthChecksResponse$IsTruncated is true, make another request to
@@ -167,27 +165,14 @@ lhcrIsTruncated = lens _lhcrIsTruncated (\s a -> s { _lhcrIsTruncated = a })
 lhcrNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrNextMarker = lens _lhcrNextMarker (\s a -> s { _lhcrNextMarker = a })
 
--- | The maximum number of health checks to be included in the response body. If
--- the number of health checks associated with this AWS account exceeds
--- MaxItems, the value of ListHealthChecksResponse$IsTruncated in the response
--- is true. Call ListHealthChecks again and specify the value of
--- ListHealthChecksResponse$NextMarker in the ListHostedZonesRequest$Marker
--- element to get the next page of results.
-lhcrMaxItems :: Lens' ListHealthChecksResponse Text
-lhcrMaxItems = lens _lhcrMaxItems (\s a -> s { _lhcrMaxItems = a })
-
-instance FromXML ListHealthChecksResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ListHealthChecks where
     type Sv ListHealthChecks = Route53
     type Rs ListHealthChecks = ListHealthChecksResponse
 
-    request = get
-    response _ = xmlResponse
-
-instance AWSPager ListHealthChecks where
-    next rq rs
-        | not (rs ^. lhcrIsTruncated) = Nothing
-        | otherwise = Just $
-            rq & lhcMarker .~ rs ^. lhcrNextMarker
+    request  = get
+    response = xmlResponse $ \h x -> ListHealthChecksResponse
+        <$> x %| "HealthChecks"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"
+        <*> x %| "MaxItems"
+        <*> x %| "NextMarker"

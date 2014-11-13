@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.DeleteUserPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,9 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified policy associated with the specified user.
--- https://iam.amazonaws.com/ ?Action=DeleteUserPolicy &UserName=Bob
--- &PolicyName=AllAccessPolicy &AUTHPARAMS
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 module Network.AWS.IAM.DeleteUserPolicy
     (
     -- * Request
@@ -29,8 +28,8 @@ module Network.AWS.IAM.DeleteUserPolicy
     -- ** Request constructor
     , deleteUserPolicy
     -- ** Request lenses
-    , dupUserName
     , dupPolicyName
+    , dupUserName
 
     -- * Response
     , DeleteUserPolicyResponse
@@ -38,50 +37,49 @@ module Network.AWS.IAM.DeleteUserPolicy
     , deleteUserPolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DeleteUserPolicy = DeleteUserPolicy
-    { _dupUserName :: Text
-    , _dupPolicyName :: Text
+    { _dupPolicyName :: Text
+    , _dupUserName   :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteUserPolicy' request.
+-- | 'DeleteUserPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Text@
+-- * 'dupPolicyName' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'dupUserName' @::@ 'Text'
 --
 deleteUserPolicy :: Text -- ^ 'dupUserName'
                  -> Text -- ^ 'dupPolicyName'
                  -> DeleteUserPolicy
 deleteUserPolicy p1 p2 = DeleteUserPolicy
-    { _dupUserName = p1
+    { _dupUserName   = p1
     , _dupPolicyName = p2
     }
 
--- | Name of the user the policy is associated with.
-dupUserName :: Lens' DeleteUserPolicy Text
-dupUserName = lens _dupUserName (\s a -> s { _dupUserName = a })
-
--- | Name of the policy document to delete.
+-- | The name of the policy document to delete.
 dupPolicyName :: Lens' DeleteUserPolicy Text
 dupPolicyName = lens _dupPolicyName (\s a -> s { _dupPolicyName = a })
 
-instance ToQuery DeleteUserPolicy where
-    toQuery = genericQuery def
+-- | The name of the user the policy is associated with.
+dupUserName :: Lens' DeleteUserPolicy Text
+dupUserName = lens _dupUserName (\s a -> s { _dupUserName = a })
+
+instance ToQuery DeleteUserPolicy
+
+instance ToPath DeleteUserPolicy where
+    toPath = const "/"
 
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteUserPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteUserPolicyResponse' constructor.
 deleteUserPolicyResponse :: DeleteUserPolicyResponse
 deleteUserPolicyResponse = DeleteUserPolicyResponse
 
@@ -89,5 +87,5 @@ instance AWSRequest DeleteUserPolicy where
     type Sv DeleteUserPolicy = IAM
     type Rs DeleteUserPolicy = DeleteUserPolicyResponse
 
-    request = post "DeleteUserPolicy"
-    response _ = nullaryResponse DeleteUserPolicyResponse
+    request  = post "DeleteUserPolicy"
+    response = nullaryResponse DeleteUserPolicyResponse

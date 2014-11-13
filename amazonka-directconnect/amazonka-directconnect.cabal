@@ -1,11 +1,11 @@
 name:                  amazonka-directconnect
 version:               0.0.0
-synopsis:              AWS Direct Connect SDK
+synopsis:              Amazon Direct Connect SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,11 +13,13 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable.
-    .
-    One end of the cable is connected to your router, the other to an AWS Direct Connect router.
-    .
-    With this connection in place, you can create virtual interfaces directly to the AWS cloud and Amazon Virtual Private Cloud, bypassing Internet service providers in your network path.
+    AWS Direct Connect links your internal network to an AWS Direct Connect
+    location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic
+    cable. One end of the cable is connected to your router, the other to
+    an AWS Direct Connect router. With this connection in place, you can
+    create virtual interfaces directly to the AWS cloud and Amazon Virtual
+    Private Cloud, bypassing Internet service providers in your network
+    path.
 
 source-repository head
     type:     git
@@ -31,7 +33,6 @@ library
 
     exposed-modules:
           Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect.Types
         , Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
         , Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
         , Network.AWS.DirectConnect.AllocatePublicVirtualInterface
@@ -51,6 +52,9 @@ library
         , Network.AWS.DirectConnect.DescribeLocations
         , Network.AWS.DirectConnect.DescribeVirtualGateways
         , Network.AWS.DirectConnect.DescribeVirtualInterfaces
+        , Network.AWS.DirectConnect.Types
+
+    other-modules:
 
     build-depends:
           amazonka-core

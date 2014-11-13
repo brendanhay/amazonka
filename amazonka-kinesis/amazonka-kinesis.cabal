@@ -1,11 +1,11 @@
 name:                  amazonka-kinesis
 version:               0.0.0
-synopsis:              Amazon Kinesis SDK
+synopsis:              Amazon Kinesis SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,9 +13,11 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Kinesis is a managed service that scales elastically for real-time processing of streaming big data.
-    .
-    The service takes in large streams of data records that can then be consumed in real time by multiple data-processing applications that can be run on Amazon EC2 instances.
+    Amazon Kinesis is a managed service that scales elastically for
+    real-time processing of streaming big data. The service takes in large
+    streams of data records that can then be consumed in real time by
+    multiple data-processing applications that can be run on Amazon EC2
+    instances.
 
 source-repository head
     type:     git
@@ -29,7 +31,6 @@ library
 
     exposed-modules:
           Network.AWS.Kinesis
-        , Network.AWS.Kinesis.Types
         , Network.AWS.Kinesis.AddTagsToStream
         , Network.AWS.Kinesis.CreateStream
         , Network.AWS.Kinesis.DeleteStream
@@ -42,6 +43,9 @@ library
         , Network.AWS.Kinesis.PutRecord
         , Network.AWS.Kinesis.RemoveTagsFromStream
         , Network.AWS.Kinesis.SplitShard
+        , Network.AWS.Kinesis.Types
+
+    other-modules:
 
     build-depends:
           amazonka-core

@@ -43,6 +43,8 @@ import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Data.Maybe
 import           Data.Monoid
+import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
 import           Network.AWS.Data
 import           Network.HTTP.Client
 import           Network.HTTP.Types         (status404)
@@ -114,7 +116,7 @@ data Metadata
     -- ^ The instance's media access control (MAC) address. In cases where
     -- multiple network interfaces are present, this refers to the eth0 device
     -- (the device for which the device number is 0).
-    | Network !ByteString !Interface
+    | Network !Text !Interface
     -- ^ See: 'Interface'
     | AvailabilityZone
     -- ^ The Availability Zone in which the instance launched.
@@ -184,8 +186,8 @@ data Mapping
 instance ToPath Mapping where
     toPath x = case x of
         AMI         -> "ami"
-        EBS       n -> "ebs" <> toBS n
-        Ephemeral n -> "ephemeral" <> toBS n
+        EBS       n -> "ebs"       <> toText n
+        Ephemeral n -> "ephemeral" <> toText n
         Root        -> "root"
         Swap        -> "root"
 
@@ -194,7 +196,7 @@ data Interface
     -- ^ The device number associated with that interface. Each interface must
     -- have a unique device number. The device number serves as a hint to device
     -- naming in the instance; for example, device-number is 2 for the eth2 device.
-    | IIPV4Associations !ByteString
+    | IIPV4Associations !Text
     -- ^ The private IPv4 addresses that are associated with each public-ip
     -- address and assigned to that interface.
     | ILocalHostname
@@ -258,7 +260,7 @@ data Info
     -- ^ Returns information about the last time the instance profile was updated,
     -- including the instance's LastUpdated date, InstanceProfileArn,
     -- and InstanceProfileId.
-    | SecurityCredentials (Maybe ByteString)
+    | SecurityCredentials (Maybe Text)
     -- ^ Where role-name is the name of the IAM role associated with the instance.
     -- Returns the temporary security credentials.
     --
@@ -306,7 +308,7 @@ userdata m = Just
 
 get :: MonadIO m
     => Manager
-    -> ByteString
+    -> Text
     -> ExceptT HttpException m ByteString
 get m url = ExceptT . liftIO $ req `catch` err
   where
@@ -319,8 +321,8 @@ get m url = ExceptT . liftIO $ req `catch` err
     err :: HttpException -> IO (Either HttpException a)
     err = return . Left
 
-request :: Manager -> ByteString -> IO ByteString
+request :: Manager -> Text -> IO ByteString
 request m url = do
-    rq <- parseUrl (BS.unpack url)
+    rq <- parseUrl (Text.unpack url)
     rs <- httpLbs (rq { responseTimeout = Just 2 }) m
     return . LBS.toStrict $ responseBody rs

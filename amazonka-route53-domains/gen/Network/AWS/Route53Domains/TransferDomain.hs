@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53Domains.TransferDomain
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,40 +35,7 @@
 -- and completion of the action. If the request is not completed successfully,
 -- the domain registrant will be notified by email. Transferring domains
 -- charges your AWS account an amount based on the top-level domain. For more
--- information, see Amazon Route 53 Pricing. TransferDomain Example POST /
--- HTTP/1.1 host:route53domains.us-east-1.amazonaws.com
--- x-amz-date:20140711T205230Z authorization:AWS4-HMAC-SHA256
--- Credential=AKIAIOSFODNN7EXAMPLE/20140711/us-east-1/route53domains/aws4_request,
--- 
--- SignedHeaders=content-length;content-type;host;user-agent;x-amz-date;x-amz-target,
--- Signature=[calculated-signature]
--- x-amz-target:Route53Domains_v20140515.TransferDomain
--- user-agent:aws-sdk-java/1.8.3 Linux/2.6.18-164.el5PAE Java_HotSpot (TM
--- )_Server_VM/24.60-b09/1.7.0_60 content-type:application/x-amz-json-1.1
--- content-length:[number of characters in the JSON string] {
--- "DomainName":"example.com", "DurationInYears":1, "Nameservers":[ {
--- "Name":"ns-2048.awsdns-64.com", "GlueIps":[ "192.0.2.11" ] }, {
--- "Name":"ns-2049.awsdns-65.net", "GlueIps":[ "192.0.2.12" ] } ],
--- "AuthCode":"a42qxjz1", "AutoRenew":true, "AdminContact":{
--- "FirstName":"John", "MiddleName":"Richard", "LastName":"Doe",
--- "ContactType":"PERSON", "OrganizationName":"", "AddressLine1":"123 Any
--- Street", "AddressLine2":"", "City":"Any Town", "State":"WA",
--- "CountryCode":"US", "ZipCode":"98101", "PhoneNumber":"+2065550100",
--- "Email":"john@example.com", "Fax":"+206555-0101" }, "RegistrantContact":{
--- "FirstName":"John", "MiddleName":"Richard", "LastName":"Doe",
--- "ContactType":"PERSON", "OrganizationName":"", "AddressLine1":"123 Any
--- Street", "AddressLine2":"", "City":"Any Town", "State":"WA",
--- "CountryCode":"US", "ZipCode":"98101", "PhoneNumber":"+2065550100",
--- "Email":"john@example.com", "Fax":"+206555-0101" }, "TechContact":{
--- "FirstName":"John", "MiddleName":"Richard", "LastName":"Doe",
--- "ContactType":"PERSON", "OrganizationName":"", "AddressLine1":"123 Any
--- Street", "AddressLine2":"", "City":"Any Town", "State":"WA",
--- "CountryCode":"US", "ZipCode":"98101", "PhoneNumber":"+2065550100",
--- "Email":"john@example.com", "Fax":"+206555-0101" },
--- "PrivacyProtectAdminContact":true, "PrivacyProtectRegistrantContact":true,
--- "PrivacyProtectTechContact":true, } HTTP/1.1 200 Content-Length:[number of
--- characters in the JSON string] {
--- "OperationId":"308c56712-faa4-40fe-94c8-b423069de3f6" }.
+-- information, see Amazon Route 53 Pricing.
 module Network.AWS.Route53Domains.TransferDomain
     (
     -- * Request
@@ -74,18 +43,18 @@ module Network.AWS.Route53Domains.TransferDomain
     -- ** Request constructor
     , transferDomain
     -- ** Request lenses
-    , tdDomainName
-    , tdIdnLangCode
-    , tdDurationInYears
-    , tdNameservers
+    , tdAdminContact
     , tdAuthCode
     , tdAutoRenew
-    , tdAdminContact
-    , tdRegistrantContact
-    , tdTechContact
+    , tdDomainName
+    , tdDurationInYears
+    , tdIdnLangCode
+    , tdNameservers
     , tdPrivacyProtectAdminContact
     , tdPrivacyProtectRegistrantContact
     , tdPrivacyProtectTechContact
+    , tdRegistrantContact
+    , tdTechContact
 
     -- * Response
     , TransferDomainResponse
@@ -95,111 +64,73 @@ module Network.AWS.Route53Domains.TransferDomain
     , tdrOperationId
     ) where
 
-import Network.AWS.Route53Domains.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Route53Domains.Types
 
--- | The TransferDomain request includes the following elements.
 data TransferDomain = TransferDomain
-    { _tdDomainName :: Text
-    , _tdIdnLangCode :: Maybe Text
-    , _tdDurationInYears :: !Integer
-    , _tdNameservers :: [Nameserver]
-    , _tdAuthCode :: Maybe Text
-    , _tdAutoRenew :: Maybe Bool
-    , _tdAdminContact :: ContactDetail
-    , _tdRegistrantContact :: ContactDetail
-    , _tdTechContact :: ContactDetail
-    , _tdPrivacyProtectAdminContact :: Maybe Bool
+    { _tdAdminContact                    :: ContactDetail
+    , _tdAuthCode                        :: Maybe (Sensitive Text)
+    , _tdAutoRenew                       :: Maybe Bool
+    , _tdDomainName                      :: Text
+    , _tdDurationInYears                 :: Natural
+    , _tdIdnLangCode                     :: Maybe Text
+    , _tdNameservers                     :: [Nameserver]
+    , _tdPrivacyProtectAdminContact      :: Maybe Bool
     , _tdPrivacyProtectRegistrantContact :: Maybe Bool
-    , _tdPrivacyProtectTechContact :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    , _tdPrivacyProtectTechContact       :: Maybe Bool
+    , _tdRegistrantContact               :: ContactDetail
+    , _tdTechContact                     :: ContactDetail
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'TransferDomain' request.
+-- | 'TransferDomain' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'tdAdminContact' @::@ 'ContactDetail'
 --
--- * @IdnLangCode ::@ @Maybe Text@
+-- * 'tdAuthCode' @::@ 'Maybe' 'Text'
 --
--- * @DurationInYears ::@ @Integer@
+-- * 'tdAutoRenew' @::@ 'Maybe' 'Bool'
 --
--- * @Nameservers ::@ @[Nameserver]@
+-- * 'tdDomainName' @::@ 'Text'
 --
--- * @AuthCode ::@ @Maybe Text@
+-- * 'tdDurationInYears' @::@ 'Natural'
 --
--- * @AutoRenew ::@ @Maybe Bool@
+-- * 'tdIdnLangCode' @::@ 'Maybe' 'Text'
 --
--- * @AdminContact ::@ @ContactDetail@
+-- * 'tdNameservers' @::@ ['Nameserver']
 --
--- * @RegistrantContact ::@ @ContactDetail@
+-- * 'tdPrivacyProtectAdminContact' @::@ 'Maybe' 'Bool'
 --
--- * @TechContact ::@ @ContactDetail@
+-- * 'tdPrivacyProtectRegistrantContact' @::@ 'Maybe' 'Bool'
 --
--- * @PrivacyProtectAdminContact ::@ @Maybe Bool@
+-- * 'tdPrivacyProtectTechContact' @::@ 'Maybe' 'Bool'
 --
--- * @PrivacyProtectRegistrantContact ::@ @Maybe Bool@
+-- * 'tdRegistrantContact' @::@ 'ContactDetail'
 --
--- * @PrivacyProtectTechContact ::@ @Maybe Bool@
+-- * 'tdTechContact' @::@ 'ContactDetail'
 --
 transferDomain :: Text -- ^ 'tdDomainName'
-               -> Integer -- ^ 'tdDurationInYears'
-               -> [Nameserver] -- ^ 'tdNameservers'
+               -> Natural -- ^ 'tdDurationInYears'
                -> ContactDetail -- ^ 'tdAdminContact'
                -> ContactDetail -- ^ 'tdRegistrantContact'
                -> ContactDetail -- ^ 'tdTechContact'
                -> TransferDomain
-transferDomain p1 p3 p4 p7 p8 p9 = TransferDomain
-    { _tdDomainName = p1
-    , _tdIdnLangCode = Nothing
-    , _tdDurationInYears = p3
-    , _tdNameservers = p4
-    , _tdAuthCode = Nothing
-    , _tdAutoRenew = Nothing
-    , _tdAdminContact = p7
-    , _tdRegistrantContact = p8
-    , _tdTechContact = p9
-    , _tdPrivacyProtectAdminContact = Nothing
+transferDomain p1 p2 p3 p4 p5 = TransferDomain
+    { _tdDomainName                      = p1
+    , _tdDurationInYears                 = p2
+    , _tdAdminContact                    = p3
+    , _tdRegistrantContact               = p4
+    , _tdTechContact                     = p5
+    , _tdIdnLangCode                     = Nothing
+    , _tdNameservers                     = mempty
+    , _tdAuthCode                        = Nothing
+    , _tdAutoRenew                       = Nothing
+    , _tdPrivacyProtectAdminContact      = Nothing
     , _tdPrivacyProtectRegistrantContact = Nothing
-    , _tdPrivacyProtectTechContact = Nothing
+    , _tdPrivacyProtectTechContact       = Nothing
     }
-
--- | The name of a domain. Type: String Default: None Constraints: The domain
--- name can contain only the letters a through z, the numbers 0 through 9, and
--- hyphen (-). Internationalized Domain Names are not supported. Required:
--- Yes.
-tdDomainName :: Lens' TransferDomain Text
-tdDomainName = lens _tdDomainName (\s a -> s { _tdDomainName = a })
-
--- | Reserved for future use.
-tdIdnLangCode :: Lens' TransferDomain (Maybe Text)
-tdIdnLangCode = lens _tdIdnLangCode (\s a -> s { _tdIdnLangCode = a })
-
--- | The number of years the domain will be registered. Domains are registered
--- for a minimum of one year. The maximum period depends on the top-level
--- domain. Type: Integer Default: 1 Valid values: Integer from 1 to 10
--- Required: Yes.
-tdDurationInYears :: Lens' TransferDomain Integer
-tdDurationInYears =
-    lens _tdDurationInYears (\s a -> s { _tdDurationInYears = a })
-
--- | Contains details for the host and glue IP addresses. Type: Complex
--- Children: GlueIps, Name.
-tdNameservers :: Lens' TransferDomain [Nameserver]
-tdNameservers = lens _tdNameservers (\s a -> s { _tdNameservers = a })
-
--- | The authorization code for the domain. You get this value from the current
--- registrar. Type: String Required: Yes.
-tdAuthCode :: Lens' TransferDomain (Maybe Text)
-tdAuthCode = lens _tdAuthCode (\s a -> s { _tdAuthCode = a })
-
--- | Indicates whether the domain will be automatically renewed (true) or not
--- (false). Autorenewal only takes effect after the account is charged. Type:
--- Boolean Valid values: true | false Default: true Required: No.
-tdAutoRenew :: Lens' TransferDomain (Maybe Bool)
-tdAutoRenew = lens _tdAutoRenew (\s a -> s { _tdAutoRenew = a })
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
@@ -207,6 +138,72 @@ tdAutoRenew = lens _tdAutoRenew (\s a -> s { _tdAutoRenew = a })
 -- ExtraParams Required: Yes.
 tdAdminContact :: Lens' TransferDomain ContactDetail
 tdAdminContact = lens _tdAdminContact (\s a -> s { _tdAdminContact = a })
+
+-- | The authorization code for the domain. You get this value from the
+-- current registrar. Type: String Required: Yes.
+tdAuthCode :: Lens' TransferDomain (Maybe Text)
+tdAuthCode = lens _tdAuthCode (\s a -> s { _tdAuthCode = a })
+    . mapping _Sensitive
+
+-- | Indicates whether the domain will be automatically renewed (true) or not
+-- (false). Autorenewal only takes effect after the account is charged.
+-- Type: Boolean Valid values: true | false Default: true Required: No.
+tdAutoRenew :: Lens' TransferDomain (Maybe Bool)
+tdAutoRenew = lens _tdAutoRenew (\s a -> s { _tdAutoRenew = a })
+
+-- | The name of a domain. Type: String Default: None Constraints: The domain
+-- name can contain only the letters a through z, the numbers 0 through 9,
+-- and hyphen (-). Internationalized Domain Names are not supported.
+-- Required: Yes.
+tdDomainName :: Lens' TransferDomain Text
+tdDomainName = lens _tdDomainName (\s a -> s { _tdDomainName = a })
+
+-- | The number of years the domain will be registered. Domains are registered
+-- for a minimum of one year. The maximum period depends on the top-level
+-- domain. Type: Integer Default: 1 Valid values: Integer from 1 to 10
+-- Required: Yes.
+tdDurationInYears :: Lens' TransferDomain Natural
+tdDurationInYears =
+    lens _tdDurationInYears (\s a -> s { _tdDurationInYears = a })
+
+-- | Reserved for future use.
+tdIdnLangCode :: Lens' TransferDomain (Maybe Text)
+tdIdnLangCode = lens _tdIdnLangCode (\s a -> s { _tdIdnLangCode = a })
+
+-- | Contains details for the host and glue IP addresses. Type: Complex
+-- Children: GlueIps, Name.
+tdNameservers :: Lens' TransferDomain [Nameserver]
+tdNameservers = lens _tdNameservers (\s a -> s { _tdNameservers = a })
+
+-- | Whether you want to conceal contact information from WHOIS queries. If
+-- you specify true, WHOIS ("who is") queries will return contact
+-- information for our registrar partner, Gandi, instead of the contact
+-- information that you enter. Type: Boolean Default: true Valid values:
+-- true | false Required: No.
+tdPrivacyProtectAdminContact :: Lens' TransferDomain (Maybe Bool)
+tdPrivacyProtectAdminContact =
+    lens _tdPrivacyProtectAdminContact
+        (\s a -> s { _tdPrivacyProtectAdminContact = a })
+
+-- | Whether you want to conceal contact information from WHOIS queries. If
+-- you specify true, WHOIS ("who is") queries will return contact
+-- information for our registrar partner, Gandi, instead of the contact
+-- information that you enter. Type: Boolean Default: true Valid values:
+-- true | false Required: No.
+tdPrivacyProtectRegistrantContact :: Lens' TransferDomain (Maybe Bool)
+tdPrivacyProtectRegistrantContact =
+    lens _tdPrivacyProtectRegistrantContact
+        (\s a -> s { _tdPrivacyProtectRegistrantContact = a })
+
+-- | Whether you want to conceal contact information from WHOIS queries. If
+-- you specify true, WHOIS ("who is") queries will return contact
+-- information for our registrar partner, Gandi, instead of the contact
+-- information that you enter. Type: Boolean Default: true Valid values:
+-- true | false Required: No.
+tdPrivacyProtectTechContact :: Lens' TransferDomain (Maybe Bool)
+tdPrivacyProtectTechContact =
+    lens _tdPrivacyProtectTechContact
+        (\s a -> s { _tdPrivacyProtectTechContact = a })
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
@@ -223,54 +220,26 @@ tdRegistrantContact =
 tdTechContact :: Lens' TransferDomain ContactDetail
 tdTechContact = lens _tdTechContact (\s a -> s { _tdTechContact = a })
 
--- | Whether you want to conceal contact information from WHOIS queries. If you
--- specify true, WHOIS ("who is") queries will return contact information for
--- our registrar partner, Gandi, instead of the contact information that you
--- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-tdPrivacyProtectAdminContact :: Lens' TransferDomain (Maybe Bool)
-tdPrivacyProtectAdminContact =
-    lens _tdPrivacyProtectAdminContact
-         (\s a -> s { _tdPrivacyProtectAdminContact = a })
+instance ToPath TransferDomain where
+    toPath = const "/"
 
--- | Whether you want to conceal contact information from WHOIS queries. If you
--- specify true, WHOIS ("who is") queries will return contact information for
--- our registrar partner, Gandi, instead of the contact information that you
--- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-tdPrivacyProtectRegistrantContact :: Lens' TransferDomain (Maybe Bool)
-tdPrivacyProtectRegistrantContact =
-    lens _tdPrivacyProtectRegistrantContact
-         (\s a -> s { _tdPrivacyProtectRegistrantContact = a })
-
--- | Whether you want to conceal contact information from WHOIS queries. If you
--- specify true, WHOIS ("who is") queries will return contact information for
--- our registrar partner, Gandi, instead of the contact information that you
--- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-tdPrivacyProtectTechContact :: Lens' TransferDomain (Maybe Bool)
-tdPrivacyProtectTechContact =
-    lens _tdPrivacyProtectTechContact
-         (\s a -> s { _tdPrivacyProtectTechContact = a })
-
-instance ToPath TransferDomain
-
-instance ToQuery TransferDomain
+instance ToQuery TransferDomain where
+    toQuery = const mempty
 
 instance ToHeaders TransferDomain
 
-instance ToJSON TransferDomain
+instance ToBody TransferDomain where
+    toBody = toBody . encode . _tdDomainName
 
--- | The TranserDomain response includes the following element.
 newtype TransferDomainResponse = TransferDomainResponse
     { _tdrOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'TransferDomainResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'TransferDomainResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OperationId ::@ @Text@
+-- * 'tdrOperationId' @::@ 'Text'
 --
 transferDomainResponse :: Text -- ^ 'tdrOperationId'
                        -> TransferDomainResponse
@@ -284,11 +253,12 @@ transferDomainResponse p1 = TransferDomainResponse
 tdrOperationId :: Lens' TransferDomainResponse Text
 tdrOperationId = lens _tdrOperationId (\s a -> s { _tdrOperationId = a })
 
-instance FromJSON TransferDomainResponse
+-- FromJSON
 
 instance AWSRequest TransferDomain where
     type Sv TransferDomain = Route53Domains
     type Rs TransferDomain = TransferDomainResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> TransferDomainResponse
+        <$> o .: "OperationId"

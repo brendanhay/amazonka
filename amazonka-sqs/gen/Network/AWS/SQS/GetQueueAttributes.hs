@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SQS.GetQueueAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,31 +44,7 @@
 -- returns the parameters for dead letter queue functionality of the source
 -- queue. For more information about RedrivePolicy and dead letter queues, see
 -- Using Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
--- Going forward, new attributes might be added. If you are writing code that
--- calls this action, we recommend that you structure your code so that it can
--- handle new attributes gracefully. Some API actions take lists of
--- parameters. These lists are specified using the param.n notation. Values of
--- n are integers starting from 1. For example, a parameter list with two
--- elements looks like this: &amp;Attribute.1=this &amp;Attribute.2=that The
--- following example Query requests gets all the attribute values for the
--- specified queue. http://sqs.us-east-1.amazonaws.com/123456789012/testQueue/
--- ?Action=GetQueueAttributes &AttributeName.1=All &Version=2012-11-05
--- &SignatureMethod=HmacSHA256 &Expires=2013-10-18T22%3A52%3A43PST
--- &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &SignatureVersion=2
--- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE ReceiveMessageWaitTimeSeconds
--- 2 VisibilityTimeout 30 ApproximateNumberOfMessages 0
--- ApproximateNumberOfMessagesNotVisible 0 CreatedTimestamp 1286771522
--- LastModifiedTimestamp 1286771522 QueueArn
--- arn:aws:sqs:us-east-1:123456789012:qfoo MaximumMessageSize 8192
--- MessageRetentionPeriod 345600 1ea71be5-b5a2-4f9d-b85a-945d8d08cd0b The
--- following example Query request gets three attribute values for the
--- specified queue. http://sqs.us-east-1.amazonaws.com/123456789012/testQueue/
--- ?Action=GetQueueAttributes &Action=GetQueueAttributes &Version=2012-11-05
--- &AttributeName.1=VisibilityTimeout &AttributeName.2=DelaySeconds
--- &AttributeName.3=ReceiveMessageWaitTimeSeconds &SignatureMethod=HmacSHA256
--- &Expires=2013-10-18T22%3A52%3A43PST &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
--- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
--- VisibilityTimeout 30 DelaySeconds 0 ReceiveMessageWaitTimeSeconds 2.
+-- &amp;Attribute.1=this &amp;Attribute.2=that.
 module Network.AWS.SQS.GetQueueAttributes
     (
     -- * Request
@@ -74,8 +52,8 @@ module Network.AWS.SQS.GetQueueAttributes
     -- ** Request constructor
     , getQueueAttributes
     -- ** Request lenses
-    , gqaQueueUrl
     , gqaAttributeNames
+    , gqaQueueUrl
 
     -- * Response
     , GetQueueAttributesResponse
@@ -85,56 +63,54 @@ module Network.AWS.SQS.GetQueueAttributes
     , gqarAttributes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data GetQueueAttributes = GetQueueAttributes
-    { _gqaQueueUrl :: Text
-    , _gqaAttributeNames :: [QueueAttributeName]
+    { _gqaAttributeNames :: [Text]
+    , _gqaQueueUrl       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetQueueAttributes' request.
+-- | 'GetQueueAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @QueueUrl ::@ @Text@
+-- * 'gqaAttributeNames' @::@ ['Text']
 --
--- * @AttributeNames ::@ @[QueueAttributeName]@
+-- * 'gqaQueueUrl' @::@ 'Text'
 --
 getQueueAttributes :: Text -- ^ 'gqaQueueUrl'
                    -> GetQueueAttributes
 getQueueAttributes p1 = GetQueueAttributes
-    { _gqaQueueUrl = p1
+    { _gqaQueueUrl       = p1
     , _gqaAttributeNames = mempty
     }
+
+-- | A list of attributes to retrieve information for.
+gqaAttributeNames :: Lens' GetQueueAttributes [Text]
+gqaAttributeNames =
+    lens _gqaAttributeNames (\s a -> s { _gqaAttributeNames = a })
 
 -- | The URL of the Amazon SQS queue to take action on.
 gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
--- | A list of attributes to retrieve information for.
-gqaAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
-gqaAttributeNames =
-    lens _gqaAttributeNames (\s a -> s { _gqaAttributeNames = a })
+instance ToQuery GetQueueAttributes
 
-instance ToQuery GetQueueAttributes where
-    toQuery = genericQuery def
+instance ToPath GetQueueAttributes where
+    toPath = const "/"
 
--- | A list of returned queue attributes.
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarAttributes :: Map QueueAttributeName Text
-    } deriving (Eq, Show, Generic)
+    { _gqarAttributes :: Map Text Text
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetQueueAttributesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetQueueAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Attributes ::@ @Map QueueAttributeName Text@
+-- * 'gqarAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
 getQueueAttributesResponse :: GetQueueAttributesResponse
 getQueueAttributesResponse = GetQueueAttributesResponse
@@ -142,15 +118,14 @@ getQueueAttributesResponse = GetQueueAttributesResponse
     }
 
 -- | A map of attributes to the respective values.
-gqarAttributes :: Lens' GetQueueAttributesResponse (Map QueueAttributeName Text)
+gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap Text Text)
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
-
-instance FromXML GetQueueAttributesResponse where
-    fromXMLOptions = xmlOptions
+    . _Map
 
 instance AWSRequest GetQueueAttributes where
     type Sv GetQueueAttributes = SQS
     type Rs GetQueueAttributes = GetQueueAttributesResponse
 
-    request = post "GetQueueAttributes"
-    response _ = xmlResponse
+    request  = post "GetQueueAttributes"
+    response = xmlResponse $ \h x -> GetQueueAttributesResponse
+        <$> x %| "Attribute"

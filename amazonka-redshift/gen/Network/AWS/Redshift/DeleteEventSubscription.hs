@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.DeleteEventSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,21 +36,20 @@ module Network.AWS.Redshift.DeleteEventSubscription
     , deleteEventSubscriptionResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DeleteEventSubscription = DeleteEventSubscription
     { _desSubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteEventSubscription' request.
+-- | 'DeleteEventSubscription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SubscriptionName ::@ @Text@
+-- * 'desSubscriptionName' @::@ 'Text'
 --
 deleteEventSubscription :: Text -- ^ 'desSubscriptionName'
                         -> DeleteEventSubscription
@@ -62,16 +63,15 @@ desSubscriptionName :: Lens' DeleteEventSubscription Text
 desSubscriptionName =
     lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })
 
-instance ToQuery DeleteEventSubscription where
-    toQuery = genericQuery def
+instance ToQuery DeleteEventSubscription
+
+instance ToPath DeleteEventSubscription where
+    toPath = const "/"
 
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteEventSubscriptionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteEventSubscriptionResponse' constructor.
 deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
 
@@ -79,5 +79,5 @@ instance AWSRequest DeleteEventSubscription where
     type Sv DeleteEventSubscription = Redshift
     type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
 
-    request = post "DeleteEventSubscription"
-    response _ = nullaryResponse DeleteEventSubscriptionResponse
+    request  = post "DeleteEventSubscription"
+    response = nullaryResponse DeleteEventSubscriptionResponse

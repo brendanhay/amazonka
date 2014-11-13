@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SimpleDB.BatchPutAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,18 +43,16 @@
 -- requester does a BatchPutAttributes of {'I', 'b', '4' } with the Replace
 -- parameter set to true, the final attributes of the item will be { 'a', '1'
 -- } and { 'b', '4' }, replacing the previous values of the 'b' attribute with
--- the new value. You cannot specify an empty string as an item or as an
--- attribute name. The BatchPutAttributes operation succeeds or fails in its
--- entirety. There are no partial puts. This operation is vulnerable to
--- exceeding the maximum URL size when making a REST request using the HTTP
--- GET method. This operation does not support conditions using
--- Expected.X.Name, Expected.X.Value, or Expected.X.Exists. You can execute
--- multiple BatchPutAttributes operations and other operations in parallel.
--- However, large numbers of concurrent BatchPutAttributes calls can result in
--- Service Unavailable (503) responses. The following limitations are enforced
--- for this operation: 256 attribute name-value pairs per item 1 MB request
--- size 1 billion attributes per domain 10 GB of total user data storage per
--- domain 25 item limit per BatchPutAttributes operation.
+-- the new value. This operation is vulnerable to exceeding the maximum URL
+-- size when making a REST request using the HTTP GET method. This operation
+-- does not support conditions using Expected.X.Name, Expected.X.Value, or
+-- Expected.X.Exists. You can execute multiple BatchPutAttributes operations
+-- and other operations in parallel. However, large numbers of concurrent
+-- BatchPutAttributes calls can result in Service Unavailable (503) responses.
+-- The following limitations are enforced for this operation: 256 attribute
+-- name-value pairs per item 1 MB request size 1 billion attributes per domain
+-- 10 GB of total user data storage per domain 25 item limit per
+-- BatchPutAttributes operation.
 module Network.AWS.SimpleDB.BatchPutAttributes
     (
     -- * Request
@@ -69,30 +69,29 @@ module Network.AWS.SimpleDB.BatchPutAttributes
     , batchPutAttributesResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data BatchPutAttributes = BatchPutAttributes
     { _bpaDomainName :: Text
-    , _bpaItems :: [ReplaceableItem]
-    } deriving (Eq, Ord, Show, Generic)
+    , _bpaItems      :: [ReplaceableItem]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'BatchPutAttributes' request.
+-- | 'BatchPutAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'bpaDomainName' @::@ 'Text'
 --
--- * @Items ::@ @[ReplaceableItem]@
+-- * 'bpaItems' @::@ ['ReplaceableItem']
 --
 batchPutAttributes :: Text -- ^ 'bpaDomainName'
-                   -> [ReplaceableItem] -- ^ 'bpaItems'
                    -> BatchPutAttributes
-batchPutAttributes p1 p2 = BatchPutAttributes
+batchPutAttributes p1 = BatchPutAttributes
     { _bpaDomainName = p1
-    , _bpaItems = p2
+    , _bpaItems      = mempty
     }
 
 -- | The name of the domain in which the attributes are being stored.
@@ -103,16 +102,15 @@ bpaDomainName = lens _bpaDomainName (\s a -> s { _bpaDomainName = a })
 bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
 bpaItems = lens _bpaItems (\s a -> s { _bpaItems = a })
 
-instance ToQuery BatchPutAttributes where
-    toQuery = genericQuery def
+instance ToQuery BatchPutAttributes
+
+instance ToPath BatchPutAttributes where
+    toPath = const "/"
 
 data BatchPutAttributesResponse = BatchPutAttributesResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'BatchPutAttributesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'BatchPutAttributesResponse' constructor.
 batchPutAttributesResponse :: BatchPutAttributesResponse
 batchPutAttributesResponse = BatchPutAttributesResponse
 
@@ -120,5 +118,5 @@ instance AWSRequest BatchPutAttributes where
     type Sv BatchPutAttributes = SimpleDB
     type Rs BatchPutAttributes = BatchPutAttributesResponse
 
-    request = post "BatchPutAttributes"
-    response _ = nullaryResponse BatchPutAttributesResponse
+    request  = post "BatchPutAttributes"
+    response = nullaryResponse BatchPutAttributesResponse

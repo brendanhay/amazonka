@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.AssignPrivateIpAddresses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,25 +28,7 @@
 -- information about instance types, see Instance Types in the Amazon Elastic
 -- Compute Cloud User Guide. For more information about Elastic IP addresses,
 -- see Elastic IP Addresses in the Amazon Elastic Compute Cloud User Guide.
--- AssignPrivateIpAddresses is available only in EC2-VPC. Example 1 This
--- example assigns two secondary private IP addresses (10.0.2.1 and 10.0.2.11)
--- to the specified network interface.
--- https://ec2.amazonaws.com/?Action=AssignPrivateIpAddresses
--- &amp;NetworkInterfaceId=eni-d83388b1 &amp;PrivateIpAddress.0=10.0.2.1
--- &amp;PrivateIpAddress.1=10.0.2.11 &amp;AUTHPARAMS
--- &lt;AssignPrivateIpAddresses
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/AssignPrivateIpAddresses&gt; Example
--- 2 This example assigns two secondary private IP addresses to the specified
--- network interface. Amazon EC2 automatically assigns these IP addresses from
--- the available IP addresses within the subnet's CIDR block range.
--- https://ec2.amazonaws.com/?Action=AssignPrivateIpAddresses
--- &amp;NetworkInterfaceId=eni-d83388b1 &amp;SecondaryPrivateIpAddressCount=2
--- &amp;AUTHPARAMS &lt;AssignPrivateIpAddresses
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/AssignPrivateIpAddresses&gt;.
+-- AssignPrivateIpAddresses is available only in EC2-VPC.
 module Network.AWS.EC2.AssignPrivateIpAddresses
     (
     -- * Request
@@ -52,10 +36,10 @@ module Network.AWS.EC2.AssignPrivateIpAddresses
     -- ** Request constructor
     , assignPrivateIpAddresses
     -- ** Request lenses
+    , apiaAllowReassignment
     , apiaNetworkInterfaceId
     , apiaPrivateIpAddresses
     , apiaSecondaryPrivateIpAddressCount
-    , apiaAllowReassignment
 
     -- * Response
     , AssignPrivateIpAddressesResponse
@@ -63,56 +47,38 @@ module Network.AWS.EC2.AssignPrivateIpAddresses
     , assignPrivateIpAddressesResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses
-    { _apiaNetworkInterfaceId :: Text
-    , _apiaPrivateIpAddresses :: [Text]
-    , _apiaSecondaryPrivateIpAddressCount :: Maybe Integer
-    , _apiaAllowReassignment :: Maybe Bool
+    { _apiaAllowReassignment              :: Maybe Bool
+    , _apiaNetworkInterfaceId             :: Text
+    , _apiaPrivateIpAddresses             :: [Text]
+    , _apiaSecondaryPrivateIpAddressCount :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AssignPrivateIpAddresses' request.
+-- | 'AssignPrivateIpAddresses' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkInterfaceId ::@ @Text@
+-- * 'apiaAllowReassignment' @::@ 'Maybe' 'Bool'
 --
--- * @PrivateIpAddresses ::@ @[Text]@
+-- * 'apiaNetworkInterfaceId' @::@ 'Text'
 --
--- * @SecondaryPrivateIpAddressCount ::@ @Maybe Integer@
+-- * 'apiaPrivateIpAddresses' @::@ ['Text']
 --
--- * @AllowReassignment ::@ @Maybe Bool@
+-- * 'apiaSecondaryPrivateIpAddressCount' @::@ 'Maybe' 'Int'
 --
 assignPrivateIpAddresses :: Text -- ^ 'apiaNetworkInterfaceId'
                          -> AssignPrivateIpAddresses
 assignPrivateIpAddresses p1 = AssignPrivateIpAddresses
-    { _apiaNetworkInterfaceId = p1
-    , _apiaPrivateIpAddresses = mempty
+    { _apiaNetworkInterfaceId             = p1
+    , _apiaPrivateIpAddresses             = mempty
     , _apiaSecondaryPrivateIpAddressCount = Nothing
-    , _apiaAllowReassignment = Nothing
+    , _apiaAllowReassignment              = Nothing
     }
-
--- | The ID of the network interface.
-apiaNetworkInterfaceId :: Lens' AssignPrivateIpAddresses Text
-apiaNetworkInterfaceId =
-    lens _apiaNetworkInterfaceId (\s a -> s { _apiaNetworkInterfaceId = a })
-
--- | One or more IP addresses to be assigned as a secondary private IP address
--- to the network interface. If you don't specify an IP address, Amazon EC2
--- automatically selects an IP address within the subnet range.
-apiaPrivateIpAddresses :: Lens' AssignPrivateIpAddresses [Text]
-apiaPrivateIpAddresses =
-    lens _apiaPrivateIpAddresses (\s a -> s { _apiaPrivateIpAddresses = a })
-
--- | The number of secondary IP addresses to assign to the network interface.
-apiaSecondaryPrivateIpAddressCount :: Lens' AssignPrivateIpAddresses (Maybe Integer)
-apiaSecondaryPrivateIpAddressCount =
-    lens _apiaSecondaryPrivateIpAddressCount
-         (\s a -> s { _apiaSecondaryPrivateIpAddressCount = a })
 
 -- | Indicates whether to allow an IP address that is already assigned to
 -- another network interface or instance to be reassigned to the specified
@@ -121,16 +87,37 @@ apiaAllowReassignment :: Lens' AssignPrivateIpAddresses (Maybe Bool)
 apiaAllowReassignment =
     lens _apiaAllowReassignment (\s a -> s { _apiaAllowReassignment = a })
 
-instance ToQuery AssignPrivateIpAddresses where
-    toQuery = genericQuery def
+-- | The ID of the network interface.
+apiaNetworkInterfaceId :: Lens' AssignPrivateIpAddresses Text
+apiaNetworkInterfaceId =
+    lens _apiaNetworkInterfaceId (\s a -> s { _apiaNetworkInterfaceId = a })
+
+-- | One or more IP addresses to be assigned as a secondary private IP address
+-- to the network interface. You can't specify this parameter when also
+-- specifying a number of secondary IP addresses. If you don't specify an IP
+-- address, Amazon EC2 automatically selects an IP address within the subnet
+-- range.
+apiaPrivateIpAddresses :: Lens' AssignPrivateIpAddresses [Text]
+apiaPrivateIpAddresses =
+    lens _apiaPrivateIpAddresses (\s a -> s { _apiaPrivateIpAddresses = a })
+
+-- | The number of secondary IP addresses to assign to the network interface.
+-- You can't specify this parameter when also specifying private IP
+-- addresses.
+apiaSecondaryPrivateIpAddressCount :: Lens' AssignPrivateIpAddresses (Maybe Int)
+apiaSecondaryPrivateIpAddressCount =
+    lens _apiaSecondaryPrivateIpAddressCount
+        (\s a -> s { _apiaSecondaryPrivateIpAddressCount = a })
+
+instance ToQuery AssignPrivateIpAddresses
+
+instance ToPath AssignPrivateIpAddresses where
+    toPath = const "/"
 
 data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AssignPrivateIpAddressesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AssignPrivateIpAddressesResponse' constructor.
 assignPrivateIpAddressesResponse :: AssignPrivateIpAddressesResponse
 assignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
 
@@ -138,5 +125,5 @@ instance AWSRequest AssignPrivateIpAddresses where
     type Sv AssignPrivateIpAddresses = EC2
     type Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse
 
-    request = post "AssignPrivateIpAddresses"
-    response _ = nullaryResponse AssignPrivateIpAddressesResponse
+    request  = post "AssignPrivateIpAddresses"
+    response = nullaryResponse AssignPrivateIpAddressesResponse

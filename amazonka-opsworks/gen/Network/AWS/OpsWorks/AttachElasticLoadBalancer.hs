@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.AttachElasticLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,13 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Attaches an Elastic Load Balancing load balancer to a specified layer. For
--- more information, see Elastic Load Balancing. You must create the Elastic
--- Load Balancing instance separately, by using the Elastic Load Balancing
--- console, API, or CLI. For more information, see Elastic Load Balancing
--- Developer Guide. Required Permissions: To use this action, an IAM user must
--- have a Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions,
--- see Managing User Permissions.
+-- more information, see Elastic Load Balancing. Required Permissions: To use
+-- this action, an IAM user must have a Manage permissions level for the
+-- stack, or an attached policy that explicitly grants permissions. For more
+-- information on user permissions, see Managing User Permissions.
 module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     (
     -- * Request
@@ -42,64 +41,65 @@ module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     , attachElasticLoadBalancerResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer
     { _aelbElasticLoadBalancerName :: Text
-    , _aelbLayerId :: Text
+    , _aelbLayerId                 :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AttachElasticLoadBalancer' request.
+-- | 'AttachElasticLoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ElasticLoadBalancerName ::@ @Text@
+-- * 'aelbElasticLoadBalancerName' @::@ 'Text'
 --
--- * @LayerId ::@ @Text@
+-- * 'aelbLayerId' @::@ 'Text'
 --
 attachElasticLoadBalancer :: Text -- ^ 'aelbElasticLoadBalancerName'
                           -> Text -- ^ 'aelbLayerId'
                           -> AttachElasticLoadBalancer
 attachElasticLoadBalancer p1 p2 = AttachElasticLoadBalancer
     { _aelbElasticLoadBalancerName = p1
-    , _aelbLayerId = p2
+    , _aelbLayerId                 = p2
     }
 
 -- | The Elastic Load Balancing instance's name.
 aelbElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer Text
 aelbElasticLoadBalancerName =
     lens _aelbElasticLoadBalancerName
-         (\s a -> s { _aelbElasticLoadBalancerName = a })
+        (\s a -> s { _aelbElasticLoadBalancerName = a })
 
 -- | The ID of the layer that the Elastic Load Balancing instance is to be
 -- attached to.
 aelbLayerId :: Lens' AttachElasticLoadBalancer Text
 aelbLayerId = lens _aelbLayerId (\s a -> s { _aelbLayerId = a })
 
-instance ToPath AttachElasticLoadBalancer
+instance ToPath AttachElasticLoadBalancer where
+    toPath = const "/"
 
-instance ToQuery AttachElasticLoadBalancer
+instance ToQuery AttachElasticLoadBalancer where
+    toQuery = const mempty
 
 instance ToHeaders AttachElasticLoadBalancer
 
-instance ToJSON AttachElasticLoadBalancer
+instance ToBody AttachElasticLoadBalancer where
+    toBody = toBody . encode . _aelbElasticLoadBalancerName
 
 data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AttachElasticLoadBalancerResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AttachElasticLoadBalancerResponse' constructor.
 attachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse
 attachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
+
+-- FromJSON
 
 instance AWSRequest AttachElasticLoadBalancer where
     type Sv AttachElasticLoadBalancer = OpsWorks
     type Rs AttachElasticLoadBalancer = AttachElasticLoadBalancerResponse
 
-    request = get
-    response _ = nullaryResponse AttachElasticLoadBalancerResponse
+    request  = post'
+    response = nullaryResponse AttachElasticLoadBalancerResponse

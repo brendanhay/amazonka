@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.UpdateStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,122 +24,120 @@
 module Network.AWS.CloudFront.UpdateStreamingDistribution
     (
     -- * Request
-      UpdateStreamingDistribution
+      UpdateStreamingDistribution2014_05_31
     -- ** Request constructor
-    , updateStreamingDistribution
+    , updateStreamingDistribution2014_05_31
     -- ** Request lenses
-    , usdStreamingDistributionConfig
     , usdId
     , usdIfMatch
+    , usdStreamingDistributionConfig
 
     -- * Response
-    , UpdateStreamingDistributionResponse
+    , UpdateStreamingDistribution2014_05_31Response
     -- ** Response constructor
-    , updateStreamingDistributionResponse
+    , updateStreamingDistribution2014_05_31Response
     -- ** Response lenses
-    , usdrStreamingDistribution
     , usdrETag
+    , usdrStreamingDistribution
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to update a streaming distribution.
-data UpdateStreamingDistribution = UpdateStreamingDistribution
-    { _usdStreamingDistributionConfig :: StreamingDistributionConfig
-    , _usdId :: Text
-    , _usdIfMatch :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+data UpdateStreamingDistribution2014_05_31 = UpdateStreamingDistribution2014_05_31
+    { _usdId                          :: Text
+    , _usdIfMatch                     :: Maybe Text
+    , _usdStreamingDistributionConfig :: StreamingDistributionConfig
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateStreamingDistribution' request.
+-- | 'UpdateStreamingDistribution2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StreamingDistributionConfig ::@ @StreamingDistributionConfig@
+-- * 'usdId' @::@ 'Text'
 --
--- * @Id ::@ @Text@
+-- * 'usdIfMatch' @::@ 'Maybe' 'Text'
 --
--- * @IfMatch ::@ @Maybe Text@
+-- * 'usdStreamingDistributionConfig' @::@ 'StreamingDistributionConfig'
 --
-updateStreamingDistribution :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
-                            -> Text -- ^ 'usdId'
-                            -> UpdateStreamingDistribution
-updateStreamingDistribution p1 p2 = UpdateStreamingDistribution
+updateStreamingDistribution2014_05_31 :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
+                                      -> Text -- ^ 'usdId'
+                                      -> UpdateStreamingDistribution2014_05_31
+updateStreamingDistribution2014_05_31 p1 p2 = UpdateStreamingDistribution2014_05_31
     { _usdStreamingDistributionConfig = p1
-    , _usdId = p2
-    , _usdIfMatch = Nothing
+    , _usdId                          = p2
+    , _usdIfMatch                     = Nothing
     }
 
--- | The streaming distribution's configuration information.
-usdStreamingDistributionConfig :: Lens' UpdateStreamingDistribution StreamingDistributionConfig
-usdStreamingDistributionConfig =
-    lens _usdStreamingDistributionConfig
-         (\s a -> s { _usdStreamingDistributionConfig = a })
-
 -- | The streaming distribution's id.
-usdId :: Lens' UpdateStreamingDistribution Text
+usdId :: Lens' UpdateStreamingDistribution2014_05_31 Text
 usdId = lens _usdId (\s a -> s { _usdId = a })
 
 -- | The value of the ETag header you received when retrieving the streaming
 -- distribution's configuration. For example: E2QWRUHAPOMQZL.
-usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
+usdIfMatch :: Lens' UpdateStreamingDistribution2014_05_31 (Maybe Text)
 usdIfMatch = lens _usdIfMatch (\s a -> s { _usdIfMatch = a })
 
-instance ToPath UpdateStreamingDistribution
+-- | The streaming distribution's configuration information.
+usdStreamingDistributionConfig :: Lens' UpdateStreamingDistribution2014_05_31 StreamingDistributionConfig
+usdStreamingDistributionConfig =
+    lens _usdStreamingDistributionConfig
+        (\s a -> s { _usdStreamingDistributionConfig = a })
 
-instance ToQuery UpdateStreamingDistribution
+instance ToPath UpdateStreamingDistribution2014_05_31 where
+    toPath UpdateStreamingDistribution2014_05_31{..} = mconcat
+        [ "/2014-05-31/streaming-distribution/"
+        , toText _usdId
+        , "/config"
+        ]
 
-instance ToHeaders UpdateStreamingDistribution where
-    toHeaders UpdateStreamingDistribution{..} = concat
+instance ToQuery UpdateStreamingDistribution2014_05_31 where
+    toQuery = const mempty
+
+instance ToHeaders UpdateStreamingDistribution2014_05_31 where
+    toHeaders UpdateStreamingDistribution2014_05_31{..} = mconcat
         [ "If-Match" =: _usdIfMatch
         ]
 
-instance ToXML UpdateStreamingDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateStreamingDistribution"
+instance ToBody UpdateStreamingDistribution2014_05_31 where
+    toBody = toBody . encodeXML . _usdStreamingDistributionConfig
 
--- | The returned result of the corresponding request.
-data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
-    { _usdrStreamingDistribution :: Maybe StreamingDistribution
-    , _usdrETag :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+data UpdateStreamingDistribution2014_05_31Response = UpdateStreamingDistribution2014_05_31Response
+    { _usdrETag                  :: Maybe Text
+    , _usdrStreamingDistribution :: Maybe StreamingDistribution
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateStreamingDistributionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateStreamingDistribution2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StreamingDistribution ::@ @Maybe StreamingDistribution@
+-- * 'usdrETag' @::@ 'Maybe' 'Text'
 --
--- * @ETag ::@ @Maybe Text@
+-- * 'usdrStreamingDistribution' @::@ 'Maybe' 'StreamingDistribution'
 --
-updateStreamingDistributionResponse :: UpdateStreamingDistributionResponse
-updateStreamingDistributionResponse = UpdateStreamingDistributionResponse
+updateStreamingDistribution2014_05_31Response :: UpdateStreamingDistribution2014_05_31Response
+updateStreamingDistribution2014_05_31Response = UpdateStreamingDistribution2014_05_31Response
     { _usdrStreamingDistribution = Nothing
-    , _usdrETag = Nothing
+    , _usdrETag                  = Nothing
     }
 
--- | The streaming distribution's information.
-usdrStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
-usdrStreamingDistribution =
-    lens _usdrStreamingDistribution
-         (\s a -> s { _usdrStreamingDistribution = a })
-
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-usdrETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
+usdrETag :: Lens' UpdateStreamingDistribution2014_05_31Response (Maybe Text)
 usdrETag = lens _usdrETag (\s a -> s { _usdrETag = a })
 
-instance AWSRequest UpdateStreamingDistribution where
-    type Sv UpdateStreamingDistribution = CloudFront
-    type Rs UpdateStreamingDistribution = UpdateStreamingDistributionResponse
+-- | The streaming distribution's information.
+usdrStreamingDistribution :: Lens' UpdateStreamingDistribution2014_05_31Response (Maybe StreamingDistribution)
+usdrStreamingDistribution =
+    lens _usdrStreamingDistribution
+        (\s a -> s { _usdrStreamingDistribution = a })
 
-    request = get
-    response _ = cursorResponse $ \hs xml ->
-        pure UpdateStreamingDistributionResponse
-            <*> xml %|? "StreamingDistribution"
-            <*> hs ~:? "ETag"
+instance AWSRequest UpdateStreamingDistribution2014_05_31 where
+    type Sv UpdateStreamingDistribution2014_05_31 = CloudFront
+    type Rs UpdateStreamingDistribution2014_05_31 = UpdateStreamingDistribution2014_05_31Response
+
+    request  = put
+    response = xmlResponse $ \h x -> UpdateStreamingDistribution2014_05_31Response
+        <$> h ~:? "ETag"
+        <*> x %| "StreamingDistribution"

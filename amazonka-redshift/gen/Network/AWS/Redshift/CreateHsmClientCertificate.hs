@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.CreateHsmClientCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,21 +45,20 @@ module Network.AWS.Redshift.CreateHsmClientCertificate
     , chccrHsmClientCertificate
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype CreateHsmClientCertificate = CreateHsmClientCertificate
     { _chccHsmClientCertificateIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateHsmClientCertificate' request.
+-- | 'CreateHsmClientCertificate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HsmClientCertificateIdentifier ::@ @Text@
+-- * 'chccHsmClientCertificateIdentifier' @::@ 'Text'
 --
 createHsmClientCertificate :: Text -- ^ 'chccHsmClientCertificateIdentifier'
                            -> CreateHsmClientCertificate
@@ -66,47 +67,42 @@ createHsmClientCertificate p1 = CreateHsmClientCertificate
     }
 
 -- | The identifier to be assigned to the new HSM client certificate that the
--- cluster will use to connect to the HSM to use the database encryption keys.
+-- cluster will use to connect to the HSM to use the database encryption
+-- keys.
 chccHsmClientCertificateIdentifier :: Lens' CreateHsmClientCertificate Text
 chccHsmClientCertificateIdentifier =
     lens _chccHsmClientCertificateIdentifier
-         (\s a -> s { _chccHsmClientCertificateIdentifier = a })
+        (\s a -> s { _chccHsmClientCertificateIdentifier = a })
 
-instance ToQuery CreateHsmClientCertificate where
-    toQuery = genericQuery def
+instance ToQuery CreateHsmClientCertificate
+
+instance ToPath CreateHsmClientCertificate where
+    toPath = const "/"
 
 newtype CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
     { _chccrHsmClientCertificate :: Maybe HsmClientCertificate
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateHsmClientCertificateResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateHsmClientCertificateResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HsmClientCertificate ::@ @Maybe HsmClientCertificate@
+-- * 'chccrHsmClientCertificate' @::@ 'Maybe' 'HsmClientCertificate'
 --
 createHsmClientCertificateResponse :: CreateHsmClientCertificateResponse
 createHsmClientCertificateResponse = CreateHsmClientCertificateResponse
     { _chccrHsmClientCertificate = Nothing
     }
 
--- | Returns information about an HSM client certificate. The certificate is
--- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
--- Redshift cluster to encrypt data files.
 chccrHsmClientCertificate :: Lens' CreateHsmClientCertificateResponse (Maybe HsmClientCertificate)
 chccrHsmClientCertificate =
     lens _chccrHsmClientCertificate
-         (\s a -> s { _chccrHsmClientCertificate = a })
-
-instance FromXML CreateHsmClientCertificateResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _chccrHsmClientCertificate = a })
 
 instance AWSRequest CreateHsmClientCertificate where
     type Sv CreateHsmClientCertificate = Redshift
     type Rs CreateHsmClientCertificate = CreateHsmClientCertificateResponse
 
-    request = post "CreateHsmClientCertificate"
-    response _ = xmlResponse
+    request  = post "CreateHsmClientCertificate"
+    response = xmlResponse $ \h x -> CreateHsmClientCertificateResponse
+        <$> x %| "HsmClientCertificate"

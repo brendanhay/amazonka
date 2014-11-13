@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SES.GetSendStatistics
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,21 +23,14 @@
 -- | Returns the user's sending statistics. The result is a list of data points,
 -- representing the last two weeks of sending activity. Each data point in the
 -- list contains statistics for a 15-minute interval. This action is throttled
--- at one request per second. POST / HTTP/1.1 Date: Thu, 18 Aug 2011 22:23:01
--- GMT Host: email.us-east-1.amazonaws.com Content-Type:
--- application/x-www-form-urlencoded X-Amzn-Authorization: AWS3
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
--- Signature=kwuk4eraA9HSfHySflgDKR6xK0JXjATIE7Uu5/FB4x4=,
--- Algorithm=HmacSHA256, SignedHeaders=Date;Host Content-Length: 99
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=GetSendStatistics
--- &Timestamp=2011-08-18T22%3A23%3A01.000Z 8 2011-08-03T19:23:00Z 0 0 0 7
--- 2011-08-03T06:53:00Z 0 0 0 . . . . c2b66ee5-c866-11e0-b17f-cddb0ab334db.
+-- at one request per second.
 module Network.AWS.SES.GetSendStatistics
     (
     -- * Request
       GetSendStatistics
     -- ** Request constructor
     , getSendStatistics
+
     -- * Response
     , GetSendStatisticsResponse
     -- ** Response constructor
@@ -44,36 +39,38 @@ module Network.AWS.SES.GetSendStatistics
     , gssrSendDataPoints
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data GetSendStatistics = GetSendStatistics
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetSendStatistics' request.
+-- | 'GetSendStatistics' constructor.
 getSendStatistics :: GetSendStatistics
 getSendStatistics = GetSendStatistics
 
-instance ToQuery GetSendStatistics where
-    toQuery = genericQuery def
+instance ToQuery GetSendStatistics
 
--- | Represents a list of SendDataPoint items returned from a successful
--- GetSendStatistics request. This list contains aggregated data from the
--- previous two weeks of sending activity.
+instance ToPath GetSendStatistics where
+    toPath = const "/"
+
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: [SendDataPoint]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetSendStatisticsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList GetSendStatisticsResponse where
+    type Item GetSendStatisticsResponse = SendDataPoint
+
+    fromList = GetSendStatisticsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gssrSendDataPoints
+
+-- | 'GetSendStatisticsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SendDataPoints ::@ @[SendDataPoint]@
+-- * 'gssrSendDataPoints' @::@ ['SendDataPoint']
 --
 getSendStatisticsResponse :: GetSendStatisticsResponse
 getSendStatisticsResponse = GetSendStatisticsResponse
@@ -85,12 +82,10 @@ gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrSendDataPoints =
     lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })
 
-instance FromXML GetSendStatisticsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetSendStatistics where
     type Sv GetSendStatistics = SES
     type Rs GetSendStatistics = GetSendStatisticsResponse
 
-    request = post "GetSendStatistics"
-    response _ = xmlResponse
+    request  = post "GetSendStatistics"
+    response = xmlResponse $ \h x -> GetSendStatisticsResponse
+        <$> x %| "SendDataPoints"

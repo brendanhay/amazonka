@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CognitoIdentity.CreateIdentityPool
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,17 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new identity pool. The identity pool is a store of user identity
--- information that is specific to your AWS account. CreateIdentityPool The
--- following example shows a request and response for a CreateIdentityPool
--- operation. { "IdentityPoolName": "MyIdentityPool",
--- "IdentityPoolDescription": "My identity pool", "Unauthenticated": true,
--- "SupportedLoginProviders": { "graph.facebook.com": "Facebook_App_ID",
--- "accounts.google.com": "Google_App_ID", "www.amazon.com": "Amazon_App_ID" }
--- } { "IdentityPoolDescription": "My identity pool", "IdentityPoolId":
--- "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE", "IdentityPoolName":
--- "MyIdentityPool", "SupportedLoginProviders": { "www.amazon.com":
--- "Amazon_App_ID", "graph.facebook.com": "Facebook_App_ID",
--- "accounts.google.com": "Google_App_ID" }, "Unauthenticated": true }.
+-- information that is specific to your AWS account. The limit on identity
+-- pools is 60 per account.
 module Network.AWS.CognitoIdentity.CreateIdentityPool
     (
     -- * Request
@@ -37,8 +30,10 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     -- ** Request constructor
     , createIdentityPool
     -- ** Request lenses
-    , cipIdentityPoolName
     , cipAllowUnauthenticatedIdentities
+    , cipDeveloperProviderName
+    , cipIdentityPoolName
+    , cipOpenIdConnectProviderARNs
     , cipSupportedLoginProviders
 
     -- * Response
@@ -46,101 +41,145 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     -- ** Response constructor
     , createIdentityPoolResponse
     -- ** Response lenses
+    , ciprAllowUnauthenticatedIdentities
+    , ciprDeveloperProviderName
     , ciprIdentityPoolId
     , ciprIdentityPoolName
-    , ciprAllowUnauthenticatedIdentities
+    , ciprOpenIdConnectProviderARNs
     , ciprSupportedLoginProviders
     ) where
 
-import Network.AWS.CognitoIdentity.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CognitoIdentity.Types
 
--- | Input to the CreateIdentityPool action.
 data CreateIdentityPool = CreateIdentityPool
-    { _cipIdentityPoolName :: Text
-    , _cipAllowUnauthenticatedIdentities :: !Bool
-    , _cipSupportedLoginProviders :: Map Text Text
+    { _cipAllowUnauthenticatedIdentities :: Bool
+    , _cipDeveloperProviderName          :: Maybe Text
+    , _cipIdentityPoolName               :: Text
+    , _cipOpenIdConnectProviderARNs      :: [Text]
+    , _cipSupportedLoginProviders        :: Map Text Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateIdentityPool' request.
+-- | 'CreateIdentityPool' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IdentityPoolName ::@ @Text@
+-- * 'cipAllowUnauthenticatedIdentities' @::@ 'Bool'
 --
--- * @AllowUnauthenticatedIdentities ::@ @Bool@
+-- * 'cipDeveloperProviderName' @::@ 'Maybe' 'Text'
 --
--- * @SupportedLoginProviders ::@ @Map Text Text@
+-- * 'cipIdentityPoolName' @::@ 'Text'
+--
+-- * 'cipOpenIdConnectProviderARNs' @::@ ['Text']
+--
+-- * 'cipSupportedLoginProviders' @::@ 'HashMap' 'Text' 'Text'
 --
 createIdentityPool :: Text -- ^ 'cipIdentityPoolName'
                    -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
                    -> CreateIdentityPool
 createIdentityPool p1 p2 = CreateIdentityPool
-    { _cipIdentityPoolName = p1
+    { _cipIdentityPoolName               = p1
     , _cipAllowUnauthenticatedIdentities = p2
-    , _cipSupportedLoginProviders = mempty
+    , _cipSupportedLoginProviders        = mempty
+    , _cipDeveloperProviderName          = Nothing
+    , _cipOpenIdConnectProviderARNs      = mempty
     }
+
+-- | TRUE if the identity pool supports unauthenticated logins.
+cipAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool Bool
+cipAllowUnauthenticatedIdentities =
+    lens _cipAllowUnauthenticatedIdentities
+        (\s a -> s { _cipAllowUnauthenticatedIdentities = a })
+
+-- | The "domain" by which Cognito will refer to your users. This name acts as
+-- a placeholder that allows your backend and the Cognito service to
+-- communicate about the developer provider. For the DeveloperProviderName,
+-- you can use letters as well as period (.), underscore (_), and dash (-).
+-- Once you have set a developer provider name, you cannot change it. Please
+-- take care in setting this parameter.
+cipDeveloperProviderName :: Lens' CreateIdentityPool (Maybe Text)
+cipDeveloperProviderName =
+    lens _cipDeveloperProviderName
+        (\s a -> s { _cipDeveloperProviderName = a })
 
 -- | A string that you provide.
 cipIdentityPoolName :: Lens' CreateIdentityPool Text
 cipIdentityPoolName =
     lens _cipIdentityPoolName (\s a -> s { _cipIdentityPoolName = a })
 
--- | TRUE if the identity pool supports unauthenticated logins.
-cipAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool Bool
-cipAllowUnauthenticatedIdentities =
-    lens _cipAllowUnauthenticatedIdentities
-         (\s a -> s { _cipAllowUnauthenticatedIdentities = a })
+cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
+cipOpenIdConnectProviderARNs =
+    lens _cipOpenIdConnectProviderARNs
+        (\s a -> s { _cipOpenIdConnectProviderARNs = a })
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-cipSupportedLoginProviders :: Lens' CreateIdentityPool (Map Text Text)
+cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
 cipSupportedLoginProviders =
     lens _cipSupportedLoginProviders
-         (\s a -> s { _cipSupportedLoginProviders = a })
+        (\s a -> s { _cipSupportedLoginProviders = a })
+            . _Map
 
-instance ToPath CreateIdentityPool
+instance ToPath CreateIdentityPool where
+    toPath = const "/"
 
-instance ToQuery CreateIdentityPool
+instance ToQuery CreateIdentityPool where
+    toQuery = const mempty
 
 instance ToHeaders CreateIdentityPool
 
-instance ToJSON CreateIdentityPool
+instance ToBody CreateIdentityPool where
+    toBody = toBody . encode . _cipIdentityPoolName
 
--- | An object representing a Cognito identity pool.
 data CreateIdentityPoolResponse = CreateIdentityPoolResponse
-    { _ciprIdentityPoolId :: Text
-    , _ciprIdentityPoolName :: Text
-    , _ciprAllowUnauthenticatedIdentities :: !Bool
-    , _ciprSupportedLoginProviders :: Map Text Text
+    { _ciprAllowUnauthenticatedIdentities :: Bool
+    , _ciprDeveloperProviderName          :: Maybe Text
+    , _ciprIdentityPoolId                 :: Text
+    , _ciprIdentityPoolName               :: Text
+    , _ciprOpenIdConnectProviderARNs      :: [Text]
+    , _ciprSupportedLoginProviders        :: Map Text Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateIdentityPoolResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateIdentityPoolResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IdentityPoolId ::@ @Text@
+-- * 'ciprAllowUnauthenticatedIdentities' @::@ 'Bool'
 --
--- * @IdentityPoolName ::@ @Text@
+-- * 'ciprDeveloperProviderName' @::@ 'Maybe' 'Text'
 --
--- * @AllowUnauthenticatedIdentities ::@ @Bool@
+-- * 'ciprIdentityPoolId' @::@ 'Text'
 --
--- * @SupportedLoginProviders ::@ @Map Text Text@
+-- * 'ciprIdentityPoolName' @::@ 'Text'
+--
+-- * 'ciprOpenIdConnectProviderARNs' @::@ ['Text']
+--
+-- * 'ciprSupportedLoginProviders' @::@ 'HashMap' 'Text' 'Text'
 --
 createIdentityPoolResponse :: Text -- ^ 'ciprIdentityPoolId'
                            -> Text -- ^ 'ciprIdentityPoolName'
                            -> Bool -- ^ 'ciprAllowUnauthenticatedIdentities'
                            -> CreateIdentityPoolResponse
 createIdentityPoolResponse p1 p2 p3 = CreateIdentityPoolResponse
-    { _ciprIdentityPoolId = p1
-    , _ciprIdentityPoolName = p2
+    { _ciprIdentityPoolId                 = p1
+    , _ciprIdentityPoolName               = p2
     , _ciprAllowUnauthenticatedIdentities = p3
-    , _ciprSupportedLoginProviders = mempty
+    , _ciprSupportedLoginProviders        = mempty
+    , _ciprDeveloperProviderName          = Nothing
+    , _ciprOpenIdConnectProviderARNs      = mempty
     }
+
+-- | TRUE if the identity pool supports unauthenticated logins.
+ciprAllowUnauthenticatedIdentities :: Lens' CreateIdentityPoolResponse Bool
+ciprAllowUnauthenticatedIdentities =
+    lens _ciprAllowUnauthenticatedIdentities
+        (\s a -> s { _ciprAllowUnauthenticatedIdentities = a })
+
+-- | The "domain" by which Cognito will refer to your users.
+ciprDeveloperProviderName :: Lens' CreateIdentityPoolResponse (Maybe Text)
+ciprDeveloperProviderName =
+    lens _ciprDeveloperProviderName
+        (\s a -> s { _ciprDeveloperProviderName = a })
 
 -- | An identity pool ID in the format REGION:GUID.
 ciprIdentityPoolId :: Lens' CreateIdentityPoolResponse Text
@@ -152,23 +191,29 @@ ciprIdentityPoolName :: Lens' CreateIdentityPoolResponse Text
 ciprIdentityPoolName =
     lens _ciprIdentityPoolName (\s a -> s { _ciprIdentityPoolName = a })
 
--- | TRUE if the identity pool supports unauthenticated logins.
-ciprAllowUnauthenticatedIdentities :: Lens' CreateIdentityPoolResponse Bool
-ciprAllowUnauthenticatedIdentities =
-    lens _ciprAllowUnauthenticatedIdentities
-         (\s a -> s { _ciprAllowUnauthenticatedIdentities = a })
+ciprOpenIdConnectProviderARNs :: Lens' CreateIdentityPoolResponse [Text]
+ciprOpenIdConnectProviderARNs =
+    lens _ciprOpenIdConnectProviderARNs
+        (\s a -> s { _ciprOpenIdConnectProviderARNs = a })
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-ciprSupportedLoginProviders :: Lens' CreateIdentityPoolResponse (Map Text Text)
+ciprSupportedLoginProviders :: Lens' CreateIdentityPoolResponse (HashMap Text Text)
 ciprSupportedLoginProviders =
     lens _ciprSupportedLoginProviders
-         (\s a -> s { _ciprSupportedLoginProviders = a })
+        (\s a -> s { _ciprSupportedLoginProviders = a })
+            . _Map
 
-instance FromJSON CreateIdentityPoolResponse
+-- FromJSON
 
 instance AWSRequest CreateIdentityPool where
     type Sv CreateIdentityPool = CognitoIdentity
     type Rs CreateIdentityPool = CreateIdentityPoolResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> CreateIdentityPoolResponse
+        <$> o .: "AllowUnauthenticatedIdentities"
+        <*> o .: "DeveloperProviderName"
+        <*> o .: "IdentityPoolId"
+        <*> o .: "IdentityPoolName"
+        <*> o .: "OpenIdConnectProviderARNs"
+        <*> o .: "SupportedLoginProviders"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SNS.ListEndpointsByPlatformApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,30 +28,7 @@
 -- the next page, you call ListEndpointsByPlatformApplication again using the
 -- NextToken string received from the previous call. When there are no more
 -- records to return, NextToken will be null. For more information, see Using
--- Amazon SNS Mobile Push Notifications. POST
--- http://sns.us-west-2.amazonaws.com/ HTTP/1.1 ...
--- PlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp
--- &amp;Action=ListEndpointsByPlatformApplication
--- &amp;SignatureMethod=HmacSHA256 &amp;AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
--- &amp;SignatureVersion=2 &amp;Version=2010-03-31
--- &amp;Signature=e6H4sJSCRBBlh%2BaigB%2FtYgp4%2Bjl7dikAQ6WKf%2BMTwNM%3D
--- &amp;Timestamp=2013-07-01T23%3A00%3A52.515Z HTTP/1.1 200 OK ...
--- &lt;ListEndpointsByPlatformApplicationResponse
--- xmlns="http://sns.amazonaws.com/doc/2010-03-31/"&gt;
--- &lt;ListEndpointsByPlatformApplicationResult&gt; &lt;Endpoints&gt;
--- &lt;member&gt;
--- &lt;EndpointArn&gt;arn:aws:sns:us-west-2:123456789012:endpoint/GCM/gcmpushapp/5e3e9847-3183-3f18-a7e8-671c3a57d4b3&lt;/EndpointArn&gt;
--- &lt;Attributes&gt; &lt;entry&gt; &lt;key&gt;Enabled&lt;/key&gt;
--- &lt;value&gt;true&lt;/value&gt; &lt;/entry&gt; &lt;entry&gt;
--- &lt;key&gt;CustomUserData&lt;/key&gt;
--- &lt;value&gt;UserId=27576823&lt;/value&gt; &lt;/entry&gt; &lt;entry&gt;
--- &lt;key&gt;Token&lt;/key&gt;
--- &lt;value&gt;APA91bGi7fFachkC1xjlqT66VYEucGHochmf1VQAr9k...jsM0PKPxKhddCzx6paEsyay9Zn3D4wNUJb8m6HZrBEXAMPLE&lt;/value&gt;
--- &lt;/entry&gt; &lt;/Attributes&gt; &lt;/member&gt; &lt;/Endpoints&gt;
--- &lt;/ListEndpointsByPlatformApplicationResult&gt; &lt;ResponseMetadata&gt;
--- &lt;RequestId&gt;9a48768c-dac8-5a60-aec0-3cc27ea08d96&lt;/RequestId&gt;
--- &lt;/ResponseMetadata&gt;
--- &lt;/ListEndpointsByPlatformApplicationResponse&gt;.
+-- Amazon SNS Mobile Push Notifications.
 module Network.AWS.SNS.ListEndpointsByPlatformApplication
     (
     -- * Request
@@ -57,8 +36,8 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     -- ** Request constructor
     , listEndpointsByPlatformApplication
     -- ** Request lenses
-    , lebpaPlatformApplicationArn
     , lebpaNextToken
+    , lebpaPlatformApplicationArn
 
     -- * Response
     , ListEndpointsByPlatformApplicationResponse
@@ -69,37 +48,30 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     , lebparNextToken
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input for ListEndpointsByPlatformApplication action.
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
-    { _lebpaPlatformApplicationArn :: Text
-    , _lebpaNextToken :: Maybe Text
+    { _lebpaNextToken              :: Maybe Text
+    , _lebpaPlatformApplicationArn :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListEndpointsByPlatformApplication' request.
+-- | 'ListEndpointsByPlatformApplication' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PlatformApplicationArn ::@ @Text@
+-- * 'lebpaNextToken' @::@ 'Maybe' 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'lebpaPlatformApplicationArn' @::@ 'Text'
 --
 listEndpointsByPlatformApplication :: Text -- ^ 'lebpaPlatformApplicationArn'
                                    -> ListEndpointsByPlatformApplication
 listEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplication
     { _lebpaPlatformApplicationArn = p1
-    , _lebpaNextToken = Nothing
+    , _lebpaNextToken              = Nothing
     }
-
--- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
-lebpaPlatformApplicationArn :: Lens' ListEndpointsByPlatformApplication Text
-lebpaPlatformApplicationArn =
-    lens _lebpaPlatformApplicationArn
-         (\s a -> s { _lebpaPlatformApplicationArn = a })
 
 -- | NextToken string is used when calling ListEndpointsByPlatformApplication
 -- action to retrieve additional records that are available after the first
@@ -107,25 +79,30 @@ lebpaPlatformApplicationArn =
 lebpaNextToken :: Lens' ListEndpointsByPlatformApplication (Maybe Text)
 lebpaNextToken = lens _lebpaNextToken (\s a -> s { _lebpaNextToken = a })
 
-instance ToQuery ListEndpointsByPlatformApplication where
-    toQuery = genericQuery def
+-- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput
+-- action.
+lebpaPlatformApplicationArn :: Lens' ListEndpointsByPlatformApplication Text
+lebpaPlatformApplicationArn =
+    lens _lebpaPlatformApplicationArn
+        (\s a -> s { _lebpaPlatformApplicationArn = a })
 
--- | Response for ListEndpointsByPlatformApplication action.
+instance ToQuery ListEndpointsByPlatformApplication
+
+instance ToPath ListEndpointsByPlatformApplication where
+    toPath = const "/"
+
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
-    { _lebparEndpoints :: [Endpoint']
+    { _lebparEndpoints :: [Endpoint]
     , _lebparNextToken :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListEndpointsByPlatformApplicationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListEndpointsByPlatformApplicationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Endpoints ::@ @[Endpoint']@
+-- * 'lebparEndpoints' @::@ ['Endpoint']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'lebparNextToken' @::@ 'Maybe' 'Text'
 --
 listEndpointsByPlatformApplicationResponse :: ListEndpointsByPlatformApplicationResponse
 listEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
@@ -134,7 +111,7 @@ listEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationR
     }
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint']
+lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
 lebparEndpoints = lens _lebparEndpoints (\s a -> s { _lebparEndpoints = a })
 
 -- | NextToken string is returned when calling
@@ -143,16 +120,11 @@ lebparEndpoints = lens _lebparEndpoints (\s a -> s { _lebparEndpoints = a })
 lebparNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
 lebparNextToken = lens _lebparNextToken (\s a -> s { _lebparNextToken = a })
 
-instance FromXML ListEndpointsByPlatformApplicationResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ListEndpointsByPlatformApplication where
     type Sv ListEndpointsByPlatformApplication = SNS
     type Rs ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplicationResponse
 
-    request = post "ListEndpointsByPlatformApplication"
-    response _ = xmlResponse
-
-instance AWSPager ListEndpointsByPlatformApplication where
-    next rq rs = (\x -> rq & lebpaNextToken ?~ x)
-        <$> (rs ^. lebparNextToken)
+    request  = post "ListEndpointsByPlatformApplication"
+    response = xmlResponse $ \h x -> ListEndpointsByPlatformApplicationResponse
+        <$> x %| "Endpoints"
+        <*> x %| "NextToken"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SNS.GetSubscriptionAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,24 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns all of the properties of a subscription.
--- http://sns.us-east-1.amazonaws.com/
--- ?SubscriptionArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic%3A80289ba6-0fd4-4079-afb4-ce8c8260f0ca
--- &amp;Action=GetSubscriptionAttributes &amp;SignatureVersion=2
--- &amp;SignatureMethod=HmacSHA256 &amp;Timestamp=2010-03-31T12%3A00%3A00.000Z
--- &amp;AWSAccessKeyId=(AWS Access Key Id)
--- &amp;Signature=92lBGRVq0%2BxhaACaBGqtdemy%2Bi9isfgyTljCbJM80Yk%3D
--- &lt;GetSubscriptionAttributesResponse
--- xmlns="http://sns.amazonaws.com/doc/2010-03-31/"&gt;
--- &lt;GetSubscriptionAttributesResult&gt; &lt;Attributes&gt; &lt;entry&gt;
--- &lt;key&gt;Owner&lt;/key&gt; &lt;value&gt;123456789012&lt;/value&gt;
--- &lt;/entry&gt; &lt;entry&gt; &lt;key&gt;DeliveryPolicy&lt;/key&gt;
--- &lt;value&gt;{&amp;quot;healthyRetryPolicy&amp;quot;:{&amp;quot;numRetries&amp;quot;:10}}&lt;/value&gt;
--- &lt;/entry&gt; &lt;entry&gt; &lt;key&gt;SubscriptionArn&lt;/key&gt;
--- &lt;value&gt;arn:aws:sns:us-east-1:123456789012:My-Topic:80289ba6-0fd4-4079-afb4-ce8c8260f0ca&lt;/value&gt;
--- &lt;/entry&gt; &lt;/Attributes&gt; &lt;/GetSubscriptionAttributesResult&gt;
--- &lt;ResponseMetadata&gt;
--- &lt;RequestId&gt;057f074c-33a7-11df-9540-99d0768312d3&lt;/RequestId&gt;
--- &lt;/ResponseMetadata&gt; &lt;/GetTopicAttributesResponse&gt;.
 module Network.AWS.SNS.GetSubscriptionAttributes
     (
     -- * Request
@@ -54,21 +38,20 @@ module Network.AWS.SNS.GetSubscriptionAttributes
     , gsarAttributes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input for GetSubscriptionAttributes.
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes
     { _gsaSubscriptionArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetSubscriptionAttributes' request.
+-- | 'GetSubscriptionAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SubscriptionArn ::@ @Text@
+-- * 'gsaSubscriptionArn' @::@ 'Text'
 --
 getSubscriptionAttributes :: Text -- ^ 'gsaSubscriptionArn'
                           -> GetSubscriptionAttributes
@@ -81,46 +64,43 @@ gsaSubscriptionArn :: Lens' GetSubscriptionAttributes Text
 gsaSubscriptionArn =
     lens _gsaSubscriptionArn (\s a -> s { _gsaSubscriptionArn = a })
 
-instance ToQuery GetSubscriptionAttributes where
-    toQuery = genericQuery def
+instance ToQuery GetSubscriptionAttributes
 
--- | Response for GetSubscriptionAttributes action.
+instance ToPath GetSubscriptionAttributes where
+    toPath = const "/"
+
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetSubscriptionAttributesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetSubscriptionAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Attributes ::@ @Map Text Text@
+-- * 'gsarAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
 getSubscriptionAttributesResponse :: GetSubscriptionAttributesResponse
 getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes = mempty
     }
 
--- | A map of the subscription's attributes. Attributes in this map include the
--- following: SubscriptionArn -- the subscription's ARN TopicArn -- the topic
--- ARN that the subscription is associated with Owner -- the AWS account ID of
--- the subscription's owner ConfirmationWasAuthenticated -- true if the
--- subscription confirmation request was authenticated DeliveryPolicy -- the
--- JSON serialization of the subscription's delivery policy
--- EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
--- policy that takes into account the topic delivery policy and account system
--- defaults.
-gsarAttributes :: Lens' GetSubscriptionAttributesResponse (Map Text Text)
+-- | A map of the subscription's attributes. Attributes in this map include
+-- the following: SubscriptionArn -- the subscription's ARN TopicArn -- the
+-- topic ARN that the subscription is associated with Owner -- the AWS
+-- account ID of the subscription's owner ConfirmationWasAuthenticated --
+-- true if the subscription confirmation request was authenticated
+-- DeliveryPolicy -- the JSON serialization of the subscription's delivery
+-- policy EffectiveDeliveryPolicy -- the JSON serialization of the effective
+-- delivery policy that takes into account the topic delivery policy and
+-- account system defaults.
+gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a })
-
-instance FromXML GetSubscriptionAttributesResponse where
-    fromXMLOptions = xmlOptions
+    . _Map
 
 instance AWSRequest GetSubscriptionAttributes where
     type Sv GetSubscriptionAttributes = SNS
     type Rs GetSubscriptionAttributes = GetSubscriptionAttributesResponse
 
-    request = post "GetSubscriptionAttributes"
-    response _ = xmlResponse
+    request  = post "GetSubscriptionAttributes"
+    response = xmlResponse $ \h x -> GetSubscriptionAttributesResponse
+        <$> x %| "Attributes"

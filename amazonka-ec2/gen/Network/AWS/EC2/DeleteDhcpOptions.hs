@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteDhcpOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,13 +23,7 @@
 -- | Deletes the specified set of DHCP options. You must disassociate the set of
 -- DHCP options before you can delete it. You can disassociate the set of DHCP
 -- options by associating either a new set of options or the default set of
--- options with the VPC. Example This example deletes the specified set of
--- DHCP options. https://ec2.amazonaws.com/?Action=DeleteDhcpOptions
--- &amp;DhcpOptionsId=dopt-7a8b9c2d &amp;AUTHPARAMS
--- &lt;DeleteDhcpOptionsResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteDhcpOptionsResponse&gt;.
+-- options with the VPC.
 module Network.AWS.EC2.DeleteDhcpOptions
     (
     -- * Request
@@ -35,7 +31,8 @@ module Network.AWS.EC2.DeleteDhcpOptions
     -- ** Request constructor
     , deleteDhcpOptions
     -- ** Request lenses
-    , ddoDhcpOptionsId
+    , ddo1DhcpOptionsId
+    , ddo1DryRun
 
     -- * Response
     , DeleteDhcpOptionsResponse
@@ -43,42 +40,48 @@ module Network.AWS.EC2.DeleteDhcpOptions
     , deleteDhcpOptionsResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteDhcpOptions = DeleteDhcpOptions
-    { _ddoDhcpOptionsId :: Text
+data DeleteDhcpOptions = DeleteDhcpOptions
+    { _ddo1DhcpOptionsId :: Text
+    , _ddo1DryRun        :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDhcpOptions' request.
+-- | 'DeleteDhcpOptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DhcpOptionsId ::@ @Text@
+-- * 'ddo1DhcpOptionsId' @::@ 'Text'
 --
-deleteDhcpOptions :: Text -- ^ 'ddoDhcpOptionsId'
+-- * 'ddo1DryRun' @::@ 'Maybe' 'Bool'
+--
+deleteDhcpOptions :: Text -- ^ 'ddo1DhcpOptionsId'
                   -> DeleteDhcpOptions
 deleteDhcpOptions p1 = DeleteDhcpOptions
-    { _ddoDhcpOptionsId = p1
+    { _ddo1DhcpOptionsId = p1
+    , _ddo1DryRun        = Nothing
     }
 
 -- | The ID of the DHCP options set.
-ddoDhcpOptionsId :: Lens' DeleteDhcpOptions Text
-ddoDhcpOptionsId =
-    lens _ddoDhcpOptionsId (\s a -> s { _ddoDhcpOptionsId = a })
+ddo1DhcpOptionsId :: Lens' DeleteDhcpOptions Text
+ddo1DhcpOptionsId =
+    lens _ddo1DhcpOptionsId (\s a -> s { _ddo1DhcpOptionsId = a })
 
-instance ToQuery DeleteDhcpOptions where
-    toQuery = genericQuery def
+ddo1DryRun :: Lens' DeleteDhcpOptions (Maybe Bool)
+ddo1DryRun = lens _ddo1DryRun (\s a -> s { _ddo1DryRun = a })
+
+instance ToQuery DeleteDhcpOptions
+
+instance ToPath DeleteDhcpOptions where
+    toPath = const "/"
 
 data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDhcpOptionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteDhcpOptionsResponse' constructor.
 deleteDhcpOptionsResponse :: DeleteDhcpOptionsResponse
 deleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
 
@@ -86,5 +89,5 @@ instance AWSRequest DeleteDhcpOptions where
     type Sv DeleteDhcpOptions = EC2
     type Rs DeleteDhcpOptions = DeleteDhcpOptionsResponse
 
-    request = post "DeleteDhcpOptions"
-    response _ = nullaryResponse DeleteDhcpOptionsResponse
+    request  = post "DeleteDhcpOptions"
+    response = nullaryResponse DeleteDhcpOptionsResponse

@@ -1,5 +1,6 @@
 {-# LANGUAGE BangPatterns      #-}
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -34,11 +35,13 @@ import           Control.Applicative
 import           Control.Concurrent
 import           Control.Monad.Except
 import qualified Data.Aeson                 as Aeson
-import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.IORef
 import           Data.Monoid
+import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
+import qualified Data.Text.Encoding         as Text
 import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.EC2.Metadata
@@ -48,11 +51,11 @@ import           System.Environment
 import           System.Mem.Weak
 
 -- | Default access key environment variable.
-accessKey :: ByteString -- ^ 'AWS_ACCESS_KEY'
+accessKey :: Text -- ^ 'AWS_ACCESS_KEY'
 accessKey = "AWS_ACCESS_KEY"
 
 -- | Default secret key environment variable.
-secretKey :: ByteString -- ^ 'AWS_SECRET_KEY'
+secretKey :: Text -- ^ 'AWS_SECRET_KEY'
 secretKey = "AWS_SECRET_KEY"
 
 -- | Explicit access and secret keys.
@@ -71,9 +74,9 @@ data Credentials
     | FromSession AccessKey SecretKey SecurityToken
       -- ^ A session containing the access key, secret key, and a security token.
       -- Note: you can achieve the same result purely by using 'fromSession'.
-    | FromProfile ByteString
+    | FromProfile Text
       -- ^ An IAM Profile name to lookup from the local EC2 instance-data.
-    | FromEnv ByteString ByteString
+    | FromEnv Text Text
       -- ^ Environment variables to lookup for the access and secret keys.
     | Discover
       -- ^ Attempt to read the default access and secret keys from the environment,
@@ -84,26 +87,27 @@ data Credentials
       -- the dns lookup terminates promptly if not running on EC2.
       deriving (Eq)
 
-instance ToByteString Credentials where
-    toBS (FromKeys    a _)   = "FromKeys "    <> toBS a <> " ****"
-    toBS (FromSession a _ _) = "FromSession " <> toBS a <> " **** ****"
-    toBS (FromProfile n)     = "FromProfile " <> n
-    toBS (FromEnv   a s)     = "FromEnv "     <> a <> " " <> s
-    toBS Discover            = "Discover"
+instance ToText Credentials where
+    toText = \case
+        FromKeys    a _   -> "FromKeys "    <> toText a <> " ****"
+        FromSession a _ _ -> "FromSession " <> toText a <> " **** ****"
+        FromProfile n     -> "FromProfile " <> n
+        FromEnv     a s   -> "FromEnv "     <> a <> " " <> s
+        Discover          -> "Discover"
 
 instance Show Credentials where
-    show = showBS
+    show = showText
 
 -- | Retrieve authentication information from the environment or instance-data.
 getAuth :: (Functor m, MonadIO m)
         => Manager
         -> Credentials
         -> ExceptT String m Auth
-getAuth m c = case c of
-    FromKeys a s      -> return (fromKeys a s)
+getAuth m = \case
+    FromKeys    a s   -> return (fromKeys a s)
     FromSession a s t -> return (fromSession a s t)
     FromProfile n     -> show `withExceptT` fromProfileName m n
-    FromEnv a s       -> fromEnvVars a s
+    FromEnv     a s   -> fromEnvVars a s
     Discover          ->
         fromEnv `catchError` const (show `withExceptT` fromProfile m)
 
@@ -114,22 +118,19 @@ fromEnv :: (Functor m, MonadIO m) => ExceptT String m Auth
 fromEnv = fromEnvVars accessKey secretKey
 
 -- | Retrieve access and secret keys from specific environment variables.
-fromEnvVars :: (Functor m, MonadIO m)
-            => ByteString
-            -> ByteString
-            -> ExceptT String m Auth
+fromEnvVars :: (Functor m, MonadIO m) => Text -> Text -> ExceptT String m Auth
 fromEnvVars a s = fmap Auth $ AuthEnv
     <$> (AccessKey <$> key a)
     <*> (SecretKey <$> key s)
     <*> pure Nothing
     <*> pure Nothing
   where
-    key (BS.unpack -> k) = ExceptT $ do
+    key (Text.unpack -> k) = ExceptT $ do
         m <- liftIO (lookupEnv k)
         return $
             maybe (Left $ "Unable to read ENV variable: " ++ k)
                   (Right . BS.pack)
-                   m
+                  m
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.
 --
@@ -139,7 +140,7 @@ fromProfile :: MonadIO m => Manager -> ExceptT HttpException m Auth
 fromProfile m = do
     !ls <- BS.lines `liftM` metadata m (IAM $ SecurityCredentials Nothing)
     case ls of
-        (x:_) -> fromProfileName m x
+        (x:_) -> fromProfileName m (Text.decodeUtf8 x)
         _     -> throwError $
            HttpParserException "Unable to get default IAM Profile from EC2 metadata"
 
@@ -156,7 +157,7 @@ fromProfile m = do
 -- terminate when 'Auth' is no longer referenced.
 fromProfileName :: MonadIO m
                 => Manager
-                -> ByteString
+                -> Text
                 -> ExceptT HttpException m Auth
 fromProfileName m name = auth >>= start
   where
@@ -164,7 +165,9 @@ fromProfileName m name = auth >>= start
     auth = do
         !lbs <- LBS.fromStrict `liftM` metadata m
             (IAM . SecurityCredentials $ Just name)
-        either (throwError . HttpParserException) return (Aeson.eitherDecode lbs)
+        either (throwError . HttpParserException)
+               return
+               (Aeson.eitherDecode lbs)
 
     start !a = ExceptT . liftM Right . liftIO $
         case _authExpiry a of

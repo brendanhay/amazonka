@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DetachVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,17 +29,7 @@
 -- an instance with an AWS Marketplace product code, then the AWS Marketplace
 -- product codes from that volume are no longer associated with the instance.
 -- For more information, see Detaching an Amazon EBS Volume in the Amazon
--- Elastic Compute Cloud User Guide. Example This example detaches volume
--- vol-1a2b3c4d. https://ec2.amazonaws.com/?Action=DetachVolume
--- &amp;VolumeId=vol-1a2b3c4d &amp;AUTHPARAMS &lt;DetachVolumeResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;volumeId&gt;vol-1a2b3c4d&lt;/volumeId&gt;
--- &lt;instanceId&gt;i-1a2b3c4d&lt;/instanceId&gt;
--- &lt;device&gt;/dev/sdh&lt;/device&gt;
--- &lt;status&gt;detaching&lt;/status&gt;
--- &lt;attachTime&gt;YYYY-MM-DDTHH:MM:SS.000Z&lt;/attachTime&gt;
--- &lt;/DetachVolumeResponse&gt;.
+-- Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.DetachVolume
     (
     -- * Request
@@ -45,152 +37,163 @@ module Network.AWS.EC2.DetachVolume
     -- ** Request constructor
     , detachVolume
     -- ** Request lenses
-    , dv4VolumeId
-    , dv4InstanceId
-    , dv4Device
-    , dv4Force
+    , dvDevice
+    , dvDryRun
+    , dvForce
+    , dvInstanceId
+    , dvVolumeId
 
     -- * Response
     , DetachVolumeResponse
     -- ** Response constructor
     , detachVolumeResponse
     -- ** Response lenses
-    , dvr1VolumeId
-    , dvr1InstanceId
-    , dvr1Device
-    , dvr1State
-    , dvr1AttachTime
-    , dvr1DeleteOnTermination
+    , dvrAttachTime
+    , dvrDeleteOnTermination
+    , dvrDevice
+    , dvrInstanceId
+    , dvrState
+    , dvrVolumeId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DetachVolume = DetachVolume
-    { _dv4VolumeId :: Text
-    , _dv4InstanceId :: Maybe Text
-    , _dv4Device :: Maybe Text
-    , _dv4Force :: Maybe Bool
+    { _dvDevice     :: Maybe Text
+    , _dvDryRun     :: Maybe Bool
+    , _dvForce      :: Maybe Bool
+    , _dvInstanceId :: Maybe Text
+    , _dvVolumeId   :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachVolume' request.
+-- | 'DetachVolume' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeId ::@ @Text@
+-- * 'dvDevice' @::@ 'Maybe' 'Text'
 --
--- * @InstanceId ::@ @Maybe Text@
+-- * 'dvDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Device ::@ @Maybe Text@
+-- * 'dvForce' @::@ 'Maybe' 'Bool'
 --
--- * @Force ::@ @Maybe Bool@
+-- * 'dvInstanceId' @::@ 'Maybe' 'Text'
 --
-detachVolume :: Text -- ^ 'dv4VolumeId'
+-- * 'dvVolumeId' @::@ 'Text'
+--
+detachVolume :: Text -- ^ 'dvVolumeId'
              -> DetachVolume
 detachVolume p1 = DetachVolume
-    { _dv4VolumeId = p1
-    , _dv4InstanceId = Nothing
-    , _dv4Device = Nothing
-    , _dv4Force = Nothing
+    { _dvVolumeId   = p1
+    , _dvDryRun     = Nothing
+    , _dvInstanceId = Nothing
+    , _dvDevice     = Nothing
+    , _dvForce      = Nothing
     }
 
--- | The ID of the volume.
-dv4VolumeId :: Lens' DetachVolume Text
-dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
+-- | The device name.
+dvDevice :: Lens' DetachVolume (Maybe Text)
+dvDevice = lens _dvDevice (\s a -> s { _dvDevice = a })
+
+dvDryRun :: Lens' DetachVolume (Maybe Bool)
+dvDryRun = lens _dvDryRun (\s a -> s { _dvDryRun = a })
+
+-- | Forces detachment if the previous detachment attempt did not occur
+-- cleanly (for example, logging into an instance, unmounting the volume,
+-- and detaching normally). This option can lead to data loss or a corrupted
+-- file system. Use this option only as a last resort to detach a volume
+-- from a failed instance. The instance won't have an opportunity to flush
+-- file system caches or file system metadata. If you use this option, you
+-- must perform file system check and repair procedures.
+dvForce :: Lens' DetachVolume (Maybe Bool)
+dvForce = lens _dvForce (\s a -> s { _dvForce = a })
 
 -- | The ID of the instance.
-dv4InstanceId :: Lens' DetachVolume (Maybe Text)
-dv4InstanceId = lens _dv4InstanceId (\s a -> s { _dv4InstanceId = a })
+dvInstanceId :: Lens' DetachVolume (Maybe Text)
+dvInstanceId = lens _dvInstanceId (\s a -> s { _dvInstanceId = a })
 
--- | The device name.
-dv4Device :: Lens' DetachVolume (Maybe Text)
-dv4Device = lens _dv4Device (\s a -> s { _dv4Device = a })
+-- | The ID of the volume.
+dvVolumeId :: Lens' DetachVolume Text
+dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
 
--- | Forces detachment if the previous detachment attempt did not occur cleanly
--- (for example, logging into an instance, unmounting the volume, and
--- detaching normally). This option can lead to data loss or a corrupted file
--- system. Use this option only as a last resort to detach a volume from a
--- failed instance. The instance won't have an opportunity to flush file
--- system caches or file system metadata. If you use this option, you must
--- perform file system check and repair procedures.
-dv4Force :: Lens' DetachVolume (Maybe Bool)
-dv4Force = lens _dv4Force (\s a -> s { _dv4Force = a })
+instance ToQuery DetachVolume
 
-instance ToQuery DetachVolume where
-    toQuery = genericQuery def
+instance ToPath DetachVolume where
+    toPath = const "/"
 
 data DetachVolumeResponse = DetachVolumeResponse
-    { _dvr1VolumeId :: Maybe Text
-    , _dvr1InstanceId :: Maybe Text
-    , _dvr1Device :: Maybe Text
-    , _dvr1State :: Maybe VolumeAttachmentState
-    , _dvr1AttachTime :: Maybe ISO8601
-    , _dvr1DeleteOnTermination :: Maybe Bool
+    { _dvrAttachTime          :: Maybe RFC822
+    , _dvrDeleteOnTermination :: Maybe Bool
+    , _dvrDevice              :: Maybe Text
+    , _dvrInstanceId          :: Maybe Text
+    , _dvrState               :: Maybe Text
+    , _dvrVolumeId            :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachVolumeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DetachVolumeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeId ::@ @Maybe Text@
+-- * 'dvrAttachTime' @::@ 'Maybe' 'UTCTime'
 --
--- * @InstanceId ::@ @Maybe Text@
+-- * 'dvrDeleteOnTermination' @::@ 'Maybe' 'Bool'
 --
--- * @Device ::@ @Maybe Text@
+-- * 'dvrDevice' @::@ 'Maybe' 'Text'
 --
--- * @State ::@ @Maybe VolumeAttachmentState@
+-- * 'dvrInstanceId' @::@ 'Maybe' 'Text'
 --
--- * @AttachTime ::@ @Maybe ISO8601@
+-- * 'dvrState' @::@ 'Maybe' 'Text'
 --
--- * @DeleteOnTermination ::@ @Maybe Bool@
+-- * 'dvrVolumeId' @::@ 'Maybe' 'Text'
 --
 detachVolumeResponse :: DetachVolumeResponse
 detachVolumeResponse = DetachVolumeResponse
-    { _dvr1VolumeId = Nothing
-    , _dvr1InstanceId = Nothing
-    , _dvr1Device = Nothing
-    , _dvr1State = Nothing
-    , _dvr1AttachTime = Nothing
-    , _dvr1DeleteOnTermination = Nothing
+    { _dvrVolumeId            = Nothing
+    , _dvrInstanceId          = Nothing
+    , _dvrDevice              = Nothing
+    , _dvrState               = Nothing
+    , _dvrAttachTime          = Nothing
+    , _dvrDeleteOnTermination = Nothing
     }
 
--- | The ID of the volume.
-dvr1VolumeId :: Lens' DetachVolumeResponse (Maybe Text)
-dvr1VolumeId = lens _dvr1VolumeId (\s a -> s { _dvr1VolumeId = a })
+-- | The time stamp when the attachment initiated.
+dvrAttachTime :: Lens' DetachVolumeResponse (Maybe UTCTime)
+dvrAttachTime = lens _dvrAttachTime (\s a -> s { _dvrAttachTime = a })
+    . mapping _Time
 
--- | The ID of the instance.
-dvr1InstanceId :: Lens' DetachVolumeResponse (Maybe Text)
-dvr1InstanceId = lens _dvr1InstanceId (\s a -> s { _dvr1InstanceId = a })
+-- | Indicates whether the Amazon EBS volume is deleted on instance
+-- termination.
+dvrDeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
+dvrDeleteOnTermination =
+    lens _dvrDeleteOnTermination (\s a -> s { _dvrDeleteOnTermination = a })
 
 -- | The device name.
-dvr1Device :: Lens' DetachVolumeResponse (Maybe Text)
-dvr1Device = lens _dvr1Device (\s a -> s { _dvr1Device = a })
+dvrDevice :: Lens' DetachVolumeResponse (Maybe Text)
+dvrDevice = lens _dvrDevice (\s a -> s { _dvrDevice = a })
+
+-- | The ID of the instance.
+dvrInstanceId :: Lens' DetachVolumeResponse (Maybe Text)
+dvrInstanceId = lens _dvrInstanceId (\s a -> s { _dvrInstanceId = a })
 
 -- | The attachment state of the volume.
-dvr1State :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)
-dvr1State = lens _dvr1State (\s a -> s { _dvr1State = a })
+dvrState :: Lens' DetachVolumeResponse (Maybe Text)
+dvrState = lens _dvrState (\s a -> s { _dvrState = a })
 
--- | The time stamp when the attachment initiated.
-dvr1AttachTime :: Lens' DetachVolumeResponse (Maybe ISO8601)
-dvr1AttachTime = lens _dvr1AttachTime (\s a -> s { _dvr1AttachTime = a })
-
--- | Indicates whether the Amazon EBS volume is deleted on instance termination.
-dvr1DeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
-dvr1DeleteOnTermination =
-    lens _dvr1DeleteOnTermination
-         (\s a -> s { _dvr1DeleteOnTermination = a })
-
-instance FromXML DetachVolumeResponse where
-    fromXMLOptions = xmlOptions
+-- | The ID of the volume.
+dvrVolumeId :: Lens' DetachVolumeResponse (Maybe Text)
+dvrVolumeId = lens _dvrVolumeId (\s a -> s { _dvrVolumeId = a })
 
 instance AWSRequest DetachVolume where
     type Sv DetachVolume = EC2
     type Rs DetachVolume = DetachVolumeResponse
 
-    request = post "DetachVolume"
-    response _ = xmlResponse
+    request  = post "DetachVolume"
+    response = xmlResponse $ \h x -> DetachVolumeResponse
+        <$> x %| "attachTime"
+        <*> x %| "deleteOnTermination"
+        <*> x %| "device"
+        <*> x %| "instanceId"
+        <*> x %| "status"
+        <*> x %| "volumeId"

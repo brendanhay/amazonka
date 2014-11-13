@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteVpnConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,13 +23,12 @@
 -- | Deletes the specified VPN connection. If you're deleting the VPC and its
 -- associated components, we recommend that you detach the virtual private
 -- gateway from the VPC and delete the VPC before deleting the VPN connection.
--- Example This example deletes the specified VPN connection.
--- https://ec2.amazonaws.com/?Action=DeleteVpnConnection
--- &amp;vpnConnectionId=vpn-44a8938f &amp;AUTHPARAMS
--- &lt;DeleteVpnConnectionResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpnConnectionResponse&gt;.
+-- If you believe that the tunnel credentials for your VPN connection have
+-- been compromised, you can delete the VPN connection and create a new one
+-- that has new keys, without needing to delete the VPC or virtual private
+-- gateway. If you create a new VPN connection, you must reconfigure the
+-- customer gateway using the new configuration information returned with the
+-- new VPN connection ID.
 module Network.AWS.EC2.DeleteVpnConnection
     (
     -- * Request
@@ -35,6 +36,7 @@ module Network.AWS.EC2.DeleteVpnConnection
     -- ** Request constructor
     , deleteVpnConnection
     -- ** Request lenses
+    , dvcDryRun
     , dvcVpnConnectionId
 
     -- * Response
@@ -43,42 +45,48 @@ module Network.AWS.EC2.DeleteVpnConnection
     , deleteVpnConnectionResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteVpnConnection = DeleteVpnConnection
-    { _dvcVpnConnectionId :: Text
+data DeleteVpnConnection = DeleteVpnConnection
+    { _dvcDryRun          :: Maybe Bool
+    , _dvcVpnConnectionId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpnConnection' request.
+-- | 'DeleteVpnConnection' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpnConnectionId ::@ @Text@
+-- * 'dvcDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'dvcVpnConnectionId' @::@ 'Text'
 --
 deleteVpnConnection :: Text -- ^ 'dvcVpnConnectionId'
                     -> DeleteVpnConnection
 deleteVpnConnection p1 = DeleteVpnConnection
     { _dvcVpnConnectionId = p1
+    , _dvcDryRun          = Nothing
     }
+
+dvcDryRun :: Lens' DeleteVpnConnection (Maybe Bool)
+dvcDryRun = lens _dvcDryRun (\s a -> s { _dvcDryRun = a })
 
 -- | The ID of the VPN connection.
 dvcVpnConnectionId :: Lens' DeleteVpnConnection Text
 dvcVpnConnectionId =
     lens _dvcVpnConnectionId (\s a -> s { _dvcVpnConnectionId = a })
 
-instance ToQuery DeleteVpnConnection where
-    toQuery = genericQuery def
+instance ToQuery DeleteVpnConnection
+
+instance ToPath DeleteVpnConnection where
+    toPath = const "/"
 
 data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpnConnectionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteVpnConnectionResponse' constructor.
 deleteVpnConnectionResponse :: DeleteVpnConnectionResponse
 deleteVpnConnectionResponse = DeleteVpnConnectionResponse
 
@@ -86,5 +94,5 @@ instance AWSRequest DeleteVpnConnection where
     type Sv DeleteVpnConnection = EC2
     type Rs DeleteVpnConnection = DeleteVpnConnectionResponse
 
-    request = post "DeleteVpnConnection"
-    response _ = nullaryResponse DeleteVpnConnectionResponse
+    request  = post "DeleteVpnConnection"
+    response = nullaryResponse DeleteVpnConnectionResponse

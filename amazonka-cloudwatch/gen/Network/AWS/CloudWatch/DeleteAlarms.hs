@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatch.DeleteAlarms
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,7 +29,7 @@ module Network.AWS.CloudWatch.DeleteAlarms
     -- ** Request constructor
     , deleteAlarms
     -- ** Request lenses
-    , daAlarmNames
+    , da1AlarmNames
 
     -- * Response
     , DeleteAlarmsResponse
@@ -35,41 +37,45 @@ module Network.AWS.CloudWatch.DeleteAlarms
     , deleteAlarmsResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype DeleteAlarms = DeleteAlarms
-    { _daAlarmNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    { _da1AlarmNames :: [Text]
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteAlarms' request.
+instance GHC.Exts.IsList DeleteAlarms where
+    type Item DeleteAlarms = Text
+
+    fromList = DeleteAlarms . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _da1AlarmNames
+
+-- | 'DeleteAlarms' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AlarmNames ::@ @[Text]@
+-- * 'da1AlarmNames' @::@ ['Text']
 --
-deleteAlarms :: [Text] -- ^ 'daAlarmNames'
-             -> DeleteAlarms
-deleteAlarms p1 = DeleteAlarms
-    { _daAlarmNames = p1
+deleteAlarms :: DeleteAlarms
+deleteAlarms = DeleteAlarms
+    { _da1AlarmNames = mempty
     }
 
 -- | A list of alarms to be deleted.
-daAlarmNames :: Lens' DeleteAlarms [Text]
-daAlarmNames = lens _daAlarmNames (\s a -> s { _daAlarmNames = a })
+da1AlarmNames :: Lens' DeleteAlarms [Text]
+da1AlarmNames = lens _da1AlarmNames (\s a -> s { _da1AlarmNames = a })
 
-instance ToQuery DeleteAlarms where
-    toQuery = genericQuery def
+instance ToQuery DeleteAlarms
+
+instance ToPath DeleteAlarms where
+    toPath = const "/"
 
 data DeleteAlarmsResponse = DeleteAlarmsResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteAlarmsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteAlarmsResponse' constructor.
 deleteAlarmsResponse :: DeleteAlarmsResponse
 deleteAlarmsResponse = DeleteAlarmsResponse
 
@@ -77,5 +83,5 @@ instance AWSRequest DeleteAlarms where
     type Sv DeleteAlarms = CloudWatch
     type Rs DeleteAlarms = DeleteAlarmsResponse
 
-    request = post "DeleteAlarms"
-    response _ = nullaryResponse DeleteAlarmsResponse
+    request  = post "DeleteAlarms"
+    response = nullaryResponse DeleteAlarmsResponse

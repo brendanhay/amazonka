@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.CreateVirtualMFADevice
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,12 +29,7 @@
 -- QR code and the Base32 string should be treated like any other secret
 -- access information, such as your AWS access keys or your passwords. After
 -- you provision your virtual device, you should ensure that the information
--- is destroyed following secure procedures. https://iam.amazonaws.com/
--- ?Action=CreateVirtualMFADevice &VirtualMFADeviceName=ExampleName &Path=/
--- &Version=2010-05-08 &AUTHPARAMS arn:aws:iam::123456789012:mfa/ExampleName
--- 2K5K5XTLA7GGE75TQLYEXAMPLEEXAMPLEEXAMPLECHDFW4KJYZ6 UFQ75LL7COCYKM
--- 89504E470D0A1A0AASDFAHSDFKJKLJFKALSDFJASDF
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- is destroyed following secure procedures.
 module Network.AWS.IAM.CreateVirtualMFADevice
     (
     -- * Request
@@ -51,34 +48,34 @@ module Network.AWS.IAM.CreateVirtualMFADevice
     , cvmfadrVirtualMFADevice
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateVirtualMFADevice = CreateVirtualMFADevice
-    { _cvmfadPath :: Maybe Text
+    { _cvmfadPath                 :: Maybe Text
     , _cvmfadVirtualMFADeviceName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateVirtualMFADevice' request.
+-- | 'CreateVirtualMFADevice' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Path ::@ @Maybe Text@
+-- * 'cvmfadPath' @::@ 'Maybe' 'Text'
 --
--- * @VirtualMFADeviceName ::@ @Text@
+-- * 'cvmfadVirtualMFADeviceName' @::@ 'Text'
 --
 createVirtualMFADevice :: Text -- ^ 'cvmfadVirtualMFADeviceName'
                        -> CreateVirtualMFADevice
-createVirtualMFADevice p2 = CreateVirtualMFADevice
-    { _cvmfadPath = Nothing
-    , _cvmfadVirtualMFADeviceName = p2
+createVirtualMFADevice p1 = CreateVirtualMFADevice
+    { _cvmfadVirtualMFADeviceName = p1
+    , _cvmfadPath                 = Nothing
     }
 
--- | The path for the virtual MFA device. For more information about paths, see
--- Identifiers for IAM Entities in the Using IAM guide. This parameter is
--- optional. If it is not included, it defaults to a slash (/).
+-- | The path for the virtual MFA device. For more information about paths,
+-- see IAM Identifiers in the Using IAM guide. This parameter is optional.
+-- If it is not included, it defaults to a slash (/).
 cvmfadPath :: Lens' CreateVirtualMFADevice (Maybe Text)
 cvmfadPath = lens _cvmfadPath (\s a -> s { _cvmfadPath = a })
 
@@ -87,25 +84,22 @@ cvmfadPath = lens _cvmfadPath (\s a -> s { _cvmfadPath = a })
 cvmfadVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
 cvmfadVirtualMFADeviceName =
     lens _cvmfadVirtualMFADeviceName
-         (\s a -> s { _cvmfadVirtualMFADeviceName = a })
+        (\s a -> s { _cvmfadVirtualMFADeviceName = a })
 
-instance ToQuery CreateVirtualMFADevice where
-    toQuery = genericQuery def
+instance ToQuery CreateVirtualMFADevice
 
--- | Contains the result of a successful invocation of the
--- CreateVirtualMFADevice action.
+instance ToPath CreateVirtualMFADevice where
+    toPath = const "/"
+
 newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
     { _cvmfadrVirtualMFADevice :: VirtualMFADevice
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateVirtualMFADeviceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateVirtualMFADeviceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VirtualMFADevice ::@ @VirtualMFADevice@
+-- * 'cvmfadrVirtualMFADevice' @::@ 'VirtualMFADevice'
 --
 createVirtualMFADeviceResponse :: VirtualMFADevice -- ^ 'cvmfadrVirtualMFADevice'
                                -> CreateVirtualMFADeviceResponse
@@ -116,15 +110,12 @@ createVirtualMFADeviceResponse p1 = CreateVirtualMFADeviceResponse
 -- | A newly created virtual MFA device.
 cvmfadrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 cvmfadrVirtualMFADevice =
-    lens _cvmfadrVirtualMFADevice
-         (\s a -> s { _cvmfadrVirtualMFADevice = a })
-
-instance FromXML CreateVirtualMFADeviceResponse where
-    fromXMLOptions = xmlOptions
+    lens _cvmfadrVirtualMFADevice (\s a -> s { _cvmfadrVirtualMFADevice = a })
 
 instance AWSRequest CreateVirtualMFADevice where
     type Sv CreateVirtualMFADevice = IAM
     type Rs CreateVirtualMFADevice = CreateVirtualMFADeviceResponse
 
-    request = post "CreateVirtualMFADevice"
-    response _ = xmlResponse
+    request  = post "CreateVirtualMFADevice"
+    response = xmlResponse $ \h x -> CreateVirtualMFADeviceResponse
+        <$> x %| "VirtualMFADevice"

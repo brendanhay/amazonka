@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLaunchConfigurations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,12 +23,6 @@
 -- | Returns a full description of the launch configurations, or the specified
 -- launch configurations, if they exist. If no name is specified, then the
 -- full details of all launch configurations are returned.
--- https://autoscaling.amazonaws.com/?LaunchConfigurationNames.member.1=my-test-lc
--- &MaxRecords=20 &Version=2011-01-01 &Action=DescribeLaunchConfigurations
--- &AUTHPARAMS true dedicated 2013-01-21T23:04:42.200Z my-test-lc m1.small
--- arn:aws:autoscaling:us-east-1:803981987763:launchConfiguration:
--- 9dbbbf87-6141-428a-a409-0752edbe6cad:launchConfigurationName/my-test-lc
--- ami-514ac838 true false d05a22f8-b690-11e2-bf8e-2113fEXAMPLE.
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     (
     -- * Request
@@ -34,9 +30,9 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- ** Request constructor
     , describeLaunchConfigurations
     -- ** Request lenses
-    , dlc1LaunchConfigurationNames
-    , dlc1NextToken
-    , dlc1MaxRecords
+    , dlcLaunchConfigurationNames
+    , dlcMaxRecords
+    , dlcNextToken
 
     -- * Response
     , DescribeLaunchConfigurationsResponse
@@ -47,96 +43,87 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     , dlcrNextToken
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The LaunchConfigurationNamesType data type.
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations
-    { _dlc1LaunchConfigurationNames :: [Text]
-    , _dlc1NextToken :: Maybe Text
-    , _dlc1MaxRecords :: Maybe Integer
+    { _dlcLaunchConfigurationNames :: [Text]
+    , _dlcMaxRecords               :: Maybe Int
+    , _dlcNextToken                :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLaunchConfigurations' request.
+-- | 'DescribeLaunchConfigurations' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LaunchConfigurationNames ::@ @[Text]@
+-- * 'dlcLaunchConfigurationNames' @::@ ['Text']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dlcMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * @MaxRecords ::@ @Maybe Integer@
+-- * 'dlcNextToken' @::@ 'Maybe' 'Text'
 --
 describeLaunchConfigurations :: DescribeLaunchConfigurations
 describeLaunchConfigurations = DescribeLaunchConfigurations
-    { _dlc1LaunchConfigurationNames = mempty
-    , _dlc1NextToken = Nothing
-    , _dlc1MaxRecords = Nothing
+    { _dlcLaunchConfigurationNames = mempty
+    , _dlcNextToken                = Nothing
+    , _dlcMaxRecords               = Nothing
     }
 
 -- | A list of launch configuration names.
-dlc1LaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
-dlc1LaunchConfigurationNames =
-    lens _dlc1LaunchConfigurationNames
-         (\s a -> s { _dlc1LaunchConfigurationNames = a })
-
--- | A string that marks the start of the next batch of returned results.
-dlc1NextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
-dlc1NextToken = lens _dlc1NextToken (\s a -> s { _dlc1NextToken = a })
+dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
+dlcLaunchConfigurationNames =
+    lens _dlcLaunchConfigurationNames
+        (\s a -> s { _dlcLaunchConfigurationNames = a })
 
 -- | The maximum number of launch configurations. The default is 100.
-dlc1MaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Integer)
-dlc1MaxRecords = lens _dlc1MaxRecords (\s a -> s { _dlc1MaxRecords = a })
+dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
+dlcMaxRecords = lens _dlcMaxRecords (\s a -> s { _dlcMaxRecords = a })
 
-instance ToQuery DescribeLaunchConfigurations where
-    toQuery = genericQuery def
+-- | A string that marks the start of the next batch of returned results.
+dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
+dlcNextToken = lens _dlcNextToken (\s a -> s { _dlcNextToken = a })
 
--- | The LaunchConfigurationsType data type.
+instance ToQuery DescribeLaunchConfigurations
+
+instance ToPath DescribeLaunchConfigurations where
+    toPath = const "/"
+
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     { _dlcrLaunchConfigurations :: [LaunchConfiguration]
-    , _dlcrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _dlcrNextToken            :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLaunchConfigurationsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeLaunchConfigurationsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LaunchConfigurations ::@ @[LaunchConfiguration]@
+-- * 'dlcrLaunchConfigurations' @::@ ['LaunchConfiguration']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dlcrNextToken' @::@ 'Maybe' 'Text'
 --
-describeLaunchConfigurationsResponse :: [LaunchConfiguration] -- ^ 'dlcrLaunchConfigurations'
-                                     -> DescribeLaunchConfigurationsResponse
-describeLaunchConfigurationsResponse p1 = DescribeLaunchConfigurationsResponse
-    { _dlcrLaunchConfigurations = p1
-    , _dlcrNextToken = Nothing
+describeLaunchConfigurationsResponse :: DescribeLaunchConfigurationsResponse
+describeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
+    { _dlcrLaunchConfigurations = mempty
+    , _dlcrNextToken            = Nothing
     }
 
 -- | A list of launch configurations.
 dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
 dlcrLaunchConfigurations =
     lens _dlcrLaunchConfigurations
-         (\s a -> s { _dlcrLaunchConfigurations = a })
+        (\s a -> s { _dlcrLaunchConfigurations = a })
 
 -- | A string that marks the start of the next batch of returned results.
 dlcrNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 dlcrNextToken = lens _dlcrNextToken (\s a -> s { _dlcrNextToken = a })
 
-instance FromXML DescribeLaunchConfigurationsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeLaunchConfigurations where
     type Sv DescribeLaunchConfigurations = AutoScaling
     type Rs DescribeLaunchConfigurations = DescribeLaunchConfigurationsResponse
 
-    request = post "DescribeLaunchConfigurations"
-    response _ = xmlResponse
-
-instance AWSPager DescribeLaunchConfigurations where
-    next rq rs = (\x -> rq & dlc1NextToken ?~ x)
-        <$> (rs ^. dlcrNextToken)
+    request  = post "DescribeLaunchConfigurations"
+    response = xmlResponse $ \h x -> DescribeLaunchConfigurationsResponse
+        <$> x %| "LaunchConfigurations"
+        <*> x %| "NextToken"

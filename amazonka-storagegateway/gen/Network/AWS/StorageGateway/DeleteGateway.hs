@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,18 +33,7 @@
 -- remaining Amazon EBS snapshots by canceling your Amazon EC2 subscription.
 -- If you prefer not to cancel your Amazon EC2 subscription, you can delete
 -- your snapshots using the Amazon EC2 console. For more information, see the
--- AWS Storage Gateway Detail Page. Example Request The following example
--- shows a request that deactivates a gateway. POST / HTTP/1.1 Host:
--- storagegateway.us-east-1.amazonaws.com x-amz-Date: 20120425T120000Z
--- Authorization: CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG
--- Content-type: application/x-amz-json-1.1 x-amz-target:
--- StorageGateway_20120630.DeleteGateway { "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }
--- HTTP/1.1 200 OK x-amzn-RequestId:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Date: Wed, 25 Apr 2012
--- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 80 {
--- "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
+-- AWS Storage Gateway Detail Page.
 module Network.AWS.StorageGateway.DeleteGateway
     (
     -- * Request
@@ -60,21 +51,19 @@ module Network.AWS.StorageGateway.DeleteGateway
     , dgrGatewayARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
--- | A JSON object containing the of the gateway to delete.
 newtype DeleteGateway = DeleteGateway
     { _dgGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteGateway' request.
+-- | 'DeleteGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'dgGatewayARN' @::@ 'Text'
 --
 deleteGateway :: Text -- ^ 'dgGatewayARN'
               -> DeleteGateway
@@ -82,48 +71,44 @@ deleteGateway p1 = DeleteGateway
     { _dgGatewayARN = p1
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 dgGatewayARN :: Lens' DeleteGateway Text
 dgGatewayARN = lens _dgGatewayARN (\s a -> s { _dgGatewayARN = a })
 
-instance ToPath DeleteGateway
+instance ToPath DeleteGateway where
+    toPath = const "/"
 
-instance ToQuery DeleteGateway
+instance ToQuery DeleteGateway where
+    toQuery = const mempty
 
 instance ToHeaders DeleteGateway
 
-instance ToJSON DeleteGateway
+instance ToBody DeleteGateway where
+    toBody = toBody . encode . _dgGatewayARN
 
--- | A JSON object containing the of the deleted gateway.
 newtype DeleteGatewayResponse = DeleteGatewayResponse
     { _dgrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteGatewayResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteGatewayResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Maybe Text@
+-- * 'dgrGatewayARN' @::@ 'Maybe' 'Text'
 --
 deleteGatewayResponse :: DeleteGatewayResponse
 deleteGatewayResponse = DeleteGatewayResponse
     { _dgrGatewayARN = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 dgrGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgrGatewayARN = lens _dgrGatewayARN (\s a -> s { _dgrGatewayARN = a })
 
-instance FromJSON DeleteGatewayResponse
+-- FromJSON
 
 instance AWSRequest DeleteGateway where
     type Sv DeleteGateway = StorageGateway
     type Rs DeleteGateway = DeleteGatewayResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DeleteGatewayResponse
+        <$> o .: "GatewayARN"

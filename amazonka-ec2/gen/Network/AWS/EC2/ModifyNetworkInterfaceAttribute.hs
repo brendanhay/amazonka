@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ModifyNetworkInterfaceAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,15 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Modifies the specified network interface attribute. You can specify only
--- one attribute at a time. Example This example sets source/destination
--- checking to false for the specified network interface.
--- https://ec2.amazonaws.com/?Action=ModifyNetworkInterfaceAttribute
--- &amp;NetworkInterfaceId=eni-ffda3197 &amp;SourceDestCheck.Value=false
--- &amp;AUTHPARAMS &lt;ModifyNetworkInterfaceAttributeResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;657a4623-5620-4232-b03b-427e852d71cf&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt;
--- &lt;/ModifyNetworkInterfaceAttributeResponse&gt;.
+-- one attribute at a time.
 module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     (
     -- * Request
@@ -35,11 +29,12 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     -- ** Request constructor
     , modifyNetworkInterfaceAttribute
     -- ** Request lenses
-    , mniaNetworkInterfaceId
-    , mniaDescription
-    , mniaSourceDestCheck
-    , mniaGroups
     , mniaAttachment
+    , mniaDescription
+    , mniaDryRun
+    , mniaGroups
+    , mniaNetworkInterfaceId
+    , mniaSourceDestCheck
 
     -- * Response
     , ModifyNetworkInterfaceAttributeResponse
@@ -47,81 +42,90 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     , modifyNetworkInterfaceAttributeResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
-    { _mniaNetworkInterfaceId :: Text
-    , _mniaDescription :: Maybe AttributeValue
-    , _mniaSourceDestCheck :: Maybe AttributeBooleanValue
-    , _mniaGroups :: [Text]
-    , _mniaAttachment :: Maybe NetworkInterfaceAttachmentChanges
-    } deriving (Eq, Ord, Show, Generic)
+    { _mniaAttachment         :: Maybe NetworkInterfaceAttachmentChanges
+    , _mniaDescription        :: Maybe AttributeValue
+    , _mniaDryRun             :: Maybe Bool
+    , _mniaGroups             :: [Text]
+    , _mniaNetworkInterfaceId :: Text
+    , _mniaSourceDestCheck    :: Maybe AttributeBooleanValue
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyNetworkInterfaceAttribute' request.
+-- | 'ModifyNetworkInterfaceAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkInterfaceId ::@ @Text@
+-- * 'mniaAttachment' @::@ 'Maybe' 'NetworkInterfaceAttachmentChanges'
 --
--- * @Description ::@ @Maybe AttributeValue@
+-- * 'mniaDescription' @::@ 'Maybe' 'AttributeValue'
 --
--- * @SourceDestCheck ::@ @Maybe AttributeBooleanValue@
+-- * 'mniaDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Groups ::@ @[Text]@
+-- * 'mniaGroups' @::@ ['Text']
 --
--- * @Attachment ::@ @Maybe NetworkInterfaceAttachmentChanges@
+-- * 'mniaNetworkInterfaceId' @::@ 'Text'
+--
+-- * 'mniaSourceDestCheck' @::@ 'Maybe' 'AttributeBooleanValue'
 --
 modifyNetworkInterfaceAttribute :: Text -- ^ 'mniaNetworkInterfaceId'
                                 -> ModifyNetworkInterfaceAttribute
 modifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
     { _mniaNetworkInterfaceId = p1
-    , _mniaDescription = Nothing
-    , _mniaSourceDestCheck = Nothing
-    , _mniaGroups = mempty
-    , _mniaAttachment = Nothing
+    , _mniaDryRun             = Nothing
+    , _mniaDescription        = Nothing
+    , _mniaSourceDestCheck    = Nothing
+    , _mniaGroups             = mempty
+    , _mniaAttachment         = Nothing
     }
+
+-- | Information about the interface attachment. If modifying the 'delete on
+-- termination' attribute, you must specify the ID of the interface
+-- attachment.
+mniaAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
+mniaAttachment = lens _mniaAttachment (\s a -> s { _mniaAttachment = a })
+
+-- | A description for the network interface.
+mniaDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
+mniaDescription = lens _mniaDescription (\s a -> s { _mniaDescription = a })
+
+mniaDryRun :: Lens' ModifyNetworkInterfaceAttribute (Maybe Bool)
+mniaDryRun = lens _mniaDryRun (\s a -> s { _mniaDryRun = a })
+
+-- | Changes the security groups for the network interface. The new set of
+-- groups you specify replaces the current set. You must specify at least
+-- one group, even if it's just the default security group in the VPC. You
+-- must specify the ID of the security group, not the name.
+mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
+mniaGroups = lens _mniaGroups (\s a -> s { _mniaGroups = a })
 
 -- | The ID of the network interface.
 mniaNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute Text
 mniaNetworkInterfaceId =
     lens _mniaNetworkInterfaceId (\s a -> s { _mniaNetworkInterfaceId = a })
 
--- | A description for the network interface.
-mniaDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
-mniaDescription = lens _mniaDescription (\s a -> s { _mniaDescription = a })
-
 -- | Indicates whether source/destination checking is enabled. A value of true
--- means checking is enabled, and false means checking is disabled. This value
--- must be false for a NAT instance to perform NAT. For more information, see
--- NAT Instances in the Amazon Virtual Private Cloud User Guide.
+-- means checking is enabled, and false means checking is disabled. This
+-- value must be false for a NAT instance to perform NAT. For more
+-- information, see NAT Instances in the Amazon Virtual Private Cloud User
+-- Guide.
 mniaSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
 mniaSourceDestCheck =
     lens _mniaSourceDestCheck (\s a -> s { _mniaSourceDestCheck = a })
 
--- | Changes the security groups for the network interface. The new set of
--- groups you specify replaces the current set. You must specify at least one
--- group, even if it's just the default security group in the VPC. You must
--- specify the ID of the security group, not the name.
-mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
-mniaGroups = lens _mniaGroups (\s a -> s { _mniaGroups = a })
+instance ToQuery ModifyNetworkInterfaceAttribute
 
--- | The ID of the interface attachment.
-mniaAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
-mniaAttachment = lens _mniaAttachment (\s a -> s { _mniaAttachment = a })
-
-instance ToQuery ModifyNetworkInterfaceAttribute where
-    toQuery = genericQuery def
+instance ToPath ModifyNetworkInterfaceAttribute where
+    toPath = const "/"
 
 data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyNetworkInterfaceAttributeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ModifyNetworkInterfaceAttributeResponse' constructor.
 modifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse
 modifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
 
@@ -129,5 +133,5 @@ instance AWSRequest ModifyNetworkInterfaceAttribute where
     type Sv ModifyNetworkInterfaceAttribute = EC2
     type Rs ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttributeResponse
 
-    request = post "ModifyNetworkInterfaceAttribute"
-    response _ = nullaryResponse ModifyNetworkInterfaceAttributeResponse
+    request  = post "ModifyNetworkInterfaceAttribute"
+    response = nullaryResponse ModifyNetworkInterfaceAttributeResponse

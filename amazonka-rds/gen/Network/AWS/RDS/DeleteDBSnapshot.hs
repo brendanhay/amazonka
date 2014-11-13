@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,13 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a DBSnapshot. If the snapshot is being copied, the copy operation
--- is terminated. The DBSnapshot must be in the available state to be deleted.
--- https://rds.amazon.com/ &DBSnapshotIdentifier=mydbsnapshot
--- &Version=2013-05-15 &SignatureVersion=2 &SignatureMethod=HmacSHA256
--- &Timestamp=2011-05-23T06%3A27%3A42.551Z &AWSAccessKeyId= &Signature= 3306
--- 2011-03-11T07:20:24.082Z mysql deleted us-east-1d general-public-license
--- 2010-07-16T00:06:59.107Z 60 simcoprod01 5.1.47 mysnapshot2 manual master
--- 627a43a1-8507-11e0-bd9b-a7b1ece36d51.
+-- is terminated.
 module Network.AWS.RDS.DeleteDBSnapshot
     (
     -- * Request
@@ -33,7 +29,7 @@ module Network.AWS.RDS.DeleteDBSnapshot
     -- ** Request constructor
     , deleteDBSnapshot
     -- ** Request lenses
-    , ddbsDBSnapshotIdentifier
+    , ddbs1DBSnapshotIdentifier
 
     -- * Response
     , DeleteDBSnapshotResponse
@@ -43,68 +39,61 @@ module Network.AWS.RDS.DeleteDBSnapshot
     , ddbsrDBSnapshot
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DeleteDBSnapshot = DeleteDBSnapshot
-    { _ddbsDBSnapshotIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _ddbs1DBSnapshotIdentifier :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDBSnapshot' request.
+-- | 'DeleteDBSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBSnapshotIdentifier ::@ @Text@
+-- * 'ddbs1DBSnapshotIdentifier' @::@ 'Text'
 --
-deleteDBSnapshot :: Text -- ^ 'ddbsDBSnapshotIdentifier'
+deleteDBSnapshot :: Text -- ^ 'ddbs1DBSnapshotIdentifier'
                  -> DeleteDBSnapshot
 deleteDBSnapshot p1 = DeleteDBSnapshot
-    { _ddbsDBSnapshotIdentifier = p1
+    { _ddbs1DBSnapshotIdentifier = p1
     }
 
--- | The DBSnapshot identifier. Constraints: Must be the name of an existing DB
--- snapshot in the available state.
-ddbsDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
-ddbsDBSnapshotIdentifier =
-    lens _ddbsDBSnapshotIdentifier
-         (\s a -> s { _ddbsDBSnapshotIdentifier = a })
+-- | The DBSnapshot identifier. Constraints: Must be the name of an existing
+-- DB snapshot in the available state.
+ddbs1DBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
+ddbs1DBSnapshotIdentifier =
+    lens _ddbs1DBSnapshotIdentifier
+        (\s a -> s { _ddbs1DBSnapshotIdentifier = a })
 
-instance ToQuery DeleteDBSnapshot where
-    toQuery = genericQuery def
+instance ToQuery DeleteDBSnapshot
+
+instance ToPath DeleteDBSnapshot where
+    toPath = const "/"
 
 newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
     { _ddbsrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDBSnapshotResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteDBSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBSnapshot ::@ @Maybe DBSnapshot@
+-- * 'ddbsrDBSnapshot' @::@ 'Maybe' 'DBSnapshot'
 --
 deleteDBSnapshotResponse :: DeleteDBSnapshotResponse
 deleteDBSnapshotResponse = DeleteDBSnapshotResponse
     { _ddbsrDBSnapshot = Nothing
     }
 
--- | Contains the result of a successful invocation of the following actions:
--- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
--- element in the DescribeDBSnapshots action.
 ddbsrDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
 ddbsrDBSnapshot = lens _ddbsrDBSnapshot (\s a -> s { _ddbsrDBSnapshot = a })
-
-instance FromXML DeleteDBSnapshotResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DeleteDBSnapshot where
     type Sv DeleteDBSnapshot = RDS
     type Rs DeleteDBSnapshot = DeleteDBSnapshotResponse
 
-    request = post "DeleteDBSnapshot"
-    response _ = xmlResponse
+    request  = post "DeleteDBSnapshot"
+    response = xmlResponse $ \h x -> DeleteDBSnapshotResponse
+        <$> x %| "DBSnapshot"

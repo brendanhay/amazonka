@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.DeleteCluster
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,23 +21,18 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a previously provisioned cluster. A successful response from the
--- web service indicates that the request was received correctly. If a final
--- cluster snapshot is requested the status of the cluster will be
--- "final-snapshot" while the snapshot is being taken, then it's "deleting"
--- once Amazon Redshift begins deleting the cluster. Use DescribeClusters to
--- monitor the status of the deletion. The delete operation cannot be canceled
--- or reverted once submitted. For more information about managing clusters,
--- go to Amazon Redshift Clusters in the Amazon Redshift Management Guide .
--- https://redshift.us-east-1.amazonaws.com/ ?Action=DeleteCluster
--- &ClusterIdentifier=examplecluster2 &SkipFinalClusterSnapshot=true
--- &Version=2012-12-01 &x-amz-algorithm=AWS4-HMAC-SHA256
--- &x-amz-credential=AKIAIOSFODNN7EXAMPLE/20130123/us-east-1/redshift/aws4_request
--- &x-amz-date=20130123T022400Z
--- &x-amz-signedheaders=content-type;host;x-amz-date 1.0 5439
--- examplecluster2.cobbanlpscsn.us-east-1.redshift.amazonaws.com deleting 2 1
--- true true dev sun:10:30-sun:11:00 in-sync default.redshift-1.0
--- 2013-01-23T00:11:32.804Z active default us-east-1a dw1.xlarge
--- examplecluster2 true masteruser f2e6b87e-6503-11e2-b343-393adc3f0a21.
+-- web service indicates that the request was received correctly. Use
+-- DescribeClusters to monitor the status of the deletion. The delete
+-- operation cannot be canceled or reverted once submitted. For more
+-- information about managing clusters, go to Amazon Redshift Clusters in the
+-- Amazon Redshift Management Guide . If you want to shut down the cluster and
+-- retain it for future use, set SkipFinalClusterSnapshot to false and specify
+-- a name for FinalClusterSnapshotIdentifier. You can later restore this
+-- snapshot to resume using the cluster. If a final cluster snapshot is
+-- requested, the status of the cluster will be "final-snapshot" while the
+-- snapshot is being taken, then it's "deleting" once Amazon Redshift begins
+-- deleting the cluster. For more information about managing clusters, go to
+-- Amazon Redshift Clusters in the Amazon Redshift Management Guide .
 module Network.AWS.Redshift.DeleteCluster
     (
     -- * Request
@@ -43,9 +40,9 @@ module Network.AWS.Redshift.DeleteCluster
     -- ** Request constructor
     , deleteCluster
     -- ** Request lenses
-    , dcClusterIdentifier
-    , dcSkipFinalClusterSnapshot
-    , dcFinalClusterSnapshotIdentifier
+    , dc1ClusterIdentifier
+    , dc1FinalClusterSnapshotIdentifier
+    , dc1SkipFinalClusterSnapshot
 
     -- * Response
     , DeleteClusterResponse
@@ -55,95 +52,89 @@ module Network.AWS.Redshift.DeleteCluster
     , dcrCluster
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data DeleteCluster = DeleteCluster
-    { _dcClusterIdentifier :: Text
-    , _dcSkipFinalClusterSnapshot :: Maybe Bool
-    , _dcFinalClusterSnapshotIdentifier :: Maybe Text
+    { _dc1ClusterIdentifier              :: Text
+    , _dc1FinalClusterSnapshotIdentifier :: Maybe Text
+    , _dc1SkipFinalClusterSnapshot       :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteCluster' request.
+-- | 'DeleteCluster' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ClusterIdentifier ::@ @Text@
+-- * 'dc1ClusterIdentifier' @::@ 'Text'
 --
--- * @SkipFinalClusterSnapshot ::@ @Maybe Bool@
+-- * 'dc1FinalClusterSnapshotIdentifier' @::@ 'Maybe' 'Text'
 --
--- * @FinalClusterSnapshotIdentifier ::@ @Maybe Text@
+-- * 'dc1SkipFinalClusterSnapshot' @::@ 'Maybe' 'Bool'
 --
-deleteCluster :: Text -- ^ 'dcClusterIdentifier'
+deleteCluster :: Text -- ^ 'dc1ClusterIdentifier'
               -> DeleteCluster
 deleteCluster p1 = DeleteCluster
-    { _dcClusterIdentifier = p1
-    , _dcSkipFinalClusterSnapshot = Nothing
-    , _dcFinalClusterSnapshotIdentifier = Nothing
+    { _dc1ClusterIdentifier              = p1
+    , _dc1SkipFinalClusterSnapshot       = Nothing
+    , _dc1FinalClusterSnapshotIdentifier = Nothing
     }
 
 -- | The identifier of the cluster to be deleted. Constraints: Must contain
--- lowercase characters. Must contain from 1 to 63 alphanumeric characters or
--- hyphens. First character must be a letter. Cannot end with a hyphen or
+-- lowercase characters. Must contain from 1 to 63 alphanumeric characters
+-- or hyphens. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens.
-dcClusterIdentifier :: Lens' DeleteCluster Text
-dcClusterIdentifier =
-    lens _dcClusterIdentifier (\s a -> s { _dcClusterIdentifier = a })
-
--- | Determines whether a final snapshot of the cluster is created before Amazon
--- Redshift deletes the cluster. If true, a final cluster snapshot is not
--- created. If false, a final cluster snapshot is created before the cluster
--- is deleted. The FinalClusterSnapshotIdentifier parameter must be specified
--- if SkipFinalClusterSnapshot is false. Default: false.
-dcSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
-dcSkipFinalClusterSnapshot =
-    lens _dcSkipFinalClusterSnapshot
-         (\s a -> s { _dcSkipFinalClusterSnapshot = a })
+dc1ClusterIdentifier :: Lens' DeleteCluster Text
+dc1ClusterIdentifier =
+    lens _dc1ClusterIdentifier (\s a -> s { _dc1ClusterIdentifier = a })
 
 -- | The identifier of the final snapshot that is to be created immediately
 -- before deleting the cluster. If this parameter is provided,
 -- SkipFinalClusterSnapshot must be false. Constraints: Must be 1 to 255
--- alphanumeric characters. First character must be a letter. Cannot end with
--- a hyphen or contain two consecutive hyphens.
-dcFinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
-dcFinalClusterSnapshotIdentifier =
-    lens _dcFinalClusterSnapshotIdentifier
-         (\s a -> s { _dcFinalClusterSnapshotIdentifier = a })
+-- alphanumeric characters. First character must be a letter. Cannot end
+-- with a hyphen or contain two consecutive hyphens.
+dc1FinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
+dc1FinalClusterSnapshotIdentifier =
+    lens _dc1FinalClusterSnapshotIdentifier
+        (\s a -> s { _dc1FinalClusterSnapshotIdentifier = a })
 
-instance ToQuery DeleteCluster where
-    toQuery = genericQuery def
+-- | Determines whether a final snapshot of the cluster is created before
+-- Amazon Redshift deletes the cluster. If true, a final cluster snapshot is
+-- not created. If false, a final cluster snapshot is created before the
+-- cluster is deleted. Default: false.
+dc1SkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
+dc1SkipFinalClusterSnapshot =
+    lens _dc1SkipFinalClusterSnapshot
+        (\s a -> s { _dc1SkipFinalClusterSnapshot = a })
+
+instance ToQuery DeleteCluster
+
+instance ToPath DeleteCluster where
+    toPath = const "/"
 
 newtype DeleteClusterResponse = DeleteClusterResponse
     { _dcrCluster :: Maybe Cluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteClusterResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteClusterResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Cluster ::@ @Maybe Cluster@
+-- * 'dcrCluster' @::@ 'Maybe' 'Cluster'
 --
 deleteClusterResponse :: DeleteClusterResponse
 deleteClusterResponse = DeleteClusterResponse
     { _dcrCluster = Nothing
     }
 
--- | Describes a cluster.
 dcrCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
-
-instance FromXML DeleteClusterResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DeleteCluster where
     type Sv DeleteCluster = Redshift
     type Rs DeleteCluster = DeleteClusterResponse
 
-    request = post "DeleteCluster"
-    response _ = xmlResponse
+    request  = post "DeleteCluster"
+    response = xmlResponse $ \h x -> DeleteClusterResponse
+        <$> x %| "Cluster"

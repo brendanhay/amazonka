@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,9 +27,6 @@
 -- the results. You can also specify multiple filters. The result includes
 -- information for a particular tag only if it matches all your filters. If
 -- there's no match, no special message is returned.
--- https://autoscaling.amazonaws.com/?Version=2011-01-01&Action=DescribeTags
--- &AUTHPARAMS my-test-asg true 1.0 version auto-scaling-group
--- 086265fd-bf3e-11e2-85fc-fbb1EXAMPLE.
 module Network.AWS.AutoScaling.DescribeTags
     (
     -- * Request
@@ -35,107 +34,99 @@ module Network.AWS.AutoScaling.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dt1Filters
-    , dt1NextToken
-    , dt1MaxRecords
+    , dtFilters
+    , dtMaxRecords
+    , dtNextToken
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response constructor
     , describeTagsResponse
     -- ** Response lenses
-    , dtrTags
     , dtrNextToken
+    , dtrTags
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data DescribeTags = DescribeTags
-    { _dt1Filters :: [Filter]
-    , _dt1NextToken :: Maybe Text
-    , _dt1MaxRecords :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    { _dtFilters    :: [Filter]
+    , _dtMaxRecords :: Maybe Int
+    , _dtNextToken  :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTags' request.
+-- | 'DescribeTags' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Filters ::@ @[Filter]@
+-- * 'dtFilters' @::@ ['Filter']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dtMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * @MaxRecords ::@ @Maybe Integer@
+-- * 'dtNextToken' @::@ 'Maybe' 'Text'
 --
 describeTags :: DescribeTags
 describeTags = DescribeTags
-    { _dt1Filters = mempty
-    , _dt1NextToken = Nothing
-    , _dt1MaxRecords = Nothing
+    { _dtFilters    = mempty
+    , _dtNextToken  = Nothing
+    , _dtMaxRecords = Nothing
     }
 
--- | The value of the filter type used to identify the tags to be returned. For
--- example, you can filter so that tags are returned according to Auto Scaling
--- group, the key and value, or whether the new tag will be applied to
--- instances launched after the tag is created (PropagateAtLaunch).
-dt1Filters :: Lens' DescribeTags [Filter]
-dt1Filters = lens _dt1Filters (\s a -> s { _dt1Filters = a })
-
--- | A string that marks the start of the next batch of returned results.
-dt1NextToken :: Lens' DescribeTags (Maybe Text)
-dt1NextToken = lens _dt1NextToken (\s a -> s { _dt1NextToken = a })
+-- | The value of the filter type used to identify the tags to be returned.
+-- For example, you can filter so that tags are returned according to Auto
+-- Scaling group, the key and value, or whether the new tag will be applied
+-- to instances launched after the tag is created (PropagateAtLaunch).
+dtFilters :: Lens' DescribeTags [Filter]
+dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a })
 
 -- | The maximum number of records to return.
-dt1MaxRecords :: Lens' DescribeTags (Maybe Integer)
-dt1MaxRecords = lens _dt1MaxRecords (\s a -> s { _dt1MaxRecords = a })
+dtMaxRecords :: Lens' DescribeTags (Maybe Int)
+dtMaxRecords = lens _dtMaxRecords (\s a -> s { _dtMaxRecords = a })
 
-instance ToQuery DescribeTags where
-    toQuery = genericQuery def
+-- | A string that marks the start of the next batch of returned results.
+dtNextToken :: Lens' DescribeTags (Maybe Text)
+dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 
--- | 
+instance ToQuery DescribeTags
+
+instance ToPath DescribeTags where
+    toPath = const "/"
+
 data DescribeTagsResponse = DescribeTagsResponse
-    { _dtrTags :: [TagDescription]
-    , _dtrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dtrNextToken :: Maybe Text
+    , _dtrTags      :: [TagDescription]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTagsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeTagsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Tags ::@ @[TagDescription]@
+-- * 'dtrNextToken' @::@ 'Maybe' 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dtrTags' @::@ ['TagDescription']
 --
 describeTagsResponse :: DescribeTagsResponse
 describeTagsResponse = DescribeTagsResponse
-    { _dtrTags = mempty
+    { _dtrTags      = mempty
     , _dtrNextToken = Nothing
     }
-
--- | The list of tags.
-dtrTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
 
 -- | A string used to mark the start of the next batch of returned results.
 dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 
-instance FromXML DescribeTagsResponse where
-    fromXMLOptions = xmlOptions
+-- | The list of tags.
+dtrTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
 
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = AutoScaling
     type Rs DescribeTags = DescribeTagsResponse
 
-    request = post "DescribeTags"
-    response _ = xmlResponse
-
-instance AWSPager DescribeTags where
-    next rq rs = (\x -> rq & dt1NextToken ?~ x)
-        <$> (rs ^. dtrNextToken)
+    request  = post "DescribeTags"
+    response = xmlResponse $ \h x -> DescribeTagsResponse
+        <$> x %| "NextToken"
+        <*> x %| "Tags"

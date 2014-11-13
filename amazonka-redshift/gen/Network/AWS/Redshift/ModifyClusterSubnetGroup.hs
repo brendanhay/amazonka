@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.ModifyClusterSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,42 +42,40 @@ module Network.AWS.Redshift.ModifyClusterSubnetGroup
     , mcsgrClusterSubnetGroup
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
     { _mcsgClusterSubnetGroupName :: Text
-    , _mcsgDescription :: Maybe Text
-    , _mcsgSubnetIds :: [Text]
+    , _mcsgDescription            :: Maybe Text
+    , _mcsgSubnetIds              :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyClusterSubnetGroup' request.
+-- | 'ModifyClusterSubnetGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ClusterSubnetGroupName ::@ @Text@
+-- * 'mcsgClusterSubnetGroupName' @::@ 'Text'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'mcsgDescription' @::@ 'Maybe' 'Text'
 --
--- * @SubnetIds ::@ @[Text]@
+-- * 'mcsgSubnetIds' @::@ ['Text']
 --
 modifyClusterSubnetGroup :: Text -- ^ 'mcsgClusterSubnetGroupName'
-                         -> [Text] -- ^ 'mcsgSubnetIds'
                          -> ModifyClusterSubnetGroup
-modifyClusterSubnetGroup p1 p3 = ModifyClusterSubnetGroup
+modifyClusterSubnetGroup p1 = ModifyClusterSubnetGroup
     { _mcsgClusterSubnetGroupName = p1
-    , _mcsgDescription = Nothing
-    , _mcsgSubnetIds = p3
+    , _mcsgDescription            = Nothing
+    , _mcsgSubnetIds              = mempty
     }
 
 -- | The name of the subnet group to be modified.
 mcsgClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup Text
 mcsgClusterSubnetGroupName =
     lens _mcsgClusterSubnetGroupName
-         (\s a -> s { _mcsgClusterSubnetGroupName = a })
+        (\s a -> s { _mcsgClusterSubnetGroupName = a })
 
 -- | A text description of the subnet group to be modified.
 mcsgDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
@@ -86,39 +86,34 @@ mcsgDescription = lens _mcsgDescription (\s a -> s { _mcsgDescription = a })
 mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a })
 
-instance ToQuery ModifyClusterSubnetGroup where
-    toQuery = genericQuery def
+instance ToQuery ModifyClusterSubnetGroup
+
+instance ToPath ModifyClusterSubnetGroup where
+    toPath = const "/"
 
 newtype ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
     { _mcsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyClusterSubnetGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ModifyClusterSubnetGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ClusterSubnetGroup ::@ @Maybe ClusterSubnetGroup@
+-- * 'mcsgrClusterSubnetGroup' @::@ 'Maybe' 'ClusterSubnetGroup'
 --
 modifyClusterSubnetGroupResponse :: ModifyClusterSubnetGroupResponse
 modifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
     { _mcsgrClusterSubnetGroup = Nothing
     }
 
--- | Describes a subnet group.
 mcsgrClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 mcsgrClusterSubnetGroup =
-    lens _mcsgrClusterSubnetGroup
-         (\s a -> s { _mcsgrClusterSubnetGroup = a })
-
-instance FromXML ModifyClusterSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
+    lens _mcsgrClusterSubnetGroup (\s a -> s { _mcsgrClusterSubnetGroup = a })
 
 instance AWSRequest ModifyClusterSubnetGroup where
     type Sv ModifyClusterSubnetGroup = Redshift
     type Rs ModifyClusterSubnetGroup = ModifyClusterSubnetGroupResponse
 
-    request = post "ModifyClusterSubnetGroup"
-    response _ = xmlResponse
+    request  = post "ModifyClusterSubnetGroup"
+    response = xmlResponse $ \h x -> ModifyClusterSubnetGroupResponse
+        <$> x %| "ClusterSubnetGroup"

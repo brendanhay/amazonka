@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketLifecycle
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,46 +36,45 @@ module Network.AWS.S3.DeleteBucketLifecycle
     , deleteBucketLifecycleResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype DeleteBucketLifecycle = DeleteBucketLifecycle
-    { _dblBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _dblBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteBucketLifecycle' request.
+-- | 'DeleteBucketLifecycle' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'dblBucket' @::@ 'Text'
 --
-deleteBucketLifecycle :: BucketName -- ^ 'dblBucket'
+deleteBucketLifecycle :: Text -- ^ 'dblBucket'
                       -> DeleteBucketLifecycle
 deleteBucketLifecycle p1 = DeleteBucketLifecycle
     { _dblBucket = p1
     }
 
-dblBucket :: Lens' DeleteBucketLifecycle BucketName
+dblBucket :: Lens' DeleteBucketLifecycle Text
 dblBucket = lens _dblBucket (\s a -> s { _dblBucket = a })
 
-instance ToPath DeleteBucketLifecycle
+instance ToPath DeleteBucketLifecycle where
+    toPath DeleteBucketLifecycle{..} = mconcat
+        [ "/"
+        , toText _dblBucket
+        ]
 
-instance ToQuery DeleteBucketLifecycle
+instance ToQuery DeleteBucketLifecycle where
+    toQuery = const "lifecycle"
 
 instance ToHeaders DeleteBucketLifecycle
-
-instance ToBody DeleteBucketLifecycle
 
 data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteBucketLifecycleResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteBucketLifecycleResponse' constructor.
 deleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse
 deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
 
@@ -81,5 +82,5 @@ instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3
     type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
 
-    request = get
-    response _ = nullaryResponse DeleteBucketLifecycleResponse
+    request  = delete
+    response = nullaryResponse DeleteBucketLifecycleResponse

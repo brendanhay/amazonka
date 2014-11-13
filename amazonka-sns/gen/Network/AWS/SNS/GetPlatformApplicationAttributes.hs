@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SNS.GetPlatformApplicationAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,23 +22,7 @@
 
 -- | Retrieves the attributes of the platform application object for the
 -- supported push notification services, such as APNS and GCM. For more
--- information, see Using Amazon SNS Mobile Push Notifications. POST
--- http://sns.us-west-2.amazonaws.com/ HTTP/1.1 ...
--- PlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp
--- &amp;Action=GetPlatformApplicationAttributes
--- &amp;SignatureMethod=HmacSHA256 &amp;AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
--- &amp;SignatureVersion=2 &amp;Version=2010-03-31
--- &amp;Signature=UGMaCq8CCJGSYXO9Ehr2VuHIBYSe6WbxkqgMKRslTK4%3D
--- &amp;Timestamp=2013-07-01T22%3A40%3A50.643Z HTTP/1.1 200 OK ...
--- &lt;GetPlatformApplicationAttributesResponse
--- xmlns="http://sns.amazonaws.com/doc/2010-03-31/"&gt;
--- &lt;GetPlatformApplicationAttributesResult&gt; &lt;Attributes&gt;
--- &lt;entry&gt; &lt;key&gt;AllowEndpointPolicies&lt;/key&gt;
--- &lt;value&gt;false&lt;/value&gt; &lt;/entry&gt; &lt;/Attributes&gt;
--- &lt;/GetPlatformApplicationAttributesResult&gt; &lt;ResponseMetadata&gt;
--- &lt;RequestId&gt;74848df2-87f6-55ed-890c-c7be80442462&lt;/RequestId&gt;
--- &lt;/ResponseMetadata&gt;
--- &lt;/GetPlatformApplicationAttributesResponse&gt;.
+-- information, see Using Amazon SNS Mobile Push Notifications.
 module Network.AWS.SNS.GetPlatformApplicationAttributes
     (
     -- * Request
@@ -54,21 +40,20 @@ module Network.AWS.SNS.GetPlatformApplicationAttributes
     , gpaarAttributes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input for GetPlatformApplicationAttributes action.
 newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
     { _gpaaPlatformApplicationArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetPlatformApplicationAttributes' request.
+-- | 'GetPlatformApplicationAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PlatformApplicationArn ::@ @Text@
+-- * 'gpaaPlatformApplicationArn' @::@ 'Text'
 --
 getPlatformApplicationAttributes :: Text -- ^ 'gpaaPlatformApplicationArn'
                                  -> GetPlatformApplicationAttributes
@@ -80,24 +65,22 @@ getPlatformApplicationAttributes p1 = GetPlatformApplicationAttributes
 gpaaPlatformApplicationArn :: Lens' GetPlatformApplicationAttributes Text
 gpaaPlatformApplicationArn =
     lens _gpaaPlatformApplicationArn
-         (\s a -> s { _gpaaPlatformApplicationArn = a })
+        (\s a -> s { _gpaaPlatformApplicationArn = a })
 
-instance ToQuery GetPlatformApplicationAttributes where
-    toQuery = genericQuery def
+instance ToQuery GetPlatformApplicationAttributes
 
--- | Response for GetPlatformApplicationAttributes action.
+instance ToPath GetPlatformApplicationAttributes where
+    toPath = const "/"
+
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
     { _gpaarAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetPlatformApplicationAttributesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetPlatformApplicationAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Attributes ::@ @Map Text Text@
+-- * 'gpaarAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
 getPlatformApplicationAttributesResponse :: GetPlatformApplicationAttributesResponse
 getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
@@ -108,19 +91,18 @@ getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesRespo
 -- which EndpointCreated event notifications should be sent.
 -- EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
 -- notifications should be sent. EventEndpointUpdated -- Topic ARN to which
--- EndpointUpdate event notifications should be sent. EventDeliveryFailure --
--- Topic ARN to which DeliveryFailure event notifications should be sent upon
--- Direct Publish delivery failure (permanent) to one of the application's
--- endpoints.
-gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (Map Text Text)
+-- EndpointUpdate event notifications should be sent. EventDeliveryFailure
+-- -- Topic ARN to which DeliveryFailure event notifications should be sent
+-- upon Direct Publish delivery failure (permanent) to one of the
+-- application's endpoints.
+gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
 gpaarAttributes = lens _gpaarAttributes (\s a -> s { _gpaarAttributes = a })
-
-instance FromXML GetPlatformApplicationAttributesResponse where
-    fromXMLOptions = xmlOptions
+    . _Map
 
 instance AWSRequest GetPlatformApplicationAttributes where
     type Sv GetPlatformApplicationAttributes = SNS
     type Rs GetPlatformApplicationAttributes = GetPlatformApplicationAttributesResponse
 
-    request = post "GetPlatformApplicationAttributes"
-    response _ = xmlResponse
+    request  = post "GetPlatformApplicationAttributes"
+    response = xmlResponse $ \h x -> GetPlatformApplicationAttributesResponse
+        <$> x %| "Attributes"

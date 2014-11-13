@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,14 +23,6 @@
 -- | The CreateCacheParameterGroup operation creates a new cache parameter
 -- group. A cache parameter group is a collection of parameters that you apply
 -- to all of the nodes in a cache cluster.
--- https://elasticache.us-east-1.amazonaws.com/
--- ?Action=CreateCacheParameterGroup
--- &Description=My%20first%20cache%20parameter%20group
--- &CacheParameterGroupFamily=memcached1.4
--- &CacheParameterGroupName=mycacheparametergroup1 &Version=2014-03-24
--- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
--- &X-Amz-Credential= mycacheparametergroup3 memcached1.4 My first cache
--- parameter group 05699541-b7f9-11e0-9326-b7275b9d4a6c.
 module Network.AWS.ElastiCache.CreateCacheParameterGroup
     (
     -- * Request
@@ -36,8 +30,8 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     -- ** Request constructor
     , createCacheParameterGroup
     -- ** Request lenses
-    , ccpgCacheParameterGroupName
     , ccpgCacheParameterGroupFamily
+    , ccpgCacheParameterGroupName
     , ccpgDescription
 
     -- * Response
@@ -48,88 +42,83 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     , ccpgrCacheParameterGroup
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents the input of a CreateCacheParameterGroup operation.
 data CreateCacheParameterGroup = CreateCacheParameterGroup
-    { _ccpgCacheParameterGroupName :: Text
-    , _ccpgCacheParameterGroupFamily :: Text
-    , _ccpgDescription :: Text
+    { _ccpgCacheParameterGroupFamily :: Text
+    , _ccpgCacheParameterGroupName   :: Text
+    , _ccpgDescription               :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateCacheParameterGroup' request.
+-- | 'CreateCacheParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CacheParameterGroupName ::@ @Text@
+-- * 'ccpgCacheParameterGroupFamily' @::@ 'Text'
 --
--- * @CacheParameterGroupFamily ::@ @Text@
+-- * 'ccpgCacheParameterGroupName' @::@ 'Text'
 --
--- * @Description ::@ @Text@
+-- * 'ccpgDescription' @::@ 'Text'
 --
 createCacheParameterGroup :: Text -- ^ 'ccpgCacheParameterGroupName'
                           -> Text -- ^ 'ccpgCacheParameterGroupFamily'
                           -> Text -- ^ 'ccpgDescription'
                           -> CreateCacheParameterGroup
 createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroup
-    { _ccpgCacheParameterGroupName = p1
+    { _ccpgCacheParameterGroupName   = p1
     , _ccpgCacheParameterGroupFamily = p2
-    , _ccpgDescription = p3
+    , _ccpgDescription               = p3
     }
+
+-- | The name of the cache parameter group family the cache parameter group
+-- can be used with. Valid values are: memcached1.4 | redis2.6 | redis2.8.
+ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
+ccpgCacheParameterGroupFamily =
+    lens _ccpgCacheParameterGroupFamily
+        (\s a -> s { _ccpgCacheParameterGroupFamily = a })
 
 -- | A user-specified name for the cache parameter group.
 ccpgCacheParameterGroupName :: Lens' CreateCacheParameterGroup Text
 ccpgCacheParameterGroupName =
     lens _ccpgCacheParameterGroupName
-         (\s a -> s { _ccpgCacheParameterGroupName = a })
-
--- | The name of the cache parameter group family the cache parameter group can
--- be used with. Valid values are: memcached1.4 | redis2.6 | redis2.8.
-ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
-ccpgCacheParameterGroupFamily =
-    lens _ccpgCacheParameterGroupFamily
-         (\s a -> s { _ccpgCacheParameterGroupFamily = a })
+        (\s a -> s { _ccpgCacheParameterGroupName = a })
 
 -- | A user-specified description for the cache parameter group.
 ccpgDescription :: Lens' CreateCacheParameterGroup Text
 ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
 
-instance ToQuery CreateCacheParameterGroup where
-    toQuery = genericQuery def
+instance ToQuery CreateCacheParameterGroup
+
+instance ToPath CreateCacheParameterGroup where
+    toPath = const "/"
 
 newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateCacheParameterGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateCacheParameterGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CacheParameterGroup ::@ @Maybe CacheParameterGroup@
+-- * 'ccpgrCacheParameterGroup' @::@ 'Maybe' 'CacheParameterGroup'
 --
 createCacheParameterGroupResponse :: CreateCacheParameterGroupResponse
 createCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     { _ccpgrCacheParameterGroup = Nothing
     }
 
--- | Represents the output of a CreateCacheParameterGroup operation.
 ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
 ccpgrCacheParameterGroup =
     lens _ccpgrCacheParameterGroup
-         (\s a -> s { _ccpgrCacheParameterGroup = a })
-
-instance FromXML CreateCacheParameterGroupResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _ccpgrCacheParameterGroup = a })
 
 instance AWSRequest CreateCacheParameterGroup where
     type Sv CreateCacheParameterGroup = ElastiCache
     type Rs CreateCacheParameterGroup = CreateCacheParameterGroupResponse
 
-    request = post "CreateCacheParameterGroup"
-    response _ = xmlResponse
+    request  = post "CreateCacheParameterGroup"
+    response = xmlResponse $ \h x -> CreateCacheParameterGroupResponse
+        <$> x %| "CacheParameterGroup"

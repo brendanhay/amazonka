@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.UpdateUser
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,16 +22,7 @@
 
 -- | Updates the name and/or the path of the specified user. You should
 -- understand the implications of changing a user's path or name. For more
--- information, see Renaming Users and Groups in the Using IAM guide. To
--- change a user name the requester must have appropriate permissions on both
--- the source object and the target object. For example, to change Bob to
--- Robert, the entity making the request must have permission on Bob and
--- Robert, or must have permission on all (*). For more information about
--- permissions, see Permissions and Policies. https://iam.amazonaws.com/
--- ?Action=UpdateUser &UserName=Bob &NewUserName=Robert &Version=2010-05-08
--- &AUTHPARAMS /division_abc/subdivision_xyz/ Robert AIDACKCEVSQ6C2EXAMPLE
--- arn:aws::123456789012:user/division_abc/subdivision_xyz/Robert
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- information, see Renaming Users and Groups in the Using IAM guide.
 module Network.AWS.IAM.UpdateUser
     (
     -- * Request
@@ -37,9 +30,9 @@ module Network.AWS.IAM.UpdateUser
     -- ** Request constructor
     , updateUser
     -- ** Request lenses
-    , uuUserName
     , uuNewPath
     , uuNewUserName
+    , uuUserName
 
     -- * Response
     , UpdateUserResponse
@@ -47,39 +40,34 @@ module Network.AWS.IAM.UpdateUser
     , updateUserResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data UpdateUser = UpdateUser
-    { _uuUserName :: Text
-    , _uuNewPath :: Maybe Text
+    { _uuNewPath     :: Maybe Text
     , _uuNewUserName :: Maybe Text
+    , _uuUserName    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateUser' request.
+-- | 'UpdateUser' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Text@
+-- * 'uuNewPath' @::@ 'Maybe' 'Text'
 --
--- * @NewPath ::@ @Maybe Text@
+-- * 'uuNewUserName' @::@ 'Maybe' 'Text'
 --
--- * @NewUserName ::@ @Maybe Text@
+-- * 'uuUserName' @::@ 'Text'
 --
 updateUser :: Text -- ^ 'uuUserName'
            -> UpdateUser
 updateUser p1 = UpdateUser
-    { _uuUserName = p1
-    , _uuNewPath = Nothing
+    { _uuUserName    = p1
+    , _uuNewPath     = Nothing
     , _uuNewUserName = Nothing
     }
-
--- | Name of the user to update. If you're changing the name of the user, this
--- is the original user name.
-uuUserName :: Lens' UpdateUser Text
-uuUserName = lens _uuUserName (\s a -> s { _uuUserName = a })
 
 -- | New path for the user. Include this parameter only if you're changing the
 -- user's path.
@@ -91,16 +79,20 @@ uuNewPath = lens _uuNewPath (\s a -> s { _uuNewPath = a })
 uuNewUserName :: Lens' UpdateUser (Maybe Text)
 uuNewUserName = lens _uuNewUserName (\s a -> s { _uuNewUserName = a })
 
-instance ToQuery UpdateUser where
-    toQuery = genericQuery def
+-- | Name of the user to update. If you're changing the name of the user, this
+-- is the original user name.
+uuUserName :: Lens' UpdateUser Text
+uuUserName = lens _uuUserName (\s a -> s { _uuUserName = a })
+
+instance ToQuery UpdateUser
+
+instance ToPath UpdateUser where
+    toPath = const "/"
 
 data UpdateUserResponse = UpdateUserResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateUserResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateUserResponse' constructor.
 updateUserResponse :: UpdateUserResponse
 updateUserResponse = UpdateUserResponse
 
@@ -108,5 +100,5 @@ instance AWSRequest UpdateUser where
     type Sv UpdateUser = IAM
     type Rs UpdateUser = UpdateUserResponse
 
-    request = post "UpdateUser"
-    response _ = nullaryResponse UpdateUserResponse
+    request  = post "UpdateUser"
+    response = nullaryResponse UpdateUserResponse

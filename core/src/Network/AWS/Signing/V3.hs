@@ -21,7 +21,7 @@ module Network.AWS.Signing.V3
     , Meta (..)
 
     -- * Re-exports
-    , module Network.AWS.Internal.Signing
+    , module Network.AWS.Signing.Internal
     ) where
 
 import           Control.Applicative
@@ -35,8 +35,8 @@ import           Data.Monoid
 import           Data.Ord
 import           Data.Time
 import           Network.AWS.Data
-import           Network.AWS.Internal.Request
-import           Network.AWS.Internal.Signing
+import           Network.AWS.Request
+import           Network.AWS.Signing.Internal
 import           Network.AWS.Types
 import           Network.HTTP.Types.Header
 
@@ -55,7 +55,7 @@ instance Show (Meta V3) where
         ]
 
 instance AWSSigner V3 where
-    signed s AuthEnv{..} r Request{..} l t = Signed meta rq
+    signed AuthEnv{..} r x@Request{..} l t = Signed meta rq
       where
         meta = Meta
             { _mSignature = signature
@@ -70,7 +70,7 @@ instance AWSSigner V3 where
             & requestHeaders .~ headers
             & requestBody    .~ _bdyBody _rqBody
 
-        host' = toBS (endpoint s r)
+        host' = toBS (endpoint (serviceOf x) r)
 
         headers = sortBy (comparing fst)
             . hdr hAMZAuth authorisation

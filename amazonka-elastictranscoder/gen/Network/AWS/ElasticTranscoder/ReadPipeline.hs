@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ReadPipeline
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,24 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The ReadPipeline operation gets detailed information about a pipeline. GET
--- /2012-09-25/pipelines/1111111111111-abcde1 HTTP/1.1 Content-Type:
--- charset=UTF-8 Accept: */* Host: elastictranscoder.[Elastic
--- Transcoder-endpoint].amazonaws.com:443 x-amz-date: 20130114T174952Z
--- Authorization: AWS4-HMAC-SHA256
--- Credential=[access-key-id]/[request-date]/[Elastic
--- Transcoder-endpoint]/ets/aws4_request,
--- SignedHeaders=host;x-amz-date;x-amz-target,
--- Signature=[calculated-signature] Status: 200 OK x-amzn-RequestId:
--- c321ec43-378e-11e2-8e4c-4d5b971203e9 Content-Type: application/json
--- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
--- 06:01:47 GMT { "Pipeline":{ "Id":"1111111111111-abcde1",
--- "InputBucket":"salesoffice.example.com-source", "Name":"Default",
--- "Notifications":{ "Completed":"",
--- "Error":"arn:aws:sns:us-east-1:111222333444:ETS_Errors", "Progressing":"",
--- "Warning":"" }, "OutputBucket":"salesoffice.example.com-public-promos",
--- "Role":"arn:aws:iam::123456789012:role/transcode-service",
--- "Status":"Active" } }.
+-- | The ReadPipeline operation gets detailed information about a pipeline.
 module Network.AWS.ElasticTranscoder.ReadPipeline
     (
     -- * Request
@@ -43,7 +28,7 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     -- ** Request constructor
     , readPipeline
     -- ** Request lenses
-    , rpId
+    , rp1Id
 
     -- * Response
     , ReadPipelineResponse
@@ -53,53 +38,50 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     , rprPipeline
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.ElasticTranscoder.Types
 
--- | The ReadPipelineRequest structure.
 newtype ReadPipeline = ReadPipeline
-    { _rpId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _rp1Id :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReadPipeline' request.
+-- | 'ReadPipeline' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'rp1Id' @::@ 'Text'
 --
-readPipeline :: Text -- ^ 'rpId'
+readPipeline :: Text -- ^ 'rp1Id'
              -> ReadPipeline
 readPipeline p1 = ReadPipeline
-    { _rpId = p1
+    { _rp1Id = p1
     }
 
 -- | The identifier of the pipeline to read.
-rpId :: Lens' ReadPipeline Text
-rpId = lens _rpId (\s a -> s { _rpId = a })
+rp1Id :: Lens' ReadPipeline Text
+rp1Id = lens _rp1Id (\s a -> s { _rp1Id = a })
 
-instance ToPath ReadPipeline
+instance ToPath ReadPipeline where
+    toPath ReadPipeline{..} = mconcat
+        [ "/2012-09-25/pipelines/"
+        , toText _rp1Id
+        ]
 
-instance ToQuery ReadPipeline
+instance ToQuery ReadPipeline where
+    toQuery = const mempty
 
 instance ToHeaders ReadPipeline
 
-instance ToJSON ReadPipeline
-
--- | The ReadPipelineResponse structure.
 newtype ReadPipelineResponse = ReadPipelineResponse
     { _rprPipeline :: Maybe Pipeline
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReadPipelineResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ReadPipelineResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Pipeline ::@ @Maybe Pipeline@
+-- * 'rprPipeline' @::@ 'Maybe' 'Pipeline'
 --
 readPipelineResponse :: ReadPipelineResponse
 readPipelineResponse = ReadPipelineResponse
@@ -111,11 +93,12 @@ readPipelineResponse = ReadPipelineResponse
 rprPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 rprPipeline = lens _rprPipeline (\s a -> s { _rprPipeline = a })
 
-instance FromJSON ReadPipelineResponse
+-- FromJSON
 
 instance AWSRequest ReadPipeline where
     type Sv ReadPipeline = ElasticTranscoder
     type Rs ReadPipeline = ReadPipelineResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = get'
+    response = jsonResponse $ \h o -> ReadPipelineResponse
+        <$> o .: "Pipeline"

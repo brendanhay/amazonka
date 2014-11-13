@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,29 +45,28 @@ module Network.AWS.OpsWorks.RegisterVolume
     , rvrVolumeId
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data RegisterVolume = RegisterVolume
     { _rvEc2VolumeId :: Maybe Text
-    , _rvStackId :: Text
+    , _rvStackId     :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RegisterVolume' request.
+-- | 'RegisterVolume' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Ec2VolumeId ::@ @Maybe Text@
+-- * 'rvEc2VolumeId' @::@ 'Maybe' 'Text'
 --
--- * @StackId ::@ @Text@
+-- * 'rvStackId' @::@ 'Text'
 --
 registerVolume :: Text -- ^ 'rvStackId'
                -> RegisterVolume
-registerVolume p2 = RegisterVolume
-    { _rvEc2VolumeId = Nothing
-    , _rvStackId = p2
+registerVolume p1 = RegisterVolume
+    { _rvStackId     = p1
+    , _rvEc2VolumeId = Nothing
     }
 
 -- | The Amazon EBS volume ID.
@@ -76,27 +77,26 @@ rvEc2VolumeId = lens _rvEc2VolumeId (\s a -> s { _rvEc2VolumeId = a })
 rvStackId :: Lens' RegisterVolume Text
 rvStackId = lens _rvStackId (\s a -> s { _rvStackId = a })
 
-instance ToPath RegisterVolume
+instance ToPath RegisterVolume where
+    toPath = const "/"
 
-instance ToQuery RegisterVolume
+instance ToQuery RegisterVolume where
+    toQuery = const mempty
 
 instance ToHeaders RegisterVolume
 
-instance ToJSON RegisterVolume
+instance ToBody RegisterVolume where
+    toBody = toBody . encode . _rvEc2VolumeId
 
--- | Contains the response to a RegisterVolume request.
 newtype RegisterVolumeResponse = RegisterVolumeResponse
     { _rvrVolumeId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RegisterVolumeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RegisterVolumeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeId ::@ @Maybe Text@
+-- * 'rvrVolumeId' @::@ 'Maybe' 'Text'
 --
 registerVolumeResponse :: RegisterVolumeResponse
 registerVolumeResponse = RegisterVolumeResponse
@@ -107,11 +107,12 @@ registerVolumeResponse = RegisterVolumeResponse
 rvrVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrVolumeId = lens _rvrVolumeId (\s a -> s { _rvrVolumeId = a })
 
-instance FromJSON RegisterVolumeResponse
+-- FromJSON
 
 instance AWSRequest RegisterVolume where
     type Sv RegisterVolume = OpsWorks
     type Rs RegisterVolume = RegisterVolumeResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> RegisterVolumeResponse
+        <$> o .: "VolumeId"

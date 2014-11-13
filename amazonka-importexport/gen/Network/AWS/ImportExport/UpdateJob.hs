@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ImportExport.UpdateJob
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,8 +33,8 @@ module Network.AWS.ImportExport.UpdateJob
     , updateJob
     -- ** Request lenses
     , ujJobId
-    , ujManifest
     , ujJobType
+    , ujManifest
     , ujValidateOnly
 
     -- * Response
@@ -44,102 +46,90 @@ module Network.AWS.ImportExport.UpdateJob
     , ujrWarningMessage
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input structure for the UpateJob operation.
 data UpdateJob = UpdateJob
-    { _ujJobId :: Text
-    , _ujManifest :: Text
-    , _ujJobType :: JobType
-    , _ujValidateOnly :: !Bool
+    { _ujJobId        :: Text
+    , _ujJobType      :: Text
+    , _ujManifest     :: Text
+    , _ujValidateOnly :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateJob' request.
+-- | 'UpdateJob' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @JobId ::@ @Text@
+-- * 'ujJobId' @::@ 'Text'
 --
--- * @Manifest ::@ @Text@
+-- * 'ujJobType' @::@ 'Text'
 --
--- * @JobType ::@ @JobType@
+-- * 'ujManifest' @::@ 'Text'
 --
--- * @ValidateOnly ::@ @Bool@
+-- * 'ujValidateOnly' @::@ 'Bool'
 --
 updateJob :: Text -- ^ 'ujJobId'
           -> Text -- ^ 'ujManifest'
-          -> JobType -- ^ 'ujJobType'
+          -> Text -- ^ 'ujJobType'
           -> Bool -- ^ 'ujValidateOnly'
           -> UpdateJob
 updateJob p1 p2 p3 p4 = UpdateJob
-    { _ujJobId = p1
-    , _ujManifest = p2
-    , _ujJobType = p3
+    { _ujJobId        = p1
+    , _ujManifest     = p2
+    , _ujJobType      = p3
     , _ujValidateOnly = p4
     }
 
--- | A unique identifier which refers to a particular job.
 ujJobId :: Lens' UpdateJob Text
 ujJobId = lens _ujJobId (\s a -> s { _ujJobId = a })
 
--- | The UTF-8 encoded text of the manifest file.
+ujJobType :: Lens' UpdateJob Text
+ujJobType = lens _ujJobType (\s a -> s { _ujJobType = a })
+
 ujManifest :: Lens' UpdateJob Text
 ujManifest = lens _ujManifest (\s a -> s { _ujManifest = a })
 
--- | Specifies whether the job to initiate is an import or export job.
-ujJobType :: Lens' UpdateJob JobType
-ujJobType = lens _ujJobType (\s a -> s { _ujJobType = a })
-
--- | Validate the manifest and parameter values in the request but do not
--- actually create a job.
 ujValidateOnly :: Lens' UpdateJob Bool
 ujValidateOnly = lens _ujValidateOnly (\s a -> s { _ujValidateOnly = a })
 
-instance ToQuery UpdateJob where
-    toQuery = genericQuery def
+instance ToQuery UpdateJob
 
--- | Output structure for the UpateJob operation.
+instance ToPath UpdateJob where
+    toPath = const "/"
+
 data UpdateJobResponse = UpdateJobResponse
-    { _ujrSuccess :: Maybe Bool
+    { _ujrSuccess        :: Maybe Bool
     , _ujrWarningMessage :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateJobResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateJobResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Success ::@ @Maybe Bool@
+-- * 'ujrSuccess' @::@ 'Maybe' 'Bool'
 --
--- * @WarningMessage ::@ @Maybe Text@
+-- * 'ujrWarningMessage' @::@ 'Maybe' 'Text'
 --
 updateJobResponse :: UpdateJobResponse
 updateJobResponse = UpdateJobResponse
-    { _ujrSuccess = Nothing
+    { _ujrSuccess        = Nothing
     , _ujrWarningMessage = Nothing
     }
 
--- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
 ujrSuccess :: Lens' UpdateJobResponse (Maybe Bool)
 ujrSuccess = lens _ujrSuccess (\s a -> s { _ujrSuccess = a })
 
--- | An optional message notifying you of non-fatal issues with the job, such as
--- use of an incompatible Amazon S3 bucket name.
 ujrWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
 ujrWarningMessage =
     lens _ujrWarningMessage (\s a -> s { _ujrWarningMessage = a })
-
-instance FromXML UpdateJobResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest UpdateJob where
     type Sv UpdateJob = ImportExport
     type Rs UpdateJob = UpdateJobResponse
 
-    request = post "UpdateJob"
-    response _ = xmlResponse
+    request  = post "UpdateJob"
+    response = xmlResponse $ \h x -> UpdateJobResponse
+        <$> x %| "Success"
+        <*> x %| "WarningMessage"

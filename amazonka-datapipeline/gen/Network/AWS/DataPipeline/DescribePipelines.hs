@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DataPipeline.DescribePipelines
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,23 +27,7 @@
 -- users have created. If you are using an IAM user account, you can retrieve
 -- metadata about only those pipelines you have read permission for. To
 -- retrieve the full pipeline definition instead of metadata about the
--- pipeline, call the GetPipelineDefinition action. POST / HTTP/1.1
--- Content-Type: application/x-amz-json-1.1 X-Amz-Target:
--- DataPipeline.DescribePipelines Content-Length: 70 Host:
--- datapipeline.us-east-1.amazonaws.com X-Amz-Date: Mon, 12 Nov 2012 17:49:52
--- GMT Authorization: AuthParams {"pipelineIds": ["df-08785951KAKJEXAMPLE"] }
--- x-amzn-RequestId: 02870eb7-0736-11e2-af6f-6bc7a6be60d9 Content-Type:
--- application/x-amz-json-1.1 Content-Length: 767 Date: Mon, 12 Nov 2012
--- 17:50:53 GMT {"pipelineDescriptionList": [ {"description": "This is my
--- first pipeline", "fields": [ {"key": "@pipelineState", "stringValue":
--- "SCHEDULED"}, {"key": "description", "stringValue": "This is my first
--- pipeline"}, {"key": "name", "stringValue": "myPipeline"}, {"key":
--- "@creationTime", "stringValue": "2012-12-13T01:24:06"}, {"key": "@id",
--- "stringValue": "df-0937003356ZJEXAMPLE"}, {"key": "@sphere", "stringValue":
--- "PIPELINE"}, {"key": "@version", "stringValue": "1"}, {"key": "@userId",
--- "stringValue": "924374875933"}, {"key": "@accountId", "stringValue":
--- "924374875933"}, {"key": "uniqueId", "stringValue": "1234567890"} ],
--- "name": "myPipeline", "pipelineId": "df-0937003356ZJEXAMPLE"} ] }.
+-- pipeline, call the GetPipelineDefinition action.
 module Network.AWS.DataPipeline.DescribePipelines
     (
     -- * Request
@@ -49,7 +35,7 @@ module Network.AWS.DataPipeline.DescribePipelines
     -- ** Request constructor
     , describePipelines
     -- ** Request lenses
-    , dp1PipelineIds
+    , dpPipelineIds
 
     -- * Response
     , DescribePipelinesResponse
@@ -59,73 +45,81 @@ module Network.AWS.DataPipeline.DescribePipelines
     , dprPipelineDescriptionList
     ) where
 
-import Network.AWS.DataPipeline.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DataPipeline.Types
 
--- | The input to the DescribePipelines action.
 newtype DescribePipelines = DescribePipelines
-    { _dp1PipelineIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dpPipelineIds :: [Text]
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribePipelines' request.
+instance GHC.Exts.IsList DescribePipelines where
+    type Item DescribePipelines = Text
+
+    fromList = DescribePipelines . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dpPipelineIds
+
+-- | 'DescribePipelines' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PipelineIds ::@ @[Text]@
+-- * 'dpPipelineIds' @::@ ['Text']
 --
-describePipelines :: [Text] -- ^ 'dp1PipelineIds'
-                  -> DescribePipelines
-describePipelines p1 = DescribePipelines
-    { _dp1PipelineIds = p1
+describePipelines :: DescribePipelines
+describePipelines = DescribePipelines
+    { _dpPipelineIds = mempty
     }
 
 -- | Identifiers of the pipelines to describe. You can pass as many as 25
--- identifiers in a single call to DescribePipelines. You can obtain pipeline
--- identifiers by calling ListPipelines.
-dp1PipelineIds :: Lens' DescribePipelines [Text]
-dp1PipelineIds = lens _dp1PipelineIds (\s a -> s { _dp1PipelineIds = a })
+-- identifiers in a single call to DescribePipelines. You can obtain
+-- pipeline identifiers by calling ListPipelines.
+dpPipelineIds :: Lens' DescribePipelines [Text]
+dpPipelineIds = lens _dpPipelineIds (\s a -> s { _dpPipelineIds = a })
 
-instance ToPath DescribePipelines
+instance ToPath DescribePipelines where
+    toPath = const "/"
 
-instance ToQuery DescribePipelines
+instance ToQuery DescribePipelines where
+    toQuery = const mempty
 
 instance ToHeaders DescribePipelines
 
-instance ToJSON DescribePipelines
+instance ToBody DescribePipelines where
+    toBody = toBody . encode . _dpPipelineIds
 
--- | Contains the output from the DescribePipelines action.
 newtype DescribePipelinesResponse = DescribePipelinesResponse
     { _dprPipelineDescriptionList :: [PipelineDescription]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribePipelinesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribePipelinesResponse where
+    type Item DescribePipelinesResponse = PipelineDescription
+
+    fromList = DescribePipelinesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dprPipelineDescriptionList
+
+-- | 'DescribePipelinesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PipelineDescriptionList ::@ @[PipelineDescription]@
+-- * 'dprPipelineDescriptionList' @::@ ['PipelineDescription']
 --
-describePipelinesResponse :: [PipelineDescription] -- ^ 'dprPipelineDescriptionList'
-                          -> DescribePipelinesResponse
-describePipelinesResponse p1 = DescribePipelinesResponse
-    { _dprPipelineDescriptionList = p1
+describePipelinesResponse :: DescribePipelinesResponse
+describePipelinesResponse = DescribePipelinesResponse
+    { _dprPipelineDescriptionList = mempty
     }
 
 -- | An array of descriptions returned for the specified pipelines.
 dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
 dprPipelineDescriptionList =
     lens _dprPipelineDescriptionList
-         (\s a -> s { _dprPipelineDescriptionList = a })
+        (\s a -> s { _dprPipelineDescriptionList = a })
 
-instance FromJSON DescribePipelinesResponse
+-- FromJSON
 
 instance AWSRequest DescribePipelines where
     type Sv DescribePipelines = DataPipeline
     type Rs DescribePipelines = DescribePipelinesResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribePipelinesResponse
+        <$> o .: "pipelineDescriptionList"

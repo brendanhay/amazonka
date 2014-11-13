@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.ListTagsForResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,6 +29,7 @@ module Network.AWS.RDS.ListTagsForResource
     -- ** Request constructor
     , listTagsForResource
     -- ** Request lenses
+    , ltfrFilters
     , ltfrResourceName
 
     -- * Response
@@ -37,51 +40,61 @@ module Network.AWS.RDS.ListTagsForResource
     , ltfrrTagList
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
-newtype ListTagsForResource = ListTagsForResource
-    { _ltfrResourceName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+data ListTagsForResource = ListTagsForResource
+    { _ltfrFilters      :: [Filter]
+    , _ltfrResourceName :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListTagsForResource' request.
+-- | 'ListTagsForResource' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ResourceName ::@ @Text@
+-- * 'ltfrFilters' @::@ ['Filter']
+--
+-- * 'ltfrResourceName' @::@ 'Text'
 --
 listTagsForResource :: Text -- ^ 'ltfrResourceName'
                     -> ListTagsForResource
 listTagsForResource p1 = ListTagsForResource
     { _ltfrResourceName = p1
+    , _ltfrFilters      = mempty
     }
+
+-- | This parameter is not currently supported.
+ltfrFilters :: Lens' ListTagsForResource [Filter]
+ltfrFilters = lens _ltfrFilters (\s a -> s { _ltfrFilters = a })
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
 -- Constructing an RDS Amazon Resource Name (ARN).
 ltfrResourceName :: Lens' ListTagsForResource Text
-ltfrResourceName =
-    lens _ltfrResourceName (\s a -> s { _ltfrResourceName = a })
+ltfrResourceName = lens _ltfrResourceName (\s a -> s { _ltfrResourceName = a })
 
-instance ToQuery ListTagsForResource where
-    toQuery = genericQuery def
+instance ToQuery ListTagsForResource
 
--- | 
+instance ToPath ListTagsForResource where
+    toPath = const "/"
+
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrTagList :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListTagsForResourceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList ListTagsForResourceResponse where
+    type Item ListTagsForResourceResponse = Tag
+
+    fromList = ListTagsForResourceResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ltfrrTagList
+
+-- | 'ListTagsForResourceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TagList ::@ @[Tag]@
+-- * 'ltfrrTagList' @::@ ['Tag']
 --
 listTagsForResourceResponse :: ListTagsForResourceResponse
 listTagsForResourceResponse = ListTagsForResourceResponse
@@ -92,12 +105,10 @@ listTagsForResourceResponse = ListTagsForResourceResponse
 ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrTagList = lens _ltfrrTagList (\s a -> s { _ltfrrTagList = a })
 
-instance FromXML ListTagsForResourceResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ListTagsForResource where
     type Sv ListTagsForResource = RDS
     type Rs ListTagsForResource = ListTagsForResourceResponse
 
-    request = post "ListTagsForResource"
-    response _ = xmlResponse
+    request  = post "ListTagsForResource"
+    response = xmlResponse $ \h x -> ListTagsForResourceResponse
+        <$> x %| "TagList"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DeletePolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,30 +37,29 @@ module Network.AWS.AutoScaling.DeletePolicy
     , deletePolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data DeletePolicy = DeletePolicy
     { _dpAutoScalingGroupName :: Maybe Text
-    , _dpPolicyName :: Text
+    , _dpPolicyName           :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeletePolicy' request.
+-- | 'DeletePolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AutoScalingGroupName ::@ @Maybe Text@
+-- * 'dpAutoScalingGroupName' @::@ 'Maybe' 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'dpPolicyName' @::@ 'Text'
 --
 deletePolicy :: Text -- ^ 'dpPolicyName'
              -> DeletePolicy
-deletePolicy p2 = DeletePolicy
-    { _dpAutoScalingGroupName = Nothing
-    , _dpPolicyName = p2
+deletePolicy p1 = DeletePolicy
+    { _dpPolicyName           = p1
+    , _dpAutoScalingGroupName = Nothing
     }
 
 -- | The name of the Auto Scaling group.
@@ -70,16 +71,15 @@ dpAutoScalingGroupName =
 dpPolicyName :: Lens' DeletePolicy Text
 dpPolicyName = lens _dpPolicyName (\s a -> s { _dpPolicyName = a })
 
-instance ToQuery DeletePolicy where
-    toQuery = genericQuery def
+instance ToQuery DeletePolicy
+
+instance ToPath DeletePolicy where
+    toPath = const "/"
 
 data DeletePolicyResponse = DeletePolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeletePolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeletePolicyResponse' constructor.
 deletePolicyResponse :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse
 
@@ -87,5 +87,5 @@ instance AWSRequest DeletePolicy where
     type Sv DeletePolicy = AutoScaling
     type Rs DeletePolicy = DeletePolicyResponse
 
-    request = post "DeletePolicy"
-    response _ = nullaryResponse DeletePolicyResponse
+    request  = post "DeletePolicy"
+    response = nullaryResponse DeletePolicyResponse

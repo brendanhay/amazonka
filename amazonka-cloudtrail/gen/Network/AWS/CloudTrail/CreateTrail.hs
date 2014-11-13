@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudTrail.CreateTrail
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,62 +29,93 @@ module Network.AWS.CloudTrail.CreateTrail
     -- ** Request constructor
     , createTrail
     -- ** Request lenses
+    , ctCloudWatchLogsLogGroupArn
+    , ctCloudWatchLogsRoleArn
+    , ctIncludeGlobalServiceEvents
     , ctName
     , ctS3BucketName
     , ctS3KeyPrefix
     , ctSnsTopicName
-    , ctIncludeGlobalServiceEvents
 
     -- * Response
     , CreateTrailResponse
     -- ** Response constructor
     , createTrailResponse
     -- ** Response lenses
+    , ctrCloudWatchLogsLogGroupArn
+    , ctrCloudWatchLogsRoleArn
+    , ctrIncludeGlobalServiceEvents
     , ctrName
     , ctrS3BucketName
     , ctrS3KeyPrefix
     , ctrSnsTopicName
-    , ctrIncludeGlobalServiceEvents
     ) where
 
-import Network.AWS.CloudTrail.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudTrail.Types
 
--- | Specifies the settings for each trail.
 data CreateTrail = CreateTrail
-    { _ctName :: Text
-    , _ctS3BucketName :: Text
-    , _ctS3KeyPrefix :: Maybe Text
-    , _ctSnsTopicName :: Maybe Text
+    { _ctCloudWatchLogsLogGroupArn  :: Maybe Text
+    , _ctCloudWatchLogsRoleArn      :: Maybe Text
     , _ctIncludeGlobalServiceEvents :: Maybe Bool
+    , _ctName                       :: Text
+    , _ctS3BucketName               :: Text
+    , _ctS3KeyPrefix                :: Maybe Text
+    , _ctSnsTopicName               :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateTrail' request.
+-- | 'CreateTrail' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Text@
+-- * 'ctCloudWatchLogsLogGroupArn' @::@ 'Maybe' 'Text'
 --
--- * @S3BucketName ::@ @Text@
+-- * 'ctCloudWatchLogsRoleArn' @::@ 'Maybe' 'Text'
 --
--- * @S3KeyPrefix ::@ @Maybe Text@
+-- * 'ctIncludeGlobalServiceEvents' @::@ 'Maybe' 'Bool'
 --
--- * @SnsTopicName ::@ @Maybe Text@
+-- * 'ctName' @::@ 'Text'
 --
--- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
+-- * 'ctS3BucketName' @::@ 'Text'
+--
+-- * 'ctS3KeyPrefix' @::@ 'Maybe' 'Text'
+--
+-- * 'ctSnsTopicName' @::@ 'Maybe' 'Text'
 --
 createTrail :: Text -- ^ 'ctName'
             -> Text -- ^ 'ctS3BucketName'
             -> CreateTrail
 createTrail p1 p2 = CreateTrail
-    { _ctName = p1
-    , _ctS3BucketName = p2
-    , _ctS3KeyPrefix = Nothing
-    , _ctSnsTopicName = Nothing
+    { _ctName                       = p1
+    , _ctS3BucketName               = p2
+    , _ctS3KeyPrefix                = Nothing
+    , _ctSnsTopicName               = Nothing
     , _ctIncludeGlobalServiceEvents = Nothing
+    , _ctCloudWatchLogsLogGroupArn  = Nothing
+    , _ctCloudWatchLogsRoleArn      = Nothing
     }
+
+-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
+-- identifier that represents the log group to which CloudTrail logs will be
+-- delivered. Not required unless you specify CloudWatchLogsRoleArn.
+ctCloudWatchLogsLogGroupArn :: Lens' CreateTrail (Maybe Text)
+ctCloudWatchLogsLogGroupArn =
+    lens _ctCloudWatchLogsLogGroupArn
+        (\s a -> s { _ctCloudWatchLogsLogGroupArn = a })
+
+-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to
+-- a user’s log group.
+ctCloudWatchLogsRoleArn :: Lens' CreateTrail (Maybe Text)
+ctCloudWatchLogsRoleArn =
+    lens _ctCloudWatchLogsRoleArn (\s a -> s { _ctCloudWatchLogsRoleArn = a })
+
+-- | Specifies whether the trail is publishing events from global services
+-- such as IAM to the log files.
+ctIncludeGlobalServiceEvents :: Lens' CreateTrail (Maybe Bool)
+ctIncludeGlobalServiceEvents =
+    lens _ctIncludeGlobalServiceEvents
+        (\s a -> s { _ctIncludeGlobalServiceEvents = a })
 
 -- | Specifies the name of the trail.
 ctName :: Lens' CreateTrail Text
@@ -93,66 +126,86 @@ ctName = lens _ctName (\s a -> s { _ctName = a })
 ctS3BucketName :: Lens' CreateTrail Text
 ctS3BucketName = lens _ctS3BucketName (\s a -> s { _ctS3BucketName = a })
 
--- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
--- have designated for log file delivery.
+-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
+-- you have designated for log file delivery.
 ctS3KeyPrefix :: Lens' CreateTrail (Maybe Text)
 ctS3KeyPrefix = lens _ctS3KeyPrefix (\s a -> s { _ctS3KeyPrefix = a })
 
--- | Specifies the name of the Amazon SNS topic defined for notification of log
--- file delivery.
+-- | Specifies the name of the Amazon SNS topic defined for notification of
+-- log file delivery.
 ctSnsTopicName :: Lens' CreateTrail (Maybe Text)
 ctSnsTopicName = lens _ctSnsTopicName (\s a -> s { _ctSnsTopicName = a })
 
--- | Specifies whether the trail is publishing events from global services such
--- as IAM to the log files.
-ctIncludeGlobalServiceEvents :: Lens' CreateTrail (Maybe Bool)
-ctIncludeGlobalServiceEvents =
-    lens _ctIncludeGlobalServiceEvents
-         (\s a -> s { _ctIncludeGlobalServiceEvents = a })
+instance ToPath CreateTrail where
+    toPath = const "/"
 
-instance ToPath CreateTrail
-
-instance ToQuery CreateTrail
+instance ToQuery CreateTrail where
+    toQuery = const mempty
 
 instance ToHeaders CreateTrail
 
-instance ToJSON CreateTrail
+instance ToBody CreateTrail where
+    toBody = toBody . encode . _ctName
 
--- | Returns the objects or data listed below if successful. Otherwise, returns
--- an error.
 data CreateTrailResponse = CreateTrailResponse
-    { _ctrName :: Maybe Text
-    , _ctrS3BucketName :: Maybe Text
-    , _ctrS3KeyPrefix :: Maybe Text
-    , _ctrSnsTopicName :: Maybe Text
+    { _ctrCloudWatchLogsLogGroupArn  :: Maybe Text
+    , _ctrCloudWatchLogsRoleArn      :: Maybe Text
     , _ctrIncludeGlobalServiceEvents :: Maybe Bool
+    , _ctrName                       :: Maybe Text
+    , _ctrS3BucketName               :: Maybe Text
+    , _ctrS3KeyPrefix                :: Maybe Text
+    , _ctrSnsTopicName               :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateTrailResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateTrailResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Maybe Text@
+-- * 'ctrCloudWatchLogsLogGroupArn' @::@ 'Maybe' 'Text'
 --
--- * @S3BucketName ::@ @Maybe Text@
+-- * 'ctrCloudWatchLogsRoleArn' @::@ 'Maybe' 'Text'
 --
--- * @S3KeyPrefix ::@ @Maybe Text@
+-- * 'ctrIncludeGlobalServiceEvents' @::@ 'Maybe' 'Bool'
 --
--- * @SnsTopicName ::@ @Maybe Text@
+-- * 'ctrName' @::@ 'Maybe' 'Text'
 --
--- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
+-- * 'ctrS3BucketName' @::@ 'Maybe' 'Text'
+--
+-- * 'ctrS3KeyPrefix' @::@ 'Maybe' 'Text'
+--
+-- * 'ctrSnsTopicName' @::@ 'Maybe' 'Text'
 --
 createTrailResponse :: CreateTrailResponse
 createTrailResponse = CreateTrailResponse
-    { _ctrName = Nothing
-    , _ctrS3BucketName = Nothing
-    , _ctrS3KeyPrefix = Nothing
-    , _ctrSnsTopicName = Nothing
+    { _ctrName                       = Nothing
+    , _ctrS3BucketName               = Nothing
+    , _ctrS3KeyPrefix                = Nothing
+    , _ctrSnsTopicName               = Nothing
     , _ctrIncludeGlobalServiceEvents = Nothing
+    , _ctrCloudWatchLogsLogGroupArn  = Nothing
+    , _ctrCloudWatchLogsRoleArn      = Nothing
     }
+
+-- | Specifies the Amazon Resource Name (ARN) of the log group to which
+-- CloudTrail logs will be delivered.
+ctrCloudWatchLogsLogGroupArn :: Lens' CreateTrailResponse (Maybe Text)
+ctrCloudWatchLogsLogGroupArn =
+    lens _ctrCloudWatchLogsLogGroupArn
+        (\s a -> s { _ctrCloudWatchLogsLogGroupArn = a })
+
+-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to
+-- a user’s log group.
+ctrCloudWatchLogsRoleArn :: Lens' CreateTrailResponse (Maybe Text)
+ctrCloudWatchLogsRoleArn =
+    lens _ctrCloudWatchLogsRoleArn
+        (\s a -> s { _ctrCloudWatchLogsRoleArn = a })
+
+-- | Specifies whether the trail is publishing events from global services
+-- such as IAM to the log files.
+ctrIncludeGlobalServiceEvents :: Lens' CreateTrailResponse (Maybe Bool)
+ctrIncludeGlobalServiceEvents =
+    lens _ctrIncludeGlobalServiceEvents
+        (\s a -> s { _ctrIncludeGlobalServiceEvents = a })
 
 -- | Specifies the name of the trail.
 ctrName :: Lens' CreateTrailResponse (Maybe Text)
@@ -163,28 +216,28 @@ ctrName = lens _ctrName (\s a -> s { _ctrName = a })
 ctrS3BucketName :: Lens' CreateTrailResponse (Maybe Text)
 ctrS3BucketName = lens _ctrS3BucketName (\s a -> s { _ctrS3BucketName = a })
 
--- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
--- have designated for log file delivery.
+-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
+-- you have designated for log file delivery.
 ctrS3KeyPrefix :: Lens' CreateTrailResponse (Maybe Text)
 ctrS3KeyPrefix = lens _ctrS3KeyPrefix (\s a -> s { _ctrS3KeyPrefix = a })
 
--- | Specifies the name of the Amazon SNS topic defined for notification of log
--- file delivery.
+-- | Specifies the name of the Amazon SNS topic defined for notification of
+-- log file delivery.
 ctrSnsTopicName :: Lens' CreateTrailResponse (Maybe Text)
 ctrSnsTopicName = lens _ctrSnsTopicName (\s a -> s { _ctrSnsTopicName = a })
 
--- | Specifies whether the trail is publishing events from global services such
--- as IAM to the log files.
-ctrIncludeGlobalServiceEvents :: Lens' CreateTrailResponse (Maybe Bool)
-ctrIncludeGlobalServiceEvents =
-    lens _ctrIncludeGlobalServiceEvents
-         (\s a -> s { _ctrIncludeGlobalServiceEvents = a })
-
-instance FromJSON CreateTrailResponse
+-- FromJSON
 
 instance AWSRequest CreateTrail where
     type Sv CreateTrail = CloudTrail
     type Rs CreateTrail = CreateTrailResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> CreateTrailResponse
+        <$> o .: "CloudWatchLogsLogGroupArn"
+        <*> o .: "CloudWatchLogsRoleArn"
+        <*> o .: "IncludeGlobalServiceEvents"
+        <*> o .: "Name"
+        <*> o .: "S3BucketName"
+        <*> o .: "S3KeyPrefix"
+        <*> o .: "SnsTopicName"

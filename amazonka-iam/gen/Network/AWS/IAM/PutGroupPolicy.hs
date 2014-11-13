@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.PutGroupPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,15 +24,7 @@
 -- For information about policies, refer to Overview of Policies in the Using
 -- IAM guide. For information about limits on the number of policies you can
 -- associate with a group, see Limitations on IAM Entities in the Using IAM
--- guide. Because policy documents can be large, you should use POST rather
--- than GET when calling PutGroupPolicy. For information about setting up
--- signatures and authorization through the API, go to Signing AWS API
--- Requests in the AWS General Reference. For general information about using
--- the Query API with IAM, go to Making Query Requests in the Using IAM guide.
--- https://iam.amazonaws.com/ ?Action=PutGroupPolicy &GroupName=Admins
--- &PolicyName=AdminRoot
--- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
--- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- guide.
 module Network.AWS.IAM.PutGroupPolicy
     (
     -- * Request
@@ -39,8 +33,8 @@ module Network.AWS.IAM.PutGroupPolicy
     , putGroupPolicy
     -- ** Request lenses
     , pgpGroupName
-    , pgpPolicyName
     , pgpPolicyDocument
+    , pgpPolicyName
 
     -- * Response
     , PutGroupPolicyResponse
@@ -48,60 +42,59 @@ module Network.AWS.IAM.PutGroupPolicy
     , putGroupPolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data PutGroupPolicy = PutGroupPolicy
-    { _pgpGroupName :: Text
-    , _pgpPolicyName :: Text
+    { _pgpGroupName      :: Text
     , _pgpPolicyDocument :: Text
+    , _pgpPolicyName     :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutGroupPolicy' request.
+-- | 'PutGroupPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupName ::@ @Text@
+-- * 'pgpGroupName' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'pgpPolicyDocument' @::@ 'Text'
 --
--- * @PolicyDocument ::@ @Text@
+-- * 'pgpPolicyName' @::@ 'Text'
 --
 putGroupPolicy :: Text -- ^ 'pgpGroupName'
                -> Text -- ^ 'pgpPolicyName'
                -> Text -- ^ 'pgpPolicyDocument'
                -> PutGroupPolicy
 putGroupPolicy p1 p2 p3 = PutGroupPolicy
-    { _pgpGroupName = p1
-    , _pgpPolicyName = p2
+    { _pgpGroupName      = p1
+    , _pgpPolicyName     = p2
     , _pgpPolicyDocument = p3
     }
 
--- | Name of the group to associate the policy with.
+-- | The name of the group to associate the policy with.
 pgpGroupName :: Lens' PutGroupPolicy Text
 pgpGroupName = lens _pgpGroupName (\s a -> s { _pgpGroupName = a })
-
--- | Name of the policy document.
-pgpPolicyName :: Lens' PutGroupPolicy Text
-pgpPolicyName = lens _pgpPolicyName (\s a -> s { _pgpPolicyName = a })
 
 -- | The policy document.
 pgpPolicyDocument :: Lens' PutGroupPolicy Text
 pgpPolicyDocument =
     lens _pgpPolicyDocument (\s a -> s { _pgpPolicyDocument = a })
 
-instance ToQuery PutGroupPolicy where
-    toQuery = genericQuery def
+-- | The name of the policy document.
+pgpPolicyName :: Lens' PutGroupPolicy Text
+pgpPolicyName = lens _pgpPolicyName (\s a -> s { _pgpPolicyName = a })
+
+instance ToQuery PutGroupPolicy
+
+instance ToPath PutGroupPolicy where
+    toPath = const "/"
 
 data PutGroupPolicyResponse = PutGroupPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutGroupPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutGroupPolicyResponse' constructor.
 putGroupPolicyResponse :: PutGroupPolicyResponse
 putGroupPolicyResponse = PutGroupPolicyResponse
 
@@ -109,5 +102,5 @@ instance AWSRequest PutGroupPolicy where
     type Sv PutGroupPolicy = IAM
     type Rs PutGroupPolicy = PutGroupPolicyResponse
 
-    request = post "PutGroupPolicy"
-    response _ = nullaryResponse PutGroupPolicyResponse
+    request  = post "PutGroupPolicy"
+    response = nullaryResponse PutGroupPolicyResponse

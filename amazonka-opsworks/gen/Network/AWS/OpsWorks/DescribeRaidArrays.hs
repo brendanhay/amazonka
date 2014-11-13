@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeRaidArrays
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,11 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describe an instance's RAID arrays. You must specify at least one of the
--- parameters. Required Permissions: To use this action, an IAM user must have
--- a Show, Deploy, or Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see Managing User Permissions.
+-- | Describe an instance's RAID arrays. Required Permissions: To use this
+-- action, an IAM user must have a Show, Deploy, or Manage permissions level
+-- for the stack, or an attached policy that explicitly grants permissions.
+-- For more information on user permissions, see Managing User Permissions.
 module Network.AWS.OpsWorks.DescribeRaidArrays
     (
     -- * Request
@@ -31,7 +32,6 @@ module Network.AWS.OpsWorks.DescribeRaidArrays
     , describeRaidArrays
     -- ** Request lenses
     , draInstanceId
-    , draStackId
     , draRaidArrayIds
 
     -- * Response
@@ -42,31 +42,26 @@ module Network.AWS.OpsWorks.DescribeRaidArrays
     , drarRaidArrays
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DescribeRaidArrays = DescribeRaidArrays
-    { _draInstanceId :: Maybe Text
-    , _draStackId :: Maybe Text
+    { _draInstanceId   :: Maybe Text
     , _draRaidArrayIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeRaidArrays' request.
+-- | 'DescribeRaidArrays' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @Maybe Text@
+-- * 'draInstanceId' @::@ 'Maybe' 'Text'
 --
--- * @StackId ::@ @Maybe Text@
---
--- * @RaidArrayIds ::@ @[Text]@
+-- * 'draRaidArrayIds' @::@ ['Text']
 --
 describeRaidArrays :: DescribeRaidArrays
 describeRaidArrays = DescribeRaidArrays
-    { _draInstanceId = Nothing
-    , _draStackId = Nothing
+    { _draInstanceId   = Nothing
     , _draRaidArrayIds = mempty
     }
 
@@ -75,37 +70,38 @@ describeRaidArrays = DescribeRaidArrays
 draInstanceId :: Lens' DescribeRaidArrays (Maybe Text)
 draInstanceId = lens _draInstanceId (\s a -> s { _draInstanceId = a })
 
--- | The stack ID.
-draStackId :: Lens' DescribeRaidArrays (Maybe Text)
-draStackId = lens _draStackId (\s a -> s { _draStackId = a })
-
 -- | An array of RAID array IDs. If you use this parameter, DescribeRaidArrays
 -- returns descriptions of the specified arrays. Otherwise, it returns a
 -- description of every array.
 draRaidArrayIds :: Lens' DescribeRaidArrays [Text]
 draRaidArrayIds = lens _draRaidArrayIds (\s a -> s { _draRaidArrayIds = a })
 
-instance ToPath DescribeRaidArrays
+instance ToPath DescribeRaidArrays where
+    toPath = const "/"
 
-instance ToQuery DescribeRaidArrays
+instance ToQuery DescribeRaidArrays where
+    toQuery = const mempty
 
 instance ToHeaders DescribeRaidArrays
 
-instance ToJSON DescribeRaidArrays
+instance ToBody DescribeRaidArrays where
+    toBody = toBody . encode . _draInstanceId
 
--- | Contains the response to a DescribeRaidArrays request.
 newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
     { _drarRaidArrays :: [RaidArray]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeRaidArraysResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeRaidArraysResponse where
+    type Item DescribeRaidArraysResponse = RaidArray
+
+    fromList = DescribeRaidArraysResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _drarRaidArrays
+
+-- | 'DescribeRaidArraysResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RaidArrays ::@ @[RaidArray]@
+-- * 'drarRaidArrays' @::@ ['RaidArray']
 --
 describeRaidArraysResponse :: DescribeRaidArraysResponse
 describeRaidArraysResponse = DescribeRaidArraysResponse
@@ -116,11 +112,12 @@ describeRaidArraysResponse = DescribeRaidArraysResponse
 drarRaidArrays :: Lens' DescribeRaidArraysResponse [RaidArray]
 drarRaidArrays = lens _drarRaidArrays (\s a -> s { _drarRaidArrays = a })
 
-instance FromJSON DescribeRaidArraysResponse
+-- FromJSON
 
 instance AWSRequest DescribeRaidArrays where
     type Sv DescribeRaidArrays = OpsWorks
     type Rs DescribeRaidArrays = DescribeRaidArraysResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeRaidArraysResponse
+        <$> o .: "RaidArrays"

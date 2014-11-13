@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplications
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,10 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the descriptions of existing applications.
--- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationNames.member.1=SampleApplication
--- &Operation=DescribeApplications &AuthParams Sample Description
--- SampleApplication 2010-11-16T20:20:51.974Z 2010-11-16T20:20:51.974Z Default
--- 577c70ff-f1d7-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.DescribeApplications
     (
     -- * Request
@@ -30,7 +28,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     -- ** Request constructor
     , describeApplications
     -- ** Request lenses
-    , da1ApplicationNames
+    , daApplicationNames
 
     -- * Response
     , DescribeApplicationsResponse
@@ -40,49 +38,58 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     , darApplications
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | This documentation target is not reported in the API reference.
 newtype DescribeApplications = DescribeApplications
-    { _da1ApplicationNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    { _daApplicationNames :: [Text]
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeApplications' request.
+instance GHC.Exts.IsList DescribeApplications where
+    type Item DescribeApplications = Text
+
+    fromList = DescribeApplications . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _daApplicationNames
+
+-- | 'DescribeApplications' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ApplicationNames ::@ @[Text]@
+-- * 'daApplicationNames' @::@ ['Text']
 --
 describeApplications :: DescribeApplications
 describeApplications = DescribeApplications
-    { _da1ApplicationNames = mempty
+    { _daApplicationNames = mempty
     }
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
--- only include those with the specified names.
-da1ApplicationNames :: Lens' DescribeApplications [Text]
-da1ApplicationNames =
-    lens _da1ApplicationNames (\s a -> s { _da1ApplicationNames = a })
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to only include those with the specified names.
+daApplicationNames :: Lens' DescribeApplications [Text]
+daApplicationNames =
+    lens _daApplicationNames (\s a -> s { _daApplicationNames = a })
 
-instance ToQuery DescribeApplications where
-    toQuery = genericQuery def
+instance ToQuery DescribeApplications
 
--- | Result message containing a list of application descriptions.
+instance ToPath DescribeApplications where
+    toPath = const "/"
+
 newtype DescribeApplicationsResponse = DescribeApplicationsResponse
     { _darApplications :: [ApplicationDescription]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeApplicationsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeApplicationsResponse where
+    type Item DescribeApplicationsResponse = ApplicationDescription
+
+    fromList = DescribeApplicationsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _darApplications
+
+-- | 'DescribeApplicationsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Applications ::@ @[ApplicationDescription]@
+-- * 'darApplications' @::@ ['ApplicationDescription']
 --
 describeApplicationsResponse :: DescribeApplicationsResponse
 describeApplicationsResponse = DescribeApplicationsResponse
@@ -93,12 +100,10 @@ describeApplicationsResponse = DescribeApplicationsResponse
 darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darApplications = lens _darApplications (\s a -> s { _darApplications = a })
 
-instance FromXML DescribeApplicationsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeApplications where
     type Sv DescribeApplications = ElasticBeanstalk
     type Rs DescribeApplications = DescribeApplicationsResponse
 
-    request = post "DescribeApplications"
-    response _ = xmlResponse
+    request  = post "DescribeApplications"
+    response = xmlResponse $ \h x -> DescribeApplicationsResponse
+        <$> x %| "Applications"

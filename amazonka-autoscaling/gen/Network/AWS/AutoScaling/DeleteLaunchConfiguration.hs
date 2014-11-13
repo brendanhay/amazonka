@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteLaunchConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,9 +23,6 @@
 -- | Deletes the specified LaunchConfiguration. The specified launch
 -- configuration must not be attached to an Auto Scaling group. When this call
 -- completes, the launch configuration is no longer available for use.
--- https://autoscaling.amazonaws.com/?LaunchConfigurationName=my-test-lc
--- &Version=2011-01-01 &Action=DeleteLaunchConfiguration &AUTHPARAMS
--- 7347261f-97df-11e2-8756-35eEXAMPLE.
 module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     (
     -- * Request
@@ -39,21 +38,20 @@ module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     , deleteLaunchConfigurationResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
     { _dlcLaunchConfigurationName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLaunchConfiguration' request.
+-- | 'DeleteLaunchConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LaunchConfigurationName ::@ @Text@
+-- * 'dlcLaunchConfigurationName' @::@ 'Text'
 --
 deleteLaunchConfiguration :: Text -- ^ 'dlcLaunchConfigurationName'
                           -> DeleteLaunchConfiguration
@@ -65,18 +63,17 @@ deleteLaunchConfiguration p1 = DeleteLaunchConfiguration
 dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
 dlcLaunchConfigurationName =
     lens _dlcLaunchConfigurationName
-         (\s a -> s { _dlcLaunchConfigurationName = a })
+        (\s a -> s { _dlcLaunchConfigurationName = a })
 
-instance ToQuery DeleteLaunchConfiguration where
-    toQuery = genericQuery def
+instance ToQuery DeleteLaunchConfiguration
+
+instance ToPath DeleteLaunchConfiguration where
+    toPath = const "/"
 
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLaunchConfigurationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteLaunchConfigurationResponse' constructor.
 deleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse
 deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
 
@@ -84,5 +81,5 @@ instance AWSRequest DeleteLaunchConfiguration where
     type Sv DeleteLaunchConfiguration = AutoScaling
     type Rs DeleteLaunchConfiguration = DeleteLaunchConfigurationResponse
 
-    request = post "DeleteLaunchConfiguration"
-    response _ = nullaryResponse DeleteLaunchConfigurationResponse
+    request  = post "DeleteLaunchConfiguration"
+    response = nullaryResponse DeleteLaunchConfigurationResponse

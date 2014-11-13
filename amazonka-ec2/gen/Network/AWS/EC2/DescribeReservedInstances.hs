@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,20 +22,7 @@
 
 -- | Describes one or more of the Reserved Instances that you purchased. For
 -- more information about Reserved Instances, see Reserved Instances in the
--- Amazon Elastic Compute Cloud User Guide. Example This example describes
--- Reserved Instances owned by your account.
--- https://ec2.amazonaws.com/?Action=DescribeReservedInstances &amp;AUTHPARAMS
--- 59dbff89-35bd-4eac-99ed-be587EXAMPLE ...
--- e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE m1.xlarge us-east-1b 31536000 61.0
--- 0.034 3 Linux/UNIX active default USD Light Utilization ... Example This
--- example filters the response to include only one-year, m1.small Linux/UNIX
--- Reserved Instances. If you want Linux/UNIX Reserved Instances specifically
--- for use with a VPC, set the product description to Linux/UNIX (Amazon VPC).
--- https://ec2.amazonaws.com/?Action=DescribeReservedInstances
--- &amp;Filter.1.Name=duration &amp;Filter.1.Value.1=31536000
--- &amp;Filter.2.Name=instance-type &amp;Filter.2.Value.1=m1.small
--- &amp;Filter.3.Name=product-description &amp;Filter.3.Value.1=Linux%2FUNIX
--- &amp;AUTHPARAMS.
+-- Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.DescribeReservedInstances
     (
     -- * Request
@@ -41,9 +30,10 @@ module Network.AWS.EC2.DescribeReservedInstances
     -- ** Request constructor
     , describeReservedInstances
     -- ** Request lenses
-    , driReservedInstancesIds
+    , driDryRun
     , driFilters
     , driOfferingType
+    , driReservedInstancesIds
 
     -- * Response
     , DescribeReservedInstancesResponse
@@ -53,84 +43,99 @@ module Network.AWS.EC2.DescribeReservedInstances
     , drirReservedInstances
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeReservedInstances = DescribeReservedInstances
-    { _driReservedInstancesIds :: [Text]
-    , _driFilters :: [Filter]
-    , _driOfferingType :: Maybe OfferingTypeValues
-    } deriving (Eq, Ord, Show, Generic)
+    { _driDryRun               :: Maybe Bool
+    , _driFilters              :: [Filter]
+    , _driOfferingType         :: Maybe Text
+    , _driReservedInstancesIds :: [Text]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeReservedInstances' request.
+-- | 'DescribeReservedInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesIds ::@ @[Text]@
+-- * 'driDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Filters ::@ @[Filter]@
+-- * 'driFilters' @::@ ['Filter']
 --
--- * @OfferingType ::@ @Maybe OfferingTypeValues@
+-- * 'driOfferingType' @::@ 'Maybe' 'Text'
+--
+-- * 'driReservedInstancesIds' @::@ ['Text']
 --
 describeReservedInstances :: DescribeReservedInstances
 describeReservedInstances = DescribeReservedInstances
-    { _driReservedInstancesIds = mempty
-    , _driFilters = mempty
-    , _driOfferingType = Nothing
+    { _driDryRun               = Nothing
+    , _driReservedInstancesIds = mempty
+    , _driFilters              = mempty
+    , _driOfferingType         = Nothing
     }
+
+driDryRun :: Lens' DescribeReservedInstances (Maybe Bool)
+driDryRun = lens _driDryRun (\s a -> s { _driDryRun = a })
+
+-- | One or more filters. availability-zone - The Availability Zone where the
+-- Reserved Instance can be used. duration - The duration of the Reserved
+-- Instance (one year or three years), in seconds (31536000 | 94608000). end
+-- - The time when the Reserved Instance expires (for example,
+-- 2014-08-07T11:54:42.000Z). fixed-price - The purchase price of the
+-- Reserved Instance (for example, 9800.0). instance-type - The instance
+-- type on which the Reserved Instance can be used. product-description -
+-- The product description of the Reserved Instance (Linux/UNIX | Linux/UNIX
+-- (Amazon VPC) | Windows | Windows (Amazon VPC)). reserved-instances-id -
+-- The ID of the Reserved Instance. start - The time at which the Reserved
+-- Instance purchase request was placed (for example,
+-- 2014-08-07T11:54:42.000Z). state - The state of the Reserved Instance
+-- (pending-payment | active | payment-failed | retired). tag:key=value -
+-- The key/value combination of a tag assigned to the resource. tag-key -
+-- The key of a tag assigned to the resource. This filter is independent of
+-- the tag-value filter. For example, if you use both the filter
+-- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
+-- assigned both the tag key Purpose (regardless of what the tag's value
+-- is), and the tag value X (regardless of what the tag's key is). If you
+-- want to list only resources where Purpose is X, see the tag:key=value
+-- filter. tag-value - The value of a tag assigned to the resource. This
+-- filter is independent of the tag-key filter. usage-price - The usage
+-- price of the Reserved Instance, per hour (for example, 0.84).
+driFilters :: Lens' DescribeReservedInstances [Filter]
+driFilters = lens _driFilters (\s a -> s { _driFilters = a })
+
+-- | The Reserved Instance offering type. If you are using tools that predate
+-- the 2011-11-01 API version, you only have access to the Medium
+-- Utilization Reserved Instance offering type.
+driOfferingType :: Lens' DescribeReservedInstances (Maybe Text)
+driOfferingType = lens _driOfferingType (\s a -> s { _driOfferingType = a })
 
 -- | One or more Reserved Instance IDs. Default: Describes all your Reserved
 -- Instances, or only those otherwise specified.
 driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
 driReservedInstancesIds =
-    lens _driReservedInstancesIds
-         (\s a -> s { _driReservedInstancesIds = a })
+    lens _driReservedInstancesIds (\s a -> s { _driReservedInstancesIds = a })
 
--- | One or more filters. availability-zone - The Availability Zone where the
--- Reserved Instance can be used. duration - The duration of the Reserved
--- Instance (one year or three years), in seconds (31536000 | 94608000). end -
--- The time when the Reserved Instance expires. fixed-price - The purchase
--- price of the Reserved Instance (for example, 9800.0). instance-type - The
--- instance type on which the Reserved Instance can be used.
--- product-description - The product description of the Reserved Instance
--- (Linux/UNIX | Linux/UNIX (Amazon VPC) | Windows | Windows (Amazon VPC)).
--- reserved-instances-id - The ID of the Reserved Instance. start - The time
--- at which the Reserved Instance purchase request was placed. state - The
--- state of the Reserved Instance (pending-payment | active | payment-failed |
--- retired). tag:key=value - The key/value combination of a tag assigned to
--- the resource. tag-key - The key of a tag assigned to the resource. This
--- filter is independent of the tag-value filter. For example, if you use both
--- the filter "tag-key=Purpose" and the filter "tag-value=X", you get any
--- resources assigned both the tag key Purpose (regardless of what the tag's
--- value is), and the tag value X (regardless of what the tag's key is). If
--- you want to list only resources where Purpose is X, see the tag:key=value
--- filter. tag-value - The value of a tag assigned to the resource. This
--- filter is independent of the tag-key filter. usage-price - The usage price
--- of the Reserved Instance, per hour (for example, 0.84).
-driFilters :: Lens' DescribeReservedInstances [Filter]
-driFilters = lens _driFilters (\s a -> s { _driFilters = a })
+instance ToQuery DescribeReservedInstances
 
--- | The Reserved Instance offering type.
-driOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
-driOfferingType = lens _driOfferingType (\s a -> s { _driOfferingType = a })
-
-instance ToQuery DescribeReservedInstances where
-    toQuery = genericQuery def
+instance ToPath DescribeReservedInstances where
+    toPath = const "/"
 
 newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     { _drirReservedInstances :: [ReservedInstances]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeReservedInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeReservedInstancesResponse where
+    type Item DescribeReservedInstancesResponse = ReservedInstances
+
+    fromList = DescribeReservedInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _drirReservedInstances
+
+-- | 'DescribeReservedInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstances ::@ @[ReservedInstances]@
+-- * 'drirReservedInstances' @::@ ['ReservedInstances']
 --
 describeReservedInstancesResponse :: DescribeReservedInstancesResponse
 describeReservedInstancesResponse = DescribeReservedInstancesResponse
@@ -142,12 +147,10 @@ drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstan
 drirReservedInstances =
     lens _drirReservedInstances (\s a -> s { _drirReservedInstances = a })
 
-instance FromXML DescribeReservedInstancesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeReservedInstances where
     type Sv DescribeReservedInstances = EC2
     type Rs DescribeReservedInstances = DescribeReservedInstancesResponse
 
-    request = post "DescribeReservedInstances"
-    response _ = xmlResponse
+    request  = post "DescribeReservedInstances"
+    response = xmlResponse $ \h x -> DescribeReservedInstancesResponse
+        <$> x %| "reservedInstancesSet"

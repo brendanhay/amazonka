@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.CreateDBSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,13 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a DBSnapshot. The source DBInstance must be in "available" state.
--- https://rds.amazonaws.com/ ?Action=CreateDBSnapshot
--- &DBInstanceIdentifier=simcoprod01 &DBSnapshotIdentifier=mydbsnapshot
--- &Version=2013-05-15 &SignatureVersion=2&SignatureMethod=HmacSHA256
--- &Timestamp=2011-05-23T06%3A27%3A42.551Z &AWSAccessKeyId= &Signature= 3306
--- mysql creating us-east-1a general-public-license 2011-05-23T06:06:43.110Z
--- 10 simcoprod01 5.1.50 mydbsnapshot manual master
--- c4181d1d-8505-11e0-90aa-eb648410240d.
 module Network.AWS.RDS.CreateDBSnapshot
     (
     -- * Request
@@ -33,8 +28,8 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- ** Request constructor
     , createDBSnapshot
     -- ** Request lenses
-    , cdbs1DBSnapshotIdentifier
     , cdbs1DBInstanceIdentifier
+    , cdbs1DBSnapshotIdentifier
     , cdbs1Tags
 
     -- * Response
@@ -42,30 +37,29 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- ** Response constructor
     , createDBSnapshotResponse
     -- ** Response lenses
-    , cdbsrrDBSnapshot
+    , cdbsr1DBSnapshot
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data CreateDBSnapshot = CreateDBSnapshot
-    { _cdbs1DBSnapshotIdentifier :: Text
-    , _cdbs1DBInstanceIdentifier :: Text
-    , _cdbs1Tags :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    { _cdbs1DBInstanceIdentifier :: Text
+    , _cdbs1DBSnapshotIdentifier :: Text
+    , _cdbs1Tags                 :: [Tag]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDBSnapshot' request.
+-- | 'CreateDBSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBSnapshotIdentifier ::@ @Text@
+-- * 'cdbs1DBInstanceIdentifier' @::@ 'Text'
 --
--- * @DBInstanceIdentifier ::@ @Text@
+-- * 'cdbs1DBSnapshotIdentifier' @::@ 'Text'
 --
--- * @Tags ::@ @[Tag]@
+-- * 'cdbs1Tags' @::@ ['Tag']
 --
 createDBSnapshot :: Text -- ^ 'cdbs1DBSnapshotIdentifier'
                  -> Text -- ^ 'cdbs1DBInstanceIdentifier'
@@ -73,65 +67,57 @@ createDBSnapshot :: Text -- ^ 'cdbs1DBSnapshotIdentifier'
 createDBSnapshot p1 p2 = CreateDBSnapshot
     { _cdbs1DBSnapshotIdentifier = p1
     , _cdbs1DBInstanceIdentifier = p2
-    , _cdbs1Tags = mempty
+    , _cdbs1Tags                 = mempty
     }
 
--- | The identifier for the DB snapshot. Constraints: Cannot be null, empty, or
--- blank Must contain from 1 to 255 alphanumeric characters or hyphens First
--- character must be a letter Cannot end with a hyphen or contain two
+-- | The DB instance identifier. This is the unique key that identifies a DB
+-- instance. Constraints: Must contain from 1 to 63 alphanumeric characters
+-- or hyphens First character must be a letter Cannot end with a hyphen or
+-- contain two consecutive hyphens.
+cdbs1DBInstanceIdentifier :: Lens' CreateDBSnapshot Text
+cdbs1DBInstanceIdentifier =
+    lens _cdbs1DBInstanceIdentifier
+        (\s a -> s { _cdbs1DBInstanceIdentifier = a })
+
+-- | The identifier for the DB snapshot. Constraints: Cannot be null, empty,
+-- or blank Must contain from 1 to 255 alphanumeric characters or hyphens
+-- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Example: my-snapshot-id.
 cdbs1DBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
 cdbs1DBSnapshotIdentifier =
     lens _cdbs1DBSnapshotIdentifier
-         (\s a -> s { _cdbs1DBSnapshotIdentifier = a })
+        (\s a -> s { _cdbs1DBSnapshotIdentifier = a })
 
--- | The DB instance identifier. This is the unique key that identifies a DB
--- instance. This parameter isn't case sensitive. Constraints: Must contain
--- from 1 to 63 alphanumeric characters or hyphens First character must be a
--- letter Cannot end with a hyphen or contain two consecutive hyphens.
-cdbs1DBInstanceIdentifier :: Lens' CreateDBSnapshot Text
-cdbs1DBInstanceIdentifier =
-    lens _cdbs1DBInstanceIdentifier
-         (\s a -> s { _cdbs1DBInstanceIdentifier = a })
-
--- | A list of tags.
 cdbs1Tags :: Lens' CreateDBSnapshot [Tag]
 cdbs1Tags = lens _cdbs1Tags (\s a -> s { _cdbs1Tags = a })
 
-instance ToQuery CreateDBSnapshot where
-    toQuery = genericQuery def
+instance ToQuery CreateDBSnapshot
+
+instance ToPath CreateDBSnapshot where
+    toPath = const "/"
 
 newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
-    { _cdbsrrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Ord, Show, Generic)
+    { _cdbsr1DBSnapshot :: Maybe DBSnapshot
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDBSnapshotResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateDBSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBSnapshot ::@ @Maybe DBSnapshot@
+-- * 'cdbsr1DBSnapshot' @::@ 'Maybe' 'DBSnapshot'
 --
 createDBSnapshotResponse :: CreateDBSnapshotResponse
 createDBSnapshotResponse = CreateDBSnapshotResponse
-    { _cdbsrrDBSnapshot = Nothing
+    { _cdbsr1DBSnapshot = Nothing
     }
 
--- | Contains the result of a successful invocation of the following actions:
--- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
--- element in the DescribeDBSnapshots action.
-cdbsrrDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
-cdbsrrDBSnapshot =
-    lens _cdbsrrDBSnapshot (\s a -> s { _cdbsrrDBSnapshot = a })
-
-instance FromXML CreateDBSnapshotResponse where
-    fromXMLOptions = xmlOptions
+cdbsr1DBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
+cdbsr1DBSnapshot = lens _cdbsr1DBSnapshot (\s a -> s { _cdbsr1DBSnapshot = a })
 
 instance AWSRequest CreateDBSnapshot where
     type Sv CreateDBSnapshot = RDS
     type Rs CreateDBSnapshot = CreateDBSnapshotResponse
 
-    request = post "CreateDBSnapshot"
-    response _ = xmlResponse
+    request  = post "CreateDBSnapshot"
+    response = xmlResponse $ \h x -> CreateDBSnapshotResponse
+        <$> x %| "DBSnapshot"

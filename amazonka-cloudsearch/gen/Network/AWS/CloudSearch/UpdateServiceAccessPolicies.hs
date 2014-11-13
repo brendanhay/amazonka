@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.UpdateServiceAccessPolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,8 +30,8 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     -- ** Request constructor
     , updateServiceAccessPolicies
     -- ** Request lenses
-    , usapDomainName
     , usapAccessPolicies
+    , usapDomainName
 
     -- * Response
     , UpdateServiceAccessPoliciesResponse
@@ -39,41 +41,31 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     , usaprAccessPolicies
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the UpdateServiceAccessPolicies operation.
--- Specifies the name of the domain you want to update and the access rules
--- you want to configure.
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
-    { _usapDomainName :: Text
-    , _usapAccessPolicies :: Text
+    { _usapAccessPolicies :: Text
+    , _usapDomainName     :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateServiceAccessPolicies' request.
+-- | 'UpdateServiceAccessPolicies' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'usapAccessPolicies' @::@ 'Text'
 --
--- * @AccessPolicies ::@ @Text@
+-- * 'usapDomainName' @::@ 'Text'
 --
 updateServiceAccessPolicies :: Text -- ^ 'usapDomainName'
                             -> Text -- ^ 'usapAccessPolicies'
                             -> UpdateServiceAccessPolicies
 updateServiceAccessPolicies p1 p2 = UpdateServiceAccessPolicies
-    { _usapDomainName = p1
+    { _usapDomainName     = p1
     , _usapAccessPolicies = p2
     }
-
--- | A string that represents the name of a domain. Domain names are unique
--- across the domains owned by an account within an AWS region. Domain names
--- start with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
-usapDomainName :: Lens' UpdateServiceAccessPolicies Text
-usapDomainName = lens _usapDomainName (\s a -> s { _usapDomainName = a })
 
 -- | The access rules you want to configure. These rules replace any existing
 -- rules.
@@ -81,23 +73,23 @@ usapAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
 usapAccessPolicies =
     lens _usapAccessPolicies (\s a -> s { _usapAccessPolicies = a })
 
-instance ToQuery UpdateServiceAccessPolicies where
-    toQuery = genericQuery def
+usapDomainName :: Lens' UpdateServiceAccessPolicies Text
+usapDomainName = lens _usapDomainName (\s a -> s { _usapDomainName = a })
 
--- | The result of an UpdateServiceAccessPolicies request. Contains the new
--- access policies.
+instance ToQuery UpdateServiceAccessPolicies
+
+instance ToPath UpdateServiceAccessPolicies where
+    toPath = const "/"
+
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateServiceAccessPoliciesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateServiceAccessPoliciesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AccessPolicies ::@ @AccessPoliciesStatus@
+-- * 'usaprAccessPolicies' @::@ 'AccessPoliciesStatus'
 --
 updateServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'usaprAccessPolicies'
                                     -> UpdateServiceAccessPoliciesResponse
@@ -110,12 +102,10 @@ usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesS
 usaprAccessPolicies =
     lens _usaprAccessPolicies (\s a -> s { _usaprAccessPolicies = a })
 
-instance FromXML UpdateServiceAccessPoliciesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest UpdateServiceAccessPolicies where
     type Sv UpdateServiceAccessPolicies = CloudSearch
     type Rs UpdateServiceAccessPolicies = UpdateServiceAccessPoliciesResponse
 
-    request = post "UpdateServiceAccessPolicies"
-    response _ = xmlResponse
+    request  = post "UpdateServiceAccessPolicies"
+    response = xmlResponse $ \h x -> UpdateServiceAccessPoliciesResponse
+        <$> x %| "AccessPolicies"

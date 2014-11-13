@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.SetInstanceHealth
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,8 +30,8 @@ module Network.AWS.AutoScaling.SetInstanceHealth
     -- ** Request constructor
     , setInstanceHealth
     -- ** Request lenses
-    , sihInstanceId
     , sihHealthStatus
+    , sihInstanceId
     , sihShouldRespectGracePeriod
 
     -- * Response
@@ -38,67 +40,67 @@ module Network.AWS.AutoScaling.SetInstanceHealth
     , setInstanceHealthResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data SetInstanceHealth = SetInstanceHealth
-    { _sihInstanceId :: Text
-    , _sihHealthStatus :: Text
+    { _sihHealthStatus             :: Text
+    , _sihInstanceId               :: Text
     , _sihShouldRespectGracePeriod :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetInstanceHealth' request.
+-- | 'SetInstanceHealth' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @Text@
+-- * 'sihHealthStatus' @::@ 'Text'
 --
--- * @HealthStatus ::@ @Text@
+-- * 'sihInstanceId' @::@ 'Text'
 --
--- * @ShouldRespectGracePeriod ::@ @Maybe Bool@
+-- * 'sihShouldRespectGracePeriod' @::@ 'Maybe' 'Bool'
 --
 setInstanceHealth :: Text -- ^ 'sihInstanceId'
                   -> Text -- ^ 'sihHealthStatus'
                   -> SetInstanceHealth
 setInstanceHealth p1 p2 = SetInstanceHealth
-    { _sihInstanceId = p1
-    , _sihHealthStatus = p2
+    { _sihInstanceId               = p1
+    , _sihHealthStatus             = p2
     , _sihShouldRespectGracePeriod = Nothing
     }
+
+-- | The health status of the instance. Set to Healthy if you want the
+-- instance to remain in service. Set to Unhealthy if you want the instance
+-- to be out of service. Auto Scaling will terminate and replace the
+-- unhealthy instance.
+sihHealthStatus :: Lens' SetInstanceHealth Text
+sihHealthStatus = lens _sihHealthStatus (\s a -> s { _sihHealthStatus = a })
 
 -- | The identifier of the Amazon EC2 instance.
 sihInstanceId :: Lens' SetInstanceHealth Text
 sihInstanceId = lens _sihInstanceId (\s a -> s { _sihInstanceId = a })
 
--- | The health status of the instance. Set to Healthy if you want the instance
--- to remain in service. Set to Unhealthy if you want the instance to be out
--- of service. Auto Scaling will terminate and replace the unhealthy instance.
-sihHealthStatus :: Lens' SetInstanceHealth Text
-sihHealthStatus = lens _sihHealthStatus (\s a -> s { _sihHealthStatus = a })
-
 -- | If the Auto Scaling group of the specified instance has a
--- HealthCheckGracePeriod specified for the group, by default, this call will
--- respect the grace period. Set this to False, if you do not want the call to
--- respect the grace period associated with the group. For more information,
--- see the HealthCheckGracePeriod parameter description in the
+-- HealthCheckGracePeriod specified for the group, by default, this call
+-- will respect the grace period. Set this to False, if you do not want the
+-- call to respect the grace period associated with the group. For more
+-- information, see the HealthCheckGracePeriod parameter description in the
 -- CreateAutoScalingGroup action.
 sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
 sihShouldRespectGracePeriod =
     lens _sihShouldRespectGracePeriod
-         (\s a -> s { _sihShouldRespectGracePeriod = a })
+        (\s a -> s { _sihShouldRespectGracePeriod = a })
 
-instance ToQuery SetInstanceHealth where
-    toQuery = genericQuery def
+instance ToQuery SetInstanceHealth
+
+instance ToPath SetInstanceHealth where
+    toPath = const "/"
 
 data SetInstanceHealthResponse = SetInstanceHealthResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetInstanceHealthResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SetInstanceHealthResponse' constructor.
 setInstanceHealthResponse :: SetInstanceHealthResponse
 setInstanceHealthResponse = SetInstanceHealthResponse
 
@@ -106,5 +108,5 @@ instance AWSRequest SetInstanceHealth where
     type Sv SetInstanceHealth = AutoScaling
     type Rs SetInstanceHealth = SetInstanceHealthResponse
 
-    request = post "SetInstanceHealth"
-    response _ = nullaryResponse SetInstanceHealthResponse
+    request  = post "SetInstanceHealth"
+    response = nullaryResponse SetInstanceHealthResponse

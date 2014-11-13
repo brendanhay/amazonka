@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.GetInvalidation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,97 +24,91 @@
 module Network.AWS.CloudFront.GetInvalidation
     (
     -- * Request
-      GetInvalidation
+      GetInvalidation2014_05_31
     -- ** Request constructor
-    , getInvalidation
+    , getInvalidation2014_05_31
     -- ** Request lenses
     , giDistributionId
     , giId
 
     -- * Response
-    , GetInvalidationResponse
+    , GetInvalidation2014_05_31Response
     -- ** Response constructor
-    , getInvalidationResponse
+    , getInvalidation2014_05_31Response
     -- ** Response lenses
     , girInvalidation
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to get an invalidation's information.
-data GetInvalidation = GetInvalidation
+data GetInvalidation2014_05_31 = GetInvalidation2014_05_31
     { _giDistributionId :: Text
-    , _giId :: Text
+    , _giId             :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetInvalidation' request.
+-- | 'GetInvalidation2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DistributionId ::@ @Text@
+-- * 'giDistributionId' @::@ 'Text'
 --
--- * @Id ::@ @Text@
+-- * 'giId' @::@ 'Text'
 --
-getInvalidation :: Text -- ^ 'giDistributionId'
-                -> Text -- ^ 'giId'
-                -> GetInvalidation
-getInvalidation p1 p2 = GetInvalidation
+getInvalidation2014_05_31 :: Text -- ^ 'giDistributionId'
+                          -> Text -- ^ 'giId'
+                          -> GetInvalidation2014_05_31
+getInvalidation2014_05_31 p1 p2 = GetInvalidation2014_05_31
     { _giDistributionId = p1
-    , _giId = p2
+    , _giId             = p2
     }
 
 -- | The distribution's id.
-giDistributionId :: Lens' GetInvalidation Text
-giDistributionId =
-    lens _giDistributionId (\s a -> s { _giDistributionId = a })
+giDistributionId :: Lens' GetInvalidation2014_05_31 Text
+giDistributionId = lens _giDistributionId (\s a -> s { _giDistributionId = a })
 
 -- | The invalidation's id.
-giId :: Lens' GetInvalidation Text
+giId :: Lens' GetInvalidation2014_05_31 Text
 giId = lens _giId (\s a -> s { _giId = a })
 
-instance ToPath GetInvalidation
+instance ToPath GetInvalidation2014_05_31 where
+    toPath GetInvalidation2014_05_31{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _giDistributionId
+        , "/invalidation/"
+        , toText _giId
+        ]
 
-instance ToQuery GetInvalidation
+instance ToQuery GetInvalidation2014_05_31 where
+    toQuery = const mempty
 
-instance ToHeaders GetInvalidation
+instance ToHeaders GetInvalidation2014_05_31
 
-instance ToXML GetInvalidation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetInvalidation"
-
--- | The returned result of the corresponding request.
-newtype GetInvalidationResponse = GetInvalidationResponse
+newtype GetInvalidation2014_05_31Response = GetInvalidation2014_05_31Response
     { _girInvalidation :: Maybe Invalidation
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetInvalidationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetInvalidation2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Invalidation ::@ @Maybe Invalidation@
+-- * 'girInvalidation' @::@ 'Maybe' 'Invalidation'
 --
-getInvalidationResponse :: GetInvalidationResponse
-getInvalidationResponse = GetInvalidationResponse
+getInvalidation2014_05_31Response :: GetInvalidation2014_05_31Response
+getInvalidation2014_05_31Response = GetInvalidation2014_05_31Response
     { _girInvalidation = Nothing
     }
 
 -- | The invalidation's information.
-girInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
+girInvalidation :: Lens' GetInvalidation2014_05_31Response (Maybe Invalidation)
 girInvalidation = lens _girInvalidation (\s a -> s { _girInvalidation = a })
 
-instance FromXML GetInvalidationResponse where
-    fromXMLOptions = xmlOptions
+instance AWSRequest GetInvalidation2014_05_31 where
+    type Sv GetInvalidation2014_05_31 = CloudFront
+    type Rs GetInvalidation2014_05_31 = GetInvalidation2014_05_31Response
 
-instance AWSRequest GetInvalidation where
-    type Sv GetInvalidation = CloudFront
-    type Rs GetInvalidation = GetInvalidationResponse
-
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetInvalidation2014_05_31Response
+        <$> x %| "Invalidation"

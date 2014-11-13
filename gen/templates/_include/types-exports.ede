@@ -1,0 +1,61 @@
+{-# LANGUAGE DeriveDataTypeable          #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE TypeFamilies                #-}
+
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+{% include "license.ede" %}
+
+{% if documentation %}
+{{ documentation | above(74, 0) }}
+{% endif %}
+module {{ namespace }}
+    (
+    -- * Service
+      {{ service.abbrev }}
+    -- ** Error
+    , {{ service.error }}
+{% case service.protocol %}
+{% when "json" %}
+{% else %}
+    -- ** XML
+    , xmlOptions
+{% endcase %}
+
+{% for type in types %}
+    -- * {{ type.value.name }}
+  {% case type.value.type %}
+  {% when "nullary" %}
+    , {{ type.value.name }} (..)
+  {% when "newtype" %}
+    , {{ type.value.name }}
+    , {{ type.value.ctor }}
+    {% for field in type.value.fields %}
+    , {{ field.value.lens }}
+    {% endfor %}
+  {% when "record" %}
+    , {{ type.value.name }}
+    , {{ type.value.ctor }}
+    {% for field in type.value.fields %}
+    , {{ field.value.lens }}
+    {% endfor %}
+  {% else %}
+    , {{ type.value.name }}
+  {% endcase %}
+  {% if !type.last %}
+
+  {% endif %}
+{% endfor %}
+{% for module in imports %}
+  {% if module.first %}
+
+    -- * Common
+  {% endif %}
+    , module {{ module.value }}
+{% endfor %}
+    ) where

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ImportExport.CreateJob
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,158 +32,143 @@ module Network.AWS.ImportExport.CreateJob
     -- ** Request constructor
     , createJob
     -- ** Request lenses
-    , cj1JobType
-    , cj1Manifest
-    , cj1ManifestAddendum
-    , cj1ValidateOnly
+    , cjJobType
+    , cjManifest
+    , cjManifestAddendum
+    , cjValidateOnly
 
     -- * Response
     , CreateJobResponse
     -- ** Response constructor
     , createJobResponse
     -- ** Response lenses
-    , cjrrJobId
-    , cjrrJobType
-    , cjrrAwsShippingAddress
-    , cjrrSignature
-    , cjrrSignatureFileContents
-    , cjrrWarningMessage
+    , cjrAwsShippingAddress
+    , cjrJobId
+    , cjrJobType
+    , cjrSignature
+    , cjrSignatureFileContents
+    , cjrWarningMessage
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input structure for the CreateJob operation.
 data CreateJob = CreateJob
-    { _cj1JobType :: JobType
-    , _cj1Manifest :: Text
-    , _cj1ManifestAddendum :: Maybe Text
-    , _cj1ValidateOnly :: !Bool
+    { _cjJobType          :: Text
+    , _cjManifest         :: Text
+    , _cjManifestAddendum :: Maybe Text
+    , _cjValidateOnly     :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateJob' request.
+-- | 'CreateJob' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @JobType ::@ @JobType@
+-- * 'cjJobType' @::@ 'Text'
 --
--- * @Manifest ::@ @Text@
+-- * 'cjManifest' @::@ 'Text'
 --
--- * @ManifestAddendum ::@ @Maybe Text@
+-- * 'cjManifestAddendum' @::@ 'Maybe' 'Text'
 --
--- * @ValidateOnly ::@ @Bool@
+-- * 'cjValidateOnly' @::@ 'Bool'
 --
-createJob :: JobType -- ^ 'cj1JobType'
-          -> Text -- ^ 'cj1Manifest'
-          -> Bool -- ^ 'cj1ValidateOnly'
+createJob :: Text -- ^ 'cjJobType'
+          -> Text -- ^ 'cjManifest'
+          -> Bool -- ^ 'cjValidateOnly'
           -> CreateJob
-createJob p1 p2 p4 = CreateJob
-    { _cj1JobType = p1
-    , _cj1Manifest = p2
-    , _cj1ManifestAddendum = Nothing
-    , _cj1ValidateOnly = p4
+createJob p1 p2 p3 = CreateJob
+    { _cjJobType          = p1
+    , _cjManifest         = p2
+    , _cjValidateOnly     = p3
+    , _cjManifestAddendum = Nothing
     }
 
--- | Specifies whether the job to initiate is an import or export job.
-cj1JobType :: Lens' CreateJob JobType
-cj1JobType = lens _cj1JobType (\s a -> s { _cj1JobType = a })
+cjJobType :: Lens' CreateJob Text
+cjJobType = lens _cjJobType (\s a -> s { _cjJobType = a })
 
--- | The UTF-8 encoded text of the manifest file.
-cj1Manifest :: Lens' CreateJob Text
-cj1Manifest = lens _cj1Manifest (\s a -> s { _cj1Manifest = a })
+cjManifest :: Lens' CreateJob Text
+cjManifest = lens _cjManifest (\s a -> s { _cjManifest = a })
 
--- | For internal use only.
-cj1ManifestAddendum :: Lens' CreateJob (Maybe Text)
-cj1ManifestAddendum =
-    lens _cj1ManifestAddendum (\s a -> s { _cj1ManifestAddendum = a })
+cjManifestAddendum :: Lens' CreateJob (Maybe Text)
+cjManifestAddendum =
+    lens _cjManifestAddendum (\s a -> s { _cjManifestAddendum = a })
 
--- | Validate the manifest and parameter values in the request but do not
--- actually create a job.
-cj1ValidateOnly :: Lens' CreateJob Bool
-cj1ValidateOnly = lens _cj1ValidateOnly (\s a -> s { _cj1ValidateOnly = a })
+cjValidateOnly :: Lens' CreateJob Bool
+cjValidateOnly = lens _cjValidateOnly (\s a -> s { _cjValidateOnly = a })
 
-instance ToQuery CreateJob where
-    toQuery = genericQuery def
+instance ToQuery CreateJob
 
--- | Output structure for the CreateJob operation.
+instance ToPath CreateJob where
+    toPath = const "/"
+
 data CreateJobResponse = CreateJobResponse
-    { _cjrrJobId :: Maybe Text
-    , _cjrrJobType :: Maybe JobType
-    , _cjrrAwsShippingAddress :: Maybe Text
-    , _cjrrSignature :: Maybe Text
-    , _cjrrSignatureFileContents :: Maybe Text
-    , _cjrrWarningMessage :: Maybe Text
+    { _cjrAwsShippingAddress    :: Maybe Text
+    , _cjrJobId                 :: Maybe Text
+    , _cjrJobType               :: Maybe Text
+    , _cjrSignature             :: Maybe Text
+    , _cjrSignatureFileContents :: Maybe Text
+    , _cjrWarningMessage        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateJobResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateJobResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @JobId ::@ @Maybe Text@
+-- * 'cjrAwsShippingAddress' @::@ 'Maybe' 'Text'
 --
--- * @JobType ::@ @Maybe JobType@
+-- * 'cjrJobId' @::@ 'Maybe' 'Text'
 --
--- * @AwsShippingAddress ::@ @Maybe Text@
+-- * 'cjrJobType' @::@ 'Maybe' 'Text'
 --
--- * @Signature ::@ @Maybe Text@
+-- * 'cjrSignature' @::@ 'Maybe' 'Text'
 --
--- * @SignatureFileContents ::@ @Maybe Text@
+-- * 'cjrSignatureFileContents' @::@ 'Maybe' 'Text'
 --
--- * @WarningMessage ::@ @Maybe Text@
+-- * 'cjrWarningMessage' @::@ 'Maybe' 'Text'
 --
 createJobResponse :: CreateJobResponse
 createJobResponse = CreateJobResponse
-    { _cjrrJobId = Nothing
-    , _cjrrJobType = Nothing
-    , _cjrrAwsShippingAddress = Nothing
-    , _cjrrSignature = Nothing
-    , _cjrrSignatureFileContents = Nothing
-    , _cjrrWarningMessage = Nothing
+    { _cjrJobId                 = Nothing
+    , _cjrJobType               = Nothing
+    , _cjrAwsShippingAddress    = Nothing
+    , _cjrSignature             = Nothing
+    , _cjrSignatureFileContents = Nothing
+    , _cjrWarningMessage        = Nothing
     }
 
--- | A unique identifier which refers to a particular job.
-cjrrJobId :: Lens' CreateJobResponse (Maybe Text)
-cjrrJobId = lens _cjrrJobId (\s a -> s { _cjrrJobId = a })
+cjrAwsShippingAddress :: Lens' CreateJobResponse (Maybe Text)
+cjrAwsShippingAddress =
+    lens _cjrAwsShippingAddress (\s a -> s { _cjrAwsShippingAddress = a })
 
--- | Specifies whether the job to initiate is an import or export job.
-cjrrJobType :: Lens' CreateJobResponse (Maybe JobType)
-cjrrJobType = lens _cjrrJobType (\s a -> s { _cjrrJobType = a })
+cjrJobId :: Lens' CreateJobResponse (Maybe Text)
+cjrJobId = lens _cjrJobId (\s a -> s { _cjrJobId = a })
 
--- | Address you ship your storage device to.
-cjrrAwsShippingAddress :: Lens' CreateJobResponse (Maybe Text)
-cjrrAwsShippingAddress =
-    lens _cjrrAwsShippingAddress (\s a -> s { _cjrrAwsShippingAddress = a })
+cjrJobType :: Lens' CreateJobResponse (Maybe Text)
+cjrJobType = lens _cjrJobType (\s a -> s { _cjrJobType = a })
 
--- | An encrypted code used to authenticate the request and response, for
--- example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to
--- create the signature file yourself. Generally you should use the
--- SignatureFileContents value.
-cjrrSignature :: Lens' CreateJobResponse (Maybe Text)
-cjrrSignature = lens _cjrrSignature (\s a -> s { _cjrrSignature = a })
+cjrSignature :: Lens' CreateJobResponse (Maybe Text)
+cjrSignature = lens _cjrSignature (\s a -> s { _cjrSignature = a })
 
--- | The actual text of the SIGNATURE file to be written to disk.
-cjrrSignatureFileContents :: Lens' CreateJobResponse (Maybe Text)
-cjrrSignatureFileContents =
-    lens _cjrrSignatureFileContents
-         (\s a -> s { _cjrrSignatureFileContents = a })
+cjrSignatureFileContents :: Lens' CreateJobResponse (Maybe Text)
+cjrSignatureFileContents =
+    lens _cjrSignatureFileContents
+        (\s a -> s { _cjrSignatureFileContents = a })
 
--- | An optional message notifying you of non-fatal issues with the job, such as
--- use of an incompatible Amazon S3 bucket name.
-cjrrWarningMessage :: Lens' CreateJobResponse (Maybe Text)
-cjrrWarningMessage =
-    lens _cjrrWarningMessage (\s a -> s { _cjrrWarningMessage = a })
-
-instance FromXML CreateJobResponse where
-    fromXMLOptions = xmlOptions
+cjrWarningMessage :: Lens' CreateJobResponse (Maybe Text)
+cjrWarningMessage =
+    lens _cjrWarningMessage (\s a -> s { _cjrWarningMessage = a })
 
 instance AWSRequest CreateJob where
     type Sv CreateJob = ImportExport
     type Rs CreateJob = CreateJobResponse
 
-    request = post "CreateJob"
-    response _ = xmlResponse
+    request  = post "CreateJob"
+    response = xmlResponse $ \h x -> CreateJobResponse
+        <$> x %| "AwsShippingAddress"
+        <*> x %| "JobId"
+        <*> x %| "JobType"
+        <*> x %| "Signature"
+        <*> x %| "SignatureFileContents"
+        <*> x %| "WarningMessage"

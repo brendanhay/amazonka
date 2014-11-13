@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ImportExport.CancelJob
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,21 +39,20 @@ module Network.AWS.ImportExport.CancelJob
     , cjrSuccess
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input structure for the CancelJob operation.
 newtype CancelJob = CancelJob
     { _cjJobId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelJob' request.
+-- | 'CancelJob' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @JobId ::@ @Text@
+-- * 'cjJobId' @::@ 'Text'
 --
 cancelJob :: Text -- ^ 'cjJobId'
           -> CancelJob
@@ -59,42 +60,36 @@ cancelJob p1 = CancelJob
     { _cjJobId = p1
     }
 
--- | A unique identifier which refers to a particular job.
 cjJobId :: Lens' CancelJob Text
 cjJobId = lens _cjJobId (\s a -> s { _cjJobId = a })
 
-instance ToQuery CancelJob where
-    toQuery = genericQuery def
+instance ToQuery CancelJob
 
--- | Output structure for the CancelJob operation.
+instance ToPath CancelJob where
+    toPath = const "/"
+
 newtype CancelJobResponse = CancelJobResponse
     { _cjrSuccess :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelJobResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CancelJobResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Success ::@ @Maybe Bool@
+-- * 'cjrSuccess' @::@ 'Maybe' 'Bool'
 --
 cancelJobResponse :: CancelJobResponse
 cancelJobResponse = CancelJobResponse
     { _cjrSuccess = Nothing
     }
 
--- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
 cjrSuccess :: Lens' CancelJobResponse (Maybe Bool)
 cjrSuccess = lens _cjrSuccess (\s a -> s { _cjrSuccess = a })
-
-instance FromXML CancelJobResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest CancelJob where
     type Sv CancelJob = ImportExport
     type Rs CancelJob = CancelJobResponse
 
-    request = post "CancelJob"
-    response _ = xmlResponse
+    request  = post "CancelJob"
+    response = xmlResponse $ \h x -> CancelJobResponse
+        <$> x %| "Success"

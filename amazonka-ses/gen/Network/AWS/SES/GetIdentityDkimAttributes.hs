@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SES.GetIdentityDkimAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,19 +32,7 @@
 -- only returned for domain name identities, not for email addresses. This
 -- action is throttled at one request per second. For more information about
 -- creating DNS records using DKIM tokens, go to the Amazon SES Developer
--- Guide. POST / HTTP/1.1 Date: Fri, 29 Jun 2012 22:41:32 GMT Host:
--- email.us-east-1.amazonaws.com Content-Type:
--- application/x-www-form-urlencoded X-Amzn-Authorization: AWS3
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
--- Signature=MJdhrIAt3c4BRC6jdzueMM+AJLEx17bnIHjZwlSenyk=,
--- Algorithm=HmacSHA256, SignedHeaders=Date;Host Content-Length: 165
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=GetIdentityDkimAttributes
--- &Identities.member.1=example.com &Timestamp=2012-06-29T22%3A41%3A32.000Z
--- &Version=2010-12-01 amazon.com true Success
--- vvjuipp74whm76gqoni7qmwwn4w4qusjiainivf6f
--- 3frqe7jn4obpuxjpwpolz6ipb3k5nvt2nhjpik2oy
--- wrqplteh7oodxnad7hsl4mixg2uavzneazxv5sxi2
--- bb5a105d-c468-11e1-82eb-dff885ccc06a.
+-- Guide.
 module Network.AWS.SES.GetIdentityDkimAttributes
     (
     -- * Request
@@ -60,31 +50,30 @@ module Network.AWS.SES.GetIdentityDkimAttributes
     , gidarDkimAttributes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Given a list of verified identities, describes their DKIM attributes. The
--- DKIM attributes of an email address identity includes whether DKIM signing
--- is individually enabled or disabled for that address. The DKIM attributes
--- of a domain name identity includes whether DKIM signing is enabled, as well
--- as the DNS records (tokens) that must remain published in the domain name's
--- DNS.
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidaIdentities :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetIdentityDkimAttributes' request.
+instance GHC.Exts.IsList GetIdentityDkimAttributes where
+    type Item GetIdentityDkimAttributes = Text
+
+    fromList = GetIdentityDkimAttributes . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gidaIdentities
+
+-- | 'GetIdentityDkimAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Identities ::@ @[Text]@
+-- * 'gidaIdentities' @::@ ['Text']
 --
-getIdentityDkimAttributes :: [Text] -- ^ 'gidaIdentities'
-                          -> GetIdentityDkimAttributes
-getIdentityDkimAttributes p1 = GetIdentityDkimAttributes
-    { _gidaIdentities = p1
+getIdentityDkimAttributes :: GetIdentityDkimAttributes
+getIdentityDkimAttributes = GetIdentityDkimAttributes
+    { _gidaIdentities = mempty
     }
 
 -- | A list of one or more verified identities - email addresses, domains, or
@@ -92,40 +81,36 @@ getIdentityDkimAttributes p1 = GetIdentityDkimAttributes
 gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
 gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a })
 
-instance ToQuery GetIdentityDkimAttributes where
-    toQuery = genericQuery def
+instance ToQuery GetIdentityDkimAttributes
 
--- | Represents a list of all the DKIM attributes for the specified identity.
+instance ToPath GetIdentityDkimAttributes where
+    toPath = const "/"
+
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetIdentityDkimAttributesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetIdentityDkimAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DkimAttributes ::@ @Map Text IdentityDkimAttributes@
+-- * 'gidarDkimAttributes' @::@ 'HashMap' 'Text' 'IdentityDkimAttributes'
 --
-getIdentityDkimAttributesResponse :: Map Text IdentityDkimAttributes -- ^ 'gidarDkimAttributes'
-                                  -> GetIdentityDkimAttributesResponse
-getIdentityDkimAttributesResponse p1 = GetIdentityDkimAttributesResponse
-    { _gidarDkimAttributes = p1
+getIdentityDkimAttributesResponse :: GetIdentityDkimAttributesResponse
+getIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
+    { _gidarDkimAttributes = mempty
     }
 
 -- | The DKIM attributes for an email address or a domain.
-gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (Map Text IdentityDkimAttributes)
+gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
 gidarDkimAttributes =
     lens _gidarDkimAttributes (\s a -> s { _gidarDkimAttributes = a })
-
-instance FromXML GetIdentityDkimAttributesResponse where
-    fromXMLOptions = xmlOptions
+        . _Map
 
 instance AWSRequest GetIdentityDkimAttributes where
     type Sv GetIdentityDkimAttributes = SES
     type Rs GetIdentityDkimAttributes = GetIdentityDkimAttributesResponse
 
-    request = post "GetIdentityDkimAttributes"
-    response _ = xmlResponse
+    request  = post "GetIdentityDkimAttributes"
+    response = xmlResponse $ \h x -> GetIdentityDkimAttributesResponse
+        <$> x %| "DkimAttributes"

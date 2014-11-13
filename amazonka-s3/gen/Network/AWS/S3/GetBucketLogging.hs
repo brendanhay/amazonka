@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,70 +36,67 @@ module Network.AWS.S3.GetBucketLogging
     -- ** Response constructor
     , getBucketLoggingResponse
     -- ** Response lenses
-    , gblr1LoggingEnabled
+    , gblrLoggingEnabled
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketLogging = GetBucketLogging
-    { _gbl2Bucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbl2Bucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketLogging' request.
+-- | 'GetBucketLogging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'gbl2Bucket' @::@ 'Text'
 --
-getBucketLogging :: BucketName -- ^ 'gbl2Bucket'
+getBucketLogging :: Text -- ^ 'gbl2Bucket'
                  -> GetBucketLogging
 getBucketLogging p1 = GetBucketLogging
     { _gbl2Bucket = p1
     }
 
-gbl2Bucket :: Lens' GetBucketLogging BucketName
+gbl2Bucket :: Lens' GetBucketLogging Text
 gbl2Bucket = lens _gbl2Bucket (\s a -> s { _gbl2Bucket = a })
 
-instance ToPath GetBucketLogging
+instance ToPath GetBucketLogging where
+    toPath GetBucketLogging{..} = mconcat
+        [ "/"
+        , toText _gbl2Bucket
+        ]
 
-instance ToQuery GetBucketLogging
+instance ToQuery GetBucketLogging where
+    toQuery = const "logging"
 
 instance ToHeaders GetBucketLogging
 
-instance ToBody GetBucketLogging
-
 newtype GetBucketLoggingResponse = GetBucketLoggingResponse
-    { _gblr1LoggingEnabled :: Maybe LoggingEnabled
-    } deriving (Eq, Ord, Show, Generic)
+    { _gblrLoggingEnabled :: Maybe LoggingEnabled
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketLoggingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetBucketLoggingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoggingEnabled ::@ @Maybe LoggingEnabled@
+-- * 'gblrLoggingEnabled' @::@ 'Maybe' 'LoggingEnabled'
 --
 getBucketLoggingResponse :: GetBucketLoggingResponse
 getBucketLoggingResponse = GetBucketLoggingResponse
-    { _gblr1LoggingEnabled = Nothing
+    { _gblrLoggingEnabled = Nothing
     }
 
-gblr1LoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
-gblr1LoggingEnabled =
-    lens _gblr1LoggingEnabled (\s a -> s { _gblr1LoggingEnabled = a })
-
-instance FromXML GetBucketLoggingResponse where
-    fromXMLOptions = xmlOptions
+gblrLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
+gblrLoggingEnabled =
+    lens _gblrLoggingEnabled (\s a -> s { _gblrLoggingEnabled = a })
 
 instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
     type Rs GetBucketLogging = GetBucketLoggingResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetBucketLoggingResponse
+        <$> x %| "LoggingEnabled"

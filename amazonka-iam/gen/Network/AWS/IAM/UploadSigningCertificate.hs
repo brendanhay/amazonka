@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.UploadSigningCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,46 +26,8 @@
 -- certificate, its default status is Active. If the UserName field is not
 -- specified, the user name is determined implicitly based on the AWS access
 -- key ID used to sign the request. Because this action works for access keys
--- under the AWS account, this API can be used to manage root credentials even
--- if the AWS account has no associated users. Because the body of a X.509
--- certificate can be large, you should use POST rather than GET when calling
--- UploadSigningCertificate. For information about setting up signatures and
--- authorization through the API, go to Signing AWS API Requests in the AWS
--- General Reference. For general information about using the Query API with
--- IAM, go to Making Query Requests in the Using IAMguide. POST / HTTP/1.1
--- Host: iam.amazonaws.com Content-Type: application/x-www-form-urlencoded
--- Action=UploadSigningCertificate &UserName=Bob &CertificateBody=-----BEGIN
--- CERTIFICATE-----
--- MIICdzCCAeCgAwIBAgIGANc+Ha2wMA0GCSqGSIb3DQEBBQUAMFMxCzAJBgNVBAYT
--- AlVTMRMwEQYDVQQKEwpBbWF6b24uY29tMQwwCgYDVQQLEwNBV1MxITAfBgNVBAMT
--- GEFXUyBMaW1pdGVkLUFzc3VyYW5jZSBDQTAeFw0wOTAyMDQxNzE5MjdaFw0xMDAy
--- MDQxNzE5MjdaMFIxCzAJBgNVBAYTAlVTMRMwEQYDVQQKEwpBbWF6b24uY29tMRcw
--- FQYDVQQLEw5BV1MtRGV2ZWxvcGVyczEVMBMGA1UEAxMMNTdxNDl0c3ZwYjRtMIGf
--- MA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCpB/vsOwmT/O0td1RqzKjttSBaPjbr
--- dqwNe9BrOyB08fw2+Ch5oonZYXfGUrT6mkYXH5fQot9HvASrzAKHO596FdJA6DmL
--- ywdWe1Oggk7zFSXO1Xv+3vPrJtaYxYo3eRIp7w80PMkiOv6M0XK8ubcTouODeJbf
--- suDqcLnLDxwsvwIDAQABo1cwVTAOBgNVHQ8BAf8EBAMCBaAwFgYDVR0lAQH/BAww
--- CgYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQULGNaBphBumaKbDRK
--- CAi0mH8B3mowDQYJKoZIhvcNAQEFBQADgYEAuKxhkXaCLGcqDuweKtO/AEw9ZePH
--- wr0XqsaIK2HZboqruebXEGsojK4Ks0WzwgrEynuHJwTn760xe39rSqXWIOGrOBaX
--- wFpWHVjTFMKk+tSDG1lssLHyYWWdFFU4AnejRGORJYNaRHgVTKjHphc5jEhHm0BX
--- AEaHzTpmEXAMPLE= -----END CERTIFICATE----- &Version=2010-05-08 &AUTHPARAMS
--- Bob TA7SMP42TDN5Z26OBPJE7EXAMPLE -----BEGIN CERTIFICATE-----
--- MIICdzCCAeCgAwIBAgIGANc+Ha2wMA0GCSqGSIb3DQEBBQUAMFMxCzAJBgNVBAYT
--- AlVTMRMwEQYDVQQKEwpBbWF6b24uY29tMQwwCgYDVQQLEwNBV1MxITAfBgNVBAMT
--- GEFXUyBMaW1pdGVkLUFzc3VyYW5jZSBDQTAeFw0wOTAyMDQxNzE5MjdaFw0xMDAy
--- MDQxNzE5MjdaMFIxCzAJBgNVBAYTAlVTMRMwEQYDVQQKEwpBbWF6b24uY29tMRcw
--- FQYDVQQLEw5BV1MtRGV2ZWxvcGVyczEVMBMGA1UEAxMMNTdxNDl0c3ZwYjRtMIGf
--- MA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCpB/vsOwmT/O0td1RqzKjttSBaPjbr
--- dqwNe9BrOyB08fw2+Ch5oonZYXfGUrT6mkYXH5fQot9HvASrzAKHO596FdJA6DmL
--- ywdWe1Oggk7zFSXO1Xv+3vPrJtaYxYo3eRIp7w80PMkiOv6M0XK8ubcTouODeJbf
--- suDqcLnLDxwsvwIDAQABo1cwVTAOBgNVHQ8BAf8EBAMCBaAwFgYDVR0lAQH/BAww
--- CgYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQULGNaBphBumaKbDRK
--- CAi0mH8B3mowDQYJKoZIhvcNAQEFBQADgYEAuKxhkXaCLGcqDuweKtO/AEw9ZePH
--- wr0XqsaIK2HZboqruebXEGsojK4Ks0WzwgrEynuHJwTn760xe39rSqXWIOGrOBaX
--- wFpWHVjTFMKk+tSDG1lssLHyYWWdFFU4AnejRGORJYNaRHgVTKjHphc5jEhHm0BX
--- AEaHzTpmEXAMPLE= -----END CERTIFICATE----- Active
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- under the AWS account, you can use this action to manage root credentials
+-- even if the AWS account has no associated users.
 module Network.AWS.IAM.UploadSigningCertificate
     (
     -- * Request
@@ -71,86 +35,80 @@ module Network.AWS.IAM.UploadSigningCertificate
     -- ** Request constructor
     , uploadSigningCertificate
     -- ** Request lenses
-    , usc3UserName
-    , usc3CertificateBody
+    , usc1CertificateBody
+    , usc1UserName
 
     -- * Response
     , UploadSigningCertificateResponse
     -- ** Response constructor
     , uploadSigningCertificateResponse
     -- ** Response lenses
-    , uscrrCertificate
+    , uscrCertificate
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data UploadSigningCertificate = UploadSigningCertificate
-    { _usc3UserName :: Maybe Text
-    , _usc3CertificateBody :: Text
+    { _usc1CertificateBody :: Text
+    , _usc1UserName        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UploadSigningCertificate' request.
+-- | 'UploadSigningCertificate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Maybe Text@
+-- * 'usc1CertificateBody' @::@ 'Text'
 --
--- * @CertificateBody ::@ @Text@
+-- * 'usc1UserName' @::@ 'Maybe' 'Text'
 --
-uploadSigningCertificate :: Text -- ^ 'usc3CertificateBody'
+uploadSigningCertificate :: Text -- ^ 'usc1CertificateBody'
                          -> UploadSigningCertificate
-uploadSigningCertificate p2 = UploadSigningCertificate
-    { _usc3UserName = Nothing
-    , _usc3CertificateBody = p2
+uploadSigningCertificate p1 = UploadSigningCertificate
+    { _usc1CertificateBody = p1
+    , _usc1UserName        = Nothing
     }
 
--- | Name of the user the signing certificate is for.
-usc3UserName :: Lens' UploadSigningCertificate (Maybe Text)
-usc3UserName = lens _usc3UserName (\s a -> s { _usc3UserName = a })
-
 -- | The contents of the signing certificate.
-usc3CertificateBody :: Lens' UploadSigningCertificate Text
-usc3CertificateBody =
-    lens _usc3CertificateBody (\s a -> s { _usc3CertificateBody = a })
+usc1CertificateBody :: Lens' UploadSigningCertificate Text
+usc1CertificateBody =
+    lens _usc1CertificateBody (\s a -> s { _usc1CertificateBody = a })
 
-instance ToQuery UploadSigningCertificate where
-    toQuery = genericQuery def
+-- | The name of the user the signing certificate is for.
+usc1UserName :: Lens' UploadSigningCertificate (Maybe Text)
+usc1UserName = lens _usc1UserName (\s a -> s { _usc1UserName = a })
 
--- | Contains the result of a successful invocation of the
--- UploadSigningCertificate action.
+instance ToQuery UploadSigningCertificate
+
+instance ToPath UploadSigningCertificate where
+    toPath = const "/"
+
 newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
-    { _uscrrCertificate :: SigningCertificate
-    } deriving (Eq, Ord, Show, Generic)
+    { _uscrCertificate :: SigningCertificate
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UploadSigningCertificateResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UploadSigningCertificateResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Certificate ::@ @SigningCertificate@
+-- * 'uscrCertificate' @::@ 'SigningCertificate'
 --
-uploadSigningCertificateResponse :: SigningCertificate -- ^ 'uscrrCertificate'
+uploadSigningCertificateResponse :: SigningCertificate -- ^ 'uscrCertificate'
                                  -> UploadSigningCertificateResponse
 uploadSigningCertificateResponse p1 = UploadSigningCertificateResponse
-    { _uscrrCertificate = p1
+    { _uscrCertificate = p1
     }
 
 -- | Information about the certificate.
-uscrrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
-uscrrCertificate =
-    lens _uscrrCertificate (\s a -> s { _uscrrCertificate = a })
-
-instance FromXML UploadSigningCertificateResponse where
-    fromXMLOptions = xmlOptions
+uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
+uscrCertificate = lens _uscrCertificate (\s a -> s { _uscrCertificate = a })
 
 instance AWSRequest UploadSigningCertificate where
     type Sv UploadSigningCertificate = IAM
     type Rs UploadSigningCertificate = UploadSigningCertificateResponse
 
-    request = post "UploadSigningCertificate"
-    response _ = xmlResponse
+    request  = post "UploadSigningCertificate"
+    response = xmlResponse $ \h x -> UploadSigningCertificateResponse
+        <$> x %| "Certificate"

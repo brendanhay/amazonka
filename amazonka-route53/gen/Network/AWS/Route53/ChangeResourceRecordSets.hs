@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53.ChangeResourceRecordSets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,8 +47,8 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     -- ** Request constructor
     , changeResourceRecordSets
     -- ** Request lenses
-    , crrsHostedZoneId
     , crrsChangeBatch
+    , crrsHostedZoneId
 
     -- * Response
     , ChangeResourceRecordSetsResponse
@@ -56,67 +58,65 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     , crrsrChangeInfo
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
--- | A complex type that contains a change batch.
 data ChangeResourceRecordSets = ChangeResourceRecordSets
-    { _crrsHostedZoneId :: ResourceId
-    , _crrsChangeBatch :: ChangeBatch
-    } deriving (Eq, Ord, Show, Generic)
+    { _crrsChangeBatch  :: ChangeBatch
+    , _crrsHostedZoneId :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ChangeResourceRecordSets' request.
+-- | 'ChangeResourceRecordSets' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HostedZoneId ::@ @ResourceId@
+-- * 'crrsChangeBatch' @::@ 'ChangeBatch'
 --
--- * @ChangeBatch ::@ @ChangeBatch@
+-- * 'crrsHostedZoneId' @::@ 'Text'
 --
-changeResourceRecordSets :: ResourceId -- ^ 'crrsHostedZoneId'
+changeResourceRecordSets :: Text -- ^ 'crrsHostedZoneId'
                          -> ChangeBatch -- ^ 'crrsChangeBatch'
                          -> ChangeResourceRecordSets
 changeResourceRecordSets p1 p2 = ChangeResourceRecordSets
     { _crrsHostedZoneId = p1
-    , _crrsChangeBatch = p2
+    , _crrsChangeBatch  = p2
     }
-
--- | The ID of the hosted zone that contains the resource record sets that you
--- want to change.
-crrsHostedZoneId :: Lens' ChangeResourceRecordSets ResourceId
-crrsHostedZoneId =
-    lens _crrsHostedZoneId (\s a -> s { _crrsHostedZoneId = a })
 
 -- | A complex type that contains an optional comment and the Changes element.
 crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
 crrsChangeBatch = lens _crrsChangeBatch (\s a -> s { _crrsChangeBatch = a })
 
-instance ToPath ChangeResourceRecordSets
+-- | The ID of the hosted zone that contains the resource record sets that you
+-- want to change.
+crrsHostedZoneId :: Lens' ChangeResourceRecordSets Text
+crrsHostedZoneId = lens _crrsHostedZoneId (\s a -> s { _crrsHostedZoneId = a })
 
-instance ToQuery ChangeResourceRecordSets
+instance ToPath ChangeResourceRecordSets where
+    toPath ChangeResourceRecordSets{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _crrsHostedZoneId
+        , "/rrset/"
+        ]
+
+instance ToQuery ChangeResourceRecordSets where
+    toQuery = const mempty
 
 instance ToHeaders ChangeResourceRecordSets
 
-instance ToXML ChangeResourceRecordSets where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeResourceRecordSets"
+instance ToBody ChangeResourceRecordSets where
+    toBody = toBody . encodeXML . _crrsChangeBatch
 
--- | A complex type containing the response for the request.
 newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { _crrsrChangeInfo :: ChangeInfo
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ChangeResourceRecordSetsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ChangeResourceRecordSetsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ChangeInfo ::@ @ChangeInfo@
+-- * 'crrsrChangeInfo' @::@ 'ChangeInfo'
 --
 changeResourceRecordSetsResponse :: ChangeInfo -- ^ 'crrsrChangeInfo'
                                  -> ChangeResourceRecordSetsResponse
@@ -124,18 +124,16 @@ changeResourceRecordSetsResponse p1 = ChangeResourceRecordSetsResponse
     { _crrsrChangeInfo = p1
     }
 
--- | A complex type that contains information about changes made to your hosted
--- zone. This element contains an ID that you use when performing a GetChange
--- action to get detailed information about the change.
+-- | A complex type that contains information about changes made to your
+-- hosted zone. This element contains an ID that you use when performing a
+-- GetChange action to get detailed information about the change.
 crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrChangeInfo = lens _crrsrChangeInfo (\s a -> s { _crrsrChangeInfo = a })
-
-instance FromXML ChangeResourceRecordSetsResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest ChangeResourceRecordSets where
     type Sv ChangeResourceRecordSets = Route53
     type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = post
+    response = xmlResponse $ \h x -> ChangeResourceRecordSetsResponse
+        <$> x %| "ChangeInfo"

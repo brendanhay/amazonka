@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.DeleteStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,81 +24,77 @@
 module Network.AWS.CloudFront.DeleteStreamingDistribution
     (
     -- * Request
-      DeleteStreamingDistribution
+      DeleteStreamingDistribution2014_05_31
     -- ** Request constructor
-    , deleteStreamingDistribution
+    , deleteStreamingDistribution2014_05_31
     -- ** Request lenses
     , dsdId
     , dsdIfMatch
 
     -- * Response
-    , DeleteStreamingDistributionResponse
+    , DeleteStreamingDistribution2014_05_31Response
     -- ** Response constructor
-    , deleteStreamingDistributionResponse
+    , deleteStreamingDistribution2014_05_31Response
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to delete a streaming distribution.
-data DeleteStreamingDistribution = DeleteStreamingDistribution
-    { _dsdId :: Text
+data DeleteStreamingDistribution2014_05_31 = DeleteStreamingDistribution2014_05_31
+    { _dsdId      :: Text
     , _dsdIfMatch :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteStreamingDistribution' request.
+-- | 'DeleteStreamingDistribution2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'dsdId' @::@ 'Text'
 --
--- * @IfMatch ::@ @Maybe Text@
+-- * 'dsdIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteStreamingDistribution :: Text -- ^ 'dsdId'
-                            -> DeleteStreamingDistribution
-deleteStreamingDistribution p1 = DeleteStreamingDistribution
-    { _dsdId = p1
+deleteStreamingDistribution2014_05_31 :: Text -- ^ 'dsdId'
+                                      -> DeleteStreamingDistribution2014_05_31
+deleteStreamingDistribution2014_05_31 p1 = DeleteStreamingDistribution2014_05_31
+    { _dsdId      = p1
     , _dsdIfMatch = Nothing
     }
 
 -- | The distribution id.
-dsdId :: Lens' DeleteStreamingDistribution Text
+dsdId :: Lens' DeleteStreamingDistribution2014_05_31 Text
 dsdId = lens _dsdId (\s a -> s { _dsdId = a })
 
 -- | The value of the ETag header you received when you disabled the streaming
 -- distribution. For example: E2QWRUHAPOMQZL.
-dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
+dsdIfMatch :: Lens' DeleteStreamingDistribution2014_05_31 (Maybe Text)
 dsdIfMatch = lens _dsdIfMatch (\s a -> s { _dsdIfMatch = a })
 
-instance ToPath DeleteStreamingDistribution
+instance ToPath DeleteStreamingDistribution2014_05_31 where
+    toPath DeleteStreamingDistribution2014_05_31{..} = mconcat
+        [ "/2014-05-31/streaming-distribution/"
+        , toText _dsdId
+        ]
 
-instance ToQuery DeleteStreamingDistribution
+instance ToQuery DeleteStreamingDistribution2014_05_31 where
+    toQuery = const mempty
 
-instance ToHeaders DeleteStreamingDistribution where
-    toHeaders DeleteStreamingDistribution{..} = concat
+instance ToHeaders DeleteStreamingDistribution2014_05_31 where
+    toHeaders DeleteStreamingDistribution2014_05_31{..} = mconcat
         [ "If-Match" =: _dsdIfMatch
         ]
 
-instance ToXML DeleteStreamingDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteStreamingDistribution"
-
-data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
+data DeleteStreamingDistribution2014_05_31Response = DeleteStreamingDistribution2014_05_31Response
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteStreamingDistributionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
-deleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
-deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
+-- | 'DeleteStreamingDistribution2014_05_31Response' constructor.
+deleteStreamingDistribution2014_05_31Response :: DeleteStreamingDistribution2014_05_31Response
+deleteStreamingDistribution2014_05_31Response = DeleteStreamingDistribution2014_05_31Response
 
-instance AWSRequest DeleteStreamingDistribution where
-    type Sv DeleteStreamingDistribution = CloudFront
-    type Rs DeleteStreamingDistribution = DeleteStreamingDistributionResponse
+instance AWSRequest DeleteStreamingDistribution2014_05_31 where
+    type Sv DeleteStreamingDistribution2014_05_31 = CloudFront
+    type Rs DeleteStreamingDistribution2014_05_31 = DeleteStreamingDistribution2014_05_31Response
 
-    request = get
-    response _ = nullaryResponse DeleteStreamingDistributionResponse
+    request  = delete
+    response = nullaryResponse DeleteStreamingDistribution2014_05_31Response

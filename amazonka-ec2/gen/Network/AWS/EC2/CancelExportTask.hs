@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CancelExportTask
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,11 +23,7 @@
 -- | Cancels an active export task. The request removes all artifacts of the
 -- export, including any partially-created Amazon S3 objects. If the export
 -- task is complete or is in the process of transferring the final disk image,
--- the command fails and returns an error. Example This example request
--- cancels the export task with the ID export-i-1234wxyz.
--- https://ec2.amazonaws.com/?Action=CancelExportTask
--- &amp;exportTaskId=export-i-1234wxyz &amp;AUTHPARAMS
--- 59dbff89-35bd-4eac-99ed-be587EXAMPLE true.
+-- the command fails and returns an error.
 module Network.AWS.EC2.CancelExportTask
     (
     -- * Request
@@ -41,20 +39,20 @@ module Network.AWS.EC2.CancelExportTask
     , cancelExportTaskResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype CancelExportTask = CancelExportTask
     { _cetExportTaskId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelExportTask' request.
+-- | 'CancelExportTask' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ExportTaskId ::@ @Text@
+-- * 'cetExportTaskId' @::@ 'Text'
 --
 cancelExportTask :: Text -- ^ 'cetExportTaskId'
                  -> CancelExportTask
@@ -67,16 +65,15 @@ cancelExportTask p1 = CancelExportTask
 cetExportTaskId :: Lens' CancelExportTask Text
 cetExportTaskId = lens _cetExportTaskId (\s a -> s { _cetExportTaskId = a })
 
-instance ToQuery CancelExportTask where
-    toQuery = genericQuery def
+instance ToQuery CancelExportTask
+
+instance ToPath CancelExportTask where
+    toPath = const "/"
 
 data CancelExportTaskResponse = CancelExportTaskResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelExportTaskResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CancelExportTaskResponse' constructor.
 cancelExportTaskResponse :: CancelExportTaskResponse
 cancelExportTaskResponse = CancelExportTaskResponse
 
@@ -84,5 +81,5 @@ instance AWSRequest CancelExportTask where
     type Sv CancelExportTask = EC2
     type Rs CancelExportTask = CancelExportTaskResponse
 
-    request = post "CancelExportTask"
-    response _ = nullaryResponse CancelExportTaskResponse
+    request  = post "CancelExportTask"
+    response = nullaryResponse CancelExportTaskResponse

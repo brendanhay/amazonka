@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeStacks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,7 +32,7 @@ module Network.AWS.OpsWorks.DescribeStacks
     -- ** Request constructor
     , describeStacks
     -- ** Request lenses
-    , ds2StackIds
+    , dsStackIds
 
     -- * Response
     , DescribeStacksResponse
@@ -40,52 +42,62 @@ module Network.AWS.OpsWorks.DescribeStacks
     , dsrStacks
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype DescribeStacks = DescribeStacks
-    { _ds2StackIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dsStackIds :: [Text]
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeStacks' request.
+instance GHC.Exts.IsList DescribeStacks where
+    type Item DescribeStacks = Text
+
+    fromList = DescribeStacks . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsStackIds
+
+-- | 'DescribeStacks' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackIds ::@ @[Text]@
+-- * 'dsStackIds' @::@ ['Text']
 --
 describeStacks :: DescribeStacks
 describeStacks = DescribeStacks
-    { _ds2StackIds = mempty
+    { _dsStackIds = mempty
     }
 
--- | An array of stack IDs that specify the stacks to be described. If you omit
--- this parameter, DescribeStacks returns a description of every stack.
-ds2StackIds :: Lens' DescribeStacks [Text]
-ds2StackIds = lens _ds2StackIds (\s a -> s { _ds2StackIds = a })
+-- | An array of stack IDs that specify the stacks to be described. If you
+-- omit this parameter, DescribeStacks returns a description of every stack.
+dsStackIds :: Lens' DescribeStacks [Text]
+dsStackIds = lens _dsStackIds (\s a -> s { _dsStackIds = a })
 
-instance ToPath DescribeStacks
+instance ToPath DescribeStacks where
+    toPath = const "/"
 
-instance ToQuery DescribeStacks
+instance ToQuery DescribeStacks where
+    toQuery = const mempty
 
 instance ToHeaders DescribeStacks
 
-instance ToJSON DescribeStacks
+instance ToBody DescribeStacks where
+    toBody = toBody . encode . _dsStackIds
 
--- | Contains the response to a DescribeStacks request.
 newtype DescribeStacksResponse = DescribeStacksResponse
     { _dsrStacks :: [Stack]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeStacksResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeStacksResponse where
+    type Item DescribeStacksResponse = Stack
+
+    fromList = DescribeStacksResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsrStacks
+
+-- | 'DescribeStacksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Stacks ::@ @[Stack]@
+-- * 'dsrStacks' @::@ ['Stack']
 --
 describeStacksResponse :: DescribeStacksResponse
 describeStacksResponse = DescribeStacksResponse
@@ -96,11 +108,12 @@ describeStacksResponse = DescribeStacksResponse
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a })
 
-instance FromJSON DescribeStacksResponse
+-- FromJSON
 
 instance AWSRequest DescribeStacks where
     type Sv DescribeStacks = OpsWorks
     type Rs DescribeStacks = DescribeStacksResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeStacksResponse
+        <$> o .: "Stacks"

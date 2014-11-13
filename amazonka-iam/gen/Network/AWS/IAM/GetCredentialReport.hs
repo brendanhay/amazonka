@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.GetCredentialReport
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,89 +22,85 @@
 
 -- | Retrieves a credential report for the AWS account. For more information
 -- about the credential report, see Getting Credential Reports in the Using
--- IAM guide. https://iam.amazonaws.com/ ?Action=GetCredentialReport
--- &Version=2010-05-08 &AUTHPARAMS BASE-64 ENCODED FILE CONTENTS text/csv
--- 2014-08-28T21:42:50Z 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
+-- IAM guide.
 module Network.AWS.IAM.GetCredentialReport
     (
     -- * Request
       GetCredentialReport
     -- ** Request constructor
     , getCredentialReport
+
     -- * Response
     , GetCredentialReportResponse
     -- ** Response constructor
     , getCredentialReportResponse
     -- ** Response lenses
-    , gcrrrContent
-    , gcrrrReportFormat
-    , gcrrrGeneratedTime
+    , gcrrContent
+    , gcrrGeneratedTime
+    , gcrrReportFormat
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data GetCredentialReport = GetCredentialReport
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetCredentialReport' request.
+-- | 'GetCredentialReport' constructor.
 getCredentialReport :: GetCredentialReport
 getCredentialReport = GetCredentialReport
 
-instance ToQuery GetCredentialReport where
-    toQuery = genericQuery def
+instance ToQuery GetCredentialReport
 
--- | Contains the result of a successful invocation of the GetCredentialReport
--- action.
+instance ToPath GetCredentialReport where
+    toPath = const "/"
+
 data GetCredentialReportResponse = GetCredentialReportResponse
-    { _gcrrrContent :: Maybe ByteString
-    , _gcrrrReportFormat :: Maybe ReportFormatType
-    , _gcrrrGeneratedTime :: Maybe ISO8601
-    } deriving (Eq, Ord, Show, Generic)
+    { _gcrrContent       :: Maybe Base64
+    , _gcrrGeneratedTime :: Maybe RFC822
+    , _gcrrReportFormat  :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetCredentialReportResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetCredentialReportResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Content ::@ @Maybe ByteString@
+-- * 'gcrrContent' @::@ 'Maybe' 'Base64'
 --
--- * @ReportFormat ::@ @Maybe ReportFormatType@
+-- * 'gcrrGeneratedTime' @::@ 'Maybe' 'UTCTime'
 --
--- * @GeneratedTime ::@ @Maybe ISO8601@
+-- * 'gcrrReportFormat' @::@ 'Maybe' 'Text'
 --
 getCredentialReportResponse :: GetCredentialReportResponse
 getCredentialReportResponse = GetCredentialReportResponse
-    { _gcrrrContent = Nothing
-    , _gcrrrReportFormat = Nothing
-    , _gcrrrGeneratedTime = Nothing
+    { _gcrrContent       = Nothing
+    , _gcrrReportFormat  = Nothing
+    , _gcrrGeneratedTime = Nothing
     }
 
 -- | Contains the credential report. The report is Base64-encoded.
-gcrrrContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
-gcrrrContent = lens _gcrrrContent (\s a -> s { _gcrrrContent = a })
-
--- | The format (MIME type) of the credential report.
-gcrrrReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
-gcrrrReportFormat =
-    lens _gcrrrReportFormat (\s a -> s { _gcrrrReportFormat = a })
+gcrrContent :: Lens' GetCredentialReportResponse (Maybe Base64)
+gcrrContent = lens _gcrrContent (\s a -> s { _gcrrContent = a })
 
 -- | The time and date when the credential report was created, in ISO 8601
 -- date-time format.
-gcrrrGeneratedTime :: Lens' GetCredentialReportResponse (Maybe ISO8601)
-gcrrrGeneratedTime =
-    lens _gcrrrGeneratedTime (\s a -> s { _gcrrrGeneratedTime = a })
+gcrrGeneratedTime :: Lens' GetCredentialReportResponse (Maybe UTCTime)
+gcrrGeneratedTime =
+    lens _gcrrGeneratedTime (\s a -> s { _gcrrGeneratedTime = a })
+        . mapping _Time
 
-instance FromXML GetCredentialReportResponse where
-    fromXMLOptions = xmlOptions
+-- | The format (MIME type) of the credential report.
+gcrrReportFormat :: Lens' GetCredentialReportResponse (Maybe Text)
+gcrrReportFormat = lens _gcrrReportFormat (\s a -> s { _gcrrReportFormat = a })
 
 instance AWSRequest GetCredentialReport where
     type Sv GetCredentialReport = IAM
     type Rs GetCredentialReport = GetCredentialReportResponse
 
-    request = post "GetCredentialReport"
-    response _ = xmlResponse
+    request  = post "GetCredentialReport"
+    response = xmlResponse $ \h x -> GetCredentialReportResponse
+        <$> x %| "Content"
+        <*> x %| "GeneratedTime"
+        <*> x %| "ReportFormat"

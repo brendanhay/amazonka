@@ -1,11 +1,11 @@
 name:                  amazonka-ec2
 version:               0.0.0
-synopsis:              Amazon Elastic Compute Cloud SDK
+synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,19 +13,19 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud.
-    .
-    It is designed to make web-scale computing easier for developers.
-    .
-    Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction.
-    .
-    It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
-    .
-    Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, allowing you to quickly scale capacity, both up and down, as your computing requirements change.
-    .
-    Amazon EC2 changes the economics of computing by allowing you to pay only for capacity that you actually use.
-    .
-    Amazon EC2 provides developers the tools to build failure resilient applications and isolate themselves from common failure scenarios.
+    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that
+    provides resizable compute capacity in the cloud. It is designed to
+    make web-scale computing easier for developers. Amazon EC2’s simple web
+    service interface allows you to obtain and configure capacity with
+    minimal friction. It provides you with complete control of your
+    computing resources and lets you run on Amazon’s proven computing
+    environment. Amazon EC2 reduces the time required to obtain and boot
+    new server instances to minutes, allowing you to quickly scale
+    capacity, both up and down, as your computing requirements change.
+    Amazon EC2 changes the economics of computing by allowing you to pay
+    only for capacity that you actually use. Amazon EC2 provides developers
+    the tools to build failure resilient applications and isolate
+    themselves from common failure scenarios.
 
 source-repository head
     type:     git
@@ -39,7 +39,6 @@ library
 
     exposed-modules:
           Network.AWS.EC2
-        , Network.AWS.EC2.Types
         , Network.AWS.EC2.AcceptVpcPeeringConnection
         , Network.AWS.EC2.AllocateAddress
         , Network.AWS.EC2.AssignPrivateIpAddresses
@@ -192,8 +191,12 @@ library
         , Network.AWS.EC2.StartInstances
         , Network.AWS.EC2.StopInstances
         , Network.AWS.EC2.TerminateInstances
+        , Network.AWS.EC2.Types
         , Network.AWS.EC2.UnassignPrivateIpAddresses
         , Network.AWS.EC2.UnmonitorInstances
+
+    other-modules:
+          Network.AWS.EC2.Internal
 
     build-depends:
           amazonka-core

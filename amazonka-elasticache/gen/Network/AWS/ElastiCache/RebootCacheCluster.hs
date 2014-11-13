@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElastiCache.RebootCacheCluster
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,16 +27,6 @@
 -- During the reboot, the cache cluster status is set to REBOOTING. The reboot
 -- causes the contents of the cache (for each cache node being rebooted) to be
 -- lost. When the reboot is complete, a cache cluster event is created.
--- https://elasticache.us-east-1.amazonaws.com/ ?Action=RebootCacheCluster
--- &CacheClusterId=mycache &CacheNodeIdsToReboot.member.1=0001
--- &CacheNodeIdsToReboot.member.2=0002 &CacheNodeIdsToReboot.member.3=0003
--- &Version=2014-03-24 &SignatureVersion=4 &SignatureMethod=HmacSHA256
--- &Timestamp=20140401T192317Z &X-Amz-Credential= rebooting cache cluster
--- nodes default.memcached1.4 in-sync mycache 11211
--- mycache.q68zge.cfg.use1devo.elmo-dev.amazonaws.com cache.m1.small memcached
--- us-east-1b 2014-04-01T19:04:12.812Z 1.4.17 true wed:09:00-wed:10:00
--- https://console.aws.amazon.com/elasticache/home#client-download: default
--- active 3 cf7e6fc4-b9d1-11e3-8a16-7978bb24ffdf.
 module Network.AWS.ElastiCache.RebootCacheCluster
     (
     -- * Request
@@ -53,31 +45,29 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     , rccrCacheCluster
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents the input of a RebootCacheCluster operation.
 data RebootCacheCluster = RebootCacheCluster
-    { _rccCacheClusterId :: Text
+    { _rccCacheClusterId       :: Text
     , _rccCacheNodeIdsToReboot :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RebootCacheCluster' request.
+-- | 'RebootCacheCluster' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CacheClusterId ::@ @Text@
+-- * 'rccCacheClusterId' @::@ 'Text'
 --
--- * @CacheNodeIdsToReboot ::@ @[Text]@
+-- * 'rccCacheNodeIdsToReboot' @::@ ['Text']
 --
 rebootCacheCluster :: Text -- ^ 'rccCacheClusterId'
-                   -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
                    -> RebootCacheCluster
-rebootCacheCluster p1 p2 = RebootCacheCluster
-    { _rccCacheClusterId = p1
-    , _rccCacheNodeIdsToReboot = p2
+rebootCacheCluster p1 = RebootCacheCluster
+    { _rccCacheClusterId       = p1
+    , _rccCacheNodeIdsToReboot = mempty
     }
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase
@@ -91,41 +81,35 @@ rccCacheClusterId =
 -- cache node IDs.
 rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
 rccCacheNodeIdsToReboot =
-    lens _rccCacheNodeIdsToReboot
-         (\s a -> s { _rccCacheNodeIdsToReboot = a })
+    lens _rccCacheNodeIdsToReboot (\s a -> s { _rccCacheNodeIdsToReboot = a })
 
-instance ToQuery RebootCacheCluster where
-    toQuery = genericQuery def
+instance ToQuery RebootCacheCluster
+
+instance ToPath RebootCacheCluster where
+    toPath = const "/"
 
 newtype RebootCacheClusterResponse = RebootCacheClusterResponse
     { _rccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RebootCacheClusterResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RebootCacheClusterResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CacheCluster ::@ @Maybe CacheCluster@
+-- * 'rccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
 rebootCacheClusterResponse :: RebootCacheClusterResponse
 rebootCacheClusterResponse = RebootCacheClusterResponse
     { _rccrCacheCluster = Nothing
     }
 
--- | Contains all of the attributes of a specific cache cluster.
 rccrCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
-rccrCacheCluster =
-    lens _rccrCacheCluster (\s a -> s { _rccrCacheCluster = a })
-
-instance FromXML RebootCacheClusterResponse where
-    fromXMLOptions = xmlOptions
+rccrCacheCluster = lens _rccrCacheCluster (\s a -> s { _rccrCacheCluster = a })
 
 instance AWSRequest RebootCacheCluster where
     type Sv RebootCacheCluster = ElastiCache
     type Rs RebootCacheCluster = RebootCacheClusterResponse
 
-    request = post "RebootCacheCluster"
-    response _ = xmlResponse
+    request  = post "RebootCacheCluster"
+    response = xmlResponse $ \h x -> RebootCacheClusterResponse
+        <$> x %| "CacheCluster"

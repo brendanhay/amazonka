@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.CreateBucket
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,8 +25,6 @@ module Network.AWS.S3.CreateBucket
     (
     -- * Request
       CreateBucket
-    -- ** Request alias
-    , PutBucket
     -- ** Request constructor
     , createBucket
     -- ** Request lenses
@@ -45,72 +45,69 @@ module Network.AWS.S3.CreateBucket
     , cbrLocation
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
-
-type PutBucket = CreateBucket
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data CreateBucket = CreateBucket
-    { _cbACL :: Maybe BucketCannedACL
-    , _cbBucket :: BucketName
+    { _cbACL                       :: Maybe Text
+    , _cbBucket                    :: Text
     , _cbCreateBucketConfiguration :: Maybe CreateBucketConfiguration
-    , _cbGrantFullControl :: Maybe Text
-    , _cbGrantRead :: Maybe Text
-    , _cbGrantReadACP :: Maybe Text
-    , _cbGrantWrite :: Maybe Text
-    , _cbGrantWriteACP :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _cbGrantFullControl          :: Maybe Text
+    , _cbGrantRead                 :: Maybe Text
+    , _cbGrantReadACP              :: Maybe Text
+    , _cbGrantWrite                :: Maybe Text
+    , _cbGrantWriteACP             :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateBucket' request.
+-- | 'CreateBucket' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ACL ::@ @Maybe BucketCannedACL@
+-- * 'cbACL' @::@ 'Maybe' 'Text'
 --
--- * @Bucket ::@ @BucketName@
+-- * 'cbBucket' @::@ 'Text'
 --
--- * @CreateBucketConfiguration ::@ @Maybe CreateBucketConfiguration@
+-- * 'cbCreateBucketConfiguration' @::@ 'Maybe' 'CreateBucketConfiguration'
 --
--- * @GrantFullControl ::@ @Maybe Text@
+-- * 'cbGrantFullControl' @::@ 'Maybe' 'Text'
 --
--- * @GrantRead ::@ @Maybe Text@
+-- * 'cbGrantRead' @::@ 'Maybe' 'Text'
 --
--- * @GrantReadACP ::@ @Maybe Text@
+-- * 'cbGrantReadACP' @::@ 'Maybe' 'Text'
 --
--- * @GrantWrite ::@ @Maybe Text@
+-- * 'cbGrantWrite' @::@ 'Maybe' 'Text'
 --
--- * @GrantWriteACP ::@ @Maybe Text@
+-- * 'cbGrantWriteACP' @::@ 'Maybe' 'Text'
 --
-createBucket :: BucketName -- ^ 'cbBucket'
+createBucket :: Text -- ^ 'cbBucket'
              -> CreateBucket
-createBucket p2 = CreateBucket
-    { _cbACL = Nothing
-    , _cbBucket = p2
+createBucket p1 = CreateBucket
+    { _cbBucket                    = p1
+    , _cbACL                       = Nothing
     , _cbCreateBucketConfiguration = Nothing
-    , _cbGrantFullControl = Nothing
-    , _cbGrantRead = Nothing
-    , _cbGrantReadACP = Nothing
-    , _cbGrantWrite = Nothing
-    , _cbGrantWriteACP = Nothing
+    , _cbGrantFullControl          = Nothing
+    , _cbGrantRead                 = Nothing
+    , _cbGrantReadACP              = Nothing
+    , _cbGrantWrite                = Nothing
+    , _cbGrantWriteACP             = Nothing
     }
 
 -- | The canned ACL to apply to the bucket.
-cbACL :: Lens' CreateBucket (Maybe BucketCannedACL)
+cbACL :: Lens' CreateBucket (Maybe Text)
 cbACL = lens _cbACL (\s a -> s { _cbACL = a })
 
-cbBucket :: Lens' CreateBucket BucketName
+cbBucket :: Lens' CreateBucket Text
 cbBucket = lens _cbBucket (\s a -> s { _cbBucket = a })
 
 cbCreateBucketConfiguration :: Lens' CreateBucket (Maybe CreateBucketConfiguration)
 cbCreateBucketConfiguration =
     lens _cbCreateBucketConfiguration
-         (\s a -> s { _cbCreateBucketConfiguration = a })
+        (\s a -> s { _cbCreateBucketConfiguration = a })
 
--- | Allows grantee the read, write, read ACP, and write ACP permissions on the
--- bucket.
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on
+-- the bucket.
 cbGrantFullControl :: Lens' CreateBucket (Maybe Text)
 cbGrantFullControl =
     lens _cbGrantFullControl (\s a -> s { _cbGrantFullControl = a })
@@ -131,18 +128,23 @@ cbGrantWrite = lens _cbGrantWrite (\s a -> s { _cbGrantWrite = a })
 cbGrantWriteACP :: Lens' CreateBucket (Maybe Text)
 cbGrantWriteACP = lens _cbGrantWriteACP (\s a -> s { _cbGrantWriteACP = a })
 
-instance ToPath CreateBucket
+instance ToPath CreateBucket where
+    toPath CreateBucket{..} = mconcat
+        [ "/"
+        , toText _cbBucket
+        ]
 
-instance ToQuery CreateBucket
+instance ToQuery CreateBucket where
+    toQuery = const mempty
 
 instance ToHeaders CreateBucket where
-    toHeaders CreateBucket{..} = concat
-        [ "x-amz-acl" =: _cbACL
+    toHeaders CreateBucket{..} = mconcat
+        [ "x-amz-acl"                =: _cbACL
         , "x-amz-grant-full-control" =: _cbGrantFullControl
-        , "x-amz-grant-read" =: _cbGrantRead
-        , "x-amz-grant-read-acp" =: _cbGrantReadACP
-        , "x-amz-grant-write" =: _cbGrantWrite
-        , "x-amz-grant-write-acp" =: _cbGrantWriteACP
+        , "x-amz-grant-read"         =: _cbGrantRead
+        , "x-amz-grant-read-acp"     =: _cbGrantReadACP
+        , "x-amz-grant-write"        =: _cbGrantWrite
+        , "x-amz-grant-write-acp"    =: _cbGrantWriteACP
         ]
 
 instance ToBody CreateBucket where
@@ -150,16 +152,13 @@ instance ToBody CreateBucket where
 
 newtype CreateBucketResponse = CreateBucketResponse
     { _cbrLocation :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateBucketResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateBucketResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Location ::@ @Maybe Text@
+-- * 'cbrLocation' @::@ 'Maybe' 'Text'
 --
 createBucketResponse :: CreateBucketResponse
 createBucketResponse = CreateBucketResponse
@@ -173,7 +172,6 @@ instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
     type Rs CreateBucket = CreateBucketResponse
 
-    request = get
-    response _ = headerResponse $ \hs ->
-        pure CreateBucketResponse
-            <*> hs ~:? "Location"
+    request  = put
+    response = xmlResponse $ \h x -> CreateBucketResponse
+        <$> h ~:? "Location"

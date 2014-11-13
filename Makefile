@@ -1,5 +1,4 @@
 DEPS := $(wildcard amazonka-*)
-# DEPS := $(addprefix amazonka-,s3 autoscaling ec2 elb iam)
 
 .PHONY: install clean
 
@@ -20,5 +19,4 @@ clean-%:
 	make -C $* clean
 
 cabal.sandbox.config:
-	cabal sandbox init && \
- cabal sandbox add-source core
+	cabal sandbox init

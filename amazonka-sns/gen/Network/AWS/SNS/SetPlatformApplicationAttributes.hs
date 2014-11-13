@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SNS.SetPlatformApplicationAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,22 +22,7 @@
 
 -- | Sets the attributes of the platform application object for the supported
 -- push notification services, such as APNS and GCM. For more information, see
--- Using Amazon SNS Mobile Push Notifications. POST
--- http://sns.us-west-2.amazonaws.com/ HTTP/1.1 ...
--- Attributes.entry.1.key=EventEndpointCreated&amp;PlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp
--- &amp;Action=SetPlatformApplicationAttributes
--- &amp;SignatureMethod=HmacSHA256
--- &amp;Attributes.entry.1.value=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Atopicarn
--- &amp;AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &amp;SignatureVersion=2
--- &amp;Version=2010-03-31
--- &amp;Signature=06L2TsW3jiH%2FGKDYuT8w4NojSrTf4Ig2GKqGeJPhPT4%3D
--- &amp;Timestamp=2013-07-01T22%3A53%3A17.800Z HTTP/1.1 200 OK ...
--- &lt;SetPlatformApplicationAttributesResponse
--- xmlns="http://sns.amazonaws.com/doc/2010-03-31/"&gt;
--- &lt;ResponseMetadata&gt;
--- &lt;RequestId&gt;cf577bcc-b3dc-5463-88f1-3180b9412395&lt;/RequestId&gt;
--- &lt;/ResponseMetadata&gt;
--- &lt;/SetPlatformApplicationAttributesResponse&gt;.
+-- Using Amazon SNS Mobile Push Notifications.
 module Network.AWS.SNS.SetPlatformApplicationAttributes
     (
     -- * Request
@@ -43,8 +30,8 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
     -- ** Request constructor
     , setPlatformApplicationAttributes
     -- ** Request lenses
-    , spaaPlatformApplicationArn
     , spaaAttributes
+    , spaaPlatformApplicationArn
 
     -- * Response
     , SetPlatformApplicationAttributesResponse
@@ -52,38 +39,30 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
     , setPlatformApplicationAttributesResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input for SetPlatformApplicationAttributes action.
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
-    { _spaaPlatformApplicationArn :: Text
-    , _spaaAttributes :: Map Text Text
+    { _spaaAttributes             :: Map Text Text
+    , _spaaPlatformApplicationArn :: Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetPlatformApplicationAttributes' request.
+-- | 'SetPlatformApplicationAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PlatformApplicationArn ::@ @Text@
+-- * 'spaaAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
--- * @Attributes ::@ @Map Text Text@
+-- * 'spaaPlatformApplicationArn' @::@ 'Text'
 --
 setPlatformApplicationAttributes :: Text -- ^ 'spaaPlatformApplicationArn'
-                                 -> Map Text Text -- ^ 'spaaAttributes'
                                  -> SetPlatformApplicationAttributes
-setPlatformApplicationAttributes p1 p2 = SetPlatformApplicationAttributes
+setPlatformApplicationAttributes p1 = SetPlatformApplicationAttributes
     { _spaaPlatformApplicationArn = p1
-    , _spaaAttributes = p2
+    , _spaaAttributes             = mempty
     }
-
--- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
-spaaPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes Text
-spaaPlatformApplicationArn =
-    lens _spaaPlatformApplicationArn
-         (\s a -> s { _spaaPlatformApplicationArn = a })
 
 -- | A map of the platform application attributes. Attributes in this map
 -- include the following: PlatformCredential -- The credential received from
@@ -92,27 +71,33 @@ spaaPlatformApplicationArn =
 -- PlatformCredential is "client secret". PlatformPrincipal -- The principal
 -- received from the notification service. For APNS/APNS_SANDBOX,
 -- PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not
--- applicable. For ADM, PlatformPrincipal is "client id". EventEndpointCreated
--- -- Topic ARN to which EndpointCreated event notifications should be sent.
--- EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
--- notifications should be sent. EventEndpointUpdated -- Topic ARN to which
--- EndpointUpdate event notifications should be sent. EventDeliveryFailure --
--- Topic ARN to which DeliveryFailure event notifications should be sent upon
--- Direct Publish delivery failure (permanent) to one of the application's
--- endpoints.
-spaaAttributes :: Lens' SetPlatformApplicationAttributes (Map Text Text)
+-- applicable. For ADM, PlatformPrincipal is "client id".
+-- EventEndpointCreated -- Topic ARN to which EndpointCreated event
+-- notifications should be sent. EventEndpointDeleted -- Topic ARN to which
+-- EndpointDeleted event notifications should be sent. EventEndpointUpdated
+-- -- Topic ARN to which EndpointUpdate event notifications should be sent.
+-- EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
+-- notifications should be sent upon Direct Publish delivery failure
+-- (permanent) to one of the application's endpoints.
+spaaAttributes :: Lens' SetPlatformApplicationAttributes (HashMap Text Text)
 spaaAttributes = lens _spaaAttributes (\s a -> s { _spaaAttributes = a })
+    . _Map
 
-instance ToQuery SetPlatformApplicationAttributes where
-    toQuery = genericQuery def
+-- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
+spaaPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes Text
+spaaPlatformApplicationArn =
+    lens _spaaPlatformApplicationArn
+        (\s a -> s { _spaaPlatformApplicationArn = a })
+
+instance ToQuery SetPlatformApplicationAttributes
+
+instance ToPath SetPlatformApplicationAttributes where
+    toPath = const "/"
 
 data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetPlatformApplicationAttributesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SetPlatformApplicationAttributesResponse' constructor.
 setPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse
 setPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
 
@@ -120,5 +105,5 @@ instance AWSRequest SetPlatformApplicationAttributes where
     type Sv SetPlatformApplicationAttributes = SNS
     type Rs SetPlatformApplicationAttributes = SetPlatformApplicationAttributesResponse
 
-    request = post "SetPlatformApplicationAttributes"
-    response _ = nullaryResponse SetPlatformApplicationAttributesResponse
+    request  = post "SetPlatformApplicationAttributes"
+    response = nullaryResponse SetPlatformApplicationAttributesResponse

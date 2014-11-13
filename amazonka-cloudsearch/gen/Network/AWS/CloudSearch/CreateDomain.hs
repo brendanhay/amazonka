@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.CreateDomain
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,22 +39,20 @@ module Network.AWS.CloudSearch.CreateDomain
     , cdrDomainStatus
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the CreateDomain operation. Specifies a
--- name for the new search domain.
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDomain' request.
+-- | 'CreateDomain' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'cdDomainName' @::@ 'Text'
 --
 createDomain :: Text -- ^ 'cdDomainName'
              -> CreateDomain
@@ -66,39 +66,33 @@ createDomain p1 = CreateDomain
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
 
-instance ToQuery CreateDomain where
-    toQuery = genericQuery def
+instance ToQuery CreateDomain
 
--- | The result of a CreateDomainRequest. Contains the status of a newly created
--- domain.
+instance ToPath CreateDomain where
+    toPath = const "/"
+
 newtype CreateDomainResponse = CreateDomainResponse
     { _cdrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDomainResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateDomainResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainStatus ::@ @Maybe DomainStatus@
+-- * 'cdrDomainStatus' @::@ 'Maybe' 'DomainStatus'
 --
 createDomainResponse :: CreateDomainResponse
 createDomainResponse = CreateDomainResponse
     { _cdrDomainStatus = Nothing
     }
 
--- | The current status of the search domain.
 cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrDomainStatus = lens _cdrDomainStatus (\s a -> s { _cdrDomainStatus = a })
-
-instance FromXML CreateDomainResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest CreateDomain where
     type Sv CreateDomain = CloudSearch
     type Rs CreateDomain = CreateDomainResponse
 
-    request = post "CreateDomain"
-    response _ = xmlResponse
+    request  = post "CreateDomain"
+    response = xmlResponse $ \h x -> CreateDomainResponse
+        <$> x %| "DomainStatus"

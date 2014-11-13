@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,76 +44,75 @@ module Network.AWS.S3.PutBucketAcl
     , putBucketAclResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutBucketAcl = PutBucketAcl
-    { _pbaACL :: Maybe BucketCannedACL
+    { _pbaACL                 :: Maybe Text
     , _pbaAccessControlPolicy :: Maybe AccessControlPolicy
-    , _pbaBucket :: BucketName
-    , _pbaContentMD5 :: Maybe Text
-    , _pbaGrantFullControl :: Maybe Text
-    , _pbaGrantRead :: Maybe Text
-    , _pbaGrantReadACP :: Maybe Text
-    , _pbaGrantWrite :: Maybe Text
-    , _pbaGrantWriteACP :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _pbaBucket              :: Text
+    , _pbaContentMD5          :: Maybe Text
+    , _pbaGrantFullControl    :: Maybe Text
+    , _pbaGrantRead           :: Maybe Text
+    , _pbaGrantReadACP        :: Maybe Text
+    , _pbaGrantWrite          :: Maybe Text
+    , _pbaGrantWriteACP       :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketAcl' request.
+-- | 'PutBucketAcl' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ACL ::@ @Maybe BucketCannedACL@
+-- * 'pbaACL' @::@ 'Maybe' 'Text'
 --
--- * @AccessControlPolicy ::@ @Maybe AccessControlPolicy@
+-- * 'pbaAccessControlPolicy' @::@ 'Maybe' 'AccessControlPolicy'
 --
--- * @Bucket ::@ @BucketName@
+-- * 'pbaBucket' @::@ 'Text'
 --
--- * @ContentMD5 ::@ @Maybe Text@
+-- * 'pbaContentMD5' @::@ 'Maybe' 'Text'
 --
--- * @GrantFullControl ::@ @Maybe Text@
+-- * 'pbaGrantFullControl' @::@ 'Maybe' 'Text'
 --
--- * @GrantRead ::@ @Maybe Text@
+-- * 'pbaGrantRead' @::@ 'Maybe' 'Text'
 --
--- * @GrantReadACP ::@ @Maybe Text@
+-- * 'pbaGrantReadACP' @::@ 'Maybe' 'Text'
 --
--- * @GrantWrite ::@ @Maybe Text@
+-- * 'pbaGrantWrite' @::@ 'Maybe' 'Text'
 --
--- * @GrantWriteACP ::@ @Maybe Text@
+-- * 'pbaGrantWriteACP' @::@ 'Maybe' 'Text'
 --
-putBucketAcl :: BucketName -- ^ 'pbaBucket'
+putBucketAcl :: Text -- ^ 'pbaBucket'
              -> PutBucketAcl
-putBucketAcl p3 = PutBucketAcl
-    { _pbaACL = Nothing
+putBucketAcl p1 = PutBucketAcl
+    { _pbaBucket              = p1
+    , _pbaACL                 = Nothing
     , _pbaAccessControlPolicy = Nothing
-    , _pbaBucket = p3
-    , _pbaContentMD5 = Nothing
-    , _pbaGrantFullControl = Nothing
-    , _pbaGrantRead = Nothing
-    , _pbaGrantReadACP = Nothing
-    , _pbaGrantWrite = Nothing
-    , _pbaGrantWriteACP = Nothing
+    , _pbaContentMD5          = Nothing
+    , _pbaGrantFullControl    = Nothing
+    , _pbaGrantRead           = Nothing
+    , _pbaGrantReadACP        = Nothing
+    , _pbaGrantWrite          = Nothing
+    , _pbaGrantWriteACP       = Nothing
     }
 
 -- | The canned ACL to apply to the bucket.
-pbaACL :: Lens' PutBucketAcl (Maybe BucketCannedACL)
+pbaACL :: Lens' PutBucketAcl (Maybe Text)
 pbaACL = lens _pbaACL (\s a -> s { _pbaACL = a })
 
 pbaAccessControlPolicy :: Lens' PutBucketAcl (Maybe AccessControlPolicy)
 pbaAccessControlPolicy =
     lens _pbaAccessControlPolicy (\s a -> s { _pbaAccessControlPolicy = a })
 
-pbaBucket :: Lens' PutBucketAcl BucketName
+pbaBucket :: Lens' PutBucketAcl Text
 pbaBucket = lens _pbaBucket (\s a -> s { _pbaBucket = a })
 
 pbaContentMD5 :: Lens' PutBucketAcl (Maybe Text)
 pbaContentMD5 = lens _pbaContentMD5 (\s a -> s { _pbaContentMD5 = a })
 
--- | Allows grantee the read, write, read ACP, and write ACP permissions on the
--- bucket.
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on
+-- the bucket.
 pbaGrantFullControl :: Lens' PutBucketAcl (Maybe Text)
 pbaGrantFullControl =
     lens _pbaGrantFullControl (\s a -> s { _pbaGrantFullControl = a })
@@ -130,22 +131,26 @@ pbaGrantWrite = lens _pbaGrantWrite (\s a -> s { _pbaGrantWrite = a })
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 pbaGrantWriteACP :: Lens' PutBucketAcl (Maybe Text)
-pbaGrantWriteACP =
-    lens _pbaGrantWriteACP (\s a -> s { _pbaGrantWriteACP = a })
+pbaGrantWriteACP = lens _pbaGrantWriteACP (\s a -> s { _pbaGrantWriteACP = a })
 
-instance ToPath PutBucketAcl
+instance ToPath PutBucketAcl where
+    toPath PutBucketAcl{..} = mconcat
+        [ "/"
+        , toText _pbaBucket
+        ]
 
-instance ToQuery PutBucketAcl
+instance ToQuery PutBucketAcl where
+    toQuery = const "acl"
 
 instance ToHeaders PutBucketAcl where
-    toHeaders PutBucketAcl{..} = concat
-        [ "x-amz-acl" =: _pbaACL
-        , "Content-MD5" =: _pbaContentMD5
+    toHeaders PutBucketAcl{..} = mconcat
+        [ "x-amz-acl"                =: _pbaACL
+        , "Content-MD5"              =: _pbaContentMD5
         , "x-amz-grant-full-control" =: _pbaGrantFullControl
-        , "x-amz-grant-read" =: _pbaGrantRead
-        , "x-amz-grant-read-acp" =: _pbaGrantReadACP
-        , "x-amz-grant-write" =: _pbaGrantWrite
-        , "x-amz-grant-write-acp" =: _pbaGrantWriteACP
+        , "x-amz-grant-read"         =: _pbaGrantRead
+        , "x-amz-grant-read-acp"     =: _pbaGrantReadACP
+        , "x-amz-grant-write"        =: _pbaGrantWrite
+        , "x-amz-grant-write-acp"    =: _pbaGrantWriteACP
         ]
 
 instance ToBody PutBucketAcl where
@@ -154,10 +159,7 @@ instance ToBody PutBucketAcl where
 data PutBucketAclResponse = PutBucketAclResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketAclResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutBucketAclResponse' constructor.
 putBucketAclResponse :: PutBucketAclResponse
 putBucketAclResponse = PutBucketAclResponse
 
@@ -165,5 +167,5 @@ instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3
     type Rs PutBucketAcl = PutBucketAclResponse
 
-    request = get
-    response _ = nullaryResponse PutBucketAclResponse
+    request  = put
+    response = nullaryResponse PutBucketAclResponse

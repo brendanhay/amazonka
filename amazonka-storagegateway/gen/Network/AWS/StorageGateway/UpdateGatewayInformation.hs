@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateGatewayInformation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,19 +22,7 @@
 
 -- | This operation updates a gateway's metadata, which includes the gateway's
 -- name and time zone. To specify which gateway to update, use the Amazon
--- Resource Name (ARN) of the gateway in your request. Example Request The
--- following example shows a request that updates the name of a gateway. POST
--- / HTTP/1.1 Host: storagegateway.us-east-1.amazonaws.com x-amz-Date:
--- 20120425T120000Z Authorization:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Content-type:
--- application/x-amz-json-1.1 x-amz-target:
--- StorageGateway_20120630.UpdateGatewayInformation { "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
--- "GatewayName" "mygateway2" } HTTP/1.1 200 OK x-amzn-RequestId:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Date: Wed, 25 Apr 2012
--- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 81 {
--- "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway2" }.
+-- Resource Name (ARN) of the gateway in your request.
 module Network.AWS.StorageGateway.UpdateGatewayInformation
     (
     -- * Request
@@ -52,43 +42,37 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     , ugirGatewayARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 data UpdateGatewayInformation = UpdateGatewayInformation
-    { _ugiGatewayARN :: Text
-    , _ugiGatewayName :: Maybe Text
+    { _ugiGatewayARN      :: Text
+    , _ugiGatewayName     :: Maybe Text
     , _ugiGatewayTimezone :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateGatewayInformation' request.
+-- | 'UpdateGatewayInformation' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'ugiGatewayARN' @::@ 'Text'
 --
--- * @GatewayName ::@ @Maybe Text@
+-- * 'ugiGatewayName' @::@ 'Maybe' 'Text'
 --
--- * @GatewayTimezone ::@ @Maybe Text@
+-- * 'ugiGatewayTimezone' @::@ 'Maybe' 'Text'
 --
 updateGatewayInformation :: Text -- ^ 'ugiGatewayARN'
                          -> UpdateGatewayInformation
 updateGatewayInformation p1 = UpdateGatewayInformation
-    { _ugiGatewayARN = p1
-    , _ugiGatewayName = Nothing
+    { _ugiGatewayARN      = p1
+    , _ugiGatewayName     = Nothing
     , _ugiGatewayTimezone = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 ugiGatewayARN :: Lens' UpdateGatewayInformation Text
 ugiGatewayARN = lens _ugiGatewayARN (\s a -> s { _ugiGatewayARN = a })
 
--- | A unique identifier for your gateway. This name becomes part of the gateway
--- Amazon Resources Name (ARN) which is what you use as an input to other
--- operations.
 ugiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
 ugiGatewayName = lens _ugiGatewayName (\s a -> s { _ugiGatewayName = a })
 
@@ -96,43 +80,41 @@ ugiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
 ugiGatewayTimezone =
     lens _ugiGatewayTimezone (\s a -> s { _ugiGatewayTimezone = a })
 
-instance ToPath UpdateGatewayInformation
+instance ToPath UpdateGatewayInformation where
+    toPath = const "/"
 
-instance ToQuery UpdateGatewayInformation
+instance ToQuery UpdateGatewayInformation where
+    toQuery = const mempty
 
 instance ToHeaders UpdateGatewayInformation
 
-instance ToJSON UpdateGatewayInformation
+instance ToBody UpdateGatewayInformation where
+    toBody = toBody . encode . _ugiGatewayARN
 
--- | A JSON object containing the of the gateway that was updated.
 newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
     { _ugirGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateGatewayInformationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateGatewayInformationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Maybe Text@
+-- * 'ugirGatewayARN' @::@ 'Maybe' 'Text'
 --
 updateGatewayInformationResponse :: UpdateGatewayInformationResponse
 updateGatewayInformationResponse = UpdateGatewayInformationResponse
     { _ugirGatewayARN = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 ugirGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirGatewayARN = lens _ugirGatewayARN (\s a -> s { _ugirGatewayARN = a })
 
-instance FromJSON UpdateGatewayInformationResponse
+-- FromJSON
 
 instance AWSRequest UpdateGatewayInformation where
     type Sv UpdateGatewayInformation = StorageGateway
     type Rs UpdateGatewayInformation = UpdateGatewayInformationResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> UpdateGatewayInformationResponse
+        <$> o .: "GatewayARN"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateBandwidthRateLimit
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,20 +27,7 @@
 -- If you don't set any limit, the gateway does not have any limitations on
 -- its bandwidth usage and could potentially use the maximum available
 -- bandwidth. To specify which gateway to update, use the Amazon Resource Name
--- (ARN) of the gateway in your request. Example Request The following example
--- shows a request that returns the bandwidth throttle properties of a
--- gateway. POST / HTTP/1.1 Host: storagegateway.us-east-1.amazonaws.com
--- x-amz-Date: 20120425T120000Z Authorization:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Content-type:
--- application/x-amz-json-1.1 x-amz-target:
--- StorageGateway_20120630.UpdateBandwidthRateLimit { "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
--- "AverageUploadRateLimitInBitsPerSec": 51200,
--- "AverageDownloadRateLimitInBitsPerSec": 102400 } HTTP/1.1 200 OK
--- x-amzn-RequestId: CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG
--- Date: Wed, 25 Apr 2012 12:00:02 GMT Content-type:
--- application/x-amz-json-1.1 Content-length: 80 { "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
+-- (ARN) of the gateway in your request.
 module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     (
     -- * Request
@@ -46,9 +35,9 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     -- ** Request constructor
     , updateBandwidthRateLimit
     -- ** Request lenses
-    , ubrlGatewayARN
-    , ubrlAverageUploadRateLimitInBitsPerSec
     , ubrlAverageDownloadRateLimitInBitsPerSec
+    , ubrlAverageUploadRateLimitInBitsPerSec
+    , ubrlGatewayARN
 
     -- * Response
     , UpdateBandwidthRateLimitResponse
@@ -58,93 +47,84 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     , ubrlrGatewayARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
--- | A JSON object containing one or more of the following fields:
--- UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec
--- UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec.
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
-    { _ubrlGatewayARN :: Text
-    , _ubrlAverageUploadRateLimitInBitsPerSec :: Maybe Integer
-    , _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Integer
+    { _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Natural
+    , _ubrlAverageUploadRateLimitInBitsPerSec   :: Maybe Natural
+    , _ubrlGatewayARN                           :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateBandwidthRateLimit' request.
+-- | 'UpdateBandwidthRateLimit' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'ubrlAverageDownloadRateLimitInBitsPerSec' @::@ 'Maybe' 'Natural'
 --
--- * @AverageUploadRateLimitInBitsPerSec ::@ @Maybe Integer@
+-- * 'ubrlAverageUploadRateLimitInBitsPerSec' @::@ 'Maybe' 'Natural'
 --
--- * @AverageDownloadRateLimitInBitsPerSec ::@ @Maybe Integer@
+-- * 'ubrlGatewayARN' @::@ 'Text'
 --
 updateBandwidthRateLimit :: Text -- ^ 'ubrlGatewayARN'
                          -> UpdateBandwidthRateLimit
 updateBandwidthRateLimit p1 = UpdateBandwidthRateLimit
-    { _ubrlGatewayARN = p1
-    , _ubrlAverageUploadRateLimitInBitsPerSec = Nothing
+    { _ubrlGatewayARN                           = p1
+    , _ubrlAverageUploadRateLimitInBitsPerSec   = Nothing
     , _ubrlAverageDownloadRateLimitInBitsPerSec = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
+-- | The average download bandwidth rate limit in bits per second.
+ubrlAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
+ubrlAverageDownloadRateLimitInBitsPerSec =
+    lens _ubrlAverageDownloadRateLimitInBitsPerSec
+        (\s a -> s { _ubrlAverageDownloadRateLimitInBitsPerSec = a })
+
+-- | The average upload bandwidth rate limit in bits per second.
+ubrlAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
+ubrlAverageUploadRateLimitInBitsPerSec =
+    lens _ubrlAverageUploadRateLimitInBitsPerSec
+        (\s a -> s { _ubrlAverageUploadRateLimitInBitsPerSec = a })
+
 ubrlGatewayARN :: Lens' UpdateBandwidthRateLimit Text
 ubrlGatewayARN = lens _ubrlGatewayARN (\s a -> s { _ubrlGatewayARN = a })
 
--- | The average upload bandwidth rate limit in bits per second.
-ubrlAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Integer)
-ubrlAverageUploadRateLimitInBitsPerSec =
-    lens _ubrlAverageUploadRateLimitInBitsPerSec
-         (\s a -> s { _ubrlAverageUploadRateLimitInBitsPerSec = a })
+instance ToPath UpdateBandwidthRateLimit where
+    toPath = const "/"
 
--- | The average download bandwidth rate limit in bits per second.
-ubrlAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Integer)
-ubrlAverageDownloadRateLimitInBitsPerSec =
-    lens _ubrlAverageDownloadRateLimitInBitsPerSec
-         (\s a -> s { _ubrlAverageDownloadRateLimitInBitsPerSec = a })
-
-instance ToPath UpdateBandwidthRateLimit
-
-instance ToQuery UpdateBandwidthRateLimit
+instance ToQuery UpdateBandwidthRateLimit where
+    toQuery = const mempty
 
 instance ToHeaders UpdateBandwidthRateLimit
 
-instance ToJSON UpdateBandwidthRateLimit
+instance ToBody UpdateBandwidthRateLimit where
+    toBody = toBody . encode . _ubrlGatewayARN
 
--- | A JSON object containing the of the gateway whose throttle information was
--- updated.
 newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
     { _ubrlrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateBandwidthRateLimitResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateBandwidthRateLimitResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Maybe Text@
+-- * 'ubrlrGatewayARN' @::@ 'Maybe' 'Text'
 --
 updateBandwidthRateLimitResponse :: UpdateBandwidthRateLimitResponse
 updateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
     { _ubrlrGatewayARN = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 ubrlrGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
 ubrlrGatewayARN = lens _ubrlrGatewayARN (\s a -> s { _ubrlrGatewayARN = a })
 
-instance FromJSON UpdateBandwidthRateLimitResponse
+-- FromJSON
 
 instance AWSRequest UpdateBandwidthRateLimit where
     type Sv UpdateBandwidthRateLimit = StorageGateway
     type Rs UpdateBandwidthRateLimit = UpdateBandwidthRateLimitResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> UpdateBandwidthRateLimitResponse
+        <$> o .: "GatewayARN"

@@ -1,23 +1,11 @@
 SHELL    := /usr/bin/env bash
 FLAGS    := -j --disable-documentation --disable-library-coverage
-DEPS     := vendor/botocore vendor/ede vendor/jason
-BOTO     := vendor/botocore/botocore/data/aws
+DEPS     := vendor/botocore vendor/jason
 
-RESTS3 := \
- s3
-
-RESTXML := \
+XML := \
+ s3 \
  cloudfront \
  route53
-# Omitted - boto's models seem to only speciy a small subset
-# of the available calls in the documentation
-# cloudsearchdomain
-
-RESTJSON := \
- elastictranscoder
-# Omitted - boto's models don't reflect the documentation
-# and my understanding of the service is limited.
-# cognito-sync
 
 QUERY := \
  autoscaling \
@@ -51,20 +39,28 @@ JSON := \
  support \
  swf \
  logs \
- cognito-identity
+ cognito-identity \
+ codedeploy \
+ kms \
+ config \
+ elastictranscoder \
+ cognito-sync \
+ cloudsearchdomain
 
-MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
+MODELS ?= $(JSON) # $(XML) $(QUERY)
 
 .PHONY: gen
 
 gen: build
-	dist/build/amazonka-gen/amazonka-gen \
- --output=$(realpath ../) \
- --override=$(realpath ./model) \
- --assets=$(realpath ./asset) \
- $(addprefix --model=,$(realpath $(addprefix $(BOTO)/,$(MODELS))))
+	@dist/build/amazonka-gen/amazonka-gen \
+--out=../ \
+ --services=stage2 \
+ --overrides=overrides \
+ --templates=templates \
+ --assets=assets \
+ $(addprefix --model=,$(addprefix stage1/,$(MODELS)))
 
-build:
+build: stage1 stage2
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
 install: add-sources
@@ -72,10 +68,9 @@ install: add-sources
 
 clean:
 	cabal clean
-	rm -rf cabal.sandbox.config .cabal-sandbox vendor
+	rm -rf stage1 stage2 cabal.sandbox.config .cabal-sandbox vendor
 
 add-sources: cabal.sandbox.config $(DEPS)
-	cabal sandbox add-source vendor/ede
 	cabal sandbox add-source vendor/jason
 
 cabal.sandbox.config:
@@ -86,3 +81,9 @@ vendor/botocore:
 
 vendor/%:
 	git clone git@github.com:brendanhay/$*.git $@
+
+stage1:
+	cp -rf vendor/botocore/botocore/data/aws $@
+
+stage2:
+	@mkdir $@

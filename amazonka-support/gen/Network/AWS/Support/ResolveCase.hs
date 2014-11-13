@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Support.ResolveCase
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,24 +36,23 @@ module Network.AWS.Support.ResolveCase
     -- ** Response constructor
     , resolveCaseResponse
     -- ** Response lenses
-    , rcrInitialCaseStatus
     , rcrFinalCaseStatus
+    , rcrInitialCaseStatus
     ) where
 
-import Network.AWS.Support.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Support.Types
 
 newtype ResolveCase = ResolveCase
     { _rcCaseId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResolveCase' request.
+-- | 'ResolveCase' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CaseId ::@ @Maybe Text@
+-- * 'rcCaseId' @::@ 'Maybe' 'Text'
 --
 resolveCase :: ResolveCase
 resolveCase = ResolveCase
@@ -64,52 +65,53 @@ resolveCase = ResolveCase
 rcCaseId :: Lens' ResolveCase (Maybe Text)
 rcCaseId = lens _rcCaseId (\s a -> s { _rcCaseId = a })
 
-instance ToPath ResolveCase
+instance ToPath ResolveCase where
+    toPath = const "/"
 
-instance ToQuery ResolveCase
+instance ToQuery ResolveCase where
+    toQuery = const mempty
 
 instance ToHeaders ResolveCase
 
-instance ToJSON ResolveCase
+instance ToBody ResolveCase where
+    toBody = toBody . encode . _rcCaseId
 
--- | The status of the case returned by the ResolveCase operation.
 data ResolveCaseResponse = ResolveCaseResponse
-    { _rcrInitialCaseStatus :: Maybe Text
-    , _rcrFinalCaseStatus :: Maybe Text
+    { _rcrFinalCaseStatus   :: Maybe Text
+    , _rcrInitialCaseStatus :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResolveCaseResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ResolveCaseResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InitialCaseStatus ::@ @Maybe Text@
+-- * 'rcrFinalCaseStatus' @::@ 'Maybe' 'Text'
 --
--- * @FinalCaseStatus ::@ @Maybe Text@
+-- * 'rcrInitialCaseStatus' @::@ 'Maybe' 'Text'
 --
 resolveCaseResponse :: ResolveCaseResponse
 resolveCaseResponse = ResolveCaseResponse
     { _rcrInitialCaseStatus = Nothing
-    , _rcrFinalCaseStatus = Nothing
+    , _rcrFinalCaseStatus   = Nothing
     }
-
--- | The status of the case when the ResolveCase request was sent.
-rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcrInitialCaseStatus =
-    lens _rcrInitialCaseStatus (\s a -> s { _rcrInitialCaseStatus = a })
 
 -- | The status of the case after the ResolveCase request was processed.
 rcrFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrFinalCaseStatus =
     lens _rcrFinalCaseStatus (\s a -> s { _rcrFinalCaseStatus = a })
 
-instance FromJSON ResolveCaseResponse
+-- | The status of the case when the ResolveCase request was sent.
+rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
+rcrInitialCaseStatus =
+    lens _rcrInitialCaseStatus (\s a -> s { _rcrInitialCaseStatus = a })
+
+-- FromJSON
 
 instance AWSRequest ResolveCase where
     type Sv ResolveCase = Support
     type Rs ResolveCase = ResolveCaseResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> ResolveCaseResponse
+        <$> o .: "finalCaseStatus"
+        <*> o .: "initialCaseStatus"

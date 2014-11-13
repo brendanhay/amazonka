@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeRdsDbInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,10 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes Amazon RDS instances. Required Permissions: To use this action,
--- an IAM user must have a Show, Deploy, or Manage permissions level for the
--- stack, or an attached policy that explicitly grants permissions. For more
--- information on user permissions, see Managing User Permissions.
+-- | Describes Amazon RDS instances.
 module Network.AWS.OpsWorks.DescribeRdsDbInstances
     (
     -- * Request
@@ -29,8 +28,8 @@ module Network.AWS.OpsWorks.DescribeRdsDbInstances
     -- ** Request constructor
     , describeRdsDbInstances
     -- ** Request lenses
-    , drdi1StackId
-    , drdi1RdsDbInstanceArns
+    , drdiRdsDbInstanceArns
+    , drdiStackId
 
     -- * Response
     , DescribeRdsDbInstancesResponse
@@ -40,62 +39,66 @@ module Network.AWS.OpsWorks.DescribeRdsDbInstances
     , drdirRdsDbInstances
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DescribeRdsDbInstances = DescribeRdsDbInstances
-    { _drdi1StackId :: Text
-    , _drdi1RdsDbInstanceArns :: [Text]
+    { _drdiRdsDbInstanceArns :: [Text]
+    , _drdiStackId           :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeRdsDbInstances' request.
+-- | 'DescribeRdsDbInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Text@
+-- * 'drdiRdsDbInstanceArns' @::@ ['Text']
 --
--- * @RdsDbInstanceArns ::@ @[Text]@
+-- * 'drdiStackId' @::@ 'Text'
 --
-describeRdsDbInstances :: Text -- ^ 'drdi1StackId'
+describeRdsDbInstances :: Text -- ^ 'drdiStackId'
                        -> DescribeRdsDbInstances
 describeRdsDbInstances p1 = DescribeRdsDbInstances
-    { _drdi1StackId = p1
-    , _drdi1RdsDbInstanceArns = mempty
+    { _drdiStackId           = p1
+    , _drdiRdsDbInstanceArns = mempty
     }
 
--- | The stack ID that the instances are registered with. The operation returns
--- descriptions of all registered Amazon RDS instances.
-drdi1StackId :: Lens' DescribeRdsDbInstances Text
-drdi1StackId = lens _drdi1StackId (\s a -> s { _drdi1StackId = a })
-
 -- | An array containing the ARNs of the instances to be described.
-drdi1RdsDbInstanceArns :: Lens' DescribeRdsDbInstances [Text]
-drdi1RdsDbInstanceArns =
-    lens _drdi1RdsDbInstanceArns (\s a -> s { _drdi1RdsDbInstanceArns = a })
+drdiRdsDbInstanceArns :: Lens' DescribeRdsDbInstances [Text]
+drdiRdsDbInstanceArns =
+    lens _drdiRdsDbInstanceArns (\s a -> s { _drdiRdsDbInstanceArns = a })
 
-instance ToPath DescribeRdsDbInstances
+-- | The stack ID that the instances are registered with. The operation
+-- returns descriptions of all registered Amazon RDS instances.
+drdiStackId :: Lens' DescribeRdsDbInstances Text
+drdiStackId = lens _drdiStackId (\s a -> s { _drdiStackId = a })
 
-instance ToQuery DescribeRdsDbInstances
+instance ToPath DescribeRdsDbInstances where
+    toPath = const "/"
+
+instance ToQuery DescribeRdsDbInstances where
+    toQuery = const mempty
 
 instance ToHeaders DescribeRdsDbInstances
 
-instance ToJSON DescribeRdsDbInstances
+instance ToBody DescribeRdsDbInstances where
+    toBody = toBody . encode . _drdiStackId
 
--- | Contains the response to a DescribeRdsDbInstances request.
 newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     { _drdirRdsDbInstances :: [RdsDbInstance]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeRdsDbInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeRdsDbInstancesResponse where
+    type Item DescribeRdsDbInstancesResponse = RdsDbInstance
+
+    fromList = DescribeRdsDbInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _drdirRdsDbInstances
+
+-- | 'DescribeRdsDbInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RdsDbInstances ::@ @[RdsDbInstance]@
+-- * 'drdirRdsDbInstances' @::@ ['RdsDbInstance']
 --
 describeRdsDbInstancesResponse :: DescribeRdsDbInstancesResponse
 describeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
@@ -107,11 +110,12 @@ drdirRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse [RdsDbInstance]
 drdirRdsDbInstances =
     lens _drdirRdsDbInstances (\s a -> s { _drdirRdsDbInstances = a })
 
-instance FromJSON DescribeRdsDbInstancesResponse
+-- FromJSON
 
 instance AWSRequest DescribeRdsDbInstances where
     type Sv DescribeRdsDbInstances = OpsWorks
     type Rs DescribeRdsDbInstances = DescribeRdsDbInstancesResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeRdsDbInstancesResponse
+        <$> o .: "RdsDbInstances"

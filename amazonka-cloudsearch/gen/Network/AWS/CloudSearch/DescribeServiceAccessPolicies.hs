@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeServiceAccessPolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,8 +33,8 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     -- ** Request constructor
     , describeServiceAccessPolicies
     -- ** Request lenses
-    , dsapDomainName
     , dsapDeployed
+    , dsapDomainName
 
     -- * Response
     , DescribeServiceAccessPoliciesResponse
@@ -42,60 +44,54 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     , dsaprAccessPolicies
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DescribeServiceAccessPolicies
--- operation. Specifies the name of the domain you want to describe. To show
--- the active configuration and exclude any pending changes, set the Deployed
--- option to true.
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
-    { _dsapDomainName :: Text
-    , _dsapDeployed :: Maybe Bool
+    { _dsapDeployed   :: Maybe Bool
+    , _dsapDomainName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeServiceAccessPolicies' request.
+-- | 'DescribeServiceAccessPolicies' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'dsapDeployed' @::@ 'Maybe' 'Bool'
 --
--- * @Deployed ::@ @Maybe Bool@
+-- * 'dsapDomainName' @::@ 'Text'
 --
 describeServiceAccessPolicies :: Text -- ^ 'dsapDomainName'
                               -> DescribeServiceAccessPolicies
 describeServiceAccessPolicies p1 = DescribeServiceAccessPolicies
     { _dsapDomainName = p1
-    , _dsapDeployed = Nothing
+    , _dsapDeployed   = Nothing
     }
+
+-- | Whether to display the deployed configuration (true) or include any
+-- pending changes (false). Defaults to false.
+dsapDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
+dsapDeployed = lens _dsapDeployed (\s a -> s { _dsapDeployed = a })
 
 -- | The name of the domain you want to describe.
 dsapDomainName :: Lens' DescribeServiceAccessPolicies Text
 dsapDomainName = lens _dsapDomainName (\s a -> s { _dsapDomainName = a })
 
--- | Whether to display the deployed configuration (true) or include any pending
--- changes (false). Defaults to false.
-dsapDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
-dsapDeployed = lens _dsapDeployed (\s a -> s { _dsapDeployed = a })
+instance ToQuery DescribeServiceAccessPolicies
 
-instance ToQuery DescribeServiceAccessPolicies where
-    toQuery = genericQuery def
+instance ToPath DescribeServiceAccessPolicies where
+    toPath = const "/"
 
--- | The result of a DescribeServiceAccessPolicies request.
 newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
     { _dsaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeServiceAccessPoliciesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeServiceAccessPoliciesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AccessPolicies ::@ @AccessPoliciesStatus@
+-- * 'dsaprAccessPolicies' @::@ 'AccessPoliciesStatus'
 --
 describeServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'dsaprAccessPolicies'
                                       -> DescribeServiceAccessPoliciesResponse
@@ -108,12 +104,10 @@ dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPolicie
 dsaprAccessPolicies =
     lens _dsaprAccessPolicies (\s a -> s { _dsaprAccessPolicies = a })
 
-instance FromXML DescribeServiceAccessPoliciesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeServiceAccessPolicies where
     type Sv DescribeServiceAccessPolicies = CloudSearch
     type Rs DescribeServiceAccessPolicies = DescribeServiceAccessPoliciesResponse
 
-    request = post "DescribeServiceAccessPolicies"
-    response _ = xmlResponse
+    request  = post "DescribeServiceAccessPolicies"
+    response = xmlResponse $ \h x -> DescribeServiceAccessPoliciesResponse
+        <$> x %| "AccessPolicies"

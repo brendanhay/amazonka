@@ -1,0 +1,3737 @@
+{
+    "service": {
+        "signature": "V4",
+        "checksum": "sha256",
+        "abbrev": "SES",
+        "error": "RESTError",
+        "namespace": "Network.AWS.SES",
+        "protocol": "query",
+        "imports": [
+            "Network.AWS.SES.DeleteIdentity",
+            "Network.AWS.SES.DeleteVerifiedEmailAddress",
+            "Network.AWS.SES.GetIdentityDkimAttributes",
+            "Network.AWS.SES.GetIdentityNotificationAttributes",
+            "Network.AWS.SES.GetIdentityVerificationAttributes",
+            "Network.AWS.SES.GetSendQuota",
+            "Network.AWS.SES.GetSendStatistics",
+            "Network.AWS.SES.ListIdentities",
+            "Network.AWS.SES.ListVerifiedEmailAddresses",
+            "Network.AWS.SES.SendEmail",
+            "Network.AWS.SES.SendRawEmail",
+            "Network.AWS.SES.SetIdentityDkimEnabled",
+            "Network.AWS.SES.SetIdentityFeedbackForwardingEnabled",
+            "Network.AWS.SES.SetIdentityNotificationTopic",
+            "Network.AWS.SES.Types",
+            "Network.AWS.SES.VerifyDomainDkim",
+            "Network.AWS.SES.VerifyDomainIdentity",
+            "Network.AWS.SES.VerifyEmailAddress",
+            "Network.AWS.SES.VerifyEmailIdentity"
+        ],
+        "name": "Amazon Simple Email Service",
+        "version": "2010-12-01",
+        "documentation": "Amazon Simple Email Service (Amazon SES) is a cost-effective outbound-only email-sending service built on the reliable and scalable infrastructure that Amazon.com has developed to serve its own customer base. With Amazon SES, you can send transactional email, marketing messages, or any other type of high-quality content and you only pay for what you use. Along with high deliverability, Amazon SES provides easy, real-time access to your sending statistics and built-in notifications for bounces, complaints, and deliveries to help you fine-tune your email-sending strategy.",
+        "xmlNamespace": "http://ses.amazonaws.com/doc/2010-12-01/",
+        "endpoint": "Regional",
+        "endpointPrefix": "email"
+    },
+    "cabal": {
+        "other": [],
+        "library": "amazonka-ses",
+        "exposed": [
+            "Network.AWS.SES",
+            "Network.AWS.SES.DeleteIdentity",
+            "Network.AWS.SES.DeleteVerifiedEmailAddress",
+            "Network.AWS.SES.GetIdentityDkimAttributes",
+            "Network.AWS.SES.GetIdentityNotificationAttributes",
+            "Network.AWS.SES.GetIdentityVerificationAttributes",
+            "Network.AWS.SES.GetSendQuota",
+            "Network.AWS.SES.GetSendStatistics",
+            "Network.AWS.SES.ListIdentities",
+            "Network.AWS.SES.ListVerifiedEmailAddresses",
+            "Network.AWS.SES.SendEmail",
+            "Network.AWS.SES.SendRawEmail",
+            "Network.AWS.SES.SetIdentityDkimEnabled",
+            "Network.AWS.SES.SetIdentityFeedbackForwardingEnabled",
+            "Network.AWS.SES.SetIdentityNotificationTopic",
+            "Network.AWS.SES.Types",
+            "Network.AWS.SES.VerifyDomainDkim",
+            "Network.AWS.SES.VerifyDomainIdentity",
+            "Network.AWS.SES.VerifyEmailAddress",
+            "Network.AWS.SES.VerifyEmailIdentity"
+        ],
+        "dependencies": [],
+        "name": "Amazon Simple Email Service",
+        "version": "0.0.0",
+        "description": "Amazon Simple Email Service (Amazon SES) is a cost-effective outbound-only email-sending service built on the reliable and scalable infrastructure that Amazon.com has developed to serve its own customer base. With Amazon SES, you can send transactional email, marketing messages, or any other type of high-quality content and you only pay for what you use. Along with high deliverability, Amazon SES provides easy, real-time access to your sending statistics and built-in notifications for bounces, complaints, and deliveries to help you fine-tune your email-sending strategy."
+    },
+    "types": {
+        "service": {
+            "signature": "V4",
+            "checksum": "sha256",
+            "abbrev": "SES",
+            "error": "RESTError",
+            "namespace": "Network.AWS.SES",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.SES.DeleteIdentity",
+                "Network.AWS.SES.DeleteVerifiedEmailAddress",
+                "Network.AWS.SES.GetIdentityDkimAttributes",
+                "Network.AWS.SES.GetIdentityNotificationAttributes",
+                "Network.AWS.SES.GetIdentityVerificationAttributes",
+                "Network.AWS.SES.GetSendQuota",
+                "Network.AWS.SES.GetSendStatistics",
+                "Network.AWS.SES.ListIdentities",
+                "Network.AWS.SES.ListVerifiedEmailAddresses",
+                "Network.AWS.SES.SendEmail",
+                "Network.AWS.SES.SendRawEmail",
+                "Network.AWS.SES.SetIdentityDkimEnabled",
+                "Network.AWS.SES.SetIdentityFeedbackForwardingEnabled",
+                "Network.AWS.SES.SetIdentityNotificationTopic",
+                "Network.AWS.SES.Types",
+                "Network.AWS.SES.VerifyDomainDkim",
+                "Network.AWS.SES.VerifyDomainIdentity",
+                "Network.AWS.SES.VerifyEmailAddress",
+                "Network.AWS.SES.VerifyEmailIdentity"
+            ],
+            "name": "Amazon Simple Email Service",
+            "version": "2010-12-01",
+            "documentation": "Amazon Simple Email Service (Amazon SES) is a cost-effective outbound-only email-sending service built on the reliable and scalable infrastructure that Amazon.com has developed to serve its own customer base. With Amazon SES, you can send transactional email, marketing messages, or any other type of high-quality content and you only pay for what you use. Along with high deliverability, Amazon SES provides easy, real-time access to your sending statistics and built-in notifications for bounces, complaints, and deliveries to help you fine-tune your email-sending strategy.",
+            "xmlNamespace": "http://ses.amazonaws.com/doc/2010-12-01/",
+            "endpoint": "Regional",
+            "endpointPrefix": "email"
+        },
+        "namespace": "Network.AWS.SES.Types",
+        "types": [
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 14,
+                "ctor": "destination",
+                "payload": null,
+                "required": [],
+                "name": "Destination",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dToAddresses",
+                        "name": "_dToAddresses",
+                        "shape": "AddressList",
+                        "locationName": "ToAddresses",
+                        "documentation": "\u003cp\u003eThe To: field(s) of the message.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dCcAddresses",
+                        "name": "_dCcAddresses",
+                        "shape": "AddressList",
+                        "locationName": "CcAddresses",
+                        "documentation": "\u003cp\u003eThe CC: field(s) of the message.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dBccAddresses",
+                        "name": "_dBccAddresses",
+                        "shape": "AddressList",
+                        "locationName": "BccAddresses",
+                        "documentation": "\u003cp\u003eThe BCC: field(s) of the message.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dBccAddresses",
+                        "name": "_dBccAddresses",
+                        "shape": "AddressList",
+                        "locationName": "BccAddresses",
+                        "documentation": "\u003cp\u003eThe BCC: field(s) of the message.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dCcAddresses",
+                        "name": "_dCcAddresses",
+                        "shape": "AddressList",
+                        "locationName": "CcAddresses",
+                        "documentation": "\u003cp\u003eThe CC: field(s) of the message.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dToAddresses",
+                        "name": "_dToAddresses",
+                        "shape": "AddressList",
+                        "locationName": "ToAddresses",
+                        "documentation": "\u003cp\u003eThe To: field(s) of the message.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 26,
+                "ctor": "identityDkimAttributes",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "idaDkimEnabled",
+                        "name": "_idaDkimEnabled",
+                        "shape": "Enabled",
+                        "locationName": "DkimEnabled",
+                        "documentation": "\u003cp\u003eTrue if DKIM signing is enabled for email sent from the identity; false otherwise.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "idaDkimVerificationStatus",
+                        "name": "_idaDkimVerificationStatus",
+                        "shape": "VerificationStatus",
+                        "locationName": "DkimVerificationStatus",
+                        "documentation": "\u003cp\u003eDescribes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "name": "IdentityDkimAttributes",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "idaDkimTokens",
+                        "name": "_idaDkimTokens",
+                        "shape": "VerificationTokenList",
+                        "locationName": "DkimTokens",
+                        "documentation": "\u003cp\u003eA set of character strings that represent the domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "idaDkimEnabled",
+                        "name": "_idaDkimEnabled",
+                        "shape": "Enabled",
+                        "locationName": "DkimEnabled",
+                        "documentation": "\u003cp\u003eTrue if DKIM signing is enabled for email sent from the identity; false otherwise.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "idaDkimTokens",
+                        "name": "_idaDkimTokens",
+                        "shape": "VerificationTokenList",
+                        "locationName": "DkimTokens",
+                        "documentation": "\u003cp\u003eA set of character strings that represent the domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "idaDkimVerificationStatus",
+                        "name": "_idaDkimVerificationStatus",
+                        "shape": "VerificationStatus",
+                        "locationName": "DkimVerificationStatus",
+                        "documentation": "\u003cp\u003eDescribes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 6,
+                "ctor": "body",
+                "payload": null,
+                "required": [],
+                "name": "Body",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "bText",
+                        "name": "_bText",
+                        "shape": "Content",
+                        "locationName": "Text",
+                        "documentation": "\u003cp\u003eThe content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices). \u003c/p\u003e",
+                        "typeExposed": "Maybe Content",
+                        "type": "Maybe Content"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "bHtml",
+                        "name": "_bHtml",
+                        "shape": "Content",
+                        "locationName": "Html",
+                        "documentation": "\u003cp\u003eThe content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message. \u003c/p\u003e",
+                        "typeExposed": "Maybe Content",
+                        "type": "Maybe Content"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "bHtml",
+                        "name": "_bHtml",
+                        "shape": "Content",
+                        "locationName": "Html",
+                        "documentation": "\u003cp\u003eThe content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message. \u003c/p\u003e",
+                        "typeExposed": "Maybe Content",
+                        "type": "Maybe Content"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "bText",
+                        "name": "_bText",
+                        "shape": "Content",
+                        "locationName": "Text",
+                        "documentation": "\u003cp\u003eThe content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices). \u003c/p\u003e",
+                        "typeExposed": "Maybe Content",
+                        "type": "Maybe Content"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 22,
+                "ctor": "identityVerificationAttributes",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ivaVerificationStatus",
+                        "name": "_ivaVerificationStatus",
+                        "shape": "VerificationStatus",
+                        "locationName": "VerificationStatus",
+                        "documentation": "\u003cp\u003eThe verification status of the identity: \"Pending\", \"Success\", \"Failed\", or \"TemporaryFailure\".\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "name": "IdentityVerificationAttributes",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ivaVerificationToken",
+                        "name": "_ivaVerificationToken",
+                        "shape": "VerificationToken",
+                        "locationName": "VerificationToken",
+                        "documentation": "\u003cp\u003eThe verification token for a domain identity. Null for email address identities.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ivaVerificationStatus",
+                        "name": "_ivaVerificationStatus",
+                        "shape": "VerificationStatus",
+                        "locationName": "VerificationStatus",
+                        "documentation": "\u003cp\u003eThe verification status of the identity: \"Pending\", \"Success\", \"Failed\", or \"TemporaryFailure\".\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ivaVerificationToken",
+                        "name": "_ivaVerificationToken",
+                        "shape": "VerificationToken",
+                        "locationName": "VerificationToken",
+                        "documentation": "\u003cp\u003eThe verification token for a domain identity. Null for email address identities.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 20,
+                "ctor": "sendDataPoint",
+                "payload": null,
+                "required": [],
+                "name": "SendDataPoint",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sdpTimestamp",
+                        "name": "_sdpTimestamp",
+                        "shape": "Timestamp",
+                        "locationName": "Timestamp",
+                        "documentation": "\u003cp\u003eTime of the data point.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sdpDeliveryAttempts",
+                        "name": "_sdpDeliveryAttempts",
+                        "shape": "Counter",
+                        "locationName": "DeliveryAttempts",
+                        "documentation": "\u003cp\u003eNumber of emails that have been enqueued for sending.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sdpBounces",
+                        "name": "_sdpBounces",
+                        "shape": "Counter",
+                        "locationName": "Bounces",
+                        "documentation": "\u003cp\u003eNumber of emails that have bounced.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sdpComplaints",
+                        "name": "_sdpComplaints",
+                        "shape": "Counter",
+                        "locationName": "Complaints",
+                        "documentation": "\u003cp\u003eNumber of unwanted emails that were rejected by recipients.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sdpRejects",
+                        "name": "_sdpRejects",
+                        "shape": "Counter",
+                        "locationName": "Rejects",
+                        "documentation": "\u003cp\u003eNumber of emails rejected by Amazon SES.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sdpBounces",
+                        "name": "_sdpBounces",
+                        "shape": "Counter",
+                        "locationName": "Bounces",
+                        "documentation": "\u003cp\u003eNumber of emails that have bounced.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sdpComplaints",
+                        "name": "_sdpComplaints",
+                        "shape": "Counter",
+                        "locationName": "Complaints",
+                        "documentation": "\u003cp\u003eNumber of unwanted emails that were rejected by recipients.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sdpDeliveryAttempts",
+                        "name": "_sdpDeliveryAttempts",
+                        "shape": "Counter",
+                        "locationName": "DeliveryAttempts",
+                        "documentation": "\u003cp\u003eNumber of emails that have been enqueued for sending.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sdpRejects",
+                        "name": "_sdpRejects",
+                        "shape": "Counter",
+                        "locationName": "Rejects",
+                        "documentation": "\u003cp\u003eNumber of emails rejected by Amazon SES.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sdpTimestamp",
+                        "name": "_sdpTimestamp",
+                        "shape": "Timestamp",
+                        "locationName": "Timestamp",
+                        "documentation": "\u003cp\u003eTime of the data point.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "ITEmailAddress": "EmailAddress",
+                    "ITDomain": "Domain"
+                },
+                "valuePad": 13,
+                "name": "IdentityType",
+                "type": "nullary",
+                "branchPad": 14
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 9,
+                "ctor": "content",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cData",
+                        "name": "_cData",
+                        "shape": "MessageData",
+                        "locationName": "Data",
+                        "documentation": "\u003cp\u003eThe textual data of the content.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "name": "Content",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cCharset",
+                        "name": "_cCharset",
+                        "shape": "Charset",
+                        "locationName": "Charset",
+                        "documentation": "\u003cp\u003eThe character set of the content.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cCharset",
+                        "name": "_cCharset",
+                        "shape": "Charset",
+                        "locationName": "Charset",
+                        "documentation": "\u003cp\u003eThe character set of the content.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cData",
+                        "name": "_cData",
+                        "shape": "MessageData",
+                        "locationName": "Data",
+                        "documentation": "\u003cp\u003eThe textual data of the content.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 21,
+                "ctor": "identityNotificationAttributes",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "inaBounceTopic",
+                        "name": "_inaBounceTopic",
+                        "shape": "NotificationTopic",
+                        "locationName": "BounceTopic",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce notifications.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "inaComplaintTopic",
+                        "name": "_inaComplaintTopic",
+                        "shape": "NotificationTopic",
+                        "locationName": "ComplaintTopic",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish complaint notifications.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "inaDeliveryTopic",
+                        "name": "_inaDeliveryTopic",
+                        "shape": "NotificationTopic",
+                        "locationName": "DeliveryTopic",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "inaForwardingEnabled",
+                        "name": "_inaForwardingEnabled",
+                        "shape": "Enabled",
+                        "locationName": "ForwardingEnabled",
+                        "documentation": "\u003cp\u003eDescribes whether Amazon SES will forward bounce and complaint notifications as email. \u003ccode\u003etrue\u003c/code\u003e indicates that Amazon SES will forward bounce and complaint notifications as email, while \u003ccode\u003efalse\u003c/code\u003e indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ],
+                "name": "IdentityNotificationAttributes",
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "inaBounceTopic",
+                        "name": "_inaBounceTopic",
+                        "shape": "NotificationTopic",
+                        "locationName": "BounceTopic",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce notifications.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "inaComplaintTopic",
+                        "name": "_inaComplaintTopic",
+                        "shape": "NotificationTopic",
+                        "locationName": "ComplaintTopic",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish complaint notifications.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "inaDeliveryTopic",
+                        "name": "_inaDeliveryTopic",
+                        "shape": "NotificationTopic",
+                        "locationName": "DeliveryTopic",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "inaForwardingEnabled",
+                        "name": "_inaForwardingEnabled",
+                        "shape": "Enabled",
+                        "locationName": "ForwardingEnabled",
+                        "documentation": "\u003cp\u003eDescribes whether Amazon SES will forward bounce and complaint notifications as email. \u003ccode\u003etrue\u003c/code\u003e indicates that Amazon SES will forward bounce and complaint notifications as email, while \u003ccode\u003efalse\u003c/code\u003e indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "rawMessage",
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "rmData",
+                    "name": "_rmData",
+                    "shape": "RawMessageData",
+                    "locationName": "Data",
+                    "documentation": "\u003cp\u003eThe raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding (if necessary). \u003c/p\u003e \u003cp\u003eThe To:, CC:, and BCC: headers in the raw message can contain a group list. \u003c/p\u003e \u003cp\u003eFor more information, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/p\u003e",
+                    "typeExposed": "Base64",
+                    "type": "Base64"
+                },
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rmData",
+                        "name": "_rmData",
+                        "shape": "RawMessageData",
+                        "locationName": "Data",
+                        "documentation": "\u003cp\u003eThe raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding (if necessary). \u003c/p\u003e \u003cp\u003eThe To:, CC:, and BCC: headers in the raw message can contain a group list. \u003c/p\u003e \u003cp\u003eFor more information, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/p\u003e",
+                        "typeExposed": "Base64",
+                        "type": "Base64"
+                    }
+                ],
+                "name": "RawMessage",
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rmData",
+                        "name": "_rmData",
+                        "shape": "RawMessageData",
+                        "locationName": "Data",
+                        "documentation": "\u003cp\u003eThe raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding (if necessary). \u003c/p\u003e \u003cp\u003eThe To:, CC:, and BCC: headers in the raw message can contain a group list. \u003c/p\u003e \u003cp\u003eFor more information, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/p\u003e",
+                        "typeExposed": "Base64",
+                        "type": "Base64"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "Delivery": "Delivery",
+                    "Bounce": "Bounce",
+                    "Complaint": "Complaint"
+                },
+                "valuePad": 10,
+                "name": "NotificationType",
+                "type": "nullary",
+                "branchPad": 9
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "NotStarted": "NotStarted",
+                    "Pending": "Pending",
+                    "Success": "Success",
+                    "TemporaryFailure": "TemporaryFailure",
+                    "Failed": "Failed"
+                },
+                "valuePad": 17,
+                "name": "VerificationStatus",
+                "type": "nullary",
+                "branchPad": 16
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 9,
+                "ctor": "message",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mSubject",
+                        "name": "_mSubject",
+                        "shape": "Content",
+                        "locationName": "Subject",
+                        "documentation": "\u003cp\u003eThe subject of the message: A short summary of the content, which will appear in the recipient's inbox.\u003c/p\u003e",
+                        "typeExposed": "Content",
+                        "type": "Content"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mBody",
+                        "name": "_mBody",
+                        "shape": "Body",
+                        "locationName": "Body",
+                        "documentation": "\u003cp\u003eThe message body.\u003c/p\u003e",
+                        "typeExposed": "Body",
+                        "type": "Body"
+                    }
+                ],
+                "name": "Message",
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mBody",
+                        "name": "_mBody",
+                        "shape": "Body",
+                        "locationName": "Body",
+                        "documentation": "\u003cp\u003eThe message body.\u003c/p\u003e",
+                        "typeExposed": "Body",
+                        "type": "Body"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mSubject",
+                        "name": "_mSubject",
+                        "shape": "Content",
+                        "locationName": "Subject",
+                        "documentation": "\u003cp\u003eThe subject of the message: A short summary of the content, which will appear in the recipient's inbox.\u003c/p\u003e",
+                        "typeExposed": "Content",
+                        "type": "Content"
+                    }
+                ]
+            }
+        ],
+        "imports": []
+    },
+    "operations": [
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "deleteIdentityResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "DeleteIdentityResponse",
+                "resultWrapper": "DeleteIdentityResult",
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.SES.DeleteIdentity",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "DeleteIdentity",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes the specified identity (email address or domain) from the list of verified identities.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "deleteIdentity",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "diIdentity",
+                    "name": "_diIdentity",
+                    "shape": "Identity",
+                    "locationName": "Identity",
+                    "documentation": "\u003cp\u003eThe identity to be removed from the list of identities for the AWS Account.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "diIdentity",
+                        "name": "_diIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "\u003cp\u003eThe identity to be removed from the list of identities for the AWS Account.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 9,
+                "name": "DeleteIdentity",
+                "query": [
+                    {
+                        "field": "_diIdentity",
+                        "locationName": "Identity",
+                        "type": "field"
+                    }
+                ],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "diIdentity",
+                        "name": "_diIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "\u003cp\u003eThe identity to be removed from the list of identities for the AWS Account.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "deleteVerifiedEmailAddressResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "DeleteVerifiedEmailAddressResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.SES.DeleteVerifiedEmailAddress",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "DeleteVerifiedEmailAddress",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes the specified email address from the list of verified addresses.\u003c/p\u003e \u003cimportant\u003eThe DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.\u003c/important\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "deleteVerifiedEmailAddress",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dveaEmailAddress",
+                    "name": "_dveaEmailAddress",
+                    "shape": "Address",
+                    "locationName": "EmailAddress",
+                    "documentation": "\u003cp\u003eAn email address to be removed from the list of verified addresses.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dveaEmailAddress",
+                        "name": "_dveaEmailAddress",
+                        "shape": "Address",
+                        "locationName": "EmailAddress",
+                        "documentation": "\u003cp\u003eAn email address to be removed from the list of verified addresses.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 13,
+                "name": "DeleteVerifiedEmailAddress",
+                "query": [
+                    {
+                        "field": "_dveaEmailAddress",
+                        "locationName": "EmailAddress",
+                        "type": "field"
+                    }
+                ],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dveaEmailAddress",
+                        "name": "_dveaEmailAddress",
+                        "shape": "Address",
+                        "locationName": "EmailAddress",
+                        "documentation": "\u003cp\u003eAn email address to be removed from the list of verified addresses.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "getIdentityDkimAttributesResponse",
+                "field": {
+                    "location": "querystring",
+                    "iso": "_Map",
+                    "lensMapping": "_Map",
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "gidarDkimAttributes",
+                    "name": "_gidarDkimAttributes",
+                    "shape": "DkimAttributes",
+                    "locationName": "DkimAttributes",
+                    "documentation": "\u003cp\u003eThe DKIM attributes for an email address or a domain. \u003c/p\u003e",
+                    "typeExposed": "HashMap Text IdentityDkimAttributes",
+                    "type": "Map Text IdentityDkimAttributes"
+                },
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "GetIdentityDkimAttributesResponse",
+                "resultWrapper": "GetIdentityDkimAttributesResult",
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "gidarDkimAttributes",
+                        "name": "_gidarDkimAttributes",
+                        "shape": "DkimAttributes",
+                        "locationName": "DkimAttributes",
+                        "documentation": "\u003cp\u003eThe DKIM attributes for an email address or a domain. \u003c/p\u003e",
+                        "typeExposed": "HashMap Text IdentityDkimAttributes",
+                        "type": "Map Text IdentityDkimAttributes"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "gidarDkimAttributes",
+                        "name": "_gidarDkimAttributes",
+                        "shape": "DkimAttributes",
+                        "locationName": "DkimAttributes",
+                        "documentation": "\u003cp\u003eThe DKIM attributes for an email address or a domain. \u003c/p\u003e",
+                        "typeExposed": "HashMap Text IdentityDkimAttributes",
+                        "type": "Map Text IdentityDkimAttributes"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.GetIdentityDkimAttributes",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "GetIdentityDkimAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the current status of Easy DKIM signing for an entity. For domain name identities, this action also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES has successfully verified that these tokens have been published.\u003c/p\u003e \u003cp\u003eThis action takes a list of identities as input and returns the following information for each:\u003c/p\u003e \u003cul\u003e \u003cli\u003eWhether Easy DKIM signing is enabled or disabled.\u003c/li\u003e \u003cli\u003eA set of DKIM tokens that represent the identity. If the identity is an email address, the tokens represent the domain of that address.\u003c/li\u003e \u003cli\u003eWhether Amazon SES has successfully verified the DKIM tokens published in the domain's DNS. This information is only returned for domain name identities, not for email addresses.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Text",
+                "fieldPad": 0,
+                "ctor": "getIdentityDkimAttributes",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "gidaIdentities",
+                    "name": "_gidaIdentities",
+                    "shape": "IdentityList",
+                    "locationName": "Identities",
+                    "documentation": "\u003cp\u003eA list of one or more verified identities - email addresses, domains, or both.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 11,
+                "name": "GetIdentityDkimAttributes",
+                "query": [
+                    {
+                        "field": "_gidaIdentities",
+                        "locationName": "Identities",
+                        "type": "field"
+                    }
+                ],
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "gidaIdentities",
+                        "name": "_gidaIdentities",
+                        "shape": "IdentityList",
+                        "locationName": "Identities",
+                        "documentation": "\u003cp\u003eA list of one or more verified identities - email addresses, domains, or both.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "gidaIdentities",
+                        "name": "_gidaIdentities",
+                        "shape": "IdentityList",
+                        "locationName": "Identities",
+                        "documentation": "\u003cp\u003eA list of one or more verified identities - email addresses, domains, or both.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "getIdentityNotificationAttributesResponse",
+                "field": {
+                    "location": "querystring",
+                    "iso": "_Map",
+                    "lensMapping": "_Map",
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "ginarNotificationAttributes",
+                    "name": "_ginarNotificationAttributes",
+                    "shape": "NotificationAttributes",
+                    "locationName": "NotificationAttributes",
+                    "documentation": "\u003cp\u003eA map of Identity to IdentityNotificationAttributes.\u003c/p\u003e",
+                    "typeExposed": "HashMap Text IdentityNotificationAttributes",
+                    "type": "Map Text IdentityNotificationAttributes"
+                },
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "GetIdentityNotificationAttributesResponse",
+                "resultWrapper": "GetIdentityNotificationAttributesResult",
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ginarNotificationAttributes",
+                        "name": "_ginarNotificationAttributes",
+                        "shape": "NotificationAttributes",
+                        "locationName": "NotificationAttributes",
+                        "documentation": "\u003cp\u003eA map of Identity to IdentityNotificationAttributes.\u003c/p\u003e",
+                        "typeExposed": "HashMap Text IdentityNotificationAttributes",
+                        "type": "Map Text IdentityNotificationAttributes"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ginarNotificationAttributes",
+                        "name": "_ginarNotificationAttributes",
+                        "shape": "NotificationAttributes",
+                        "locationName": "NotificationAttributes",
+                        "documentation": "\u003cp\u003eA map of Identity to IdentityNotificationAttributes.\u003c/p\u003e",
+                        "typeExposed": "HashMap Text IdentityNotificationAttributes",
+                        "type": "Map Text IdentityNotificationAttributes"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.GetIdentityNotificationAttributes",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "GetIdentityNotificationAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eGiven a list of verified identities (email addresses and/or domains), returns a structure describing identity notification attributes.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about using notifications with Amazon SES, see the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Text",
+                "fieldPad": 0,
+                "ctor": "getIdentityNotificationAttributes",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "ginaIdentities",
+                    "name": "_ginaIdentities",
+                    "shape": "IdentityList",
+                    "locationName": "Identities",
+                    "documentation": "\u003cp\u003eA list of one or more identities.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 11,
+                "name": "GetIdentityNotificationAttributes",
+                "query": [
+                    {
+                        "field": "_ginaIdentities",
+                        "locationName": "Identities",
+                        "type": "field"
+                    }
+                ],
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ginaIdentities",
+                        "name": "_ginaIdentities",
+                        "shape": "IdentityList",
+                        "locationName": "Identities",
+                        "documentation": "\u003cp\u003eA list of one or more identities.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ginaIdentities",
+                        "name": "_ginaIdentities",
+                        "shape": "IdentityList",
+                        "locationName": "Identities",
+                        "documentation": "\u003cp\u003eA list of one or more identities.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "getIdentityVerificationAttributesResponse",
+                "field": {
+                    "location": "querystring",
+                    "iso": "_Map",
+                    "lensMapping": "_Map",
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "givarVerificationAttributes",
+                    "name": "_givarVerificationAttributes",
+                    "shape": "VerificationAttributes",
+                    "locationName": "VerificationAttributes",
+                    "documentation": "\u003cp\u003eA map of Identities to IdentityVerificationAttributes objects.\u003c/p\u003e",
+                    "typeExposed": "HashMap Text IdentityVerificationAttributes",
+                    "type": "Map Text IdentityVerificationAttributes"
+                },
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "GetIdentityVerificationAttributesResponse",
+                "resultWrapper": "GetIdentityVerificationAttributesResult",
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "givarVerificationAttributes",
+                        "name": "_givarVerificationAttributes",
+                        "shape": "VerificationAttributes",
+                        "locationName": "VerificationAttributes",
+                        "documentation": "\u003cp\u003eA map of Identities to IdentityVerificationAttributes objects.\u003c/p\u003e",
+                        "typeExposed": "HashMap Text IdentityVerificationAttributes",
+                        "type": "Map Text IdentityVerificationAttributes"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "givarVerificationAttributes",
+                        "name": "_givarVerificationAttributes",
+                        "shape": "VerificationAttributes",
+                        "locationName": "VerificationAttributes",
+                        "documentation": "\u003cp\u003eA map of Identities to IdentityVerificationAttributes objects.\u003c/p\u003e",
+                        "typeExposed": "HashMap Text IdentityVerificationAttributes",
+                        "type": "Map Text IdentityVerificationAttributes"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.GetIdentityVerificationAttributes",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "GetIdentityVerificationAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eGiven a list of identities (email addresses and/or domains), returns the verification status and (for domain identities) the verification token for each identity.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Text",
+                "fieldPad": 0,
+                "ctor": "getIdentityVerificationAttributes",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "givaIdentities",
+                    "name": "_givaIdentities",
+                    "shape": "IdentityList",
+                    "locationName": "Identities",
+                    "documentation": "\u003cp\u003eA list of identities.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 11,
+                "name": "GetIdentityVerificationAttributes",
+                "query": [
+                    {
+                        "field": "_givaIdentities",
+                        "locationName": "Identities",
+                        "type": "field"
+                    }
+                ],
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "givaIdentities",
+                        "name": "_givaIdentities",
+                        "shape": "IdentityList",
+                        "locationName": "Identities",
+                        "documentation": "\u003cp\u003eA list of identities.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "givaIdentities",
+                        "name": "_givaIdentities",
+                        "shape": "IdentityList",
+                        "locationName": "Identities",
+                        "documentation": "\u003cp\u003eA list of identities.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 20,
+                "ctor": "getSendQuotaResponse",
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "GetSendQuotaResponse",
+                "resultWrapper": "GetSendQuotaResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsqrMax24HourSend",
+                        "name": "_gsqrMax24HourSend",
+                        "shape": "Max24HourSend",
+                        "locationName": "Max24HourSend",
+                        "documentation": "\u003cp\u003eThe maximum number of emails the user is allowed to send in a 24-hour interval.\u003c/p\u003e",
+                        "typeExposed": "Maybe Double",
+                        "type": "Maybe Double"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsqrMaxSendRate",
+                        "name": "_gsqrMaxSendRate",
+                        "shape": "MaxSendRate",
+                        "locationName": "MaxSendRate",
+                        "documentation": "\u003cp\u003eThe maximum number of emails the user is allowed to send per second.\u003c/p\u003e",
+                        "typeExposed": "Maybe Double",
+                        "type": "Maybe Double"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsqrSentLast24Hours",
+                        "name": "_gsqrSentLast24Hours",
+                        "shape": "SentLast24Hours",
+                        "locationName": "SentLast24Hours",
+                        "documentation": "\u003cp\u003eThe number of emails sent during the previous 24 hours.\u003c/p\u003e",
+                        "typeExposed": "Maybe Double",
+                        "type": "Maybe Double"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsqrMax24HourSend",
+                        "name": "_gsqrMax24HourSend",
+                        "shape": "Max24HourSend",
+                        "locationName": "Max24HourSend",
+                        "documentation": "\u003cp\u003eThe maximum number of emails the user is allowed to send in a 24-hour interval.\u003c/p\u003e",
+                        "typeExposed": "Maybe Double",
+                        "type": "Maybe Double"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsqrMaxSendRate",
+                        "name": "_gsqrMaxSendRate",
+                        "shape": "MaxSendRate",
+                        "locationName": "MaxSendRate",
+                        "documentation": "\u003cp\u003eThe maximum number of emails the user is allowed to send per second.\u003c/p\u003e",
+                        "typeExposed": "Maybe Double",
+                        "type": "Maybe Double"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsqrSentLast24Hours",
+                        "name": "_gsqrSentLast24Hours",
+                        "shape": "SentLast24Hours",
+                        "locationName": "SentLast24Hours",
+                        "documentation": "\u003cp\u003eThe number of emails sent during the previous 24 hours.\u003c/p\u003e",
+                        "typeExposed": "Maybe Double",
+                        "type": "Maybe Double"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.GetSendQuota",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "GetSendQuota",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the user's current sending limits.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "getSendQuota",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "GetSendQuota",
+                "query": [],
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "SendDataPoint",
+                "fieldPad": 0,
+                "ctor": "getSendStatisticsResponse",
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "gssrSendDataPoints",
+                    "name": "_gssrSendDataPoints",
+                    "shape": "SendDataPointList",
+                    "locationName": "SendDataPoints",
+                    "documentation": "\u003cp\u003eA list of data points, each of which represents 15 minutes of activity.\u003c/p\u003e",
+                    "typeExposed": "[SendDataPoint]",
+                    "type": "[SendDataPoint]"
+                },
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "GetSendStatisticsResponse",
+                "resultWrapper": "GetSendStatisticsResult",
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "gssrSendDataPoints",
+                        "name": "_gssrSendDataPoints",
+                        "shape": "SendDataPointList",
+                        "locationName": "SendDataPoints",
+                        "documentation": "\u003cp\u003eA list of data points, each of which represents 15 minutes of activity.\u003c/p\u003e",
+                        "typeExposed": "[SendDataPoint]",
+                        "type": "[SendDataPoint]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "gssrSendDataPoints",
+                        "name": "_gssrSendDataPoints",
+                        "shape": "SendDataPointList",
+                        "locationName": "SendDataPoints",
+                        "documentation": "\u003cp\u003eA list of data points, each of which represents 15 minutes of activity.\u003c/p\u003e",
+                        "typeExposed": "[SendDataPoint]",
+                        "type": "[SendDataPoint]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.GetSendStatistics",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "GetSendStatistics",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity. \u003c/p\u003e \u003cp\u003eEach data point in the list contains statistics for a 15-minute interval.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "getSendStatistics",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "GetSendStatistics",
+                "query": [],
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 14,
+                "ctor": "listIdentitiesResponse",
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "ListIdentitiesResponse",
+                "resultWrapper": "ListIdentitiesResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "lirIdentities",
+                        "name": "_lirIdentities",
+                        "shape": "IdentityList",
+                        "locationName": "Identities",
+                        "documentation": "\u003cp\u003eA list of identities.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lirNextToken",
+                        "name": "_lirNextToken",
+                        "shape": "NextToken",
+                        "locationName": "NextToken",
+                        "documentation": "\u003cp\u003eThe token used for pagination.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "lirIdentities",
+                        "name": "_lirIdentities",
+                        "shape": "IdentityList",
+                        "locationName": "Identities",
+                        "documentation": "\u003cp\u003eA list of identities.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lirNextToken",
+                        "name": "_lirNextToken",
+                        "shape": "NextToken",
+                        "locationName": "NextToken",
+                        "documentation": "\u003cp\u003eThe token used for pagination.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.ListIdentities",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "ListIdentities",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 15,
+                "ctor": "listIdentities",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 13,
+                "name": "ListIdentities",
+                "query": [
+                    {
+                        "field": "_liIdentityType",
+                        "locationName": "IdentityType",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_liNextToken",
+                        "locationName": "NextToken",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_liMaxItems",
+                        "locationName": "MaxItems",
+                        "type": "field"
+                    }
+                ],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "liIdentityType",
+                        "name": "_liIdentityType",
+                        "shape": "IdentityType",
+                        "locationName": "IdentityType",
+                        "documentation": "\u003cp\u003eThe type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities will be listed.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "liNextToken",
+                        "name": "_liNextToken",
+                        "shape": "NextToken",
+                        "locationName": "NextToken",
+                        "documentation": "\u003cp\u003eThe token to use for pagination.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "liMaxItems",
+                        "name": "_liMaxItems",
+                        "shape": "MaxItems",
+                        "locationName": "MaxItems",
+                        "documentation": "\u003cp\u003eThe maximum number of identities per page. Possible values are 1-100 inclusive.\u003c/p\u003e",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "liIdentityType",
+                        "name": "_liIdentityType",
+                        "shape": "IdentityType",
+                        "locationName": "IdentityType",
+                        "documentation": "\u003cp\u003eThe type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities will be listed.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "liMaxItems",
+                        "name": "_liMaxItems",
+                        "shape": "MaxItems",
+                        "locationName": "MaxItems",
+                        "documentation": "\u003cp\u003eThe maximum number of identities per page. Possible values are 1-100 inclusive.\u003c/p\u003e",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "liNextToken",
+                        "name": "_liNextToken",
+                        "shape": "NextToken",
+                        "locationName": "NextToken",
+                        "documentation": "\u003cp\u003eThe token to use for pagination.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Text",
+                "fieldPad": 0,
+                "ctor": "listVerifiedEmailAddressesResponse",
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "lvearVerifiedEmailAddresses",
+                    "name": "_lvearVerifiedEmailAddresses",
+                    "shape": "AddressList",
+                    "locationName": "VerifiedEmailAddresses",
+                    "documentation": "\u003cp\u003eA list of email addresses that have been verified.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "ListVerifiedEmailAddressesResponse",
+                "resultWrapper": "ListVerifiedEmailAddressesResult",
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "lvearVerifiedEmailAddresses",
+                        "name": "_lvearVerifiedEmailAddresses",
+                        "shape": "AddressList",
+                        "locationName": "VerifiedEmailAddresses",
+                        "documentation": "\u003cp\u003eA list of email addresses that have been verified.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "lvearVerifiedEmailAddresses",
+                        "name": "_lvearVerifiedEmailAddresses",
+                        "shape": "AddressList",
+                        "locationName": "VerifiedEmailAddresses",
+                        "documentation": "\u003cp\u003eA list of email addresses that have been verified.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.ListVerifiedEmailAddresses",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "ListVerifiedEmailAddresses",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list containing all of the email addresses that have been verified.\u003c/p\u003e \u003cimportant\u003eThe ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.\u003c/important\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "listVerifiedEmailAddresses",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "ListVerifiedEmailAddresses",
+                "query": [],
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "sendEmailResponse",
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "serMessageId",
+                    "name": "_serMessageId",
+                    "shape": "MessageId",
+                    "locationName": "MessageId",
+                    "documentation": "\u003cp\u003eThe unique message identifier returned from the \u003ccode\u003eSendEmail\u003c/code\u003e action. \u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "serMessageId",
+                        "name": "_serMessageId",
+                        "shape": "MessageId",
+                        "locationName": "MessageId",
+                        "documentation": "\u003cp\u003eThe unique message identifier returned from the \u003ccode\u003eSendEmail\u003c/code\u003e action. \u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "name": "SendEmailResponse",
+                "resultWrapper": "SendEmailResult",
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "serMessageId",
+                        "name": "_serMessageId",
+                        "shape": "MessageId",
+                        "locationName": "MessageId",
+                        "documentation": "\u003cp\u003eThe unique message identifier returned from the \u003ccode\u003eSendEmail\u003c/code\u003e action. \u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.SendEmail",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "SendEmail",
+            "method": "post",
+            "documentation": "\u003cp\u003eComposes an email message based on input data, and then immediately queues the message for sending. \u003c/p\u003e \u003cimportant\u003e You can only send email from verified email addresses and domains. If you have not requested production access to Amazon SES, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/important\u003e \u003cp\u003eThe total size of the message cannot exceed 10 MB.\u003c/p\u003e \u003cp\u003eAmazon SES has a limit on the total number of recipients per message: The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group. \u003c/p\u003e \u003cp\u003eFor every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your \u003ci\u003esending quota\u003c/i\u003e - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 19,
+                "ctor": "sendEmail",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "seSource",
+                        "name": "_seSource",
+                        "shape": "Address",
+                        "locationName": "Source",
+                        "documentation": "\u003cp\u003eThe identity's email address.\u003c/p\u003e \u003cp\u003e By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: \u003ccode\u003e=?charset?encoding?encoded-text?=\u003c/code\u003e. For more information, see \u003ca href=\"http://tools.ietf.org/html/rfc2047\"\u003eRFC 2047\u003c/a\u003e. \u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "seDestination",
+                        "name": "_seDestination",
+                        "shape": "Destination",
+                        "locationName": "Destination",
+                        "documentation": "\u003cp\u003eThe destination for this email, composed of To:, CC:, and BCC: fields.\u003c/p\u003e",
+                        "typeExposed": "Destination",
+                        "type": "Destination"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "seMessage",
+                        "name": "_seMessage",
+                        "shape": "Message",
+                        "locationName": "Message",
+                        "documentation": "\u003cp\u003eThe message to be sent.\u003c/p\u003e",
+                        "typeExposed": "Message",
+                        "type": "Message"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 17,
+                "name": "SendEmail",
+                "query": [
+                    {
+                        "field": "_seSource",
+                        "locationName": "Source",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_seDestination",
+                        "locationName": "Destination",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_seMessage",
+                        "locationName": "Message",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_seReplyToAddresses",
+                        "locationName": "ReplyToAddresses",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_seReturnPath",
+                        "locationName": "ReturnPath",
+                        "type": "field"
+                    }
+                ],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "seReplyToAddresses",
+                        "name": "_seReplyToAddresses",
+                        "shape": "AddressList",
+                        "locationName": "ReplyToAddresses",
+                        "documentation": "\u003cp\u003eThe reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply. \u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seReturnPath",
+                        "name": "_seReturnPath",
+                        "shape": "Address",
+                        "locationName": "ReturnPath",
+                        "documentation": "\u003cp\u003eThe email address to which bounces and complaints are to be forwarded when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the \u003ccode\u003eReturnPath\u003c/code\u003e parameter. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "seDestination",
+                        "name": "_seDestination",
+                        "shape": "Destination",
+                        "locationName": "Destination",
+                        "documentation": "\u003cp\u003eThe destination for this email, composed of To:, CC:, and BCC: fields.\u003c/p\u003e",
+                        "typeExposed": "Destination",
+                        "type": "Destination"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "seMessage",
+                        "name": "_seMessage",
+                        "shape": "Message",
+                        "locationName": "Message",
+                        "documentation": "\u003cp\u003eThe message to be sent.\u003c/p\u003e",
+                        "typeExposed": "Message",
+                        "type": "Message"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "seReplyToAddresses",
+                        "name": "_seReplyToAddresses",
+                        "shape": "AddressList",
+                        "locationName": "ReplyToAddresses",
+                        "documentation": "\u003cp\u003eThe reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply. \u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seReturnPath",
+                        "name": "_seReturnPath",
+                        "shape": "Address",
+                        "locationName": "ReturnPath",
+                        "documentation": "\u003cp\u003eThe email address to which bounces and complaints are to be forwarded when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the \u003ccode\u003eReturnPath\u003c/code\u003e parameter. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "seSource",
+                        "name": "_seSource",
+                        "shape": "Address",
+                        "locationName": "Source",
+                        "documentation": "\u003cp\u003eThe identity's email address.\u003c/p\u003e \u003cp\u003e By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: \u003ccode\u003e=?charset?encoding?encoded-text?=\u003c/code\u003e. For more information, see \u003ca href=\"http://tools.ietf.org/html/rfc2047\"\u003eRFC 2047\u003c/a\u003e. \u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "sendRawEmailResponse",
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "srerMessageId",
+                    "name": "_srerMessageId",
+                    "shape": "MessageId",
+                    "locationName": "MessageId",
+                    "documentation": "\u003cp\u003eThe unique message identifier returned from the \u003ccode\u003eSendRawEmail\u003c/code\u003e action. \u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "srerMessageId",
+                        "name": "_srerMessageId",
+                        "shape": "MessageId",
+                        "locationName": "MessageId",
+                        "documentation": "\u003cp\u003eThe unique message identifier returned from the \u003ccode\u003eSendRawEmail\u003c/code\u003e action. \u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "name": "SendRawEmailResponse",
+                "resultWrapper": "SendRawEmailResult",
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "srerMessageId",
+                        "name": "_srerMessageId",
+                        "shape": "MessageId",
+                        "locationName": "MessageId",
+                        "documentation": "\u003cp\u003eThe unique message identifier returned from the \u003ccode\u003eSendRawEmail\u003c/code\u003e action. \u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.SendRawEmail",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "SendRawEmail",
+            "method": "post",
+            "documentation": "\u003cp\u003eSends an email message, with header and content specified by the client. The \u003ccode\u003eSendRawEmail\u003c/code\u003e action is useful for sending multipart MIME emails. The raw text of the message must comply with Internet email standards; otherwise, the message cannot be sent. \u003c/p\u003e \u003cimportant\u003e You can only send email from verified email addresses and domains. If you have not requested production access to Amazon SES, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/important\u003e \u003cp\u003eThe total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.\u003c/p\u003e \u003cp\u003eAmazon SES has a limit on the total number of recipients per message: The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group. \u003c/p\u003e \u003cp\u003eThe To:, CC:, and BCC: headers in the raw message can contain a group list. Note that each recipient in a group list counts towards the 50-recipient limit. \u003c/p\u003e \u003cp\u003eFor every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your \u003ci\u003esending quota\u003c/i\u003e - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 16,
+                "ctor": "sendRawEmail",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sreRawMessage",
+                        "name": "_sreRawMessage",
+                        "shape": "RawMessage",
+                        "locationName": "RawMessage",
+                        "documentation": "\u003cp\u003eThe raw text of the message. The client is responsible for ensuring the following:\u003c/p\u003e \u003cp\u003e \u003cul\u003e \u003cli\u003eMessage must contain a header and a body, separated by a blank line.\u003c/li\u003e \u003cli\u003eAll required header fields must be present.\u003c/li\u003e \u003cli\u003eEach part of a multipart MIME message must be formatted properly.\u003c/li\u003e \u003cli\u003eMIME content types must be among those supported by Amazon SES. For more information, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/li\u003e \u003cli\u003eContent must be base64-encoded, if MIME requires it.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+                        "typeExposed": "RawMessage",
+                        "type": "RawMessage"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 13,
+                "name": "SendRawEmail",
+                "query": [
+                    {
+                        "field": "_sreSource",
+                        "locationName": "Source",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_sreDestinations",
+                        "locationName": "Destinations",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_sreRawMessage",
+                        "locationName": "RawMessage",
+                        "type": "field"
+                    }
+                ],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sreSource",
+                        "name": "_sreSource",
+                        "shape": "Address",
+                        "locationName": "Source",
+                        "documentation": "\u003cp\u003eThe identity's email address.\u003c/p\u003e \u003cp\u003e By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: \u003ccode\u003e=?charset?encoding?encoded-text?=\u003c/code\u003e. For more information, see \u003ca href=\"http://tools.ietf.org/html/rfc2047\"\u003eRFC 2047\u003c/a\u003e. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "sreDestinations",
+                        "name": "_sreDestinations",
+                        "shape": "AddressList",
+                        "locationName": "Destinations",
+                        "documentation": "\u003cp\u003eA list of destinations for the message, consisting of To:, CC:, and BCC: addresses.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "sreDestinations",
+                        "name": "_sreDestinations",
+                        "shape": "AddressList",
+                        "locationName": "Destinations",
+                        "documentation": "\u003cp\u003eA list of destinations for the message, consisting of To:, CC:, and BCC: addresses.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sreRawMessage",
+                        "name": "_sreRawMessage",
+                        "shape": "RawMessage",
+                        "locationName": "RawMessage",
+                        "documentation": "\u003cp\u003eThe raw text of the message. The client is responsible for ensuring the following:\u003c/p\u003e \u003cp\u003e \u003cul\u003e \u003cli\u003eMessage must contain a header and a body, separated by a blank line.\u003c/li\u003e \u003cli\u003eAll required header fields must be present.\u003c/li\u003e \u003cli\u003eEach part of a multipart MIME message must be formatted properly.\u003c/li\u003e \u003cli\u003eMIME content types must be among those supported by Amazon SES. For more information, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/li\u003e \u003cli\u003eContent must be base64-encoded, if MIME requires it.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+                        "typeExposed": "RawMessage",
+                        "type": "RawMessage"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sreSource",
+                        "name": "_sreSource",
+                        "shape": "Address",
+                        "locationName": "Source",
+                        "documentation": "\u003cp\u003eThe identity's email address.\u003c/p\u003e \u003cp\u003e By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: \u003ccode\u003e=?charset?encoding?encoded-text?=\u003c/code\u003e. For more information, see \u003ca href=\"http://tools.ietf.org/html/rfc2047\"\u003eRFC 2047\u003c/a\u003e. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "setIdentityDkimEnabledResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "SetIdentityDkimEnabledResponse",
+                "resultWrapper": "SetIdentityDkimEnabledResult",
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.SES.SetIdentityDkimEnabled",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "SetIdentityDkimEnabled",
+            "method": "post",
+            "documentation": "\u003cp\u003eEnables or disables Easy DKIM signing of email sent from an identity:\u003c/p\u003e \u003cul\u003e \u003cli\u003eIf Easy DKIM signing is enabled for a domain name identity (e.g., \u003ccode\u003eexample.com\u003c/code\u003e), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., \u003ccode\u003euser@example.com\u003c/code\u003e).\u003c/li\u003e \u003cli\u003eIf Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor email addresses (e.g., \u003ccode\u003euser@example.com\u003c/code\u003e), you can only enable Easy DKIM signing if the corresponding domain (e.g., \u003ccode\u003eexample.com\u003c/code\u003e) has been set up for Easy DKIM using the AWS Console or the \u003ccode\u003eVerifyDomainDkim\u003c/code\u003e action.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about Easy DKIM signing, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 16,
+                "ctor": "setIdentityDkimEnabled",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sideIdentity",
+                        "name": "_sideIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "\u003cp\u003eThe identity for which DKIM signing should be enabled or disabled.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sideDkimEnabled",
+                        "name": "_sideDkimEnabled",
+                        "shape": "Enabled",
+                        "locationName": "DkimEnabled",
+                        "documentation": "\u003cp\u003eSets whether DKIM signing is enabled for an identity. Set to \u003ccode\u003etrue\u003c/code\u003e to enable DKIM signing for this identity; \u003ccode\u003efalse\u003c/code\u003e to disable it. \u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 12,
+                "name": "SetIdentityDkimEnabled",
+                "query": [
+                    {
+                        "field": "_sideIdentity",
+                        "locationName": "Identity",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_sideDkimEnabled",
+                        "locationName": "DkimEnabled",
+                        "type": "field"
+                    }
+                ],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sideDkimEnabled",
+                        "name": "_sideDkimEnabled",
+                        "shape": "Enabled",
+                        "locationName": "DkimEnabled",
+                        "documentation": "\u003cp\u003eSets whether DKIM signing is enabled for an identity. Set to \u003ccode\u003etrue\u003c/code\u003e to enable DKIM signing for this identity; \u003ccode\u003efalse\u003c/code\u003e to disable it. \u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sideIdentity",
+                        "name": "_sideIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "\u003cp\u003eThe identity for which DKIM signing should be enabled or disabled.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "setIdentityFeedbackForwardingEnabledResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "SetIdentityFeedbackForwardingEnabledResponse",
+                "resultWrapper": "SetIdentityFeedbackForwardingEnabledResult",
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.SES.SetIdentityFeedbackForwardingEnabled",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "SetIdentityFeedbackForwardingEnabled",
+            "method": "post",
+            "documentation": "\u003cp\u003eGiven an identity (email address or domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about using notifications with Amazon SES, see the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 23,
+                "ctor": "setIdentityFeedbackForwardingEnabled",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "siffeIdentity",
+                        "name": "_siffeIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "\u003cp\u003eThe identity for which to set bounce and complaint notification forwarding. Examples: \u003ccode\u003euser@example.com\u003c/code\u003e, \u003ccode\u003eexample.com\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "siffeForwardingEnabled",
+                        "name": "_siffeForwardingEnabled",
+                        "shape": "Enabled",
+                        "locationName": "ForwardingEnabled",
+                        "documentation": "\u003cp\u003eSets whether Amazon SES will forward bounce and complaint notifications as email. \u003ccode\u003etrue\u003c/code\u003e specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. \u003ccode\u003efalse\u003c/code\u003e specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to \u003ccode\u003efalse\u003c/code\u003e when Amazon SNS topics are set for both \u003ccode\u003eBounce\u003c/code\u003e and \u003ccode\u003eComplaint\u003c/code\u003e notification types.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 18,
+                "name": "SetIdentityFeedbackForwardingEnabled",
+                "query": [
+                    {
+                        "field": "_siffeIdentity",
+                        "locationName": "Identity",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_siffeForwardingEnabled",
+                        "locationName": "ForwardingEnabled",
+                        "type": "field"
+                    }
+                ],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "siffeForwardingEnabled",
+                        "name": "_siffeForwardingEnabled",
+                        "shape": "Enabled",
+                        "locationName": "ForwardingEnabled",
+                        "documentation": "\u003cp\u003eSets whether Amazon SES will forward bounce and complaint notifications as email. \u003ccode\u003etrue\u003c/code\u003e specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. \u003ccode\u003efalse\u003c/code\u003e specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to \u003ccode\u003efalse\u003c/code\u003e when Amazon SNS topics are set for both \u003ccode\u003eBounce\u003c/code\u003e and \u003ccode\u003eComplaint\u003c/code\u003e notification types.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "siffeIdentity",
+                        "name": "_siffeIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "\u003cp\u003eThe identity for which to set bounce and complaint notification forwarding. Examples: \u003ccode\u003euser@example.com\u003c/code\u003e, \u003ccode\u003eexample.com\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "setIdentityNotificationTopicResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "SetIdentityNotificationTopicResponse",
+                "resultWrapper": "SetIdentityNotificationTopicResult",
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.SES.SetIdentityNotificationTopic",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "SetIdentityNotificationTopic",
+            "method": "post",
+            "documentation": "\u003cp\u003eGiven an identity (email address or domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with that identity as the \u003ccode\u003eSource\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about feedback notification, see the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 21,
+                "ctor": "setIdentityNotificationTopic",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sintIdentity",
+                        "name": "_sintIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "\u003cp\u003eThe identity for which the Amazon SNS topic will be set. Examples: \u003ccode\u003euser@example.com\u003c/code\u003e, \u003ccode\u003eexample.com\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sintNotificationType",
+                        "name": "_sintNotificationType",
+                        "shape": "NotificationType",
+                        "locationName": "NotificationType",
+                        "documentation": "\u003cp\u003eThe type of notifications that will be published to the specified Amazon SNS topic.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 17,
+                "name": "SetIdentityNotificationTopic",
+                "query": [
+                    {
+                        "field": "_sintIdentity",
+                        "locationName": "Identity",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_sintNotificationType",
+                        "locationName": "NotificationType",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_sintSnsTopic",
+                        "locationName": "SnsTopic",
+                        "type": "field"
+                    }
+                ],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sintSnsTopic",
+                        "name": "_sintSnsTopic",
+                        "shape": "NotificationTopic",
+                        "locationName": "SnsTopic",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, \u003ccode\u003eSnsTopic\u003c/code\u003e is cleared and publishing is disabled.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sintIdentity",
+                        "name": "_sintIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "\u003cp\u003eThe identity for which the Amazon SNS topic will be set. Examples: \u003ccode\u003euser@example.com\u003c/code\u003e, \u003ccode\u003eexample.com\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sintNotificationType",
+                        "name": "_sintNotificationType",
+                        "shape": "NotificationType",
+                        "locationName": "NotificationType",
+                        "documentation": "\u003cp\u003eThe type of notifications that will be published to the specified Amazon SNS topic.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sintSnsTopic",
+                        "name": "_sintSnsTopic",
+                        "shape": "NotificationTopic",
+                        "locationName": "SnsTopic",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, \u003ccode\u003eSnsTopic\u003c/code\u003e is cleared and publishing is disabled.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Text",
+                "fieldPad": 0,
+                "ctor": "verifyDomainDkimResponse",
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "vddrDkimTokens",
+                    "name": "_vddrDkimTokens",
+                    "shape": "VerificationTokenList",
+                    "locationName": "DkimTokens",
+                    "documentation": "\u003cp\u003eA set of character strings that represent the domain's identity. If the identity is an email address, the tokens represent the domain of that address.\u003c/p\u003e \u003cp\u003eUsing these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign emails originating from that domain.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "VerifyDomainDkimResponse",
+                "resultWrapper": "VerifyDomainDkimResult",
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "vddrDkimTokens",
+                        "name": "_vddrDkimTokens",
+                        "shape": "VerificationTokenList",
+                        "locationName": "DkimTokens",
+                        "documentation": "\u003cp\u003eA set of character strings that represent the domain's identity. If the identity is an email address, the tokens represent the domain of that address.\u003c/p\u003e \u003cp\u003eUsing these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign emails originating from that domain.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "vddrDkimTokens",
+                        "name": "_vddrDkimTokens",
+                        "shape": "VerificationTokenList",
+                        "locationName": "DkimTokens",
+                        "documentation": "\u003cp\u003eA set of character strings that represent the domain's identity. If the identity is an email address, the tokens represent the domain of that address.\u003c/p\u003e \u003cp\u003eUsing these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign emails originating from that domain.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.VerifyDomainDkim",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "VerifyDomainDkim",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a set of DKIM tokens for a domain. DKIM \u003ci\u003etokens\u003c/i\u003e are character strings that represent your domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eTo enable or disable Easy DKIM signing for a domain, use the \u003ccode\u003eSetIdentityDkimEnabled\u003c/code\u003e action.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "verifyDomainDkim",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "vddDomain",
+                    "name": "_vddDomain",
+                    "shape": "Domain",
+                    "locationName": "Domain",
+                    "documentation": "\u003cp\u003eThe name of the domain to be verified for Easy DKIM signing.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "vddDomain",
+                        "name": "_vddDomain",
+                        "shape": "Domain",
+                        "locationName": "Domain",
+                        "documentation": "\u003cp\u003eThe name of the domain to be verified for Easy DKIM signing.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 7,
+                "name": "VerifyDomainDkim",
+                "query": [
+                    {
+                        "field": "_vddDomain",
+                        "locationName": "Domain",
+                        "type": "field"
+                    }
+                ],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "vddDomain",
+                        "name": "_vddDomain",
+                        "shape": "Domain",
+                        "locationName": "Domain",
+                        "documentation": "\u003cp\u003eThe name of the domain to be verified for Easy DKIM signing.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "verifyDomainIdentityResponse",
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "vdirVerificationToken",
+                    "name": "_vdirVerificationToken",
+                    "shape": "VerificationToken",
+                    "locationName": "VerificationToken",
+                    "documentation": "\u003cp\u003eA TXT record that must be placed in the DNS settings for the domain, in order to complete domain verification.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "vdirVerificationToken",
+                        "name": "_vdirVerificationToken",
+                        "shape": "VerificationToken",
+                        "locationName": "VerificationToken",
+                        "documentation": "\u003cp\u003eA TXT record that must be placed in the DNS settings for the domain, in order to complete domain verification.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "name": "VerifyDomainIdentityResponse",
+                "resultWrapper": "VerifyDomainIdentityResult",
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "vdirVerificationToken",
+                        "name": "_vdirVerificationToken",
+                        "shape": "VerificationToken",
+                        "locationName": "VerificationToken",
+                        "documentation": "\u003cp\u003eA TXT record that must be placed in the DNS settings for the domain, in order to complete domain verification.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.VerifyDomainIdentity",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "VerifyDomainIdentity",
+            "method": "post",
+            "documentation": "\u003cp\u003eVerifies a domain.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "verifyDomainIdentity",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "vdiDomain",
+                    "name": "_vdiDomain",
+                    "shape": "Domain",
+                    "locationName": "Domain",
+                    "documentation": "\u003cp\u003eThe domain to be verified.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "vdiDomain",
+                        "name": "_vdiDomain",
+                        "shape": "Domain",
+                        "locationName": "Domain",
+                        "documentation": "\u003cp\u003eThe domain to be verified.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 7,
+                "name": "VerifyDomainIdentity",
+                "query": [
+                    {
+                        "field": "_vdiDomain",
+                        "locationName": "Domain",
+                        "type": "field"
+                    }
+                ],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "vdiDomain",
+                        "name": "_vdiDomain",
+                        "shape": "Domain",
+                        "locationName": "Domain",
+                        "documentation": "\u003cp\u003eThe domain to be verified.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "verifyEmailAddressResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "VerifyEmailAddressResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.SES.VerifyEmailAddress",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "VerifyEmailAddress",
+            "method": "post",
+            "documentation": "\u003cp\u003eVerifies an email address. This action causes a confirmation email message to be sent to the specified address.\u003c/p\u003e \u003cimportant\u003eThe VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The VerifyEmailIdentity action is now preferred.\u003c/important\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "verifyEmailAddress",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "veaEmailAddress",
+                    "name": "_veaEmailAddress",
+                    "shape": "Address",
+                    "locationName": "EmailAddress",
+                    "documentation": "\u003cp\u003eThe email address to be verified.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "veaEmailAddress",
+                        "name": "_veaEmailAddress",
+                        "shape": "Address",
+                        "locationName": "EmailAddress",
+                        "documentation": "\u003cp\u003eThe email address to be verified.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 13,
+                "name": "VerifyEmailAddress",
+                "query": [
+                    {
+                        "field": "_veaEmailAddress",
+                        "locationName": "EmailAddress",
+                        "type": "field"
+                    }
+                ],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "veaEmailAddress",
+                        "name": "_veaEmailAddress",
+                        "shape": "Address",
+                        "locationName": "EmailAddress",
+                        "documentation": "\u003cp\u003eThe email address to be verified.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "verifyEmailIdentityResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "VerifyEmailIdentityResponse",
+                "resultWrapper": "VerifyEmailIdentityResult",
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.SES.VerifyEmailIdentity",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "VerifyEmailIdentity",
+            "method": "post",
+            "documentation": "\u003cp\u003eVerifies an email address. This action causes a confirmation email message to be sent to the specified address.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "verifyEmailIdentity",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "veiEmailAddress",
+                    "name": "_veiEmailAddress",
+                    "shape": "Address",
+                    "locationName": "EmailAddress",
+                    "documentation": "\u003cp\u003eThe email address to be verified.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "veiEmailAddress",
+                        "name": "_veiEmailAddress",
+                        "shape": "Address",
+                        "locationName": "EmailAddress",
+                        "documentation": "\u003cp\u003eThe email address to be verified.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 13,
+                "name": "VerifyEmailIdentity",
+                "query": [
+                    {
+                        "field": "_veiEmailAddress",
+                        "locationName": "EmailAddress",
+                        "type": "field"
+                    }
+                ],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "veiEmailAddress",
+                        "name": "_veiEmailAddress",
+                        "shape": "Address",
+                        "locationName": "EmailAddress",
+                        "documentation": "\u003cp\u003eThe email address to be verified.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        }
+    ]
+}

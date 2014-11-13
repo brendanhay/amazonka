@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53.ListTagsForResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- | 
 module Network.AWS.Route53.ListTagsForResource
     (
     -- * Request
@@ -25,8 +28,8 @@ module Network.AWS.Route53.ListTagsForResource
     -- ** Request constructor
     , listTagsForResource
     -- ** Request lenses
-    , ltfrResourceType
     , ltfrResourceId
+    , ltfrResourceType
 
     -- * Response
     , ListTagsForResourceResponse
@@ -36,68 +39,63 @@ module Network.AWS.Route53.ListTagsForResource
     , ltfrrResourceTagSet
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
--- | A complex type containing information about a request for a list of the
--- tags that are associated with an individual resource.
 data ListTagsForResource = ListTagsForResource
-    { _ltfrResourceType :: TagResourceType
-    , _ltfrResourceId :: Text
+    { _ltfrResourceId   :: Text
+    , _ltfrResourceType :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListTagsForResource' request.
+-- | 'ListTagsForResource' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ResourceType ::@ @TagResourceType@
+-- * 'ltfrResourceId' @::@ 'Text'
 --
--- * @ResourceId ::@ @Text@
+-- * 'ltfrResourceType' @::@ 'Text'
 --
-listTagsForResource :: TagResourceType -- ^ 'ltfrResourceType'
+listTagsForResource :: Text -- ^ 'ltfrResourceType'
                     -> Text -- ^ 'ltfrResourceId'
                     -> ListTagsForResource
 listTagsForResource p1 p2 = ListTagsForResource
     { _ltfrResourceType = p1
-    , _ltfrResourceId = p2
+    , _ltfrResourceId   = p2
     }
-
--- | The type of the resource. The resource type for health checks is
--- healthcheck.
-ltfrResourceType :: Lens' ListTagsForResource TagResourceType
-ltfrResourceType =
-    lens _ltfrResourceType (\s a -> s { _ltfrResourceType = a })
 
 -- | The ID of the resource for which you want to retrieve tags.
 ltfrResourceId :: Lens' ListTagsForResource Text
 ltfrResourceId = lens _ltfrResourceId (\s a -> s { _ltfrResourceId = a })
 
-instance ToPath ListTagsForResource
+-- | The type of the resource. The resource type for health checks is
+-- healthcheck.
+ltfrResourceType :: Lens' ListTagsForResource Text
+ltfrResourceType = lens _ltfrResourceType (\s a -> s { _ltfrResourceType = a })
 
-instance ToQuery ListTagsForResource
+instance ToPath ListTagsForResource where
+    toPath ListTagsForResource{..} = mconcat
+        [ "/2013-04-01/tags/"
+        , toText _ltfrResourceType
+        , "/"
+        , toText _ltfrResourceId
+        ]
+
+instance ToQuery ListTagsForResource where
+    toQuery = const mempty
 
 instance ToHeaders ListTagsForResource
 
-instance ToXML ListTagsForResource where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListTagsForResource"
-
--- | A complex type containing tags for the specified resource.
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrResourceTagSet :: ResourceTagSet
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListTagsForResourceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListTagsForResourceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ResourceTagSet ::@ @ResourceTagSet@
+-- * 'ltfrrResourceTagSet' @::@ 'ResourceTagSet'
 --
 listTagsForResourceResponse :: ResourceTagSet -- ^ 'ltfrrResourceTagSet'
                             -> ListTagsForResourceResponse
@@ -110,12 +108,10 @@ ltfrrResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrResourceTagSet =
     lens _ltfrrResourceTagSet (\s a -> s { _ltfrrResourceTagSet = a })
 
-instance FromXML ListTagsForResourceResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ListTagsForResource where
     type Sv ListTagsForResource = Route53
     type Rs ListTagsForResource = ListTagsForResourceResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> ListTagsForResourceResponse
+        <$> x %| "ResourceTagSet"

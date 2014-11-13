@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogStreams
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,28 +25,7 @@
 -- name. By default, this operation returns up to 50 log streams. If there are
 -- more log streams to list, the response would contain a nextToken value in
 -- the response body. You can also limit the number of log streams returned in
--- the response by specifying the limit parameter in the request. List the log
--- streams associated with a log group The following is an example of a
--- DescribeLogStreams request and response. POST / HTTP/1.1 Host: logs..
--- X-Amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Accept: application/json Content-Type:
--- application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]>
--- X-Amz-Target: Logs_20140328.DescribeLogStreams { "logGroupName":
--- "exampleLogGroupName" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
--- application/x-amz-json-1.1 Content-Length: Date: ]]> { "logStreams": [ {
--- "storageBytes": 1048576, "arn":
--- "arn:aws:logs:us-east-1:123456789:log-group:exampleLogGroupName1:log-stream:exampleLogStreamName1",
--- "creationTime": 1393545600000, "firstEventTimestamp": 1393545600000,
--- "lastEventTimestamp": 1393567800000, "lastIngestionTime": 1393589200000,
--- "logStreamName": "exampleLogStreamName1", "uploadSequenceToken":
--- "88602967394531410094953670125156212707622379445839968487" }, {
--- "storageBytes": 5242880, "arn":
--- "arn:aws:logs:us-east-1:123456789:log-group:exampleLogGroupName2:log-stream:exampleLogStreamName2",
--- "creationTime": 1396224000000, "firstEventTimestamp": 1396224000000,
--- "lastEventTimestamp": 1396235500000, "lastIngestionTime": 1396225560000,
--- "logStreamName": "exampleLogStreamName2", "uploadSequenceToken":
--- "07622379445839968487886029673945314100949536701251562127" } ] }.
+-- the response by specifying the limit parameter in the request.
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
     (
     -- * Request
@@ -52,10 +33,10 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     -- ** Request constructor
     , describeLogStreams
     -- ** Request lenses
+    , dls1Limit
     , dls1LogGroupName
     , dls1LogStreamNamePrefix
     , dls1NextToken
-    , dls1Limit
 
     -- * Response
     , DescribeLogStreamsResponse
@@ -66,108 +47,99 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     , dlsrNextToken
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudWatchLogs.Types
 
 data DescribeLogStreams = DescribeLogStreams
-    { _dls1LogGroupName :: Text
+    { _dls1Limit               :: Maybe Natural
+    , _dls1LogGroupName        :: Text
     , _dls1LogStreamNamePrefix :: Maybe Text
-    , _dls1NextToken :: Maybe Text
-    , _dls1Limit :: Maybe Integer
+    , _dls1NextToken           :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLogStreams' request.
+-- | 'DescribeLogStreams' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogGroupName ::@ @Text@
+-- * 'dls1Limit' @::@ 'Maybe' 'Natural'
 --
--- * @LogStreamNamePrefix ::@ @Maybe Text@
+-- * 'dls1LogGroupName' @::@ 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dls1LogStreamNamePrefix' @::@ 'Maybe' 'Text'
 --
--- * @Limit ::@ @Maybe Integer@
+-- * 'dls1NextToken' @::@ 'Maybe' 'Text'
 --
 describeLogStreams :: Text -- ^ 'dls1LogGroupName'
                    -> DescribeLogStreams
 describeLogStreams p1 = DescribeLogStreams
-    { _dls1LogGroupName = p1
+    { _dls1LogGroupName        = p1
     , _dls1LogStreamNamePrefix = Nothing
-    , _dls1NextToken = Nothing
-    , _dls1Limit = Nothing
+    , _dls1NextToken           = Nothing
+    , _dls1Limit               = Nothing
     }
 
+-- | The maximum number of items returned in the response. If you don't
+-- specify a value, the request would return up to 50 items.
+dls1Limit :: Lens' DescribeLogStreams (Maybe Natural)
+dls1Limit = lens _dls1Limit (\s a -> s { _dls1Limit = a })
+
 dls1LogGroupName :: Lens' DescribeLogStreams Text
-dls1LogGroupName =
-    lens _dls1LogGroupName (\s a -> s { _dls1LogGroupName = a })
+dls1LogGroupName = lens _dls1LogGroupName (\s a -> s { _dls1LogGroupName = a })
 
 dls1LogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
 dls1LogStreamNamePrefix =
-    lens _dls1LogStreamNamePrefix
-         (\s a -> s { _dls1LogStreamNamePrefix = a })
+    lens _dls1LogStreamNamePrefix (\s a -> s { _dls1LogStreamNamePrefix = a })
 
--- | A string token used for pagination that points to the next page of results.
--- It must be a value obtained from the response of the previous
+-- | A string token used for pagination that points to the next page of
+-- results. It must be a value obtained from the response of the previous
 -- DescribeLogStreams request.
 dls1NextToken :: Lens' DescribeLogStreams (Maybe Text)
 dls1NextToken = lens _dls1NextToken (\s a -> s { _dls1NextToken = a })
 
--- | The maximum number of items returned in the response. If you don't specify
--- a value, the request would return up to 50 items.
-dls1Limit :: Lens' DescribeLogStreams (Maybe Integer)
-dls1Limit = lens _dls1Limit (\s a -> s { _dls1Limit = a })
+instance ToPath DescribeLogStreams where
+    toPath = const "/"
 
-instance ToPath DescribeLogStreams
-
-instance ToQuery DescribeLogStreams
+instance ToQuery DescribeLogStreams where
+    toQuery = const mempty
 
 instance ToHeaders DescribeLogStreams
 
-instance ToJSON DescribeLogStreams
+instance ToBody DescribeLogStreams where
+    toBody = toBody . encode . _dls1LogGroupName
 
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse
     { _dlsrLogStreams :: [LogStream]
-    , _dlsrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _dlsrNextToken  :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLogStreamsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeLogStreamsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogStreams ::@ @[LogStream]@
+-- * 'dlsrLogStreams' @::@ ['LogStream']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dlsrNextToken' @::@ 'Maybe' 'Text'
 --
 describeLogStreamsResponse :: DescribeLogStreamsResponse
 describeLogStreamsResponse = DescribeLogStreamsResponse
     { _dlsrLogStreams = mempty
-    , _dlsrNextToken = Nothing
+    , _dlsrNextToken  = Nothing
     }
 
--- | A list of log streams.
 dlsrLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
 dlsrLogStreams = lens _dlsrLogStreams (\s a -> s { _dlsrLogStreams = a })
 
--- | A string token used for pagination that points to the next page of results.
--- It must be a value obtained from the response of the previous request. The
--- token expires after 24 hours.
 dlsrNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
 dlsrNextToken = lens _dlsrNextToken (\s a -> s { _dlsrNextToken = a })
 
-instance FromJSON DescribeLogStreamsResponse
+-- FromJSON
 
 instance AWSRequest DescribeLogStreams where
     type Sv DescribeLogStreams = CloudWatchLogs
     type Rs DescribeLogStreams = DescribeLogStreamsResponse
 
-    request = get
-    response _ = jsonResponse
-
-instance AWSPager DescribeLogStreams where
-    next rq rs = (\x -> rq & dls1NextToken ?~ x)
-        <$> (rs ^. dlsrNextToken)
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeLogStreamsResponse
+        <$> o .: "logStreams"
+        <*> o .: "nextToken"

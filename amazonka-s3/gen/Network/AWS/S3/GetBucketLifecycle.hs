@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketLifecycle
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.GetBucketLifecycle
     -- ** Request constructor
     , getBucketLifecycle
     -- ** Request lenses
-    , gblBucket
+    , gbl1Bucket
 
     -- * Response
     , GetBucketLifecycleResponse
@@ -36,51 +38,56 @@ module Network.AWS.S3.GetBucketLifecycle
     , gblrRules
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketLifecycle = GetBucketLifecycle
-    { _gblBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbl1Bucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketLifecycle' request.
+-- | 'GetBucketLifecycle' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'gbl1Bucket' @::@ 'Text'
 --
-getBucketLifecycle :: BucketName -- ^ 'gblBucket'
+getBucketLifecycle :: Text -- ^ 'gbl1Bucket'
                    -> GetBucketLifecycle
 getBucketLifecycle p1 = GetBucketLifecycle
-    { _gblBucket = p1
+    { _gbl1Bucket = p1
     }
 
-gblBucket :: Lens' GetBucketLifecycle BucketName
-gblBucket = lens _gblBucket (\s a -> s { _gblBucket = a })
+gbl1Bucket :: Lens' GetBucketLifecycle Text
+gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
 
-instance ToPath GetBucketLifecycle
+instance ToPath GetBucketLifecycle where
+    toPath GetBucketLifecycle{..} = mconcat
+        [ "/"
+        , toText _gbl1Bucket
+        ]
 
-instance ToQuery GetBucketLifecycle
+instance ToQuery GetBucketLifecycle where
+    toQuery = const "lifecycle"
 
 instance ToHeaders GetBucketLifecycle
 
-instance ToBody GetBucketLifecycle
-
 newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gblrRules :: [Rule]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketLifecycleResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList GetBucketLifecycleResponse where
+    type Item GetBucketLifecycleResponse = Rule
+
+    fromList = GetBucketLifecycleResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gblrRules
+
+-- | 'GetBucketLifecycleResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Rules ::@ @[Rule]@
+-- * 'gblrRules' @::@ ['Rule']
 --
 getBucketLifecycleResponse :: GetBucketLifecycleResponse
 getBucketLifecycleResponse = GetBucketLifecycleResponse
@@ -90,12 +97,10 @@ getBucketLifecycleResponse = GetBucketLifecycleResponse
 gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrRules = lens _gblrRules (\s a -> s { _gblrRules = a })
 
-instance FromXML GetBucketLifecycleResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
     type Rs GetBucketLifecycle = GetBucketLifecycleResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetBucketLifecycleResponse
+        <$> x %| "Rule"

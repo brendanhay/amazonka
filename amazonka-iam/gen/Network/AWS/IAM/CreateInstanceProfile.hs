@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.CreateInstanceProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,12 +23,7 @@
 -- | Creates a new instance profile. For information about instance profiles, go
 -- to About Instance Profiles. For information about the number of instance
 -- profiles you can create, see Limitations on IAM Entities in the Using IAM
--- guide. https://iam.amazonaws.com/ ?Action=CreateInstanceProfile
--- &InstanceProfileName=Webserver &Path=/application_abc/component_xyz/
--- &Version=2010-05-08 &AUTHPARAMS AIPAD5ARO2C5EXAMPLE3G Webserver
--- /application_abc/component_xyz/
--- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
--- 2012-05-09T16:11:10.222Z 974142ee-99f1-11e1-a4c3-27EXAMPLE804.
+-- guide.
 module Network.AWS.IAM.CreateInstanceProfile
     (
     -- * Request
@@ -45,59 +42,56 @@ module Network.AWS.IAM.CreateInstanceProfile
     , ciprInstanceProfile
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateInstanceProfile = CreateInstanceProfile
     { _cipInstanceProfileName :: Text
-    , _cipPath :: Maybe Text
+    , _cipPath                :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateInstanceProfile' request.
+-- | 'CreateInstanceProfile' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceProfileName ::@ @Text@
+-- * 'cipInstanceProfileName' @::@ 'Text'
 --
--- * @Path ::@ @Maybe Text@
+-- * 'cipPath' @::@ 'Maybe' 'Text'
 --
 createInstanceProfile :: Text -- ^ 'cipInstanceProfileName'
                       -> CreateInstanceProfile
 createInstanceProfile p1 = CreateInstanceProfile
     { _cipInstanceProfileName = p1
-    , _cipPath = Nothing
+    , _cipPath                = Nothing
     }
 
--- | Name of the instance profile to create.
+-- | The name of the instance profile to create.
 cipInstanceProfileName :: Lens' CreateInstanceProfile Text
 cipInstanceProfileName =
     lens _cipInstanceProfileName (\s a -> s { _cipInstanceProfileName = a })
 
 -- | The path to the instance profile. For more information about paths, see
--- Identifiers for IAM Entities in the Using IAM guide. This parameter is
--- optional. If it is not included, it defaults to a slash (/).
+-- IAM Identifiers in the Using IAM guide. This parameter is optional. If it
+-- is not included, it defaults to a slash (/).
 cipPath :: Lens' CreateInstanceProfile (Maybe Text)
 cipPath = lens _cipPath (\s a -> s { _cipPath = a })
 
-instance ToQuery CreateInstanceProfile where
-    toQuery = genericQuery def
+instance ToQuery CreateInstanceProfile
 
--- | Contains the result of a successful invocation of the CreateInstanceProfile
--- action.
+instance ToPath CreateInstanceProfile where
+    toPath = const "/"
+
 newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { _ciprInstanceProfile :: InstanceProfile
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateInstanceProfileResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateInstanceProfileResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceProfile ::@ @InstanceProfile@
+-- * 'ciprInstanceProfile' @::@ 'InstanceProfile'
 --
 createInstanceProfileResponse :: InstanceProfile -- ^ 'ciprInstanceProfile'
                               -> CreateInstanceProfileResponse
@@ -110,12 +104,10 @@ ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprInstanceProfile =
     lens _ciprInstanceProfile (\s a -> s { _ciprInstanceProfile = a })
 
-instance FromXML CreateInstanceProfileResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateInstanceProfile where
     type Sv CreateInstanceProfile = IAM
     type Rs CreateInstanceProfile = CreateInstanceProfileResponse
 
-    request = post "CreateInstanceProfile"
-    response _ = xmlResponse
+    request  = post "CreateInstanceProfile"
+    response = xmlResponse $ \h x -> CreateInstanceProfileResponse
+        <$> x %| "InstanceProfile"

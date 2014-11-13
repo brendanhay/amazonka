@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeVpcs
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,24 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes one or more of your VPCs. Example 1 This example describes the
--- specified VPC. https://ec2.amazonaws.com/?Action=DescribeVpcs
--- &amp;VpcId.1=vpc-1a2b3c4d &amp;AUTHPARAMS &lt;DescribeVpcsResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;vpcSet&gt; &lt;item&gt; &lt;vpcId&gt;vpc-1a2b3c4d&lt;/vpcId&gt;
--- &lt;state&gt;available&lt;/state&gt;
--- &lt;cidrBlock&gt;10.0.0.0/23&lt;/cidrBlock&gt;
--- &lt;dhcpOptionsId&gt;dopt-7a8b9c2d&lt;/dhcpOptionsId&gt;
--- &lt;instanceTenancy&gt;default&lt;/instanceTenancy&gt;
--- &lt;isDefault&gt;false&lt;/isDefault&gt; &lt;tagSet/&gt; &lt;/item&gt;
--- &lt;/vpcSet&gt; &lt;/DescribeVpcsResponse&gt; Example 2 This example uses
--- filters to describe any VPC you own that uses the set of DHCP options with
--- the ID dopt-7a8b9c2d or dopt-2b2a3d3c and whose state is available.
--- https://ec2.amazonaws.com/?Action=DescribeVpcs
--- &amp;Filter.1.Name=dhcp-options-id &amp;Filter.1.Value.1=dopt-7a8b9c2d
--- &amp;Filter.1.Value.2=dopt-2b2a3d3c &amp;Filter.2.Name=state
--- &amp;Filter.2.Value.1=available &amp;AUTHPARAMS.
+-- | Describes one or more of your VPCs.
 module Network.AWS.EC2.DescribeVpcs
     (
     -- * Request
@@ -43,93 +28,105 @@ module Network.AWS.EC2.DescribeVpcs
     -- ** Request constructor
     , describeVpcs
     -- ** Request lenses
-    , dv3VpcIds
-    , dv3Filters
+    , dv1DryRun
+    , dv1Filters
+    , dv1VpcIds
 
     -- * Response
     , DescribeVpcsResponse
     -- ** Response constructor
     , describeVpcsResponse
     -- ** Response lenses
-    , dvrrVpcs
+    , dvrVpcs
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeVpcs = DescribeVpcs
-    { _dv3VpcIds :: [Text]
-    , _dv3Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dv1DryRun  :: Maybe Bool
+    , _dv1Filters :: [Filter]
+    , _dv1VpcIds  :: [Text]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVpcs' request.
+-- | 'DescribeVpcs' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcIds ::@ @[Text]@
+-- * 'dv1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Filters ::@ @[Filter]@
+-- * 'dv1Filters' @::@ ['Filter']
+--
+-- * 'dv1VpcIds' @::@ ['Text']
 --
 describeVpcs :: DescribeVpcs
 describeVpcs = DescribeVpcs
-    { _dv3VpcIds = mempty
-    , _dv3Filters = mempty
+    { _dv1DryRun  = Nothing
+    , _dv1VpcIds  = mempty
+    , _dv1Filters = mempty
     }
 
--- | One or more VPC IDs. Default: Describes all your VPCs.
-dv3VpcIds :: Lens' DescribeVpcs [Text]
-dv3VpcIds = lens _dv3VpcIds (\s a -> s { _dv3VpcIds = a })
+dv1DryRun :: Lens' DescribeVpcs (Maybe Bool)
+dv1DryRun = lens _dv1DryRun (\s a -> s { _dv1DryRun = a })
 
 -- | One or more filters. cidr - The CIDR block of the VPC. The CIDR block you
 -- specify must exactly match the VPC's CIDR block for information to be
--- returned for the VPC. dhcp-options-id - The ID of a set of DHCP options.
--- isDefault - Indicates whether the VPC is the default VPC. state - The state
--- of the VPC (pending | available). tag:key=value - The key/value combination
--- of a tag assigned to the resource. tag-key - The key of a tag assigned to
--- the resource. This filter is independent of the tag-value filter. For
--- example, if you use both the filter "tag-key=Purpose" and the filter
--- "tag-value=X", you get any resources assigned both the tag key Purpose
--- (regardless of what the tag's value is), and the tag value X (regardless of
--- what the tag's key is). If you want to list only resources where Purpose is
--- X, see the tag:key=value filter. tag-value - The value of a tag assigned to
--- the resource. This filter is independent of the tag-key filter. vpc-id -
--- The ID of the VPC.
-dv3Filters :: Lens' DescribeVpcs [Filter]
-dv3Filters = lens _dv3Filters (\s a -> s { _dv3Filters = a })
+-- returned for the VPC. Must contain the slash followed by one or two
+-- digits (for example, /28). dhcp-options-id - The ID of a set of DHCP
+-- options. isDefault - Indicates whether the VPC is the default VPC. state
+-- - The state of the VPC (pending | available). tag:key=value - The
+-- key/value combination of a tag assigned to the resource. tag-key - The
+-- key of a tag assigned to the resource. This filter is independent of the
+-- tag-value filter. For example, if you use both the filter
+-- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
+-- assigned both the tag key Purpose (regardless of what the tag's value
+-- is), and the tag value X (regardless of what the tag's key is). If you
+-- want to list only resources where Purpose is X, see the tag:key=value
+-- filter. tag-value - The value of a tag assigned to the resource. This
+-- filter is independent of the tag-key filter. vpc-id - The ID of the VPC.
+dv1Filters :: Lens' DescribeVpcs [Filter]
+dv1Filters = lens _dv1Filters (\s a -> s { _dv1Filters = a })
 
-instance ToQuery DescribeVpcs where
-    toQuery = genericQuery def
+-- | One or more VPC IDs. Default: Describes all your VPCs.
+dv1VpcIds :: Lens' DescribeVpcs [Text]
+dv1VpcIds = lens _dv1VpcIds (\s a -> s { _dv1VpcIds = a })
+
+instance ToQuery DescribeVpcs
+
+instance ToPath DescribeVpcs where
+    toPath = const "/"
 
 newtype DescribeVpcsResponse = DescribeVpcsResponse
-    { _dvrrVpcs :: [Vpc]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dvrVpcs :: [Vpc]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVpcsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeVpcsResponse where
+    type Item DescribeVpcsResponse = Vpc
+
+    fromList = DescribeVpcsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dvrVpcs
+
+-- | 'DescribeVpcsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Vpcs ::@ @[Vpc]@
+-- * 'dvrVpcs' @::@ ['Vpc']
 --
 describeVpcsResponse :: DescribeVpcsResponse
 describeVpcsResponse = DescribeVpcsResponse
-    { _dvrrVpcs = mempty
+    { _dvrVpcs = mempty
     }
 
 -- | Information about one or more VPCs.
-dvrrVpcs :: Lens' DescribeVpcsResponse [Vpc]
-dvrrVpcs = lens _dvrrVpcs (\s a -> s { _dvrrVpcs = a })
-
-instance FromXML DescribeVpcsResponse where
-    fromXMLOptions = xmlOptions
+dvrVpcs :: Lens' DescribeVpcsResponse [Vpc]
+dvrVpcs = lens _dvrVpcs (\s a -> s { _dvrVpcs = a })
 
 instance AWSRequest DescribeVpcs where
     type Sv DescribeVpcs = EC2
     type Rs DescribeVpcs = DescribeVpcsResponse
 
-    request = post "DescribeVpcs"
-    response _ = xmlResponse
+    request  = post "DescribeVpcs"
+    response = xmlResponse $ \h x -> DescribeVpcsResponse
+        <$> x %| "vpcSet"

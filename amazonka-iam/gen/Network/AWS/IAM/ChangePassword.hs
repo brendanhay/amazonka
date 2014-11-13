@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.ChangePassword
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,12 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Changes the password of the IAM user calling ChangePassword. The root
--- account password is not affected by this action. For information about
+-- | Changes the password of the IAM user who is calling this action. The root
+-- account password is not affected by this action. To change the password for
+-- a different user, see UpdateLoginProfile. For more information about
 -- modifying passwords, see Managing Passwords in the Using IAM guide.
--- https://iam.amazonaws.com/ ?Action=ChangePassword &OldPassword=U79}kgds4?
--- &NewPassword=Lb0*1(9xpN &Version=2010-05-08 &AUTHPARAMS
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 module Network.AWS.IAM.ChangePassword
     (
     -- * Request
@@ -31,8 +31,8 @@ module Network.AWS.IAM.ChangePassword
     -- ** Request constructor
     , changePassword
     -- ** Request lenses
-    , cpOldPassword
     , cpNewPassword
+    , cpOldPassword
 
     -- * Response
     , ChangePasswordResponse
@@ -40,51 +40,52 @@ module Network.AWS.IAM.ChangePassword
     , changePasswordResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ChangePassword = ChangePassword
-    { _cpOldPassword :: Text
-    , _cpNewPassword :: Text
+    { _cpNewPassword :: Sensitive Text
+    , _cpOldPassword :: Sensitive Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ChangePassword' request.
+-- | 'ChangePassword' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OldPassword ::@ @Text@
+-- * 'cpNewPassword' @::@ 'Text'
 --
--- * @NewPassword ::@ @Text@
+-- * 'cpOldPassword' @::@ 'Text'
 --
 changePassword :: Text -- ^ 'cpOldPassword'
                -> Text -- ^ 'cpNewPassword'
                -> ChangePassword
 changePassword p1 p2 = ChangePassword
-    { _cpOldPassword = p1
-    , _cpNewPassword = p2
+    { _cpOldPassword = withIso _Sensitive (const id) p1
+    , _cpNewPassword = withIso _Sensitive (const id) p2
     }
-
--- | The IAM users's current password.
-cpOldPassword :: Lens' ChangePassword Text
-cpOldPassword = lens _cpOldPassword (\s a -> s { _cpOldPassword = a })
 
 -- | The new password. The new password must conform to the AWS account's
 -- password policy, if one exists.
 cpNewPassword :: Lens' ChangePassword Text
 cpNewPassword = lens _cpNewPassword (\s a -> s { _cpNewPassword = a })
+    . _Sensitive
 
-instance ToQuery ChangePassword where
-    toQuery = genericQuery def
+-- | The IAM user's current password.
+cpOldPassword :: Lens' ChangePassword Text
+cpOldPassword = lens _cpOldPassword (\s a -> s { _cpOldPassword = a })
+    . _Sensitive
+
+instance ToQuery ChangePassword
+
+instance ToPath ChangePassword where
+    toPath = const "/"
 
 data ChangePasswordResponse = ChangePasswordResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ChangePasswordResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ChangePasswordResponse' constructor.
 changePasswordResponse :: ChangePasswordResponse
 changePasswordResponse = ChangePasswordResponse
 
@@ -92,5 +93,5 @@ instance AWSRequest ChangePassword where
     type Sv ChangePassword = IAM
     type Rs ChangePassword = ChangePasswordResponse
 
-    request = post "ChangePassword"
-    response _ = nullaryResponse ChangePasswordResponse
+    request  = post "ChangePassword"
+    response = nullaryResponse ChangePasswordResponse

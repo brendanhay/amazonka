@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,51 +38,50 @@ module Network.AWS.S3.GetBucketPolicy
     , gbprPolicy
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketPolicy = GetBucketPolicy
-    { _gbpBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbpBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketPolicy' request.
+-- | 'GetBucketPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'gbpBucket' @::@ 'Text'
 --
-getBucketPolicy :: BucketName -- ^ 'gbpBucket'
+getBucketPolicy :: Text -- ^ 'gbpBucket'
                 -> GetBucketPolicy
 getBucketPolicy p1 = GetBucketPolicy
     { _gbpBucket = p1
     }
 
-gbpBucket :: Lens' GetBucketPolicy BucketName
+gbpBucket :: Lens' GetBucketPolicy Text
 gbpBucket = lens _gbpBucket (\s a -> s { _gbpBucket = a })
 
-instance ToPath GetBucketPolicy
+instance ToPath GetBucketPolicy where
+    toPath GetBucketPolicy{..} = mconcat
+        [ "/"
+        , toText _gbpBucket
+        ]
 
-instance ToQuery GetBucketPolicy
+instance ToQuery GetBucketPolicy where
+    toQuery = const "policy"
 
 instance ToHeaders GetBucketPolicy
 
-instance ToBody GetBucketPolicy
-
 newtype GetBucketPolicyResponse = GetBucketPolicyResponse
     { _gbprPolicy :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetBucketPolicyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Policy ::@ @Maybe Text@
+-- * 'gbprPolicy' @::@ 'Maybe' 'Text'
 --
 getBucketPolicyResponse :: GetBucketPolicyResponse
 getBucketPolicyResponse = GetBucketPolicyResponse
@@ -91,12 +92,10 @@ getBucketPolicyResponse = GetBucketPolicyResponse
 gbprPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
 gbprPolicy = lens _gbprPolicy (\s a -> s { _gbprPolicy = a })
 
-instance FromXML GetBucketPolicyResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
     type Rs GetBucketPolicy = GetBucketPolicyResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetBucketPolicyResponse
+        <$> x %| "Policy"

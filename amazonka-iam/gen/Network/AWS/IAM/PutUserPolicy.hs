@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.PutUserPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,15 +24,7 @@
 -- information about policies, refer to Overview of Policies in the Using IAM
 -- guide. For information about limits on the number of policies you can
 -- associate with a user, see Limitations on IAM Entities in the Using IAM
--- guide. Because policy documents can be large, you should use POST rather
--- than GET when calling PutUserPolicy. For information about setting up
--- signatures and authorization through the API, go to Signing AWS API
--- Requests in the AWS General Reference. For general information about using
--- the Query API with IAM, go to Making Query Requests in the Using IAM guide.
--- https://iam.amazonaws.com/ ?Action=PutUserPolicy &UserName=Bob
--- &PolicyName=AllAccessPolicy
--- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
--- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- guide.
 module Network.AWS.IAM.PutUserPolicy
     (
     -- * Request
@@ -38,9 +32,9 @@ module Network.AWS.IAM.PutUserPolicy
     -- ** Request constructor
     , putUserPolicy
     -- ** Request lenses
-    , pupUserName
-    , pupPolicyName
     , pupPolicyDocument
+    , pupPolicyName
+    , pupUserName
 
     -- * Response
     , PutUserPolicyResponse
@@ -48,60 +42,59 @@ module Network.AWS.IAM.PutUserPolicy
     , putUserPolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data PutUserPolicy = PutUserPolicy
-    { _pupUserName :: Text
-    , _pupPolicyName :: Text
-    , _pupPolicyDocument :: Text
+    { _pupPolicyDocument :: Text
+    , _pupPolicyName     :: Text
+    , _pupUserName       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutUserPolicy' request.
+-- | 'PutUserPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Text@
+-- * 'pupPolicyDocument' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'pupPolicyName' @::@ 'Text'
 --
--- * @PolicyDocument ::@ @Text@
+-- * 'pupUserName' @::@ 'Text'
 --
 putUserPolicy :: Text -- ^ 'pupUserName'
               -> Text -- ^ 'pupPolicyName'
               -> Text -- ^ 'pupPolicyDocument'
               -> PutUserPolicy
 putUserPolicy p1 p2 p3 = PutUserPolicy
-    { _pupUserName = p1
-    , _pupPolicyName = p2
+    { _pupUserName       = p1
+    , _pupPolicyName     = p2
     , _pupPolicyDocument = p3
     }
-
--- | Name of the user to associate the policy with.
-pupUserName :: Lens' PutUserPolicy Text
-pupUserName = lens _pupUserName (\s a -> s { _pupUserName = a })
-
--- | Name of the policy document.
-pupPolicyName :: Lens' PutUserPolicy Text
-pupPolicyName = lens _pupPolicyName (\s a -> s { _pupPolicyName = a })
 
 -- | The policy document.
 pupPolicyDocument :: Lens' PutUserPolicy Text
 pupPolicyDocument =
     lens _pupPolicyDocument (\s a -> s { _pupPolicyDocument = a })
 
-instance ToQuery PutUserPolicy where
-    toQuery = genericQuery def
+-- | The name of the policy document.
+pupPolicyName :: Lens' PutUserPolicy Text
+pupPolicyName = lens _pupPolicyName (\s a -> s { _pupPolicyName = a })
+
+-- | The name of the user to associate the policy with.
+pupUserName :: Lens' PutUserPolicy Text
+pupUserName = lens _pupUserName (\s a -> s { _pupUserName = a })
+
+instance ToQuery PutUserPolicy
+
+instance ToPath PutUserPolicy where
+    toPath = const "/"
 
 data PutUserPolicyResponse = PutUserPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutUserPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutUserPolicyResponse' constructor.
 putUserPolicyResponse :: PutUserPolicyResponse
 putUserPolicyResponse = PutUserPolicyResponse
 
@@ -109,5 +102,5 @@ instance AWSRequest PutUserPolicy where
     type Sv PutUserPolicy = IAM
     type Rs PutUserPolicy = PutUserPolicyResponse
 
-    request = post "PutUserPolicy"
-    response _ = nullaryResponse PutUserPolicyResponse
+    request  = post "PutUserPolicy"
+    response = nullaryResponse PutUserPolicyResponse

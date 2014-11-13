@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.DescribeEventCategories
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,12 +23,6 @@
 -- | Displays a list of categories for all event source types, or, if specified,
 -- for a specified source type. You can see a list of the event categories and
 -- source types in the Events topic in the Amazon RDS User Guide.
--- https://rds.us-east-1.amazonaws.com/ ?Action=DescribeEventCategories
--- &SourceType=db-instance &Version=2013-01-10 &SignatureVersion=4
--- &SignatureMethod=HmacSHA256 &Timestamp=20130128T013452Z &AWSAccessKeyId=
--- &Signature= db-instance failover low storage maintenance recovery
--- restoration deletion configuration change failover availability creation
--- backup notification ea3bf54b-68ea-11e2-bd13-a92da73b3119.
 module Network.AWS.RDS.DescribeEventCategories
     (
     -- * Request
@@ -34,6 +30,7 @@ module Network.AWS.RDS.DescribeEventCategories
     -- ** Request constructor
     , describeEventCategories
     -- ** Request lenses
+    , decFilters
     , decSourceType
 
     -- * Response
@@ -44,48 +41,59 @@ module Network.AWS.RDS.DescribeEventCategories
     , decrEventCategoriesMapList
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
-newtype DescribeEventCategories = DescribeEventCategories
-    { _decSourceType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+data DescribeEventCategories = DescribeEventCategories
+    { _decFilters    :: [Filter]
+    , _decSourceType :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeEventCategories' request.
+-- | 'DescribeEventCategories' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SourceType ::@ @Maybe Text@
+-- * 'decFilters' @::@ ['Filter']
+--
+-- * 'decSourceType' @::@ 'Maybe' 'Text'
 --
 describeEventCategories :: DescribeEventCategories
 describeEventCategories = DescribeEventCategories
     { _decSourceType = Nothing
+    , _decFilters    = mempty
     }
+
+-- | This parameter is not currently supported.
+decFilters :: Lens' DescribeEventCategories [Filter]
+decFilters = lens _decFilters (\s a -> s { _decFilters = a })
 
 -- | The type of source that will be generating the events. Valid values:
 -- db-instance | db-parameter-group | db-security-group | db-snapshot.
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
 
-instance ToQuery DescribeEventCategories where
-    toQuery = genericQuery def
+instance ToQuery DescribeEventCategories
 
--- | Data returned from the DescribeEventCategories action.
+instance ToPath DescribeEventCategories where
+    toPath = const "/"
+
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     { _decrEventCategoriesMapList :: [EventCategoriesMap]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeEventCategoriesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeEventCategoriesResponse where
+    type Item DescribeEventCategoriesResponse = EventCategoriesMap
+
+    fromList = DescribeEventCategoriesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _decrEventCategoriesMapList
+
+-- | 'DescribeEventCategoriesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EventCategoriesMapList ::@ @[EventCategoriesMap]@
+-- * 'decrEventCategoriesMapList' @::@ ['EventCategoriesMap']
 --
 describeEventCategoriesResponse :: DescribeEventCategoriesResponse
 describeEventCategoriesResponse = DescribeEventCategoriesResponse
@@ -96,14 +104,12 @@ describeEventCategoriesResponse = DescribeEventCategoriesResponse
 decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrEventCategoriesMapList =
     lens _decrEventCategoriesMapList
-         (\s a -> s { _decrEventCategoriesMapList = a })
-
-instance FromXML DescribeEventCategoriesResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _decrEventCategoriesMapList = a })
 
 instance AWSRequest DescribeEventCategories where
     type Sv DescribeEventCategories = RDS
     type Rs DescribeEventCategories = DescribeEventCategoriesResponse
 
-    request = post "DescribeEventCategories"
-    response _ = xmlResponse
+    request  = post "DescribeEventCategories"
+    response = xmlResponse $ \h x -> DescribeEventCategoriesResponse
+        <$> x %| "EventCategoriesMapList"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.CompleteLifecycleAction
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +38,10 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     -- ** Request constructor
     , completeLifecycleAction
     -- ** Request lenses
-    , claLifecycleHookName
     , claAutoScalingGroupName
-    , claLifecycleActionToken
     , claLifecycleActionResult
+    , claLifecycleActionToken
+    , claLifecycleHookName
 
     -- * Response
     , CompleteLifecycleActionResponse
@@ -47,29 +49,29 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     , completeLifecycleActionResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CompleteLifecycleAction = CompleteLifecycleAction
-    { _claLifecycleHookName :: Text
-    , _claAutoScalingGroupName :: Text
-    , _claLifecycleActionToken :: Text
+    { _claAutoScalingGroupName  :: Text
     , _claLifecycleActionResult :: Text
+    , _claLifecycleActionToken  :: Text
+    , _claLifecycleHookName     :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CompleteLifecycleAction' request.
+-- | 'CompleteLifecycleAction' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LifecycleHookName ::@ @Text@
+-- * 'claAutoScalingGroupName' @::@ 'Text'
 --
--- * @AutoScalingGroupName ::@ @Text@
+-- * 'claLifecycleActionResult' @::@ 'Text'
 --
--- * @LifecycleActionToken ::@ @Text@
+-- * 'claLifecycleActionToken' @::@ 'Text'
 --
--- * @LifecycleActionResult ::@ @Text@
+-- * 'claLifecycleHookName' @::@ 'Text'
 --
 completeLifecycleAction :: Text -- ^ 'claLifecycleHookName'
                         -> Text -- ^ 'claAutoScalingGroupName'
@@ -77,49 +79,46 @@ completeLifecycleAction :: Text -- ^ 'claLifecycleHookName'
                         -> Text -- ^ 'claLifecycleActionResult'
                         -> CompleteLifecycleAction
 completeLifecycleAction p1 p2 p3 p4 = CompleteLifecycleAction
-    { _claLifecycleHookName = p1
-    , _claAutoScalingGroupName = p2
-    , _claLifecycleActionToken = p3
+    { _claLifecycleHookName     = p1
+    , _claAutoScalingGroupName  = p2
+    , _claLifecycleActionToken  = p3
     , _claLifecycleActionResult = p4
     }
+
+-- | The name of the Auto Scaling group to which the lifecycle hook belongs.
+claAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
+claAutoScalingGroupName =
+    lens _claAutoScalingGroupName (\s a -> s { _claAutoScalingGroupName = a })
+
+-- | The action the Auto Scaling group should take. The value for this
+-- parameter can be either CONTINUE or ABANDON.
+claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
+claLifecycleActionResult =
+    lens _claLifecycleActionResult
+        (\s a -> s { _claLifecycleActionResult = a })
+
+-- | A universally unique identifier (UUID) that identifies a specific
+-- lifecycle action associated with an instance. Auto Scaling sends this
+-- token to the notification target you specified when you created the
+-- lifecycle hook.
+claLifecycleActionToken :: Lens' CompleteLifecycleAction Text
+claLifecycleActionToken =
+    lens _claLifecycleActionToken (\s a -> s { _claLifecycleActionToken = a })
 
 -- | The name of the lifecycle hook.
 claLifecycleHookName :: Lens' CompleteLifecycleAction Text
 claLifecycleHookName =
     lens _claLifecycleHookName (\s a -> s { _claLifecycleHookName = a })
 
--- | The name of the Auto Scaling group to which the lifecycle hook belongs.
-claAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
-claAutoScalingGroupName =
-    lens _claAutoScalingGroupName
-         (\s a -> s { _claAutoScalingGroupName = a })
+instance ToQuery CompleteLifecycleAction
 
--- | A universally unique identifier (UUID) that identifies a specific lifecycle
--- action associated with an instance. Auto Scaling sends this token to the
--- notification target you specified when you created the lifecycle hook.
-claLifecycleActionToken :: Lens' CompleteLifecycleAction Text
-claLifecycleActionToken =
-    lens _claLifecycleActionToken
-         (\s a -> s { _claLifecycleActionToken = a })
+instance ToPath CompleteLifecycleAction where
+    toPath = const "/"
 
--- | The action the Auto Scaling group should take. The value for this parameter
--- can be either CONTINUE or ABANDON.
-claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
-claLifecycleActionResult =
-    lens _claLifecycleActionResult
-         (\s a -> s { _claLifecycleActionResult = a })
-
-instance ToQuery CompleteLifecycleAction where
-    toQuery = genericQuery def
-
--- | The output of the CompleteLifecycleAction.
 data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CompleteLifecycleActionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CompleteLifecycleActionResponse' constructor.
 completeLifecycleActionResponse :: CompleteLifecycleActionResponse
 completeLifecycleActionResponse = CompleteLifecycleActionResponse
 
@@ -127,5 +126,5 @@ instance AWSRequest CompleteLifecycleAction where
     type Sv CompleteLifecycleAction = AutoScaling
     type Rs CompleteLifecycleAction = CompleteLifecycleActionResponse
 
-    request = post "CompleteLifecycleAction"
-    response _ = nullaryResponse CompleteLifecycleActionResponse
+    request  = post "CompleteLifecycleAction"
+    response = nullaryResponse CompleteLifecycleActionResponse

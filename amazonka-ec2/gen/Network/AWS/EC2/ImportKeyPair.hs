@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ImportKeyPair
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,29 +26,7 @@
 -- With ImportKeyPair, you create the key pair and give AWS just the public
 -- key. The private key is never transferred between you and AWS. For more
 -- information about key pairs, see Key Pairs in the Amazon Elastic Compute
--- Cloud User Guide. Example This example imports the public key named
--- my-key-pair. https://ec2.amazonaws.com/?Action=ImportKeyPair
--- &amp;KeyName=my-key-pair
--- &amp;PublicKeyMaterial=MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMC
--- VVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6
--- b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAd
--- BgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wHhcNMTEwNDI1MjA0NTIxWhcN
--- MTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYD
--- VQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25z
--- b2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFt
--- YXpvbi5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMaK0dn+a4GmWIWJ
--- 21uUSfwfEvySWtC2XADZ4nB+BLYgVIk60CpiwsZ3G93vUEIO3IyNoH/f0wYK8m9T
--- rDHudUZg3qX4waLG5M43q7Wgc/MbQITxOUSQv7c7ugFFDzQGBzZswY6786m86gpE
--- Ibb3OhjZnzcvQAaRHhdlQWIMm2nrAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAtCu4
--- nUhVVxYUntneD9+h8Mg9q6q+auNKyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0Fkb
--- FFBjvSfpJIlJ00zbhNYS5f6GuoEDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTb
--- NYiytVbZPQUQ5Yaxu2jXnimvw3rrszlaEXAMPLE &amp;AUTHPARAMS
--- &lt;ImportKeyPairResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;keyName&gt;my-key-pair&lt;/keyName&gt;
--- &lt;keyFingerprint&gt;1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f&lt;/keyFingerprint&gt;
--- &lt;/ImportKeyPairResponse&gt;.
+-- Cloud User Guide.
 module Network.AWS.EC2.ImportKeyPair
     (
     -- * Request
@@ -54,6 +34,7 @@ module Network.AWS.EC2.ImportKeyPair
     -- ** Request constructor
     , importKeyPair
     -- ** Request lenses
+    , ikpDryRun
     , ikpKeyName
     , ikpPublicKeyMaterial
 
@@ -62,35 +43,42 @@ module Network.AWS.EC2.ImportKeyPair
     -- ** Response constructor
     , importKeyPairResponse
     -- ** Response lenses
-    , ikprKeyName
     , ikprKeyFingerprint
+    , ikprKeyName
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ImportKeyPair = ImportKeyPair
-    { _ikpKeyName :: Text
-    , _ikpPublicKeyMaterial :: ByteString
-    } deriving (Eq, Ord, Show, Generic)
+    { _ikpDryRun            :: Maybe Bool
+    , _ikpKeyName           :: Text
+    , _ikpPublicKeyMaterial :: Base64
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ImportKeyPair' request.
+-- | 'ImportKeyPair' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @KeyName ::@ @Text@
+-- * 'ikpDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @PublicKeyMaterial ::@ @ByteString@
+-- * 'ikpKeyName' @::@ 'Text'
+--
+-- * 'ikpPublicKeyMaterial' @::@ 'Base64'
 --
 importKeyPair :: Text -- ^ 'ikpKeyName'
-              -> ByteString -- ^ 'ikpPublicKeyMaterial'
+              -> Base64 -- ^ 'ikpPublicKeyMaterial'
               -> ImportKeyPair
 importKeyPair p1 p2 = ImportKeyPair
-    { _ikpKeyName = p1
+    { _ikpKeyName           = p1
     , _ikpPublicKeyMaterial = p2
+    , _ikpDryRun            = Nothing
     }
+
+ikpDryRun :: Lens' ImportKeyPair (Maybe Bool)
+ikpDryRun = lens _ikpDryRun (\s a -> s { _ikpDryRun = a })
 
 -- | A unique name for the key pair.
 ikpKeyName :: Lens' ImportKeyPair Text
@@ -98,50 +86,48 @@ ikpKeyName = lens _ikpKeyName (\s a -> s { _ikpKeyName = a })
 
 -- | The public key. You must base64 encode the public key material before
 -- sending it to AWS.
-ikpPublicKeyMaterial :: Lens' ImportKeyPair ByteString
+ikpPublicKeyMaterial :: Lens' ImportKeyPair Base64
 ikpPublicKeyMaterial =
     lens _ikpPublicKeyMaterial (\s a -> s { _ikpPublicKeyMaterial = a })
 
-instance ToQuery ImportKeyPair where
-    toQuery = genericQuery def
+instance ToQuery ImportKeyPair
+
+instance ToPath ImportKeyPair where
+    toPath = const "/"
 
 data ImportKeyPairResponse = ImportKeyPairResponse
-    { _ikprKeyName :: Maybe Text
-    , _ikprKeyFingerprint :: Maybe Text
+    { _ikprKeyFingerprint :: Maybe Text
+    , _ikprKeyName        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ImportKeyPairResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ImportKeyPairResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @KeyName ::@ @Maybe Text@
+-- * 'ikprKeyFingerprint' @::@ 'Maybe' 'Text'
 --
--- * @KeyFingerprint ::@ @Maybe Text@
+-- * 'ikprKeyName' @::@ 'Maybe' 'Text'
 --
 importKeyPairResponse :: ImportKeyPairResponse
 importKeyPairResponse = ImportKeyPairResponse
-    { _ikprKeyName = Nothing
+    { _ikprKeyName        = Nothing
     , _ikprKeyFingerprint = Nothing
     }
-
--- | The key pair name you provided.
-ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
-ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 ikprKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprKeyFingerprint =
     lens _ikprKeyFingerprint (\s a -> s { _ikprKeyFingerprint = a })
 
-instance FromXML ImportKeyPairResponse where
-    fromXMLOptions = xmlOptions
+-- | The key pair name you provided.
+ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
+ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
 
 instance AWSRequest ImportKeyPair where
     type Sv ImportKeyPair = EC2
     type Rs ImportKeyPair = ImportKeyPairResponse
 
-    request = post "ImportKeyPair"
-    response _ = xmlResponse
+    request  = post "ImportKeyPair"
+    response = xmlResponse $ \h x -> ImportKeyPairResponse
+        <$> x %| "keyFingerprint"
+        <*> x %| "keyName"

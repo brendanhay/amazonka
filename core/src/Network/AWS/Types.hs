@@ -1,3 +1,4 @@
+{-# LANGUAGE DefaultSignatures          #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
@@ -24,70 +25,84 @@
 
 module Network.AWS.Types
     (
-    -- * Errors
-      AWSError        (..)
-    , AWSServiceError (..)
-    , Error           (..)
-    , _ServiceError
-    , _ClientError
-    , _SerializerError
-    , _Nested
-
     -- * Authentication
     -- ** Credentials
-    , AccessKey       (..)
-    , SecretKey       (..)
-    , SecurityToken   (..)
+      AccessKey     (..)
+    , SecretKey     (..)
+    , SecurityToken (..)
     -- ** Environment
-    , AuthEnv         (..)
-    , Auth            (..)
+    , AuthEnv       (..)
+    , Auth          (..)
     , withAuth
 
-    -- * Logging
-    , Logging         (..)
+    -- * Logger
+    , Logger        (..)
     , debug
 
     -- * Services
-    , AWSService      (..)
-    , Service        (..)
-    -- ** Endpoints
-    , Endpoint       (..)
-    , Host            (..)
+    , Abbrev
+    , AWSService    (..)
+    , Service       (..)
+
+    -- * Endpoints
+    , Endpoint      (..)
+    , Host          (..)
     , endpoint
+    , global
+    , regional
+    , custom
+
+    -- * Errors
+    , ServiceError  (..)
+    , _HttpError
+    , _SerializerError
+    , _ServiceError
+    , _Errors
+
+    , AWSError
+    , awsError
 
     -- * Signing
-    , AWSSigner       (..)
-    , AWSPresigner    (..)
-    , Signed          (..)
+    , AWSSigner     (..)
+    , AWSPresigner  (..)
+    , Signed        (..)
     , Meta
     , sgMeta
     , sgRequest
 
     -- * Requests
-    , AWSRequest      (..)
-    , AWSPager        (..)
-    , Request         (..)
+    , AWSRequest    (..)
+    , AWSPager      (..)
+    , Request       (..)
     , rqMethod
     , rqHeaders
     , rqPath
     , rqQuery
     , rqBody
-    -- ** HTTP Client
-    , ClientRequest
-    , ClientResponse
-    , clientRequest
+
+    -- * Responses
+    , Response
+    , Empty         (..)
 
     -- * Regions
-    , Region          (..)
-    , Zone            (..)
+    , Region        (..)
+    , Zone          (..)
     , zRegion
     , zSuffix
 
-    -- * Miscellaneous
-    , Switch          (..)
-    , Action          (..)
-    , Base64          (..)
+    -- * Shared
+    , LazyByteString
+    , Base64
     , base64
+    , Action        (..)
+    , Sensitive     (..)
+    , _Sensitive
+
+    -- * Convenience
+    , ClientRequest
+    , ClientResponse
+    , ResponseBody
+    , clientRequest
     ) where
 
 import           Control.Applicative
@@ -100,95 +115,95 @@ import           Data.Aeson                   hiding (Error)
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Base64       as Base64
+import qualified Data.ByteString.Lazy         as LBS
 import           Data.Char
 import           Data.Conduit
-import           Data.Default
+import           Data.Default.Class
 import           Data.IORef
 import           Data.Monoid
 import           Data.String
+import           Data.Tagged
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
-import qualified Data.Text.Lazy               as LText
 import           Data.Time
 import           Data.Typeable
 import           GHC.Generics
 import           Network.AWS.Data
 import qualified Network.HTTP.Client          as Client
-import           Network.HTTP.Client          hiding (Request)
+import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
+import           Network.HTTP.Types.Status    (Status)
 import           System.Locale
+
+type LazyByteString = LBS.ByteString
+
+-- | Abbreviated service name.
+type Abbrev = Text
 
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
-data Error
-    = ServiceError    String
-    | ClientError     HttpException
-    | SerializerError String
-    | Nested          [Error]
+data ServiceError a
+    = HttpError       HttpException
+    | SerializerError Abbrev String
+    | ServiceError    Abbrev Status a
+    | Errors          [ServiceError a]
       deriving (Show, Typeable)
 
-instance Exception Error
+instance (Show a, Typeable a) => Exception (ServiceError a)
 
-instance IsString Error where
-    fromString = ServiceError
-
-instance Monoid Error where
-    mempty      = Nested []
-    mappend a b = Nested (f a <> f b)
+instance Monoid (ServiceError a) where
+    mempty      = Errors []
+    mappend a b = Errors (f a <> f b)
       where
-        f (Nested xs) = xs
+        f (Errors xs) = xs
         f x           = [x]
 
--- | Convert from a specific error to the more general 'Error' type.
 class AWSError a where
-    awsError :: a -> Error
+    awsError :: a -> ServiceError String
 
-instance AWSError Error where
-    awsError = id
+instance Show a => AWSError (ServiceError a) where
+    awsError = \case
+        HttpError       e     -> HttpError e
+        SerializerError a e   -> SerializerError a e
+        ServiceError    a s x -> ServiceError a s (show x)
+        Errors          xs    -> Errors (map awsError xs)
 
-instance AWSError String where
-    awsError = ServiceError
+-- FIXME: how to deal with the xml namespaces during deserialisation?
 
-instance AWSError Text where
-    awsError = ServiceError . Text.unpack
-
-instance AWSError LText.Text where
-    awsError = ServiceError . LText.unpack
-
-instance AWSError HttpException where
-    awsError = ClientError
-
--- | Convert from service specific errors to the more general service error.
-class (Typeable a, AWSError a) => AWSServiceError a where
-    serviceError    :: String        -> a
-    clientError     :: HttpException -> a
-    serializerError :: String        -> a
-
-instance AWSServiceError Error where
-    serviceError    = ServiceError
-    clientError     = ClientError
-    serializerError = SerializerError
 
 -- | The properties (such as endpoint) for a service, as well as it's
 -- associated signing algorithm and error types.
-class (AWSSigner (Sg a), AWSServiceError (Er a)) => AWSService a where
+class (AWSSigner (Sg a), Show (Er a)) => AWSService a where
+    -- | Signing algorithm supported by the service.
     type Sg a :: *
+
+    -- | The general service error.
     type Er a :: *
 
     service :: Service a
+    handle  :: Service a
+            -> Status
+            -> Maybe (LazyByteString -> ServiceError (Er a))
 
--- | Specify how a data type can be de/serialised.
+-- | An alias for the common response 'Either' containing a service error in the
+-- 'Left' case, or the expected response in the 'Right'.
+type Response a = Either (ServiceError (Er (Sv a))) (Rs a)
+
+-- | Specify how a request can be de/serialised.
 class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
+    -- | The service definition for a request.
     type Sv a :: *
+
+    -- | The successful, expected response associated with a request.
     type Rs a :: *
 
     request  :: a -> Request a
     response :: MonadResource m
              => a
              -> Either HttpException ClientResponse
-             -> m (Either (Er (Sv a)) (Rs a))
+             -> m (Response a)
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can generate
 -- a subsequent request, if available.
@@ -197,7 +212,7 @@ class AWSRequest a => AWSPager a where
 
 -- | Signing metadata data specific to a signing algorithm.
 --
--- Note: this is used for test and debug purposes, or is otherwise ignored.
+-- /Note:/ this is used for test and debug purposes, or is otherwise ignored.
 data family Meta v :: *
 
 -- | A signed 'ClientRequest' and associated metadata specific to the signing
@@ -223,9 +238,8 @@ instance ToText (Signed a v) where
         ]
 
 class AWSSigner v where
-    signed :: v ~ Sg (Sv a)
-           => Service (Sv a)
-           -> AuthEnv
+    signed :: (AWSService (Sv a), v ~ Sg (Sv a))
+           => AuthEnv
            -> Region
            -> Request a
            -> TimeLocale
@@ -233,9 +247,8 @@ class AWSSigner v where
            -> Signed a v
 
 class AWSPresigner v where
-    presigned :: v ~ Sg (Sv a)
-              => Service (Sv a)
-              -> AuthEnv
+    presigned :: (AWSService (Sv a), v ~ Sg (Sv a))
+              => AuthEnv
               -> Region
               -> Request a
               -> TimeLocale
@@ -250,12 +263,18 @@ newtype AccessKey = AccessKey ByteString
 instance ToByteString AccessKey where
     toBS (AccessKey k) = k
 
+instance ToText AccessKey where
+    toText = Text.decodeUtf8 . toBS
+
 -- | Secret key credential.
 newtype SecretKey = SecretKey ByteString
     deriving (Eq, Show, IsString)
 
 instance ToByteString SecretKey where
     toBS (SecretKey k) = k
+
+instance ToText SecretKey where
+    toText = Text.decodeUtf8 . toBS
 
 -- | A security token used by STS to temporarily authorise access to an AWS resource.
 newtype SecurityToken = SecurityToken ByteString
@@ -292,12 +311,12 @@ withAuth (Auth  e) f = f e
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
 
 -- | The log level and associated logger function.
-data Logging
+data Logger
     = None
     | Debug (Text -> IO ())
 
 -- | Log a message using the debug logger, or if none is specified noop.
-debug :: MonadIO m => Logging -> Text -> m ()
+debug :: MonadIO m => Logger -> Text -> m ()
 debug None      = const (return ())
 debug (Debug f) = liftIO . f
 
@@ -325,9 +344,17 @@ endpoint Service{..} reg =
             Regional -> _svcPrefix <> "." <> toBS reg <> suf
             Custom x -> x
 
+global, regional :: Endpoint
+global   = Global
+regional = Regional
+
+custom :: ByteString -> Endpoint
+custom = Custom
+
 -- | Attributes specific to an AWS service.
 data Service a = Service
-    { _svcEndpoint :: !Endpoint
+    { _svcAbbrev   :: !Text
+    , _svcEndpoint :: !Endpoint
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
     , _svcTarget   :: Maybe ByteString
@@ -416,39 +443,57 @@ instance FromText Zone where
 instance ToText Zone where
     toText Zone{..} = toText _zRegion `Text.snoc` _zSuffix
 
--- | A service action.
+-- | A service's query action.
 newtype Action = Action Text
     deriving (Eq, Ord, Show, IsString)
 
 instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)
 
--- | A switch which can be either 'Enabled' or 'Disabled'.
-data Switch a = Enabled | Disabled
-    deriving (Eq, Ord, Show, Generic)
+-- newtype Boolean = Boolean Bool
+--     deriving (Eq, Ord, Show)
 
 -- | Base64 encoded binary date.
 newtype Base64 = Base64 ByteString
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Show, Generic, FromXML, ToByteString, ToQuery)
 
 base64 :: ByteString -> Base64
 base64 = Base64 . Base64.encode
 
-instance ToByteString Base64 where
-    toBS (Base64 bs) = bs
+-- instance ToByteString Base64 where
+--     toBS (Base64 bs) = bs
 
-instance FromJSON Base64 where
-    parseJSON = withText "Base64" $
-        return . Base64 . Base64.decodeLenient . Text.encodeUtf8
+-- instance FromJSON Base64 where
+--     parseJSON = withText "Base64" $
+--         return . Base64 . Base64.decodeLenient . Text.encodeUtf8
 
 instance ToJSON Base64 where
     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
 
+-- instance FromXML Base64
+
+-- instance ToQuery Base64
+
+newtype Sensitive a = Sensitive { unSensitive :: a }
+    deriving (Eq, Ord, Generic, FromText, FromXML, ToXML, ToQuery)
+
+instance Show (Sensitive a) where
+    show = const "******"
+
+instance ToByteString a => ToByteString (Sensitive a) where
+    toBS = toBS . unSensitive
+
+data Empty = Empty
+    deriving (Eq, Show)
+
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
 
+-- | A convenience alias encapsulating the common 'Response'.
+type ClientResponse = Client.Response ResponseBody
+
 -- | A convenience alias encapsulating the common 'Response' body.
-type ClientResponse = Response (ResumableSource (ResourceT IO) ByteString)
+type ResponseBody = ResumableSource (ResourceT IO) ByteString
 
 -- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
 -- throwing errors when receiving erroneous status codes in respones.
@@ -459,6 +504,7 @@ clientRequest = def
     , Client.checkStatus = \_ _ _ -> Nothing
     }
 
-makePrisms ''Error
+makePrisms ''ServiceError
 makeLenses ''Request
 makeLenses ''Zone
+makePrisms ''Sensitive

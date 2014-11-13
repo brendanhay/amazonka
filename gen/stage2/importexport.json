@@ -1,0 +1,1764 @@
+{
+    "service": {
+        "signature": "V2",
+        "checksum": "sha256",
+        "abbrev": "ImportExport",
+        "error": "RESTError",
+        "namespace": "Network.AWS.ImportExport",
+        "protocol": "query",
+        "imports": [
+            "Network.AWS.ImportExport.CancelJob",
+            "Network.AWS.ImportExport.CreateJob",
+            "Network.AWS.ImportExport.GetStatus",
+            "Network.AWS.ImportExport.ListJobs",
+            "Network.AWS.ImportExport.Types",
+            "Network.AWS.ImportExport.UpdateJob"
+        ],
+        "name": "Amazon Import/Export",
+        "version": "2010-06-01",
+        "documentation": "AWS Import/Export accelerates moving large amounts of data into and out of AWS using portable storage devices for transport. AWS transfers your data directly onto and off of storage devices using Amazon’s high-speed internal network and bypassing the Internet. For significant data sets, AWS Import/Export is often faster than Internet transfer and more cost effective than upgrading your connectivity.",
+        "xmlNamespace": "http://importexport.amazonaws.com/doc/2010-06-01/",
+        "endpoint": "Global",
+        "endpointPrefix": "importexport"
+    },
+    "cabal": {
+        "other": [],
+        "library": "amazonka-importexport",
+        "exposed": [
+            "Network.AWS.ImportExport",
+            "Network.AWS.ImportExport.CancelJob",
+            "Network.AWS.ImportExport.CreateJob",
+            "Network.AWS.ImportExport.GetStatus",
+            "Network.AWS.ImportExport.ListJobs",
+            "Network.AWS.ImportExport.Types",
+            "Network.AWS.ImportExport.UpdateJob"
+        ],
+        "dependencies": [],
+        "name": "Amazon Import/Export",
+        "version": "0.0.0",
+        "description": "AWS Import/Export accelerates moving large amounts of data into and out of AWS using portable storage devices for transport. AWS transfers your data directly onto and off of storage devices using Amazon’s high-speed internal network and bypassing the Internet. For significant data sets, AWS Import/Export is often faster than Internet transfer and more cost effective than upgrading your connectivity."
+    },
+    "types": {
+        "service": {
+            "signature": "V2",
+            "checksum": "sha256",
+            "abbrev": "ImportExport",
+            "error": "RESTError",
+            "namespace": "Network.AWS.ImportExport",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.ImportExport.CancelJob",
+                "Network.AWS.ImportExport.CreateJob",
+                "Network.AWS.ImportExport.GetStatus",
+                "Network.AWS.ImportExport.ListJobs",
+                "Network.AWS.ImportExport.Types",
+                "Network.AWS.ImportExport.UpdateJob"
+            ],
+            "name": "Amazon Import/Export",
+            "version": "2010-06-01",
+            "documentation": "AWS Import/Export accelerates moving large amounts of data into and out of AWS using portable storage devices for transport. AWS transfers your data directly onto and off of storage devices using Amazon’s high-speed internal network and bypassing the Internet. For significant data sets, AWS Import/Export is often faster than Internet transfer and more cost effective than upgrading your connectivity.",
+            "xmlNamespace": "http://importexport.amazonaws.com/doc/2010-06-01/",
+            "endpoint": "Global",
+            "endpointPrefix": "importexport"
+        },
+        "namespace": "Network.AWS.ImportExport.Types",
+        "types": [
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "Export": "Export",
+                    "Import": "Import"
+                },
+                "valuePad": 7,
+                "name": "JobType",
+                "type": "nullary",
+                "branchPad": 6
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 16,
+                "ctor": "job",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "jobJobId",
+                        "name": "_jobJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_Time",
+                        "lensMapping": "_Time",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "jobCreationDate",
+                        "name": "_jobCreationDate",
+                        "shape": "CreationDate",
+                        "locationName": "CreationDate",
+                        "documentation": null,
+                        "typeExposed": "UTCTime",
+                        "type": "RFC822"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "jobIsCanceled",
+                        "name": "_jobIsCanceled",
+                        "shape": "IsCanceled",
+                        "locationName": "IsCanceled",
+                        "documentation": null,
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "jobJobType",
+                        "name": "_jobJobType",
+                        "shape": "JobType",
+                        "locationName": "JobType",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "name": "Job",
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_Time",
+                        "lensMapping": "_Time",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "jobCreationDate",
+                        "name": "_jobCreationDate",
+                        "shape": "CreationDate",
+                        "locationName": "CreationDate",
+                        "documentation": null,
+                        "typeExposed": "UTCTime",
+                        "type": "RFC822"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "jobIsCanceled",
+                        "name": "_jobIsCanceled",
+                        "shape": "IsCanceled",
+                        "locationName": "IsCanceled",
+                        "documentation": null,
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "jobJobId",
+                        "name": "_jobJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "jobJobType",
+                        "name": "_jobJobType",
+                        "shape": "JobType",
+                        "locationName": "JobType",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        ],
+        "imports": []
+    },
+    "operations": [
+        {
+            "service": "ImportExport",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "cancelJobResponse",
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "cjrSuccess",
+                    "name": "_cjrSuccess",
+                    "shape": "Success",
+                    "locationName": "Success",
+                    "documentation": null,
+                    "typeExposed": "Maybe Bool",
+                    "type": "Maybe Bool"
+                },
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "CancelJobResponse",
+                "resultWrapper": "CancelJobResult",
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrSuccess",
+                        "name": "_cjrSuccess",
+                        "shape": "Success",
+                        "locationName": "Success",
+                        "documentation": null,
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrSuccess",
+                        "name": "_cjrSuccess",
+                        "shape": "Success",
+                        "locationName": "Success",
+                        "documentation": null,
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ImportExport.CancelJob",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ImportExport.Types"
+            ],
+            "name": "CancelJob",
+            "method": "post",
+            "documentation": "This operation cancels a specified job. Only the job owner can cancel it. The operation fails if the job has already started or is complete.",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "cancelJob",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "cjJobId",
+                    "name": "_cjJobId",
+                    "shape": "JobId",
+                    "locationName": "JobId",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cjJobId",
+                        "name": "_cjJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 6,
+                "name": "CancelJob",
+                "query": [
+                    {
+                        "value": "Operation=CancelJob",
+                        "type": "const"
+                    },
+                    {
+                        "field": "_cjJobId",
+                        "locationName": "JobId",
+                        "type": "field"
+                    }
+                ],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cjJobId",
+                        "name": "_cjJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "ImportExport",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 25,
+                "ctor": "createJobResponse",
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "CreateJobResponse",
+                "resultWrapper": "CreateJobResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrJobId",
+                        "name": "_cjrJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrJobType",
+                        "name": "_cjrJobType",
+                        "shape": "JobType",
+                        "locationName": "JobType",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrAwsShippingAddress",
+                        "name": "_cjrAwsShippingAddress",
+                        "shape": "AwsShippingAddress",
+                        "locationName": "AwsShippingAddress",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrSignature",
+                        "name": "_cjrSignature",
+                        "shape": "Signature",
+                        "locationName": "Signature",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrSignatureFileContents",
+                        "name": "_cjrSignatureFileContents",
+                        "shape": "SignatureFileContents",
+                        "locationName": "SignatureFileContents",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrWarningMessage",
+                        "name": "_cjrWarningMessage",
+                        "shape": "WarningMessage",
+                        "locationName": "WarningMessage",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrAwsShippingAddress",
+                        "name": "_cjrAwsShippingAddress",
+                        "shape": "AwsShippingAddress",
+                        "locationName": "AwsShippingAddress",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrJobId",
+                        "name": "_cjrJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrJobType",
+                        "name": "_cjrJobType",
+                        "shape": "JobType",
+                        "locationName": "JobType",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrSignature",
+                        "name": "_cjrSignature",
+                        "shape": "Signature",
+                        "locationName": "Signature",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrSignatureFileContents",
+                        "name": "_cjrSignatureFileContents",
+                        "shape": "SignatureFileContents",
+                        "locationName": "SignatureFileContents",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjrWarningMessage",
+                        "name": "_cjrWarningMessage",
+                        "shape": "WarningMessage",
+                        "locationName": "WarningMessage",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ImportExport.CreateJob",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ImportExport.Types"
+            ],
+            "name": "CreateJob",
+            "method": "post",
+            "documentation": "This operation initiates the process of scheduling an upload or download of your data. You include in the request a manifest that describes the data transfer specifics. The response to the request includes a job ID, which you can use in other operations, a signature that you use to identify your storage device, and the address where you should ship your storage device.",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 19,
+                "ctor": "createJob",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cjJobType",
+                        "name": "_cjJobType",
+                        "shape": "JobType",
+                        "locationName": "JobType",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cjManifest",
+                        "name": "_cjManifest",
+                        "shape": "Manifest",
+                        "locationName": "Manifest",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cjValidateOnly",
+                        "name": "_cjValidateOnly",
+                        "shape": "ValidateOnly",
+                        "locationName": "ValidateOnly",
+                        "documentation": null,
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 17,
+                "name": "CreateJob",
+                "query": [
+                    {
+                        "value": "Operation=CreateJob",
+                        "type": "const"
+                    },
+                    {
+                        "field": "_cjJobType",
+                        "locationName": "JobType",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_cjManifest",
+                        "locationName": "Manifest",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_cjManifestAddendum",
+                        "locationName": "ManifestAddendum",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_cjValidateOnly",
+                        "locationName": "ValidateOnly",
+                        "type": "field"
+                    }
+                ],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjManifestAddendum",
+                        "name": "_cjManifestAddendum",
+                        "shape": "ManifestAddendum",
+                        "locationName": "ManifestAddendum",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cjJobType",
+                        "name": "_cjJobType",
+                        "shape": "JobType",
+                        "locationName": "JobType",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cjManifest",
+                        "name": "_cjManifest",
+                        "shape": "Manifest",
+                        "locationName": "Manifest",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cjManifestAddendum",
+                        "name": "_cjManifestAddendum",
+                        "shape": "ManifestAddendum",
+                        "locationName": "ManifestAddendum",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cjValidateOnly",
+                        "name": "_cjValidateOnly",
+                        "shape": "ValidateOnly",
+                        "locationName": "ValidateOnly",
+                        "documentation": null,
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "ImportExport",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 25,
+                "ctor": "getStatusResponse",
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "GetStatusResponse",
+                "resultWrapper": "GetStatusResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrJobId",
+                        "name": "_gsrJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrJobType",
+                        "name": "_gsrJobType",
+                        "shape": "JobType",
+                        "locationName": "JobType",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrAwsShippingAddress",
+                        "name": "_gsrAwsShippingAddress",
+                        "shape": "AwsShippingAddress",
+                        "locationName": "AwsShippingAddress",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrLocationCode",
+                        "name": "_gsrLocationCode",
+                        "shape": "LocationCode",
+                        "locationName": "LocationCode",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrLocationMessage",
+                        "name": "_gsrLocationMessage",
+                        "shape": "LocationMessage",
+                        "locationName": "LocationMessage",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrProgressCode",
+                        "name": "_gsrProgressCode",
+                        "shape": "ProgressCode",
+                        "locationName": "ProgressCode",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrProgressMessage",
+                        "name": "_gsrProgressMessage",
+                        "shape": "ProgressMessage",
+                        "locationName": "ProgressMessage",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrCarrier",
+                        "name": "_gsrCarrier",
+                        "shape": "Carrier",
+                        "locationName": "Carrier",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrTrackingNumber",
+                        "name": "_gsrTrackingNumber",
+                        "shape": "TrackingNumber",
+                        "locationName": "TrackingNumber",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrLogBucket",
+                        "name": "_gsrLogBucket",
+                        "shape": "LogBucket",
+                        "locationName": "LogBucket",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrLogKey",
+                        "name": "_gsrLogKey",
+                        "shape": "LogKey",
+                        "locationName": "LogKey",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrErrorCount",
+                        "name": "_gsrErrorCount",
+                        "shape": "ErrorCount",
+                        "locationName": "ErrorCount",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrSignature",
+                        "name": "_gsrSignature",
+                        "shape": "Signature",
+                        "locationName": "Signature",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrSignatureFileContents",
+                        "name": "_gsrSignatureFileContents",
+                        "shape": "Signature",
+                        "locationName": "SignatureFileContents",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrCurrentManifest",
+                        "name": "_gsrCurrentManifest",
+                        "shape": "CurrentManifest",
+                        "locationName": "CurrentManifest",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrCreationDate",
+                        "name": "_gsrCreationDate",
+                        "shape": "CreationDate",
+                        "locationName": "CreationDate",
+                        "documentation": null,
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrAwsShippingAddress",
+                        "name": "_gsrAwsShippingAddress",
+                        "shape": "AwsShippingAddress",
+                        "locationName": "AwsShippingAddress",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrCarrier",
+                        "name": "_gsrCarrier",
+                        "shape": "Carrier",
+                        "locationName": "Carrier",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrCreationDate",
+                        "name": "_gsrCreationDate",
+                        "shape": "CreationDate",
+                        "locationName": "CreationDate",
+                        "documentation": null,
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrCurrentManifest",
+                        "name": "_gsrCurrentManifest",
+                        "shape": "CurrentManifest",
+                        "locationName": "CurrentManifest",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrErrorCount",
+                        "name": "_gsrErrorCount",
+                        "shape": "ErrorCount",
+                        "locationName": "ErrorCount",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrJobId",
+                        "name": "_gsrJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrJobType",
+                        "name": "_gsrJobType",
+                        "shape": "JobType",
+                        "locationName": "JobType",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrLocationCode",
+                        "name": "_gsrLocationCode",
+                        "shape": "LocationCode",
+                        "locationName": "LocationCode",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrLocationMessage",
+                        "name": "_gsrLocationMessage",
+                        "shape": "LocationMessage",
+                        "locationName": "LocationMessage",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrLogBucket",
+                        "name": "_gsrLogBucket",
+                        "shape": "LogBucket",
+                        "locationName": "LogBucket",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrLogKey",
+                        "name": "_gsrLogKey",
+                        "shape": "LogKey",
+                        "locationName": "LogKey",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrProgressCode",
+                        "name": "_gsrProgressCode",
+                        "shape": "ProgressCode",
+                        "locationName": "ProgressCode",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrProgressMessage",
+                        "name": "_gsrProgressMessage",
+                        "shape": "ProgressMessage",
+                        "locationName": "ProgressMessage",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrSignature",
+                        "name": "_gsrSignature",
+                        "shape": "Signature",
+                        "locationName": "Signature",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrSignatureFileContents",
+                        "name": "_gsrSignatureFileContents",
+                        "shape": "Signature",
+                        "locationName": "SignatureFileContents",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsrTrackingNumber",
+                        "name": "_gsrTrackingNumber",
+                        "shape": "TrackingNumber",
+                        "locationName": "TrackingNumber",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ImportExport.GetStatus",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ImportExport.Types"
+            ],
+            "name": "GetStatus",
+            "method": "post",
+            "documentation": "This operation returns information about a job, including where the job is in the processing pipeline, the status of the results, and the signature value associated with the job. You can only return information about jobs you own.",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "getStatus",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "gsJobId",
+                    "name": "_gsJobId",
+                    "shape": "JobId",
+                    "locationName": "JobId",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gsJobId",
+                        "name": "_gsJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 6,
+                "name": "GetStatus",
+                "query": [
+                    {
+                        "value": "Operation=GetStatus",
+                        "type": "const"
+                    },
+                    {
+                        "field": "_gsJobId",
+                        "locationName": "JobId",
+                        "type": "field"
+                    }
+                ],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gsJobId",
+                        "name": "_gsJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "ImportExport",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 15,
+                "ctor": "listJobsResponse",
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "ListJobsResponse",
+                "resultWrapper": "ListJobsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ljrJobs",
+                        "name": "_ljrJobs",
+                        "shape": "JobsList",
+                        "locationName": "Jobs",
+                        "documentation": null,
+                        "typeExposed": "[Job]",
+                        "type": "[Job]"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ljrIsTruncated",
+                        "name": "_ljrIsTruncated",
+                        "shape": "IsTruncated",
+                        "locationName": "IsTruncated",
+                        "documentation": null,
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ljrIsTruncated",
+                        "name": "_ljrIsTruncated",
+                        "shape": "IsTruncated",
+                        "locationName": "IsTruncated",
+                        "documentation": null,
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ljrJobs",
+                        "name": "_ljrJobs",
+                        "shape": "JobsList",
+                        "locationName": "Jobs",
+                        "documentation": null,
+                        "typeExposed": "[Job]",
+                        "type": "[Job]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ImportExport.ListJobs",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ImportExport.Types"
+            ],
+            "name": "ListJobs",
+            "method": "post",
+            "documentation": "This operation returns the jobs associated with the requester. AWS Import/Export lists the jobs in reverse chronological order based on the date of creation. For example if Job Test1 was created 2009Dec30 and Test2 was created 2010Feb05, the ListJobs operation would return Test2 followed by Test1.",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 10,
+                "ctor": "listJobs",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 8,
+                "name": "ListJobs",
+                "query": [
+                    {
+                        "value": "Operation=ListJobs",
+                        "type": "const"
+                    },
+                    {
+                        "field": "_ljMaxJobs",
+                        "locationName": "MaxJobs",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_ljMarker",
+                        "locationName": "Marker",
+                        "type": "field"
+                    }
+                ],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ljMaxJobs",
+                        "name": "_ljMaxJobs",
+                        "shape": "MaxJobs",
+                        "locationName": "MaxJobs",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ljMarker",
+                        "name": "_ljMarker",
+                        "shape": "Marker",
+                        "locationName": "Marker",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ljMarker",
+                        "name": "_ljMarker",
+                        "shape": "Marker",
+                        "locationName": "Marker",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ljMaxJobs",
+                        "name": "_ljMaxJobs",
+                        "shape": "MaxJobs",
+                        "locationName": "MaxJobs",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "ImportExport",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 18,
+                "ctor": "updateJobResponse",
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "name": "UpdateJobResponse",
+                "resultWrapper": "UpdateJobResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ujrSuccess",
+                        "name": "_ujrSuccess",
+                        "shape": "Success",
+                        "locationName": "Success",
+                        "documentation": null,
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ujrWarningMessage",
+                        "name": "_ujrWarningMessage",
+                        "shape": "WarningMessage",
+                        "locationName": "WarningMessage",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ujrSuccess",
+                        "name": "_ujrSuccess",
+                        "shape": "Success",
+                        "locationName": "Success",
+                        "documentation": null,
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ujrWarningMessage",
+                        "name": "_ujrWarningMessage",
+                        "shape": "WarningMessage",
+                        "locationName": "WarningMessage",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ImportExport.UpdateJob",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ImportExport.Types"
+            ],
+            "name": "UpdateJob",
+            "method": "post",
+            "documentation": "You use this operation to change the parameters specified in the original manifest file by supplying a new manifest file. The manifest file attached to this request replaces the original manifest file. You can only use the operation after a CreateJob request but before the data transfer starts and you can only use it on jobs you own.",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 15,
+                "ctor": "updateJob",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ujJobId",
+                        "name": "_ujJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ujManifest",
+                        "name": "_ujManifest",
+                        "shape": "Manifest",
+                        "locationName": "Manifest",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ujJobType",
+                        "name": "_ujJobType",
+                        "shape": "JobType",
+                        "locationName": "JobType",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ujValidateOnly",
+                        "name": "_ujValidateOnly",
+                        "shape": "ValidateOnly",
+                        "locationName": "ValidateOnly",
+                        "documentation": null,
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 13,
+                "name": "UpdateJob",
+                "query": [
+                    {
+                        "value": "Operation=UpdateJob",
+                        "type": "const"
+                    },
+                    {
+                        "field": "_ujJobId",
+                        "locationName": "JobId",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_ujManifest",
+                        "locationName": "Manifest",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_ujJobType",
+                        "locationName": "JobType",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_ujValidateOnly",
+                        "locationName": "ValidateOnly",
+                        "type": "field"
+                    }
+                ],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ujJobId",
+                        "name": "_ujJobId",
+                        "shape": "JobId",
+                        "locationName": "JobId",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ujJobType",
+                        "name": "_ujJobType",
+                        "shape": "JobType",
+                        "locationName": "JobType",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ujManifest",
+                        "name": "_ujManifest",
+                        "shape": "Manifest",
+                        "locationName": "Manifest",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ujValidateOnly",
+                        "name": "_ujValidateOnly",
+                        "shape": "ValidateOnly",
+                        "locationName": "ValidateOnly",
+                        "documentation": null,
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ]
+            }
+        }
+    ]
+}

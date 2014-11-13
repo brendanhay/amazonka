@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CopySnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,15 +27,7 @@
 -- endpoint that you send the HTTP request to. Copies of encrypted Amazon EBS
 -- snapshots remain encrypted. Copies of unencrypted snapshots remain
 -- unencrypted. For more information, see Copying an Amazon EBS Snapshot in
--- the Amazon Elastic Compute Cloud User Guide. Example This example request
--- copies the snapshot in the us-west-1 region with the ID snap-1a2b3c4d.
--- https://ec2.amazonaws.com/?Action=CopySnapshot &amp;SourceRegion=us-west-1
--- &amp;SourceSnapshotId=snap-1a2b3c4d &amp;Description=My_snapshot
--- &amp;AUTHPARAMS &lt;CopySnapshotResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
--- &lt;requestId&gt;60bc441d-fa2c-494d-b155-5d6a3EXAMPLE&lt;/requestId&gt;
--- &lt;snapshotId&gt;snap-2a2b3c4d&lt;/snapshotId&gt;
--- &lt;/CopySnapshotResponse&gt;.
+-- the Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.CopySnapshot
     (
     -- * Request
@@ -41,11 +35,12 @@ module Network.AWS.EC2.CopySnapshot
     -- ** Request constructor
     , copySnapshot
     -- ** Request lenses
-    , csSourceRegion
-    , csSourceSnapshotId
     , csDescription
     , csDestinationRegion
+    , csDryRun
     , csPresignedUrl
+    , csSourceRegion
+    , csSourceSnapshotId
 
     -- * Response
     , CopySnapshotResponse
@@ -55,52 +50,47 @@ module Network.AWS.EC2.CopySnapshot
     , csrSnapshotId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CopySnapshot = CopySnapshot
-    { _csSourceRegion :: Text
-    , _csSourceSnapshotId :: Text
-    , _csDescription :: Maybe Text
+    { _csDescription       :: Maybe Text
     , _csDestinationRegion :: Maybe Text
-    , _csPresignedUrl :: Maybe Text
+    , _csDryRun            :: Maybe Bool
+    , _csPresignedUrl      :: Maybe Text
+    , _csSourceRegion      :: Text
+    , _csSourceSnapshotId  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CopySnapshot' request.
+-- | 'CopySnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SourceRegion ::@ @Text@
+-- * 'csDescription' @::@ 'Maybe' 'Text'
 --
--- * @SourceSnapshotId ::@ @Text@
+-- * 'csDestinationRegion' @::@ 'Maybe' 'Text'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'csDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @DestinationRegion ::@ @Maybe Text@
+-- * 'csPresignedUrl' @::@ 'Maybe' 'Text'
 --
--- * @PresignedUrl ::@ @Maybe Text@
+-- * 'csSourceRegion' @::@ 'Text'
+--
+-- * 'csSourceSnapshotId' @::@ 'Text'
 --
 copySnapshot :: Text -- ^ 'csSourceRegion'
              -> Text -- ^ 'csSourceSnapshotId'
              -> CopySnapshot
 copySnapshot p1 p2 = CopySnapshot
-    { _csSourceRegion = p1
-    , _csSourceSnapshotId = p2
-    , _csDescription = Nothing
+    { _csSourceRegion      = p1
+    , _csSourceSnapshotId  = p2
+    , _csDryRun            = Nothing
+    , _csDescription       = Nothing
     , _csDestinationRegion = Nothing
-    , _csPresignedUrl = Nothing
+    , _csPresignedUrl      = Nothing
     }
-
--- | The ID of the region that contains the snapshot to be copied.
-csSourceRegion :: Lens' CopySnapshot Text
-csSourceRegion = lens _csSourceRegion (\s a -> s { _csSourceRegion = a })
-
--- | The ID of the Amazon EBS snapshot to copy.
-csSourceSnapshotId :: Lens' CopySnapshot Text
-csSourceSnapshotId =
-    lens _csSourceSnapshotId (\s a -> s { _csSourceSnapshotId = a })
 
 -- | A description for the new Amazon EBS snapshot.
 csDescription :: Lens' CopySnapshot (Maybe Text)
@@ -112,36 +102,48 @@ csDestinationRegion :: Lens' CopySnapshot (Maybe Text)
 csDestinationRegion =
     lens _csDestinationRegion (\s a -> s { _csDestinationRegion = a })
 
+csDryRun :: Lens' CopySnapshot (Maybe Bool)
+csDryRun = lens _csDryRun (\s a -> s { _csDryRun = a })
+
 -- | The pre-signed URL that facilitates copying an encrypted snapshot. This
 -- parameter is only required when copying an encrypted snapshot with the
--- Amazon EC2 Query API; it is available as an optional parameter in all other
--- cases. The PresignedUrl should use the snapshot source endpoint, the
--- CopySnapshot action, and include the SourceRegion, SourceSnapshotId, and
--- DestinationRegion parameters. The PresignedUrl must be signed using AWS
--- Signature Version 4. Because Amazon EBS snapshots are stored in Amazon S3,
--- the signing algorithm for this parameter uses the same logic that is
--- described in Authenticating Requests by Using Query Parameters (AWS
--- Signature Version 4) in the Amazon Simple Storage Service API Reference. An
--- invalid or improperly signed PresignedUrl will cause the copy operation to
--- fail asynchronously, and the snapshot will move to an error state.
+-- Amazon EC2 Query API; it is available as an optional parameter in all
+-- other cases. The PresignedUrl should use the snapshot source endpoint,
+-- the CopySnapshot action, and include the SourceRegion, SourceSnapshotId,
+-- and DestinationRegion parameters. The PresignedUrl must be signed using
+-- AWS Signature Version 4. Because Amazon EBS snapshots are stored in
+-- Amazon S3, the signing algorithm for this parameter uses the same logic
+-- that is described in Authenticating Requests by Using Query Parameters
+-- (AWS Signature Version 4) in the Amazon Simple Storage Service API
+-- Reference. An invalid or improperly signed PresignedUrl will cause the
+-- copy operation to fail asynchronously, and the snapshot will move to an
+-- error state.
 csPresignedUrl :: Lens' CopySnapshot (Maybe Text)
 csPresignedUrl = lens _csPresignedUrl (\s a -> s { _csPresignedUrl = a })
 
-instance ToQuery CopySnapshot where
-    toQuery = genericQuery def
+-- | The ID of the region that contains the snapshot to be copied.
+csSourceRegion :: Lens' CopySnapshot Text
+csSourceRegion = lens _csSourceRegion (\s a -> s { _csSourceRegion = a })
+
+-- | The ID of the Amazon EBS snapshot to copy.
+csSourceSnapshotId :: Lens' CopySnapshot Text
+csSourceSnapshotId =
+    lens _csSourceSnapshotId (\s a -> s { _csSourceSnapshotId = a })
+
+instance ToQuery CopySnapshot
+
+instance ToPath CopySnapshot where
+    toPath = const "/"
 
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshotId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CopySnapshotResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CopySnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SnapshotId ::@ @Maybe Text@
+-- * 'csrSnapshotId' @::@ 'Maybe' 'Text'
 --
 copySnapshotResponse :: CopySnapshotResponse
 copySnapshotResponse = CopySnapshotResponse
@@ -152,12 +154,10 @@ copySnapshotResponse = CopySnapshotResponse
 csrSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 
-instance FromXML CopySnapshotResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CopySnapshot where
     type Sv CopySnapshot = EC2
     type Rs CopySnapshot = CopySnapshotResponse
 
-    request = post "CopySnapshot"
-    response _ = xmlResponse
+    request  = post "CopySnapshot"
+    response = xmlResponse $ \h x -> CopySnapshotResponse
+        <$> x %| "snapshotId"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateCachediSCSIVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,35 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation creates a cached volume on a specified cached gateway. This
--- operation is supported only for the gateway-cached volume architecture.
--- Cache storage must be allocated to the gateway before you can create a
--- cached volume. Use the AddCache operation to add cache storage to a
--- gateway. In the request, you must specify the gateway, size of the volume
--- in bytes, the iSCSI target name, an IP address on which to expose the
--- target, and a unique client token. In response, AWS Storage Gateway creates
--- the volume and returns information about it such as the volume Amazon
--- Resource Name (ARN), its size, and the iSCSI target ARN that initiators can
--- use to connect to the volume target. Example Request The following example
--- shows a request that specifies that a local disk of a gateway be configured
--- as a cached volume. POST / HTTP/1.1 Host:
--- storagegateway.us-east-1.amazonaws.com Content-Type:
--- application/x-amz-json-1.1 Authorization: AWS4-HMAC-SHA256
--- Credential=AKIAIOSFODNN7EXAMPLE/20120425/us-east-1/storagegateway/aws4_request,
--- SignedHeaders=content-type;host;x-amz-date;x-amz-target,
--- Signature=9cd5a3584d1d67d57e61f120f35102d6b3649066abdd4bf4bbcf05bd9f2f8fe2
--- x-amz-date: 20120912T120000Z x-amz-target:
--- StorageGateway_20120630.CreateCachediSCSIVolume { "ClientToken":
--- "cachedvol112233", "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
--- "NetworkInterfaceId": "10.1.1.1", "TargetName": "myvolume",
--- "VolumeSizeInBytes": 536870912000 } HTTP/1.1 200 OK x-amzn-RequestId:
--- gur28r2rqlgb8vvs0mq17hlgij1q8glle1qeu3kpgg6f0kstauu0 Date: Wed, 12 Sep 2012
--- 12:00:02 GMT Content-Type: application/x-amz-json-1.1 Content-length: 263 {
--- "TargetARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume",
--- "VolumeARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
--- }.
+-- operation is supported only for the gateway-cached volume architecture. In
+-- the request, you must specify the gateway, size of the volume in bytes, the
+-- iSCSI target name, an IP address on which to expose the target, and a
+-- unique client token. In response, AWS Storage Gateway creates the volume
+-- and returns information about it such as the volume Amazon Resource Name
+-- (ARN), its size, and the iSCSI target ARN that initiators can use to
+-- connect to the volume target.
 module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     (
     -- * Request
@@ -55,51 +35,50 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     -- ** Request constructor
     , createCachediSCSIVolume
     -- ** Request lenses
+    , ccscsivClientToken
     , ccscsivGatewayARN
-    , ccscsivVolumeSizeInBytes
+    , ccscsivNetworkInterfaceId
     , ccscsivSnapshotId
     , ccscsivTargetName
-    , ccscsivNetworkInterfaceId
-    , ccscsivClientToken
+    , ccscsivVolumeSizeInBytes
 
     -- * Response
     , CreateCachediSCSIVolumeResponse
     -- ** Response constructor
     , createCachediSCSIVolumeResponse
     -- ** Response lenses
-    , ccscsivrVolumeARN
     , ccscsivrTargetARN
+    , ccscsivrVolumeARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 data CreateCachediSCSIVolume = CreateCachediSCSIVolume
-    { _ccscsivGatewayARN :: Text
-    , _ccscsivVolumeSizeInBytes :: !Integer
-    , _ccscsivSnapshotId :: Maybe Text
-    , _ccscsivTargetName :: Text
+    { _ccscsivClientToken        :: Text
+    , _ccscsivGatewayARN         :: Text
     , _ccscsivNetworkInterfaceId :: Text
-    , _ccscsivClientToken :: Text
+    , _ccscsivSnapshotId         :: Maybe Text
+    , _ccscsivTargetName         :: Text
+    , _ccscsivVolumeSizeInBytes  :: Integer
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateCachediSCSIVolume' request.
+-- | 'CreateCachediSCSIVolume' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'ccscsivClientToken' @::@ 'Text'
 --
--- * @VolumeSizeInBytes ::@ @Integer@
+-- * 'ccscsivGatewayARN' @::@ 'Text'
 --
--- * @SnapshotId ::@ @Maybe Text@
+-- * 'ccscsivNetworkInterfaceId' @::@ 'Text'
 --
--- * @TargetName ::@ @Text@
+-- * 'ccscsivSnapshotId' @::@ 'Maybe' 'Text'
 --
--- * @NetworkInterfaceId ::@ @Text@
+-- * 'ccscsivTargetName' @::@ 'Text'
 --
--- * @ClientToken ::@ @Text@
+-- * 'ccscsivVolumeSizeInBytes' @::@ 'Integer'
 --
 createCachediSCSIVolume :: Text -- ^ 'ccscsivGatewayARN'
                         -> Integer -- ^ 'ccscsivVolumeSizeInBytes'
@@ -107,25 +86,27 @@ createCachediSCSIVolume :: Text -- ^ 'ccscsivGatewayARN'
                         -> Text -- ^ 'ccscsivNetworkInterfaceId'
                         -> Text -- ^ 'ccscsivClientToken'
                         -> CreateCachediSCSIVolume
-createCachediSCSIVolume p1 p2 p4 p5 p6 = CreateCachediSCSIVolume
-    { _ccscsivGatewayARN = p1
-    , _ccscsivVolumeSizeInBytes = p2
-    , _ccscsivSnapshotId = Nothing
-    , _ccscsivTargetName = p4
-    , _ccscsivNetworkInterfaceId = p5
-    , _ccscsivClientToken = p6
+createCachediSCSIVolume p1 p2 p3 p4 p5 = CreateCachediSCSIVolume
+    { _ccscsivGatewayARN         = p1
+    , _ccscsivVolumeSizeInBytes  = p2
+    , _ccscsivTargetName         = p3
+    , _ccscsivNetworkInterfaceId = p4
+    , _ccscsivClientToken        = p5
+    , _ccscsivSnapshotId         = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
+ccscsivClientToken :: Lens' CreateCachediSCSIVolume Text
+ccscsivClientToken =
+    lens _ccscsivClientToken (\s a -> s { _ccscsivClientToken = a })
+
 ccscsivGatewayARN :: Lens' CreateCachediSCSIVolume Text
 ccscsivGatewayARN =
     lens _ccscsivGatewayARN (\s a -> s { _ccscsivGatewayARN = a })
 
-ccscsivVolumeSizeInBytes :: Lens' CreateCachediSCSIVolume Integer
-ccscsivVolumeSizeInBytes =
-    lens _ccscsivVolumeSizeInBytes
-         (\s a -> s { _ccscsivVolumeSizeInBytes = a })
+ccscsivNetworkInterfaceId :: Lens' CreateCachediSCSIVolume Text
+ccscsivNetworkInterfaceId =
+    lens _ccscsivNetworkInterfaceId
+        (\s a -> s { _ccscsivNetworkInterfaceId = a })
 
 ccscsivSnapshotId :: Lens' CreateCachediSCSIVolume (Maybe Text)
 ccscsivSnapshotId =
@@ -135,38 +116,34 @@ ccscsivTargetName :: Lens' CreateCachediSCSIVolume Text
 ccscsivTargetName =
     lens _ccscsivTargetName (\s a -> s { _ccscsivTargetName = a })
 
-ccscsivNetworkInterfaceId :: Lens' CreateCachediSCSIVolume Text
-ccscsivNetworkInterfaceId =
-    lens _ccscsivNetworkInterfaceId
-         (\s a -> s { _ccscsivNetworkInterfaceId = a })
+ccscsivVolumeSizeInBytes :: Lens' CreateCachediSCSIVolume Integer
+ccscsivVolumeSizeInBytes =
+    lens _ccscsivVolumeSizeInBytes
+        (\s a -> s { _ccscsivVolumeSizeInBytes = a })
 
-ccscsivClientToken :: Lens' CreateCachediSCSIVolume Text
-ccscsivClientToken =
-    lens _ccscsivClientToken (\s a -> s { _ccscsivClientToken = a })
+instance ToPath CreateCachediSCSIVolume where
+    toPath = const "/"
 
-instance ToPath CreateCachediSCSIVolume
-
-instance ToQuery CreateCachediSCSIVolume
+instance ToQuery CreateCachediSCSIVolume where
+    toQuery = const mempty
 
 instance ToHeaders CreateCachediSCSIVolume
 
-instance ToJSON CreateCachediSCSIVolume
+instance ToBody CreateCachediSCSIVolume where
+    toBody = toBody . encode . _ccscsivGatewayARN
 
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
-    { _ccscsivrVolumeARN :: Maybe Text
-    , _ccscsivrTargetARN :: Maybe Text
+    { _ccscsivrTargetARN :: Maybe Text
+    , _ccscsivrVolumeARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateCachediSCSIVolumeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateCachediSCSIVolumeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeARN ::@ @Maybe Text@
+-- * 'ccscsivrTargetARN' @::@ 'Maybe' 'Text'
 --
--- * @TargetARN ::@ @Maybe Text@
+-- * 'ccscsivrVolumeARN' @::@ 'Maybe' 'Text'
 --
 createCachediSCSIVolumeResponse :: CreateCachediSCSIVolumeResponse
 createCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
@@ -174,19 +151,21 @@ createCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
     , _ccscsivrTargetARN = Nothing
     }
 
-ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
-ccscsivrVolumeARN =
-    lens _ccscsivrVolumeARN (\s a -> s { _ccscsivrVolumeARN = a })
-
 ccscsivrTargetARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrTargetARN =
     lens _ccscsivrTargetARN (\s a -> s { _ccscsivrTargetARN = a })
 
-instance FromJSON CreateCachediSCSIVolumeResponse
+ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
+ccscsivrVolumeARN =
+    lens _ccscsivrVolumeARN (\s a -> s { _ccscsivrVolumeARN = a })
+
+-- FromJSON
 
 instance AWSRequest CreateCachediSCSIVolume where
     type Sv CreateCachediSCSIVolume = StorageGateway
     type Rs CreateCachediSCSIVolume = CreateCachediSCSIVolumeResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> CreateCachediSCSIVolumeResponse
+        <$> o .: "TargetARN"
+        <*> o .: "VolumeARN"

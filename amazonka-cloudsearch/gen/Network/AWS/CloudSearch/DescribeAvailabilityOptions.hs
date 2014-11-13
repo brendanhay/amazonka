@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeAvailabilityOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,91 +32,81 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     -- ** Request constructor
     , describeAvailabilityOptions
     -- ** Request lenses
-    , dao2DomainName
-    , dao2Deployed
+    , daoDeployed
+    , daoDomainName
 
     -- * Response
     , DescribeAvailabilityOptionsResponse
     -- ** Response constructor
     , describeAvailabilityOptionsResponse
     -- ** Response lenses
-    , daorrAvailabilityOptions
+    , daorAvailabilityOptions
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DescribeAvailabilityOptions operation.
--- Specifies the name of the domain you want to describe. To show the active
--- configuration and exclude any pending changes, set the Deployed option to
--- true.
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
-    { _dao2DomainName :: Text
-    , _dao2Deployed :: Maybe Bool
+    { _daoDeployed   :: Maybe Bool
+    , _daoDomainName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAvailabilityOptions' request.
+-- | 'DescribeAvailabilityOptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'daoDeployed' @::@ 'Maybe' 'Bool'
 --
--- * @Deployed ::@ @Maybe Bool@
+-- * 'daoDomainName' @::@ 'Text'
 --
-describeAvailabilityOptions :: Text -- ^ 'dao2DomainName'
+describeAvailabilityOptions :: Text -- ^ 'daoDomainName'
                             -> DescribeAvailabilityOptions
 describeAvailabilityOptions p1 = DescribeAvailabilityOptions
-    { _dao2DomainName = p1
-    , _dao2Deployed = Nothing
+    { _daoDomainName = p1
+    , _daoDeployed   = Nothing
     }
 
+-- | Whether to display the deployed configuration (true) or include any
+-- pending changes (false). Defaults to false.
+daoDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
+daoDeployed = lens _daoDeployed (\s a -> s { _daoDeployed = a })
+
 -- | The name of the domain you want to describe.
-dao2DomainName :: Lens' DescribeAvailabilityOptions Text
-dao2DomainName = lens _dao2DomainName (\s a -> s { _dao2DomainName = a })
+daoDomainName :: Lens' DescribeAvailabilityOptions Text
+daoDomainName = lens _daoDomainName (\s a -> s { _daoDomainName = a })
 
--- | Whether to display the deployed configuration (true) or include any pending
--- changes (false). Defaults to false.
-dao2Deployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
-dao2Deployed = lens _dao2Deployed (\s a -> s { _dao2Deployed = a })
+instance ToQuery DescribeAvailabilityOptions
 
-instance ToQuery DescribeAvailabilityOptions where
-    toQuery = genericQuery def
+instance ToPath DescribeAvailabilityOptions where
+    toPath = const "/"
 
--- | The result of a DescribeAvailabilityOptions request. Indicates whether or
--- not the Multi-AZ option is enabled for the domain specified in the request.
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
-    { _daorrAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-    } deriving (Eq, Ord, Show, Generic)
+    { _daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAvailabilityOptionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeAvailabilityOptionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AvailabilityOptions ::@ @Maybe AvailabilityOptionsStatus@
+-- * 'daorAvailabilityOptions' @::@ 'Maybe' 'AvailabilityOptionsStatus'
 --
 describeAvailabilityOptionsResponse :: DescribeAvailabilityOptionsResponse
 describeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
-    { _daorrAvailabilityOptions = Nothing
+    { _daorAvailabilityOptions = Nothing
     }
 
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.
-daorrAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
-daorrAvailabilityOptions =
-    lens _daorrAvailabilityOptions
-         (\s a -> s { _daorrAvailabilityOptions = a })
-
-instance FromXML DescribeAvailabilityOptionsResponse where
-    fromXMLOptions = xmlOptions
+daorAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
+daorAvailabilityOptions =
+    lens _daorAvailabilityOptions (\s a -> s { _daorAvailabilityOptions = a })
 
 instance AWSRequest DescribeAvailabilityOptions where
     type Sv DescribeAvailabilityOptions = CloudSearch
     type Rs DescribeAvailabilityOptions = DescribeAvailabilityOptionsResponse
 
-    request = post "DescribeAvailabilityOptions"
-    response _ = xmlResponse
+    request  = post "DescribeAvailabilityOptions"
+    response = xmlResponse $ \h x -> DescribeAvailabilityOptionsResponse
+        <$> x %| "AvailabilityOptions"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,108 +24,94 @@
 module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     (
     -- * Request
-      ListCloudFrontOriginAccessIdentities
+      ListCloudFrontOriginAccessIdentities2014_05_31
     -- ** Request constructor
-    , listCloudFrontOriginAccessIdentities
+    , listCloudFrontOriginAccessIdentities2014_05_31
     -- ** Request lenses
     , lcfoaiMarker
     , lcfoaiMaxItems
 
     -- * Response
-    , ListCloudFrontOriginAccessIdentitiesResponse
+    , ListCloudFrontOriginAccessIdentities2014_05_31Response
     -- ** Response constructor
-    , listCloudFrontOriginAccessIdentitiesResponse
+    , listCloudFrontOriginAccessIdentities2014_05_31Response
     -- ** Response lenses
     , lcfoairCloudFrontOriginAccessIdentityList
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to list origin access identities.
-data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
-    { _lcfoaiMarker :: Maybe Text
+data ListCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdentities2014_05_31
+    { _lcfoaiMarker   :: Maybe Text
     , _lcfoaiMaxItems :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListCloudFrontOriginAccessIdentities' request.
+-- | 'ListCloudFrontOriginAccessIdentities2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lcfoaiMarker' @::@ 'Maybe' 'Text'
 --
--- * @MaxItems ::@ @Maybe Text@
+-- * 'lcfoaiMaxItems' @::@ 'Maybe' 'Text'
 --
-listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
-listCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
-    { _lcfoaiMarker = Nothing
+listCloudFrontOriginAccessIdentities2014_05_31 :: ListCloudFrontOriginAccessIdentities2014_05_31
+listCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdentities2014_05_31
+    { _lcfoaiMarker   = Nothing
     , _lcfoaiMaxItems = Nothing
     }
 
--- | Use this when paginating results to indicate where to begin in your list of
--- origin access identities. The results include identities in the list that
--- occur after the marker. To get the next page of results, set the Marker to
--- the value of the NextMarker from the current page's response (which is also
--- the ID of the last identity on that page).
-lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
+-- | Use this when paginating results to indicate where to begin in your list
+-- of origin access identities. The results include identities in the list
+-- that occur after the marker. To get the next page of results, set the
+-- Marker to the value of the NextMarker from the current page's response
+-- (which is also the ID of the last identity on that page).
+lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities2014_05_31 (Maybe Text)
 lcfoaiMarker = lens _lcfoaiMarker (\s a -> s { _lcfoaiMarker = a })
 
 -- | The maximum number of origin access identities you want in the response
 -- body.
-lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
+lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities2014_05_31 (Maybe Text)
 lcfoaiMaxItems = lens _lcfoaiMaxItems (\s a -> s { _lcfoaiMaxItems = a })
 
-instance ToPath ListCloudFrontOriginAccessIdentities
+instance ToPath ListCloudFrontOriginAccessIdentities2014_05_31 where
+    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
 
-instance ToQuery ListCloudFrontOriginAccessIdentities
+instance ToQuery ListCloudFrontOriginAccessIdentities2014_05_31 where
+    toQuery ListCloudFrontOriginAccessIdentities2014_05_31{..} = mconcat
+        [ "Marker"   =? _lcfoaiMarker
+        , "MaxItems" =? _lcfoaiMaxItems
+        ]
 
-instance ToHeaders ListCloudFrontOriginAccessIdentities
+instance ToHeaders ListCloudFrontOriginAccessIdentities2014_05_31
 
-instance ToXML ListCloudFrontOriginAccessIdentities where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListCloudFrontOriginAccessIdentities"
+newtype ListCloudFrontOriginAccessIdentities2014_05_31Response = ListCloudFrontOriginAccessIdentities2014_05_31Response
+    { _lcfoairCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
+    } deriving (Eq, Show, Generic)
 
--- | The returned result of the corresponding request.
-newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
-    { _lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListCloudFrontOriginAccessIdentitiesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListCloudFrontOriginAccessIdentities2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CloudFrontOriginAccessIdentityList ::@ @CloudFrontOriginAccessIdentityList@
+-- * 'lcfoairCloudFrontOriginAccessIdentityList' @::@ 'Maybe' 'CloudFrontOriginAccessIdentityList'
 --
-listCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -- ^ 'lcfoairCloudFrontOriginAccessIdentityList'
-                                             -> ListCloudFrontOriginAccessIdentitiesResponse
-listCloudFrontOriginAccessIdentitiesResponse p1 = ListCloudFrontOriginAccessIdentitiesResponse
-    { _lcfoairCloudFrontOriginAccessIdentityList = p1
+listCloudFrontOriginAccessIdentities2014_05_31Response :: ListCloudFrontOriginAccessIdentities2014_05_31Response
+listCloudFrontOriginAccessIdentities2014_05_31Response = ListCloudFrontOriginAccessIdentities2014_05_31Response
+    { _lcfoairCloudFrontOriginAccessIdentityList = Nothing
     }
 
 -- | The CloudFrontOriginAccessIdentityList type.
-lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
+lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentities2014_05_31Response (Maybe CloudFrontOriginAccessIdentityList)
 lcfoairCloudFrontOriginAccessIdentityList =
     lens _lcfoairCloudFrontOriginAccessIdentityList
-         (\s a -> s { _lcfoairCloudFrontOriginAccessIdentityList = a })
+        (\s a -> s { _lcfoairCloudFrontOriginAccessIdentityList = a })
 
-instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
-    fromXMLOptions = xmlOptions
+instance AWSRequest ListCloudFrontOriginAccessIdentities2014_05_31 where
+    type Sv ListCloudFrontOriginAccessIdentities2014_05_31 = CloudFront
+    type Rs ListCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdentities2014_05_31Response
 
-instance AWSRequest ListCloudFrontOriginAccessIdentities where
-    type Sv ListCloudFrontOriginAccessIdentities = CloudFront
-    type Rs ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentitiesResponse
-
-    request = get
-    response _ = xmlResponse
-
-instance AWSPager ListCloudFrontOriginAccessIdentities where
-    next rq rs
-        | not (rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailIsTruncated) = Nothing
-        | otherwise = Just $
-            rq & lcfoaiMarker .~ rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailNextMarker
+    request  = get
+    response = xmlResponse $ \h x -> ListCloudFrontOriginAccessIdentities2014_05_31Response
+        <$> x %| "CloudFrontOriginAccessIdentityList"

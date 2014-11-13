@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.DisableGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- | Disables a gateway when the gateway is no longer functioning. For example,
+-- if your gateway VM is damaged, you can disable the gateway so you can
+-- recover virtual tapes. Use this operation for a gateway-VTL that is not
+-- reachable or not functioning. Once a gateway is disabled it cannot be
+-- enabled.
 module Network.AWS.StorageGateway.DisableGateway
     (
     -- * Request
@@ -32,23 +39,22 @@ module Network.AWS.StorageGateway.DisableGateway
     -- ** Response constructor
     , disableGatewayResponse
     -- ** Response lenses
-    , dgrrGatewayARN
+    , dgr1GatewayARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 newtype DisableGateway = DisableGateway
     { _dg1GatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableGateway' request.
+-- | 'DisableGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'dg1GatewayARN' @::@ 'Text'
 --
 disableGateway :: Text -- ^ 'dg1GatewayARN'
                -> DisableGateway
@@ -56,47 +62,45 @@ disableGateway p1 = DisableGateway
     { _dg1GatewayARN = p1
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 dg1GatewayARN :: Lens' DisableGateway Text
 dg1GatewayARN = lens _dg1GatewayARN (\s a -> s { _dg1GatewayARN = a })
 
-instance ToPath DisableGateway
+instance ToPath DisableGateway where
+    toPath = const "/"
 
-instance ToQuery DisableGateway
+instance ToQuery DisableGateway where
+    toQuery = const mempty
 
 instance ToHeaders DisableGateway
 
-instance ToJSON DisableGateway
+instance ToBody DisableGateway where
+    toBody = toBody . encode . _dg1GatewayARN
 
 newtype DisableGatewayResponse = DisableGatewayResponse
-    { _dgrrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dgr1GatewayARN :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableGatewayResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DisableGatewayResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Maybe Text@
+-- * 'dgr1GatewayARN' @::@ 'Maybe' 'Text'
 --
 disableGatewayResponse :: DisableGatewayResponse
 disableGatewayResponse = DisableGatewayResponse
-    { _dgrrGatewayARN = Nothing
+    { _dgr1GatewayARN = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
-dgrrGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
-dgrrGatewayARN = lens _dgrrGatewayARN (\s a -> s { _dgrrGatewayARN = a })
+-- | The unique Amazon Resource Name of the disabled gateway.
+dgr1GatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
+dgr1GatewayARN = lens _dgr1GatewayARN (\s a -> s { _dgr1GatewayARN = a })
 
-instance FromJSON DisableGatewayResponse
+-- FromJSON
 
 instance AWSRequest DisableGateway where
     type Sv DisableGateway = StorageGateway
     type Rs DisableGateway = DisableGatewayResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DisableGatewayResponse
+        <$> o .: "GatewayARN"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Support.DescribeServices
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,8 +37,8 @@ module Network.AWS.Support.DescribeServices
     -- ** Request constructor
     , describeServices
     -- ** Request lenses
-    , dsServiceCodeList
     , dsLanguage
+    , dsServiceCodeList
 
     -- * Response
     , DescribeServicesResponse
@@ -46,34 +48,28 @@ module Network.AWS.Support.DescribeServices
     , dsrServices
     ) where
 
-import Network.AWS.Support.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Support.Types
 
 data DescribeServices = DescribeServices
-    { _dsServiceCodeList :: [Text]
-    , _dsLanguage :: Maybe Text
+    { _dsLanguage        :: Maybe Text
+    , _dsServiceCodeList :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeServices' request.
+-- | 'DescribeServices' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ServiceCodeList ::@ @[Text]@
+-- * 'dsLanguage' @::@ 'Maybe' 'Text'
 --
--- * @Language ::@ @Maybe Text@
+-- * 'dsServiceCodeList' @::@ ['Text']
 --
 describeServices :: DescribeServices
 describeServices = DescribeServices
     { _dsServiceCodeList = mempty
-    , _dsLanguage = Nothing
+    , _dsLanguage        = Nothing
     }
-
--- | A JSON-formatted list of service codes available for AWS services.
-dsServiceCodeList :: Lens' DescribeServices [Text]
-dsServiceCodeList =
-    lens _dsServiceCodeList (\s a -> s { _dsServiceCodeList = a })
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
@@ -81,27 +77,37 @@ dsServiceCodeList =
 dsLanguage :: Lens' DescribeServices (Maybe Text)
 dsLanguage = lens _dsLanguage (\s a -> s { _dsLanguage = a })
 
-instance ToPath DescribeServices
+-- | A JSON-formatted list of service codes available for AWS services.
+dsServiceCodeList :: Lens' DescribeServices [Text]
+dsServiceCodeList =
+    lens _dsServiceCodeList (\s a -> s { _dsServiceCodeList = a })
 
-instance ToQuery DescribeServices
+instance ToPath DescribeServices where
+    toPath = const "/"
+
+instance ToQuery DescribeServices where
+    toQuery = const mempty
 
 instance ToHeaders DescribeServices
 
-instance ToJSON DescribeServices
+instance ToBody DescribeServices where
+    toBody = toBody . encode . _dsServiceCodeList
 
--- | The list of AWS services returned by the DescribeServices operation.
 newtype DescribeServicesResponse = DescribeServicesResponse
-    { _dsrServices :: [Service']
-    } deriving (Eq, Ord, Show, Generic)
+    { _dsrServices :: [Service]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeServicesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeServicesResponse where
+    type Item DescribeServicesResponse = Service
+
+    fromList = DescribeServicesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsrServices
+
+-- | 'DescribeServicesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Services ::@ @[Service']@
+-- * 'dsrServices' @::@ ['Service']
 --
 describeServicesResponse :: DescribeServicesResponse
 describeServicesResponse = DescribeServicesResponse
@@ -109,14 +115,15 @@ describeServicesResponse = DescribeServicesResponse
     }
 
 -- | A JSON-formatted list of AWS services.
-dsrServices :: Lens' DescribeServicesResponse [Service']
+dsrServices :: Lens' DescribeServicesResponse [Service]
 dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a })
 
-instance FromJSON DescribeServicesResponse
+-- FromJSON
 
 instance AWSRequest DescribeServices where
     type Sv DescribeServices = Support
     type Rs DescribeServices = DescribeServicesResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeServicesResponse
+        <$> o .: "services"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,45 +44,44 @@ module Network.AWS.S3.DeleteObject
     , dorVersionId
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data DeleteObject = DeleteObject
-    { _doBucket :: BucketName
-    , _doKey :: ObjectKey
-    , _doMFA :: Maybe Text
-    , _doVersionId :: Maybe ObjectVersionId
+    { _doBucket    :: Text
+    , _doKey       :: Text
+    , _doMFA       :: Maybe Text
+    , _doVersionId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteObject' request.
+-- | 'DeleteObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'doBucket' @::@ 'Text'
 --
--- * @Key ::@ @ObjectKey@
+-- * 'doKey' @::@ 'Text'
 --
--- * @MFA ::@ @Maybe Text@
+-- * 'doMFA' @::@ 'Maybe' 'Text'
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * 'doVersionId' @::@ 'Maybe' 'Text'
 --
-deleteObject :: BucketName -- ^ 'doBucket'
-             -> ObjectKey -- ^ 'doKey'
+deleteObject :: Text -- ^ 'doBucket'
+             -> Text -- ^ 'doKey'
              -> DeleteObject
 deleteObject p1 p2 = DeleteObject
-    { _doBucket = p1
-    , _doKey = p2
-    , _doMFA = Nothing
+    { _doBucket    = p1
+    , _doKey       = p2
+    , _doMFA       = Nothing
     , _doVersionId = Nothing
     }
 
-doBucket :: Lens' DeleteObject BucketName
+doBucket :: Lens' DeleteObject Text
 doBucket = lens _doBucket (\s a -> s { _doBucket = a })
 
-doKey :: Lens' DeleteObject ObjectKey
+doKey :: Lens' DeleteObject Text
 doKey = lens _doKey (\s a -> s { _doKey = a })
 
 -- | The concatenation of the authentication device's serial number, a space,
@@ -89,40 +90,42 @@ doMFA :: Lens' DeleteObject (Maybe Text)
 doMFA = lens _doMFA (\s a -> s { _doMFA = a })
 
 -- | VersionId used to reference a specific version of the object.
-doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
+doVersionId :: Lens' DeleteObject (Maybe Text)
 doVersionId = lens _doVersionId (\s a -> s { _doVersionId = a })
 
-instance ToPath DeleteObject
+instance ToPath DeleteObject where
+    toPath DeleteObject{..} = mconcat
+        [ "/"
+        , toText _doBucket
+        , "/"
+        , toText _doKey
+        ]
 
-instance ToQuery DeleteObject
+instance ToQuery DeleteObject where
+    toQuery rq = "versionId" =? _doVersionId rq
 
 instance ToHeaders DeleteObject where
-    toHeaders DeleteObject{..} = concat
+    toHeaders DeleteObject{..} = mconcat
         [ "x-amz-mfa" =: _doMFA
         ]
 
-instance ToBody DeleteObject
-
 data DeleteObjectResponse = DeleteObjectResponse
     { _dorDeleteMarker :: Maybe Bool
-    , _dorVersionId :: Maybe ObjectVersionId
+    , _dorVersionId    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteObjectResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteObjectResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DeleteMarker ::@ @Maybe Bool@
+-- * 'dorDeleteMarker' @::@ 'Maybe' 'Bool'
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * 'dorVersionId' @::@ 'Maybe' 'Text'
 --
 deleteObjectResponse :: DeleteObjectResponse
 deleteObjectResponse = DeleteObjectResponse
     { _dorDeleteMarker = Nothing
-    , _dorVersionId = Nothing
+    , _dorVersionId    = Nothing
     }
 
 -- | Specifies whether the versioned object that was permanently deleted was
@@ -132,15 +135,14 @@ dorDeleteMarker = lens _dorDeleteMarker (\s a -> s { _dorDeleteMarker = a })
 
 -- | Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
-dorVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
+dorVersionId :: Lens' DeleteObjectResponse (Maybe Text)
 dorVersionId = lens _dorVersionId (\s a -> s { _dorVersionId = a })
 
 instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3
     type Rs DeleteObject = DeleteObjectResponse
 
-    request = get
-    response _ = headerResponse $ \hs ->
-        pure DeleteObjectResponse
-            <*> hs ~:? "x-amz-delete-marker"
-            <*> hs ~:? "x-amz-version-id"
+    request  = delete
+    response = xmlResponse $ \h x -> DeleteObjectResponse
+        <$> h ~:? "x-amz-delete-marker"
+        <*> h ~:? "x-amz-version-id"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.DeletePreset
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,18 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The DeletePreset operation removes a preset that you've added in an AWS
--- region. You can't delete the default presets that are included with Elastic
--- Transcoder. DELETE /2012-09-25/pipelines/5555555555555-abcde5 HTTP/1.1
--- Content-Type: charset=UTF-8 Accept: */* Host: elastictranscoder.[Elastic
--- Transcoder-endpoint].amazonaws.com:443 x-amz-date: 20130114T174952Z
--- Authorization: AWS4-HMAC-SHA256
--- Credential=[access-key-id]/[request-date]/[Elastic
--- Transcoder-endpoint]/ets/aws4_request,
--- SignedHeaders=host;x-amz-date;x-amz-target,
--- Signature=[calculated-signature] Status: 202 Accepted x-amzn-RequestId:
--- c321ec43-378e-11e2-8e4c-4d5b971203e9 Content-Type: application/json
--- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
--- 06:01:47 GMT { "Success":"true" }.
+-- region.
 module Network.AWS.ElasticTranscoder.DeletePreset
     (
     -- * Request
@@ -38,7 +29,7 @@ module Network.AWS.ElasticTranscoder.DeletePreset
     -- ** Request constructor
     , deletePreset
     -- ** Request lenses
-    , dp1Id
+    , dpId
 
     -- * Response
     , DeletePresetResponse
@@ -46,55 +37,54 @@ module Network.AWS.ElasticTranscoder.DeletePreset
     , deletePresetResponse
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.ElasticTranscoder.Types
 
--- | The DeletePresetRequest structure.
 newtype DeletePreset = DeletePreset
-    { _dp1Id :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dpId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeletePreset' request.
+-- | 'DeletePreset' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'dpId' @::@ 'Text'
 --
-deletePreset :: Text -- ^ 'dp1Id'
+deletePreset :: Text -- ^ 'dpId'
              -> DeletePreset
 deletePreset p1 = DeletePreset
-    { _dp1Id = p1
+    { _dpId = p1
     }
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
-dp1Id :: Lens' DeletePreset Text
-dp1Id = lens _dp1Id (\s a -> s { _dp1Id = a })
+dpId :: Lens' DeletePreset Text
+dpId = lens _dpId (\s a -> s { _dpId = a })
 
-instance ToPath DeletePreset
+instance ToPath DeletePreset where
+    toPath DeletePreset{..} = mconcat
+        [ "/2012-09-25/presets/"
+        , toText _dpId
+        ]
 
-instance ToQuery DeletePreset
+instance ToQuery DeletePreset where
+    toQuery = const mempty
 
 instance ToHeaders DeletePreset
 
-instance ToJSON DeletePreset
-
--- | The DeletePresetResponse structure.
 data DeletePresetResponse = DeletePresetResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeletePresetResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeletePresetResponse' constructor.
 deletePresetResponse :: DeletePresetResponse
 deletePresetResponse = DeletePresetResponse
+
+-- FromJSON
 
 instance AWSRequest DeletePreset where
     type Sv DeletePreset = ElasticTranscoder
     type Rs DeletePreset = DeletePresetResponse
 
-    request = get
-    response _ = nullaryResponse DeletePresetResponse
+    request  = delete'
+    response = nullaryResponse DeletePresetResponse

@@ -1,11 +1,11 @@
 name:                  amazonka-opsworks
 version:               0.0.0
-synopsis:              AWS OpsWorks SDK
+synopsis:              Amazon OpsWorks SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,9 +13,10 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS OpsWorks provides a simple and flexible way to create and manage stacks and applications.
-    .
-    With AWS OpsWorks, you can provision AWS resources, manage their configuration, deploy applications to those resources, and monitor their health.
+    AWS OpsWorks provides a simple and flexible way to create and manage
+    stacks and applications. With AWS OpsWorks, you can provision AWS
+    resources, manage their configuration, deploy applications to those
+    resources, and monitor their health.
 
 source-repository head
     type:     git
@@ -29,7 +30,6 @@ library
 
     exposed-modules:
           Network.AWS.OpsWorks
-        , Network.AWS.OpsWorks.Types
         , Network.AWS.OpsWorks.AssignVolume
         , Network.AWS.OpsWorks.AssociateElasticIp
         , Network.AWS.OpsWorks.AttachElasticLoadBalancer
@@ -80,6 +80,7 @@ library
         , Network.AWS.OpsWorks.StartStack
         , Network.AWS.OpsWorks.StopInstance
         , Network.AWS.OpsWorks.StopStack
+        , Network.AWS.OpsWorks.Types
         , Network.AWS.OpsWorks.UnassignVolume
         , Network.AWS.OpsWorks.UpdateApp
         , Network.AWS.OpsWorks.UpdateElasticIp
@@ -90,6 +91,8 @@ library
         , Network.AWS.OpsWorks.UpdateStack
         , Network.AWS.OpsWorks.UpdateUserProfile
         , Network.AWS.OpsWorks.UpdateVolume
+
+    other-modules:
 
     build-depends:
           amazonka-core

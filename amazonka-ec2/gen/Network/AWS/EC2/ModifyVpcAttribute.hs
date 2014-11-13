@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ModifyVpcAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,11 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Modifies the specified attribute of the specified VPC. Example This example
--- disables support for DNS hostnames in the specified VPC.
--- https://ec2.amazonaws.com/?Action=ModifyVpcAttribute
--- &amp;VpcId=vpc-1a2b3c4d &amp;EnableDnsHostnames.Value=false
--- &amp;AUTHPARAMS.
+-- | Modifies the specified attribute of the specified VPC.
 module Network.AWS.EC2.ModifyVpcAttribute
     (
     -- * Request
@@ -30,9 +28,9 @@ module Network.AWS.EC2.ModifyVpcAttribute
     -- ** Request constructor
     , modifyVpcAttribute
     -- ** Request lenses
-    , mva1VpcId
-    , mva1EnableDnsSupport
-    , mva1EnableDnsHostnames
+    , mvaEnableDnsHostnames
+    , mvaEnableDnsSupport
+    , mvaVpcId
 
     -- * Response
     , ModifyVpcAttributeResponse
@@ -40,67 +38,65 @@ module Network.AWS.EC2.ModifyVpcAttribute
     , modifyVpcAttributeResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ModifyVpcAttribute = ModifyVpcAttribute
-    { _mva1VpcId :: Text
-    , _mva1EnableDnsSupport :: Maybe AttributeBooleanValue
-    , _mva1EnableDnsHostnames :: Maybe AttributeBooleanValue
-    } deriving (Eq, Ord, Show, Generic)
+    { _mvaEnableDnsHostnames :: Maybe AttributeBooleanValue
+    , _mvaEnableDnsSupport   :: Maybe AttributeBooleanValue
+    , _mvaVpcId              :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyVpcAttribute' request.
+-- | 'ModifyVpcAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcId ::@ @Text@
+-- * 'mvaEnableDnsHostnames' @::@ 'Maybe' 'AttributeBooleanValue'
 --
--- * @EnableDnsSupport ::@ @Maybe AttributeBooleanValue@
+-- * 'mvaEnableDnsSupport' @::@ 'Maybe' 'AttributeBooleanValue'
 --
--- * @EnableDnsHostnames ::@ @Maybe AttributeBooleanValue@
+-- * 'mvaVpcId' @::@ 'Text'
 --
-modifyVpcAttribute :: Text -- ^ 'mva1VpcId'
+modifyVpcAttribute :: Text -- ^ 'mvaVpcId'
                    -> ModifyVpcAttribute
 modifyVpcAttribute p1 = ModifyVpcAttribute
-    { _mva1VpcId = p1
-    , _mva1EnableDnsSupport = Nothing
-    , _mva1EnableDnsHostnames = Nothing
+    { _mvaVpcId              = p1
+    , _mvaEnableDnsSupport   = Nothing
+    , _mvaEnableDnsHostnames = Nothing
     }
 
--- | The ID of the VPC.
-mva1VpcId :: Lens' ModifyVpcAttribute Text
-mva1VpcId = lens _mva1VpcId (\s a -> s { _mva1VpcId = a })
-
--- | Indicates whether the DNS resolution is supported for the VPC. If this
--- attribute is false, the Amazon provided DNS service in the VPC that
--- resolves public DNS hostnames to IP addresses is not enabled. If this
--- attribute is true, queries to the Amazon provided DNS server at the
--- 169.254.169.253 IP address, or the reserved IP address at the base of the
--- VPC network range "plus two" will succeed.
-mva1EnableDnsSupport :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
-mva1EnableDnsSupport =
-    lens _mva1EnableDnsSupport (\s a -> s { _mva1EnableDnsSupport = a })
-
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
--- this attribute is true, instances in the VPC get DNS hostnames; otherwise,
--- they do not. You can only set enableDnsHostnames to true if you also set
--- the EnableDnsSupport attribute to true.
-mva1EnableDnsHostnames :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
-mva1EnableDnsHostnames =
-    lens _mva1EnableDnsHostnames (\s a -> s { _mva1EnableDnsHostnames = a })
+-- enabled, instances in the VPC get DNS hostnames; otherwise, they do not.
+-- You can only enable DNS hostnames if you also enable DNS support.
+mvaEnableDnsHostnames :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
+mvaEnableDnsHostnames =
+    lens _mvaEnableDnsHostnames (\s a -> s { _mvaEnableDnsHostnames = a })
 
-instance ToQuery ModifyVpcAttribute where
-    toQuery = genericQuery def
+-- | Indicates whether the DNS resolution is supported for the VPC. If
+-- enabled, queries to the Amazon provided DNS server at the 169.254.169.253
+-- IP address, or the reserved IP address at the base of the VPC network
+-- range "plus two" will succeed. If disabled, the Amazon provided DNS
+-- service in the VPC that resolves public DNS hostnames to IP addresses is
+-- not enabled.
+mvaEnableDnsSupport :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
+mvaEnableDnsSupport =
+    lens _mvaEnableDnsSupport (\s a -> s { _mvaEnableDnsSupport = a })
+
+-- | The ID of the VPC.
+mvaVpcId :: Lens' ModifyVpcAttribute Text
+mvaVpcId = lens _mvaVpcId (\s a -> s { _mvaVpcId = a })
+
+instance ToQuery ModifyVpcAttribute
+
+instance ToPath ModifyVpcAttribute where
+    toPath = const "/"
 
 data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyVpcAttributeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ModifyVpcAttributeResponse' constructor.
 modifyVpcAttributeResponse :: ModifyVpcAttributeResponse
 modifyVpcAttributeResponse = ModifyVpcAttributeResponse
 
@@ -108,5 +104,5 @@ instance AWSRequest ModifyVpcAttribute where
     type Sv ModifyVpcAttribute = EC2
     type Rs ModifyVpcAttribute = ModifyVpcAttributeResponse
 
-    request = post "ModifyVpcAttribute"
-    response _ = nullaryResponse ModifyVpcAttributeResponse
+    request  = post "ModifyVpcAttribute"
+    response = nullaryResponse ModifyVpcAttributeResponse

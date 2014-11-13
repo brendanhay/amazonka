@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteVpcPeeringConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,15 +23,7 @@
 -- | Deletes a VPC peering connection. Either the owner of the requester VPC or
 -- the owner of the peer VPC can delete the VPC peering connection if it's in
 -- the active state. The owner of the requester VPC can delete a VPC peering
--- connection in the pending-acceptance state. Example This example deletes
--- the specified VPC peering connection.
--- https://ec2.amazonaws.com/?Action=DeleteVpcPeeringConnection
--- &amp;vpcPeeringConnectionId=pcx-1a2b3c4d &amp;AUTHPARAMS
--- &lt;DeleteVpcPeeringConnectionResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt;
--- &lt;/DeleteVpcPeeringConnectionResponse&gt;.
+-- connection in the pending-acceptance state.
 module Network.AWS.EC2.DeleteVpcPeeringConnection
     (
     -- * Request
@@ -37,6 +31,7 @@ module Network.AWS.EC2.DeleteVpcPeeringConnection
     -- ** Request constructor
     , deleteVpcPeeringConnection
     -- ** Request lenses
+    , dvpcDryRun
     , dvpcVpcPeeringConnectionId
 
     -- * Response
@@ -47,48 +42,54 @@ module Network.AWS.EC2.DeleteVpcPeeringConnection
     , dvpcrReturn
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
-    { _dvpcVpcPeeringConnectionId :: Text
+data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
+    { _dvpcDryRun                 :: Maybe Bool
+    , _dvpcVpcPeeringConnectionId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpcPeeringConnection' request.
+-- | 'DeleteVpcPeeringConnection' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcPeeringConnectionId ::@ @Text@
+-- * 'dvpcDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'dvpcVpcPeeringConnectionId' @::@ 'Text'
 --
 deleteVpcPeeringConnection :: Text -- ^ 'dvpcVpcPeeringConnectionId'
                            -> DeleteVpcPeeringConnection
 deleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
     { _dvpcVpcPeeringConnectionId = p1
+    , _dvpcDryRun                 = Nothing
     }
+
+dvpcDryRun :: Lens' DeleteVpcPeeringConnection (Maybe Bool)
+dvpcDryRun = lens _dvpcDryRun (\s a -> s { _dvpcDryRun = a })
 
 -- | The ID of the VPC peering connection.
 dvpcVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection Text
 dvpcVpcPeeringConnectionId =
     lens _dvpcVpcPeeringConnectionId
-         (\s a -> s { _dvpcVpcPeeringConnectionId = a })
+        (\s a -> s { _dvpcVpcPeeringConnectionId = a })
 
-instance ToQuery DeleteVpcPeeringConnection where
-    toQuery = genericQuery def
+instance ToQuery DeleteVpcPeeringConnection
+
+instance ToPath DeleteVpcPeeringConnection where
+    toPath = const "/"
 
 newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpcPeeringConnectionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteVpcPeeringConnectionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Return ::@ @Maybe Bool@
+-- * 'dvpcrReturn' @::@ 'Maybe' 'Bool'
 --
 deleteVpcPeeringConnectionResponse :: DeleteVpcPeeringConnectionResponse
 deleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
@@ -99,12 +100,10 @@ deleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
 dvpcrReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
 dvpcrReturn = lens _dvpcrReturn (\s a -> s { _dvpcrReturn = a })
 
-instance FromXML DeleteVpcPeeringConnectionResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DeleteVpcPeeringConnection where
     type Sv DeleteVpcPeeringConnection = EC2
     type Rs DeleteVpcPeeringConnection = DeleteVpcPeeringConnectionResponse
 
-    request = post "DeleteVpcPeeringConnection"
-    response _ = xmlResponse
+    request  = post "DeleteVpcPeeringConnection"
+    response = xmlResponse $ \h x -> DeleteVpcPeeringConnectionResponse
+        <$> x %| "return"

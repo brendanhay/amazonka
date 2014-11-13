@@ -1,0 +1,3062 @@
+{
+    "service": {
+        "signature": "V4",
+        "checksum": "sha256",
+        "abbrev": "Kinesis",
+        "error": "KinesisError",
+        "namespace": "Network.AWS.Kinesis",
+        "protocol": "json",
+        "imports": [
+            "Network.AWS.Kinesis.AddTagsToStream",
+            "Network.AWS.Kinesis.CreateStream",
+            "Network.AWS.Kinesis.DeleteStream",
+            "Network.AWS.Kinesis.DescribeStream",
+            "Network.AWS.Kinesis.GetRecords",
+            "Network.AWS.Kinesis.GetShardIterator",
+            "Network.AWS.Kinesis.ListStreams",
+            "Network.AWS.Kinesis.ListTagsForStream",
+            "Network.AWS.Kinesis.MergeShards",
+            "Network.AWS.Kinesis.PutRecord",
+            "Network.AWS.Kinesis.RemoveTagsFromStream",
+            "Network.AWS.Kinesis.SplitShard",
+            "Network.AWS.Kinesis.Types"
+        ],
+        "name": "Amazon Kinesis",
+        "version": "2013-12-02",
+        "documentation": "Amazon Kinesis is a managed service that scales elastically for real-time processing of streaming big data. The service takes in large streams of data records that can then be consumed in real time by multiple data-processing applications that can be run on Amazon EC2 instances.",
+        "xmlNamespace": "https://kinesis.amazonaws.com/doc/2013-12-02/",
+        "endpoint": "Regional",
+        "endpointPrefix": "kinesis",
+        "targetPrefix": "Kinesis_20131202"
+    },
+    "cabal": {
+        "other": [],
+        "library": "amazonka-kinesis",
+        "exposed": [
+            "Network.AWS.Kinesis",
+            "Network.AWS.Kinesis.AddTagsToStream",
+            "Network.AWS.Kinesis.CreateStream",
+            "Network.AWS.Kinesis.DeleteStream",
+            "Network.AWS.Kinesis.DescribeStream",
+            "Network.AWS.Kinesis.GetRecords",
+            "Network.AWS.Kinesis.GetShardIterator",
+            "Network.AWS.Kinesis.ListStreams",
+            "Network.AWS.Kinesis.ListTagsForStream",
+            "Network.AWS.Kinesis.MergeShards",
+            "Network.AWS.Kinesis.PutRecord",
+            "Network.AWS.Kinesis.RemoveTagsFromStream",
+            "Network.AWS.Kinesis.SplitShard",
+            "Network.AWS.Kinesis.Types"
+        ],
+        "dependencies": [],
+        "name": "Amazon Kinesis",
+        "version": "0.0.0",
+        "description": "Amazon Kinesis is a managed service that scales elastically for real-time processing of streaming big data. The service takes in large streams of data records that can then be consumed in real time by multiple data-processing applications that can be run on Amazon EC2 instances."
+    },
+    "types": {
+        "service": {
+            "signature": "V4",
+            "checksum": "sha256",
+            "abbrev": "Kinesis",
+            "error": "KinesisError",
+            "namespace": "Network.AWS.Kinesis",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Kinesis.AddTagsToStream",
+                "Network.AWS.Kinesis.CreateStream",
+                "Network.AWS.Kinesis.DeleteStream",
+                "Network.AWS.Kinesis.DescribeStream",
+                "Network.AWS.Kinesis.GetRecords",
+                "Network.AWS.Kinesis.GetShardIterator",
+                "Network.AWS.Kinesis.ListStreams",
+                "Network.AWS.Kinesis.ListTagsForStream",
+                "Network.AWS.Kinesis.MergeShards",
+                "Network.AWS.Kinesis.PutRecord",
+                "Network.AWS.Kinesis.RemoveTagsFromStream",
+                "Network.AWS.Kinesis.SplitShard",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "Amazon Kinesis",
+            "version": "2013-12-02",
+            "documentation": "Amazon Kinesis is a managed service that scales elastically for real-time processing of streaming big data. The service takes in large streams of data records that can then be consumed in real time by multiple data-processing applications that can be run on Amazon EC2 instances.",
+            "xmlNamespace": "https://kinesis.amazonaws.com/doc/2013-12-02/",
+            "endpoint": "Regional",
+            "endpointPrefix": "kinesis",
+            "targetPrefix": "Kinesis_20131202"
+        },
+        "namespace": "Network.AWS.Kinesis.Types",
+        "types": [
+            {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 23,
+                "ctor": "shard",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "sShardId",
+                    "name": "_sShardId",
+                    "shape": "ShardId",
+                    "locationName": "ShardId",
+                    "documentation": "\u003cp\u003eThe unique identifier of the shard within the Amazon Kinesis stream.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sShardId",
+                        "name": "_sShardId",
+                        "shape": "ShardId",
+                        "locationName": "ShardId",
+                        "documentation": "\u003cp\u003eThe unique identifier of the shard within the Amazon Kinesis stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sHashKeyRange",
+                        "name": "_sHashKeyRange",
+                        "shape": "HashKeyRange",
+                        "locationName": "HashKeyRange",
+                        "documentation": "\u003cp\u003eThe range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.\u003c/p\u003e",
+                        "typeExposed": "HashKeyRange",
+                        "type": "HashKeyRange"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sSequenceNumberRange",
+                        "name": "_sSequenceNumberRange",
+                        "shape": "SequenceNumberRange",
+                        "locationName": "SequenceNumberRange",
+                        "documentation": "\u003cp\u003eThe range of possible sequence numbers for the shard.\u003c/p\u003e",
+                        "typeExposed": "SequenceNumberRange",
+                        "type": "SequenceNumberRange"
+                    }
+                ],
+                "name": "Shard",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sParentShardId",
+                        "name": "_sParentShardId",
+                        "shape": "ShardId",
+                        "locationName": "ParentShardId",
+                        "documentation": "\u003cp\u003eThe shard Id of the shard's parent.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sAdjacentParentShardId",
+                        "name": "_sAdjacentParentShardId",
+                        "shape": "ShardId",
+                        "locationName": "AdjacentParentShardId",
+                        "documentation": "\u003cp\u003eThe shard Id of the shard adjacent to the shard's parent.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sAdjacentParentShardId",
+                        "name": "_sAdjacentParentShardId",
+                        "shape": "ShardId",
+                        "locationName": "AdjacentParentShardId",
+                        "documentation": "\u003cp\u003eThe shard Id of the shard adjacent to the shard's parent.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sHashKeyRange",
+                        "name": "_sHashKeyRange",
+                        "shape": "HashKeyRange",
+                        "locationName": "HashKeyRange",
+                        "documentation": "\u003cp\u003eThe range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.\u003c/p\u003e",
+                        "typeExposed": "HashKeyRange",
+                        "type": "HashKeyRange"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sParentShardId",
+                        "name": "_sParentShardId",
+                        "shape": "ShardId",
+                        "locationName": "ParentShardId",
+                        "documentation": "\u003cp\u003eThe shard Id of the shard's parent.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sSequenceNumberRange",
+                        "name": "_sSequenceNumberRange",
+                        "shape": "SequenceNumberRange",
+                        "locationName": "SequenceNumberRange",
+                        "documentation": "\u003cp\u003eThe range of possible sequence numbers for the shard.\u003c/p\u003e",
+                        "typeExposed": "SequenceNumberRange",
+                        "type": "SequenceNumberRange"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sShardId",
+                        "name": "_sShardId",
+                        "shape": "ShardId",
+                        "locationName": "ShardId",
+                        "documentation": "\u003cp\u003eThe unique identifier of the shard within the Amazon Kinesis stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 9,
+                "ctor": "tag",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "tagKey",
+                    "name": "_tagKey",
+                    "shape": "TagKey",
+                    "locationName": "Key",
+                    "documentation": "\u003cp\u003eA unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tagKey",
+                        "name": "_tagKey",
+                        "shape": "TagKey",
+                        "locationName": "Key",
+                        "documentation": "\u003cp\u003eA unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "name": "Tag",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "tagValue",
+                        "name": "_tagValue",
+                        "shape": "TagValue",
+                        "locationName": "Value",
+                        "documentation": "\u003cp\u003eAn optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tagKey",
+                        "name": "_tagKey",
+                        "shape": "TagKey",
+                        "locationName": "Key",
+                        "documentation": "\u003cp\u003eA unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "tagValue",
+                        "name": "_tagValue",
+                        "shape": "TagValue",
+                        "locationName": "Value",
+                        "documentation": "\u003cp\u003eAn optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 16,
+                "ctor": "streamDescription",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "sdStreamName",
+                    "name": "_sdStreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eThe name of the stream being described.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sdStreamName",
+                        "name": "_sdStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream being described.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sdStreamARN",
+                        "name": "_sdStreamARN",
+                        "shape": "StreamARN",
+                        "locationName": "StreamARN",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) for the stream being described.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sdStreamStatus",
+                        "name": "_sdStreamStatus",
+                        "shape": "StreamStatus",
+                        "locationName": "StreamStatus",
+                        "documentation": "\u003cp\u003eThe current status of the stream being described.\u003c/p\u003e \u003cp\u003eThe stream status is one of the following states:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCREATING\u003c/code\u003e - The stream is being created. Amazon Kinesis immediately returns and sets \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eCREATING\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDELETING\u003c/code\u003e - The stream is being deleted. The specified stream is in the \u003ccode\u003eDELETING\u003c/code\u003e state until Amazon Kinesis completes the deletion.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eACTIVE\u003c/code\u003e - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an \u003ccode\u003eACTIVE\u003c/code\u003e stream.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUPDATING\u003c/code\u003e - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state.\u003c/li\u003e \u003c/ul\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sdHasMoreShards",
+                        "name": "_sdHasMoreShards",
+                        "shape": "BooleanObject",
+                        "locationName": "HasMoreShards",
+                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, more shards in the stream are available to describe.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ],
+                "name": "StreamDescription",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "sdShards",
+                        "name": "_sdShards",
+                        "shape": "ShardList",
+                        "locationName": "Shards",
+                        "documentation": "\u003cp\u003eThe shards that comprise the stream.\u003c/p\u003e",
+                        "typeExposed": "[Shard]",
+                        "type": "[Shard]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sdHasMoreShards",
+                        "name": "_sdHasMoreShards",
+                        "shape": "BooleanObject",
+                        "locationName": "HasMoreShards",
+                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, more shards in the stream are available to describe.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "sdShards",
+                        "name": "_sdShards",
+                        "shape": "ShardList",
+                        "locationName": "Shards",
+                        "documentation": "\u003cp\u003eThe shards that comprise the stream.\u003c/p\u003e",
+                        "typeExposed": "[Shard]",
+                        "type": "[Shard]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sdStreamARN",
+                        "name": "_sdStreamARN",
+                        "shape": "StreamARN",
+                        "locationName": "StreamARN",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) for the stream being described.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sdStreamName",
+                        "name": "_sdStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream being described.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "sdStreamStatus",
+                        "name": "_sdStreamStatus",
+                        "shape": "StreamStatus",
+                        "locationName": "StreamStatus",
+                        "documentation": "\u003cp\u003eThe current status of the stream being described.\u003c/p\u003e \u003cp\u003eThe stream status is one of the following states:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCREATING\u003c/code\u003e - The stream is being created. Amazon Kinesis immediately returns and sets \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eCREATING\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDELETING\u003c/code\u003e - The stream is being deleted. The specified stream is in the \u003ccode\u003eDELETING\u003c/code\u003e state until Amazon Kinesis completes the deletion.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eACTIVE\u003c/code\u003e - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an \u003ccode\u003eACTIVE\u003c/code\u003e stream.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUPDATING\u003c/code\u003e - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state.\u003c/li\u003e \u003c/ul\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "Deleting": "DELETING",
+                    "Updating": "UPDATING",
+                    "Creating": "CREATING",
+                    "Active": "ACTIVE"
+                },
+                "valuePad": 9,
+                "name": "StreamStatus",
+                "type": "nullary",
+                "branchPad": 8
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 19,
+                "ctor": "hashKeyRange",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "hkrStartingHashKey",
+                    "name": "_hkrStartingHashKey",
+                    "shape": "HashKey",
+                    "locationName": "StartingHashKey",
+                    "documentation": "\u003cp\u003eThe starting hash key of the hash key range.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hkrStartingHashKey",
+                        "name": "_hkrStartingHashKey",
+                        "shape": "HashKey",
+                        "locationName": "StartingHashKey",
+                        "documentation": "\u003cp\u003eThe starting hash key of the hash key range.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hkrEndingHashKey",
+                        "name": "_hkrEndingHashKey",
+                        "shape": "HashKey",
+                        "locationName": "EndingHashKey",
+                        "documentation": "\u003cp\u003eThe ending hash key of the hash key range.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "name": "HashKeyRange",
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hkrEndingHashKey",
+                        "name": "_hkrEndingHashKey",
+                        "shape": "HashKey",
+                        "locationName": "EndingHashKey",
+                        "documentation": "\u003cp\u003eThe ending hash key of the hash key range.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hkrStartingHashKey",
+                        "name": "_hkrStartingHashKey",
+                        "shape": "HashKey",
+                        "locationName": "StartingHashKey",
+                        "documentation": "\u003cp\u003eThe starting hash key of the hash key range.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 16,
+                "ctor": "record",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "rSequenceNumber",
+                    "name": "_rSequenceNumber",
+                    "shape": "SequenceNumber",
+                    "locationName": "SequenceNumber",
+                    "documentation": "\u003cp\u003eThe unique identifier for the record in the Amazon Kinesis stream.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rSequenceNumber",
+                        "name": "_rSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "SequenceNumber",
+                        "documentation": "\u003cp\u003eThe unique identifier for the record in the Amazon Kinesis stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rData",
+                        "name": "_rData",
+                        "shape": "Data",
+                        "locationName": "Data",
+                        "documentation": "\u003cp\u003eThe data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) \u003c/p\u003e",
+                        "typeExposed": "Base64",
+                        "type": "Base64"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rPartitionKey",
+                        "name": "_rPartitionKey",
+                        "shape": "PartitionKey",
+                        "locationName": "PartitionKey",
+                        "documentation": "\u003cp\u003eIdentifies which shard in the stream the data record is assigned to.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "name": "Record",
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rData",
+                        "name": "_rData",
+                        "shape": "Data",
+                        "locationName": "Data",
+                        "documentation": "\u003cp\u003eThe data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) \u003c/p\u003e",
+                        "typeExposed": "Base64",
+                        "type": "Base64"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rPartitionKey",
+                        "name": "_rPartitionKey",
+                        "shape": "PartitionKey",
+                        "locationName": "PartitionKey",
+                        "documentation": "\u003cp\u003eIdentifies which shard in the stream the data record is assigned to.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rSequenceNumber",
+                        "name": "_rSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "SequenceNumber",
+                        "documentation": "\u003cp\u003eThe unique identifier for the record in the Amazon Kinesis stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 26,
+                "ctor": "sequenceNumberRange",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "snrStartingSequenceNumber",
+                    "name": "_snrStartingSequenceNumber",
+                    "shape": "SequenceNumber",
+                    "locationName": "StartingSequenceNumber",
+                    "documentation": "\u003cp\u003eThe starting sequence number for the range.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "snrStartingSequenceNumber",
+                        "name": "_snrStartingSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "StartingSequenceNumber",
+                        "documentation": "\u003cp\u003eThe starting sequence number for the range.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "name": "SequenceNumberRange",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "snrEndingSequenceNumber",
+                        "name": "_snrEndingSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "EndingSequenceNumber",
+                        "documentation": "\u003cp\u003eThe ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of \u003ccode\u003enull\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "snrEndingSequenceNumber",
+                        "name": "_snrEndingSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "EndingSequenceNumber",
+                        "documentation": "\u003cp\u003eThe ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of \u003ccode\u003enull\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "snrStartingSequenceNumber",
+                        "name": "_snrStartingSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "StartingSequenceNumber",
+                        "documentation": "\u003cp\u003eThe starting sequence number for the range.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "AfterSequenceNumber": "AFTER_SEQUENCE_NUMBER",
+                    "AtSequenceNumber": "AT_SEQUENCE_NUMBER",
+                    "TrimHorizon": "TRIM_HORIZON",
+                    "Latest": "LATEST"
+                },
+                "valuePad": 22,
+                "name": "ShardIteratorType",
+                "type": "nullary",
+                "branchPad": 19
+            }
+        ],
+        "imports": []
+    },
+    "operations": [
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "addTagsToStreamResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "AddTagsToStreamResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.Kinesis.AddTagsToStream",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "AddTagsToStream",
+            "method": "post",
+            "documentation": "\u003cp\u003eAdds or updates tags for the specified Amazon Kinesis stream. Each stream can have up to 10 tags. \u003c/p\u003e \u003cp\u003eIf tags have already been assigned to the stream, \u003ccode\u003eAddTagsToStream\u003c/code\u003e overwrites any existing tags that correspond to the specified tag keys.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 15,
+                "ctor": "addTagsToStream",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "attsStreamName",
+                    "name": "_attsStreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "attsStreamName",
+                        "name": "_attsStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "AddTagsToStream",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "attsTags",
+                        "name": "_attsTags",
+                        "shape": "TagMap",
+                        "locationName": "Tags",
+                        "documentation": "\u003cp\u003eThe set of key-value pairs to use to create the tags.\u003c/p\u003e",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "attsStreamName",
+                        "name": "_attsStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "attsTags",
+                        "name": "_attsTags",
+                        "shape": "TagMap",
+                        "locationName": "Tags",
+                        "documentation": "\u003cp\u003eThe set of key-value pairs to use to create the tags.\u003c/p\u003e",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "createStreamResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "CreateStreamResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.Kinesis.CreateStream",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "CreateStream",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a Amazon Kinesis stream. A stream captures and transports data records that are continuously emitted from different data sources or \u003ci\u003eproducers\u003c/i\u003e. Scale-out within an Amazon Kinesis stream is explicitly supported by means of shards, which are uniquely identified groups of data records in an Amazon Kinesis stream.\u003c/p\u003e \u003cp\u003eYou specify and control the number of shards that a stream is composed of. Each open shard can support up to 5 read transactions per second, up to a maximum total of 2 MB of data read per second. Each shard can support up to 1000 write transactions per second, up to a maximum total of 1 MB data written per second. You can add shards to a stream if the amount of data input increases and you can remove shards if the amount of data input decreases.\u003c/p\u003e \u003cp\u003eThe stream name identifies the stream. The name is scoped to the AWS account used by the application. It is also scoped by region. That is, two streams in two different accounts can have the same name, and two streams in the same account, but in two different regions, can have the same name. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eCreateStream\u003c/code\u003e is an asynchronous operation. Upon receiving a \u003ccode\u003eCreateStream\u003c/code\u003e request, Amazon Kinesis immediately returns and sets the stream status to \u003ccode\u003eCREATING\u003c/code\u003e. After the stream is created, Amazon Kinesis sets the stream status to \u003ccode\u003eACTIVE\u003c/code\u003e. You should perform read and write operations only on an \u003ccode\u003eACTIVE\u003c/code\u003e stream. \u003c/p\u003e \u003cp\u003eYou receive a \u003ccode\u003eLimitExceededException\u003c/code\u003e when making a \u003ccode\u003eCreateStream\u003c/code\u003e request if you try to do one of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003eHave more than five streams in the \u003ccode\u003eCREATING\u003c/code\u003e state at any point in time.\u003c/li\u003e \u003cli\u003eCreate more shards than are authorized for your account.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eThe default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\"\u003econtact AWS Support\u003c/a\u003e to increase the limit on your account.\u003c/p\u003e \u003cp\u003eYou can use \u003ccode\u003eDescribeStream\u003c/code\u003e to check the stream status, which is returned in \u003ccode\u003eStreamStatus\u003c/code\u003e.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eCreateStream\u003c/code\u003e has a limit of 5 transactions per second per account.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 13,
+                "ctor": "createStream",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "csStreamName",
+                    "name": "_csStreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eA name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account, but in two different regions, can have the same name.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "csStreamName",
+                        "name": "_csStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eA name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account, but in two different regions, can have the same name.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "csShardCount",
+                        "name": "_csShardCount",
+                        "shape": "PositiveIntegerObject",
+                        "locationName": "ShardCount",
+                        "documentation": "\u003cp\u003eThe number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e The default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\"\u003econtact AWS Support\u003c/a\u003e to increase the limit on your account.\u003c/p\u003e",
+                        "typeExposed": "Natural",
+                        "type": "Natural"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "CreateStream",
+                "query": [],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "csShardCount",
+                        "name": "_csShardCount",
+                        "shape": "PositiveIntegerObject",
+                        "locationName": "ShardCount",
+                        "documentation": "\u003cp\u003eThe number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e The default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\"\u003econtact AWS Support\u003c/a\u003e to increase the limit on your account.\u003c/p\u003e",
+                        "typeExposed": "Natural",
+                        "type": "Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "csStreamName",
+                        "name": "_csStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eA name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account, but in two different regions, can have the same name.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "deleteStreamResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "DeleteStreamResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.Kinesis.DeleteStream",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "DeleteStream",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes a stream and all its shards and data. You must shut down any applications that are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream, it will receive the exception \u003ccode\u003eResourceNotFoundException\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eIf the stream is in the \u003ccode\u003eACTIVE\u003c/code\u003e state, you can delete it. After a \u003ccode\u003eDeleteStream\u003c/code\u003e request, the specified stream is in the \u003ccode\u003eDELETING\u003c/code\u003e state until Amazon Kinesis completes the deletion.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e Amazon Kinesis might continue to accept data read and write operations, such as \u003ca\u003ePutRecord\u003c/a\u003e and \u003ca\u003eGetRecords\u003c/a\u003e, on a stream in the \u003ccode\u003eDELETING\u003c/code\u003e state until the stream deletion is complete.\u003c/p\u003e \u003cp\u003eWhen you delete a stream, any shards in that stream are also deleted, and any tags are dissociated from the stream.\u003c/p\u003e \u003cp\u003eYou can use the \u003ca\u003eDescribeStream\u003c/a\u003e operation to check the state of the stream, which is returned in \u003ccode\u003eStreamStatus\u003c/code\u003e.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eDeleteStream\u003c/code\u003e has a limit of 5 transactions per second per account.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "deleteStream",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dsStreamName",
+                    "name": "_dsStreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eThe name of the stream to delete.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dsStreamName",
+                    "name": "_dsStreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eThe name of the stream to delete.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dsStreamName",
+                        "name": "_dsStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream to delete.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DeleteStream",
+                "query": [],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dsStreamName",
+                        "name": "_dsStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream to delete.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "describeStreamResponse",
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dsrStreamDescription",
+                    "name": "_dsrStreamDescription",
+                    "shape": "StreamDescription",
+                    "locationName": "StreamDescription",
+                    "documentation": "\u003cp\u003eThe current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.\u003c/p\u003e",
+                    "typeExposed": "StreamDescription",
+                    "type": "StreamDescription"
+                },
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dsrStreamDescription",
+                    "name": "_dsrStreamDescription",
+                    "shape": "StreamDescription",
+                    "locationName": "StreamDescription",
+                    "documentation": "\u003cp\u003eThe current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.\u003c/p\u003e",
+                    "typeExposed": "StreamDescription",
+                    "type": "StreamDescription"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dsrStreamDescription",
+                        "name": "_dsrStreamDescription",
+                        "shape": "StreamDescription",
+                        "locationName": "StreamDescription",
+                        "documentation": "\u003cp\u003eThe current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.\u003c/p\u003e",
+                        "typeExposed": "StreamDescription",
+                        "type": "StreamDescription"
+                    }
+                ],
+                "shared": false,
+                "name": "DescribeStreamResponse",
+                "resultWrapper": null,
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dsrStreamDescription",
+                        "name": "_dsrStreamDescription",
+                        "shape": "StreamDescription",
+                        "locationName": "StreamDescription",
+                        "documentation": "\u003cp\u003eThe current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.\u003c/p\u003e",
+                        "typeExposed": "StreamDescription",
+                        "type": "StreamDescription"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Kinesis.DescribeStream",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "DescribeStream",
+            "method": "post",
+            "documentation": "\u003cp\u003eDescribes the specified stream.\u003c/p\u003e \u003cp\u003eThe information about the stream includes its current status, its Amazon Resource Name (ARN), and an array of shard objects. For each shard object, there is information about the hash key and sequence number ranges that the shard spans, and the IDs of any earlier shards that played in a role in creating the shard. A sequence number is the identifier associated with every record ingested in the Amazon Kinesis stream. The sequence number is assigned when a record is put into the stream.\u003c/p\u003e \u003cp\u003eYou can limit the number of returned shards using the \u003ccode\u003eLimit\u003c/code\u003e parameter. The number of shards in a stream may be too large to return from a single call to \u003ccode\u003eDescribeStream\u003c/code\u003e. You can detect this by using the \u003ccode\u003eHasMoreShards\u003c/code\u003e flag in the returned output. \u003ccode\u003eHasMoreShards\u003c/code\u003e is set to \u003ccode\u003etrue\u003c/code\u003e when there is more data available. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eDescribeStream\u003c/code\u003e is a paginated operation. If there are more shards available, you can request them using the shard ID of the last shard returned. Specify this ID in the \u003ccode\u003eExclusiveStartShardId\u003c/code\u003e parameter in a subsequent request to \u003ccode\u003eDescribeStream\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eDescribeStream\u003c/code\u003e has a limit of 10 transactions per second per account.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 25,
+                "ctor": "describeStream",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "ds1StreamName",
+                    "name": "_ds1StreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eThe name of the stream to describe.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ds1StreamName",
+                        "name": "_ds1StreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream to describe.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DescribeStream",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ds1Limit",
+                        "name": "_ds1Limit",
+                        "shape": "DescribeStreamInputLimit",
+                        "locationName": "Limit",
+                        "documentation": "\u003cp\u003eThe maximum number of shards to return.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ds1ExclusiveStartShardId",
+                        "name": "_ds1ExclusiveStartShardId",
+                        "shape": "ShardId",
+                        "locationName": "ExclusiveStartShardId",
+                        "documentation": "\u003cp\u003eThe shard ID of the shard to start with.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ds1ExclusiveStartShardId",
+                        "name": "_ds1ExclusiveStartShardId",
+                        "shape": "ShardId",
+                        "locationName": "ExclusiveStartShardId",
+                        "documentation": "\u003cp\u003eThe shard ID of the shard to start with.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ds1Limit",
+                        "name": "_ds1Limit",
+                        "shape": "DescribeStreamInputLimit",
+                        "locationName": "Limit",
+                        "documentation": "\u003cp\u003eThe maximum number of shards to return.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ds1StreamName",
+                        "name": "_ds1StreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream to describe.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 21,
+                "ctor": "getRecordsResponse",
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "grrRecords",
+                    "name": "_grrRecords",
+                    "shape": "RecordList",
+                    "locationName": "Records",
+                    "documentation": "\u003cP\u003eThe data records retrieved from the shard.\u003c/P\u003e",
+                    "typeExposed": "[Record]",
+                    "type": "[Record]"
+                },
+                "required": [],
+                "shared": false,
+                "name": "GetRecordsResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "grrRecords",
+                        "name": "_grrRecords",
+                        "shape": "RecordList",
+                        "locationName": "Records",
+                        "documentation": "\u003cP\u003eThe data records retrieved from the shard.\u003c/P\u003e",
+                        "typeExposed": "[Record]",
+                        "type": "[Record]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grrNextShardIterator",
+                        "name": "_grrNextShardIterator",
+                        "shape": "ShardIterator",
+                        "locationName": "NextShardIterator",
+                        "documentation": "\u003cp\u003eThe next position in the shard from which to start sequentially reading data records. If set to \u003ccode\u003enull\u003c/code\u003e, the shard has been closed and the requested iterator will not return any more data. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grrNextShardIterator",
+                        "name": "_grrNextShardIterator",
+                        "shape": "ShardIterator",
+                        "locationName": "NextShardIterator",
+                        "documentation": "\u003cp\u003eThe next position in the shard from which to start sequentially reading data records. If set to \u003ccode\u003enull\u003c/code\u003e, the shard has been closed and the requested iterator will not return any more data. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "grrRecords",
+                        "name": "_grrRecords",
+                        "shape": "RecordList",
+                        "locationName": "Records",
+                        "documentation": "\u003cP\u003eThe data records retrieved from the shard.\u003c/P\u003e",
+                        "typeExposed": "[Record]",
+                        "type": "[Record]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Kinesis.GetRecords",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "GetRecords",
+            "method": "post",
+            "documentation": "\u003cp\u003eGets data records from a shard.\u003c/p\u003e \u003cp\u003eSpecify a shard iterator using the \u003ccode\u003eShardIterator\u003c/code\u003e parameter. The shard iterator specifies the position in the shard from which you want to start reading data records sequentially. If there are no records available in the portion of the shard that the iterator points to, \u003ccode\u003eGetRecords\u003c/code\u003e returns an empty list. Note that it might take multiple calls to get to a portion of the shard that contains records.\u003c/p\u003e \u003cp\u003eYou can scale by provisioning multiple shards. Your application should have one thread per shard, each reading continuously from its stream. To read from a stream continually, call \u003ccode\u003eGetRecords\u003c/code\u003e in a loop. Use \u003ca\u003eGetShardIterator\u003c/a\u003e to get the shard iterator to specify in the first \u003ccode\u003eGetRecords\u003c/code\u003e call. \u003ccode\u003eGetRecords\u003c/code\u003e returns a new shard iterator in \u003ccode\u003eNextShardIterator\u003c/code\u003e. Specify the shard iterator returned in \u003ccode\u003eNextShardIterator\u003c/code\u003e in subsequent calls to \u003ccode\u003eGetRecords\u003c/code\u003e. Note that if the shard has been closed, the shard iterator can't return more data and \u003ccode\u003eGetRecords\u003c/code\u003e returns \u003ccode\u003enull\u003c/code\u003e in \u003ccode\u003eNextShardIterator\u003c/code\u003e. You can terminate the loop when the shard is closed, or when the shard iterator reaches the record with the sequence number or other attribute that marks it as the last record to process.\u003c/p\u003e \u003cp\u003eEach data record can be up to 50 KB in size, and each shard can read up to 2 MB per second. You can ensure that your calls don't exceed the maximum supported size or throughput by specifying the maximum number of records that \u003ccode\u003eGetRecords\u003c/code\u003e can return in the \u003ccode\u003eLimit\u003c/code\u003e parameter. Consider your average record size when determining this limit. For example, if your average record size is 40 KB, you can limit the data returned to about 1 MB per call by specifying 25 as the limit.\u003c/p\u003e \u003cp\u003eThe size of the data returned by \u003ccode\u003eGetRecords\u003c/code\u003e will vary depending on the utilization of the shard. The maximum size of data that \u003ccode\u003eGetRecords\u003c/code\u003e can return is 10 MB. If a call returns 10 MB of data, subsequent calls made within the next 5 seconds throw \u003ccode\u003eProvisionedThroughputExceededException\u003c/code\u003e. If there is insufficient provisioned throughput on the shard, subsequent calls made within the next 1 second throw \u003ccode\u003eProvisionedThroughputExceededException\u003c/code\u003e. Note that \u003ccode\u003eGetRecords\u003c/code\u003e won't return any data when it throws an exception. For this reason, we recommend that you wait one second between calls to \u003ccode\u003eGetRecords\u003c/code\u003e; however, it's possible that the application will get exceptions for longer than 1 second.\u003c/p\u003e \u003cp\u003eTo detect whether the application is falling behind in processing, add a timestamp to your records and note how long it takes to process them. You can also monitor how much data is in a stream using the CloudWatch metrics for \u003ccode\u003ePutRecord\u003c/code\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html\"\u003eMonitoring Amazon Kinesis with Amazon CloudWatch\u003c/a\u003e in the \u003ci\u003eAmazon Kinesis Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 16,
+                "ctor": "getRecords",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "grShardIterator",
+                    "name": "_grShardIterator",
+                    "shape": "ShardIterator",
+                    "locationName": "ShardIterator",
+                    "documentation": "\u003cp\u003eThe position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "grShardIterator",
+                        "name": "_grShardIterator",
+                        "shape": "ShardIterator",
+                        "locationName": "ShardIterator",
+                        "documentation": "\u003cp\u003eThe position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "GetRecords",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grLimit",
+                        "name": "_grLimit",
+                        "shape": "GetRecordsInputLimit",
+                        "locationName": "Limit",
+                        "documentation": "\u003cp\u003eThe maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, \u003ccode\u003eGetRecords\u003c/code\u003e throws \u003ccode\u003eInvalidArgumentException\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grLimit",
+                        "name": "_grLimit",
+                        "shape": "GetRecordsInputLimit",
+                        "locationName": "Limit",
+                        "documentation": "\u003cp\u003eThe maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, \u003ccode\u003eGetRecords\u003c/code\u003e throws \u003ccode\u003eInvalidArgumentException\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "grShardIterator",
+                        "name": "_grShardIterator",
+                        "shape": "ShardIterator",
+                        "locationName": "ShardIterator",
+                        "documentation": "\u003cp\u003eThe position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "getShardIteratorResponse",
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "gsirShardIterator",
+                    "name": "_gsirShardIterator",
+                    "shape": "ShardIterator",
+                    "locationName": "ShardIterator",
+                    "documentation": "\u003cp\u003eThe position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.\u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "gsirShardIterator",
+                    "name": "_gsirShardIterator",
+                    "shape": "ShardIterator",
+                    "locationName": "ShardIterator",
+                    "documentation": "\u003cp\u003eThe position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.\u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "shared": false,
+                "name": "GetShardIteratorResponse",
+                "resultWrapper": null,
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsirShardIterator",
+                        "name": "_gsirShardIterator",
+                        "shape": "ShardIterator",
+                        "locationName": "ShardIterator",
+                        "documentation": "\u003cp\u003eThe position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsirShardIterator",
+                        "name": "_gsirShardIterator",
+                        "shape": "ShardIterator",
+                        "locationName": "ShardIterator",
+                        "documentation": "\u003cp\u003eThe position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Kinesis.GetShardIterator",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "GetShardIterator",
+            "method": "post",
+            "documentation": "\u003cp\u003eGets a shard iterator. A shard iterator expires five minutes after it is returned to the requester.\u003c/p\u003e \u003cp\u003eA shard iterator specifies the position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard. A sequence number is the identifier associated with every record ingested in the Amazon Kinesis stream. The sequence number is assigned when a record is put into the stream. \u003c/p\u003e \u003cp\u003eYou must specify the shard iterator type. For example, you can set the \u003ccode\u003eShardIteratorType\u003c/code\u003e parameter to read exactly from the position denoted by a specific sequence number by using the \u003ccode\u003eAT_SEQUENCE_NUMBER\u003c/code\u003e shard iterator type, or right after the sequence number by using the \u003ccode\u003eAFTER_SEQUENCE_NUMBER\u003c/code\u003e shard iterator type, using sequence numbers returned by earlier calls to \u003ca\u003ePutRecord\u003c/a\u003e, \u003ca\u003eGetRecords\u003c/a\u003e, or \u003ca\u003eDescribeStream\u003c/a\u003e. You can specify the shard iterator type \u003ccode\u003eTRIM_HORIZON\u003c/code\u003e in the request to cause \u003ccode\u003eShardIterator\u003c/code\u003e to point to the last untrimmed record in the shard in the system, which is the oldest data record in the shard. Or you can point to just after the most recent record in the shard, by using the shard iterator type \u003ccode\u003eLATEST\u003c/code\u003e, so that you always read the most recent data in the shard. \u003c/p\u003e \u003cp\u003eWhen you repeatedly read from an Amazon Kinesis stream use a \u003ca\u003eGetShardIterator\u003c/a\u003e request to get the first shard iterator to to use in your first \u003ccode\u003eGetRecords\u003c/code\u003e request and then use the shard iterator returned by the \u003ccode\u003eGetRecords\u003c/code\u003e request in \u003ccode\u003eNextShardIterator\u003c/code\u003e for subsequent reads. A new shard iterator is returned by every \u003ccode\u003eGetRecords\u003c/code\u003e request in \u003ccode\u003eNextShardIterator\u003c/code\u003e, which you use in the \u003ccode\u003eShardIterator\u003c/code\u003e parameter of the next \u003ccode\u003eGetRecords\u003c/code\u003e request. \u003c/p\u003e \u003cp\u003eIf a \u003ccode\u003eGetShardIterator\u003c/code\u003e request is made too often, you receive a \u003ccode\u003eProvisionedThroughputExceededException\u003c/code\u003e. For more information about throughput limits, see \u003ca\u003eGetRecords\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eIf the shard is closed, the iterator can't return more data, and \u003ccode\u003eGetShardIterator\u003c/code\u003e returns \u003ccode\u003enull\u003c/code\u003e for its \u003ccode\u003eShardIterator\u003c/code\u003e. A shard can be closed using \u003ca\u003eSplitShard\u003c/a\u003e or \u003ca\u003eMergeShards\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eGetShardIterator\u003c/code\u003e has a limit of 5 transactions per second per account per open shard.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 26,
+                "ctor": "getShardIterator",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "gsiStreamName",
+                    "name": "_gsiStreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gsiStreamName",
+                        "name": "_gsiStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gsiShardId",
+                        "name": "_gsiShardId",
+                        "shape": "ShardId",
+                        "locationName": "ShardId",
+                        "documentation": "\u003cp\u003eThe shard ID of the shard to get the iterator for.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gsiShardIteratorType",
+                        "name": "_gsiShardIteratorType",
+                        "shape": "ShardIteratorType",
+                        "locationName": "ShardIteratorType",
+                        "documentation": "\u003cp\u003eDetermines how the shard iterator is used to start reading data records from the shard.\u003c/p\u003e \u003cp\u003eThe following are the valid shard iterator types:\u003c/p\u003e \u003cul\u003e \u003cli\u003eAT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eAFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eTRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.\u003c/li\u003e \u003cli\u003eLATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.\u003c/li\u003e \u003c/ul\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "GetShardIterator",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsiStartingSequenceNumber",
+                        "name": "_gsiStartingSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "StartingSequenceNumber",
+                        "documentation": "\u003cp\u003eThe sequence number of the data record in the shard from which to start reading from.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gsiShardId",
+                        "name": "_gsiShardId",
+                        "shape": "ShardId",
+                        "locationName": "ShardId",
+                        "documentation": "\u003cp\u003eThe shard ID of the shard to get the iterator for.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gsiShardIteratorType",
+                        "name": "_gsiShardIteratorType",
+                        "shape": "ShardIteratorType",
+                        "locationName": "ShardIteratorType",
+                        "documentation": "\u003cp\u003eDetermines how the shard iterator is used to start reading data records from the shard.\u003c/p\u003e \u003cp\u003eThe following are the valid shard iterator types:\u003c/p\u003e \u003cul\u003e \u003cli\u003eAT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eAFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eTRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.\u003c/li\u003e \u003cli\u003eLATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.\u003c/li\u003e \u003c/ul\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gsiStartingSequenceNumber",
+                        "name": "_gsiStartingSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "StartingSequenceNumber",
+                        "documentation": "\u003cp\u003eThe sequence number of the data record in the shard from which to start reading from.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gsiStreamName",
+                        "name": "_gsiStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 18,
+                "ctor": "listStreamsResponse",
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "lsrStreamNames",
+                    "name": "_lsrStreamNames",
+                    "shape": "StreamNameList",
+                    "locationName": "StreamNames",
+                    "documentation": "\u003cp\u003eThe names of the streams that are associated with the AWS account making the \u003ccode\u003eListStreams\u003c/code\u003e request.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lsrHasMoreStreams",
+                        "name": "_lsrHasMoreStreams",
+                        "shape": "BooleanObject",
+                        "locationName": "HasMoreStreams",
+                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, there are more streams available to list.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ],
+                "shared": false,
+                "name": "ListStreamsResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "lsrStreamNames",
+                        "name": "_lsrStreamNames",
+                        "shape": "StreamNameList",
+                        "locationName": "StreamNames",
+                        "documentation": "\u003cp\u003eThe names of the streams that are associated with the AWS account making the \u003ccode\u003eListStreams\u003c/code\u003e request.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lsrHasMoreStreams",
+                        "name": "_lsrHasMoreStreams",
+                        "shape": "BooleanObject",
+                        "locationName": "HasMoreStreams",
+                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, there are more streams available to list.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "lsrStreamNames",
+                        "name": "_lsrStreamNames",
+                        "shape": "StreamNameList",
+                        "locationName": "StreamNames",
+                        "documentation": "\u003cp\u003eThe names of the streams that are associated with the AWS account making the \u003ccode\u003eListStreams\u003c/code\u003e request.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Kinesis.ListStreams",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "ListStreams",
+            "method": "post",
+            "documentation": "\u003cp\u003e Lists your streams.\u003c/p\u003e \u003cp\u003e The number of streams may be too large to return from a single call to \u003ccode\u003eListStreams\u003c/code\u003e. You can limit the number of returned streams using the \u003ccode\u003eLimit\u003c/code\u003e parameter. If you do not specify a value for the \u003ccode\u003eLimit\u003c/code\u003e parameter, Amazon Kinesis uses the default limit, which is currently 10.\u003c/p\u003e \u003cp\u003e You can detect if there are more streams available to list by using the \u003ccode\u003eHasMoreStreams\u003c/code\u003e flag from the returned output. If there are more streams available, you can request more streams by using the name of the last stream returned by the \u003ccode\u003eListStreams\u003c/code\u003e request in the \u003ccode\u003eExclusiveStartStreamName\u003c/code\u003e parameter in a subsequent request to \u003ccode\u003eListStreams\u003c/code\u003e. The group of stream names returned by the subsequent request is then added to the list. You can continue this process until all the stream names have been collected in the list. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eListStreams\u003c/code\u003e has a limit of 5 transactions per second per account.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 27,
+                "ctor": "listStreams",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "lsLimit",
+                    "name": "_lsLimit",
+                    "shape": "ListStreamsInputLimit",
+                    "locationName": "Limit",
+                    "documentation": "\u003cp\u003eThe maximum number of streams to list.\u003c/p\u003e",
+                    "typeExposed": "Maybe Natural",
+                    "type": "Maybe Natural"
+                },
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "ListStreams",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsLimit",
+                        "name": "_lsLimit",
+                        "shape": "ListStreamsInputLimit",
+                        "locationName": "Limit",
+                        "documentation": "\u003cp\u003eThe maximum number of streams to list.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsExclusiveStartStreamName",
+                        "name": "_lsExclusiveStartStreamName",
+                        "shape": "StreamName",
+                        "locationName": "ExclusiveStartStreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream to start the list with.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsExclusiveStartStreamName",
+                        "name": "_lsExclusiveStartStreamName",
+                        "shape": "StreamName",
+                        "locationName": "ExclusiveStartStreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream to start the list with.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsLimit",
+                        "name": "_lsLimit",
+                        "shape": "ListStreamsInputLimit",
+                        "locationName": "Limit",
+                        "documentation": "\u003cp\u003eThe maximum number of streams to list.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 17,
+                "ctor": "listTagsForStreamResponse",
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "ltfsrTags",
+                    "name": "_ltfsrTags",
+                    "shape": "TagList",
+                    "locationName": "Tags",
+                    "documentation": "\u003cp\u003eA list of tags associated with \u003ccode\u003eStreamName\u003c/code\u003e, starting with the first tag after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e and up to the specified \u003ccode\u003eLimit\u003c/code\u003e. \u003c/p\u003e",
+                    "typeExposed": "[Tag]",
+                    "type": "[Tag]"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ltfsrHasMoreTags",
+                        "name": "_ltfsrHasMoreTags",
+                        "shape": "BooleanObject",
+                        "locationName": "HasMoreTags",
+                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, more tags are available. To request additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the key of the last tag returned.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ],
+                "shared": false,
+                "name": "ListTagsForStreamResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ltfsrTags",
+                        "name": "_ltfsrTags",
+                        "shape": "TagList",
+                        "locationName": "Tags",
+                        "documentation": "\u003cp\u003eA list of tags associated with \u003ccode\u003eStreamName\u003c/code\u003e, starting with the first tag after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e and up to the specified \u003ccode\u003eLimit\u003c/code\u003e. \u003c/p\u003e",
+                        "typeExposed": "[Tag]",
+                        "type": "[Tag]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ltfsrHasMoreTags",
+                        "name": "_ltfsrHasMoreTags",
+                        "shape": "BooleanObject",
+                        "locationName": "HasMoreTags",
+                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, more tags are available. To request additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the key of the last tag returned.\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ltfsrTags",
+                        "name": "_ltfsrTags",
+                        "shape": "TagList",
+                        "locationName": "Tags",
+                        "documentation": "\u003cp\u003eA list of tags associated with \u003ccode\u003eStreamName\u003c/code\u003e, starting with the first tag after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e and up to the specified \u003ccode\u003eLimit\u003c/code\u003e. \u003c/p\u003e",
+                        "typeExposed": "[Tag]",
+                        "type": "[Tag]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Kinesis.ListTagsForStream",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "ListTagsForStream",
+            "method": "post",
+            "documentation": "\u003cp\u003eLists the tags for the specified Amazon Kinesis stream.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 25,
+                "ctor": "listTagsForStream",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "ltfsStreamName",
+                    "name": "_ltfsStreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ltfsStreamName",
+                        "name": "_ltfsStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "ListTagsForStream",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ltfsExclusiveStartTagKey",
+                        "name": "_ltfsExclusiveStartTagKey",
+                        "shape": "TagKey",
+                        "locationName": "ExclusiveStartTagKey",
+                        "documentation": "\u003cp\u003eThe key to use as the starting point for the list of tags. If this parameter is set, \u003ccode\u003eListTagsForStream\u003c/code\u003e gets all tags that occur after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ltfsLimit",
+                        "name": "_ltfsLimit",
+                        "shape": "ListTagsForStreamInputLimit",
+                        "locationName": "Limit",
+                        "documentation": "\u003cp\u003eThe number of tags to return. If this number is less than the total number of tags associated with the stream, \u003ccode\u003eHasMoreTags\u003c/code\u003e is set to \u003ccode\u003etrue\u003c/code\u003e. To list additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the last key in the response.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ltfsExclusiveStartTagKey",
+                        "name": "_ltfsExclusiveStartTagKey",
+                        "shape": "TagKey",
+                        "locationName": "ExclusiveStartTagKey",
+                        "documentation": "\u003cp\u003eThe key to use as the starting point for the list of tags. If this parameter is set, \u003ccode\u003eListTagsForStream\u003c/code\u003e gets all tags that occur after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ltfsLimit",
+                        "name": "_ltfsLimit",
+                        "shape": "ListTagsForStreamInputLimit",
+                        "locationName": "Limit",
+                        "documentation": "\u003cp\u003eThe number of tags to return. If this number is less than the total number of tags associated with the stream, \u003ccode\u003eHasMoreTags\u003c/code\u003e is set to \u003ccode\u003etrue\u003c/code\u003e. To list additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the last key in the response.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ltfsStreamName",
+                        "name": "_ltfsStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "mergeShardsResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "MergeShardsResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.Kinesis.MergeShards",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "MergeShards",
+            "method": "post",
+            "documentation": "\u003cp\u003eMerges two adjacent shards in a stream and combines them into a single shard to reduce the stream's capacity to ingest and transport data. Two shards are considered adjacent if the union of the hash key ranges for the two shards form a contiguous set with no gaps. For example, if you have two shards, one with a hash key range of 276...381 and the other with a hash key range of 382...454, then you could merge these two shards into a single shard that would have a hash key range of 276...454. After the merge, the single child shard receives data for all hash key values covered by the two parent shards.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eMergeShards\u003c/code\u003e is called when there is a need to reduce the overall capacity of a stream because of excess capacity that is not being used. You must specify the shard to be merged and the adjacent shard for a stream. For more information about merging shards, see \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-java-resharding-merge\"\u003eMerge Two Shards\u003c/a\u003e in the \u003ci\u003eAmazon Kinesis Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eIf the stream is in the \u003ccode\u003eACTIVE\u003c/code\u003e state, you can call \u003ccode\u003eMergeShards\u003c/code\u003e. If a stream is in the \u003ccode\u003eCREATING\u003c/code\u003e, \u003ccode\u003eUPDATING\u003c/code\u003e, or \u003ccode\u003eDELETING\u003c/code\u003e state, \u003ccode\u003eMergeShards\u003c/code\u003e returns a \u003ccode\u003eResourceInUseException\u003c/code\u003e. If the specified stream does not exist, \u003ccode\u003eMergeShards\u003c/code\u003e returns a \u003ccode\u003eResourceNotFoundException\u003c/code\u003e. \u003c/p\u003e \u003cp\u003eYou can use \u003ca\u003eDescribeStream\u003c/a\u003e to check the state of the stream, which is returned in \u003ccode\u003eStreamStatus\u003c/code\u003e.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eMergeShards\u003c/code\u003e is an asynchronous operation. Upon receiving a \u003ccode\u003eMergeShards\u003c/code\u003e request, Amazon Kinesis immediately returns a response and sets the \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eUPDATING\u003c/code\u003e. After the operation is completed, Amazon Kinesis sets the \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eACTIVE\u003c/code\u003e. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state. \u003c/p\u003e \u003cp\u003eYou use \u003ca\u003eDescribeStream\u003c/a\u003e to determine the shard IDs that are specified in the \u003ccode\u003eMergeShards\u003c/code\u003e request. \u003c/p\u003e \u003cp\u003eIf you try to operate on too many streams in parallel using \u003ca\u003eCreateStream\u003c/a\u003e, \u003ca\u003eDeleteStream\u003c/a\u003e, \u003ccode\u003eMergeShards\u003c/code\u003e or \u003ca\u003eSplitShard\u003c/a\u003e, you will receive a \u003ccode\u003eLimitExceededException\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eMergeShards\u003c/code\u003e has limit of 5 transactions per second per account.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 23,
+                "ctor": "mergeShards",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "msStreamName",
+                    "name": "_msStreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eThe name of the stream for the merge.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "msStreamName",
+                        "name": "_msStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream for the merge.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "msShardToMerge",
+                        "name": "_msShardToMerge",
+                        "shape": "ShardId",
+                        "locationName": "ShardToMerge",
+                        "documentation": "\u003cp\u003eThe shard ID of the shard to combine with the adjacent shard for the merge.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "msAdjacentShardToMerge",
+                        "name": "_msAdjacentShardToMerge",
+                        "shape": "ShardId",
+                        "locationName": "AdjacentShardToMerge",
+                        "documentation": "\u003cp\u003eThe shard ID of the adjacent shard for the merge.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "MergeShards",
+                "query": [],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "msAdjacentShardToMerge",
+                        "name": "_msAdjacentShardToMerge",
+                        "shape": "ShardId",
+                        "locationName": "AdjacentShardToMerge",
+                        "documentation": "\u003cp\u003eThe shard ID of the adjacent shard for the merge.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "msShardToMerge",
+                        "name": "_msShardToMerge",
+                        "shape": "ShardId",
+                        "locationName": "ShardToMerge",
+                        "documentation": "\u003cp\u003eThe shard ID of the shard to combine with the adjacent shard for the merge.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "msStreamName",
+                        "name": "_msStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream for the merge.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 18,
+                "ctor": "putRecordResponse",
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "prrShardId",
+                    "name": "_prrShardId",
+                    "shape": "ShardId",
+                    "locationName": "ShardId",
+                    "documentation": "\u003cp\u003eThe shard ID of the shard where the data record was placed.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prrShardId",
+                        "name": "_prrShardId",
+                        "shape": "ShardId",
+                        "locationName": "ShardId",
+                        "documentation": "\u003cp\u003eThe shard ID of the shard where the data record was placed.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prrSequenceNumber",
+                        "name": "_prrSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "SequenceNumber",
+                        "documentation": "\u003cp\u003eThe sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "name": "PutRecordResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prrSequenceNumber",
+                        "name": "_prrSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "SequenceNumber",
+                        "documentation": "\u003cp\u003eThe sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prrShardId",
+                        "name": "_prrShardId",
+                        "shape": "ShardId",
+                        "locationName": "ShardId",
+                        "documentation": "\u003cp\u003eThe shard ID of the shard where the data record was placed.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Kinesis.PutRecord",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "PutRecord",
+            "method": "post",
+            "documentation": "\u003cp\u003ePuts a data record from a producer into an Amazon Kinesis stream. You must call \u003ccode\u003ePutRecord\u003c/code\u003e to send data from the producer into the Amazon Kinesis stream for real-time ingestion and subsequent processing. You must specify the name of the stream that captures, stores, and transports the data; a partition key; and the data blob itself. The data blob could be a segment from a log file, geographic/location data, website clickstream data, or any other data type.\u003c/p\u003e \u003cp\u003eThe partition key is used to distribute data across shards. Amazon Kinesis segregates the data records that belong to a data stream into multiple shards, using the partition key associated with each data record to determine which shard a given data record belongs to. \u003c/p\u003e \u003cp\u003ePartition keys are Unicode strings, with a maximum length limit of 256 bytes. An MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards using the hash key ranges of the shards. You can override hashing the partition key to determine the shard by explicitly specifying a hash value using the \u003ccode\u003eExplicitHashKey\u003c/code\u003e parameter. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-partition-key\"\u003ePartition Key\u003c/a\u003e in the \u003ci\u003eAmazon Kinesis Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003e\u003ccode\u003ePutRecord\u003c/code\u003e returns the shard ID of where the data record was placed and the sequence number that was assigned to the data record.\u003c/p\u003e \u003cp\u003eSequence numbers generally increase over time. To guarantee strictly increasing ordering, use the \u003ccode\u003eSequenceNumberForOrdering\u003c/code\u003e parameter. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-sequence-number\"\u003eSequence Number\u003c/a\u003e in the \u003ci\u003eAmazon Kinesis Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eIf a \u003ccode\u003ePutRecord\u003c/code\u003e request cannot be processed because of insufficient provisioned throughput on the shard involved in the request, \u003ccode\u003ePutRecord\u003c/code\u003e throws \u003ccode\u003eProvisionedThroughputExceededException\u003c/code\u003e. \u003c/p\u003e \u003cp\u003eData records are accessible for only 24 hours from the time that they are added to an Amazon Kinesis stream.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 28,
+                "ctor": "putRecord",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "prStreamName",
+                    "name": "_prStreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eThe name of the stream to put the data record into.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prStreamName",
+                        "name": "_prStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream to put the data record into.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prData",
+                        "name": "_prData",
+                        "shape": "Data",
+                        "locationName": "Data",
+                        "documentation": "\u003cp\u003eThe data blob to put into the record, which is Base64-encoded when the blob is serialized. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) \u003c/p\u003e",
+                        "typeExposed": "Base64",
+                        "type": "Base64"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prPartitionKey",
+                        "name": "_prPartitionKey",
+                        "shape": "PartitionKey",
+                        "locationName": "PartitionKey",
+                        "documentation": "\u003cp\u003eDetermines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key will map to the same shard within the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "PutRecord",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "prExplicitHashKey",
+                        "name": "_prExplicitHashKey",
+                        "shape": "HashKey",
+                        "locationName": "ExplicitHashKey",
+                        "documentation": "\u003cp\u003eThe hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "prSequenceNumberForOrdering",
+                        "name": "_prSequenceNumberForOrdering",
+                        "shape": "SequenceNumber",
+                        "locationName": "SequenceNumberForOrdering",
+                        "documentation": "\u003cp\u003eGuarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the \u003ccode\u003eSequenceNumberForOrdering\u003c/code\u003e of record \u003ci\u003en\u003c/i\u003e to the sequence number of record \u003ci\u003en-1\u003c/i\u003e (as returned in the \u003ca\u003ePutRecordResult\u003c/a\u003e when putting record \u003ci\u003en-1\u003c/i\u003e). If this parameter is not set, records will be coarsely ordered based on arrival time.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prData",
+                        "name": "_prData",
+                        "shape": "Data",
+                        "locationName": "Data",
+                        "documentation": "\u003cp\u003eThe data blob to put into the record, which is Base64-encoded when the blob is serialized. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) \u003c/p\u003e",
+                        "typeExposed": "Base64",
+                        "type": "Base64"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "prExplicitHashKey",
+                        "name": "_prExplicitHashKey",
+                        "shape": "HashKey",
+                        "locationName": "ExplicitHashKey",
+                        "documentation": "\u003cp\u003eThe hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prPartitionKey",
+                        "name": "_prPartitionKey",
+                        "shape": "PartitionKey",
+                        "locationName": "PartitionKey",
+                        "documentation": "\u003cp\u003eDetermines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key will map to the same shard within the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "prSequenceNumberForOrdering",
+                        "name": "_prSequenceNumberForOrdering",
+                        "shape": "SequenceNumber",
+                        "locationName": "SequenceNumberForOrdering",
+                        "documentation": "\u003cp\u003eGuarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the \u003ccode\u003eSequenceNumberForOrdering\u003c/code\u003e of record \u003ci\u003en\u003c/i\u003e to the sequence number of record \u003ci\u003en-1\u003c/i\u003e (as returned in the \u003ca\u003ePutRecordResult\u003c/a\u003e when putting record \u003ci\u003en-1\u003c/i\u003e). If this parameter is not set, records will be coarsely ordered based on arrival time.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prStreamName",
+                        "name": "_prStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream to put the data record into.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "removeTagsFromStreamResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "RemoveTagsFromStreamResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.Kinesis.RemoveTagsFromStream",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "RemoveTagsFromStream",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes tags from the specified Amazon Kinesis stream.\u003c/p\u003e \u003cp\u003eIf you specify a tag that does not exist, it is ignored.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 15,
+                "ctor": "removeTagsFromStream",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "rtfsStreamName",
+                    "name": "_rtfsStreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rtfsStreamName",
+                        "name": "_rtfsStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rtfsTagKeys",
+                        "name": "_rtfsTagKeys",
+                        "shape": "TagKeyList",
+                        "locationName": "TagKeys",
+                        "documentation": "\u003cp\u003eA list of tag keys. Each corresponding tag is removed from the stream.\u003c/p\u003e",
+                        "typeExposed": "NonEmpty Text",
+                        "type": "List1 Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "RemoveTagsFromStream",
+                "query": [],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rtfsStreamName",
+                        "name": "_rtfsStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rtfsTagKeys",
+                        "name": "_rtfsTagKeys",
+                        "shape": "TagKeyList",
+                        "locationName": "TagKeys",
+                        "documentation": "\u003cp\u003eA list of tag keys. Each corresponding tag is removed from the stream.\u003c/p\u003e",
+                        "typeExposed": "NonEmpty Text",
+                        "type": "List1 Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "splitShardResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "SplitShardResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.Kinesis.SplitShard",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "name": "SplitShard",
+            "method": "post",
+            "documentation": "\u003cp\u003eSplits a shard into two new shards in the stream, to increase the stream's capacity to ingest and transport data. \u003ccode\u003eSplitShard\u003c/code\u003e is called when there is a need to increase the overall capacity of stream because of an expected increase in the volume of data records being ingested. \u003c/p\u003e \u003cp\u003eYou can also use \u003ccode\u003eSplitShard\u003c/code\u003e when a shard appears to be approaching its maximum utilization, for example, when the set of producers sending data into the specific shard are suddenly sending more than previously anticipated. You can also call \u003ccode\u003eSplitShard\u003c/code\u003e to increase stream capacity, so that more Amazon Kinesis applications can simultaneously read data from the stream for real-time processing. \u003c/p\u003e \u003cp\u003eYou must specify the shard to be split and the new hash key, which is the position in the shard where the shard gets split in two. In many cases, the new hash key might simply be the average of the beginning and ending hash key, but it can be any hash key value in the range being mapped into the shard. For more information about splitting shards, see \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-java-resharding-split\"\u003eSplit a Shard\u003c/a\u003e in the \u003ci\u003eAmazon Kinesis Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eYou can use \u003ca\u003eDescribeStream\u003c/a\u003e to determine the shard ID and hash key values for the \u003ccode\u003eShardToSplit\u003c/code\u003e and \u003ccode\u003eNewStartingHashKey\u003c/code\u003e parameters that are specified in the \u003ccode\u003eSplitShard\u003c/code\u003e request.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eSplitShard\u003c/code\u003e is an asynchronous operation. Upon receiving a \u003ccode\u003eSplitShard\u003c/code\u003e request, Amazon Kinesis immediately returns a response and sets the stream status to \u003ccode\u003eUPDATING\u003c/code\u003e. After the operation is completed, Amazon Kinesis sets the stream status to \u003ccode\u003eACTIVE\u003c/code\u003e. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state. \u003c/p\u003e \u003cp\u003eYou can use \u003ccode\u003eDescribeStream\u003c/code\u003e to check the status of the stream, which is returned in \u003ccode\u003eStreamStatus\u003c/code\u003e. If the stream is in the \u003ccode\u003eACTIVE\u003c/code\u003e state, you can call \u003ccode\u003eSplitShard\u003c/code\u003e. If a stream is in \u003ccode\u003eCREATING\u003c/code\u003e or \u003ccode\u003eUPDATING\u003c/code\u003e or \u003ccode\u003eDELETING\u003c/code\u003e states, \u003ccode\u003eDescribeStream\u003c/code\u003e returns a \u003ccode\u003eResourceInUseException\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eIf the specified stream does not exist, \u003ccode\u003eDescribeStream\u003c/code\u003e returns a \u003ccode\u003eResourceNotFoundException\u003c/code\u003e. If you try to create more shards than are authorized for your account, you receive a \u003ccode\u003eLimitExceededException\u003c/code\u003e. \u003c/p\u003e \u003cp\u003eThe default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\"\u003econtact AWS Support\u003c/a\u003e to increase the limit on your account.\u003c/p\u003e \u003cp\u003eIf you try to operate on too many streams in parallel using \u003ca\u003eCreateStream\u003c/a\u003e, \u003ca\u003eDeleteStream\u003c/a\u003e, \u003ca\u003eMergeShards\u003c/a\u003e or \u003ca\u003eSplitShard\u003c/a\u003e, you receive a \u003ccode\u003eLimitExceededException\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eSplitShard\u003c/code\u003e has limit of 5 transactions per second per account.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 21,
+                "ctor": "splitShard",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "ssStreamName",
+                    "name": "_ssStreamName",
+                    "shape": "StreamName",
+                    "locationName": "StreamName",
+                    "documentation": "\u003cp\u003eThe name of the stream for the shard split.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ssStreamName",
+                        "name": "_ssStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream for the shard split.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ssShardToSplit",
+                        "name": "_ssShardToSplit",
+                        "shape": "ShardId",
+                        "locationName": "ShardToSplit",
+                        "documentation": "\u003cp\u003eThe shard ID of the shard to split.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ssNewStartingHashKey",
+                        "name": "_ssNewStartingHashKey",
+                        "shape": "HashKey",
+                        "locationName": "NewStartingHashKey",
+                        "documentation": "\u003cp\u003eA hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for \u003ccode\u003eNewStartingHashKey\u003c/code\u003e must be in the range of hash keys being mapped into the shard. The \u003ccode\u003eNewStartingHashKey\u003c/code\u003e hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "SplitShard",
+                "query": [],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ssNewStartingHashKey",
+                        "name": "_ssNewStartingHashKey",
+                        "shape": "HashKey",
+                        "locationName": "NewStartingHashKey",
+                        "documentation": "\u003cp\u003eA hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for \u003ccode\u003eNewStartingHashKey\u003c/code\u003e must be in the range of hash keys being mapped into the shard. The \u003ccode\u003eNewStartingHashKey\u003c/code\u003e hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ssShardToSplit",
+                        "name": "_ssShardToSplit",
+                        "shape": "ShardId",
+                        "locationName": "ShardToSplit",
+                        "documentation": "\u003cp\u003eThe shard ID of the shard to split.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ssStreamName",
+                        "name": "_ssStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "\u003cp\u003eThe name of the stream for the shard split.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        }
+    ]
+}

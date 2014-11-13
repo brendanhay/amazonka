@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketTagging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,38 +38,37 @@ module Network.AWS.S3.PutBucketTagging
     , putBucketTaggingResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutBucketTagging = PutBucketTagging
-    { _pbtBucket :: BucketName
+    { _pbtBucket     :: Text
     , _pbtContentMD5 :: Maybe Text
-    , _pbtTagging :: Tagging
-    } deriving (Eq, Ord, Show, Generic)
+    , _pbtTagging    :: Tagging
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketTagging' request.
+-- | 'PutBucketTagging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'pbtBucket' @::@ 'Text'
 --
--- * @ContentMD5 ::@ @Maybe Text@
+-- * 'pbtContentMD5' @::@ 'Maybe' 'Text'
 --
--- * @Tagging ::@ @Tagging@
+-- * 'pbtTagging' @::@ 'Tagging'
 --
-putBucketTagging :: BucketName -- ^ 'pbtBucket'
+putBucketTagging :: Text -- ^ 'pbtBucket'
                  -> Tagging -- ^ 'pbtTagging'
                  -> PutBucketTagging
-putBucketTagging p1 p3 = PutBucketTagging
-    { _pbtBucket = p1
+putBucketTagging p1 p2 = PutBucketTagging
+    { _pbtBucket     = p1
+    , _pbtTagging    = p2
     , _pbtContentMD5 = Nothing
-    , _pbtTagging = p3
     }
 
-pbtBucket :: Lens' PutBucketTagging BucketName
+pbtBucket :: Lens' PutBucketTagging Text
 pbtBucket = lens _pbtBucket (\s a -> s { _pbtBucket = a })
 
 pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
@@ -76,12 +77,17 @@ pbtContentMD5 = lens _pbtContentMD5 (\s a -> s { _pbtContentMD5 = a })
 pbtTagging :: Lens' PutBucketTagging Tagging
 pbtTagging = lens _pbtTagging (\s a -> s { _pbtTagging = a })
 
-instance ToPath PutBucketTagging
+instance ToPath PutBucketTagging where
+    toPath PutBucketTagging{..} = mconcat
+        [ "/"
+        , toText _pbtBucket
+        ]
 
-instance ToQuery PutBucketTagging
+instance ToQuery PutBucketTagging where
+    toQuery = const "tagging"
 
 instance ToHeaders PutBucketTagging where
-    toHeaders PutBucketTagging{..} = concat
+    toHeaders PutBucketTagging{..} = mconcat
         [ "Content-MD5" =: _pbtContentMD5
         ]
 
@@ -91,10 +97,7 @@ instance ToBody PutBucketTagging where
 data PutBucketTaggingResponse = PutBucketTaggingResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketTaggingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutBucketTaggingResponse' constructor.
 putBucketTaggingResponse :: PutBucketTaggingResponse
 putBucketTaggingResponse = PutBucketTaggingResponse
 
@@ -102,5 +105,5 @@ instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
     type Rs PutBucketTagging = PutBucketTaggingResponse
 
-    request = get
-    response _ = nullaryResponse PutBucketTaggingResponse
+    request  = put
+    response = nullaryResponse PutBucketTaggingResponse

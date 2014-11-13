@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutObjectAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,81 +46,80 @@ module Network.AWS.S3.PutObjectAcl
     , putObjectAclResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutObjectAcl = PutObjectAcl
-    { _poaACL :: Maybe ObjectCannedACL
+    { _poaACL                 :: Maybe Text
     , _poaAccessControlPolicy :: Maybe AccessControlPolicy
-    , _poaBucket :: BucketName
-    , _poaContentMD5 :: Maybe Text
-    , _poaGrantFullControl :: Maybe Text
-    , _poaGrantRead :: Maybe Text
-    , _poaGrantReadACP :: Maybe Text
-    , _poaGrantWrite :: Maybe Text
-    , _poaGrantWriteACP :: Maybe Text
-    , _poaKey :: ObjectKey
-    } deriving (Eq, Ord, Show, Generic)
+    , _poaBucket              :: Text
+    , _poaContentMD5          :: Maybe Text
+    , _poaGrantFullControl    :: Maybe Text
+    , _poaGrantRead           :: Maybe Text
+    , _poaGrantReadACP        :: Maybe Text
+    , _poaGrantWrite          :: Maybe Text
+    , _poaGrantWriteACP       :: Maybe Text
+    , _poaKey                 :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutObjectAcl' request.
+-- | 'PutObjectAcl' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ACL ::@ @Maybe ObjectCannedACL@
+-- * 'poaACL' @::@ 'Maybe' 'Text'
 --
--- * @AccessControlPolicy ::@ @Maybe AccessControlPolicy@
+-- * 'poaAccessControlPolicy' @::@ 'Maybe' 'AccessControlPolicy'
 --
--- * @Bucket ::@ @BucketName@
+-- * 'poaBucket' @::@ 'Text'
 --
--- * @ContentMD5 ::@ @Maybe Text@
+-- * 'poaContentMD5' @::@ 'Maybe' 'Text'
 --
--- * @GrantFullControl ::@ @Maybe Text@
+-- * 'poaGrantFullControl' @::@ 'Maybe' 'Text'
 --
--- * @GrantRead ::@ @Maybe Text@
+-- * 'poaGrantRead' @::@ 'Maybe' 'Text'
 --
--- * @GrantReadACP ::@ @Maybe Text@
+-- * 'poaGrantReadACP' @::@ 'Maybe' 'Text'
 --
--- * @GrantWrite ::@ @Maybe Text@
+-- * 'poaGrantWrite' @::@ 'Maybe' 'Text'
 --
--- * @GrantWriteACP ::@ @Maybe Text@
+-- * 'poaGrantWriteACP' @::@ 'Maybe' 'Text'
 --
--- * @Key ::@ @ObjectKey@
+-- * 'poaKey' @::@ 'Text'
 --
-putObjectAcl :: ObjectKey -- ^ 'poaKey'
-             -> BucketName -- ^ 'poaBucket'
+putObjectAcl :: Text -- ^ 'poaBucket'
+             -> Text -- ^ 'poaKey'
              -> PutObjectAcl
-putObjectAcl p10 p3 = PutObjectAcl
-    { _poaACL = Nothing
+putObjectAcl p1 p2 = PutObjectAcl
+    { _poaBucket              = p1
+    , _poaKey                 = p2
+    , _poaACL                 = Nothing
     , _poaAccessControlPolicy = Nothing
-    , _poaBucket = p3
-    , _poaContentMD5 = Nothing
-    , _poaGrantFullControl = Nothing
-    , _poaGrantRead = Nothing
-    , _poaGrantReadACP = Nothing
-    , _poaGrantWrite = Nothing
-    , _poaGrantWriteACP = Nothing
-    , _poaKey = p10
+    , _poaContentMD5          = Nothing
+    , _poaGrantFullControl    = Nothing
+    , _poaGrantRead           = Nothing
+    , _poaGrantReadACP        = Nothing
+    , _poaGrantWrite          = Nothing
+    , _poaGrantWriteACP       = Nothing
     }
 
 -- | The canned ACL to apply to the object.
-poaACL :: Lens' PutObjectAcl (Maybe ObjectCannedACL)
+poaACL :: Lens' PutObjectAcl (Maybe Text)
 poaACL = lens _poaACL (\s a -> s { _poaACL = a })
 
 poaAccessControlPolicy :: Lens' PutObjectAcl (Maybe AccessControlPolicy)
 poaAccessControlPolicy =
     lens _poaAccessControlPolicy (\s a -> s { _poaAccessControlPolicy = a })
 
-poaBucket :: Lens' PutObjectAcl BucketName
+poaBucket :: Lens' PutObjectAcl Text
 poaBucket = lens _poaBucket (\s a -> s { _poaBucket = a })
 
 poaContentMD5 :: Lens' PutObjectAcl (Maybe Text)
 poaContentMD5 = lens _poaContentMD5 (\s a -> s { _poaContentMD5 = a })
 
--- | Allows grantee the read, write, read ACP, and write ACP permissions on the
--- bucket.
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on
+-- the bucket.
 poaGrantFullControl :: Lens' PutObjectAcl (Maybe Text)
 poaGrantFullControl =
     lens _poaGrantFullControl (\s a -> s { _poaGrantFullControl = a })
@@ -137,25 +138,31 @@ poaGrantWrite = lens _poaGrantWrite (\s a -> s { _poaGrantWrite = a })
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 poaGrantWriteACP :: Lens' PutObjectAcl (Maybe Text)
-poaGrantWriteACP =
-    lens _poaGrantWriteACP (\s a -> s { _poaGrantWriteACP = a })
+poaGrantWriteACP = lens _poaGrantWriteACP (\s a -> s { _poaGrantWriteACP = a })
 
-poaKey :: Lens' PutObjectAcl ObjectKey
+poaKey :: Lens' PutObjectAcl Text
 poaKey = lens _poaKey (\s a -> s { _poaKey = a })
 
-instance ToPath PutObjectAcl
+instance ToPath PutObjectAcl where
+    toPath PutObjectAcl{..} = mconcat
+        [ "/"
+        , toText _poaBucket
+        , "/"
+        , toText _poaKey
+        ]
 
-instance ToQuery PutObjectAcl
+instance ToQuery PutObjectAcl where
+    toQuery = const "acl"
 
 instance ToHeaders PutObjectAcl where
-    toHeaders PutObjectAcl{..} = concat
-        [ "x-amz-acl" =: _poaACL
-        , "Content-MD5" =: _poaContentMD5
+    toHeaders PutObjectAcl{..} = mconcat
+        [ "x-amz-acl"                =: _poaACL
+        , "Content-MD5"              =: _poaContentMD5
         , "x-amz-grant-full-control" =: _poaGrantFullControl
-        , "x-amz-grant-read" =: _poaGrantRead
-        , "x-amz-grant-read-acp" =: _poaGrantReadACP
-        , "x-amz-grant-write" =: _poaGrantWrite
-        , "x-amz-grant-write-acp" =: _poaGrantWriteACP
+        , "x-amz-grant-read"         =: _poaGrantRead
+        , "x-amz-grant-read-acp"     =: _poaGrantReadACP
+        , "x-amz-grant-write"        =: _poaGrantWrite
+        , "x-amz-grant-write-acp"    =: _poaGrantWriteACP
         ]
 
 instance ToBody PutObjectAcl where
@@ -164,10 +171,7 @@ instance ToBody PutObjectAcl where
 data PutObjectAclResponse = PutObjectAclResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutObjectAclResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutObjectAclResponse' constructor.
 putObjectAclResponse :: PutObjectAclResponse
 putObjectAclResponse = PutObjectAclResponse
 
@@ -175,5 +179,5 @@ instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3
     type Rs PutObjectAcl = PutObjectAclResponse
 
-    request = get
-    response _ = nullaryResponse PutObjectAclResponse
+    request  = put
+    response = nullaryResponse PutObjectAclResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SES.SetIdentityNotificationTopic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,22 +23,9 @@
 -- | Given an identity (email address or domain), sets the Amazon Simple
 -- Notification Service (Amazon SNS) topic to which Amazon SES will publish
 -- bounce, complaint, and/or delivery notifications for emails sent with that
--- identity as the Source. Unless feedback forwarding is enabled, you must
--- specify Amazon SNS topics for bounce and complaint notifications. For more
--- information, see SetIdentityFeedbackForwardingEnabled. This action is
--- throttled at one request per second. For more information about feedback
--- notification, see the Amazon SES Developer Guide. POST / HTTP/1.1 Date:
--- Sat, 12 May 2012 05:27:54 GMT Host: email.us-east-1.amazonaws.com
--- Content-Type: application/x-www-form-urlencoded X-Amzn-Authorization: AWS3
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
--- Signature=3+KQ4VHx991T7Kb41HmFcZJxuHz4/6mf2H5FxY+tuLc=,
--- Algorithm=HmacSHA256, SignedHeaders=Date;Host Content-Length: 203
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=SetIdentityNotificationTopic
--- &Identity=user@example.com
--- &SnsTopic=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3Aexample
--- &NotificationType=Bounce
--- &Timestamp=2012-05-12T05%3A27%3A54.000Z&Version=2010-12-01
--- 299f4af4-b72a-11e1-901f-1fbd90e8104f.
+-- identity as the Source. This action is throttled at one request per second.
+-- For more information about feedback notification, see the Amazon SES
+-- Developer Guide.
 module Network.AWS.SES.SetIdentityNotificationTopic
     (
     -- * Request
@@ -54,35 +43,34 @@ module Network.AWS.SES.SetIdentityNotificationTopic
     , setIdentityNotificationTopicResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents a request to set or clear an identity's notification topic.
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic
-    { _sintIdentity :: Text
-    , _sintNotificationType :: NotificationType
-    , _sintSnsTopic :: Maybe Text
+    { _sintIdentity         :: Text
+    , _sintNotificationType :: Text
+    , _sintSnsTopic         :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetIdentityNotificationTopic' request.
+-- | 'SetIdentityNotificationTopic' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Identity ::@ @Text@
+-- * 'sintIdentity' @::@ 'Text'
 --
--- * @NotificationType ::@ @NotificationType@
+-- * 'sintNotificationType' @::@ 'Text'
 --
--- * @SnsTopic ::@ @Maybe Text@
+-- * 'sintSnsTopic' @::@ 'Maybe' 'Text'
 --
 setIdentityNotificationTopic :: Text -- ^ 'sintIdentity'
-                             -> NotificationType -- ^ 'sintNotificationType'
+                             -> Text -- ^ 'sintNotificationType'
                              -> SetIdentityNotificationTopic
 setIdentityNotificationTopic p1 p2 = SetIdentityNotificationTopic
-    { _sintIdentity = p1
+    { _sintIdentity         = p1
     , _sintNotificationType = p2
-    , _sintSnsTopic = Nothing
+    , _sintSnsTopic         = Nothing
     }
 
 -- | The identity for which the Amazon SNS topic will be set. Examples:
@@ -92,28 +80,25 @@ sintIdentity = lens _sintIdentity (\s a -> s { _sintIdentity = a })
 
 -- | The type of notifications that will be published to the specified Amazon
 -- SNS topic.
-sintNotificationType :: Lens' SetIdentityNotificationTopic NotificationType
+sintNotificationType :: Lens' SetIdentityNotificationTopic Text
 sintNotificationType =
     lens _sintNotificationType (\s a -> s { _sintNotificationType = a })
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is
--- omitted from the request or a null value is passed, SnsTopic is cleared and
--- publishing is disabled.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter
+-- is omitted from the request or a null value is passed, SnsTopic is
+-- cleared and publishing is disabled.
 sintSnsTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
 sintSnsTopic = lens _sintSnsTopic (\s a -> s { _sintSnsTopic = a })
 
-instance ToQuery SetIdentityNotificationTopic where
-    toQuery = genericQuery def
+instance ToQuery SetIdentityNotificationTopic
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
+instance ToPath SetIdentityNotificationTopic where
+    toPath = const "/"
+
 data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetIdentityNotificationTopicResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SetIdentityNotificationTopicResponse' constructor.
 setIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse
 setIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
 
@@ -121,5 +106,5 @@ instance AWSRequest SetIdentityNotificationTopic where
     type Sv SetIdentityNotificationTopic = SES
     type Rs SetIdentityNotificationTopic = SetIdentityNotificationTopicResponse
 
-    request = post "SetIdentityNotificationTopic"
-    response _ = nullaryResponse SetIdentityNotificationTopicResponse
+    request  = post "SetIdentityNotificationTopic"
+    response = nullaryResponse SetIdentityNotificationTopicResponse

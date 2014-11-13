@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteTape
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- | Deletes the specified virtual tape.
 module Network.AWS.StorageGateway.DeleteTape
     (
     -- * Request
@@ -25,8 +28,8 @@ module Network.AWS.StorageGateway.DeleteTape
     -- ** Request constructor
     , deleteTape
     -- ** Request lenses
-    , dtGatewayARN
-    , dtTapeARN
+    , dt1GatewayARN
+    , dt1TapeARN
 
     -- * Response
     , DeleteTapeResponse
@@ -36,74 +39,77 @@ module Network.AWS.StorageGateway.DeleteTape
     , dtrTapeARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 data DeleteTape = DeleteTape
-    { _dtGatewayARN :: Text
-    , _dtTapeARN :: Text
+    { _dt1GatewayARN :: Text
+    , _dt1TapeARN    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteTape' request.
+-- | 'DeleteTape' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'dt1GatewayARN' @::@ 'Text'
 --
--- * @TapeARN ::@ @Text@
+-- * 'dt1TapeARN' @::@ 'Text'
 --
-deleteTape :: Text -- ^ 'dtGatewayARN'
-           -> Text -- ^ 'dtTapeARN'
+deleteTape :: Text -- ^ 'dt1GatewayARN'
+           -> Text -- ^ 'dt1TapeARN'
            -> DeleteTape
 deleteTape p1 p2 = DeleteTape
-    { _dtGatewayARN = p1
-    , _dtTapeARN = p2
+    { _dt1GatewayARN = p1
+    , _dt1TapeARN    = p2
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
-dtGatewayARN :: Lens' DeleteTape Text
-dtGatewayARN = lens _dtGatewayARN (\s a -> s { _dtGatewayARN = a })
+-- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
+-- tape to delete is associated with. Use the ListGateways operation to
+-- return a list of gateways for your account and region.
+dt1GatewayARN :: Lens' DeleteTape Text
+dt1GatewayARN = lens _dt1GatewayARN (\s a -> s { _dt1GatewayARN = a })
 
-dtTapeARN :: Lens' DeleteTape Text
-dtTapeARN = lens _dtTapeARN (\s a -> s { _dtTapeARN = a })
+-- | The Amazon Resource Name (ARN) of the virtual tape to delete.
+dt1TapeARN :: Lens' DeleteTape Text
+dt1TapeARN = lens _dt1TapeARN (\s a -> s { _dt1TapeARN = a })
 
-instance ToPath DeleteTape
+instance ToPath DeleteTape where
+    toPath = const "/"
 
-instance ToQuery DeleteTape
+instance ToQuery DeleteTape where
+    toQuery = const mempty
 
 instance ToHeaders DeleteTape
 
-instance ToJSON DeleteTape
+instance ToBody DeleteTape where
+    toBody = toBody . encode . _dt1GatewayARN
 
 newtype DeleteTapeResponse = DeleteTapeResponse
     { _dtrTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteTapeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteTapeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TapeARN ::@ @Maybe Text@
+-- * 'dtrTapeARN' @::@ 'Maybe' 'Text'
 --
 deleteTapeResponse :: DeleteTapeResponse
 deleteTapeResponse = DeleteTapeResponse
     { _dtrTapeARN = Nothing
     }
 
+-- | The Amazon Resource Name (ARN) of the deleted virtual tape.
 dtrTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrTapeARN = lens _dtrTapeARN (\s a -> s { _dtrTapeARN = a })
 
-instance FromJSON DeleteTapeResponse
+-- FromJSON
 
 instance AWSRequest DeleteTape where
     type Sv DeleteTape = StorageGateway
     type Rs DeleteTape = DeleteTapeResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DeleteTapeResponse
+        <$> o .: "TapeARN"

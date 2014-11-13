@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketVersioning
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,42 +40,41 @@ module Network.AWS.S3.PutBucketVersioning
     , putBucketVersioningResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutBucketVersioning = PutBucketVersioning
-    { _pbvBucket :: BucketName
-    , _pbvContentMD5 :: Maybe Text
-    , _pbvMFA :: Maybe Text
+    { _pbvBucket                  :: Text
+    , _pbvContentMD5              :: Maybe Text
+    , _pbvMFA                     :: Maybe Text
     , _pbvVersioningConfiguration :: VersioningConfiguration
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketVersioning' request.
+-- | 'PutBucketVersioning' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'pbvBucket' @::@ 'Text'
 --
--- * @ContentMD5 ::@ @Maybe Text@
+-- * 'pbvContentMD5' @::@ 'Maybe' 'Text'
 --
--- * @MFA ::@ @Maybe Text@
+-- * 'pbvMFA' @::@ 'Maybe' 'Text'
 --
--- * @VersioningConfiguration ::@ @VersioningConfiguration@
+-- * 'pbvVersioningConfiguration' @::@ 'VersioningConfiguration'
 --
-putBucketVersioning :: BucketName -- ^ 'pbvBucket'
+putBucketVersioning :: Text -- ^ 'pbvBucket'
                     -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
                     -> PutBucketVersioning
-putBucketVersioning p1 p4 = PutBucketVersioning
-    { _pbvBucket = p1
-    , _pbvContentMD5 = Nothing
-    , _pbvMFA = Nothing
-    , _pbvVersioningConfiguration = p4
+putBucketVersioning p1 p2 = PutBucketVersioning
+    { _pbvBucket                  = p1
+    , _pbvVersioningConfiguration = p2
+    , _pbvContentMD5              = Nothing
+    , _pbvMFA                     = Nothing
     }
 
-pbvBucket :: Lens' PutBucketVersioning BucketName
+pbvBucket :: Lens' PutBucketVersioning Text
 pbvBucket = lens _pbvBucket (\s a -> s { _pbvBucket = a })
 
 pbvContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
@@ -87,16 +88,21 @@ pbvMFA = lens _pbvMFA (\s a -> s { _pbvMFA = a })
 pbvVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
 pbvVersioningConfiguration =
     lens _pbvVersioningConfiguration
-         (\s a -> s { _pbvVersioningConfiguration = a })
+        (\s a -> s { _pbvVersioningConfiguration = a })
 
-instance ToPath PutBucketVersioning
+instance ToPath PutBucketVersioning where
+    toPath PutBucketVersioning{..} = mconcat
+        [ "/"
+        , toText _pbvBucket
+        ]
 
-instance ToQuery PutBucketVersioning
+instance ToQuery PutBucketVersioning where
+    toQuery = const "versioning"
 
 instance ToHeaders PutBucketVersioning where
-    toHeaders PutBucketVersioning{..} = concat
+    toHeaders PutBucketVersioning{..} = mconcat
         [ "Content-MD5" =: _pbvContentMD5
-        , "x-amz-mfa" =: _pbvMFA
+        , "x-amz-mfa"   =: _pbvMFA
         ]
 
 instance ToBody PutBucketVersioning where
@@ -105,10 +111,7 @@ instance ToBody PutBucketVersioning where
 data PutBucketVersioningResponse = PutBucketVersioningResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketVersioningResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutBucketVersioningResponse' constructor.
 putBucketVersioningResponse :: PutBucketVersioningResponse
 putBucketVersioningResponse = PutBucketVersioningResponse
 
@@ -116,5 +119,5 @@ instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3
     type Rs PutBucketVersioning = PutBucketVersioningResponse
 
-    request = get
-    response _ = nullaryResponse PutBucketVersioningResponse
+    request  = put
+    response = nullaryResponse PutBucketVersioningResponse

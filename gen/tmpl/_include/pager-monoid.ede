@@ -1,7 +1,0 @@
-
-instance AWSPager {{ scope.request.name }} where
-    next rq rs
-        | nullMap k = Nothing
-        | otherwise = Just (rq & {{ scope.pagination.token.input }} .~ k)
-      where
-        k = rs ^. {{ scope.pagination.token.output }}

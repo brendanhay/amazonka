@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.UnassignPrivateIpAddresses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,15 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Unassigns one or more secondary private IP addresses from a network
--- interface. Example The following example unassigns two secondary private IP
--- addresses from the specified network interface.
--- https://ec2.amazonaws.com/?Action=UnassignPrivateIpAddresses
--- &amp;NetworkInterfaceId=eni-197d9972 &amp;PrivateIpAddress.0=10.0.2.60
--- &amp;PrivateIpAddress.1=10.0.2.65 &amp;AUTHPARAMS
--- &lt;UnassignPrivateIpAddresses
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/UnassignPrivateIpAddresses&gt;.
+-- interface.
 module Network.AWS.EC2.UnassignPrivateIpAddresses
     (
     -- * Request
@@ -44,30 +38,29 @@ module Network.AWS.EC2.UnassignPrivateIpAddresses
     , unassignPrivateIpAddressesResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId :: Text
     , _upiaPrivateIpAddresses :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UnassignPrivateIpAddresses' request.
+-- | 'UnassignPrivateIpAddresses' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkInterfaceId ::@ @Text@
+-- * 'upiaNetworkInterfaceId' @::@ 'Text'
 --
--- * @PrivateIpAddresses ::@ @[Text]@
+-- * 'upiaPrivateIpAddresses' @::@ ['Text']
 --
 unassignPrivateIpAddresses :: Text -- ^ 'upiaNetworkInterfaceId'
-                           -> [Text] -- ^ 'upiaPrivateIpAddresses'
                            -> UnassignPrivateIpAddresses
-unassignPrivateIpAddresses p1 p2 = UnassignPrivateIpAddresses
+unassignPrivateIpAddresses p1 = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId = p1
-    , _upiaPrivateIpAddresses = p2
+    , _upiaPrivateIpAddresses = mempty
     }
 
 -- | The ID of the network interface.
@@ -75,23 +68,22 @@ upiaNetworkInterfaceId :: Lens' UnassignPrivateIpAddresses Text
 upiaNetworkInterfaceId =
     lens _upiaNetworkInterfaceId (\s a -> s { _upiaNetworkInterfaceId = a })
 
--- | The secondary private IP addresses to unassign from the network interface.
--- You can specify this option multiple times to unassign more than one IP
--- address.
+-- | The secondary private IP addresses to unassign from the network
+-- interface. You can specify this option multiple times to unassign more
+-- than one IP address.
 upiaPrivateIpAddresses :: Lens' UnassignPrivateIpAddresses [Text]
 upiaPrivateIpAddresses =
     lens _upiaPrivateIpAddresses (\s a -> s { _upiaPrivateIpAddresses = a })
 
-instance ToQuery UnassignPrivateIpAddresses where
-    toQuery = genericQuery def
+instance ToQuery UnassignPrivateIpAddresses
+
+instance ToPath UnassignPrivateIpAddresses where
+    toPath = const "/"
 
 data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UnassignPrivateIpAddressesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UnassignPrivateIpAddressesResponse' constructor.
 unassignPrivateIpAddressesResponse :: UnassignPrivateIpAddressesResponse
 unassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
 
@@ -99,5 +91,5 @@ instance AWSRequest UnassignPrivateIpAddresses where
     type Sv UnassignPrivateIpAddresses = EC2
     type Rs UnassignPrivateIpAddresses = UnassignPrivateIpAddressesResponse
 
-    request = post "UnassignPrivateIpAddresses"
-    response _ = nullaryResponse UnassignPrivateIpAddressesResponse
+    request  = post "UnassignPrivateIpAddresses"
+    response = nullaryResponse UnassignPrivateIpAddressesResponse

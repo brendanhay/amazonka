@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CreateVpc
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,29 +27,7 @@
 -- default, each instance you launch in the VPC has the default DHCP options,
 -- which includes only a default DNS server that we provide
 -- (AmazonProvidedDNS). For more information about DHCP options, see DHCP
--- Options Sets in the Amazon Virtual Private Cloud User Guide. Example 1 This
--- example creates a VPC with the CIDR block 10.0.0.0/16.
--- https://ec2.amazonaws.com/?Action=CreateVpc &amp;CidrBlock=10.0.0.0/16
--- &amp;AUTHPARAMS &lt;CreateVpcResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;vpc&gt; &lt;vpcId&gt;vpc-1a2b3c4d&lt;/vpcId&gt;
--- &lt;state&gt;pending&lt;/state&gt;
--- &lt;cidrBlock&gt;10.0.0.0/16&lt;/cidrBlock&gt;
--- &lt;dhcpOptionsId&gt;dopt-1a2b3c4d2&lt;/dhcpOptionsId&gt;
--- &lt;instanceTenancy&gt;default&lt;/instanceTenancy&gt; &lt;tagSet/&gt;
--- &lt;/vpc&gt; &lt;/CreateVpcResponse&gt; Example 2 This example creates a
--- VPC with the dedicated tenancy option.
--- https://ec2.amazonaws.com/?Action=CreateVpc &amp;CidrBlock=10.32.0.0/16
--- &amp;InstanceTenancy=dedicated &amp;AUTHPARAMS &lt;CreateVpcResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;a9e49797-a74f-4f68-b302-a134a51fd054&lt;/requestId&gt;
--- &lt;vpc&gt; &lt;vpcId&gt;vpc-11a63c78&lt;/vpcId&gt;
--- &lt;state&gt;pending&lt;/state&gt;
--- &lt;cidrBlock&gt;10.32.0.0/16&lt;/cidrBlock&gt;
--- &lt;dhcpOptionsId&gt;dopt-1a2b3c4d2&lt;/dhcpOptionsId&gt;
--- &lt;instanceTenancy&gt;dedicated&lt;/instanceTenancy&gt; &lt;/vpc&gt;
--- &lt;/CreateVpcResponse&gt;.
+-- Options Sets in the Amazon Virtual Private Cloud User Guide.
 module Network.AWS.EC2.CreateVpc
     (
     -- * Request
@@ -55,87 +35,93 @@ module Network.AWS.EC2.CreateVpc
     -- ** Request constructor
     , createVpc
     -- ** Request lenses
-    , cv1CidrBlock
-    , cv1InstanceTenancy
+    , cvCidrBlock
+    , cvDryRun
+    , cvInstanceTenancy
 
     -- * Response
     , CreateVpcResponse
     -- ** Response constructor
     , createVpcResponse
     -- ** Response lenses
-    , cvrrVpc
+    , cvrVpc
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateVpc = CreateVpc
-    { _cv1CidrBlock :: Text
-    , _cv1InstanceTenancy :: Maybe Tenancy
+    { _cvCidrBlock       :: Text
+    , _cvDryRun          :: Maybe Bool
+    , _cvInstanceTenancy :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateVpc' request.
+-- | 'CreateVpc' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CidrBlock ::@ @Text@
+-- * 'cvCidrBlock' @::@ 'Text'
 --
--- * @InstanceTenancy ::@ @Maybe Tenancy@
+-- * 'cvDryRun' @::@ 'Maybe' 'Bool'
 --
-createVpc :: Text -- ^ 'cv1CidrBlock'
+-- * 'cvInstanceTenancy' @::@ 'Maybe' 'Text'
+--
+createVpc :: Text -- ^ 'cvCidrBlock'
           -> CreateVpc
 createVpc p1 = CreateVpc
-    { _cv1CidrBlock = p1
-    , _cv1InstanceTenancy = Nothing
+    { _cvCidrBlock       = p1
+    , _cvDryRun          = Nothing
+    , _cvInstanceTenancy = Nothing
     }
 
--- | The network range for the VPC, in CIDR notation. For example, 10.0.0.0/16.
-cv1CidrBlock :: Lens' CreateVpc Text
-cv1CidrBlock = lens _cv1CidrBlock (\s a -> s { _cv1CidrBlock = a })
+-- | The network range for the VPC, in CIDR notation. For example,
+-- 10.0.0.0/16.
+cvCidrBlock :: Lens' CreateVpc Text
+cvCidrBlock = lens _cvCidrBlock (\s a -> s { _cvCidrBlock = a })
 
--- | The supported tenancy options for instances launched into the VPC. A value
--- of default means that instances can be launched with any tenancy; a value
--- of dedicated means all instances launched into the VPC are launched as
--- dedicated tenancy instances regardless of the tenancy assigned to the
--- instance at launch. Dedicated tenancy instances runs on single-tenant
+cvDryRun :: Lens' CreateVpc (Maybe Bool)
+cvDryRun = lens _cvDryRun (\s a -> s { _cvDryRun = a })
+
+-- | The supported tenancy options for instances launched into the VPC. A
+-- value of default means that instances can be launched with any tenancy; a
+-- value of dedicated means all instances launched into the VPC are launched
+-- as dedicated tenancy instances regardless of the tenancy assigned to the
+-- instance at launch. Dedicated tenancy instances run on single-tenant
 -- hardware. Default: default.
-cv1InstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
-cv1InstanceTenancy =
-    lens _cv1InstanceTenancy (\s a -> s { _cv1InstanceTenancy = a })
+cvInstanceTenancy :: Lens' CreateVpc (Maybe Text)
+cvInstanceTenancy =
+    lens _cvInstanceTenancy (\s a -> s { _cvInstanceTenancy = a })
 
-instance ToQuery CreateVpc where
-    toQuery = genericQuery def
+instance ToQuery CreateVpc
+
+instance ToPath CreateVpc where
+    toPath = const "/"
 
 newtype CreateVpcResponse = CreateVpcResponse
-    { _cvrrVpc :: Maybe Vpc
-    } deriving (Eq, Ord, Show, Generic)
+    { _cvrVpc :: Maybe Vpc
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateVpcResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateVpcResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Vpc ::@ @Maybe Vpc@
+-- * 'cvrVpc' @::@ 'Maybe' 'Vpc'
 --
 createVpcResponse :: CreateVpcResponse
 createVpcResponse = CreateVpcResponse
-    { _cvrrVpc = Nothing
+    { _cvrVpc = Nothing
     }
 
 -- | Information about the VPC.
-cvrrVpc :: Lens' CreateVpcResponse (Maybe Vpc)
-cvrrVpc = lens _cvrrVpc (\s a -> s { _cvrrVpc = a })
-
-instance FromXML CreateVpcResponse where
-    fromXMLOptions = xmlOptions
+cvrVpc :: Lens' CreateVpcResponse (Maybe Vpc)
+cvrVpc = lens _cvrVpc (\s a -> s { _cvrVpc = a })
 
 instance AWSRequest CreateVpc where
     type Sv CreateVpc = EC2
     type Rs CreateVpc = CreateVpcResponse
 
-    request = post "CreateVpc"
-    response _ = xmlResponse
+    request  = post "CreateVpc"
+    response = xmlResponse $ \h x -> CreateVpcResponse
+        <$> x %| "vpc"

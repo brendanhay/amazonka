@@ -1,0 +1,3741 @@
+{
+    "service": {
+        "signature": "V4",
+        "checksum": "sha256",
+        "abbrev": "CloudWatchLogs",
+        "error": "CloudWatchLogsError",
+        "namespace": "Network.AWS.CloudWatchLogs",
+        "protocol": "json",
+        "imports": [
+            "Network.AWS.CloudWatchLogs.CreateLogGroup",
+            "Network.AWS.CloudWatchLogs.CreateLogStream",
+            "Network.AWS.CloudWatchLogs.DeleteLogGroup",
+            "Network.AWS.CloudWatchLogs.DeleteLogStream",
+            "Network.AWS.CloudWatchLogs.DeleteMetricFilter",
+            "Network.AWS.CloudWatchLogs.DeleteRetentionPolicy",
+            "Network.AWS.CloudWatchLogs.DescribeLogGroups",
+            "Network.AWS.CloudWatchLogs.DescribeLogStreams",
+            "Network.AWS.CloudWatchLogs.DescribeMetricFilters",
+            "Network.AWS.CloudWatchLogs.GetLogEvents",
+            "Network.AWS.CloudWatchLogs.PutLogEvents",
+            "Network.AWS.CloudWatchLogs.PutMetricFilter",
+            "Network.AWS.CloudWatchLogs.PutRetentionPolicy",
+            "Network.AWS.CloudWatchLogs.TestMetricFilter",
+            "Network.AWS.CloudWatchLogs.Types"
+        ],
+        "name": "Amazon CloudWatch Logs",
+        "version": "2014-03-28",
+        "documentation": "Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files.",
+        "xmlNamespace": "https://logs.amazonaws.com/doc/2014-03-28/",
+        "endpoint": "Regional",
+        "endpointPrefix": "logs",
+        "targetPrefix": "Logs_20140328"
+    },
+    "cabal": {
+        "other": [],
+        "library": "amazonka-cloudwatch-logs",
+        "exposed": [
+            "Network.AWS.CloudWatchLogs",
+            "Network.AWS.CloudWatchLogs.CreateLogGroup",
+            "Network.AWS.CloudWatchLogs.CreateLogStream",
+            "Network.AWS.CloudWatchLogs.DeleteLogGroup",
+            "Network.AWS.CloudWatchLogs.DeleteLogStream",
+            "Network.AWS.CloudWatchLogs.DeleteMetricFilter",
+            "Network.AWS.CloudWatchLogs.DeleteRetentionPolicy",
+            "Network.AWS.CloudWatchLogs.DescribeLogGroups",
+            "Network.AWS.CloudWatchLogs.DescribeLogStreams",
+            "Network.AWS.CloudWatchLogs.DescribeMetricFilters",
+            "Network.AWS.CloudWatchLogs.GetLogEvents",
+            "Network.AWS.CloudWatchLogs.PutLogEvents",
+            "Network.AWS.CloudWatchLogs.PutMetricFilter",
+            "Network.AWS.CloudWatchLogs.PutRetentionPolicy",
+            "Network.AWS.CloudWatchLogs.TestMetricFilter",
+            "Network.AWS.CloudWatchLogs.Types"
+        ],
+        "dependencies": [],
+        "name": "Amazon CloudWatch Logs",
+        "version": "0.0.0",
+        "description": "Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files."
+    },
+    "types": {
+        "service": {
+            "signature": "V4",
+            "checksum": "sha256",
+            "abbrev": "CloudWatchLogs",
+            "error": "CloudWatchLogsError",
+            "namespace": "Network.AWS.CloudWatchLogs",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.CloudWatchLogs.CreateLogGroup",
+                "Network.AWS.CloudWatchLogs.CreateLogStream",
+                "Network.AWS.CloudWatchLogs.DeleteLogGroup",
+                "Network.AWS.CloudWatchLogs.DeleteLogStream",
+                "Network.AWS.CloudWatchLogs.DeleteMetricFilter",
+                "Network.AWS.CloudWatchLogs.DeleteRetentionPolicy",
+                "Network.AWS.CloudWatchLogs.DescribeLogGroups",
+                "Network.AWS.CloudWatchLogs.DescribeLogStreams",
+                "Network.AWS.CloudWatchLogs.DescribeMetricFilters",
+                "Network.AWS.CloudWatchLogs.GetLogEvents",
+                "Network.AWS.CloudWatchLogs.PutLogEvents",
+                "Network.AWS.CloudWatchLogs.PutMetricFilter",
+                "Network.AWS.CloudWatchLogs.PutRetentionPolicy",
+                "Network.AWS.CloudWatchLogs.TestMetricFilter",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "Amazon CloudWatch Logs",
+            "version": "2014-03-28",
+            "documentation": "Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files.",
+            "xmlNamespace": "https://logs.amazonaws.com/doc/2014-03-28/",
+            "endpoint": "Regional",
+            "endpointPrefix": "logs",
+            "targetPrefix": "Logs_20140328"
+        },
+        "namespace": "Network.AWS.CloudWatchLogs.Types",
+        "types": [
+            {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 24,
+                "ctor": "metricFilter",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "mfFilterName",
+                    "name": "_mfFilterName",
+                    "shape": "FilterName",
+                    "locationName": "filterName",
+                    "documentation": null,
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mfMetricTransformations",
+                        "name": "_mfMetricTransformations",
+                        "shape": "MetricTransformations",
+                        "locationName": "metricTransformations",
+                        "documentation": null,
+                        "typeExposed": "NonEmpty MetricTransformation",
+                        "type": "List1 MetricTransformation"
+                    }
+                ],
+                "name": "MetricFilter",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "mfFilterName",
+                        "name": "_mfFilterName",
+                        "shape": "FilterName",
+                        "locationName": "filterName",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "mfFilterPattern",
+                        "name": "_mfFilterPattern",
+                        "shape": "FilterPattern",
+                        "locationName": "filterPattern",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "mfCreationTime",
+                        "name": "_mfCreationTime",
+                        "shape": "Timestamp",
+                        "locationName": "creationTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "mfCreationTime",
+                        "name": "_mfCreationTime",
+                        "shape": "Timestamp",
+                        "locationName": "creationTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "mfFilterName",
+                        "name": "_mfFilterName",
+                        "shape": "FilterName",
+                        "locationName": "filterName",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "mfFilterPattern",
+                        "name": "_mfFilterPattern",
+                        "shape": "FilterPattern",
+                        "locationName": "filterPattern",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mfMetricTransformations",
+                        "name": "_mfMetricTransformations",
+                        "shape": "MetricTransformations",
+                        "locationName": "metricTransformations",
+                        "documentation": null,
+                        "typeExposed": "NonEmpty MetricTransformation",
+                        "type": "List1 MetricTransformation"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 20,
+                "ctor": "metricFilterMatchRecord",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "mfmrEventNumber",
+                    "name": "_mfmrEventNumber",
+                    "shape": "EventNumber",
+                    "locationName": "eventNumber",
+                    "documentation": null,
+                    "typeExposed": "Maybe Integer",
+                    "type": "Maybe Integer"
+                },
+                "required": [],
+                "name": "MetricFilterMatchRecord",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "mfmrEventNumber",
+                        "name": "_mfmrEventNumber",
+                        "shape": "EventNumber",
+                        "locationName": "eventNumber",
+                        "documentation": null,
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "mfmrEventMessage",
+                        "name": "_mfmrEventMessage",
+                        "shape": "EventMessage",
+                        "locationName": "eventMessage",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "mfmrExtractedValues",
+                        "name": "_mfmrExtractedValues",
+                        "shape": "ExtractedValues",
+                        "locationName": "extractedValues",
+                        "documentation": null,
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "mfmrEventMessage",
+                        "name": "_mfmrEventMessage",
+                        "shape": "EventMessage",
+                        "locationName": "eventMessage",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "mfmrEventNumber",
+                        "name": "_mfmrEventNumber",
+                        "shape": "EventNumber",
+                        "locationName": "eventNumber",
+                        "documentation": null,
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "mfmrExtractedValues",
+                        "name": "_mfmrExtractedValues",
+                        "shape": "ExtractedValues",
+                        "locationName": "extractedValues",
+                        "documentation": null,
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 18,
+                "ctor": "metricTransformation",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "mtMetricName",
+                    "name": "_mtMetricName",
+                    "shape": "MetricName",
+                    "locationName": "metricName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mtMetricName",
+                        "name": "_mtMetricName",
+                        "shape": "MetricName",
+                        "locationName": "metricName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mtMetricNamespace",
+                        "name": "_mtMetricNamespace",
+                        "shape": "MetricNamespace",
+                        "locationName": "metricNamespace",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mtMetricValue",
+                        "name": "_mtMetricValue",
+                        "shape": "MetricValue",
+                        "locationName": "metricValue",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "name": "MetricTransformation",
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mtMetricName",
+                        "name": "_mtMetricName",
+                        "shape": "MetricName",
+                        "locationName": "metricName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mtMetricNamespace",
+                        "name": "_mtMetricNamespace",
+                        "shape": "MetricNamespace",
+                        "locationName": "metricNamespace",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "mtMetricValue",
+                        "name": "_mtMetricValue",
+                        "shape": "MetricValue",
+                        "locationName": "metricValue",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 22,
+                "ctor": "logStream",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "lsLogStreamName",
+                    "name": "_lsLogStreamName",
+                    "shape": "LogStreamName",
+                    "locationName": "logStreamName",
+                    "documentation": null,
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "LogStream",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsLogStreamName",
+                        "name": "_lsLogStreamName",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamName",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsCreationTime",
+                        "name": "_lsCreationTime",
+                        "shape": "Timestamp",
+                        "locationName": "creationTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsFirstEventTimestamp",
+                        "name": "_lsFirstEventTimestamp",
+                        "shape": "Timestamp",
+                        "locationName": "firstEventTimestamp",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsLastEventTimestamp",
+                        "name": "_lsLastEventTimestamp",
+                        "shape": "Timestamp",
+                        "locationName": "lastEventTimestamp",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsLastIngestionTime",
+                        "name": "_lsLastIngestionTime",
+                        "shape": "Timestamp",
+                        "locationName": "lastIngestionTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsUploadSequenceToken",
+                        "name": "_lsUploadSequenceToken",
+                        "shape": "SequenceToken",
+                        "locationName": "uploadSequenceToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsArn",
+                        "name": "_lsArn",
+                        "shape": "Arn",
+                        "locationName": "arn",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsStoredBytes",
+                        "name": "_lsStoredBytes",
+                        "shape": "StoredBytes",
+                        "locationName": "storedBytes",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsArn",
+                        "name": "_lsArn",
+                        "shape": "Arn",
+                        "locationName": "arn",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsCreationTime",
+                        "name": "_lsCreationTime",
+                        "shape": "Timestamp",
+                        "locationName": "creationTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsFirstEventTimestamp",
+                        "name": "_lsFirstEventTimestamp",
+                        "shape": "Timestamp",
+                        "locationName": "firstEventTimestamp",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsLastEventTimestamp",
+                        "name": "_lsLastEventTimestamp",
+                        "shape": "Timestamp",
+                        "locationName": "lastEventTimestamp",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsLastIngestionTime",
+                        "name": "_lsLastIngestionTime",
+                        "shape": "Timestamp",
+                        "locationName": "lastIngestionTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsLogStreamName",
+                        "name": "_lsLogStreamName",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamName",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsStoredBytes",
+                        "name": "_lsStoredBytes",
+                        "shape": "StoredBytes",
+                        "locationName": "storedBytes",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lsUploadSequenceToken",
+                        "name": "_lsUploadSequenceToken",
+                        "shape": "SequenceToken",
+                        "locationName": "uploadSequenceToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 20,
+                "ctor": "logGroup",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "lgLogGroupName",
+                    "name": "_lgLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "LogGroup",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgLogGroupName",
+                        "name": "_lgLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgCreationTime",
+                        "name": "_lgCreationTime",
+                        "shape": "Timestamp",
+                        "locationName": "creationTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgRetentionInDays",
+                        "name": "_lgRetentionInDays",
+                        "shape": "Days",
+                        "locationName": "retentionInDays",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgMetricFilterCount",
+                        "name": "_lgMetricFilterCount",
+                        "shape": "FilterCount",
+                        "locationName": "metricFilterCount",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgArn",
+                        "name": "_lgArn",
+                        "shape": "Arn",
+                        "locationName": "arn",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgStoredBytes",
+                        "name": "_lgStoredBytes",
+                        "shape": "StoredBytes",
+                        "locationName": "storedBytes",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgArn",
+                        "name": "_lgArn",
+                        "shape": "Arn",
+                        "locationName": "arn",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgCreationTime",
+                        "name": "_lgCreationTime",
+                        "shape": "Timestamp",
+                        "locationName": "creationTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgLogGroupName",
+                        "name": "_lgLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgMetricFilterCount",
+                        "name": "_lgMetricFilterCount",
+                        "shape": "FilterCount",
+                        "locationName": "metricFilterCount",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgRetentionInDays",
+                        "name": "_lgRetentionInDays",
+                        "shape": "Days",
+                        "locationName": "retentionInDays",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lgStoredBytes",
+                        "name": "_lgStoredBytes",
+                        "shape": "StoredBytes",
+                        "locationName": "storedBytes",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 13,
+                "ctor": "inputLogEvent",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "ileTimestamp",
+                    "name": "_ileTimestamp",
+                    "shape": "Timestamp",
+                    "locationName": "timestamp",
+                    "documentation": null,
+                    "typeExposed": "Natural",
+                    "type": "Natural"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ileTimestamp",
+                        "name": "_ileTimestamp",
+                        "shape": "Timestamp",
+                        "locationName": "timestamp",
+                        "documentation": null,
+                        "typeExposed": "Natural",
+                        "type": "Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ileMessage",
+                        "name": "_ileMessage",
+                        "shape": "EventMessage",
+                        "locationName": "message",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "name": "InputLogEvent",
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ileMessage",
+                        "name": "_ileMessage",
+                        "shape": "EventMessage",
+                        "locationName": "message",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ileTimestamp",
+                        "name": "_ileTimestamp",
+                        "shape": "Timestamp",
+                        "locationName": "timestamp",
+                        "documentation": null,
+                        "typeExposed": "Natural",
+                        "type": "Natural"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 17,
+                "ctor": "outputLogEvent",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "oleTimestamp",
+                    "name": "_oleTimestamp",
+                    "shape": "Timestamp",
+                    "locationName": "timestamp",
+                    "documentation": null,
+                    "typeExposed": "Maybe Natural",
+                    "type": "Maybe Natural"
+                },
+                "required": [],
+                "name": "OutputLogEvent",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "oleTimestamp",
+                        "name": "_oleTimestamp",
+                        "shape": "Timestamp",
+                        "locationName": "timestamp",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "oleMessage",
+                        "name": "_oleMessage",
+                        "shape": "EventMessage",
+                        "locationName": "message",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "oleIngestionTime",
+                        "name": "_oleIngestionTime",
+                        "shape": "Timestamp",
+                        "locationName": "ingestionTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "oleIngestionTime",
+                        "name": "_oleIngestionTime",
+                        "shape": "Timestamp",
+                        "locationName": "ingestionTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "oleMessage",
+                        "name": "_oleMessage",
+                        "shape": "EventMessage",
+                        "locationName": "message",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "oleTimestamp",
+                        "name": "_oleTimestamp",
+                        "shape": "Timestamp",
+                        "locationName": "timestamp",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ]
+            }
+        ],
+        "imports": []
+    },
+    "operations": [
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "createLogGroupResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "CreateLogGroupResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.CreateLogGroup",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "CreateLogGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003e Creates a new log group with the specified name. The name of the log group must be unique within a region for an AWS account. You can create up to 500 log groups per account. \u003c/p\u003e \u003cp\u003e You must use the following guidelines when naming a log group: \u003cul\u003e \u003cli\u003eLog group names can be between 1 and 512 characters long.\u003c/li\u003e \u003cli\u003eAllowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "createLogGroup",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "clgLogGroupName",
+                    "name": "_clgLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "clgLogGroupName",
+                    "name": "_clgLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "clgLogGroupName",
+                        "name": "_clgLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "CreateLogGroup",
+                "query": [],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "clgLogGroupName",
+                        "name": "_clgLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "createLogStreamResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "CreateLogStreamResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.CreateLogStream",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "CreateLogStream",
+            "method": "post",
+            "documentation": "\u003cp\u003e Creates a new log stream in the specified log group. The name of the log stream must be unique within the log group. There is no limit on the number of log streams that can exist in a log group. \u003c/p\u003e \u003cp\u003e You must use the following guidelines when naming a log stream: \u003cul\u003e \u003cli\u003eLog stream names can be between 1 and 512 characters long.\u003c/li\u003e \u003cli\u003eThe ':' colon character is not allowed.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 17,
+                "ctor": "createLogStream",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "clsLogGroupName",
+                    "name": "_clsLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "clsLogGroupName",
+                        "name": "_clsLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "clsLogStreamName",
+                        "name": "_clsLogStreamName",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "CreateLogStream",
+                "query": [],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "clsLogGroupName",
+                        "name": "_clsLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "clsLogStreamName",
+                        "name": "_clsLogStreamName",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "deleteLogGroupResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "DeleteLogGroupResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.DeleteLogGroup",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "DeleteLogGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes the log group with the specified name and permanently deletes all the archived log events associated with it. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "deleteLogGroup",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dlgLogGroupName",
+                    "name": "_dlgLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dlgLogGroupName",
+                    "name": "_dlgLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dlgLogGroupName",
+                        "name": "_dlgLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DeleteLogGroup",
+                "query": [],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dlgLogGroupName",
+                        "name": "_dlgLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "deleteLogStreamResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "DeleteLogStreamResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.DeleteLogStream",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "DeleteLogStream",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes a log stream and permanently deletes all the archived log events associated with it. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 17,
+                "ctor": "deleteLogStream",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dlsLogGroupName",
+                    "name": "_dlsLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dlsLogGroupName",
+                        "name": "_dlsLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dlsLogStreamName",
+                        "name": "_dlsLogStreamName",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DeleteLogStream",
+                "query": [],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dlsLogGroupName",
+                        "name": "_dlsLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dlsLogStreamName",
+                        "name": "_dlsLogStreamName",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "deleteMetricFilterResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "DeleteMetricFilterResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.DeleteMetricFilter",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "DeleteMetricFilter",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes a metric filter associated with the specified log group. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 17,
+                "ctor": "deleteMetricFilter",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dmf1LogGroupName",
+                    "name": "_dmf1LogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dmf1LogGroupName",
+                        "name": "_dmf1LogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dmf1FilterName",
+                        "name": "_dmf1FilterName",
+                        "shape": "FilterName",
+                        "locationName": "filterName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DeleteMetricFilter",
+                "query": [],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dmf1FilterName",
+                        "name": "_dmf1FilterName",
+                        "shape": "FilterName",
+                        "locationName": "filterName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dmf1LogGroupName",
+                        "name": "_dmf1LogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "deleteRetentionPolicyResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "DeleteRetentionPolicyResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.DeleteRetentionPolicy",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "DeleteRetentionPolicy",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes the retention policy of the specified log group. Log events would not expire if they belong to log groups without a retention policy. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "deleteRetentionPolicy",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "drpLogGroupName",
+                    "name": "_drpLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "drpLogGroupName",
+                    "name": "_drpLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "drpLogGroupName",
+                        "name": "_drpLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DeleteRetentionPolicy",
+                "query": [],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "drpLogGroupName",
+                        "name": "_drpLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 14,
+                "ctor": "describeLogGroupsResponse",
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "dlgrLogGroups",
+                    "name": "_dlgrLogGroups",
+                    "shape": "LogGroups",
+                    "locationName": "logGroups",
+                    "documentation": null,
+                    "typeExposed": "[LogGroup]",
+                    "type": "[LogGroup]"
+                },
+                "required": [],
+                "shared": false,
+                "name": "DescribeLogGroupsResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dlgrLogGroups",
+                        "name": "_dlgrLogGroups",
+                        "shape": "LogGroups",
+                        "locationName": "logGroups",
+                        "documentation": null,
+                        "typeExposed": "[LogGroup]",
+                        "type": "[LogGroup]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dlgrNextToken",
+                        "name": "_dlgrNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dlgrLogGroups",
+                        "name": "_dlgrLogGroups",
+                        "shape": "LogGroups",
+                        "locationName": "logGroups",
+                        "documentation": null,
+                        "typeExposed": "[LogGroup]",
+                        "type": "[LogGroup]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dlgrNextToken",
+                        "name": "_dlgrNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.DescribeLogGroups",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "DescribeLogGroups",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns all the log groups that are associated with the AWS account making the request. The list returned in the response is ASCII-sorted by log group name. \u003c/p\u003e \u003cp\u003e By default, this operation returns up to 50 log groups. If there are more log groups to list, the response would contain a \u003ccode class=\"code\"\u003enextToken\u003c/code\u003e value in the response body. You can also limit the number of log groups returned in the response by specifying the \u003ccode class=\"code\"\u003elimit\u003c/code\u003e parameter in the request. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 22,
+                "ctor": "describeLogGroups",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "dlgLogGroupNamePrefix",
+                    "name": "_dlgLogGroupNamePrefix",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupNamePrefix",
+                    "documentation": null,
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DescribeLogGroups",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dlgLogGroupNamePrefix",
+                        "name": "_dlgLogGroupNamePrefix",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupNamePrefix",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dlgNextToken",
+                        "name": "_dlgNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003e A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous \u003ccode class=\"code\"\u003eDescribeLogGroups\u003c/code\u003e request. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dlgLimit",
+                        "name": "_dlgLimit",
+                        "shape": "DescribeLimit",
+                        "locationName": "limit",
+                        "documentation": "\u003cp\u003e The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items. \u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dlgLimit",
+                        "name": "_dlgLimit",
+                        "shape": "DescribeLimit",
+                        "locationName": "limit",
+                        "documentation": "\u003cp\u003e The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items. \u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dlgLogGroupNamePrefix",
+                        "name": "_dlgLogGroupNamePrefix",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupNamePrefix",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dlgNextToken",
+                        "name": "_dlgNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003e A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous \u003ccode class=\"code\"\u003eDescribeLogGroups\u003c/code\u003e request. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 15,
+                "ctor": "describeLogStreamsResponse",
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "dlsrLogStreams",
+                    "name": "_dlsrLogStreams",
+                    "shape": "LogStreams",
+                    "locationName": "logStreams",
+                    "documentation": null,
+                    "typeExposed": "[LogStream]",
+                    "type": "[LogStream]"
+                },
+                "required": [],
+                "shared": false,
+                "name": "DescribeLogStreamsResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dlsrLogStreams",
+                        "name": "_dlsrLogStreams",
+                        "shape": "LogStreams",
+                        "locationName": "logStreams",
+                        "documentation": null,
+                        "typeExposed": "[LogStream]",
+                        "type": "[LogStream]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dlsrNextToken",
+                        "name": "_dlsrNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dlsrLogStreams",
+                        "name": "_dlsrLogStreams",
+                        "shape": "LogStreams",
+                        "locationName": "logStreams",
+                        "documentation": null,
+                        "typeExposed": "[LogStream]",
+                        "type": "[LogStream]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dlsrNextToken",
+                        "name": "_dlsrNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.DescribeLogStreams",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "DescribeLogStreams",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns all the log streams that are associated with the specified log group. The list returned in the response is ASCII-sorted by log stream name. \u003c/p\u003e \u003cp\u003e By default, this operation returns up to 50 log streams. If there are more log streams to list, the response would contain a \u003ccode class=\"code\"\u003enextToken\u003c/code\u003e value in the response body. You can also limit the number of log streams returned in the response by specifying the \u003ccode class=\"code\"\u003elimit\u003c/code\u003e parameter in the request. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 24,
+                "ctor": "describeLogStreams",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dls1LogGroupName",
+                    "name": "_dls1LogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dls1LogGroupName",
+                        "name": "_dls1LogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DescribeLogStreams",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dls1LogStreamNamePrefix",
+                        "name": "_dls1LogStreamNamePrefix",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamNamePrefix",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dls1NextToken",
+                        "name": "_dls1NextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003e A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous \u003ccode class=\"code\"\u003eDescribeLogStreams\u003c/code\u003e request. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dls1Limit",
+                        "name": "_dls1Limit",
+                        "shape": "DescribeLimit",
+                        "locationName": "limit",
+                        "documentation": "\u003cp\u003e The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items. \u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dls1Limit",
+                        "name": "_dls1Limit",
+                        "shape": "DescribeLimit",
+                        "locationName": "limit",
+                        "documentation": "\u003cp\u003e The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items. \u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dls1LogGroupName",
+                        "name": "_dls1LogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dls1LogStreamNamePrefix",
+                        "name": "_dls1LogStreamNamePrefix",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamNamePrefix",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dls1NextToken",
+                        "name": "_dls1NextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003e A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous \u003ccode class=\"code\"\u003eDescribeLogStreams\u003c/code\u003e request. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 18,
+                "ctor": "describeMetricFiltersResponse",
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "dmfrMetricFilters",
+                    "name": "_dmfrMetricFilters",
+                    "shape": "MetricFilters",
+                    "locationName": "metricFilters",
+                    "documentation": null,
+                    "typeExposed": "[MetricFilter]",
+                    "type": "[MetricFilter]"
+                },
+                "required": [],
+                "shared": false,
+                "name": "DescribeMetricFiltersResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dmfrMetricFilters",
+                        "name": "_dmfrMetricFilters",
+                        "shape": "MetricFilters",
+                        "locationName": "metricFilters",
+                        "documentation": null,
+                        "typeExposed": "[MetricFilter]",
+                        "type": "[MetricFilter]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dmfrNextToken",
+                        "name": "_dmfrNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dmfrMetricFilters",
+                        "name": "_dmfrMetricFilters",
+                        "shape": "MetricFilters",
+                        "locationName": "metricFilters",
+                        "documentation": null,
+                        "typeExposed": "[MetricFilter]",
+                        "type": "[MetricFilter]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dmfrNextToken",
+                        "name": "_dmfrNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.DescribeMetricFilters",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "DescribeMetricFilters",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns all the metrics filters associated with the specified log group. The list returned in the response is ASCII-sorted by filter name. \u003c/p\u003e \u003cp\u003e By default, this operation returns up to 50 metric filters. If there are more metric filters to list, the response would contain a \u003ccode class=\"code\"\u003enextToken\u003c/code\u003e value in the response body. You can also limit the number of metric filters returned in the response by specifying the \u003ccode class=\"code\"\u003elimit\u003c/code\u003e parameter in the request. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 20,
+                "ctor": "describeMetricFilters",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dmfLogGroupName",
+                    "name": "_dmfLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dmfLogGroupName",
+                        "name": "_dmfLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DescribeMetricFilters",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dmfFilterNamePrefix",
+                        "name": "_dmfFilterNamePrefix",
+                        "shape": "FilterName",
+                        "locationName": "filterNamePrefix",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dmfNextToken",
+                        "name": "_dmfNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003e A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous \u003ccode class=\"code\"\u003eDescribeMetricFilters\u003c/code\u003e request. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dmfLimit",
+                        "name": "_dmfLimit",
+                        "shape": "DescribeLimit",
+                        "locationName": "limit",
+                        "documentation": "\u003cp\u003e The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items. \u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dmfFilterNamePrefix",
+                        "name": "_dmfFilterNamePrefix",
+                        "shape": "FilterName",
+                        "locationName": "filterNamePrefix",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dmfLimit",
+                        "name": "_dmfLimit",
+                        "shape": "DescribeLimit",
+                        "locationName": "limit",
+                        "documentation": "\u003cp\u003e The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items. \u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dmfLogGroupName",
+                        "name": "_dmfLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dmfNextToken",
+                        "name": "_dmfNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003e A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous \u003ccode class=\"code\"\u003eDescribeMetricFilters\u003c/code\u003e request. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 22,
+                "ctor": "getLogEventsResponse",
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "glerEvents",
+                    "name": "_glerEvents",
+                    "shape": "OutputLogEvents",
+                    "locationName": "events",
+                    "documentation": null,
+                    "typeExposed": "[OutputLogEvent]",
+                    "type": "[OutputLogEvent]"
+                },
+                "required": [],
+                "shared": false,
+                "name": "GetLogEventsResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "glerEvents",
+                        "name": "_glerEvents",
+                        "shape": "OutputLogEvents",
+                        "locationName": "events",
+                        "documentation": null,
+                        "typeExposed": "[OutputLogEvent]",
+                        "type": "[OutputLogEvent]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "glerNextForwardToken",
+                        "name": "_glerNextForwardToken",
+                        "shape": "NextToken",
+                        "locationName": "nextForwardToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "glerNextBackwardToken",
+                        "name": "_glerNextBackwardToken",
+                        "shape": "NextToken",
+                        "locationName": "nextBackwardToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "glerEvents",
+                        "name": "_glerEvents",
+                        "shape": "OutputLogEvents",
+                        "locationName": "events",
+                        "documentation": null,
+                        "typeExposed": "[OutputLogEvent]",
+                        "type": "[OutputLogEvent]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "glerNextBackwardToken",
+                        "name": "_glerNextBackwardToken",
+                        "shape": "NextToken",
+                        "locationName": "nextBackwardToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "glerNextForwardToken",
+                        "name": "_glerNextForwardToken",
+                        "shape": "NextToken",
+                        "locationName": "nextForwardToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.GetLogEvents",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "GetLogEvents",
+            "method": "post",
+            "documentation": "\u003cp\u003e Retrieves log events from the specified log stream. You can provide an optional time range to filter the results on the event \u003ccode class=\"code\"\u003etimestamp\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e By default, this operation returns as much log events as can fit in a response size of 1MB, up to 10,000 log events. The response will always include a \u003ccode class=\"code\"\u003enextForwardToken\u003c/code\u003e and a \u003ccode class=\"code\"\u003enextBackwardToken\u003c/code\u003e in the response body. You can use any of these tokens in subsequent \u003ccode class=\"code\"\u003eGetLogEvents\u003c/code\u003e requests to paginate through events in either forward or backward direction. You can also limit the number of log events returned in the response by specifying the \u003ccode class=\"code\"\u003elimit\u003c/code\u003e parameter in the request. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 17,
+                "ctor": "getLogEvents",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "gleLogGroupName",
+                    "name": "_gleLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gleLogGroupName",
+                        "name": "_gleLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gleLogStreamName",
+                        "name": "_gleLogStreamName",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "GetLogEvents",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gleStartTime",
+                        "name": "_gleStartTime",
+                        "shape": "Timestamp",
+                        "locationName": "startTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gleEndTime",
+                        "name": "_gleEndTime",
+                        "shape": "Timestamp",
+                        "locationName": "endTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gleNextToken",
+                        "name": "_gleNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003e A string token used for pagination that points to the next page of results. It must be a value obtained from the \u003ccode class=\"code\"\u003enextForwardToken\u003c/code\u003e or \u003ccode class=\"code\"\u003enextBackwardToken\u003c/code\u003e fields in the response of the previous \u003ccode class=\"code\"\u003eGetLogEvents\u003c/code\u003e request. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gleLimit",
+                        "name": "_gleLimit",
+                        "shape": "EventsLimit",
+                        "locationName": "limit",
+                        "documentation": "\u003cp\u003e The maximum number of log events returned in the response. If you don't specify a value, the request would return as much log events as can fit in a response size of 1MB, up to 10,000 log events. \u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gleStartFromHead",
+                        "name": "_gleStartFromHead",
+                        "shape": "StartFromHead",
+                        "locationName": "startFromHead",
+                        "documentation": "If set to true, the earliest log events would be returned first. The default is false (the latest log events are returned first).",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gleEndTime",
+                        "name": "_gleEndTime",
+                        "shape": "Timestamp",
+                        "locationName": "endTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gleLimit",
+                        "name": "_gleLimit",
+                        "shape": "EventsLimit",
+                        "locationName": "limit",
+                        "documentation": "\u003cp\u003e The maximum number of log events returned in the response. If you don't specify a value, the request would return as much log events as can fit in a response size of 1MB, up to 10,000 log events. \u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gleLogGroupName",
+                        "name": "_gleLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gleLogStreamName",
+                        "name": "_gleLogStreamName",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gleNextToken",
+                        "name": "_gleNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003e A string token used for pagination that points to the next page of results. It must be a value obtained from the \u003ccode class=\"code\"\u003enextForwardToken\u003c/code\u003e or \u003ccode class=\"code\"\u003enextBackwardToken\u003c/code\u003e fields in the response of the previous \u003ccode class=\"code\"\u003eGetLogEvents\u003c/code\u003e request. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gleStartFromHead",
+                        "name": "_gleStartFromHead",
+                        "shape": "StartFromHead",
+                        "locationName": "startFromHead",
+                        "documentation": "If set to true, the earliest log events would be returned first. The default is false (the latest log events are returned first).",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gleStartTime",
+                        "name": "_gleStartTime",
+                        "shape": "Timestamp",
+                        "locationName": "startTime",
+                        "documentation": null,
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "putLogEventsResponse",
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "plerNextSequenceToken",
+                    "name": "_plerNextSequenceToken",
+                    "shape": "SequenceToken",
+                    "locationName": "nextSequenceToken",
+                    "documentation": null,
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "plerNextSequenceToken",
+                    "name": "_plerNextSequenceToken",
+                    "shape": "SequenceToken",
+                    "locationName": "nextSequenceToken",
+                    "documentation": null,
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "shared": false,
+                "name": "PutLogEventsResponse",
+                "resultWrapper": null,
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "plerNextSequenceToken",
+                        "name": "_plerNextSequenceToken",
+                        "shape": "SequenceToken",
+                        "locationName": "nextSequenceToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "plerNextSequenceToken",
+                        "name": "_plerNextSequenceToken",
+                        "shape": "SequenceToken",
+                        "locationName": "nextSequenceToken",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.PutLogEvents",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "PutLogEvents",
+            "method": "post",
+            "documentation": "\u003cp\u003e Uploads a batch of log events to the specified log stream. \u003c/p\u003e \u003cp\u003e Every PutLogEvents request must include the \u003ccode class=\"code\"\u003esequenceToken\u003c/code\u003e obtained from the response of the previous request. An upload in a newly created log stream does not require a \u003ccode class=\"code\"\u003esequenceToken\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e The batch of events must satisfy the following constraints: \u003cul\u003e \u003cli\u003eThe maximum batch size is 32,768 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.\u003c/li\u003e \u003cli\u003eNone of the log events in the batch can be more than 2 hours in the future.\u003c/li\u003e \u003cli\u003eNone of the log events in the batch can be older than 14 days or the retention period of the log group.\u003c/li\u003e \u003cli\u003eThe log events in the batch must be in chronological ordered by their \u003ccode class=\"code\"\u003etimestamp\u003c/code\u003e.\u003c/li\u003e \u003cli\u003eThe maximum number of log events in a batch is 1,000.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 17,
+                "ctor": "putLogEvents",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "pleLogGroupName",
+                    "name": "_pleLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pleLogGroupName",
+                        "name": "_pleLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pleLogStreamName",
+                        "name": "_pleLogStreamName",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pleLogEvents",
+                        "name": "_pleLogEvents",
+                        "shape": "InputLogEvents",
+                        "locationName": "logEvents",
+                        "documentation": null,
+                        "typeExposed": "NonEmpty InputLogEvent",
+                        "type": "List1 InputLogEvent"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "PutLogEvents",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pleSequenceToken",
+                        "name": "_pleSequenceToken",
+                        "shape": "SequenceToken",
+                        "locationName": "sequenceToken",
+                        "documentation": "\u003cp\u003e A string token that must be obtained from the response of the previous \u003ccode class=\"code\"\u003ePutLogEvents\u003c/code\u003e request. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pleLogEvents",
+                        "name": "_pleLogEvents",
+                        "shape": "InputLogEvents",
+                        "locationName": "logEvents",
+                        "documentation": null,
+                        "typeExposed": "NonEmpty InputLogEvent",
+                        "type": "List1 InputLogEvent"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pleLogGroupName",
+                        "name": "_pleLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pleLogStreamName",
+                        "name": "_pleLogStreamName",
+                        "shape": "LogStreamName",
+                        "locationName": "logStreamName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "pleSequenceToken",
+                        "name": "_pleSequenceToken",
+                        "shape": "SequenceToken",
+                        "locationName": "sequenceToken",
+                        "documentation": "\u003cp\u003e A string token that must be obtained from the response of the previous \u003ccode class=\"code\"\u003ePutLogEvents\u003c/code\u003e request. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "putMetricFilterResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "PutMetricFilterResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.PutMetricFilter",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "PutMetricFilter",
+            "method": "post",
+            "documentation": "\u003cp\u003e Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through \u003ccode class=\"code\"\u003ePutLogEvents\u003c/code\u003e requests. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 25,
+                "ctor": "putMetricFilter",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "pmfLogGroupName",
+                    "name": "_pmfLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pmfLogGroupName",
+                        "name": "_pmfLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pmfFilterName",
+                        "name": "_pmfFilterName",
+                        "shape": "FilterName",
+                        "locationName": "filterName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pmfFilterPattern",
+                        "name": "_pmfFilterPattern",
+                        "shape": "FilterPattern",
+                        "locationName": "filterPattern",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pmfMetricTransformations",
+                        "name": "_pmfMetricTransformations",
+                        "shape": "MetricTransformations",
+                        "locationName": "metricTransformations",
+                        "documentation": null,
+                        "typeExposed": "NonEmpty MetricTransformation",
+                        "type": "List1 MetricTransformation"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "PutMetricFilter",
+                "query": [],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pmfFilterName",
+                        "name": "_pmfFilterName",
+                        "shape": "FilterName",
+                        "locationName": "filterName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pmfFilterPattern",
+                        "name": "_pmfFilterPattern",
+                        "shape": "FilterPattern",
+                        "locationName": "filterPattern",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pmfLogGroupName",
+                        "name": "_pmfLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pmfMetricTransformations",
+                        "name": "_pmfMetricTransformations",
+                        "shape": "MetricTransformations",
+                        "locationName": "metricTransformations",
+                        "documentation": null,
+                        "typeExposed": "NonEmpty MetricTransformation",
+                        "type": "List1 MetricTransformation"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "putRetentionPolicyResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "PutRetentionPolicyResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.PutRetentionPolicy",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "PutRetentionPolicy",
+            "method": "post",
+            "documentation": "\u003cp\u003e Sets the retention of the specified log group. A retention policy allows you to configure the number of days you want to retain log events in the specified log group. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 19,
+                "ctor": "putRetentionPolicy",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "prpLogGroupName",
+                    "name": "_prpLogGroupName",
+                    "shape": "LogGroupName",
+                    "locationName": "logGroupName",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prpLogGroupName",
+                        "name": "_prpLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prpRetentionInDays",
+                        "name": "_prpRetentionInDays",
+                        "shape": "Days",
+                        "locationName": "retentionInDays",
+                        "documentation": null,
+                        "typeExposed": "Int",
+                        "type": "Int"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "PutRetentionPolicy",
+                "query": [],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prpLogGroupName",
+                        "name": "_prpLogGroupName",
+                        "shape": "LogGroupName",
+                        "locationName": "logGroupName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "prpRetentionInDays",
+                        "name": "_prpRetentionInDays",
+                        "shape": "Days",
+                        "locationName": "retentionInDays",
+                        "documentation": null,
+                        "typeExposed": "Int",
+                        "type": "Int"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CloudWatchLogs",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "MetricFilterMatchRecord",
+                "fieldPad": 0,
+                "ctor": "testMetricFilterResponse",
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "tmfrMatches",
+                    "name": "_tmfrMatches",
+                    "shape": "MetricFilterMatches",
+                    "locationName": "matches",
+                    "documentation": null,
+                    "typeExposed": "[MetricFilterMatchRecord]",
+                    "type": "[MetricFilterMatchRecord]"
+                },
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "tmfrMatches",
+                    "name": "_tmfrMatches",
+                    "shape": "MetricFilterMatches",
+                    "locationName": "matches",
+                    "documentation": null,
+                    "typeExposed": "[MetricFilterMatchRecord]",
+                    "type": "[MetricFilterMatchRecord]"
+                },
+                "required": [],
+                "shared": false,
+                "name": "TestMetricFilterResponse",
+                "resultWrapper": null,
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "tmfrMatches",
+                        "name": "_tmfrMatches",
+                        "shape": "MetricFilterMatches",
+                        "locationName": "matches",
+                        "documentation": null,
+                        "typeExposed": "[MetricFilterMatchRecord]",
+                        "type": "[MetricFilterMatchRecord]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "tmfrMatches",
+                        "name": "_tmfrMatches",
+                        "shape": "MetricFilterMatches",
+                        "locationName": "matches",
+                        "documentation": null,
+                        "typeExposed": "[MetricFilterMatchRecord]",
+                        "type": "[MetricFilterMatchRecord]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CloudWatchLogs.TestMetricFilter",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.CloudWatchLogs.Types"
+            ],
+            "name": "TestMetricFilter",
+            "method": "post",
+            "documentation": "\u003cp\u003e Tests the filter pattern of a metric filter against a sample of log event messages. You can use this operation to validate the correctness of a metric filter pattern. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 20,
+                "ctor": "testMetricFilter",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "tmfFilterPattern",
+                    "name": "_tmfFilterPattern",
+                    "shape": "FilterPattern",
+                    "locationName": "filterPattern",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tmfFilterPattern",
+                        "name": "_tmfFilterPattern",
+                        "shape": "FilterPattern",
+                        "locationName": "filterPattern",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tmfLogEventMessages",
+                        "name": "_tmfLogEventMessages",
+                        "shape": "TestEventMessages",
+                        "locationName": "logEventMessages",
+                        "documentation": null,
+                        "typeExposed": "NonEmpty Text",
+                        "type": "List1 Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "TestMetricFilter",
+                "query": [],
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tmfFilterPattern",
+                        "name": "_tmfFilterPattern",
+                        "shape": "FilterPattern",
+                        "locationName": "filterPattern",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tmfLogEventMessages",
+                        "name": "_tmfLogEventMessages",
+                        "shape": "TestEventMessages",
+                        "locationName": "logEventMessages",
+                        "documentation": null,
+                        "typeExposed": "NonEmpty Text",
+                        "type": "List1 Text"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeBundleTasks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,22 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes one or more of your bundling tasks. Completed bundle tasks are
--- listed for only a limited time. If your bundle task is no longer in the
--- list, you can still register an AMI from it. Just use RegisterImage with
--- the Amazon S3 bucket name and image manifest name you provided to the
--- bundle task. Example 1 This example describes the status of the specified
--- bundle task. https://ec2.amazonaws.com/?Action=DescribeBundleTasks
--- &amp;bundleId.1=bun-c1a540a8 &amp;AUTHPARAMS
--- 59dbff89-35bd-4eac-99ed-be587EXAMPLE i-12345678 bun-c1a540a8 cancelling
--- 2008-10-07T11:41:50.000Z 2008-10-07T11:51:50.000Z myawsbucket winami 20%
--- Example 2 This example filters the response to include only bundle tasks
--- whose state is either complete or failed, and in addition are targeted for
--- the Amazon S3 bucket named myawsbucket.
--- https://ec2.amazonaws.com/?Action=DescribeBundleTasks
--- &amp;Filter.1.Name=s3-bucket &amp;Filter.1.Value.1=myawsbucket
--- &amp;Filter.2.Name=state &amp;Filter.2.Name.1=complete
--- &amp;Filter.2.Name.2=failed &amp;AUTHPARAMS.
+-- | Describes one or more of your bundling tasks.
 module Network.AWS.EC2.DescribeBundleTasks
     (
     -- * Request
@@ -42,6 +29,7 @@ module Network.AWS.EC2.DescribeBundleTasks
     , describeBundleTasks
     -- ** Request lenses
     , dbtBundleIds
+    , dbtDryRun
     , dbtFilters
 
     -- * Response
@@ -52,61 +40,74 @@ module Network.AWS.EC2.DescribeBundleTasks
     , dbtrBundleTasks
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeBundleTasks = DescribeBundleTasks
     { _dbtBundleIds :: [Text]
-    , _dbtFilters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dbtDryRun    :: Maybe Bool
+    , _dbtFilters   :: [Filter]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeBundleTasks' request.
+-- | 'DescribeBundleTasks' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @BundleIds ::@ @[Text]@
+-- * 'dbtBundleIds' @::@ ['Text']
 --
--- * @Filters ::@ @[Filter]@
+-- * 'dbtDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'dbtFilters' @::@ ['Filter']
 --
 describeBundleTasks :: DescribeBundleTasks
 describeBundleTasks = DescribeBundleTasks
-    { _dbtBundleIds = mempty
-    , _dbtFilters = mempty
+    { _dbtDryRun    = Nothing
+    , _dbtBundleIds = mempty
+    , _dbtFilters   = mempty
     }
 
 -- | One or more bundle task IDs. Default: Describes all your bundle tasks.
 dbtBundleIds :: Lens' DescribeBundleTasks [Text]
 dbtBundleIds = lens _dbtBundleIds (\s a -> s { _dbtBundleIds = a })
 
--- | One or more filters. bundle-id - The ID of the bundle task. error-code - If
--- the task failed, the error code returned. error-message - If the task
+dbtDryRun :: Lens' DescribeBundleTasks (Maybe Bool)
+dbtDryRun = lens _dbtDryRun (\s a -> s { _dbtDryRun = a })
+
+-- | One or more filters. bundle-id - The ID of the bundle task. error-code -
+-- If the task failed, the error code returned. error-message - If the task
 -- failed, the error message returned. instance-id - The ID of the instance.
 -- progress - The level of task completion, as a percentage (for example,
 -- 20%). s3-bucket - The Amazon S3 bucket to store the AMI. s3-prefix - The
 -- beginning of the AMI name. start-time - The time the task started (for
--- example, 2013-09-15T17:15:20.000Z). state - The state of the task (pending
--- | waiting-for-shutdown | bundling | storing | cancelling | complete |
--- failed). update-time - The time of the most recent update for the task.
+-- example, 2013-09-15T17:15:20.000Z). state - The state of the task
+-- (pending | waiting-for-shutdown | bundling | storing | cancelling |
+-- complete | failed). update-time - The time of the most recent update for
+-- the task.
 dbtFilters :: Lens' DescribeBundleTasks [Filter]
 dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a })
 
-instance ToQuery DescribeBundleTasks where
-    toQuery = genericQuery def
+instance ToQuery DescribeBundleTasks
+
+instance ToPath DescribeBundleTasks where
+    toPath = const "/"
 
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks :: [BundleTask]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeBundleTasksResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeBundleTasksResponse where
+    type Item DescribeBundleTasksResponse = BundleTask
+
+    fromList = DescribeBundleTasksResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dbtrBundleTasks
+
+-- | 'DescribeBundleTasksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @BundleTasks ::@ @[BundleTask]@
+-- * 'dbtrBundleTasks' @::@ ['BundleTask']
 --
 describeBundleTasksResponse :: DescribeBundleTasksResponse
 describeBundleTasksResponse = DescribeBundleTasksResponse
@@ -117,12 +118,10 @@ describeBundleTasksResponse = DescribeBundleTasksResponse
 dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a })
 
-instance FromXML DescribeBundleTasksResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeBundleTasks where
     type Sv DescribeBundleTasks = EC2
     type Rs DescribeBundleTasks = DescribeBundleTasksResponse
 
-    request = post "DescribeBundleTasks"
-    response _ = xmlResponse
+    request  = post "DescribeBundleTasks"
+    response = xmlResponse $ \h x -> DescribeBundleTasksResponse
+        <$> x %| "bundleInstanceTasksSet"

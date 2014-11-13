@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFormation.CreateStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,15 +23,6 @@
 -- | Creates a stack as specified in the template. After the call completes
 -- successfully, the stack creation starts. You can check the status of the
 -- stack via the DescribeStacks API.
--- https://cloudformation.us-east-1.amazonaws.com/ ?Action=CreateStack
--- &StackName=MyStack &TemplateBody=[Template Document]
--- &NotificationARNs.member.1=arn:aws:sns:us-east-1:1234567890:my-topic
--- &Parameters.member.1.ParameterKey=AvailabilityZone
--- &Parameters.member.1.ParameterValue=us-east-1a &Version=2010-05-15
--- &SignatureVersion=2 &Timestamp=2010-07-27T22%3A26%3A28.000Z
--- &AWSAccessKeyId=[AWS Access KeyID] &Signature=[Signature]
--- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83.
--- 
 module Network.AWS.CloudFormation.CreateStack
     (
     -- * Request
@@ -37,18 +30,18 @@ module Network.AWS.CloudFormation.CreateStack
     -- ** Request constructor
     , createStack
     -- ** Request lenses
-    , csStackName
-    , csTemplateBody
-    , csTemplateURL
-    , csParameters
-    , csDisableRollback
-    , csTimeoutInMinutes
-    , csNotificationARNs
     , csCapabilities
+    , csDisableRollback
+    , csNotificationARNs
     , csOnFailure
+    , csParameters
+    , csStackName
     , csStackPolicyBody
     , csStackPolicyURL
     , csTags
+    , csTemplateBody
+    , csTemplateURL
+    , csTimeoutInMinutes
 
     -- * Response
     , CreateStackResponse
@@ -58,111 +51,92 @@ module Network.AWS.CloudFormation.CreateStack
     , csrStackId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for CreateStack action.
 data CreateStack = CreateStack
-    { _csStackName :: Text
-    , _csTemplateBody :: Maybe Text
-    , _csTemplateURL :: Maybe Text
-    , _csParameters :: [Parameter]
-    , _csDisableRollback :: Maybe Bool
-    , _csTimeoutInMinutes :: Maybe Integer
+    { _csCapabilities     :: [Text]
+    , _csDisableRollback  :: Maybe Bool
     , _csNotificationARNs :: [Text]
-    , _csCapabilities :: [Capability]
-    , _csOnFailure :: Maybe OnFailure
-    , _csStackPolicyBody :: Maybe Text
-    , _csStackPolicyURL :: Maybe Text
-    , _csTags :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    , _csOnFailure        :: Maybe Text
+    , _csParameters       :: [Parameter]
+    , _csStackName        :: Text
+    , _csStackPolicyBody  :: Maybe Text
+    , _csStackPolicyURL   :: Maybe Text
+    , _csTags             :: [Tag]
+    , _csTemplateBody     :: Maybe Text
+    , _csTemplateURL      :: Maybe Text
+    , _csTimeoutInMinutes :: Maybe Natural
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateStack' request.
+-- | 'CreateStack' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackName ::@ @Text@
+-- * 'csCapabilities' @::@ ['Text']
 --
--- * @TemplateBody ::@ @Maybe Text@
+-- * 'csDisableRollback' @::@ 'Maybe' 'Bool'
 --
--- * @TemplateURL ::@ @Maybe Text@
+-- * 'csNotificationARNs' @::@ ['Text']
 --
--- * @Parameters ::@ @[Parameter]@
+-- * 'csOnFailure' @::@ 'Maybe' 'Text'
 --
--- * @DisableRollback ::@ @Maybe Bool@
+-- * 'csParameters' @::@ ['Parameter']
 --
--- * @TimeoutInMinutes ::@ @Maybe Integer@
+-- * 'csStackName' @::@ 'Text'
 --
--- * @NotificationARNs ::@ @[Text]@
+-- * 'csStackPolicyBody' @::@ 'Maybe' 'Text'
 --
--- * @Capabilities ::@ @[Capability]@
+-- * 'csStackPolicyURL' @::@ 'Maybe' 'Text'
 --
--- * @OnFailure ::@ @Maybe OnFailure@
+-- * 'csTags' @::@ ['Tag']
 --
--- * @StackPolicyBody ::@ @Maybe Text@
+-- * 'csTemplateBody' @::@ 'Maybe' 'Text'
 --
--- * @StackPolicyURL ::@ @Maybe Text@
+-- * 'csTemplateURL' @::@ 'Maybe' 'Text'
 --
--- * @Tags ::@ @[Tag]@
+-- * 'csTimeoutInMinutes' @::@ 'Maybe' 'Natural'
 --
 createStack :: Text -- ^ 'csStackName'
             -> CreateStack
 createStack p1 = CreateStack
-    { _csStackName = p1
-    , _csTemplateBody = Nothing
-    , _csTemplateURL = Nothing
-    , _csParameters = mempty
-    , _csDisableRollback = Nothing
+    { _csStackName        = p1
+    , _csTemplateBody     = Nothing
+    , _csTemplateURL      = Nothing
+    , _csParameters       = mempty
+    , _csDisableRollback  = Nothing
     , _csTimeoutInMinutes = Nothing
     , _csNotificationARNs = mempty
-    , _csCapabilities = mempty
-    , _csOnFailure = Nothing
-    , _csStackPolicyBody = Nothing
-    , _csStackPolicyURL = Nothing
-    , _csTags = mempty
+    , _csCapabilities     = mempty
+    , _csOnFailure        = Nothing
+    , _csStackPolicyBody  = Nothing
+    , _csStackPolicyURL   = Nothing
+    , _csTags             = mempty
     }
 
--- | The name associated with the stack. The name must be unique within your AWS
--- account. Must contain only alphanumeric characters (case sensitive) and
--- start with an alpha character. Maximum length of the name is 255
--- characters.
-csStackName :: Lens' CreateStack Text
-csStackName = lens _csStackName (\s a -> s { _csStackName = a })
+-- | A list of capabilities that you must specify before AWS CloudFormation
+-- can create or update certain stacks. Some stack templates might include
+-- resources that can affect permissions in your AWS account. For those
+-- stacks, you must explicitly acknowledge their capabilities by specifying
+-- this parameter. Currently, the only valid value is CAPABILITY_IAM, which
+-- is required for the following resources: AWS::CloudFormation::Stack,
+-- AWS::IAM::AccessKey, AWS::IAM::Group, AWS::IAM::InstanceProfile,
+-- AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, and
+-- AWS::IAM::UserToGroupAddition. If your stack template contains these
+-- resources, we recommend that you review any permissions associated with
+-- them. If you don't specify this parameter, this action returns an
+-- InsufficientCapabilities error.
+csCapabilities :: Lens' CreateStack [Text]
+csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a })
 
--- | Structure containing the template body with a minimum length of 1 byte and
--- a maximum length of 51,200 bytes. For more information, go to Template
--- Anatomy in the AWS CloudFormation User Guide. Conditional: You must specify
--- either the TemplateBody or the TemplateURL parameter, but not both.
-csTemplateBody :: Lens' CreateStack (Maybe Text)
-csTemplateBody = lens _csTemplateBody (\s a -> s { _csTemplateBody = a })
-
--- | Location of file containing the template body. The URL must point to a
--- template (max size: 307,200 bytes) located in an S3 bucket in the same
--- region as the stack. For more information, go to the Template Anatomy in
--- the AWS CloudFormation User Guide. Conditional: You must specify either the
--- TemplateBody or the TemplateURL parameter, but not both.
-csTemplateURL :: Lens' CreateStack (Maybe Text)
-csTemplateURL = lens _csTemplateURL (\s a -> s { _csTemplateURL = a })
-
--- | A list of Parameter structures that specify input parameters for the stack.
-csParameters :: Lens' CreateStack [Parameter]
-csParameters = lens _csParameters (\s a -> s { _csParameters = a })
-
--- | Set to true to disable rollback of the stack if stack creation failed. You
--- can specify either DisableRollback or OnFailure, but not both. Default:
--- false.
+-- | Set to true to disable rollback of the stack if stack creation failed.
+-- You can specify either DisableRollback or OnFailure, but not both.
+-- Default: false.
 csDisableRollback :: Lens' CreateStack (Maybe Bool)
 csDisableRollback =
     lens _csDisableRollback (\s a -> s { _csDisableRollback = a })
-
--- | The amount of time that can pass before the stack status becomes
--- CREATE_FAILED; if DisableRollback is not set or is set to false, the stack
--- will be rolled back.
-csTimeoutInMinutes :: Lens' CreateStack (Maybe Integer)
-csTimeoutInMinutes =
-    lens _csTimeoutInMinutes (\s a -> s { _csTimeoutInMinutes = a })
 
 -- | The Simple Notification Service (SNS) topic ARNs to publish stack related
 -- events. You can find your SNS topic ARNs using the SNS console or your
@@ -171,27 +145,28 @@ csNotificationARNs :: Lens' CreateStack [Text]
 csNotificationARNs =
     lens _csNotificationARNs (\s a -> s { _csNotificationARNs = a })
 
--- | The list of capabilities that you want to allow in the stack. If your
--- template contains certain resources, you must specify the CAPABILITY_IAM
--- value for this parameter; otherwise, this action returns an
--- InsufficientCapabilities error. The following resources require you to
--- specify the capabilities parameter: AWS::CloudFormation::Stack,
--- AWS::IAM::AccessKey, AWS::IAM::Group, AWS::IAM::InstanceProfile,
--- AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, and
--- AWS::IAM::UserToGroupAddition.
-csCapabilities :: Lens' CreateStack [Capability]
-csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a })
-
--- | Determines what action will be taken if stack creation fails. This must be
--- one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either OnFailure
--- or DisableRollback, but not both. Default: ROLLBACK.
-csOnFailure :: Lens' CreateStack (Maybe OnFailure)
+-- | Determines what action will be taken if stack creation fails. This must
+-- be one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either
+-- OnFailure or DisableRollback, but not both. Default: ROLLBACK.
+csOnFailure :: Lens' CreateStack (Maybe Text)
 csOnFailure = lens _csOnFailure (\s a -> s { _csOnFailure = a })
+
+-- | A list of Parameter structures that specify input parameters for the
+-- stack.
+csParameters :: Lens' CreateStack [Parameter]
+csParameters = lens _csParameters (\s a -> s { _csParameters = a })
+
+-- | The name associated with the stack. The name must be unique within your
+-- AWS account. Must contain only alphanumeric characters (case sensitive)
+-- and start with an alpha character. Maximum length of the name is 255
+-- characters.
+csStackName :: Lens' CreateStack Text
+csStackName = lens _csStackName (\s a -> s { _csStackName = a })
 
 -- | Structure containing the stack policy body. For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
--- You can specify either the StackPolicyBody or the StackPolicyURL parameter,
--- but not both.
+-- You can specify either the StackPolicyBody or the StackPolicyURL
+-- parameter, but not both.
 csStackPolicyBody :: Lens' CreateStack (Maybe Text)
 csStackPolicyBody =
     lens _csStackPolicyBody (\s a -> s { _csStackPolicyBody = a })
@@ -201,32 +176,52 @@ csStackPolicyBody =
 -- stack. You can specify either the StackPolicyBody or the StackPolicyURL
 -- parameter, but not both.
 csStackPolicyURL :: Lens' CreateStack (Maybe Text)
-csStackPolicyURL =
-    lens _csStackPolicyURL (\s a -> s { _csStackPolicyURL = a })
+csStackPolicyURL = lens _csStackPolicyURL (\s a -> s { _csStackPolicyURL = a })
 
 -- | A set of user-defined Tags to associate with this stack, represented by
--- key/value pairs. Tags defined for the stack are propagated to EC2 resources
--- that are created as part of the stack. A maximum number of 10 tags can be
--- specified.
+-- key/value pairs. Tags defined for the stack are propagated to EC2
+-- resources that are created as part of the stack. A maximum number of 10
+-- tags can be specified.
 csTags :: Lens' CreateStack [Tag]
 csTags = lens _csTags (\s a -> s { _csTags = a })
 
-instance ToQuery CreateStack where
-    toQuery = genericQuery def
+-- | Structure containing the template body with a minimum length of 1 byte
+-- and a maximum length of 51,200 bytes. For more information, go to
+-- Template Anatomy in the AWS CloudFormation User Guide. Conditional: You
+-- must specify either the TemplateBody or the TemplateURL parameter, but
+-- not both.
+csTemplateBody :: Lens' CreateStack (Maybe Text)
+csTemplateBody = lens _csTemplateBody (\s a -> s { _csTemplateBody = a })
 
--- | The output for a CreateStack action.
+-- | Location of file containing the template body. The URL must point to a
+-- template (max size: 307,200 bytes) located in an S3 bucket in the same
+-- region as the stack. For more information, go to the Template Anatomy in
+-- the AWS CloudFormation User Guide. Conditional: You must specify either
+-- the TemplateBody or the TemplateURL parameter, but not both.
+csTemplateURL :: Lens' CreateStack (Maybe Text)
+csTemplateURL = lens _csTemplateURL (\s a -> s { _csTemplateURL = a })
+
+-- | The amount of time that can pass before the stack status becomes
+-- CREATE_FAILED; if DisableRollback is not set or is set to false, the
+-- stack will be rolled back.
+csTimeoutInMinutes :: Lens' CreateStack (Maybe Natural)
+csTimeoutInMinutes =
+    lens _csTimeoutInMinutes (\s a -> s { _csTimeoutInMinutes = a })
+
+instance ToQuery CreateStack
+
+instance ToPath CreateStack where
+    toPath = const "/"
+
 newtype CreateStackResponse = CreateStackResponse
     { _csrStackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateStackResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateStackResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Maybe Text@
+-- * 'csrStackId' @::@ 'Maybe' 'Text'
 --
 createStackResponse :: CreateStackResponse
 createStackResponse = CreateStackResponse
@@ -237,12 +232,10 @@ createStackResponse = CreateStackResponse
 csrStackId :: Lens' CreateStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\s a -> s { _csrStackId = a })
 
-instance FromXML CreateStackResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateStack where
     type Sv CreateStack = CloudFormation
     type Rs CreateStack = CreateStackResponse
 
-    request = post "CreateStack"
-    response _ = xmlResponse
+    request  = post "CreateStack"
+    response = xmlResponse $ \h x -> CreateStackResponse
+        <$> x %| "StackId"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,10 +25,6 @@
 -- override any currently applied security groups. For more information, see
 -- Manage Security Groups in Amazon VPC in the Elastic Load Balancing
 -- Developer Guide.
--- https://elasticloadbalancing.amazonaws.com/?SecurityGroups.member.1=sg-123456789
--- &LoadBalancerName=my-test-vpc-loadbalancer &Version=2012-06-01
--- &Action=ApplySecurityGroupsToLoadBalancer &AUTHPARAMS sg-123456789
--- 06b5decc-102a-11e3-9ad6-bf3e4EXAMPLE.
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
     -- * Request
@@ -45,35 +43,33 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     , asgtlbrSecurityGroups
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the ApplySecurityGroupsToLoadBalancer action.
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
     { _asgtlbLoadBalancerName :: Text
-    , _asgtlbSecurityGroups :: [Text]
+    , _asgtlbSecurityGroups   :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ApplySecurityGroupsToLoadBalancer' request.
+-- | 'ApplySecurityGroupsToLoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'asgtlbLoadBalancerName' @::@ 'Text'
 --
--- * @SecurityGroups ::@ @[Text]@
+-- * 'asgtlbSecurityGroups' @::@ ['Text']
 --
 applySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbLoadBalancerName'
-                                  -> [Text] -- ^ 'asgtlbSecurityGroups'
                                   -> ApplySecurityGroupsToLoadBalancer
-applySecurityGroupsToLoadBalancer p1 p2 = ApplySecurityGroupsToLoadBalancer
+applySecurityGroupsToLoadBalancer p1 = ApplySecurityGroupsToLoadBalancer
     { _asgtlbLoadBalancerName = p1
-    , _asgtlbSecurityGroups = p2
+    , _asgtlbSecurityGroups   = mempty
     }
 
--- | The name associated with the load balancer. The name must be unique within
--- the set of load balancers associated with your AWS account.
+-- | The name associated with the load balancer. The name must be unique
+-- within the set of load balancers associated with your AWS account.
 asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
 asgtlbLoadBalancerName =
     lens _asgtlbLoadBalancerName (\s a -> s { _asgtlbLoadBalancerName = a })
@@ -85,22 +81,26 @@ asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
 asgtlbSecurityGroups =
     lens _asgtlbSecurityGroups (\s a -> s { _asgtlbSecurityGroups = a })
 
-instance ToQuery ApplySecurityGroupsToLoadBalancer where
-    toQuery = genericQuery def
+instance ToQuery ApplySecurityGroupsToLoadBalancer
 
--- | The out for the ApplySecurityGroupsToLoadBalancer action.
+instance ToPath ApplySecurityGroupsToLoadBalancer where
+    toPath = const "/"
+
 newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
     { _asgtlbrSecurityGroups :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ApplySecurityGroupsToLoadBalancerResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList ApplySecurityGroupsToLoadBalancerResponse where
+    type Item ApplySecurityGroupsToLoadBalancerResponse = Text
+
+    fromList = ApplySecurityGroupsToLoadBalancerResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _asgtlbrSecurityGroups
+
+-- | 'ApplySecurityGroupsToLoadBalancerResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SecurityGroups ::@ @[Text]@
+-- * 'asgtlbrSecurityGroups' @::@ ['Text']
 --
 applySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerResponse
 applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
@@ -112,12 +112,10 @@ asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrSecurityGroups =
     lens _asgtlbrSecurityGroups (\s a -> s { _asgtlbrSecurityGroups = a })
 
-instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ApplySecurityGroupsToLoadBalancer where
     type Sv ApplySecurityGroupsToLoadBalancer = ELB
     type Rs ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancerResponse
 
-    request = post "ApplySecurityGroupsToLoadBalancer"
-    response _ = xmlResponse
+    request  = post "ApplySecurityGroupsToLoadBalancer"
+    response = xmlResponse $ \h x -> ApplySecurityGroupsToLoadBalancerResponse
+        <$> x %| "SecurityGroups"

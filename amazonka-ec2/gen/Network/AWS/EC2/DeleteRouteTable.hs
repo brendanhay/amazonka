@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteRouteTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,12 +22,7 @@
 
 -- | Deletes the specified route table. You must disassociate the route table
 -- from any subnets before you can delete it. You can't delete the main route
--- table. Example This example deletes the specified route table.
--- https://ec2.amazonaws.com/?Action=DeleteRouteTable
--- &amp;RouteTableId=rtb-e4ad488d &amp;AUTHPARAMS &lt;DeleteRouteTableResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteRouteTableResponse&gt;.
+-- table.
 module Network.AWS.EC2.DeleteRouteTable
     (
     -- * Request
@@ -33,7 +30,8 @@ module Network.AWS.EC2.DeleteRouteTable
     -- ** Request constructor
     , deleteRouteTable
     -- ** Request lenses
-    , drtRouteTableId
+    , drt1DryRun
+    , drt1RouteTableId
 
     -- * Response
     , DeleteRouteTableResponse
@@ -41,41 +39,47 @@ module Network.AWS.EC2.DeleteRouteTable
     , deleteRouteTableResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteRouteTable = DeleteRouteTable
-    { _drtRouteTableId :: Text
+data DeleteRouteTable = DeleteRouteTable
+    { _drt1DryRun       :: Maybe Bool
+    , _drt1RouteTableId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteRouteTable' request.
+-- | 'DeleteRouteTable' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RouteTableId ::@ @Text@
+-- * 'drt1DryRun' @::@ 'Maybe' 'Bool'
 --
-deleteRouteTable :: Text -- ^ 'drtRouteTableId'
+-- * 'drt1RouteTableId' @::@ 'Text'
+--
+deleteRouteTable :: Text -- ^ 'drt1RouteTableId'
                  -> DeleteRouteTable
 deleteRouteTable p1 = DeleteRouteTable
-    { _drtRouteTableId = p1
+    { _drt1RouteTableId = p1
+    , _drt1DryRun       = Nothing
     }
 
--- | The ID of the route table.
-drtRouteTableId :: Lens' DeleteRouteTable Text
-drtRouteTableId = lens _drtRouteTableId (\s a -> s { _drtRouteTableId = a })
+drt1DryRun :: Lens' DeleteRouteTable (Maybe Bool)
+drt1DryRun = lens _drt1DryRun (\s a -> s { _drt1DryRun = a })
 
-instance ToQuery DeleteRouteTable where
-    toQuery = genericQuery def
+-- | The ID of the route table.
+drt1RouteTableId :: Lens' DeleteRouteTable Text
+drt1RouteTableId = lens _drt1RouteTableId (\s a -> s { _drt1RouteTableId = a })
+
+instance ToQuery DeleteRouteTable
+
+instance ToPath DeleteRouteTable where
+    toPath = const "/"
 
 data DeleteRouteTableResponse = DeleteRouteTableResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteRouteTableResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteRouteTableResponse' constructor.
 deleteRouteTableResponse :: DeleteRouteTableResponse
 deleteRouteTableResponse = DeleteRouteTableResponse
 
@@ -83,5 +87,5 @@ instance AWSRequest DeleteRouteTable where
     type Sv DeleteRouteTable = EC2
     type Rs DeleteRouteTable = DeleteRouteTableResponse
 
-    request = post "DeleteRouteTable"
-    response _ = nullaryResponse DeleteRouteTableResponse
+    request  = post "DeleteRouteTable"
+    response = nullaryResponse DeleteRouteTableResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,16 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the log group with the specified name and permanently deletes all
--- the archived log events associated with it. Delete a Log Group The
--- following is an example of a DeleteLogGroup request and response. POST /
--- HTTP/1.1 Host: logs.. X-Amz-Date: Authorization: AWS4-HMAC-SHA256
--- Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Accept: application/json Content-Type:
--- application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]>
--- X-Amz-Target: Logs_20140328.DeleteLogGroup { "logGroupName":
--- "exampleLogGroupName" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
--- application/x-amz-json-1.1 Content-Length: Date: ]]>.
+-- the archived log events associated with it.
 module Network.AWS.CloudWatchLogs.DeleteLogGroup
     (
     -- * Request
@@ -44,20 +37,19 @@ module Network.AWS.CloudWatchLogs.DeleteLogGroup
     , deleteLogGroupResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudWatchLogs.Types
 
 newtype DeleteLogGroup = DeleteLogGroup
     { _dlgLogGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLogGroup' request.
+-- | 'DeleteLogGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogGroupName ::@ @Text@
+-- * 'dlgLogGroupName' @::@ 'Text'
 --
 deleteLogGroup :: Text -- ^ 'dlgLogGroupName'
                -> DeleteLogGroup
@@ -68,27 +60,29 @@ deleteLogGroup p1 = DeleteLogGroup
 dlgLogGroupName :: Lens' DeleteLogGroup Text
 dlgLogGroupName = lens _dlgLogGroupName (\s a -> s { _dlgLogGroupName = a })
 
-instance ToPath DeleteLogGroup
+instance ToPath DeleteLogGroup where
+    toPath = const "/"
 
-instance ToQuery DeleteLogGroup
+instance ToQuery DeleteLogGroup where
+    toQuery = const mempty
 
 instance ToHeaders DeleteLogGroup
 
-instance ToJSON DeleteLogGroup
+instance ToBody DeleteLogGroup where
+    toBody = toBody . encode . _dlgLogGroupName
 
 data DeleteLogGroupResponse = DeleteLogGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLogGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteLogGroupResponse' constructor.
 deleteLogGroupResponse :: DeleteLogGroupResponse
 deleteLogGroupResponse = DeleteLogGroupResponse
+
+-- FromJSON
 
 instance AWSRequest DeleteLogGroup where
     type Sv DeleteLogGroup = CloudWatchLogs
     type Rs DeleteLogGroup = DeleteLogGroupResponse
 
-    request = get
-    response _ = nullaryResponse DeleteLogGroupResponse
+    request  = post'
+    response = nullaryResponse DeleteLogGroupResponse

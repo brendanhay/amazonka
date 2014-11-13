@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ReplaceNetworkAclEntry
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,17 +22,7 @@
 
 -- | Replaces an entry (rule) in a network ACL. For more information about
 -- network ACLs, see Network ACLs in the Amazon Virtual Private Cloud User
--- Guide. Example This example replaces the egress entry numbered 110 in the
--- network ACL with ID acl-2cb85d45. The new rule denies egress traffic
--- destined for anywhere (0.0.0.0/0) on TCP port 139.
--- https://ec2.amazonaws.com/?Action=ReplaceNetworkAclEntry
--- &amp;NetworkAclId=acl-2cb85d45 &amp;RuleNumber=110 &amp;Protocol=tcp
--- &amp;RuleAction=deny &amp;Egress=true &amp;CidrBlock=0.0.0.0/0
--- &amp;PortRange.From=139 &amp;PortRange.To=139 &amp;AUTHPARAMS
--- &lt;ReplaceNetworkAclEntryResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/ReplaceNetworkAclEntryResponse&gt;.
+-- Guide.
 module Network.AWS.EC2.ReplaceNetworkAclEntry
     (
     -- * Request
@@ -38,14 +30,15 @@ module Network.AWS.EC2.ReplaceNetworkAclEntry
     -- ** Request constructor
     , replaceNetworkAclEntry
     -- ** Request lenses
+    , rnaeCidrBlock
+    , rnaeDryRun
+    , rnaeEgress
+    , rnaeIcmpTypeCode
     , rnaeNetworkAclId
-    , rnaeRuleNumber
+    , rnaePortRange
     , rnaeProtocol
     , rnaeRuleAction
-    , rnaeEgress
-    , rnaeCidrBlock
-    , rnaeIcmpTypeCode
-    , rnaePortRange
+    , rnaeRuleNumber
 
     -- * Response
     , ReplaceNetworkAclEntryResponse
@@ -53,105 +46,111 @@ module Network.AWS.EC2.ReplaceNetworkAclEntry
     , replaceNetworkAclEntryResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
-    { _rnaeNetworkAclId :: Text
-    , _rnaeRuleNumber :: !Integer
-    , _rnaeProtocol :: Text
-    , _rnaeRuleAction :: RuleAction
-    , _rnaeEgress :: !Bool
-    , _rnaeCidrBlock :: Text
+    { _rnaeCidrBlock    :: Text
+    , _rnaeDryRun       :: Maybe Bool
+    , _rnaeEgress       :: Bool
     , _rnaeIcmpTypeCode :: Maybe IcmpTypeCode
-    , _rnaePortRange :: Maybe PortRange
-    } deriving (Eq, Ord, Show, Generic)
+    , _rnaeNetworkAclId :: Text
+    , _rnaePortRange    :: Maybe PortRange
+    , _rnaeProtocol     :: Text
+    , _rnaeRuleAction   :: Text
+    , _rnaeRuleNumber   :: Int
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReplaceNetworkAclEntry' request.
+-- | 'ReplaceNetworkAclEntry' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkAclId ::@ @Text@
+-- * 'rnaeCidrBlock' @::@ 'Text'
 --
--- * @RuleNumber ::@ @Integer@
+-- * 'rnaeDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Protocol ::@ @Text@
+-- * 'rnaeEgress' @::@ 'Bool'
 --
--- * @RuleAction ::@ @RuleAction@
+-- * 'rnaeIcmpTypeCode' @::@ 'Maybe' 'IcmpTypeCode'
 --
--- * @Egress ::@ @Bool@
+-- * 'rnaeNetworkAclId' @::@ 'Text'
 --
--- * @CidrBlock ::@ @Text@
+-- * 'rnaePortRange' @::@ 'Maybe' 'PortRange'
 --
--- * @IcmpTypeCode ::@ @Maybe IcmpTypeCode@
+-- * 'rnaeProtocol' @::@ 'Text'
 --
--- * @PortRange ::@ @Maybe PortRange@
+-- * 'rnaeRuleAction' @::@ 'Text'
+--
+-- * 'rnaeRuleNumber' @::@ 'Int'
 --
 replaceNetworkAclEntry :: Text -- ^ 'rnaeNetworkAclId'
-                       -> Integer -- ^ 'rnaeRuleNumber'
+                       -> Int -- ^ 'rnaeRuleNumber'
                        -> Text -- ^ 'rnaeProtocol'
-                       -> RuleAction -- ^ 'rnaeRuleAction'
+                       -> Text -- ^ 'rnaeRuleAction'
                        -> Bool -- ^ 'rnaeEgress'
                        -> Text -- ^ 'rnaeCidrBlock'
                        -> ReplaceNetworkAclEntry
 replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
     { _rnaeNetworkAclId = p1
-    , _rnaeRuleNumber = p2
-    , _rnaeProtocol = p3
-    , _rnaeRuleAction = p4
-    , _rnaeEgress = p5
-    , _rnaeCidrBlock = p6
+    , _rnaeRuleNumber   = p2
+    , _rnaeProtocol     = p3
+    , _rnaeRuleAction   = p4
+    , _rnaeEgress       = p5
+    , _rnaeCidrBlock    = p6
+    , _rnaeDryRun       = Nothing
     , _rnaeIcmpTypeCode = Nothing
-    , _rnaePortRange = Nothing
+    , _rnaePortRange    = Nothing
     }
 
--- | The ID of the ACL.
-rnaeNetworkAclId :: Lens' ReplaceNetworkAclEntry Text
-rnaeNetworkAclId =
-    lens _rnaeNetworkAclId (\s a -> s { _rnaeNetworkAclId = a })
+-- | The network range to allow or deny, in CIDR notation.
+rnaeCidrBlock :: Lens' ReplaceNetworkAclEntry Text
+rnaeCidrBlock = lens _rnaeCidrBlock (\s a -> s { _rnaeCidrBlock = a })
 
--- | The rule number of the entry to replace.
-rnaeRuleNumber :: Lens' ReplaceNetworkAclEntry Integer
-rnaeRuleNumber = lens _rnaeRuleNumber (\s a -> s { _rnaeRuleNumber = a })
-
--- | The IP protocol. You can specify all or -1 to mean all protocols.
-rnaeProtocol :: Lens' ReplaceNetworkAclEntry Text
-rnaeProtocol = lens _rnaeProtocol (\s a -> s { _rnaeProtocol = a })
-
--- | Indicates whether to allow or deny the traffic that matches the rule.
-rnaeRuleAction :: Lens' ReplaceNetworkAclEntry RuleAction
-rnaeRuleAction = lens _rnaeRuleAction (\s a -> s { _rnaeRuleAction = a })
+rnaeDryRun :: Lens' ReplaceNetworkAclEntry (Maybe Bool)
+rnaeDryRun = lens _rnaeDryRun (\s a -> s { _rnaeDryRun = a })
 
 -- | Indicates whether to replace the egress rule. Default: If no value is
 -- specified, we replace the ingress rule.
 rnaeEgress :: Lens' ReplaceNetworkAclEntry Bool
 rnaeEgress = lens _rnaeEgress (\s a -> s { _rnaeEgress = a })
 
--- | The network range to allow or deny, in CIDR notation.
-rnaeCidrBlock :: Lens' ReplaceNetworkAclEntry Text
-rnaeCidrBlock = lens _rnaeCidrBlock (\s a -> s { _rnaeCidrBlock = a })
-
--- | ICMP protocol: The ICMP type and code.
+-- | ICMP protocol: The ICMP type and code. Required if specifying 1 (ICMP)
+-- for the protocol.
 rnaeIcmpTypeCode :: Lens' ReplaceNetworkAclEntry (Maybe IcmpTypeCode)
-rnaeIcmpTypeCode =
-    lens _rnaeIcmpTypeCode (\s a -> s { _rnaeIcmpTypeCode = a })
+rnaeIcmpTypeCode = lens _rnaeIcmpTypeCode (\s a -> s { _rnaeIcmpTypeCode = a })
 
--- | TCP or UDP protocols: The range of ports the rule applies to.
+-- | The ID of the ACL.
+rnaeNetworkAclId :: Lens' ReplaceNetworkAclEntry Text
+rnaeNetworkAclId = lens _rnaeNetworkAclId (\s a -> s { _rnaeNetworkAclId = a })
+
+-- | TCP or UDP protocols: The range of ports the rule applies to. Required if
+-- specifying 6 (TCP) or 17 (UDP) for the protocol.
 rnaePortRange :: Lens' ReplaceNetworkAclEntry (Maybe PortRange)
 rnaePortRange = lens _rnaePortRange (\s a -> s { _rnaePortRange = a })
 
-instance ToQuery ReplaceNetworkAclEntry where
-    toQuery = genericQuery def
+-- | The IP protocol. You can specify all or -1 to mean all protocols.
+rnaeProtocol :: Lens' ReplaceNetworkAclEntry Text
+rnaeProtocol = lens _rnaeProtocol (\s a -> s { _rnaeProtocol = a })
+
+-- | Indicates whether to allow or deny the traffic that matches the rule.
+rnaeRuleAction :: Lens' ReplaceNetworkAclEntry Text
+rnaeRuleAction = lens _rnaeRuleAction (\s a -> s { _rnaeRuleAction = a })
+
+-- | The rule number of the entry to replace.
+rnaeRuleNumber :: Lens' ReplaceNetworkAclEntry Int
+rnaeRuleNumber = lens _rnaeRuleNumber (\s a -> s { _rnaeRuleNumber = a })
+
+instance ToQuery ReplaceNetworkAclEntry
+
+instance ToPath ReplaceNetworkAclEntry where
+    toPath = const "/"
 
 data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReplaceNetworkAclEntryResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ReplaceNetworkAclEntryResponse' constructor.
 replaceNetworkAclEntryResponse :: ReplaceNetworkAclEntryResponse
 replaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
 
@@ -159,5 +158,5 @@ instance AWSRequest ReplaceNetworkAclEntry where
     type Sv ReplaceNetworkAclEntry = EC2
     type Rs ReplaceNetworkAclEntry = ReplaceNetworkAclEntryResponse
 
-    request = post "ReplaceNetworkAclEntry"
-    response _ = nullaryResponse ReplaceNetworkAclEntryResponse
+    request  = post "ReplaceNetworkAclEntry"
+    response = nullaryResponse ReplaceNetworkAclEntryResponse

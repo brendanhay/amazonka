@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesListings
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,16 +21,21 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes your account's Reserved Instance listings in the Reserved
--- Instance Marketplace. For more information, see Reserved Instance
--- Marketplace in the Amazon Elastic Compute Cloud User Guide. Example This
--- example shows all the listings associated with your account.
--- https://ec2.amazonaws.com/?Action=DescribeReservedInstancesListings
--- &amp;AUTHPARAMS cec5c904-8f3a-4de5-8f5a-ff7f9EXAMPLE
--- 253dfbf9-c335-4808-b956-d942cEXAMPLE e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE
--- 2012-07-06T19:35:29.000Z 2012-07-06T19:35:30.000Z active ACTIVE Available
--- 20 Sold 0 Cancelled 0 Pending 0 8 480.0 USD false 7 420.0 USD false 6 360.0
--- USD active 5 300.0 USD false 4 240.0 USD false 3 180.0 USD false 2 120.0
--- USD false 1 60.0 USD false myclienttoken1.
+-- Instance Marketplace. The Reserved Instance Marketplace matches sellers who
+-- want to resell Reserved Instance capacity that they no longer need with
+-- buyers who want to purchase additional capacity. Reserved Instances bought
+-- and sold through the Reserved Instance Marketplace work like any other
+-- Reserved Instances. As a seller, you choose to list some or all of your
+-- Reserved Instances, and you specify the upfront price to receive for them.
+-- Your Reserved Instances are then listed in the Reserved Instance
+-- Marketplace and are available for purchase. As a buyer, you specify the
+-- configuration of the Reserved Instance to purchase, and the Marketplace
+-- matches what you're searching for with what's available. The Marketplace
+-- first sells the lowest priced Reserved Instances to you, and continues to
+-- sell available Reserved Instance listings to you until your demand is met.
+-- You are charged based on the total price of all of the listings that you
+-- purchase. For more information, see Reserved Instance Marketplace in the
+-- Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.DescribeReservedInstancesListings
     (
     -- * Request
@@ -36,9 +43,9 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     -- ** Request constructor
     , describeReservedInstancesListings
     -- ** Request lenses
+    , drilFilters
     , drilReservedInstancesId
     , drilReservedInstancesListingId
-    , drilFilters
 
     -- * Response
     , DescribeReservedInstancesListingsResponse
@@ -48,68 +55,73 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     , drilrReservedInstancesListings
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings
-    { _drilReservedInstancesId :: Maybe Text
+    { _drilFilters                    :: [Filter]
+    , _drilReservedInstancesId        :: Maybe Text
     , _drilReservedInstancesListingId :: Maybe Text
-    , _drilFilters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeReservedInstancesListings' request.
+-- | 'DescribeReservedInstancesListings' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesId ::@ @Maybe Text@
+-- * 'drilFilters' @::@ ['Filter']
 --
--- * @ReservedInstancesListingId ::@ @Maybe Text@
+-- * 'drilReservedInstancesId' @::@ 'Maybe' 'Text'
 --
--- * @Filters ::@ @[Filter]@
+-- * 'drilReservedInstancesListingId' @::@ 'Maybe' 'Text'
 --
 describeReservedInstancesListings :: DescribeReservedInstancesListings
 describeReservedInstancesListings = DescribeReservedInstancesListings
-    { _drilReservedInstancesId = Nothing
+    { _drilReservedInstancesId        = Nothing
     , _drilReservedInstancesListingId = Nothing
-    , _drilFilters = mempty
+    , _drilFilters                    = mempty
     }
+
+-- | One or more filters. reserved-instances-id - The ID of the Reserved
+-- Instances. reserved-instances-listing-id - The ID of the Reserved
+-- Instances listing. status - The status of the Reserved Instance listing
+-- (pending | active | cancelled | closed). status-message - The reason for
+-- the status.
+drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
+drilFilters = lens _drilFilters (\s a -> s { _drilFilters = a })
 
 -- | One or more Reserved Instance IDs.
 drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilReservedInstancesId =
-    lens _drilReservedInstancesId
-         (\s a -> s { _drilReservedInstancesId = a })
+    lens _drilReservedInstancesId (\s a -> s { _drilReservedInstancesId = a })
 
 -- | One or more Reserved Instance Listing IDs.
 drilReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilReservedInstancesListingId =
     lens _drilReservedInstancesListingId
-         (\s a -> s { _drilReservedInstancesListingId = a })
+        (\s a -> s { _drilReservedInstancesListingId = a })
 
--- | One or more filters. reserved-instances-id - The ID of the Reserved
--- Instances. reserved-instances-listing-id - The ID of the Reserved Instances
--- listing. status - The status of the Reserved Instance listing (pending |
--- active | cancelled | closed). status-message - The reason for the status.
-drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
-drilFilters = lens _drilFilters (\s a -> s { _drilFilters = a })
+instance ToQuery DescribeReservedInstancesListings
 
-instance ToQuery DescribeReservedInstancesListings where
-    toQuery = genericQuery def
+instance ToPath DescribeReservedInstancesListings where
+    toPath = const "/"
 
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings :: [ReservedInstancesListing]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeReservedInstancesListingsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeReservedInstancesListingsResponse where
+    type Item DescribeReservedInstancesListingsResponse = ReservedInstancesListing
+
+    fromList = DescribeReservedInstancesListingsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _drilrReservedInstancesListings
+
+-- | 'DescribeReservedInstancesListingsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesListings ::@ @[ReservedInstancesListing]@
+-- * 'drilrReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
 describeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse
 describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
@@ -120,14 +132,12 @@ describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsRes
 drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
 drilrReservedInstancesListings =
     lens _drilrReservedInstancesListings
-         (\s a -> s { _drilrReservedInstancesListings = a })
-
-instance FromXML DescribeReservedInstancesListingsResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _drilrReservedInstancesListings = a })
 
 instance AWSRequest DescribeReservedInstancesListings where
     type Sv DescribeReservedInstancesListings = EC2
     type Rs DescribeReservedInstancesListings = DescribeReservedInstancesListingsResponse
 
-    request = post "DescribeReservedInstancesListings"
-    response _ = xmlResponse
+    request  = post "DescribeReservedInstancesListings"
+    response = xmlResponse $ \h x -> DescribeReservedInstancesListingsResponse
+        <$> x %| "reservedInstancesListingsSet"

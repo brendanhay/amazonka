@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.PutRolePolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,16 +23,7 @@
 -- | Adds (or updates) a policy document associated with the specified role. For
 -- information about policies, go to Overview of Policies in the Using IAM
 -- guide. For information about limits on the policies you can associate with
--- a role, see Limitations on IAM Entities in the Using IAM guide. Because
--- policy documents can be large, you should use POST rather than GET when
--- calling PutRolePolicy. For information about setting up signatures and
--- authorization through the API, go to Signing AWS API Requests in the AWS
--- General Reference. For general information about using the Query API with
--- IAM, go to Making Query Requests in the Using IAM guide.
--- https://iam.amazonaws.com/ ?Action=PutRolePolicy &RoleName=S3Access
--- &PolicyName=S3AccessPolicy
--- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"s3:*","Resource":"*"}]}
--- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- a role, see Limitations on IAM Entities in the Using IAM guide.
 module Network.AWS.IAM.PutRolePolicy
     (
     -- * Request
@@ -38,9 +31,9 @@ module Network.AWS.IAM.PutRolePolicy
     -- ** Request constructor
     , putRolePolicy
     -- ** Request lenses
-    , prpRoleName
-    , prpPolicyName
     , prpPolicyDocument
+    , prpPolicyName
+    , prpRoleName
 
     -- * Response
     , PutRolePolicyResponse
@@ -48,60 +41,59 @@ module Network.AWS.IAM.PutRolePolicy
     , putRolePolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data PutRolePolicy = PutRolePolicy
-    { _prpRoleName :: Text
-    , _prpPolicyName :: Text
-    , _prpPolicyDocument :: Text
+    { _prpPolicyDocument :: Text
+    , _prpPolicyName     :: Text
+    , _prpRoleName       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutRolePolicy' request.
+-- | 'PutRolePolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RoleName ::@ @Text@
+-- * 'prpPolicyDocument' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'prpPolicyName' @::@ 'Text'
 --
--- * @PolicyDocument ::@ @Text@
+-- * 'prpRoleName' @::@ 'Text'
 --
 putRolePolicy :: Text -- ^ 'prpRoleName'
               -> Text -- ^ 'prpPolicyName'
               -> Text -- ^ 'prpPolicyDocument'
               -> PutRolePolicy
 putRolePolicy p1 p2 p3 = PutRolePolicy
-    { _prpRoleName = p1
-    , _prpPolicyName = p2
+    { _prpRoleName       = p1
+    , _prpPolicyName     = p2
     , _prpPolicyDocument = p3
     }
-
--- | Name of the role to associate the policy with.
-prpRoleName :: Lens' PutRolePolicy Text
-prpRoleName = lens _prpRoleName (\s a -> s { _prpRoleName = a })
-
--- | Name of the policy document.
-prpPolicyName :: Lens' PutRolePolicy Text
-prpPolicyName = lens _prpPolicyName (\s a -> s { _prpPolicyName = a })
 
 -- | The policy document.
 prpPolicyDocument :: Lens' PutRolePolicy Text
 prpPolicyDocument =
     lens _prpPolicyDocument (\s a -> s { _prpPolicyDocument = a })
 
-instance ToQuery PutRolePolicy where
-    toQuery = genericQuery def
+-- | The name of the policy document.
+prpPolicyName :: Lens' PutRolePolicy Text
+prpPolicyName = lens _prpPolicyName (\s a -> s { _prpPolicyName = a })
+
+-- | The name of the role to associate the policy with.
+prpRoleName :: Lens' PutRolePolicy Text
+prpRoleName = lens _prpRoleName (\s a -> s { _prpRoleName = a })
+
+instance ToQuery PutRolePolicy
+
+instance ToPath PutRolePolicy where
+    toPath = const "/"
 
 data PutRolePolicyResponse = PutRolePolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutRolePolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutRolePolicyResponse' constructor.
 putRolePolicyResponse :: PutRolePolicyResponse
 putRolePolicyResponse = PutRolePolicyResponse
 
@@ -109,5 +101,5 @@ instance AWSRequest PutRolePolicy where
     type Sv PutRolePolicy = IAM
     type Rs PutRolePolicy = PutRolePolicyResponse
 
-    request = post "PutRolePolicy"
-    response _ = nullaryResponse PutRolePolicyResponse
+    request  = post "PutRolePolicy"
+    response = nullaryResponse PutRolePolicyResponse

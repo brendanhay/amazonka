@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatch.SetAlarmState
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,9 +32,9 @@ module Network.AWS.CloudWatch.SetAlarmState
     , setAlarmState
     -- ** Request lenses
     , sasAlarmName
-    , sasStateValue
     , sasStateReason
     , sasStateReasonData
+    , sasStateValue
 
     -- * Response
     , SetAlarmStateResponse
@@ -40,38 +42,38 @@ module Network.AWS.CloudWatch.SetAlarmState
     , setAlarmStateResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data SetAlarmState = SetAlarmState
-    { _sasAlarmName :: Text
-    , _sasStateValue :: StateValue
-    , _sasStateReason :: Text
+    { _sasAlarmName       :: Text
+    , _sasStateReason     :: Text
     , _sasStateReasonData :: Maybe Text
+    , _sasStateValue      :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetAlarmState' request.
+-- | 'SetAlarmState' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AlarmName ::@ @Text@
+-- * 'sasAlarmName' @::@ 'Text'
 --
--- * @StateValue ::@ @StateValue@
+-- * 'sasStateReason' @::@ 'Text'
 --
--- * @StateReason ::@ @Text@
+-- * 'sasStateReasonData' @::@ 'Maybe' 'Text'
 --
--- * @StateReasonData ::@ @Maybe Text@
+-- * 'sasStateValue' @::@ 'Text'
 --
 setAlarmState :: Text -- ^ 'sasAlarmName'
-              -> StateValue -- ^ 'sasStateValue'
+              -> Text -- ^ 'sasStateValue'
               -> Text -- ^ 'sasStateReason'
               -> SetAlarmState
 setAlarmState p1 p2 p3 = SetAlarmState
-    { _sasAlarmName = p1
-    , _sasStateValue = p2
-    , _sasStateReason = p3
+    { _sasAlarmName       = p1
+    , _sasStateValue      = p2
+    , _sasStateReason     = p3
     , _sasStateReasonData = Nothing
     }
 
@@ -80,12 +82,8 @@ setAlarmState p1 p2 p3 = SetAlarmState
 sasAlarmName :: Lens' SetAlarmState Text
 sasAlarmName = lens _sasAlarmName (\s a -> s { _sasAlarmName = a })
 
--- | The value of the state.
-sasStateValue :: Lens' SetAlarmState StateValue
-sasStateValue = lens _sasStateValue (\s a -> s { _sasStateValue = a })
-
--- | The reason that this alarm is set to this specific state (in human-readable
--- text format).
+-- | The reason that this alarm is set to this specific state (in
+-- human-readable text format).
 sasStateReason :: Lens' SetAlarmState Text
 sasStateReason = lens _sasStateReason (\s a -> s { _sasStateReason = a })
 
@@ -95,16 +93,19 @@ sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
 sasStateReasonData =
     lens _sasStateReasonData (\s a -> s { _sasStateReasonData = a })
 
-instance ToQuery SetAlarmState where
-    toQuery = genericQuery def
+-- | The value of the state.
+sasStateValue :: Lens' SetAlarmState Text
+sasStateValue = lens _sasStateValue (\s a -> s { _sasStateValue = a })
+
+instance ToQuery SetAlarmState
+
+instance ToPath SetAlarmState where
+    toPath = const "/"
 
 data SetAlarmStateResponse = SetAlarmStateResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetAlarmStateResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SetAlarmStateResponse' constructor.
 setAlarmStateResponse :: SetAlarmStateResponse
 setAlarmStateResponse = SetAlarmStateResponse
 
@@ -112,5 +113,5 @@ instance AWSRequest SetAlarmState where
     type Sv SetAlarmState = CloudWatch
     type Rs SetAlarmState = SetAlarmStateResponse
 
-    request = post "SetAlarmState"
-    response _ = nullaryResponse SetAlarmStateResponse
+    request  = post "SetAlarmState"
+    response = nullaryResponse SetAlarmStateResponse

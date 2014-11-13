@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetObjectAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,94 +37,97 @@ module Network.AWS.S3.GetObjectAcl
     -- ** Response constructor
     , getObjectAclResponse
     -- ** Response lenses
-    , goarOwner
     , goarGrants
+    , goarOwner
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data GetObjectAcl = GetObjectAcl
-    { _goaBucket :: BucketName
-    , _goaKey :: ObjectKey
-    , _goaVersionId :: Maybe ObjectVersionId
+    { _goaBucket    :: Text
+    , _goaKey       :: Text
+    , _goaVersionId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetObjectAcl' request.
+-- | 'GetObjectAcl' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'goaBucket' @::@ 'Text'
 --
--- * @Key ::@ @ObjectKey@
+-- * 'goaKey' @::@ 'Text'
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * 'goaVersionId' @::@ 'Maybe' 'Text'
 --
-getObjectAcl :: BucketName -- ^ 'goaBucket'
-             -> ObjectKey -- ^ 'goaKey'
+getObjectAcl :: Text -- ^ 'goaBucket'
+             -> Text -- ^ 'goaKey'
              -> GetObjectAcl
 getObjectAcl p1 p2 = GetObjectAcl
-    { _goaBucket = p1
-    , _goaKey = p2
+    { _goaBucket    = p1
+    , _goaKey       = p2
     , _goaVersionId = Nothing
     }
 
-goaBucket :: Lens' GetObjectAcl BucketName
+goaBucket :: Lens' GetObjectAcl Text
 goaBucket = lens _goaBucket (\s a -> s { _goaBucket = a })
 
-goaKey :: Lens' GetObjectAcl ObjectKey
+goaKey :: Lens' GetObjectAcl Text
 goaKey = lens _goaKey (\s a -> s { _goaKey = a })
 
 -- | VersionId used to reference a specific version of the object.
-goaVersionId :: Lens' GetObjectAcl (Maybe ObjectVersionId)
+goaVersionId :: Lens' GetObjectAcl (Maybe Text)
 goaVersionId = lens _goaVersionId (\s a -> s { _goaVersionId = a })
 
-instance ToPath GetObjectAcl
+instance ToPath GetObjectAcl where
+    toPath GetObjectAcl{..} = mconcat
+        [ "/"
+        , toText _goaBucket
+        , "/"
+        , toText _goaKey
+        ]
 
-instance ToQuery GetObjectAcl
+instance ToQuery GetObjectAcl where
+    toQuery GetObjectAcl{..} = mconcat
+        [ "acl"
+        , "versionId" =? _goaVersionId
+        ]
 
 instance ToHeaders GetObjectAcl
 
-instance ToBody GetObjectAcl
-
 data GetObjectAclResponse = GetObjectAclResponse
-    { _goarOwner :: Maybe Owner
-    , _goarGrants :: [Grant]
-    } deriving (Eq, Ord, Show, Generic)
+    { _goarGrants :: [Grant]
+    , _goarOwner  :: Maybe Owner
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetObjectAclResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetObjectAclResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Owner ::@ @Maybe Owner@
+-- * 'goarGrants' @::@ ['Grant']
 --
--- * @Grants ::@ @[Grant]@
+-- * 'goarOwner' @::@ 'Maybe' 'Owner'
 --
 getObjectAclResponse :: GetObjectAclResponse
 getObjectAclResponse = GetObjectAclResponse
-    { _goarOwner = Nothing
+    { _goarOwner  = Nothing
     , _goarGrants = mempty
     }
-
-goarOwner :: Lens' GetObjectAclResponse (Maybe Owner)
-goarOwner = lens _goarOwner (\s a -> s { _goarOwner = a })
 
 -- | A list of grants.
 goarGrants :: Lens' GetObjectAclResponse [Grant]
 goarGrants = lens _goarGrants (\s a -> s { _goarGrants = a })
 
-instance FromXML GetObjectAclResponse where
-    fromXMLOptions = xmlOptions
+goarOwner :: Lens' GetObjectAclResponse (Maybe Owner)
+goarOwner = lens _goarOwner (\s a -> s { _goarOwner = a })
 
 instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
     type Rs GetObjectAcl = GetObjectAclResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetObjectAclResponse
+        <$> x %| "AccessControlList"
+        <*> x %| "Owner"

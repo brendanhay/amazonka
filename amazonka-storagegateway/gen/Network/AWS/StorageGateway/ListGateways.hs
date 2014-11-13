@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.ListGateways
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,21 +27,7 @@
 -- number of gateways returned in a response. If you have more gateways than
 -- are returned in a response-that is, the response returns only a truncated
 -- list of your gateways-the response contains a marker that you can specify
--- in your next request to fetch the next page of gateways. List Gateways The
--- following example does not specify any criteria for the returned list. Note
--- that the request body is "{}". The response returns gateways (or up to the
--- first 100) in the specified region owned by the AWS account. POST /
--- HTTP/1.1 Host: storagegateway.us-east-1.amazonaws.com x-amz-Date:
--- 20120425T120000Z Authorization:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Content-type:
--- application/x-amz-json-1.1 x-amz-target:
--- StorageGateway_20120630.ListGateways HTTP/1.1 200 OK x-amzn-RequestId:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Date: Wed, 25 Apr 2012
--- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 178 {
--- "GatewayList": [ { "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
--- "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway2" } ] }.
+-- in your next request to fetch the next page of gateways.
 module Network.AWS.StorageGateway.ListGateways
     (
     -- * Request
@@ -47,8 +35,8 @@ module Network.AWS.StorageGateway.ListGateways
     -- ** Request constructor
     , listGateways
     -- ** Request lenses
-    , lgMarker
     , lgLimit
+    , lgMarker
 
     -- * Response
     , ListGatewaysResponse
@@ -59,87 +47,82 @@ module Network.AWS.StorageGateway.ListGateways
     , lgrMarker
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
--- | A JSON object containing zero or more of the following fields:
--- ListGatewaysInput$Limit ListGatewaysInput$Marker.
 data ListGateways = ListGateways
-    { _lgMarker :: Maybe Text
-    , _lgLimit :: Maybe Integer
+    { _lgLimit  :: Maybe Natural
+    , _lgMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListGateways' request.
+-- | 'ListGateways' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lgLimit' @::@ 'Maybe' 'Natural'
 --
--- * @Limit ::@ @Maybe Integer@
+-- * 'lgMarker' @::@ 'Maybe' 'Text'
 --
 listGateways :: ListGateways
 listGateways = ListGateways
     { _lgMarker = Nothing
-    , _lgLimit = Nothing
+    , _lgLimit  = Nothing
     }
-
--- | An opaque string that indicates the position at which to begin the returned
--- list of gateways.
-lgMarker :: Lens' ListGateways (Maybe Text)
-lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
-lgLimit :: Lens' ListGateways (Maybe Integer)
+lgLimit :: Lens' ListGateways (Maybe Natural)
 lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a })
 
-instance ToPath ListGateways
+-- | An opaque string that indicates the position at which to begin the
+-- returned list of gateways.
+lgMarker :: Lens' ListGateways (Maybe Text)
+lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 
-instance ToQuery ListGateways
+instance ToPath ListGateways where
+    toPath = const "/"
+
+instance ToQuery ListGateways where
+    toQuery = const mempty
 
 instance ToHeaders ListGateways
 
-instance ToJSON ListGateways
+instance ToBody ListGateways where
+    toBody = toBody . encode . _lgMarker
 
 data ListGatewaysResponse = ListGatewaysResponse
-    { _lgrGateways :: [GatewayInformation]
-    , _lgrMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _lgrGateways :: [GatewayInfo]
+    , _lgrMarker   :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListGatewaysResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListGatewaysResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Gateways ::@ @[GatewayInformation]@
+-- * 'lgrGateways' @::@ ['GatewayInfo']
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lgrMarker' @::@ 'Maybe' 'Text'
 --
 listGatewaysResponse :: ListGatewaysResponse
 listGatewaysResponse = ListGatewaysResponse
     { _lgrGateways = mempty
-    , _lgrMarker = Nothing
+    , _lgrMarker   = Nothing
     }
 
-lgrGateways :: Lens' ListGatewaysResponse [GatewayInformation]
+lgrGateways :: Lens' ListGatewaysResponse [GatewayInfo]
 lgrGateways = lens _lgrGateways (\s a -> s { _lgrGateways = a })
 
 lgrMarker :: Lens' ListGatewaysResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
 
-instance FromJSON ListGatewaysResponse
+-- FromJSON
 
 instance AWSRequest ListGateways where
     type Sv ListGateways = StorageGateway
     type Rs ListGateways = ListGatewaysResponse
 
-    request = get
-    response _ = jsonResponse
-
-instance AWSPager ListGateways where
-    next rq rs = (\x -> rq & lgMarker ?~ x)
-        <$> (rs ^. lgrMarker)
+    request  = post'
+    response = jsonResponse $ \h o -> ListGatewaysResponse
+        <$> o .: "Gateways"
+        <*> o .: "Marker"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.ResumeProcesses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,29 +39,29 @@ module Network.AWS.AutoScaling.ResumeProcesses
     , resumeProcessesResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ResumeProcesses = ResumeProcesses
     { _rpAutoScalingGroupName :: Text
-    , _rpScalingProcesses :: [Text]
+    , _rpScalingProcesses     :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResumeProcesses' request.
+-- | 'ResumeProcesses' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AutoScalingGroupName ::@ @Text@
+-- * 'rpAutoScalingGroupName' @::@ 'Text'
 --
--- * @ScalingProcesses ::@ @[Text]@
+-- * 'rpScalingProcesses' @::@ ['Text']
 --
 resumeProcesses :: Text -- ^ 'rpAutoScalingGroupName'
                 -> ResumeProcesses
 resumeProcesses p1 = ResumeProcesses
     { _rpAutoScalingGroupName = p1
-    , _rpScalingProcesses = mempty
+    , _rpScalingProcesses     = mempty
     }
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
@@ -67,24 +69,23 @@ rpAutoScalingGroupName :: Lens' ResumeProcesses Text
 rpAutoScalingGroupName =
     lens _rpAutoScalingGroupName (\s a -> s { _rpAutoScalingGroupName = a })
 
--- | The processes that you want to suspend or resume, which can include one or
--- more of the following: Launch Terminate HealthCheck ReplaceUnhealthy
--- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To suspend
--- all process types, omit this parameter.
+-- | The processes that you want to suspend or resume, which can include one
+-- or more of the following: Launch Terminate HealthCheck ReplaceUnhealthy
+-- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To
+-- suspend all process types, omit this parameter.
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
 rpScalingProcesses =
     lens _rpScalingProcesses (\s a -> s { _rpScalingProcesses = a })
 
-instance ToQuery ResumeProcesses where
-    toQuery = genericQuery def
+instance ToQuery ResumeProcesses
+
+instance ToPath ResumeProcesses where
+    toPath = const "/"
 
 data ResumeProcessesResponse = ResumeProcessesResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResumeProcessesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ResumeProcessesResponse' constructor.
 resumeProcessesResponse :: ResumeProcessesResponse
 resumeProcessesResponse = ResumeProcessesResponse
 
@@ -92,5 +93,5 @@ instance AWSRequest ResumeProcesses where
     type Sv ResumeProcesses = AutoScaling
     type Rs ResumeProcesses = ResumeProcessesResponse
 
-    request = post "ResumeProcesses"
-    response _ = nullaryResponse ResumeProcessesResponse
+    request  = post "ResumeProcesses"
+    response = nullaryResponse ResumeProcessesResponse

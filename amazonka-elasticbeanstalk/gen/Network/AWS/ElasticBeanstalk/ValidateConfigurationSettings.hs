@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,13 +24,6 @@
 -- or environment, and determines whether those values are valid. This action
 -- returns a list of messages indicating any errors or warnings associated
 -- with the selection of option values.
--- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
--- &EnvironmentName=SampleAppVersion
--- &OptionSettings.member.1.Namespace=aws%3Aautoscaling%3Atrigger
--- &OptionSettings.member.1.OptionName=LowerThreshold
--- &OptionSettings.member.1.Value=1000000
--- &Operation=ValidateConfigurationSettings &AuthParams
--- 06f1cfff-f28f-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     (
     -- * Request
@@ -37,9 +32,9 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     , validateConfigurationSettings
     -- ** Request lenses
     , vcsApplicationName
-    , vcsTemplateName
     , vcsEnvironmentName
     , vcsOptionSettings
+    , vcsTemplateName
 
     -- * Response
     , ValidateConfigurationSettingsResponse
@@ -49,51 +44,44 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     , vcsrMessages
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | A list of validation messages for a specified configuration template.
 data ValidateConfigurationSettings = ValidateConfigurationSettings
     { _vcsApplicationName :: Text
-    , _vcsTemplateName :: Maybe Text
     , _vcsEnvironmentName :: Maybe Text
-    , _vcsOptionSettings :: [ConfigurationOptionSetting]
-    } deriving (Eq, Ord, Show, Generic)
+    , _vcsOptionSettings  :: [ConfigurationOptionSetting]
+    , _vcsTemplateName    :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ValidateConfigurationSettings' request.
+-- | 'ValidateConfigurationSettings' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ApplicationName ::@ @Text@
+-- * 'vcsApplicationName' @::@ 'Text'
 --
--- * @TemplateName ::@ @Maybe Text@
+-- * 'vcsEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'vcsOptionSettings' @::@ ['ConfigurationOptionSetting']
 --
--- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+-- * 'vcsTemplateName' @::@ 'Maybe' 'Text'
 --
 validateConfigurationSettings :: Text -- ^ 'vcsApplicationName'
-                              -> [ConfigurationOptionSetting] -- ^ 'vcsOptionSettings'
                               -> ValidateConfigurationSettings
-validateConfigurationSettings p1 p4 = ValidateConfigurationSettings
+validateConfigurationSettings p1 = ValidateConfigurationSettings
     { _vcsApplicationName = p1
-    , _vcsTemplateName = Nothing
+    , _vcsTemplateName    = Nothing
     , _vcsEnvironmentName = Nothing
-    , _vcsOptionSettings = p4
+    , _vcsOptionSettings  = mempty
     }
 
--- | The name of the application that the configuration template or environment
--- belongs to.
+-- | The name of the application that the configuration template or
+-- environment belongs to.
 vcsApplicationName :: Lens' ValidateConfigurationSettings Text
 vcsApplicationName =
     lens _vcsApplicationName (\s a -> s { _vcsApplicationName = a })
-
--- | The name of the configuration template to validate the settings against.
--- Condition: You cannot specify both this and an environment name.
-vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
-vcsTemplateName = lens _vcsTemplateName (\s a -> s { _vcsTemplateName = a })
 
 -- | The name of the environment to validate the settings against. Condition:
 -- You cannot specify both this and a configuration template name.
@@ -106,22 +94,31 @@ vcsOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSet
 vcsOptionSettings =
     lens _vcsOptionSettings (\s a -> s { _vcsOptionSettings = a })
 
-instance ToQuery ValidateConfigurationSettings where
-    toQuery = genericQuery def
+-- | The name of the configuration template to validate the settings against.
+-- Condition: You cannot specify both this and an environment name.
+vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
+vcsTemplateName = lens _vcsTemplateName (\s a -> s { _vcsTemplateName = a })
 
--- | Provides a list of validation messages.
+instance ToQuery ValidateConfigurationSettings
+
+instance ToPath ValidateConfigurationSettings where
+    toPath = const "/"
+
 newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
     { _vcsrMessages :: [ValidationMessage]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ValidateConfigurationSettingsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList ValidateConfigurationSettingsResponse where
+    type Item ValidateConfigurationSettingsResponse = ValidationMessage
+
+    fromList = ValidateConfigurationSettingsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _vcsrMessages
+
+-- | 'ValidateConfigurationSettingsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Messages ::@ @[ValidationMessage]@
+-- * 'vcsrMessages' @::@ ['ValidationMessage']
 --
 validateConfigurationSettingsResponse :: ValidateConfigurationSettingsResponse
 validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
@@ -132,12 +129,10 @@ validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
 vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrMessages = lens _vcsrMessages (\s a -> s { _vcsrMessages = a })
 
-instance FromXML ValidateConfigurationSettingsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ValidateConfigurationSettings where
     type Sv ValidateConfigurationSettings = ElasticBeanstalk
     type Rs ValidateConfigurationSettings = ValidateConfigurationSettingsResponse
 
-    request = post "ValidateConfigurationSettings"
-    response _ = xmlResponse
+    request  = post "ValidateConfigurationSettings"
+    response = xmlResponse $ \h x -> ValidateConfigurationSettingsResponse
+        <$> x %| "Messages"

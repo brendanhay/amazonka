@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineAnalysisScheme
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,96 +31,79 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     -- ** Request constructor
     , defineAnalysisScheme
     -- ** Request lenses
-    , dasDomainName
-    , dasAnalysisScheme
+    , das2AnalysisScheme
+    , das2DomainName
 
     -- * Response
     , DefineAnalysisSchemeResponse
     -- ** Response constructor
     , defineAnalysisSchemeResponse
     -- ** Response lenses
-    , dasrAnalysisScheme
+    , dasr1AnalysisScheme
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DefineAnalysisScheme operation.
--- Specifies the name of the domain you want to update and the analysis scheme
--- configuration.
 data DefineAnalysisScheme = DefineAnalysisScheme
-    { _dasDomainName :: Text
-    , _dasAnalysisScheme :: AnalysisScheme
-    } deriving (Eq, Ord, Show, Generic)
+    { _das2AnalysisScheme :: AnalysisScheme
+    , _das2DomainName     :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DefineAnalysisScheme' request.
+-- | 'DefineAnalysisScheme' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'das2AnalysisScheme' @::@ 'AnalysisScheme'
 --
--- * @AnalysisScheme ::@ @AnalysisScheme@
+-- * 'das2DomainName' @::@ 'Text'
 --
-defineAnalysisScheme :: Text -- ^ 'dasDomainName'
-                     -> AnalysisScheme -- ^ 'dasAnalysisScheme'
+defineAnalysisScheme :: Text -- ^ 'das2DomainName'
+                     -> AnalysisScheme -- ^ 'das2AnalysisScheme'
                      -> DefineAnalysisScheme
 defineAnalysisScheme p1 p2 = DefineAnalysisScheme
-    { _dasDomainName = p1
-    , _dasAnalysisScheme = p2
+    { _das2DomainName     = p1
+    , _das2AnalysisScheme = p2
     }
 
--- | A string that represents the name of a domain. Domain names are unique
--- across the domains owned by an account within an AWS region. Domain names
--- start with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
-dasDomainName :: Lens' DefineAnalysisScheme Text
-dasDomainName = lens _dasDomainName (\s a -> s { _dasDomainName = a })
+das2AnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
+das2AnalysisScheme =
+    lens _das2AnalysisScheme (\s a -> s { _das2AnalysisScheme = a })
 
--- | Configuration information for an analysis scheme. Each analysis scheme has
--- a unique name and specifies the language of the text to be processed. The
--- following options can be configured for an analysis scheme: Synonyms,
--- Stopwords, StemmingDictionary, and AlgorithmicStemming.
-dasAnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
-dasAnalysisScheme =
-    lens _dasAnalysisScheme (\s a -> s { _dasAnalysisScheme = a })
+das2DomainName :: Lens' DefineAnalysisScheme Text
+das2DomainName = lens _das2DomainName (\s a -> s { _das2DomainName = a })
 
-instance ToQuery DefineAnalysisScheme where
-    toQuery = genericQuery def
+instance ToQuery DefineAnalysisScheme
 
--- | The result of a DefineAnalysisScheme request. Contains the status of the
--- newly-configured analysis scheme.
+instance ToPath DefineAnalysisScheme where
+    toPath = const "/"
+
 newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
-    { _dasrAnalysisScheme :: AnalysisSchemeStatus
-    } deriving (Eq, Ord, Show, Generic)
+    { _dasr1AnalysisScheme :: AnalysisSchemeStatus
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DefineAnalysisSchemeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DefineAnalysisSchemeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AnalysisScheme ::@ @AnalysisSchemeStatus@
+-- * 'dasr1AnalysisScheme' @::@ 'AnalysisSchemeStatus'
 --
-defineAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasrAnalysisScheme'
+defineAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasr1AnalysisScheme'
                              -> DefineAnalysisSchemeResponse
 defineAnalysisSchemeResponse p1 = DefineAnalysisSchemeResponse
-    { _dasrAnalysisScheme = p1
+    { _dasr1AnalysisScheme = p1
     }
 
--- | The status and configuration of an AnalysisScheme.
-dasrAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
-dasrAnalysisScheme =
-    lens _dasrAnalysisScheme (\s a -> s { _dasrAnalysisScheme = a })
-
-instance FromXML DefineAnalysisSchemeResponse where
-    fromXMLOptions = xmlOptions
+dasr1AnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
+dasr1AnalysisScheme =
+    lens _dasr1AnalysisScheme (\s a -> s { _dasr1AnalysisScheme = a })
 
 instance AWSRequest DefineAnalysisScheme where
     type Sv DefineAnalysisScheme = CloudSearch
     type Rs DefineAnalysisScheme = DefineAnalysisSchemeResponse
 
-    request = post "DefineAnalysisScheme"
-    response _ = xmlResponse
+    request  = post "DefineAnalysisScheme"
+    response = xmlResponse $ \h x -> DefineAnalysisSchemeResponse
+        <$> x %| "AnalysisScheme"

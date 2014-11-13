@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketNotification
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,51 +38,50 @@ module Network.AWS.S3.GetBucketNotification
     , gbnrTopicConfiguration
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketNotification = GetBucketNotification
-    { _gbnBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbnBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketNotification' request.
+-- | 'GetBucketNotification' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'gbnBucket' @::@ 'Text'
 --
-getBucketNotification :: BucketName -- ^ 'gbnBucket'
+getBucketNotification :: Text -- ^ 'gbnBucket'
                       -> GetBucketNotification
 getBucketNotification p1 = GetBucketNotification
     { _gbnBucket = p1
     }
 
-gbnBucket :: Lens' GetBucketNotification BucketName
+gbnBucket :: Lens' GetBucketNotification Text
 gbnBucket = lens _gbnBucket (\s a -> s { _gbnBucket = a })
 
-instance ToPath GetBucketNotification
+instance ToPath GetBucketNotification where
+    toPath GetBucketNotification{..} = mconcat
+        [ "/"
+        , toText _gbnBucket
+        ]
 
-instance ToQuery GetBucketNotification
+instance ToQuery GetBucketNotification where
+    toQuery = const "notification"
 
 instance ToHeaders GetBucketNotification
 
-instance ToBody GetBucketNotification
-
 newtype GetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnrTopicConfiguration :: Maybe TopicConfiguration
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketNotificationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetBucketNotificationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TopicConfiguration ::@ @Maybe TopicConfiguration@
+-- * 'gbnrTopicConfiguration' @::@ 'Maybe' 'TopicConfiguration'
 --
 getBucketNotificationResponse :: GetBucketNotificationResponse
 getBucketNotificationResponse = GetBucketNotificationResponse
@@ -91,12 +92,10 @@ gbnrTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfig
 gbnrTopicConfiguration =
     lens _gbnrTopicConfiguration (\s a -> s { _gbnrTopicConfiguration = a })
 
-instance FromXML GetBucketNotificationResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
     type Rs GetBucketNotification = GetBucketNotificationResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetBucketNotificationResponse
+        <$> x %| "TopicConfiguration"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SES.VerifyDomainIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,17 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Verifies a domain. This action is throttled at one request per second. POST
--- / HTTP/1.1 Date: Sat, 12 May 2012 05:24:02 GMT Host:
--- email.us-east-1.amazonaws.com Content-Type:
--- application/x-www-form-urlencoded X-Amzn-Authorization: AWS3
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
--- Signature=Wr+6RCfV+QgjLki2dtIrlecMK9+RrsDaTG5uWneDAu8=,
--- Algorithm=HmacSHA256, SignedHeaders=Date;Host Content-Length: 139
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=VerifyDomainIdentity
--- &Domain=domain.com &Timestamp=2012-05-12T05%3A24%3A02.000Z
--- &Version=2010-12-01 QTKknzFg2J4ygwa+XvHAxUl1hyHoY0gVfZdfjIedHZ0=
--- 94f6368e-9bf2-11e1-8ee7-c98a0037a2b6.
+-- | Verifies a domain. This action is throttled at one request per second.
 module Network.AWS.SES.VerifyDomainIdentity
     (
     -- * Request
@@ -46,21 +38,20 @@ module Network.AWS.SES.VerifyDomainIdentity
     , vdirVerificationToken
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents a request instructing the service to begin domain verification.
 newtype VerifyDomainIdentity = VerifyDomainIdentity
     { _vdiDomain :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'VerifyDomainIdentity' request.
+-- | 'VerifyDomainIdentity' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Domain ::@ @Text@
+-- * 'vdiDomain' @::@ 'Text'
 --
 verifyDomainIdentity :: Text -- ^ 'vdiDomain'
                      -> VerifyDomainIdentity
@@ -72,22 +63,20 @@ verifyDomainIdentity p1 = VerifyDomainIdentity
 vdiDomain :: Lens' VerifyDomainIdentity Text
 vdiDomain = lens _vdiDomain (\s a -> s { _vdiDomain = a })
 
-instance ToQuery VerifyDomainIdentity where
-    toQuery = genericQuery def
+instance ToQuery VerifyDomainIdentity
 
--- | Represents a token used for domain ownership verification.
+instance ToPath VerifyDomainIdentity where
+    toPath = const "/"
+
 newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
     { _vdirVerificationToken :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'VerifyDomainIdentityResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'VerifyDomainIdentityResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VerificationToken ::@ @Text@
+-- * 'vdirVerificationToken' @::@ 'Text'
 --
 verifyDomainIdentityResponse :: Text -- ^ 'vdirVerificationToken'
                              -> VerifyDomainIdentityResponse
@@ -101,12 +90,10 @@ vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirVerificationToken =
     lens _vdirVerificationToken (\s a -> s { _vdirVerificationToken = a })
 
-instance FromXML VerifyDomainIdentityResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest VerifyDomainIdentity where
     type Sv VerifyDomainIdentity = SES
     type Rs VerifyDomainIdentity = VerifyDomainIdentityResponse
 
-    request = post "VerifyDomainIdentity"
-    response _ = xmlResponse
+    request  = post "VerifyDomainIdentity"
+    response = xmlResponse $ \h x -> VerifyDomainIdentityResponse
+        <$> x %| "VerificationToken"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeVolumeAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,27 +23,7 @@
 -- | Describes the specified attribute of the specified volume. You can specify
 -- only one attribute at a time. For more information about Amazon EBS
 -- volumes, see Amazon EBS Volumes in the Amazon Elastic Compute Cloud User
--- Guide. Example This example describes the autoEnableIO attribute of the
--- volume vol-12345678.
--- https://ec2.amazonaws.com/?Action=DescribeVolumeAttribute
--- &amp;Attribute=autoEnableIO &amp;VolumeId=vol-12345678 &amp;AUTHPARAMS
--- &lt;DescribeVolumeAttributeResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
--- &lt;requestId&gt;5jkdf074-37ed-4004-8671-a78ee82bf1cbEXAMPLE&lt;/requestId&gt;
--- &lt;volumeId&gt;vol-12345678&lt;/volumeId&gt; &lt;autoEnableIO&gt;
--- &lt;value&gt;false&lt;/value&gt; &lt;/autoEnableIO&gt;
--- &lt;/DescribeVolumeAttributeResponse&gt; Example This example describes the
--- productCodes attribute of the volume vol-12345678.
--- https://ec2.amazonaws.com/?Action=DescribeVolumeAttribute
--- &amp;Attribute=productCodes &amp;VolumeId=vol-12345678 &amp;AUTHPARAMS
--- &lt;DescribeVolumeAttributeResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
--- &lt;requestId&gt;5jkdf074-37ed-4004-8671-a78ee82bf1cbEXAMPLE&lt;/requestId&gt;
--- &lt;volumeId&gt;vol-12345678&lt;/volumeId&gt; &lt;productCodes&gt;
--- &lt;item&gt;
--- &lt;productCode&gt;a1b2c3d4e5f6g7h8i9j10k11&lt;/productCode&gt;
--- &lt;type&gt;marketplace&lt;/type&gt; &lt;/item&gt; &lt;/productCodes&gt;
--- &lt;/DescribeVolumeAttributeResponse&gt;.
+-- Guide.
 module Network.AWS.EC2.DescribeVolumeAttribute
     (
     -- * Request
@@ -49,101 +31,106 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     -- ** Request constructor
     , describeVolumeAttribute
     -- ** Request lenses
-    , dvaVolumeId
     , dvaAttribute
+    , dvaDryRun
+    , dvaVolumeId
 
     -- * Response
     , DescribeVolumeAttributeResponse
     -- ** Response constructor
     , describeVolumeAttributeResponse
     -- ** Response lenses
-    , dvarVolumeId
     , dvarAutoEnableIO
     , dvarProductCodes
+    , dvarVolumeId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
-    { _dvaVolumeId :: Text
-    , _dvaAttribute :: Maybe VolumeAttributeName
+    { _dvaAttribute :: Maybe Text
+    , _dvaDryRun    :: Maybe Bool
+    , _dvaVolumeId  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVolumeAttribute' request.
+-- | 'DescribeVolumeAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeId ::@ @Text@
+-- * 'dvaAttribute' @::@ 'Maybe' 'Text'
 --
--- * @Attribute ::@ @Maybe VolumeAttributeName@
+-- * 'dvaDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'dvaVolumeId' @::@ 'Text'
 --
 describeVolumeAttribute :: Text -- ^ 'dvaVolumeId'
                         -> DescribeVolumeAttribute
 describeVolumeAttribute p1 = DescribeVolumeAttribute
-    { _dvaVolumeId = p1
+    { _dvaVolumeId  = p1
+    , _dvaDryRun    = Nothing
     , _dvaAttribute = Nothing
     }
+
+-- | The instance attribute.
+dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe Text)
+dvaAttribute = lens _dvaAttribute (\s a -> s { _dvaAttribute = a })
+
+dvaDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
+dvaDryRun = lens _dvaDryRun (\s a -> s { _dvaDryRun = a })
 
 -- | The ID of the volume.
 dvaVolumeId :: Lens' DescribeVolumeAttribute Text
 dvaVolumeId = lens _dvaVolumeId (\s a -> s { _dvaVolumeId = a })
 
--- | The instance attribute.
-dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
-dvaAttribute = lens _dvaAttribute (\s a -> s { _dvaAttribute = a })
+instance ToQuery DescribeVolumeAttribute
 
-instance ToQuery DescribeVolumeAttribute where
-    toQuery = genericQuery def
+instance ToPath DescribeVolumeAttribute where
+    toPath = const "/"
 
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
-    { _dvarVolumeId :: Maybe Text
-    , _dvarAutoEnableIO :: Maybe AttributeBooleanValue
+    { _dvarAutoEnableIO :: Maybe AttributeBooleanValue
     , _dvarProductCodes :: [ProductCode]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dvarVolumeId     :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVolumeAttributeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeVolumeAttributeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeId ::@ @Maybe Text@
+-- * 'dvarAutoEnableIO' @::@ 'Maybe' 'AttributeBooleanValue'
 --
--- * @AutoEnableIO ::@ @Maybe AttributeBooleanValue@
+-- * 'dvarProductCodes' @::@ ['ProductCode']
 --
--- * @ProductCodes ::@ @[ProductCode]@
+-- * 'dvarVolumeId' @::@ 'Maybe' 'Text'
 --
 describeVolumeAttributeResponse :: DescribeVolumeAttributeResponse
 describeVolumeAttributeResponse = DescribeVolumeAttributeResponse
-    { _dvarVolumeId = Nothing
+    { _dvarVolumeId     = Nothing
     , _dvarAutoEnableIO = Nothing
     , _dvarProductCodes = mempty
     }
+
+-- | The state of autoEnableIO attribute.
+dvarAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
+dvarAutoEnableIO = lens _dvarAutoEnableIO (\s a -> s { _dvarAutoEnableIO = a })
+
+-- | A list of product codes.
+dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
+dvarProductCodes = lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a })
 
 -- | The ID of the volume.
 dvarVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
 dvarVolumeId = lens _dvarVolumeId (\s a -> s { _dvarVolumeId = a })
 
--- | The state of autoEnableIO attribute.
-dvarAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
-dvarAutoEnableIO =
-    lens _dvarAutoEnableIO (\s a -> s { _dvarAutoEnableIO = a })
-
--- | A list of product codes.
-dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
-dvarProductCodes =
-    lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a })
-
-instance FromXML DescribeVolumeAttributeResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeVolumeAttribute where
     type Sv DescribeVolumeAttribute = EC2
     type Rs DescribeVolumeAttribute = DescribeVolumeAttributeResponse
 
-    request = post "DescribeVolumeAttribute"
-    response _ = xmlResponse
+    request  = post "DescribeVolumeAttribute"
+    response = xmlResponse $ \h x -> DescribeVolumeAttributeResponse
+        <$> x %| "autoEnableIO"
+        <*> x %| "productCodes"
+        <*> x %| "volumeId"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.GetDistributionConfig
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,96 +24,91 @@
 module Network.AWS.CloudFront.GetDistributionConfig
     (
     -- * Request
-      GetDistributionConfig
+      GetDistributionConfig2014_05_31
     -- ** Request constructor
-    , getDistributionConfig
+    , getDistributionConfig2014_05_31
     -- ** Request lenses
     , gdcId
 
     -- * Response
-    , GetDistributionConfigResponse
+    , GetDistributionConfig2014_05_31Response
     -- ** Response constructor
-    , getDistributionConfigResponse
+    , getDistributionConfig2014_05_31Response
     -- ** Response lenses
     , gdcrDistributionConfig
     , gdcrETag
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to get a distribution configuration.
-newtype GetDistributionConfig = GetDistributionConfig
+newtype GetDistributionConfig2014_05_31 = GetDistributionConfig2014_05_31
     { _gdcId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetDistributionConfig' request.
+-- | 'GetDistributionConfig2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'gdcId' @::@ 'Text'
 --
-getDistributionConfig :: Text -- ^ 'gdcId'
-                      -> GetDistributionConfig
-getDistributionConfig p1 = GetDistributionConfig
+getDistributionConfig2014_05_31 :: Text -- ^ 'gdcId'
+                                -> GetDistributionConfig2014_05_31
+getDistributionConfig2014_05_31 p1 = GetDistributionConfig2014_05_31
     { _gdcId = p1
     }
 
 -- | The distribution's id.
-gdcId :: Lens' GetDistributionConfig Text
+gdcId :: Lens' GetDistributionConfig2014_05_31 Text
 gdcId = lens _gdcId (\s a -> s { _gdcId = a })
 
-instance ToPath GetDistributionConfig
+instance ToPath GetDistributionConfig2014_05_31 where
+    toPath GetDistributionConfig2014_05_31{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _gdcId
+        , "/config"
+        ]
 
-instance ToQuery GetDistributionConfig
+instance ToQuery GetDistributionConfig2014_05_31 where
+    toQuery = const mempty
 
-instance ToHeaders GetDistributionConfig
+instance ToHeaders GetDistributionConfig2014_05_31
 
-instance ToXML GetDistributionConfig where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetDistributionConfig"
-
--- | The returned result of the corresponding request.
-data GetDistributionConfigResponse = GetDistributionConfigResponse
+data GetDistributionConfig2014_05_31Response = GetDistributionConfig2014_05_31Response
     { _gdcrDistributionConfig :: Maybe DistributionConfig
-    , _gdcrETag :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _gdcrETag               :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetDistributionConfigResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetDistributionConfig2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DistributionConfig ::@ @Maybe DistributionConfig@
+-- * 'gdcrDistributionConfig' @::@ 'Maybe' 'DistributionConfig'
 --
--- * @ETag ::@ @Maybe Text@
+-- * 'gdcrETag' @::@ 'Maybe' 'Text'
 --
-getDistributionConfigResponse :: GetDistributionConfigResponse
-getDistributionConfigResponse = GetDistributionConfigResponse
+getDistributionConfig2014_05_31Response :: GetDistributionConfig2014_05_31Response
+getDistributionConfig2014_05_31Response = GetDistributionConfig2014_05_31Response
     { _gdcrDistributionConfig = Nothing
-    , _gdcrETag = Nothing
+    , _gdcrETag               = Nothing
     }
 
 -- | The distribution's configuration information.
-gdcrDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
+gdcrDistributionConfig :: Lens' GetDistributionConfig2014_05_31Response (Maybe DistributionConfig)
 gdcrDistributionConfig =
     lens _gdcrDistributionConfig (\s a -> s { _gdcrDistributionConfig = a })
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gdcrETag :: Lens' GetDistributionConfigResponse (Maybe Text)
+gdcrETag :: Lens' GetDistributionConfig2014_05_31Response (Maybe Text)
 gdcrETag = lens _gdcrETag (\s a -> s { _gdcrETag = a })
 
-instance AWSRequest GetDistributionConfig where
-    type Sv GetDistributionConfig = CloudFront
-    type Rs GetDistributionConfig = GetDistributionConfigResponse
+instance AWSRequest GetDistributionConfig2014_05_31 where
+    type Sv GetDistributionConfig2014_05_31 = CloudFront
+    type Rs GetDistributionConfig2014_05_31 = GetDistributionConfig2014_05_31Response
 
-    request = get
-    response _ = cursorResponse $ \hs xml ->
-        pure GetDistributionConfigResponse
-            <*> xml %|? "DistributionConfig"
-            <*> hs ~:? "ETag"
+    request  = get
+    response = xmlResponse $ \h x -> GetDistributionConfig2014_05_31Response
+        <$> x %| "DistributionConfig"
+        <*> h ~:? "ETag"

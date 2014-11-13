@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Support.DescribeAttachment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,20 +42,19 @@ module Network.AWS.Support.DescribeAttachment
     , darAttachment
     ) where
 
-import Network.AWS.Support.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Support.Types
 
 newtype DescribeAttachment = DescribeAttachment
     { _daAttachmentId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAttachment' request.
+-- | 'DescribeAttachment' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AttachmentId ::@ @Text@
+-- * 'daAttachmentId' @::@ 'Text'
 --
 describeAttachment :: Text -- ^ 'daAttachmentId'
                    -> DescribeAttachment
@@ -66,28 +67,26 @@ describeAttachment p1 = DescribeAttachment
 daAttachmentId :: Lens' DescribeAttachment Text
 daAttachmentId = lens _daAttachmentId (\s a -> s { _daAttachmentId = a })
 
-instance ToPath DescribeAttachment
+instance ToPath DescribeAttachment where
+    toPath = const "/"
 
-instance ToQuery DescribeAttachment
+instance ToQuery DescribeAttachment where
+    toQuery = const mempty
 
 instance ToHeaders DescribeAttachment
 
-instance ToJSON DescribeAttachment
+instance ToBody DescribeAttachment where
+    toBody = toBody . encode . _daAttachmentId
 
--- | The content and file name of the attachment returned by the
--- DescribeAttachment operation.
 newtype DescribeAttachmentResponse = DescribeAttachmentResponse
     { _darAttachment :: Maybe Attachment
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAttachmentResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeAttachmentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Attachment ::@ @Maybe Attachment@
+-- * 'darAttachment' @::@ 'Maybe' 'Attachment'
 --
 describeAttachmentResponse :: DescribeAttachmentResponse
 describeAttachmentResponse = DescribeAttachmentResponse
@@ -98,11 +97,12 @@ describeAttachmentResponse = DescribeAttachmentResponse
 darAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 darAttachment = lens _darAttachment (\s a -> s { _darAttachment = a })
 
-instance FromJSON DescribeAttachmentResponse
+-- FromJSON
 
 instance AWSRequest DescribeAttachment where
     type Sv DescribeAttachment = Support
     type Rs DescribeAttachment = DescribeAttachmentResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeAttachmentResponse
+        <$> o .: "attachment"

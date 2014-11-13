@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CreateImage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,13 +27,6 @@
 -- launch an instance from this new AMI, the instance automatically launches
 -- with those additional volumes. For more information, see Creating Amazon
 -- EBS-Backed Linux AMIs in the Amazon Elastic Compute Cloud User Guide.
--- Example This example request creates an AMI from the specified instance.
--- https://ec2.amazonaws.com/?Action=CreateImage
--- &amp;Description=Standard+Web+Server+v1.0 &amp;InstanceId=i-10a64379
--- &amp;Name=standard-web-server-v1.0 &amp;AUTHPARAMS &lt;CreateImageResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-02-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;imageId&gt;ami-4fa54026&lt;/imageId&gt; &lt;/CreateImageResponse&gt;.
 module Network.AWS.EC2.CreateImage
     (
     -- * Request
@@ -39,115 +34,122 @@ module Network.AWS.EC2.CreateImage
     -- ** Request constructor
     , createImage
     -- ** Request lenses
+    , ci1BlockDeviceMappings
+    , ci1Description
+    , ci1DryRun
     , ci1InstanceId
     , ci1Name
-    , ci1Description
     , ci1NoReboot
-    , ci1BlockDeviceMappings
 
     -- * Response
     , CreateImageResponse
     -- ** Response constructor
     , createImageResponse
     -- ** Response lenses
-    , cirrImageId
+    , cirImageId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateImage = CreateImage
-    { _ci1InstanceId :: Text
-    , _ci1Name :: Text
-    , _ci1Description :: Maybe Text
-    , _ci1NoReboot :: Maybe Bool
-    , _ci1BlockDeviceMappings :: [BlockDeviceMapping]
-    } deriving (Eq, Ord, Show, Generic)
+    { _ci1BlockDeviceMappings :: [BlockDeviceMapping]
+    , _ci1Description         :: Maybe Text
+    , _ci1DryRun              :: Maybe Bool
+    , _ci1InstanceId          :: Text
+    , _ci1Name                :: Text
+    , _ci1NoReboot            :: Maybe Bool
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateImage' request.
+-- | 'CreateImage' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @Text@
+-- * 'ci1BlockDeviceMappings' @::@ ['BlockDeviceMapping']
 --
--- * @Name ::@ @Text@
+-- * 'ci1Description' @::@ 'Maybe' 'Text'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'ci1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * @NoReboot ::@ @Maybe Bool@
+-- * 'ci1InstanceId' @::@ 'Text'
 --
--- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
+-- * 'ci1Name' @::@ 'Text'
+--
+-- * 'ci1NoReboot' @::@ 'Maybe' 'Bool'
 --
 createImage :: Text -- ^ 'ci1InstanceId'
             -> Text -- ^ 'ci1Name'
             -> CreateImage
 createImage p1 p2 = CreateImage
-    { _ci1InstanceId = p1
-    , _ci1Name = p2
-    , _ci1Description = Nothing
-    , _ci1NoReboot = Nothing
+    { _ci1InstanceId          = p1
+    , _ci1Name                = p2
+    , _ci1DryRun              = Nothing
+    , _ci1Description         = Nothing
+    , _ci1NoReboot            = Nothing
     , _ci1BlockDeviceMappings = mempty
     }
-
--- | The ID of the instance.
-ci1InstanceId :: Lens' CreateImage Text
-ci1InstanceId = lens _ci1InstanceId (\s a -> s { _ci1InstanceId = a })
-
--- | A name for the new image. Constraints: 3-128 alphanumeric characters,
--- parenthesis (()), periods (.), slashes (/), dashes (-), or underscores(_).
-ci1Name :: Lens' CreateImage Text
-ci1Name = lens _ci1Name (\s a -> s { _ci1Name = a })
-
--- | A description for the new image.
-ci1Description :: Lens' CreateImage (Maybe Text)
-ci1Description = lens _ci1Description (\s a -> s { _ci1Description = a })
-
--- | By default, this parameter is set to false, which means Amazon EC2 attempts
--- to shut down the instance cleanly before image creation and then reboots
--- the instance. When the parameter is set to true, Amazon EC2 doesn't shut
--- down the instance before creating the image. When this option is used, file
--- system integrity on the created image can't be guaranteed.
-ci1NoReboot :: Lens' CreateImage (Maybe Bool)
-ci1NoReboot = lens _ci1NoReboot (\s a -> s { _ci1NoReboot = a })
 
 -- | Information about one or more block device mappings.
 ci1BlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
 ci1BlockDeviceMappings =
     lens _ci1BlockDeviceMappings (\s a -> s { _ci1BlockDeviceMappings = a })
 
-instance ToQuery CreateImage where
-    toQuery = genericQuery def
+-- | A description for the new image.
+ci1Description :: Lens' CreateImage (Maybe Text)
+ci1Description = lens _ci1Description (\s a -> s { _ci1Description = a })
+
+ci1DryRun :: Lens' CreateImage (Maybe Bool)
+ci1DryRun = lens _ci1DryRun (\s a -> s { _ci1DryRun = a })
+
+-- | The ID of the instance.
+ci1InstanceId :: Lens' CreateImage Text
+ci1InstanceId = lens _ci1InstanceId (\s a -> s { _ci1InstanceId = a })
+
+-- | A name for the new image. Constraints: 3-128 alphanumeric characters,
+-- parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes
+-- (/), dashes (-), single quotes ('), at-signs (@), or underscores(_).
+ci1Name :: Lens' CreateImage Text
+ci1Name = lens _ci1Name (\s a -> s { _ci1Name = a })
+
+-- | By default, this parameter is set to false, which means Amazon EC2
+-- attempts to shut down the instance cleanly before image creation and then
+-- reboots the instance. When the parameter is set to true, Amazon EC2
+-- doesn't shut down the instance before creating the image. When this
+-- option is used, file system integrity on the created image can't be
+-- guaranteed.
+ci1NoReboot :: Lens' CreateImage (Maybe Bool)
+ci1NoReboot = lens _ci1NoReboot (\s a -> s { _ci1NoReboot = a })
+
+instance ToQuery CreateImage
+
+instance ToPath CreateImage where
+    toPath = const "/"
 
 newtype CreateImageResponse = CreateImageResponse
-    { _cirrImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _cirImageId :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateImageResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateImageResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ImageId ::@ @Maybe Text@
+-- * 'cirImageId' @::@ 'Maybe' 'Text'
 --
 createImageResponse :: CreateImageResponse
 createImageResponse = CreateImageResponse
-    { _cirrImageId = Nothing
+    { _cirImageId = Nothing
     }
 
 -- | The ID of the new AMI.
-cirrImageId :: Lens' CreateImageResponse (Maybe Text)
-cirrImageId = lens _cirrImageId (\s a -> s { _cirrImageId = a })
-
-instance FromXML CreateImageResponse where
-    fromXMLOptions = xmlOptions
+cirImageId :: Lens' CreateImageResponse (Maybe Text)
+cirImageId = lens _cirImageId (\s a -> s { _cirImageId = a })
 
 instance AWSRequest CreateImage where
     type Sv CreateImage = EC2
     type Rs CreateImage = CreateImageResponse
 
-    request = post "CreateImage"
-    response _ = xmlResponse
+    request  = post "CreateImage"
+    response = xmlResponse $ \h x -> CreateImageResponse
+        <$> x %| "imageId"

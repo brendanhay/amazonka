@@ -1,11 +1,11 @@
 name:                  amazonka-cloudsearch
 version:               0.0.0
-synopsis:              Amazon CloudSearch SDK
+synopsis:              Amazon CloudSearch SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,9 +13,11 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes it simple and cost-effective to set up, manage, and scale a search solution for your website or application.
-    .
-    Amazon CloudSearch supports 34 languages and popular search features such as highlighting, autocomplete, and geospatial search.
+    Amazon CloudSearch is a fully-managed service in the AWS Cloud that
+    makes it simple and cost-effective to set up, manage, and scale a
+    search solution for your website or application. Amazon CloudSearch
+    supports 34 languages and popular search features such as highlighting,
+    autocomplete, and geospatial search.
 
 source-repository head
     type:     git
@@ -29,7 +31,6 @@ library
 
     exposed-modules:
           Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch.Types
         , Network.AWS.CloudSearch.BuildSuggesters
         , Network.AWS.CloudSearch.CreateDomain
         , Network.AWS.CloudSearch.DefineAnalysisScheme
@@ -51,9 +52,12 @@ library
         , Network.AWS.CloudSearch.DescribeSuggesters
         , Network.AWS.CloudSearch.IndexDocuments
         , Network.AWS.CloudSearch.ListDomainNames
+        , Network.AWS.CloudSearch.Types
         , Network.AWS.CloudSearch.UpdateAvailabilityOptions
         , Network.AWS.CloudSearch.UpdateScalingParameters
         , Network.AWS.CloudSearch.UpdateServiceAccessPolicies
+
+    other-modules:
 
     build-depends:
           amazonka-core

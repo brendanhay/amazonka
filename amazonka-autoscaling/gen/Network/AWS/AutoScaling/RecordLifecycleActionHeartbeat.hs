@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,9 +39,9 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     -- ** Request constructor
     , recordLifecycleActionHeartbeat
     -- ** Request lenses
-    , rlahLifecycleHookName
     , rlahAutoScalingGroupName
     , rlahLifecycleActionToken
+    , rlahLifecycleHookName
 
     -- * Response
     , RecordLifecycleActionHeartbeatResponse
@@ -47,67 +49,65 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     , recordLifecycleActionHeartbeatResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
-    { _rlahLifecycleHookName :: Text
-    , _rlahAutoScalingGroupName :: Text
+    { _rlahAutoScalingGroupName :: Text
     , _rlahLifecycleActionToken :: Text
+    , _rlahLifecycleHookName    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RecordLifecycleActionHeartbeat' request.
+-- | 'RecordLifecycleActionHeartbeat' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LifecycleHookName ::@ @Text@
+-- * 'rlahAutoScalingGroupName' @::@ 'Text'
 --
--- * @AutoScalingGroupName ::@ @Text@
+-- * 'rlahLifecycleActionToken' @::@ 'Text'
 --
--- * @LifecycleActionToken ::@ @Text@
+-- * 'rlahLifecycleHookName' @::@ 'Text'
 --
 recordLifecycleActionHeartbeat :: Text -- ^ 'rlahLifecycleHookName'
                                -> Text -- ^ 'rlahAutoScalingGroupName'
                                -> Text -- ^ 'rlahLifecycleActionToken'
                                -> RecordLifecycleActionHeartbeat
 recordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeat
-    { _rlahLifecycleHookName = p1
+    { _rlahLifecycleHookName    = p1
     , _rlahAutoScalingGroupName = p2
     , _rlahLifecycleActionToken = p3
     }
+
+-- | The name of the Auto Scaling group to which the hook belongs.
+rlahAutoScalingGroupName :: Lens' RecordLifecycleActionHeartbeat Text
+rlahAutoScalingGroupName =
+    lens _rlahAutoScalingGroupName
+        (\s a -> s { _rlahAutoScalingGroupName = a })
+
+-- | A token that uniquely identifies a specific lifecycle action associated
+-- with an instance. Auto Scaling sends this token to the notification
+-- target you specified when you created the lifecycle hook.
+rlahLifecycleActionToken :: Lens' RecordLifecycleActionHeartbeat Text
+rlahLifecycleActionToken =
+    lens _rlahLifecycleActionToken
+        (\s a -> s { _rlahLifecycleActionToken = a })
 
 -- | The name of the lifecycle hook.
 rlahLifecycleHookName :: Lens' RecordLifecycleActionHeartbeat Text
 rlahLifecycleHookName =
     lens _rlahLifecycleHookName (\s a -> s { _rlahLifecycleHookName = a })
 
--- | The name of the Auto Scaling group to which the hook belongs.
-rlahAutoScalingGroupName :: Lens' RecordLifecycleActionHeartbeat Text
-rlahAutoScalingGroupName =
-    lens _rlahAutoScalingGroupName
-         (\s a -> s { _rlahAutoScalingGroupName = a })
+instance ToQuery RecordLifecycleActionHeartbeat
 
--- | A token that uniquely identifies a specific lifecycle action associated
--- with an instance. Auto Scaling sends this token to the notification target
--- you specified when you created the lifecycle hook.
-rlahLifecycleActionToken :: Lens' RecordLifecycleActionHeartbeat Text
-rlahLifecycleActionToken =
-    lens _rlahLifecycleActionToken
-         (\s a -> s { _rlahLifecycleActionToken = a })
+instance ToPath RecordLifecycleActionHeartbeat where
+    toPath = const "/"
 
-instance ToQuery RecordLifecycleActionHeartbeat where
-    toQuery = genericQuery def
-
--- | The output of the RecordLifecycleActionHeartbeat action.
 data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RecordLifecycleActionHeartbeatResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RecordLifecycleActionHeartbeatResponse' constructor.
 recordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse
 recordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
 
@@ -115,5 +115,5 @@ instance AWSRequest RecordLifecycleActionHeartbeat where
     type Sv RecordLifecycleActionHeartbeat = AutoScaling
     type Rs RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeatResponse
 
-    request = post "RecordLifecycleActionHeartbeat"
-    response _ = nullaryResponse RecordLifecycleActionHeartbeatResponse
+    request  = post "RecordLifecycleActionHeartbeat"
+    response = nullaryResponse RecordLifecycleActionHeartbeatResponse

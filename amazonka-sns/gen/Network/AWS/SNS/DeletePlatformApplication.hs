@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SNS.DeletePlatformApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,19 +22,7 @@
 
 -- | Deletes a platform application object for one of the supported push
 -- notification services, such as APNS and GCM. For more information, see
--- Using Amazon SNS Mobile Push Notifications. POST
--- http://sns.us-west-2.amazonaws.com/ HTTP/1.1 ...
--- PlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp
--- &amp;Action=DeletePlatformApplication &amp;SignatureMethod=HmacSHA256
--- &amp;AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &amp;SignatureVersion=2
--- &amp;Version=2010-03-31
--- &amp;Signature=Mh7X%2BQo%2BGpcm5B1IpkovBaRiJCJOqvFlIOYzL62SGrg%3D
--- &amp;Timestamp=2013-07-01T23%3A02%3A03.872Z HTTP/1.1 200 OK ...
--- &lt;DeletePlatformApplicationResponse
--- xmlns="http://sns.amazonaws.com/doc/2010-03-31/"&gt;
--- &lt;ResponseMetadata&gt;
--- &lt;RequestId&gt;097dac18-7a77-5823-a8dd-e65476dcb037&lt;/RequestId&gt;
--- &lt;/ResponseMetadata&gt; &lt;/DeletePlatformApplicationResponse&gt;.
+-- Using Amazon SNS Mobile Push Notifications.
 module Network.AWS.SNS.DeletePlatformApplication
     (
     -- * Request
@@ -48,21 +38,20 @@ module Network.AWS.SNS.DeletePlatformApplication
     , deletePlatformApplicationResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input for DeletePlatformApplication action.
 newtype DeletePlatformApplication = DeletePlatformApplication
     { _dpaPlatformApplicationArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeletePlatformApplication' request.
+-- | 'DeletePlatformApplication' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PlatformApplicationArn ::@ @Text@
+-- * 'dpaPlatformApplicationArn' @::@ 'Text'
 --
 deletePlatformApplication :: Text -- ^ 'dpaPlatformApplicationArn'
                           -> DeletePlatformApplication
@@ -74,18 +63,17 @@ deletePlatformApplication p1 = DeletePlatformApplication
 dpaPlatformApplicationArn :: Lens' DeletePlatformApplication Text
 dpaPlatformApplicationArn =
     lens _dpaPlatformApplicationArn
-         (\s a -> s { _dpaPlatformApplicationArn = a })
+        (\s a -> s { _dpaPlatformApplicationArn = a })
 
-instance ToQuery DeletePlatformApplication where
-    toQuery = genericQuery def
+instance ToQuery DeletePlatformApplication
+
+instance ToPath DeletePlatformApplication where
+    toPath = const "/"
 
 data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeletePlatformApplicationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeletePlatformApplicationResponse' constructor.
 deletePlatformApplicationResponse :: DeletePlatformApplicationResponse
 deletePlatformApplicationResponse = DeletePlatformApplicationResponse
 
@@ -93,5 +81,5 @@ instance AWSRequest DeletePlatformApplication where
     type Sv DeletePlatformApplication = SNS
     type Rs DeletePlatformApplication = DeletePlatformApplicationResponse
 
-    request = post "DeletePlatformApplication"
-    response _ = nullaryResponse DeletePlatformApplicationResponse
+    request  = post "DeletePlatformApplication"
+    response = nullaryResponse DeletePlatformApplicationResponse

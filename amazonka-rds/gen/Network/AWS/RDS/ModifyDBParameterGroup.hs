@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.ModifyDBParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,21 +23,16 @@
 -- | Modifies the parameters of a DB parameter group. To modify more than one
 -- parameter, submit a list of the following: ParameterName, ParameterValue,
 -- and ApplyMethod. A maximum of 20 parameters can be modified in a single
--- request. The apply-immediate method can be used only for dynamic
--- parameters; the pending-reboot method can be used with MySQL and Oracle DB
--- instances for either dynamic or static parameters. For Microsoft SQL Server
--- DB instances, the pending-reboot method can be used only for static
--- parameters. https://rds.amazonaws.com/ ?Action=ModifyDBParameterGroup
--- &DBParameterGroupName=mydbparametergroup
--- &Parameters.member.1.ParameterName=max_user_connections
--- &Parameters.member.1.ParameterValue=24
--- &Parameters.member.1.ApplyMethod=pending-reboot
--- &Parameters.member.2.ParameterName=max_allowed_packet
--- &Parameters.member.2.ParameterValue=1024
--- &Parameters.member.2.ApplyMethod=immediate &Version=2013-05-15
--- &SignatureVersion=2 &SignatureMethod=HmacSHA256
--- &Timestamp=2011-05-11T21%3A25%3A00.686Z &AWSAccessKeyId= &Signature=
--- mydbparametergroup 5ba91f97-bf51-11de-bf60-ef2e377db6f3.
+-- request. After you modify a DB parameter group, you should wait at least 5
+-- minutes before creating your first DB instance that uses that DB parameter
+-- group as the default parameter group. This allows Amazon RDS to fully
+-- complete the modify action before the parameter group is used as the
+-- default for a new DB instance. This is especially important for parameters
+-- that are critical when creating the default database for a DB instance,
+-- such as the character set for the default database defined by the
+-- character_set_database parameter. You can use the Parameter Groups option
+-- of the Amazon RDS console or the DescribeDBParameters command to verify
+-- that your DB parameter group has been created or modified.
 module Network.AWS.RDS.ModifyDBParameterGroup
     (
     -- * Request
@@ -54,69 +51,62 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     , mdbpgrDBParameterGroupName
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data ModifyDBParameterGroup = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName :: Text
-    , _mdbpgParameters :: [Parameter]
-    } deriving (Eq, Ord, Show, Generic)
+    , _mdbpgParameters           :: [Parameter]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyDBParameterGroup' request.
+-- | 'ModifyDBParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBParameterGroupName ::@ @Text@
+-- * 'mdbpgDBParameterGroupName' @::@ 'Text'
 --
--- * @Parameters ::@ @[Parameter]@
+-- * 'mdbpgParameters' @::@ ['Parameter']
 --
 modifyDBParameterGroup :: Text -- ^ 'mdbpgDBParameterGroupName'
-                       -> [Parameter] -- ^ 'mdbpgParameters'
                        -> ModifyDBParameterGroup
-modifyDBParameterGroup p1 p2 = ModifyDBParameterGroup
+modifyDBParameterGroup p1 = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName = p1
-    , _mdbpgParameters = p2
+    , _mdbpgParameters           = mempty
     }
 
 -- | The name of the DB parameter group. Constraints: Must be the name of an
--- existing DB parameter group Must be 1 to 255 alphanumeric characters First
--- character must be a letter Cannot end with a hyphen or contain two
+-- existing DB parameter group Must be 1 to 255 alphanumeric characters
+-- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens.
 mdbpgDBParameterGroupName :: Lens' ModifyDBParameterGroup Text
 mdbpgDBParameterGroupName =
     lens _mdbpgDBParameterGroupName
-         (\s a -> s { _mdbpgDBParameterGroupName = a })
+        (\s a -> s { _mdbpgDBParameterGroupName = a })
 
--- | An array of parameter names, values, and the apply method for the parameter
--- update. At least one parameter name, value, and apply method must be
--- supplied; subsequent arguments are optional. A maximum of 20 parameters may
--- be modified in a single request. Valid Values (for the application method):
--- immediate | pending-reboot You can use the immediate value with dynamic
--- parameters only. You can use the pending-reboot value for both dynamic and
--- static parameters, and changes are applied when DB instance reboots.
+-- | An array of parameter names, values, and the apply method for the
+-- parameter update. At least one parameter name, value, and apply method
+-- must be supplied; subsequent arguments are optional. A maximum of 20
+-- parameters may be modified in a single request. Valid Values (for the
+-- application method): immediate | pending-reboot.
 mdbpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
 mdbpgParameters = lens _mdbpgParameters (\s a -> s { _mdbpgParameters = a })
 
-instance ToQuery ModifyDBParameterGroup where
-    toQuery = genericQuery def
+instance ToQuery ModifyDBParameterGroup
 
--- | Contains the result of a successful invocation of the
--- ModifyDBParameterGroup or ResetDBParameterGroup action.
+instance ToPath ModifyDBParameterGroup where
+    toPath = const "/"
+
 newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
     { _mdbpgrDBParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyDBParameterGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ModifyDBParameterGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBParameterGroupName ::@ @Maybe Text@
+-- * 'mdbpgrDBParameterGroupName' @::@ 'Maybe' 'Text'
 --
 modifyDBParameterGroupResponse :: ModifyDBParameterGroupResponse
 modifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
@@ -127,14 +117,12 @@ modifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
 mdbpgrDBParameterGroupName :: Lens' ModifyDBParameterGroupResponse (Maybe Text)
 mdbpgrDBParameterGroupName =
     lens _mdbpgrDBParameterGroupName
-         (\s a -> s { _mdbpgrDBParameterGroupName = a })
-
-instance FromXML ModifyDBParameterGroupResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _mdbpgrDBParameterGroupName = a })
 
 instance AWSRequest ModifyDBParameterGroup where
     type Sv ModifyDBParameterGroup = RDS
     type Rs ModifyDBParameterGroup = ModifyDBParameterGroupResponse
 
-    request = post "ModifyDBParameterGroup"
-    response _ = xmlResponse
+    request  = post "ModifyDBParameterGroup"
+    response = xmlResponse $ \h x -> ModifyDBParameterGroupResponse
+        <$> x %| "DBParameterGroupName"

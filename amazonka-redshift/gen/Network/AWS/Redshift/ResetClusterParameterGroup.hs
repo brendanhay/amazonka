@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.ResetClusterParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,15 +24,7 @@
 -- default values and sets the source values of the parameters to
 -- "engine-default". To reset the entire parameter group specify the
 -- ResetAllParameters parameter. For parameter changes to take effect you must
--- reboot any associated clusters. https://redshift.us-east-1.amazonaws.com/
--- ?Action=ResetClusterParameterGroup &ParameterGroupName=parametergroup1
--- &Parameters.member.1.ParameterName=extra_float_digits &Version=2012-12-01
--- &x-amz-algorithm=AWS4-HMAC-SHA256
--- &x-amz-credential=AKIAIOSFODNN7EXAMPLE/20121208/us-east-1/redshift/aws4_request
--- &x-amz-date=20121208T020847Z
--- &x-amz-signedheaders=content-type;host;x-amz-date Your parameter group has
--- been updated but changes won't get applied until you reboot the associated
--- Clusters. parametergroup1 625d23c1-40dc-11e2-8a25-eb010998df4e.
+-- reboot any associated clusters.
 module Network.AWS.Redshift.ResetClusterParameterGroup
     (
     -- * Request
@@ -39,8 +33,8 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     , resetClusterParameterGroup
     -- ** Request lenses
     , rcpgParameterGroupName
-    , rcpgResetAllParameters
     , rcpgParameters
+    , rcpgResetAllParameters
 
     -- * Response
     , ResetClusterParameterGroupResponse
@@ -51,34 +45,33 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     , rcpgrParameterGroupStatus
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data ResetClusterParameterGroup = ResetClusterParameterGroup
     { _rcpgParameterGroupName :: Text
+    , _rcpgParameters         :: [Parameter]
     , _rcpgResetAllParameters :: Maybe Bool
-    , _rcpgParameters :: [Parameter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetClusterParameterGroup' request.
+-- | 'ResetClusterParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ParameterGroupName ::@ @Text@
+-- * 'rcpgParameterGroupName' @::@ 'Text'
 --
--- * @ResetAllParameters ::@ @Maybe Bool@
+-- * 'rcpgParameters' @::@ ['Parameter']
 --
--- * @Parameters ::@ @[Parameter]@
+-- * 'rcpgResetAllParameters' @::@ 'Maybe' 'Bool'
 --
 resetClusterParameterGroup :: Text -- ^ 'rcpgParameterGroupName'
                            -> ResetClusterParameterGroup
 resetClusterParameterGroup p1 = ResetClusterParameterGroup
     { _rcpgParameterGroupName = p1
     , _rcpgResetAllParameters = Nothing
-    , _rcpgParameters = mempty
+    , _rcpgParameters         = mempty
     }
 
 -- | The name of the cluster parameter group to be reset.
@@ -86,66 +79,60 @@ rcpgParameterGroupName :: Lens' ResetClusterParameterGroup Text
 rcpgParameterGroupName =
     lens _rcpgParameterGroupName (\s a -> s { _rcpgParameterGroupName = a })
 
--- | If true, all parameters in the specified parameter group will be reset to
--- their default values. Default: true.
-rcpgResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
-rcpgResetAllParameters =
-    lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
-
 -- | An array of names of parameters to be reset. If ResetAllParameters option
 -- is not used, then at least one parameter name must be supplied.
 -- Constraints: A maximum of 20 parameters can be reset in a single request.
 rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
 rcpgParameters = lens _rcpgParameters (\s a -> s { _rcpgParameters = a })
 
-instance ToQuery ResetClusterParameterGroup where
-    toQuery = genericQuery def
+-- | If true, all parameters in the specified parameter group will be reset to
+-- their default values. Default: true.
+rcpgResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
+rcpgResetAllParameters =
+    lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
 
--- | Contains the output from the ModifyClusterParameterGroup and
--- ResetClusterParameterGroup actions and indicate the parameter group
--- involved and the status of the operation on the parameter group.
+instance ToQuery ResetClusterParameterGroup
+
+instance ToPath ResetClusterParameterGroup where
+    toPath = const "/"
+
 data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
-    { _rcpgrParameterGroupName :: Maybe Text
+    { _rcpgrParameterGroupName   :: Maybe Text
     , _rcpgrParameterGroupStatus :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetClusterParameterGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ResetClusterParameterGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ParameterGroupName ::@ @Maybe Text@
+-- * 'rcpgrParameterGroupName' @::@ 'Maybe' 'Text'
 --
--- * @ParameterGroupStatus ::@ @Maybe Text@
+-- * 'rcpgrParameterGroupStatus' @::@ 'Maybe' 'Text'
 --
 resetClusterParameterGroupResponse :: ResetClusterParameterGroupResponse
 resetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
-    { _rcpgrParameterGroupName = Nothing
+    { _rcpgrParameterGroupName   = Nothing
     , _rcpgrParameterGroupStatus = Nothing
     }
 
 -- | The name of the cluster parameter group.
 rcpgrParameterGroupName :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
 rcpgrParameterGroupName =
-    lens _rcpgrParameterGroupName
-         (\s a -> s { _rcpgrParameterGroupName = a })
+    lens _rcpgrParameterGroupName (\s a -> s { _rcpgrParameterGroupName = a })
 
 -- | The status of the parameter group. For example, if you made a change to a
--- parameter group name-value pair, then the change could be pending a reboot
--- of an associated cluster.
+-- parameter group name-value pair, then the change could be pending a
+-- reboot of an associated cluster.
 rcpgrParameterGroupStatus :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
 rcpgrParameterGroupStatus =
     lens _rcpgrParameterGroupStatus
-         (\s a -> s { _rcpgrParameterGroupStatus = a })
-
-instance FromXML ResetClusterParameterGroupResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _rcpgrParameterGroupStatus = a })
 
 instance AWSRequest ResetClusterParameterGroup where
     type Sv ResetClusterParameterGroup = Redshift
     type Rs ResetClusterParameterGroup = ResetClusterParameterGroupResponse
 
-    request = post "ResetClusterParameterGroup"
-    response _ = xmlResponse
+    request  = post "ResetClusterParameterGroup"
+    response = xmlResponse $ \h x -> ResetClusterParameterGroupResponse
+        <$> x %| "ParameterGroupName"
+        <*> x %| "ParameterGroupStatus"

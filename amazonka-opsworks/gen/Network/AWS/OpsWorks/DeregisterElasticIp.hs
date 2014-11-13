@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterElasticIp
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,7 +33,7 @@ module Network.AWS.OpsWorks.DeregisterElasticIp
     -- ** Request constructor
     , deregisterElasticIp
     -- ** Request lenses
-    , deiElasticIp
+    , dei1ElasticIp
 
     -- * Response
     , DeregisterElasticIpResponse
@@ -39,52 +41,53 @@ module Network.AWS.OpsWorks.DeregisterElasticIp
     , deregisterElasticIpResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype DeregisterElasticIp = DeregisterElasticIp
-    { _deiElasticIp :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dei1ElasticIp :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterElasticIp' request.
+-- | 'DeregisterElasticIp' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ElasticIp ::@ @Text@
+-- * 'dei1ElasticIp' @::@ 'Text'
 --
-deregisterElasticIp :: Text -- ^ 'deiElasticIp'
+deregisterElasticIp :: Text -- ^ 'dei1ElasticIp'
                     -> DeregisterElasticIp
 deregisterElasticIp p1 = DeregisterElasticIp
-    { _deiElasticIp = p1
+    { _dei1ElasticIp = p1
     }
 
 -- | The Elastic IP address.
-deiElasticIp :: Lens' DeregisterElasticIp Text
-deiElasticIp = lens _deiElasticIp (\s a -> s { _deiElasticIp = a })
+dei1ElasticIp :: Lens' DeregisterElasticIp Text
+dei1ElasticIp = lens _dei1ElasticIp (\s a -> s { _dei1ElasticIp = a })
 
-instance ToPath DeregisterElasticIp
+instance ToPath DeregisterElasticIp where
+    toPath = const "/"
 
-instance ToQuery DeregisterElasticIp
+instance ToQuery DeregisterElasticIp where
+    toQuery = const mempty
 
 instance ToHeaders DeregisterElasticIp
 
-instance ToJSON DeregisterElasticIp
+instance ToBody DeregisterElasticIp where
+    toBody = toBody . encode . _dei1ElasticIp
 
 data DeregisterElasticIpResponse = DeregisterElasticIpResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterElasticIpResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeregisterElasticIpResponse' constructor.
 deregisterElasticIpResponse :: DeregisterElasticIpResponse
 deregisterElasticIpResponse = DeregisterElasticIpResponse
+
+-- FromJSON
 
 instance AWSRequest DeregisterElasticIp where
     type Sv DeregisterElasticIp = OpsWorks
     type Rs DeregisterElasticIp = DeregisterElasticIpResponse
 
-    request = get
-    response _ = nullaryResponse DeregisterElasticIpResponse
+    request  = post'
+    response = nullaryResponse DeregisterElasticIpResponse

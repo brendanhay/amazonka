@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeLayers
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Requests a description of one or more layers in a specified stack. You must
--- specify at least one of the parameters. Required Permissions: To use this
--- action, an IAM user must have a Show, Deploy, or Manage permissions level
--- for the stack, or an attached policy that explicitly grants permissions.
--- For more information on user permissions, see Managing User Permissions.
+-- | Requests a description of one or more layers in a specified stack. Required
+-- Permissions: To use this action, an IAM user must have a Show, Deploy, or
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see Managing User Permissions.
 module Network.AWS.OpsWorks.DescribeLayers
     (
     -- * Request
@@ -30,8 +32,8 @@ module Network.AWS.OpsWorks.DescribeLayers
     -- ** Request constructor
     , describeLayers
     -- ** Request lenses
-    , dl1StackId
-    , dl1LayerIds
+    , dlLayerIds
+    , dlStackId
 
     -- * Response
     , DescribeLayersResponse
@@ -41,61 +43,65 @@ module Network.AWS.OpsWorks.DescribeLayers
     , dlrLayers
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DescribeLayers = DescribeLayers
-    { _dl1StackId :: Maybe Text
-    , _dl1LayerIds :: [Text]
+    { _dlLayerIds :: [Text]
+    , _dlStackId  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLayers' request.
+-- | 'DescribeLayers' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Maybe Text@
+-- * 'dlLayerIds' @::@ ['Text']
 --
--- * @LayerIds ::@ @[Text]@
+-- * 'dlStackId' @::@ 'Maybe' 'Text'
 --
 describeLayers :: DescribeLayers
 describeLayers = DescribeLayers
-    { _dl1StackId = Nothing
-    , _dl1LayerIds = mempty
+    { _dlStackId  = Nothing
+    , _dlLayerIds = mempty
     }
 
+-- | An array of layer IDs that specify the layers to be described. If you
+-- omit this parameter, DescribeLayers returns a description of every layer
+-- in the specified stack.
+dlLayerIds :: Lens' DescribeLayers [Text]
+dlLayerIds = lens _dlLayerIds (\s a -> s { _dlLayerIds = a })
+
 -- | The stack ID.
-dl1StackId :: Lens' DescribeLayers (Maybe Text)
-dl1StackId = lens _dl1StackId (\s a -> s { _dl1StackId = a })
+dlStackId :: Lens' DescribeLayers (Maybe Text)
+dlStackId = lens _dlStackId (\s a -> s { _dlStackId = a })
 
--- | An array of layer IDs that specify the layers to be described. If you omit
--- this parameter, DescribeLayers returns a description of every layer in the
--- specified stack.
-dl1LayerIds :: Lens' DescribeLayers [Text]
-dl1LayerIds = lens _dl1LayerIds (\s a -> s { _dl1LayerIds = a })
+instance ToPath DescribeLayers where
+    toPath = const "/"
 
-instance ToPath DescribeLayers
-
-instance ToQuery DescribeLayers
+instance ToQuery DescribeLayers where
+    toQuery = const mempty
 
 instance ToHeaders DescribeLayers
 
-instance ToJSON DescribeLayers
+instance ToBody DescribeLayers where
+    toBody = toBody . encode . _dlStackId
 
--- | Contains the response to a DescribeLayers request.
 newtype DescribeLayersResponse = DescribeLayersResponse
     { _dlrLayers :: [Layer]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLayersResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeLayersResponse where
+    type Item DescribeLayersResponse = Layer
+
+    fromList = DescribeLayersResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlrLayers
+
+-- | 'DescribeLayersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Layers ::@ @[Layer]@
+-- * 'dlrLayers' @::@ ['Layer']
 --
 describeLayersResponse :: DescribeLayersResponse
 describeLayersResponse = DescribeLayersResponse
@@ -106,11 +112,12 @@ describeLayersResponse = DescribeLayersResponse
 dlrLayers :: Lens' DescribeLayersResponse [Layer]
 dlrLayers = lens _dlrLayers (\s a -> s { _dlrLayers = a })
 
-instance FromJSON DescribeLayersResponse
+-- FromJSON
 
 instance AWSRequest DescribeLayers where
     type Sv DescribeLayers = OpsWorks
     type Rs DescribeLayers = DescribeLayersResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeLayersResponse
+        <$> o .: "Layers"

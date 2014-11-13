@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CreateSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,18 +23,7 @@
 -- | Creates a datafeed for Spot Instances, enabling you to view Spot Instance
 -- usage logs. You can create one data feed per AWS account. For more
 -- information, see Spot Instances in the Amazon Elastic Compute Cloud User
--- Guide. Example This example creates a Spot Instance datafeed for the
--- account. https://ec2.amazonaws.com/?Action=CreateSpotDatafeedSubscription
--- &amp;Bucket=my-s3-bucket &amp;AUTHPARAMS
--- &lt;CreateSpotDatafeedSubscriptionResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;spotDatafeedSubscription&gt;
--- &lt;ownerId&gt;123456789012&lt;/ownerId&gt;
--- &lt;bucket&gt;my-s3-bucket&lt;/bucket&gt;
--- &lt;prefix&gt;spotdata_&lt;/prefix&gt; &lt;state&gt;Active&lt;/state&gt;
--- &lt;/spotDatafeedSubscription&gt;
--- &lt;/CreateSpotDatafeedSubscriptionResponse&gt;.
+-- Guide.
 module Network.AWS.EC2.CreateSpotDatafeedSubscription
     (
     -- * Request
@@ -41,6 +32,7 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     , createSpotDatafeedSubscription
     -- ** Request lenses
     , csdsBucket
+    , csdsDryRun
     , csdsPrefix
 
     -- * Response
@@ -51,28 +43,32 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     , csdsrSpotDatafeedSubscription
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
     { _csdsBucket :: Text
+    , _csdsDryRun :: Maybe Bool
     , _csdsPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateSpotDatafeedSubscription' request.
+-- | 'CreateSpotDatafeedSubscription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * 'csdsBucket' @::@ 'Text'
 --
--- * @Prefix ::@ @Maybe Text@
+-- * 'csdsDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'csdsPrefix' @::@ 'Maybe' 'Text'
 --
 createSpotDatafeedSubscription :: Text -- ^ 'csdsBucket'
                                -> CreateSpotDatafeedSubscription
 createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
     { _csdsBucket = p1
+    , _csdsDryRun = Nothing
     , _csdsPrefix = Nothing
     }
 
@@ -81,25 +77,27 @@ createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
 csdsBucket :: Lens' CreateSpotDatafeedSubscription Text
 csdsBucket = lens _csdsBucket (\s a -> s { _csdsBucket = a })
 
+csdsDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
+csdsDryRun = lens _csdsDryRun (\s a -> s { _csdsDryRun = a })
+
 -- | A prefix for the datafeed file names.
 csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
 csdsPrefix = lens _csdsPrefix (\s a -> s { _csdsPrefix = a })
 
-instance ToQuery CreateSpotDatafeedSubscription where
-    toQuery = genericQuery def
+instance ToQuery CreateSpotDatafeedSubscription
+
+instance ToPath CreateSpotDatafeedSubscription where
+    toPath = const "/"
 
 newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateSpotDatafeedSubscriptionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateSpotDatafeedSubscriptionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SpotDatafeedSubscription ::@ @Maybe SpotDatafeedSubscription@
+-- * 'csdsrSpotDatafeedSubscription' @::@ 'Maybe' 'SpotDatafeedSubscription'
 --
 createSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResponse
 createSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
@@ -110,14 +108,12 @@ createSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
 csdsrSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 csdsrSpotDatafeedSubscription =
     lens _csdsrSpotDatafeedSubscription
-         (\s a -> s { _csdsrSpotDatafeedSubscription = a })
-
-instance FromXML CreateSpotDatafeedSubscriptionResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _csdsrSpotDatafeedSubscription = a })
 
 instance AWSRequest CreateSpotDatafeedSubscription where
     type Sv CreateSpotDatafeedSubscription = EC2
     type Rs CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscriptionResponse
 
-    request = post "CreateSpotDatafeedSubscription"
-    response _ = xmlResponse
+    request  = post "CreateSpotDatafeedSubscription"
+    response = xmlResponse $ \h x -> CreateSpotDatafeedSubscriptionResponse
+        <$> x %| "spotDatafeedSubscription"

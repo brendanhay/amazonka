@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,16 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a log stream and permanently deletes all the archived log events
--- associated with it. Delete a Log Stream The following is an example of a
--- DeleteLogStream request and response. POST / HTTP/1.1 Host: logs..
--- X-Amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Accept: application/json Content-Type:
--- application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]>
--- X-Amz-Target: Logs_20140328.DeleteLogStream { "logGroupName":
--- "exampleLogGroupName", "logStreamName": "exampleLogStreamName" } HTTP/1.1
--- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
--- Content-Length: Date: ]]>.
+-- associated with it.
 module Network.AWS.CloudWatchLogs.DeleteLogStream
     (
     -- * Request
@@ -45,29 +38,28 @@ module Network.AWS.CloudWatchLogs.DeleteLogStream
     , deleteLogStreamResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudWatchLogs.Types
 
 data DeleteLogStream = DeleteLogStream
-    { _dlsLogGroupName :: Text
+    { _dlsLogGroupName  :: Text
     , _dlsLogStreamName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLogStream' request.
+-- | 'DeleteLogStream' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogGroupName ::@ @Text@
+-- * 'dlsLogGroupName' @::@ 'Text'
 --
--- * @LogStreamName ::@ @Text@
+-- * 'dlsLogStreamName' @::@ 'Text'
 --
 deleteLogStream :: Text -- ^ 'dlsLogGroupName'
                 -> Text -- ^ 'dlsLogStreamName'
                 -> DeleteLogStream
 deleteLogStream p1 p2 = DeleteLogStream
-    { _dlsLogGroupName = p1
+    { _dlsLogGroupName  = p1
     , _dlsLogStreamName = p2
     }
 
@@ -75,30 +67,31 @@ dlsLogGroupName :: Lens' DeleteLogStream Text
 dlsLogGroupName = lens _dlsLogGroupName (\s a -> s { _dlsLogGroupName = a })
 
 dlsLogStreamName :: Lens' DeleteLogStream Text
-dlsLogStreamName =
-    lens _dlsLogStreamName (\s a -> s { _dlsLogStreamName = a })
+dlsLogStreamName = lens _dlsLogStreamName (\s a -> s { _dlsLogStreamName = a })
 
-instance ToPath DeleteLogStream
+instance ToPath DeleteLogStream where
+    toPath = const "/"
 
-instance ToQuery DeleteLogStream
+instance ToQuery DeleteLogStream where
+    toQuery = const mempty
 
 instance ToHeaders DeleteLogStream
 
-instance ToJSON DeleteLogStream
+instance ToBody DeleteLogStream where
+    toBody = toBody . encode . _dlsLogGroupName
 
 data DeleteLogStreamResponse = DeleteLogStreamResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLogStreamResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteLogStreamResponse' constructor.
 deleteLogStreamResponse :: DeleteLogStreamResponse
 deleteLogStreamResponse = DeleteLogStreamResponse
+
+-- FromJSON
 
 instance AWSRequest DeleteLogStream where
     type Sv DeleteLogStream = CloudWatchLogs
     type Rs DeleteLogStream = DeleteLogStreamResponse
 
-    request = get
-    response _ = nullaryResponse DeleteLogStreamResponse
+    request  = post'
+    response = nullaryResponse DeleteLogStreamResponse

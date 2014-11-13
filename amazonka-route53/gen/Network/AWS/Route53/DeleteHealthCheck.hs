@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53.DeleteHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,22 +44,20 @@ module Network.AWS.Route53.DeleteHealthCheck
     , deleteHealthCheckResponse
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
--- | A complex type containing the request information for delete health check.
 newtype DeleteHealthCheck = DeleteHealthCheck
     { _dhcHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteHealthCheck' request.
+-- | 'DeleteHealthCheck' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HealthCheckId ::@ @Text@
+-- * 'dhcHealthCheckId' @::@ 'Text'
 --
 deleteHealthCheck :: Text -- ^ 'dhcHealthCheckId'
                   -> DeleteHealthCheck
@@ -67,27 +67,23 @@ deleteHealthCheck p1 = DeleteHealthCheck
 
 -- | The ID of the health check to delete.
 dhcHealthCheckId :: Lens' DeleteHealthCheck Text
-dhcHealthCheckId =
-    lens _dhcHealthCheckId (\s a -> s { _dhcHealthCheckId = a })
+dhcHealthCheckId = lens _dhcHealthCheckId (\s a -> s { _dhcHealthCheckId = a })
 
-instance ToPath DeleteHealthCheck
+instance ToPath DeleteHealthCheck where
+    toPath DeleteHealthCheck{..} = mconcat
+        [ "/2013-04-01/healthcheck/"
+        , toText _dhcHealthCheckId
+        ]
 
-instance ToQuery DeleteHealthCheck
+instance ToQuery DeleteHealthCheck where
+    toQuery = const mempty
 
 instance ToHeaders DeleteHealthCheck
 
-instance ToXML DeleteHealthCheck where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteHealthCheck"
-
--- | Empty response for the request.
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteHealthCheckResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteHealthCheckResponse' constructor.
 deleteHealthCheckResponse :: DeleteHealthCheckResponse
 deleteHealthCheckResponse = DeleteHealthCheckResponse
 
@@ -95,5 +91,5 @@ instance AWSRequest DeleteHealthCheck where
     type Sv DeleteHealthCheck = Route53
     type Rs DeleteHealthCheck = DeleteHealthCheckResponse
 
-    request = get
-    response _ = nullaryResponse DeleteHealthCheckResponse
+    request  = delete
+    response = nullaryResponse DeleteHealthCheckResponse

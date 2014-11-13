@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53.GetHealthCheckCount
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,6 +28,7 @@ module Network.AWS.Route53.GetHealthCheckCount
       GetHealthCheckCount
     -- ** Request constructor
     , getHealthCheckCount
+
     -- * Response
     , GetHealthCheckCountResponse
     -- ** Response constructor
@@ -34,45 +37,35 @@ module Network.AWS.Route53.GetHealthCheckCount
     , ghccrHealthCheckCount
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
--- | To retrieve a count of all your health checks, send a GET request to the
--- 2013-04-01/healthcheckcount resource.
 data GetHealthCheckCount = GetHealthCheckCount
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetHealthCheckCount' request.
+-- | 'GetHealthCheckCount' constructor.
 getHealthCheckCount :: GetHealthCheckCount
 getHealthCheckCount = GetHealthCheckCount
 
-instance ToPath GetHealthCheckCount
+instance ToPath GetHealthCheckCount where
+    toPath = const "/2013-04-01/healthcheckcount"
 
-instance ToQuery GetHealthCheckCount
+instance ToQuery GetHealthCheckCount where
+    toQuery = const mempty
 
 instance ToHeaders GetHealthCheckCount
 
-instance ToXML GetHealthCheckCount where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHealthCheckCount"
-
--- | A complex type that contains the count of health checks associated with the
--- current AWS account.
 newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
     { _ghccrHealthCheckCount :: Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Enum, Num, Integral, Real)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetHealthCheckCountResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetHealthCheckCountResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HealthCheckCount ::@ @Integer@
+-- * 'ghccrHealthCheckCount' @::@ 'Integer'
 --
 getHealthCheckCountResponse :: Integer -- ^ 'ghccrHealthCheckCount'
                             -> GetHealthCheckCountResponse
@@ -85,12 +78,10 @@ ghccrHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
 ghccrHealthCheckCount =
     lens _ghccrHealthCheckCount (\s a -> s { _ghccrHealthCheckCount = a })
 
-instance FromXML GetHealthCheckCountResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetHealthCheckCount where
     type Sv GetHealthCheckCount = Route53
     type Rs GetHealthCheckCount = GetHealthCheckCountResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetHealthCheckCountResponse
+        <$> x %| "HealthCheckCount"

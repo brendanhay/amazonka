@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.SetPermission
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,11 +32,11 @@ module Network.AWS.OpsWorks.SetPermission
     -- ** Request constructor
     , setPermission
     -- ** Request lenses
-    , spStackId
-    , spIamUserArn
     , spAllowSsh
     , spAllowSudo
+    , spIamUserArn
     , spLevel
+    , spStackId
 
     -- * Response
     , SetPermissionResponse
@@ -42,51 +44,42 @@ module Network.AWS.OpsWorks.SetPermission
     , setPermissionResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data SetPermission = SetPermission
-    { _spStackId :: Text
+    { _spAllowSsh   :: Maybe Bool
+    , _spAllowSudo  :: Maybe Bool
     , _spIamUserArn :: Text
-    , _spAllowSsh :: Maybe Bool
-    , _spAllowSudo :: Maybe Bool
-    , _spLevel :: Maybe Text
+    , _spLevel      :: Maybe Text
+    , _spStackId    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetPermission' request.
+-- | 'SetPermission' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Text@
+-- * 'spAllowSsh' @::@ 'Maybe' 'Bool'
 --
--- * @IamUserArn ::@ @Text@
+-- * 'spAllowSudo' @::@ 'Maybe' 'Bool'
 --
--- * @AllowSsh ::@ @Maybe Bool@
+-- * 'spIamUserArn' @::@ 'Text'
 --
--- * @AllowSudo ::@ @Maybe Bool@
+-- * 'spLevel' @::@ 'Maybe' 'Text'
 --
--- * @Level ::@ @Maybe Text@
+-- * 'spStackId' @::@ 'Text'
 --
 setPermission :: Text -- ^ 'spStackId'
               -> Text -- ^ 'spIamUserArn'
               -> SetPermission
 setPermission p1 p2 = SetPermission
-    { _spStackId = p1
+    { _spStackId    = p1
     , _spIamUserArn = p2
-    , _spAllowSsh = Nothing
-    , _spAllowSudo = Nothing
-    , _spLevel = Nothing
+    , _spAllowSsh   = Nothing
+    , _spAllowSudo  = Nothing
+    , _spLevel      = Nothing
     }
-
--- | The stack ID.
-spStackId :: Lens' SetPermission Text
-spStackId = lens _spStackId (\s a -> s { _spStackId = a })
-
--- | The user's IAM ARN.
-spIamUserArn :: Lens' SetPermission Text
-spIamUserArn = lens _spIamUserArn (\s a -> s { _spIamUserArn = a })
 
 -- | The user is allowed to use SSH to communicate with the instance.
 spAllowSsh :: Lens' SetPermission (Maybe Bool)
@@ -96,34 +89,44 @@ spAllowSsh = lens _spAllowSsh (\s a -> s { _spAllowSsh = a })
 spAllowSudo :: Lens' SetPermission (Maybe Bool)
 spAllowSudo = lens _spAllowSudo (\s a -> s { _spAllowSudo = a })
 
+-- | The user's IAM ARN.
+spIamUserArn :: Lens' SetPermission Text
+spIamUserArn = lens _spIamUserArn (\s a -> s { _spIamUserArn = a })
+
 -- | The user's permission level, which must be set to one of the following
--- strings. You cannot set your own permissions level. deny show deploy manage
--- iam_only For more information on the permissions associated with these
--- levels, see Managing User Permissions.
+-- strings. You cannot set your own permissions level. deny show deploy
+-- manage iam_only For more information on the permissions associated with
+-- these levels, see Managing User Permissions.
 spLevel :: Lens' SetPermission (Maybe Text)
 spLevel = lens _spLevel (\s a -> s { _spLevel = a })
 
-instance ToPath SetPermission
+-- | The stack ID.
+spStackId :: Lens' SetPermission Text
+spStackId = lens _spStackId (\s a -> s { _spStackId = a })
 
-instance ToQuery SetPermission
+instance ToPath SetPermission where
+    toPath = const "/"
+
+instance ToQuery SetPermission where
+    toQuery = const mempty
 
 instance ToHeaders SetPermission
 
-instance ToJSON SetPermission
+instance ToBody SetPermission where
+    toBody = toBody . encode . _spStackId
 
 data SetPermissionResponse = SetPermissionResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetPermissionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SetPermissionResponse' constructor.
 setPermissionResponse :: SetPermissionResponse
 setPermissionResponse = SetPermissionResponse
+
+-- FromJSON
 
 instance AWSRequest SetPermission where
     type Sv SetPermission = OpsWorks
     type Rs SetPermission = SetPermissionResponse
 
-    request = get
-    response _ = nullaryResponse SetPermissionResponse
+    request  = post'
+    response = nullaryResponse SetPermissionResponse

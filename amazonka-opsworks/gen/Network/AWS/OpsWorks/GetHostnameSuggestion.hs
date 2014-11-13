@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.GetHostnameSuggestion
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,24 +39,23 @@ module Network.AWS.OpsWorks.GetHostnameSuggestion
     -- ** Response constructor
     , getHostnameSuggestionResponse
     -- ** Response lenses
-    , ghsrLayerId
     , ghsrHostname
+    , ghsrLayerId
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype GetHostnameSuggestion = GetHostnameSuggestion
     { _ghsLayerId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetHostnameSuggestion' request.
+-- | 'GetHostnameSuggestion' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LayerId ::@ @Text@
+-- * 'ghsLayerId' @::@ 'Text'
 --
 getHostnameSuggestion :: Text -- ^ 'ghsLayerId'
                       -> GetHostnameSuggestion
@@ -66,50 +67,51 @@ getHostnameSuggestion p1 = GetHostnameSuggestion
 ghsLayerId :: Lens' GetHostnameSuggestion Text
 ghsLayerId = lens _ghsLayerId (\s a -> s { _ghsLayerId = a })
 
-instance ToPath GetHostnameSuggestion
+instance ToPath GetHostnameSuggestion where
+    toPath = const "/"
 
-instance ToQuery GetHostnameSuggestion
+instance ToQuery GetHostnameSuggestion where
+    toQuery = const mempty
 
 instance ToHeaders GetHostnameSuggestion
 
-instance ToJSON GetHostnameSuggestion
+instance ToBody GetHostnameSuggestion where
+    toBody = toBody . encode . _ghsLayerId
 
--- | Contains the response to a GetHostnameSuggestion request.
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
-    { _ghsrLayerId :: Maybe Text
-    , _ghsrHostname :: Maybe Text
+    { _ghsrHostname :: Maybe Text
+    , _ghsrLayerId  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetHostnameSuggestionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetHostnameSuggestionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LayerId ::@ @Maybe Text@
+-- * 'ghsrHostname' @::@ 'Maybe' 'Text'
 --
--- * @Hostname ::@ @Maybe Text@
+-- * 'ghsrLayerId' @::@ 'Maybe' 'Text'
 --
 getHostnameSuggestionResponse :: GetHostnameSuggestionResponse
 getHostnameSuggestionResponse = GetHostnameSuggestionResponse
-    { _ghsrLayerId = Nothing
+    { _ghsrLayerId  = Nothing
     , _ghsrHostname = Nothing
     }
-
--- | The layer ID.
-ghsrLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghsrLayerId = lens _ghsrLayerId (\s a -> s { _ghsrLayerId = a })
 
 -- | The generated host name.
 ghsrHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrHostname = lens _ghsrHostname (\s a -> s { _ghsrHostname = a })
 
-instance FromJSON GetHostnameSuggestionResponse
+-- | The layer ID.
+ghsrLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
+ghsrLayerId = lens _ghsrLayerId (\s a -> s { _ghsrLayerId = a })
+
+-- FromJSON
 
 instance AWSRequest GetHostnameSuggestion where
     type Sv GetHostnameSuggestion = OpsWorks
     type Rs GetHostnameSuggestion = GetHostnameSuggestionResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> GetHostnameSuggestionResponse
+        <$> o .: "Hostname"
+        <*> o .: "LayerId"

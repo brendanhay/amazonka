@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.DeleteDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,81 +24,77 @@
 module Network.AWS.CloudFront.DeleteDistribution
     (
     -- * Request
-      DeleteDistribution
+      DeleteDistribution2014_05_31
     -- ** Request constructor
-    , deleteDistribution
+    , deleteDistribution2014_05_31
     -- ** Request lenses
     , ddId
     , ddIfMatch
 
     -- * Response
-    , DeleteDistributionResponse
+    , DeleteDistribution2014_05_31Response
     -- ** Response constructor
-    , deleteDistributionResponse
+    , deleteDistribution2014_05_31Response
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to delete a distribution.
-data DeleteDistribution = DeleteDistribution
-    { _ddId :: Text
+data DeleteDistribution2014_05_31 = DeleteDistribution2014_05_31
+    { _ddId      :: Text
     , _ddIfMatch :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDistribution' request.
+-- | 'DeleteDistribution2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'ddId' @::@ 'Text'
 --
--- * @IfMatch ::@ @Maybe Text@
+-- * 'ddIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteDistribution :: Text -- ^ 'ddId'
-                   -> DeleteDistribution
-deleteDistribution p1 = DeleteDistribution
-    { _ddId = p1
+deleteDistribution2014_05_31 :: Text -- ^ 'ddId'
+                             -> DeleteDistribution2014_05_31
+deleteDistribution2014_05_31 p1 = DeleteDistribution2014_05_31
+    { _ddId      = p1
     , _ddIfMatch = Nothing
     }
 
 -- | The distribution id.
-ddId :: Lens' DeleteDistribution Text
+ddId :: Lens' DeleteDistribution2014_05_31 Text
 ddId = lens _ddId (\s a -> s { _ddId = a })
 
 -- | The value of the ETag header you received when you disabled the
 -- distribution. For example: E2QWRUHAPOMQZL.
-ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
+ddIfMatch :: Lens' DeleteDistribution2014_05_31 (Maybe Text)
 ddIfMatch = lens _ddIfMatch (\s a -> s { _ddIfMatch = a })
 
-instance ToPath DeleteDistribution
+instance ToPath DeleteDistribution2014_05_31 where
+    toPath DeleteDistribution2014_05_31{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _ddId
+        ]
 
-instance ToQuery DeleteDistribution
+instance ToQuery DeleteDistribution2014_05_31 where
+    toQuery = const mempty
 
-instance ToHeaders DeleteDistribution where
-    toHeaders DeleteDistribution{..} = concat
+instance ToHeaders DeleteDistribution2014_05_31 where
+    toHeaders DeleteDistribution2014_05_31{..} = mconcat
         [ "If-Match" =: _ddIfMatch
         ]
 
-instance ToXML DeleteDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteDistribution"
-
-data DeleteDistributionResponse = DeleteDistributionResponse
+data DeleteDistribution2014_05_31Response = DeleteDistribution2014_05_31Response
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDistributionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
-deleteDistributionResponse :: DeleteDistributionResponse
-deleteDistributionResponse = DeleteDistributionResponse
+-- | 'DeleteDistribution2014_05_31Response' constructor.
+deleteDistribution2014_05_31Response :: DeleteDistribution2014_05_31Response
+deleteDistribution2014_05_31Response = DeleteDistribution2014_05_31Response
 
-instance AWSRequest DeleteDistribution where
-    type Sv DeleteDistribution = CloudFront
-    type Rs DeleteDistribution = DeleteDistributionResponse
+instance AWSRequest DeleteDistribution2014_05_31 where
+    type Sv DeleteDistribution2014_05_31 = CloudFront
+    type Rs DeleteDistribution2014_05_31 = DeleteDistribution2014_05_31Response
 
-    request = get
-    response _ = nullaryResponse DeleteDistributionResponse
+    request  = delete
+    response = nullaryResponse DeleteDistribution2014_05_31Response

@@ -1,0 +1,105 @@
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
+
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
+
+-- Module      : Network.AWS.EMR.DescribeCluster
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+
+-- | Provides cluster-level details including status, hardware and software
+-- configuration, VPC settings, and so on. For information about the cluster
+-- steps, see ListSteps.
+module Network.AWS.EMR.DescribeCluster
+    (
+    -- * Request
+      DescribeCluster
+    -- ** Request constructor
+    , describeCluster
+    -- ** Request lenses
+    , dcClusterId
+
+    -- * Response
+    , DescribeClusterResponse
+    -- ** Response constructor
+    , describeClusterResponse
+    -- ** Response lenses
+    , dcrCluster
+    ) where
+
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.EMR.Types
+
+newtype DescribeCluster = DescribeCluster
+    { _dcClusterId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+
+-- | 'DescribeCluster' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcClusterId' @::@ 'Text'
+--
+describeCluster :: Text -- ^ 'dcClusterId'
+                -> DescribeCluster
+describeCluster p1 = DescribeCluster
+    { _dcClusterId = p1
+    }
+
+-- | The identifier of the cluster to describe.
+dcClusterId :: Lens' DescribeCluster Text
+dcClusterId = lens _dcClusterId (\s a -> s { _dcClusterId = a })
+
+instance ToPath DescribeCluster where
+    toPath = const "/"
+
+instance ToQuery DescribeCluster where
+    toQuery = const mempty
+
+instance ToHeaders DescribeCluster
+
+instance ToBody DescribeCluster where
+    toBody = toBody . encode . _dcClusterId
+
+newtype DescribeClusterResponse = DescribeClusterResponse
+    { _dcrCluster :: Maybe Cluster
+    } deriving (Eq, Show, Generic)
+
+-- | 'DescribeClusterResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcrCluster' @::@ 'Maybe' 'Cluster'
+--
+describeClusterResponse :: DescribeClusterResponse
+describeClusterResponse = DescribeClusterResponse
+    { _dcrCluster = Nothing
+    }
+
+-- | This output contains the details for the requested cluster.
+dcrCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
+dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
+
+-- FromJSON
+
+instance AWSRequest DescribeCluster where
+    type Sv DescribeCluster = EMR
+    type Rs DescribeCluster = DescribeClusterResponse
+
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeClusterResponse
+        <$> o .: "Cluster"

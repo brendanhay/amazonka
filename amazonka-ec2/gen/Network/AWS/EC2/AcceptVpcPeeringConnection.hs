@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.AcceptVpcPeeringConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,24 +23,7 @@
 -- | Accept a VPC peering connection request. To accept a request, the VPC
 -- peering connection must be in the pending-acceptance state, and you must be
 -- the owner of the peer VPC. Use the DescribeVpcPeeringConnections request to
--- view your outstanding VPC peering connection requests. Example This example
--- accepts the specified VPC peering connection request.
--- https://ec2.amazonaws.com/?Action=AcceptVpcPeeringConnection
--- &amp;vpcPeeringConnectionId=pcx-1a2b3c4d &amp;AUTHPARAMS
--- &lt;AcceptVpcPeeringConnectionResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;vpcPeeringConnection&gt;
--- &lt;vpcPeeringConnectionId&gt;pcx-1a2b3c4d&lt;/vpcPeeringConnectionId&gt;
--- &lt;requesterVpcInfo&gt; &lt;ownerId&gt;123456789012&lt;/ownerId&gt;
--- &lt;vpcId&gt;vpc-1a2b3c4d&lt;/vpcId&gt;
--- &lt;cidrBlock&gt;10.0.0.0/28&lt;/cidrBlock&gt; &lt;/requesterVpcInfo&gt;
--- &lt;accepterVpcInfo&gt; &lt;ownerId&gt;777788889999&lt;/ownerId&gt;
--- &lt;vpcId&gt;vpc-111aaa22&lt;/vpcId&gt;
--- &lt;cidrBlock&gt;10.0.1.0/28&lt;/cidrBlock&gt; &lt;/accepterVpcInfo&gt;
--- &lt;status&gt; &lt;code&gt;active&lt;/code&gt;
--- &lt;message&gt;Active&lt;/message&gt; &lt;/status&gt; &lt;tagSet/&gt;
--- &lt;/vpcPeeringConnection&gt; &lt;/AcceptVpcPeeringConnectionResponse&gt;".
+-- view your outstanding VPC peering connection requests.
 module Network.AWS.EC2.AcceptVpcPeeringConnection
     (
     -- * Request
@@ -46,6 +31,7 @@ module Network.AWS.EC2.AcceptVpcPeeringConnection
     -- ** Request constructor
     , acceptVpcPeeringConnection
     -- ** Request lenses
+    , avpcDryRun
     , avpcVpcPeeringConnectionId
 
     -- * Response
@@ -56,47 +42,53 @@ module Network.AWS.EC2.AcceptVpcPeeringConnection
     , avpcrVpcPeeringConnection
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
-    { _avpcVpcPeeringConnectionId :: Maybe Text
+data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
+    { _avpcDryRun                 :: Maybe Bool
+    , _avpcVpcPeeringConnectionId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AcceptVpcPeeringConnection' request.
+-- | 'AcceptVpcPeeringConnection' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcPeeringConnectionId ::@ @Maybe Text@
+-- * 'avpcDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'avpcVpcPeeringConnectionId' @::@ 'Maybe' 'Text'
 --
 acceptVpcPeeringConnection :: AcceptVpcPeeringConnection
 acceptVpcPeeringConnection = AcceptVpcPeeringConnection
-    { _avpcVpcPeeringConnectionId = Nothing
+    { _avpcDryRun                 = Nothing
+    , _avpcVpcPeeringConnectionId = Nothing
     }
+
+avpcDryRun :: Lens' AcceptVpcPeeringConnection (Maybe Bool)
+avpcDryRun = lens _avpcDryRun (\s a -> s { _avpcDryRun = a })
 
 -- | The ID of the VPC peering connection.
 avpcVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
 avpcVpcPeeringConnectionId =
     lens _avpcVpcPeeringConnectionId
-         (\s a -> s { _avpcVpcPeeringConnectionId = a })
+        (\s a -> s { _avpcVpcPeeringConnectionId = a })
 
-instance ToQuery AcceptVpcPeeringConnection where
-    toQuery = genericQuery def
+instance ToQuery AcceptVpcPeeringConnection
+
+instance ToPath AcceptVpcPeeringConnection where
+    toPath = const "/"
 
 newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AcceptVpcPeeringConnectionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AcceptVpcPeeringConnectionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcPeeringConnection ::@ @Maybe VpcPeeringConnection@
+-- * 'avpcrVpcPeeringConnection' @::@ 'Maybe' 'VpcPeeringConnection'
 --
 acceptVpcPeeringConnectionResponse :: AcceptVpcPeeringConnectionResponse
 acceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
@@ -107,14 +99,12 @@ acceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
 avpcrVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 avpcrVpcPeeringConnection =
     lens _avpcrVpcPeeringConnection
-         (\s a -> s { _avpcrVpcPeeringConnection = a })
-
-instance FromXML AcceptVpcPeeringConnectionResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _avpcrVpcPeeringConnection = a })
 
 instance AWSRequest AcceptVpcPeeringConnection where
     type Sv AcceptVpcPeeringConnection = EC2
     type Rs AcceptVpcPeeringConnection = AcceptVpcPeeringConnectionResponse
 
-    request = post "AcceptVpcPeeringConnection"
-    response _ = xmlResponse
+    request  = post "AcceptVpcPeeringConnection"
+    response = xmlResponse $ \h x -> AcceptVpcPeeringConnectionResponse
+        <$> x %| "vpcPeeringConnection"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckResult
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,28 +47,27 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     , dtacrrResult
     ) where
 
-import Network.AWS.Support.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Support.Types
 
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
-    { _dtacrCheckId :: Text
+    { _dtacrCheckId  :: Text
     , _dtacrLanguage :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTrustedAdvisorCheckResult' request.
+-- | 'DescribeTrustedAdvisorCheckResult' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CheckId ::@ @Text@
+-- * 'dtacrCheckId' @::@ 'Text'
 --
--- * @Language ::@ @Maybe Text@
+-- * 'dtacrLanguage' @::@ 'Maybe' 'Text'
 --
 describeTrustedAdvisorCheckResult :: Text -- ^ 'dtacrCheckId'
                                   -> DescribeTrustedAdvisorCheckResult
 describeTrustedAdvisorCheckResult p1 = DescribeTrustedAdvisorCheckResult
-    { _dtacrCheckId = p1
+    { _dtacrCheckId  = p1
     , _dtacrLanguage = Nothing
     }
 
@@ -80,28 +81,26 @@ dtacrCheckId = lens _dtacrCheckId (\s a -> s { _dtacrCheckId = a })
 dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
 dtacrLanguage = lens _dtacrLanguage (\s a -> s { _dtacrLanguage = a })
 
-instance ToPath DescribeTrustedAdvisorCheckResult
+instance ToPath DescribeTrustedAdvisorCheckResult where
+    toPath = const "/"
 
-instance ToQuery DescribeTrustedAdvisorCheckResult
+instance ToQuery DescribeTrustedAdvisorCheckResult where
+    toQuery = const mempty
 
 instance ToHeaders DescribeTrustedAdvisorCheckResult
 
-instance ToJSON DescribeTrustedAdvisorCheckResult
+instance ToBody DescribeTrustedAdvisorCheckResult where
+    toBody = toBody . encode . _dtacrCheckId
 
--- | The result of the Trusted Advisor check returned by the
--- DescribeTrustedAdvisorCheckResult operation.
 newtype DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
     { _dtacrrResult :: Maybe TrustedAdvisorCheckResult
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTrustedAdvisorCheckResultResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeTrustedAdvisorCheckResultResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Result ::@ @Maybe TrustedAdvisorCheckResult@
+-- * 'dtacrrResult' @::@ 'Maybe' 'TrustedAdvisorCheckResult'
 --
 describeTrustedAdvisorCheckResultResponse :: DescribeTrustedAdvisorCheckResultResponse
 describeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
@@ -112,11 +111,12 @@ describeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultRes
 dtacrrResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
 dtacrrResult = lens _dtacrrResult (\s a -> s { _dtacrrResult = a })
 
-instance FromJSON DescribeTrustedAdvisorCheckResultResponse
+-- FromJSON
 
 instance AWSRequest DescribeTrustedAdvisorCheckResult where
     type Sv DescribeTrustedAdvisorCheckResult = Support
     type Rs DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResultResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeTrustedAdvisorCheckResultResponse
+        <$> o .: "result"

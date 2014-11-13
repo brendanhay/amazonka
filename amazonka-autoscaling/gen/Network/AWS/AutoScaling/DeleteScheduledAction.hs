@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteScheduledAction
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,53 +38,50 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
     , deleteScheduledActionResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data DeleteScheduledAction = DeleteScheduledAction
     { _dsaAutoScalingGroupName :: Maybe Text
-    , _dsaScheduledActionName :: Text
+    , _dsaScheduledActionName  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteScheduledAction' request.
+-- | 'DeleteScheduledAction' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AutoScalingGroupName ::@ @Maybe Text@
+-- * 'dsaAutoScalingGroupName' @::@ 'Maybe' 'Text'
 --
--- * @ScheduledActionName ::@ @Text@
+-- * 'dsaScheduledActionName' @::@ 'Text'
 --
 deleteScheduledAction :: Text -- ^ 'dsaScheduledActionName'
                       -> DeleteScheduledAction
-deleteScheduledAction p2 = DeleteScheduledAction
-    { _dsaAutoScalingGroupName = Nothing
-    , _dsaScheduledActionName = p2
+deleteScheduledAction p1 = DeleteScheduledAction
+    { _dsaScheduledActionName  = p1
+    , _dsaAutoScalingGroupName = Nothing
     }
 
 -- | The name of the Auto Scaling group.
 dsaAutoScalingGroupName :: Lens' DeleteScheduledAction (Maybe Text)
 dsaAutoScalingGroupName =
-    lens _dsaAutoScalingGroupName
-         (\s a -> s { _dsaAutoScalingGroupName = a })
+    lens _dsaAutoScalingGroupName (\s a -> s { _dsaAutoScalingGroupName = a })
 
 -- | The name of the action you want to delete.
 dsaScheduledActionName :: Lens' DeleteScheduledAction Text
 dsaScheduledActionName =
     lens _dsaScheduledActionName (\s a -> s { _dsaScheduledActionName = a })
 
-instance ToQuery DeleteScheduledAction where
-    toQuery = genericQuery def
+instance ToQuery DeleteScheduledAction
+
+instance ToPath DeleteScheduledAction where
+    toPath = const "/"
 
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteScheduledActionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteScheduledActionResponse' constructor.
 deleteScheduledActionResponse :: DeleteScheduledActionResponse
 deleteScheduledActionResponse = DeleteScheduledActionResponse
 
@@ -90,5 +89,5 @@ instance AWSRequest DeleteScheduledAction where
     type Sv DeleteScheduledAction = AutoScaling
     type Rs DeleteScheduledAction = DeleteScheduledActionResponse
 
-    request = post "DeleteScheduledAction"
-    response _ = nullaryResponse DeleteScheduledActionResponse
+    request  = post "DeleteScheduledAction"
+    response = nullaryResponse DeleteScheduledActionResponse

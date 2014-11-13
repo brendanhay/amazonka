@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.DescribeReservedDBInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,14 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns information about reserved DB instances for this account, or about
--- a specified reserved DB instance. https://rds.amazonaws.com/
--- ?Action=DescribeReservedDBInstances
--- &ReservedDBInstanceId=customerSpecifiedID &SignatureVersion=2
--- &SignatureMethod=HmacSHA256 &Timestamp=2012-12-18T18%3A31%3A36.118Z
--- &AWSAccessKeyId= &Signature= Medium Utilization USD mysql
--- 649fd0c8-cf6d-47a0-bfa6-060f8e75e95f false active myreservationid 1
--- 2010-12-15T00:25:14.131Z 31536000 227.5 0.046 db.m1.small
--- c695119b-2961-11e1-bd06-6fe008f046c3.
+-- a specified reserved DB instance.
 module Network.AWS.RDS.DescribeReservedDBInstances
     (
     -- * Request
@@ -34,15 +29,16 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     -- ** Request constructor
     , describeReservedDBInstances
     -- ** Request lenses
-    , drdbiReservedDBInstanceId
-    , drdbiReservedDBInstancesOfferingId
     , drdbiDBInstanceClass
     , drdbiDuration
-    , drdbiProductDescription
-    , drdbiOfferingType
-    , drdbiMultiAZ
-    , drdbiMaxRecords
+    , drdbiFilters
     , drdbiMarker
+    , drdbiMaxRecords
+    , drdbiMultiAZ
+    , drdbiOfferingType
+    , drdbiProductDescription
+    , drdbiReservedDBInstanceId
+    , drdbiReservedDBInstancesOfferingId
 
     -- * Response
     , DescribeReservedDBInstancesResponse
@@ -53,72 +49,61 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     , drdbirReservedDBInstances
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data DescribeReservedDBInstances = DescribeReservedDBInstances
-    { _drdbiReservedDBInstanceId :: Maybe Text
+    { _drdbiDBInstanceClass               :: Maybe Text
+    , _drdbiDuration                      :: Maybe Text
+    , _drdbiFilters                       :: [Filter]
+    , _drdbiMarker                        :: Maybe Text
+    , _drdbiMaxRecords                    :: Maybe Int
+    , _drdbiMultiAZ                       :: Maybe Bool
+    , _drdbiOfferingType                  :: Maybe Text
+    , _drdbiProductDescription            :: Maybe Text
+    , _drdbiReservedDBInstanceId          :: Maybe Text
     , _drdbiReservedDBInstancesOfferingId :: Maybe Text
-    , _drdbiDBInstanceClass :: Maybe Text
-    , _drdbiDuration :: Maybe Text
-    , _drdbiProductDescription :: Maybe Text
-    , _drdbiOfferingType :: Maybe Text
-    , _drdbiMultiAZ :: Maybe Bool
-    , _drdbiMaxRecords :: Maybe Integer
-    , _drdbiMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeReservedDBInstances' request.
+-- | 'DescribeReservedDBInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedDBInstanceId ::@ @Maybe Text@
+-- * 'drdbiDBInstanceClass' @::@ 'Maybe' 'Text'
 --
--- * @ReservedDBInstancesOfferingId ::@ @Maybe Text@
+-- * 'drdbiDuration' @::@ 'Maybe' 'Text'
 --
--- * @DBInstanceClass ::@ @Maybe Text@
+-- * 'drdbiFilters' @::@ ['Filter']
 --
--- * @Duration ::@ @Maybe Text@
+-- * 'drdbiMarker' @::@ 'Maybe' 'Text'
 --
--- * @ProductDescription ::@ @Maybe Text@
+-- * 'drdbiMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * @OfferingType ::@ @Maybe Text@
+-- * 'drdbiMultiAZ' @::@ 'Maybe' 'Bool'
 --
--- * @MultiAZ ::@ @Maybe Bool@
+-- * 'drdbiOfferingType' @::@ 'Maybe' 'Text'
 --
--- * @MaxRecords ::@ @Maybe Integer@
+-- * 'drdbiProductDescription' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'drdbiReservedDBInstanceId' @::@ 'Maybe' 'Text'
+--
+-- * 'drdbiReservedDBInstancesOfferingId' @::@ 'Maybe' 'Text'
 --
 describeReservedDBInstances :: DescribeReservedDBInstances
 describeReservedDBInstances = DescribeReservedDBInstances
-    { _drdbiReservedDBInstanceId = Nothing
+    { _drdbiReservedDBInstanceId          = Nothing
     , _drdbiReservedDBInstancesOfferingId = Nothing
-    , _drdbiDBInstanceClass = Nothing
-    , _drdbiDuration = Nothing
-    , _drdbiProductDescription = Nothing
-    , _drdbiOfferingType = Nothing
-    , _drdbiMultiAZ = Nothing
-    , _drdbiMaxRecords = Nothing
-    , _drdbiMarker = Nothing
+    , _drdbiDBInstanceClass               = Nothing
+    , _drdbiDuration                      = Nothing
+    , _drdbiProductDescription            = Nothing
+    , _drdbiOfferingType                  = Nothing
+    , _drdbiMultiAZ                       = Nothing
+    , _drdbiFilters                       = mempty
+    , _drdbiMaxRecords                    = Nothing
+    , _drdbiMarker                        = Nothing
     }
-
--- | The reserved DB instance identifier filter value. Specify this parameter to
--- show only the reservation that matches the specified reservation ID.
-drdbiReservedDBInstanceId :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdbiReservedDBInstanceId =
-    lens _drdbiReservedDBInstanceId
-         (\s a -> s { _drdbiReservedDBInstanceId = a })
-
--- | The offering identifier filter value. Specify this parameter to show only
--- purchased reservations matching the specified offering identifier.
-drdbiReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdbiReservedDBInstancesOfferingId =
-    lens _drdbiReservedDBInstancesOfferingId
-         (\s a -> s { _drdbiReservedDBInstancesOfferingId = a })
 
 -- | The DB instance class filter value. Specify this parameter to show only
 -- those reservations matching the specified DB instances class.
@@ -127,17 +112,32 @@ drdbiDBInstanceClass =
     lens _drdbiDBInstanceClass (\s a -> s { _drdbiDBInstanceClass = a })
 
 -- | The duration filter value, specified in years or seconds. Specify this
--- parameter to show only reservations for this duration. Valid Values: 1 | 3
--- | 31536000 | 94608000.
+-- parameter to show only reservations for this duration. Valid Values: 1 |
+-- 3 | 31536000 | 94608000.
 drdbiDuration :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdbiDuration = lens _drdbiDuration (\s a -> s { _drdbiDuration = a })
 
--- | The product description filter value. Specify this parameter to show only
--- those reservations matching the specified product description.
-drdbiProductDescription :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdbiProductDescription =
-    lens _drdbiProductDescription
-         (\s a -> s { _drdbiProductDescription = a })
+-- | This parameter is not currently supported.
+drdbiFilters :: Lens' DescribeReservedDBInstances [Filter]
+drdbiFilters = lens _drdbiFilters (\s a -> s { _drdbiFilters = a })
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by MaxRecords.
+drdbiMarker :: Lens' DescribeReservedDBInstances (Maybe Text)
+drdbiMarker = lens _drdbiMarker (\s a -> s { _drdbiMarker = a })
+
+-- | The maximum number of records to include in the response. If more than
+-- the MaxRecords value is available, a pagination token called a marker is
+-- included in the response so that the following results can be retrieved.
+-- Default: 100 Constraints: minimum 20, maximum 100.
+drdbiMaxRecords :: Lens' DescribeReservedDBInstances (Maybe Int)
+drdbiMaxRecords = lens _drdbiMaxRecords (\s a -> s { _drdbiMaxRecords = a })
+
+-- | The Multi-AZ filter value. Specify this parameter to show only those
+-- reservations matching the specified Multi-AZ parameter.
+drdbiMultiAZ :: Lens' DescribeReservedDBInstances (Maybe Bool)
+drdbiMultiAZ = lens _drdbiMultiAZ (\s a -> s { _drdbiMultiAZ = a })
 
 -- | The offering type filter value. Specify this parameter to show only the
 -- available offerings matching the specified offering type. Valid Values:
@@ -146,48 +146,47 @@ drdbiOfferingType :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdbiOfferingType =
     lens _drdbiOfferingType (\s a -> s { _drdbiOfferingType = a })
 
--- | The Multi-AZ filter value. Specify this parameter to show only those
--- reservations matching the specified Multi-AZ parameter.
-drdbiMultiAZ :: Lens' DescribeReservedDBInstances (Maybe Bool)
-drdbiMultiAZ = lens _drdbiMultiAZ (\s a -> s { _drdbiMultiAZ = a })
+-- | The product description filter value. Specify this parameter to show only
+-- those reservations matching the specified product description.
+drdbiProductDescription :: Lens' DescribeReservedDBInstances (Maybe Text)
+drdbiProductDescription =
+    lens _drdbiProductDescription (\s a -> s { _drdbiProductDescription = a })
 
--- | The maximum number of records to include in the response. If more than the
--- MaxRecords value is available, a pagination token called a marker is
--- included in the response so that the following results can be retrieved.
--- Default: 100 Constraints: minimum 20, maximum 100.
-drdbiMaxRecords :: Lens' DescribeReservedDBInstances (Maybe Integer)
-drdbiMaxRecords = lens _drdbiMaxRecords (\s a -> s { _drdbiMaxRecords = a })
+-- | The reserved DB instance identifier filter value. Specify this parameter
+-- to show only the reservation that matches the specified reservation ID.
+drdbiReservedDBInstanceId :: Lens' DescribeReservedDBInstances (Maybe Text)
+drdbiReservedDBInstanceId =
+    lens _drdbiReservedDBInstanceId
+        (\s a -> s { _drdbiReservedDBInstanceId = a })
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by MaxRecords.
-drdbiMarker :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdbiMarker = lens _drdbiMarker (\s a -> s { _drdbiMarker = a })
+-- | The offering identifier filter value. Specify this parameter to show only
+-- purchased reservations matching the specified offering identifier.
+drdbiReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstances (Maybe Text)
+drdbiReservedDBInstancesOfferingId =
+    lens _drdbiReservedDBInstancesOfferingId
+        (\s a -> s { _drdbiReservedDBInstancesOfferingId = a })
 
-instance ToQuery DescribeReservedDBInstances where
-    toQuery = genericQuery def
+instance ToQuery DescribeReservedDBInstances
 
--- | Contains the result of a successful invocation of the
--- DescribeReservedDBInstances action.
+instance ToPath DescribeReservedDBInstances where
+    toPath = const "/"
+
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
-    { _drdbirMarker :: Maybe Text
+    { _drdbirMarker              :: Maybe Text
     , _drdbirReservedDBInstances :: [ReservedDBInstance]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeReservedDBInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeReservedDBInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'drdbirMarker' @::@ 'Maybe' 'Text'
 --
--- * @ReservedDBInstances ::@ @[ReservedDBInstance]@
+-- * 'drdbirReservedDBInstances' @::@ ['ReservedDBInstance']
 --
 describeReservedDBInstancesResponse :: DescribeReservedDBInstancesResponse
 describeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
-    { _drdbirMarker = Nothing
+    { _drdbirMarker              = Nothing
     , _drdbirReservedDBInstances = mempty
     }
 
@@ -201,18 +200,13 @@ drdbirMarker = lens _drdbirMarker (\s a -> s { _drdbirMarker = a })
 drdbirReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
 drdbirReservedDBInstances =
     lens _drdbirReservedDBInstances
-         (\s a -> s { _drdbirReservedDBInstances = a })
-
-instance FromXML DescribeReservedDBInstancesResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _drdbirReservedDBInstances = a })
 
 instance AWSRequest DescribeReservedDBInstances where
     type Sv DescribeReservedDBInstances = RDS
     type Rs DescribeReservedDBInstances = DescribeReservedDBInstancesResponse
 
-    request = post "DescribeReservedDBInstances"
-    response _ = xmlResponse
-
-instance AWSPager DescribeReservedDBInstances where
-    next rq rs = (\x -> rq & drdbiMarker ?~ x)
-        <$> (rs ^. drdbirMarker)
+    request  = post "DescribeReservedDBInstances"
+    response = xmlResponse $ \h x -> DescribeReservedDBInstancesResponse
+        <$> x %| "Marker"
+        <*> x %| "ReservedDBInstances"

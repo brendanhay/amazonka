@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeVTLDevices
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- | Returns a description of virtual tape library (VTL) devices for the
+-- specified gateway. In the response, AWS Storage Gateway returns VTL device
+-- information. The list of VTL devices must be from one gateway.
 module Network.AWS.StorageGateway.DescribeVTLDevices
     (
     -- * Request
@@ -26,9 +31,9 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     , describeVTLDevices
     -- ** Request lenses
     , dvtldGatewayARN
-    , dvtldVTLDeviceARNs
-    , dvtldMarker
     , dvtldLimit
+    , dvtldMarker
+    , dvtldVTLDeviceARNs
 
     -- * Response
     , DescribeVTLDevicesResponse
@@ -36,114 +41,118 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     , describeVTLDevicesResponse
     -- ** Response lenses
     , dvtldrGatewayARN
-    , dvtldrVTLDevices
     , dvtldrMarker
+    , dvtldrVTLDevices
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 data DescribeVTLDevices = DescribeVTLDevices
-    { _dvtldGatewayARN :: Text
+    { _dvtldGatewayARN    :: Text
+    , _dvtldLimit         :: Maybe Natural
+    , _dvtldMarker        :: Maybe Text
     , _dvtldVTLDeviceARNs :: [Text]
-    , _dvtldMarker :: Maybe Text
-    , _dvtldLimit :: Maybe Integer
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVTLDevices' request.
+-- | 'DescribeVTLDevices' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'dvtldGatewayARN' @::@ 'Text'
 --
--- * @VTLDeviceARNs ::@ @[Text]@
+-- * 'dvtldLimit' @::@ 'Maybe' 'Natural'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'dvtldMarker' @::@ 'Maybe' 'Text'
 --
--- * @Limit ::@ @Maybe Integer@
+-- * 'dvtldVTLDeviceARNs' @::@ ['Text']
 --
 describeVTLDevices :: Text -- ^ 'dvtldGatewayARN'
                    -> DescribeVTLDevices
 describeVTLDevices p1 = DescribeVTLDevices
-    { _dvtldGatewayARN = p1
+    { _dvtldGatewayARN    = p1
     , _dvtldVTLDeviceARNs = mempty
-    , _dvtldMarker = Nothing
-    , _dvtldLimit = Nothing
+    , _dvtldMarker        = Nothing
+    , _dvtldLimit         = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 dvtldGatewayARN :: Lens' DescribeVTLDevices Text
 dvtldGatewayARN = lens _dvtldGatewayARN (\s a -> s { _dvtldGatewayARN = a })
 
+-- | Specifies that the number of VTL devices described be limited to the
+-- specified number.
+dvtldLimit :: Lens' DescribeVTLDevices (Maybe Natural)
+dvtldLimit = lens _dvtldLimit (\s a -> s { _dvtldLimit = a })
+
+-- | An opaque string that indicates the position at which to begin describing
+-- the VTL devices.
+dvtldMarker :: Lens' DescribeVTLDevices (Maybe Text)
+dvtldMarker = lens _dvtldMarker (\s a -> s { _dvtldMarker = a })
+
+-- | An array of strings, where each string represents the Amazon Resource
+-- Name (ARN) of a VTL device.
 dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
 dvtldVTLDeviceARNs =
     lens _dvtldVTLDeviceARNs (\s a -> s { _dvtldVTLDeviceARNs = a })
 
-dvtldMarker :: Lens' DescribeVTLDevices (Maybe Text)
-dvtldMarker = lens _dvtldMarker (\s a -> s { _dvtldMarker = a })
+instance ToPath DescribeVTLDevices where
+    toPath = const "/"
 
-dvtldLimit :: Lens' DescribeVTLDevices (Maybe Integer)
-dvtldLimit = lens _dvtldLimit (\s a -> s { _dvtldLimit = a })
-
-instance ToPath DescribeVTLDevices
-
-instance ToQuery DescribeVTLDevices
+instance ToQuery DescribeVTLDevices where
+    toQuery = const mempty
 
 instance ToHeaders DescribeVTLDevices
 
-instance ToJSON DescribeVTLDevices
+instance ToBody DescribeVTLDevices where
+    toBody = toBody . encode . _dvtldGatewayARN
 
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
     { _dvtldrGatewayARN :: Maybe Text
+    , _dvtldrMarker     :: Maybe Text
     , _dvtldrVTLDevices :: [VTLDevice]
-    , _dvtldrMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVTLDevicesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeVTLDevicesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Maybe Text@
+-- * 'dvtldrGatewayARN' @::@ 'Maybe' 'Text'
 --
--- * @VTLDevices ::@ @[VTLDevice]@
+-- * 'dvtldrMarker' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'dvtldrVTLDevices' @::@ ['VTLDevice']
 --
 describeVTLDevicesResponse :: DescribeVTLDevicesResponse
 describeVTLDevicesResponse = DescribeVTLDevicesResponse
     { _dvtldrGatewayARN = Nothing
     , _dvtldrVTLDevices = mempty
-    , _dvtldrMarker = Nothing
+    , _dvtldrMarker     = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 dvtldrGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldrGatewayARN =
-    lens _dvtldrGatewayARN (\s a -> s { _dvtldrGatewayARN = a })
+dvtldrGatewayARN = lens _dvtldrGatewayARN (\s a -> s { _dvtldrGatewayARN = a })
 
-dvtldrVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
-dvtldrVTLDevices =
-    lens _dvtldrVTLDevices (\s a -> s { _dvtldrVTLDevices = a })
-
+-- | An opaque string that indicates the position at which the VTL devices
+-- that were fetched for description ended. Use the marker in your next
+-- request to fetch the next set of VTL devices in the list. If there are no
+-- more VTL devices to describe, this field does not appear in the response.
 dvtldrMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldrMarker = lens _dvtldrMarker (\s a -> s { _dvtldrMarker = a })
 
-instance FromJSON DescribeVTLDevicesResponse
+-- | An array of VTL device objects composed of the Amazon Resource Name(ARN)
+-- of the VTL devices.
+dvtldrVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
+dvtldrVTLDevices = lens _dvtldrVTLDevices (\s a -> s { _dvtldrVTLDevices = a })
+
+-- FromJSON
 
 instance AWSRequest DescribeVTLDevices where
     type Sv DescribeVTLDevices = StorageGateway
     type Rs DescribeVTLDevices = DescribeVTLDevicesResponse
 
-    request = get
-    response _ = jsonResponse
-
-instance AWSPager DescribeVTLDevices where
-    next rq rs = (\x -> rq & dvtldMarker ?~ x)
-        <$> (rs ^. dvtldrMarker)
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeVTLDevicesResponse
+        <$> o .: "GatewayARN"
+        <*> o .: "Marker"
+        <*> o .: "VTLDevices"

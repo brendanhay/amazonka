@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineSuggester
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,8 +33,8 @@ module Network.AWS.CloudSearch.DefineSuggester
     -- ** Request constructor
     , defineSuggester
     -- ** Request lenses
-    , ds1DomainName
-    , ds1Suggester
+    , ds2DomainName
+    , ds2Suggester
 
     -- * Response
     , DefineSuggesterResponse
@@ -42,65 +44,52 @@ module Network.AWS.CloudSearch.DefineSuggester
     , dsrSuggester
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DefineSuggester operation. Specifies
--- the name of the domain you want to update and the suggester configuration.
 data DefineSuggester = DefineSuggester
-    { _ds1DomainName :: Text
-    , _ds1Suggester :: Suggester
-    } deriving (Eq, Ord, Show, Generic)
+    { _ds2DomainName :: Text
+    , _ds2Suggester  :: Suggester
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DefineSuggester' request.
+-- | 'DefineSuggester' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'ds2DomainName' @::@ 'Text'
 --
--- * @Suggester ::@ @Suggester@
+-- * 'ds2Suggester' @::@ 'Suggester'
 --
-defineSuggester :: Text -- ^ 'ds1DomainName'
-                -> Suggester -- ^ 'ds1Suggester'
+defineSuggester :: Text -- ^ 'ds2DomainName'
+                -> Suggester -- ^ 'ds2Suggester'
                 -> DefineSuggester
 defineSuggester p1 p2 = DefineSuggester
-    { _ds1DomainName = p1
-    , _ds1Suggester = p2
+    { _ds2DomainName = p1
+    , _ds2Suggester  = p2
     }
 
--- | A string that represents the name of a domain. Domain names are unique
--- across the domains owned by an account within an AWS region. Domain names
--- start with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
-ds1DomainName :: Lens' DefineSuggester Text
-ds1DomainName = lens _ds1DomainName (\s a -> s { _ds1DomainName = a })
+ds2DomainName :: Lens' DefineSuggester Text
+ds2DomainName = lens _ds2DomainName (\s a -> s { _ds2DomainName = a })
 
--- | Configuration information for a search suggester. Each suggester has a
--- unique name and specifies the text field you want to use for suggestions.
--- The following options can be configured for a suggester: FuzzyMatching,
--- SortExpression.
-ds1Suggester :: Lens' DefineSuggester Suggester
-ds1Suggester = lens _ds1Suggester (\s a -> s { _ds1Suggester = a })
+ds2Suggester :: Lens' DefineSuggester Suggester
+ds2Suggester = lens _ds2Suggester (\s a -> s { _ds2Suggester = a })
 
-instance ToQuery DefineSuggester where
-    toQuery = genericQuery def
+instance ToQuery DefineSuggester
 
--- | The result of a DefineSuggester request. Contains the status of the
--- newly-configured suggester.
+instance ToPath DefineSuggester where
+    toPath = const "/"
+
 newtype DefineSuggesterResponse = DefineSuggesterResponse
     { _dsrSuggester :: SuggesterStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DefineSuggesterResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DefineSuggesterResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Suggester ::@ @SuggesterStatus@
+-- * 'dsrSuggester' @::@ 'SuggesterStatus'
 --
 defineSuggesterResponse :: SuggesterStatus -- ^ 'dsrSuggester'
                         -> DefineSuggesterResponse
@@ -108,16 +97,13 @@ defineSuggesterResponse p1 = DefineSuggesterResponse
     { _dsrSuggester = p1
     }
 
--- | The value of a Suggester and its current status.
 dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
 dsrSuggester = lens _dsrSuggester (\s a -> s { _dsrSuggester = a })
-
-instance FromXML DefineSuggesterResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DefineSuggester where
     type Sv DefineSuggester = CloudSearch
     type Rs DefineSuggester = DefineSuggesterResponse
 
-    request = post "DefineSuggester"
-    response _ = xmlResponse
+    request  = post "DefineSuggester"
+    response = xmlResponse $ \h x -> DefineSuggesterResponse
+        <$> x %| "Suggester"

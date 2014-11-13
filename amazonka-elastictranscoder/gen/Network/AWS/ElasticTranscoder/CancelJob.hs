@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CancelJob
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,21 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The CancelJob operation cancels an unfinished job. You can only cancel a
--- job that has a status of Submitted. To prevent a pipeline from starting to
--- process a job while you're getting the job identifier, use
--- UpdatePipelineStatus to temporarily pause the pipeline. DELETE
--- /2012-09-25/jobs/3333333333333-abcde3 HTTP/1.1 Content-Type: charset=UTF-8
--- Accept: */* Host: elastictranscoder.[Elastic
--- Transcoder-endpoint].amazonaws.com:443 x-amz-date: 20130114T174952Z
--- Authorization: AWS4-HMAC-SHA256
--- Credential=[access-key-id]/[request-date]/[Elastic
--- Transcoder-endpoint]/ets/aws4_request,
--- SignedHeaders=host;x-amz-date;x-amz-target,
--- Signature=[calculated-signature] Status: 202 Accepted x-amzn-RequestId:
--- c321ec43-378e-11e2-8e4c-4d5b971203e9 Content-Type: application/json
--- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
--- 06:01:47 GMT { "Success":"true" }.
+-- | The CancelJob operation cancels an unfinished job.
 module Network.AWS.ElasticTranscoder.CancelJob
     (
     -- * Request
@@ -48,21 +36,19 @@ module Network.AWS.ElasticTranscoder.CancelJob
     , cancelJobResponse
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.ElasticTranscoder.Types
 
--- | The CancelJobRequest structure.
 newtype CancelJob = CancelJob
     { _cjId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelJob' request.
+-- | 'CancelJob' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'cjId' @::@ 'Text'
 --
 cancelJob :: Text -- ^ 'cjId'
           -> CancelJob
@@ -76,29 +62,29 @@ cancelJob p1 = CancelJob
 cjId :: Lens' CancelJob Text
 cjId = lens _cjId (\s a -> s { _cjId = a })
 
-instance ToPath CancelJob
+instance ToPath CancelJob where
+    toPath CancelJob{..} = mconcat
+        [ "/2012-09-25/jobs/"
+        , toText _cjId
+        ]
 
-instance ToQuery CancelJob
+instance ToQuery CancelJob where
+    toQuery = const mempty
 
 instance ToHeaders CancelJob
 
-instance ToJSON CancelJob
-
--- | The response body contains a JSON object. If the job is successfully
--- canceled, the value of Success is true.
 data CancelJobResponse = CancelJobResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelJobResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CancelJobResponse' constructor.
 cancelJobResponse :: CancelJobResponse
 cancelJobResponse = CancelJobResponse
+
+-- FromJSON
 
 instance AWSRequest CancelJob where
     type Sv CancelJob = ElasticTranscoder
     type Rs CancelJob = CancelJobResponse
 
-    request = get
-    response _ = nullaryResponse CancelJobResponse
+    request  = delete'
+    response = nullaryResponse CancelJobResponse

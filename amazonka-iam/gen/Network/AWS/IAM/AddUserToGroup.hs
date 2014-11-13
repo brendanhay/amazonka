@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.AddUserToGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,9 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Adds the specified user to the specified group. https://iam.amazonaws.com/
--- ?Action=AddUserToGroup &GroupName=Managers &UserName=Bob &AUTHPARAMS
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- | Adds the specified user to the specified group.
 module Network.AWS.IAM.AddUserToGroup
     (
     -- * Request
@@ -37,50 +37,49 @@ module Network.AWS.IAM.AddUserToGroup
     , addUserToGroupResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data AddUserToGroup = AddUserToGroup
     { _autgGroupName :: Text
-    , _autgUserName :: Text
+    , _autgUserName  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddUserToGroup' request.
+-- | 'AddUserToGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupName ::@ @Text@
+-- * 'autgGroupName' @::@ 'Text'
 --
--- * @UserName ::@ @Text@
+-- * 'autgUserName' @::@ 'Text'
 --
 addUserToGroup :: Text -- ^ 'autgGroupName'
                -> Text -- ^ 'autgUserName'
                -> AddUserToGroup
 addUserToGroup p1 p2 = AddUserToGroup
     { _autgGroupName = p1
-    , _autgUserName = p2
+    , _autgUserName  = p2
     }
 
--- | Name of the group to update.
+-- | The name of the group to update.
 autgGroupName :: Lens' AddUserToGroup Text
 autgGroupName = lens _autgGroupName (\s a -> s { _autgGroupName = a })
 
--- | Name of the user to add.
+-- | The name of the user to add.
 autgUserName :: Lens' AddUserToGroup Text
 autgUserName = lens _autgUserName (\s a -> s { _autgUserName = a })
 
-instance ToQuery AddUserToGroup where
-    toQuery = genericQuery def
+instance ToQuery AddUserToGroup
+
+instance ToPath AddUserToGroup where
+    toPath = const "/"
 
 data AddUserToGroupResponse = AddUserToGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddUserToGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AddUserToGroupResponse' constructor.
 addUserToGroupResponse :: AddUserToGroupResponse
 addUserToGroupResponse = AddUserToGroupResponse
 
@@ -88,5 +87,5 @@ instance AWSRequest AddUserToGroup where
     type Sv AddUserToGroup = IAM
     type Rs AddUserToGroup = AddUserToGroupResponse
 
-    request = post "AddUserToGroup"
-    response _ = nullaryResponse AddUserToGroupResponse
+    request  = post "AddUserToGroup"
+    response = nullaryResponse AddUserToGroupResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.TerminateInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,17 +35,6 @@
 -- instances, see Instance Lifecycle in the Amazon Elastic Compute Cloud User
 -- Guide. For more information about troubleshooting, see Troubleshooting
 -- Terminating Your Instance in the Amazon Elastic Compute Cloud User Guide.
--- Example This example terminates the specified instance.
--- https://ec2.amazonaws.com/?Action=TerminateInstances
--- &amp;InstanceId.1=i-3ea74257 &amp;AUTHPARAMS &lt;TerminateInstancesResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;instancesSet&gt; &lt;item&gt;
--- &lt;instanceId&gt;i-3ea74257&lt;/instanceId&gt; &lt;currentState&gt;
--- &lt;code&gt;32&lt;/code&gt; &lt;name&gt;shutting-down&lt;/name&gt;
--- &lt;/currentState&gt; &lt;previousState&gt; &lt;code&gt;16&lt;/code&gt;
--- &lt;name&gt;running&lt;/name&gt; &lt;/previousState&gt; &lt;/item&gt;
--- &lt;/instancesSet&gt; &lt;/TerminateInstancesResponse&gt;.
 module Network.AWS.EC2.TerminateInstances
     (
     -- * Request
@@ -51,6 +42,7 @@ module Network.AWS.EC2.TerminateInstances
     -- ** Request constructor
     , terminateInstances
     -- ** Request lenses
+    , tiDryRun
     , tiInstanceIds
 
     -- * Response
@@ -61,46 +53,57 @@ module Network.AWS.EC2.TerminateInstances
     , tirTerminatingInstances
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype TerminateInstances = TerminateInstances
-    { _tiInstanceIds :: [Text]
+data TerminateInstances = TerminateInstances
+    { _tiDryRun      :: Maybe Bool
+    , _tiInstanceIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'TerminateInstances' request.
+-- | 'TerminateInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceIds ::@ @[Text]@
+-- * 'tiDryRun' @::@ 'Maybe' 'Bool'
 --
-terminateInstances :: [Text] -- ^ 'tiInstanceIds'
-                   -> TerminateInstances
-terminateInstances p1 = TerminateInstances
-    { _tiInstanceIds = p1
+-- * 'tiInstanceIds' @::@ ['Text']
+--
+terminateInstances :: TerminateInstances
+terminateInstances = TerminateInstances
+    { _tiDryRun      = Nothing
+    , _tiInstanceIds = mempty
     }
+
+tiDryRun :: Lens' TerminateInstances (Maybe Bool)
+tiDryRun = lens _tiDryRun (\s a -> s { _tiDryRun = a })
 
 -- | One or more instance IDs.
 tiInstanceIds :: Lens' TerminateInstances [Text]
 tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a })
 
-instance ToQuery TerminateInstances where
-    toQuery = genericQuery def
+instance ToQuery TerminateInstances
+
+instance ToPath TerminateInstances where
+    toPath = const "/"
 
 newtype TerminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances :: [InstanceStateChange]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'TerminateInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList TerminateInstancesResponse where
+    type Item TerminateInstancesResponse = InstanceStateChange
+
+    fromList = TerminateInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _tirTerminatingInstances
+
+-- | 'TerminateInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TerminatingInstances ::@ @[InstanceStateChange]@
+-- * 'tirTerminatingInstances' @::@ ['InstanceStateChange']
 --
 terminateInstancesResponse :: TerminateInstancesResponse
 terminateInstancesResponse = TerminateInstancesResponse
@@ -110,15 +113,12 @@ terminateInstancesResponse = TerminateInstancesResponse
 -- | Information about one or more terminated instances.
 tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
 tirTerminatingInstances =
-    lens _tirTerminatingInstances
-         (\s a -> s { _tirTerminatingInstances = a })
-
-instance FromXML TerminateInstancesResponse where
-    fromXMLOptions = xmlOptions
+    lens _tirTerminatingInstances (\s a -> s { _tirTerminatingInstances = a })
 
 instance AWSRequest TerminateInstances where
     type Sv TerminateInstances = EC2
     type Rs TerminateInstances = TerminateInstancesResponse
 
-    request = post "TerminateInstances"
-    response _ = xmlResponse
+    request  = post "TerminateInstances"
+    response = xmlResponse $ \h x -> TerminateInstancesResponse
+        <$> x %| "instancesSet"

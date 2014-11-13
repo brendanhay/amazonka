@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateStorageLocation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,15 +22,13 @@
 
 -- | Creates the Amazon S3 storage location for the account. This location is
 -- used to store user log files.
--- https://elasticbeanstalk.us-east-1.amazon.com/?Operation=CreateStorageLocation
--- &AuthParams elasticbeanstalk-us-east-1-780612358023
--- ef51b94a-f1d6-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     (
     -- * Request
       CreateStorageLocation
     -- ** Request constructor
     , createStorageLocation
+
     -- * Response
     , CreateStorageLocationResponse
     -- ** Response constructor
@@ -37,34 +37,32 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     , cslrS3Bucket
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateStorageLocation = CreateStorageLocation
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateStorageLocation' request.
+-- | 'CreateStorageLocation' constructor.
 createStorageLocation :: CreateStorageLocation
 createStorageLocation = CreateStorageLocation
 
-instance ToQuery CreateStorageLocation where
-    toQuery = genericQuery def
+instance ToQuery CreateStorageLocation
 
--- | Results of a CreateStorageLocationResult call.
+instance ToPath CreateStorageLocation where
+    toPath = const "/"
+
 newtype CreateStorageLocationResponse = CreateStorageLocationResponse
     { _cslrS3Bucket :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateStorageLocationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateStorageLocationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @S3Bucket ::@ @Maybe Text@
+-- * 'cslrS3Bucket' @::@ 'Maybe' 'Text'
 --
 createStorageLocationResponse :: CreateStorageLocationResponse
 createStorageLocationResponse = CreateStorageLocationResponse
@@ -75,12 +73,10 @@ createStorageLocationResponse = CreateStorageLocationResponse
 cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrS3Bucket = lens _cslrS3Bucket (\s a -> s { _cslrS3Bucket = a })
 
-instance FromXML CreateStorageLocationResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateStorageLocation where
     type Sv CreateStorageLocation = ElasticBeanstalk
     type Rs CreateStorageLocation = CreateStorageLocationResponse
 
-    request = post "CreateStorageLocation"
-    response _ = xmlResponse
+    request  = post "CreateStorageLocation"
+    response = xmlResponse $ \h x -> CreateStorageLocationResponse
+        <$> x %| "S3Bucket"

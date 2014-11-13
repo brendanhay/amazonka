@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DirectConnect.DeleteVirtualInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
     -- ** Request constructor
     , deleteVirtualInterface
     -- ** Request lenses
-    , dviVirtualInterfaceId
+    , dvi1VirtualInterfaceId
 
     -- * Response
     , DeleteVirtualInterfaceResponse
@@ -36,86 +38,67 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
     , dvirVirtualInterfaceState
     ) where
 
-import Network.AWS.DirectConnect.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DirectConnect.Types
 
--- | Container for the parameters to the DeleteVirtualInterface operation.
 newtype DeleteVirtualInterface = DeleteVirtualInterface
-    { _dviVirtualInterfaceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dvi1VirtualInterfaceId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVirtualInterface' request.
+-- | 'DeleteVirtualInterface' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VirtualInterfaceId ::@ @Text@
+-- * 'dvi1VirtualInterfaceId' @::@ 'Text'
 --
-deleteVirtualInterface :: Text -- ^ 'dviVirtualInterfaceId'
+deleteVirtualInterface :: Text -- ^ 'dvi1VirtualInterfaceId'
                        -> DeleteVirtualInterface
 deleteVirtualInterface p1 = DeleteVirtualInterface
-    { _dviVirtualInterfaceId = p1
+    { _dvi1VirtualInterfaceId = p1
     }
 
--- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-dviVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
-dviVirtualInterfaceId =
-    lens _dviVirtualInterfaceId (\s a -> s { _dviVirtualInterfaceId = a })
+dvi1VirtualInterfaceId :: Lens' DeleteVirtualInterface Text
+dvi1VirtualInterfaceId =
+    lens _dvi1VirtualInterfaceId (\s a -> s { _dvi1VirtualInterfaceId = a })
 
-instance ToPath DeleteVirtualInterface
+instance ToPath DeleteVirtualInterface where
+    toPath = const "/"
 
-instance ToQuery DeleteVirtualInterface
+instance ToQuery DeleteVirtualInterface where
+    toQuery = const mempty
 
 instance ToHeaders DeleteVirtualInterface
 
-instance ToJSON DeleteVirtualInterface
+instance ToBody DeleteVirtualInterface where
+    toBody = toBody . encode . _dvi1VirtualInterfaceId
 
--- | The response received when DeleteVirtualInterface is called.
 newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
-    { _dvirVirtualInterfaceState :: Maybe VirtualInterfaceState
-    } deriving (Eq, Ord, Show, Generic)
+    { _dvirVirtualInterfaceState :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVirtualInterfaceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteVirtualInterfaceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
+-- * 'dvirVirtualInterfaceState' @::@ 'Maybe' 'Text'
 --
 deleteVirtualInterfaceResponse :: DeleteVirtualInterfaceResponse
 deleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
     { _dvirVirtualInterfaceState = Nothing
     }
 
--- | State of the virtual interface. Confirming: The creation of the virtual
--- interface is pending confirmation from the virtual interface owner. If the
--- owner of the virtual interface is different from the owner of the
--- connection on which it is provisioned, then the virtual interface will
--- remain in this state until it is confirmed by the virtual interface owner.
--- Verifying: This state only applies to public virtual interfaces. Each
--- public virtual interface needs validation before the virtual interface can
--- be created. Pending: A virtual interface is in this state from the time
--- that it is created until the virtual interface is ready to forward traffic.
--- Available: A virtual interface that is able to forward traffic. Deleting: A
--- virtual interface is in this state immediately after calling
--- DeleteVirtualInterface until it can no longer forward traffic. Deleted: A
--- virtual interface that cannot forward traffic. Rejected: The virtual
--- interface owner has declined creation of the virtual interface. If a
--- virtual interface in the 'Confirming' state is deleted by the virtual
--- interface owner, the virtual interface will enter the 'Rejected' state.
-dvirVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
+dvirVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe Text)
 dvirVirtualInterfaceState =
     lens _dvirVirtualInterfaceState
-         (\s a -> s { _dvirVirtualInterfaceState = a })
+        (\s a -> s { _dvirVirtualInterfaceState = a })
 
-instance FromJSON DeleteVirtualInterfaceResponse
+-- FromJSON
 
 instance AWSRequest DeleteVirtualInterface where
     type Sv DeleteVirtualInterface = DirectConnect
     type Rs DeleteVirtualInterface = DeleteVirtualInterfaceResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DeleteVirtualInterfaceResponse
+        <$> o .: "virtualInterfaceState"

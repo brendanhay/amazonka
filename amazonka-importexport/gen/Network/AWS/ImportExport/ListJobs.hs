@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ImportExport.ListJobs
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,104 +32,83 @@ module Network.AWS.ImportExport.ListJobs
     -- ** Request constructor
     , listJobs
     -- ** Request lenses
-    , ljMaxJobs
     , ljMarker
+    , ljMaxJobs
 
     -- * Response
     , ListJobsResponse
     -- ** Response constructor
     , listJobsResponse
     -- ** Response lenses
-    , ljrJobs
     , ljrIsTruncated
+    , ljrJobs
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input structure for the ListJobs operation.
 data ListJobs = ListJobs
-    { _ljMaxJobs :: Maybe Integer
-    , _ljMarker :: Maybe Text
+    { _ljMarker  :: Maybe Text
+    , _ljMaxJobs :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListJobs' request.
+-- | 'ListJobs' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @MaxJobs ::@ @Maybe Integer@
+-- * 'ljMarker' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'ljMaxJobs' @::@ 'Maybe' 'Int'
 --
 listJobs :: ListJobs
 listJobs = ListJobs
     { _ljMaxJobs = Nothing
-    , _ljMarker = Nothing
+    , _ljMarker  = Nothing
     }
 
--- | Sets the maximum number of jobs returned in the response. If there are
--- additional jobs that were not returned because MaxJobs was exceeded, the
--- response contains &lt;IsTruncated&gt;true&lt;/IsTruncated&gt;. To return
--- the additional jobs, see Marker.
-ljMaxJobs :: Lens' ListJobs (Maybe Integer)
-ljMaxJobs = lens _ljMaxJobs (\s a -> s { _ljMaxJobs = a })
-
--- | Specifies the JOBID to start after when listing the jobs created with your
--- account. AWS Import/Export lists your jobs in reverse chronological order.
--- See MaxJobs.
 ljMarker :: Lens' ListJobs (Maybe Text)
 ljMarker = lens _ljMarker (\s a -> s { _ljMarker = a })
 
-instance ToQuery ListJobs where
-    toQuery = genericQuery def
+ljMaxJobs :: Lens' ListJobs (Maybe Int)
+ljMaxJobs = lens _ljMaxJobs (\s a -> s { _ljMaxJobs = a })
 
--- | Output structure for the ListJobs operation.
+instance ToQuery ListJobs
+
+instance ToPath ListJobs where
+    toPath = const "/"
+
 data ListJobsResponse = ListJobsResponse
-    { _ljrJobs :: [Job]
-    , _ljrIsTruncated :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    { _ljrIsTruncated :: Maybe Bool
+    , _ljrJobs        :: [Job]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListJobsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListJobsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Jobs ::@ @[Job]@
+-- * 'ljrIsTruncated' @::@ 'Maybe' 'Bool'
 --
--- * @IsTruncated ::@ @Bool@
+-- * 'ljrJobs' @::@ ['Job']
 --
-listJobsResponse :: Bool -- ^ 'ljrIsTruncated'
-                 -> ListJobsResponse
-listJobsResponse p2 = ListJobsResponse
-    { _ljrJobs = mempty
-    , _ljrIsTruncated = p2
+listJobsResponse :: ListJobsResponse
+listJobsResponse = ListJobsResponse
+    { _ljrJobs        = mempty
+    , _ljrIsTruncated = Nothing
     }
 
--- | A list container for Jobs returned by the ListJobs operation.
-ljrJobs :: Lens' ListJobsResponse [Job]
-ljrJobs = lens _ljrJobs (\s a -> s { _ljrJobs = a })
-
--- | Indicates whether the list of jobs was truncated. If true, then call
--- ListJobs again using the last JobId element as the marker.
-ljrIsTruncated :: Lens' ListJobsResponse Bool
+ljrIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
 ljrIsTruncated = lens _ljrIsTruncated (\s a -> s { _ljrIsTruncated = a })
 
-instance FromXML ListJobsResponse where
-    fromXMLOptions = xmlOptions
+ljrJobs :: Lens' ListJobsResponse [Job]
+ljrJobs = lens _ljrJobs (\s a -> s { _ljrJobs = a })
 
 instance AWSRequest ListJobs where
     type Sv ListJobs = ImportExport
     type Rs ListJobs = ListJobsResponse
 
-    request = post "ListJobs"
-    response _ = xmlResponse
-
-instance AWSPager ListJobs where
-    next rq rs
-        | not (rs ^. ljrIsTruncated) = Nothing
-        | otherwise = Just $
-            rq & ljMarker .~ index ljrJobs jJobId rs
+    request  = post "ListJobs"
+    response = xmlResponse $ \h x -> ListJobsResponse
+        <$> x %| "IsTruncated"
+        <*> x %| "Jobs"

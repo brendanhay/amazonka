@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAdjustmentTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,15 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns policy adjustment types for use in the PutScalingPolicy action.
--- https://autoscaling.amazonaws.com/?Version=2011-01-01
--- &Action=DescribeAdjustmentTypes &AUTHPARAMS ChangeInCapacity ExactCapacity
--- PercentChangeInCapacity cc5f0337-b694-11e2-afc0-6544dEXAMPLE.
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     (
     -- * Request
       DescribeAdjustmentTypes
     -- ** Request constructor
     , describeAdjustmentTypes
+
     -- * Response
     , DescribeAdjustmentTypesResponse
     -- ** Response constructor
@@ -36,34 +36,38 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     , datrAdjustmentTypes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAdjustmentTypes' request.
+-- | 'DescribeAdjustmentTypes' constructor.
 describeAdjustmentTypes :: DescribeAdjustmentTypes
 describeAdjustmentTypes = DescribeAdjustmentTypes
 
-instance ToQuery DescribeAdjustmentTypes where
-    toQuery = genericQuery def
+instance ToQuery DescribeAdjustmentTypes
 
--- | The output of the DescribeAdjustmentTypes action.
+instance ToPath DescribeAdjustmentTypes where
+    toPath = const "/"
+
 newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { _datrAdjustmentTypes :: [AdjustmentType]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAdjustmentTypesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeAdjustmentTypesResponse where
+    type Item DescribeAdjustmentTypesResponse = AdjustmentType
+
+    fromList = DescribeAdjustmentTypesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _datrAdjustmentTypes
+
+-- | 'DescribeAdjustmentTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AdjustmentTypes ::@ @[AdjustmentType]@
+-- * 'datrAdjustmentTypes' @::@ ['AdjustmentType']
 --
 describeAdjustmentTypesResponse :: DescribeAdjustmentTypesResponse
 describeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
@@ -75,12 +79,10 @@ datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrAdjustmentTypes =
     lens _datrAdjustmentTypes (\s a -> s { _datrAdjustmentTypes = a })
 
-instance FromXML DescribeAdjustmentTypesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeAdjustmentTypes where
     type Sv DescribeAdjustmentTypes = AutoScaling
     type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse
 
-    request = post "DescribeAdjustmentTypes"
-    response _ = xmlResponse
+    request  = post "DescribeAdjustmentTypes"
+    response = xmlResponse $ \h x -> DescribeAdjustmentTypesResponse
+        <$> x %| "AdjustmentTypes"

@@ -1,13 +1,13 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,105 +19,32 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Route 53 is a scalable Domain Name System (DNS) web service. It
--- provides secure and reliable routing to your infrastructure that uses
--- Amazon Web Services (AWS) products, such as Amazon Elastic Compute Cloud
--- (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service
--- (Amazon S3). You can also use Amazon Route 53 to route users to your
--- infrastructure outside of AWS.
 module Network.AWS.Route53.Types
     (
     -- * Service
       Route53
-    -- ** Errors
-    , Route53Error (..)
-    , _DelegationSetNotAvailable
-    , _HealthCheckAlreadyExists
-    , _HealthCheckInUse
-    , _HealthCheckVersionMismatch
-    , _HostedZoneAlreadyExists
-    , _HostedZoneNotEmpty
-    , _IncompatibleVersion
-    , _InvalidChangeBatch
-    , _InvalidDomainName
-    , _InvalidInput
-    , _NoSuchChange
-    , _NoSuchGeoLocation
-    , _NoSuchHealthCheck
-    , _NoSuchHostedZone
-    , _PriorRequestNotComplete
-    , _Route53Client
-    , _Route53Serializer
-    , _Route53Service
-    , _ThrottlingException
-    , _TooManyHealthChecks
-    , _TooManyHostedZones
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
-    -- * ChangeAction
-    , ChangeAction (..)
-
-    -- * ChangeStatus
-    , ChangeStatus (..)
-
-    -- * Failover
-    , Failover (..)
-
-    -- * HealthCheckType
-    , HealthCheckType (..)
-
-    -- * TagResourceType
-    , TagResourceType (..)
-
-    -- * DelegationSet
-    , DelegationSet
-    , delegationSet
-    , dsNameServers
-
-    -- * HostedZoneConfig
-    , HostedZoneConfig
-    , hostedZoneConfig
-    , hzcComment
+    -- * AliasTarget
+    , AliasTarget
+    , aliasTarget
+    , atDNSName
+    , atEvaluateTargetHealth
+    , atHostedZoneId
 
     -- * ResourceRecord
     , ResourceRecord
     , resourceRecord
     , rrValue
 
-    -- * AliasTarget
-    , AliasTarget
-    , aliasTarget
-    , atHostedZoneId
-    , atDNSName
-    , atEvaluateTargetHealth
-
-    -- * Change
-    , Change
-    , change
-    , cAction
-    , cResourceRecordSet
-
-    -- * ChangeBatch
-    , ChangeBatch
-    , changeBatch
-    , cbComment
-    , cbChanges
-
-    -- * ChangeInfo
-    , ChangeInfo
-    , changeInfo
-    , ciId
-    , ciStatus
-    , ciSubmittedAt
-    , ciComment
-
-    -- * GeoLocation
-    , GeoLocation
-    , geoLocation
-    , glContinentCode
-    , glCountryCode
-    , glSubdivisionCode
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
 
     -- * GeoLocationDetails
     , GeoLocationDetails
@@ -132,629 +59,219 @@ module Network.AWS.Route53.Types
     -- * HealthCheck
     , HealthCheck
     , healthCheck
-    , hcId
     , hcCallerReference
     , hcHealthCheckConfig
     , hcHealthCheckVersion
+    , hcId
+
+    -- * VPCRegion
+    , VPCRegion (..)
+
+    -- * ChangeAction
+    , ChangeAction (..)
+
+    -- * TagResourceType
+    , TagResourceType (..)
 
     -- * HealthCheckConfig
     , HealthCheckConfig
     , healthCheckConfig
+    , hccFailureThreshold
+    , hccFullyQualifiedDomainName
     , hccIPAddress
     , hccPort
-    , hccType
-    , hccResourcePath
-    , hccFullyQualifiedDomainName
-    , hccSearchString
     , hccRequestInterval
-    , hccFailureThreshold
+    , hccResourcePath
+    , hccSearchString
+    , hccType
+
+    -- * Change
+    , Change
+    , change
+    , cAction
+    , cResourceRecordSet
+
+    -- * ResourceRecordSetFailover
+    , ResourceRecordSetFailover (..)
 
     -- * HostedZone
     , HostedZone
     , hostedZone
-    , hzId
-    , hzName
     , hzCallerReference
     , hzConfig
+    , hzId
+    , hzName
     , hzResourceRecordSetCount
-
-    -- * ResourceRecordSet
-    , ResourceRecordSet
-    , resourceRecordSet
-    , rrsName
-    , rrsType
-    , rrsSetIdentifier
-    , rrsWeight
-    , rrsRegion
-    , rrsGeoLocation
-    , rrsFailover
-    , rrsTTL
-    , rrsResourceRecords
-    , rrsAliasTarget
-    , rrsHealthCheckId
 
     -- * ResourceTagSet
     , ResourceTagSet
     , resourceTagSet
-    , rtsResourceType
     , rtsResourceId
+    , rtsResourceType
     , rtsTags
 
-    -- * Tag
-    , Tag
-    , tag
-    , tKey
-    , tValue
+    -- * ChangeStatus
+    , ChangeStatus (..)
 
-    -- * Common
-    , module Network.AWS.Route53.Internal.Types
+    -- * ChangeBatch
+    , ChangeBatch
+    , changeBatch
+    , cbChanges
+    , cbComment
+
+    -- * StatusReport
+    , StatusReport
+    , statusReport
+    , srCheckedTime
+    , srStatus
+
+    -- * HealthCheckType
+    , HealthCheckType (..)
+
+    -- * VPC
+    , VPC
+    , vpc
+    , vpcVPCId
+    , vpcVPCRegion
+
+    -- * HostedZoneConfig
+    , HostedZoneConfig
+    , hostedZoneConfig
+    , hzcComment
+    , hzcPrivateZone
+
+    -- * ResourceRecordSet
+    , ResourceRecordSet
+    , resourceRecordSet
+    , rrsAliasTarget
+    , rrsFailover
+    , rrsGeoLocation
+    , rrsHealthCheckId
+    , rrsName
+    , rrsRegion
+    , rrsResourceRecords
+    , rrsSetIdentifier
+    , rrsTTL
+    , rrsType
+    , rrsWeight
+
+    -- * DelegationSet
+    , DelegationSet
+    , delegationSet
+    , dsCallerReference
+    , dsId
+    , dsNameServers
+
+    -- * ChangeInfo
+    , ChangeInfo
+    , changeInfo
+    , ciComment
+    , ciId
+    , ciStatus
+    , ciSubmittedAt
+
+    -- * GeoLocation
+    , GeoLocation
+    , geoLocation
+    , glContinentCode
+    , glCountryCode
+    , glSubdivisionCode
+
+    -- * HealthCheckObservation
+    , HealthCheckObservation
+    , healthCheckObservation
+    , hcoIPAddress
+    , hcoStatusReport
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V3
-import Network.AWS.Types (Region)
-import Network.AWS.Route53.Internal.Types
+import qualified GHC.Exts
 
--- | Supported version (@2013-04-01@) of the
--- @Amazon Route 53@ service.
+-- | Supported version (@2013-04-01@) of the Amazon Route 53.
 data Route53 deriving (Typeable)
 
 instance AWSService Route53 where
     type Sg Route53 = V3
-    type Er Route53 = Route53Error
+    type Er Route53 = RESTError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = global
+        , _svcAbbrev   = "Route53"
         , _svcPrefix   = "route53"
         , _svcVersion  = "2013-04-01"
         , _svcTarget   = Nothing
         }
 
--- | A sum type representing possible errors returned by the 'Route53' service.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data Route53Error
-      -- | Route 53 allows some duplicate domain names, but there is a
-      -- maximum number of duplicate names. This error indicates that you
-      -- have reached that maximum. If you want to create another hosted
-      -- zone with the same name and Route 53 generates this error, you
-      -- can request an increase to the limit on the Contact Us page.
-    = DelegationSetNotAvailable
-        { _dsnaMessage :: Maybe Text
-        }
-      -- | The health check you are trying to create already exists. Route
-      -- 53 returns this error when a health check has already been
-      -- created with the specified CallerReference.
-    | HealthCheckAlreadyExists
-        { _hcaeMessage :: Maybe Text
-        }
-      -- | There are resource records associated with this health check.
-      -- Before you can delete the health check, you must disassociate it
-      -- from the resource record sets.
-    | HealthCheckInUse
-        { _hciuMessage :: Maybe Text
-        }
-    | HealthCheckVersionMismatch
-        { _hcvmMessage :: Maybe Text
-        }
-      -- | The hosted zone you are trying to create already exists. Route 53
-      -- returns this error when a hosted zone has already been created
-      -- with the specified CallerReference.
-    | HostedZoneAlreadyExists
-        { _hzaeMessage :: Maybe Text
-        }
-      -- | The hosted zone contains resource record sets in addition to the
-      -- default NS and SOA resource record sets. Before you can delete
-      -- the hosted zone, you must delete the additional resource record
-      -- sets.
-    | HostedZoneNotEmpty
-        { _hzneMessage :: Maybe Text
-        }
-      -- | The resource you are trying to access is unsupported on this
-      -- Route 53 endpoint. Please consider using a newer endpoint or a
-      -- tool that does so.
-    | IncompatibleVersion
-        { _ivMessage :: Maybe Text
-        }
-      -- | This error contains a list of one or more error messages. Each
-      -- error message indicates one error in the change batch. For more
-      -- information, see Example InvalidChangeBatch Errors.
-    | InvalidChangeBatch
-        { _icbMessages :: [Text]
-        }
-      -- | This error indicates that the specified domain name is not valid.
-    | InvalidDomainName
-        { _idnMessage :: Maybe Text
-        }
-      -- | Some value specified in the request is invalid or the XML
-      -- document is malformed.
-    | InvalidInput
-        { _iiMessage :: Maybe Text
-        }
-    | NoSuchChange
-        { _nscMessage :: Maybe Text
-        }
-      -- | The geo location you are trying to get does not exist.
-    | NoSuchGeoLocation
-        { _nsglMessage :: Maybe Text
-        }
-      -- | The health check you are trying to get or delete does not exist.
-    | NoSuchHealthCheck
-        { _nshcMessage :: Maybe Text
-        }
-    | NoSuchHostedZone
-        { _nshzMessage :: Maybe Text
-        }
-      -- | The request was rejected because Route 53 was still processing a
-      -- prior request.
-    | PriorRequestNotComplete
-        { _prncMessage :: Maybe Text
-        }
-    | Route53Client HttpException
-    | Route53Serializer String
-    | Route53Service String
-    | ThrottlingException
-        { _teMessage :: Maybe Text
-        }
-    | TooManyHealthChecks
-        { _tmhcMessage :: Maybe Text
-        }
-      -- | This error indicates that you've reached the maximum number of
-      -- hosted zones that can be created for the current AWS account. You
-      -- can request an increase to the limit on the Contact Us page.
-    | TooManyHostedZones
-        { _tmhzMessage :: Maybe Text
-        }
-      deriving (Show, Typeable, Generic)
-
-instance AWSError Route53Error where
-    awsError = const "Route53Error"
-
-instance AWSServiceError Route53Error where
-    serviceError    = Route53Service
-    clientError     = Route53Client
-    serializerError = Route53Serializer
-
-instance Exception Route53Error
-
--- | Route 53 allows some duplicate domain names, but there is a maximum number
--- of duplicate names. This error indicates that you have reached that
--- maximum. If you want to create another hosted zone with the same name and
--- Route 53 generates this error, you can request an increase to the limit on
--- the Contact Us page.
---
--- See: 'DelegationSetNotAvailable'
-_DelegationSetNotAvailable :: Prism' Route53Error (Maybe Text)
-_DelegationSetNotAvailable = prism
-    DelegationSetNotAvailable
-    (\case
-        DelegationSetNotAvailable p1 -> Right p1
-        x -> Left x)
-
--- | The health check you are trying to create already exists. Route 53 returns
--- this error when a health check has already been created with the specified
--- CallerReference.
---
--- See: 'HealthCheckAlreadyExists'
-_HealthCheckAlreadyExists :: Prism' Route53Error (Maybe Text)
-_HealthCheckAlreadyExists = prism
-    HealthCheckAlreadyExists
-    (\case
-        HealthCheckAlreadyExists p1 -> Right p1
-        x -> Left x)
-
--- | There are resource records associated with this health check. Before you
--- can delete the health check, you must disassociate it from the resource
--- record sets.
---
--- See: 'HealthCheckInUse'
-_HealthCheckInUse :: Prism' Route53Error (Maybe Text)
-_HealthCheckInUse = prism
-    HealthCheckInUse
-    (\case
-        HealthCheckInUse p1 -> Right p1
-        x -> Left x)
-
--- | See: 'HealthCheckVersionMismatch'
-_HealthCheckVersionMismatch :: Prism' Route53Error (Maybe Text)
-_HealthCheckVersionMismatch = prism
-    HealthCheckVersionMismatch
-    (\case
-        HealthCheckVersionMismatch p1 -> Right p1
-        x -> Left x)
-
--- | The hosted zone you are trying to create already exists. Route 53 returns
--- this error when a hosted zone has already been created with the specified
--- CallerReference.
---
--- See: 'HostedZoneAlreadyExists'
-_HostedZoneAlreadyExists :: Prism' Route53Error (Maybe Text)
-_HostedZoneAlreadyExists = prism
-    HostedZoneAlreadyExists
-    (\case
-        HostedZoneAlreadyExists p1 -> Right p1
-        x -> Left x)
-
--- | The hosted zone contains resource record sets in addition to the default NS
--- and SOA resource record sets. Before you can delete the hosted zone, you
--- must delete the additional resource record sets.
---
--- See: 'HostedZoneNotEmpty'
-_HostedZoneNotEmpty :: Prism' Route53Error (Maybe Text)
-_HostedZoneNotEmpty = prism
-    HostedZoneNotEmpty
-    (\case
-        HostedZoneNotEmpty p1 -> Right p1
-        x -> Left x)
-
--- | The resource you are trying to access is unsupported on this Route 53
--- endpoint. Please consider using a newer endpoint or a tool that does so.
---
--- See: 'IncompatibleVersion'
-_IncompatibleVersion :: Prism' Route53Error (Maybe Text)
-_IncompatibleVersion = prism
-    IncompatibleVersion
-    (\case
-        IncompatibleVersion p1 -> Right p1
-        x -> Left x)
-
--- | This error contains a list of one or more error messages. Each error
--- message indicates one error in the change batch. For more information, see
--- Example InvalidChangeBatch Errors.
---
--- See: 'InvalidChangeBatch'
-_InvalidChangeBatch :: Prism' Route53Error [Text]
-_InvalidChangeBatch = prism
-    InvalidChangeBatch
-    (\case
-        InvalidChangeBatch p1 -> Right p1
-        x -> Left x)
-
--- | This error indicates that the specified domain name is not valid.
---
--- See: 'InvalidDomainName'
-_InvalidDomainName :: Prism' Route53Error (Maybe Text)
-_InvalidDomainName = prism
-    InvalidDomainName
-    (\case
-        InvalidDomainName p1 -> Right p1
-        x -> Left x)
-
--- | Some value specified in the request is invalid or the XML document is
--- malformed.
---
--- See: 'InvalidInput'
-_InvalidInput :: Prism' Route53Error (Maybe Text)
-_InvalidInput = prism
-    InvalidInput
-    (\case
-        InvalidInput p1 -> Right p1
-        x -> Left x)
-
--- | See: 'NoSuchChange'
-_NoSuchChange :: Prism' Route53Error (Maybe Text)
-_NoSuchChange = prism
-    NoSuchChange
-    (\case
-        NoSuchChange p1 -> Right p1
-        x -> Left x)
-
--- | The geo location you are trying to get does not exist.
---
--- See: 'NoSuchGeoLocation'
-_NoSuchGeoLocation :: Prism' Route53Error (Maybe Text)
-_NoSuchGeoLocation = prism
-    NoSuchGeoLocation
-    (\case
-        NoSuchGeoLocation p1 -> Right p1
-        x -> Left x)
-
--- | The health check you are trying to get or delete does not exist.
---
--- See: 'NoSuchHealthCheck'
-_NoSuchHealthCheck :: Prism' Route53Error (Maybe Text)
-_NoSuchHealthCheck = prism
-    NoSuchHealthCheck
-    (\case
-        NoSuchHealthCheck p1 -> Right p1
-        x -> Left x)
-
--- | See: 'NoSuchHostedZone'
-_NoSuchHostedZone :: Prism' Route53Error (Maybe Text)
-_NoSuchHostedZone = prism
-    NoSuchHostedZone
-    (\case
-        NoSuchHostedZone p1 -> Right p1
-        x -> Left x)
-
--- | The request was rejected because Route 53 was still processing a prior
--- request.
---
--- See: 'PriorRequestNotComplete'
-_PriorRequestNotComplete :: Prism' Route53Error (Maybe Text)
-_PriorRequestNotComplete = prism
-    PriorRequestNotComplete
-    (\case
-        PriorRequestNotComplete p1 -> Right p1
-        x -> Left x)
-
--- | See: 'Route53Client'
-_Route53Client :: Prism' Route53Error HttpException
-_Route53Client = prism
-    Route53Client
-    (\case
-        Route53Client p1 -> Right p1
-        x -> Left x)
-
--- | See: 'Route53Serializer'
-_Route53Serializer :: Prism' Route53Error String
-_Route53Serializer = prism
-    Route53Serializer
-    (\case
-        Route53Serializer p1 -> Right p1
-        x -> Left x)
-
--- | See: 'Route53Service'
-_Route53Service :: Prism' Route53Error String
-_Route53Service = prism
-    Route53Service
-    (\case
-        Route53Service p1 -> Right p1
-        x -> Left x)
-
--- | See: 'ThrottlingException'
-_ThrottlingException :: Prism' Route53Error (Maybe Text)
-_ThrottlingException = prism
-    ThrottlingException
-    (\case
-        ThrottlingException p1 -> Right p1
-        x -> Left x)
-
--- | See: 'TooManyHealthChecks'
-_TooManyHealthChecks :: Prism' Route53Error (Maybe Text)
-_TooManyHealthChecks = prism
-    TooManyHealthChecks
-    (\case
-        TooManyHealthChecks p1 -> Right p1
-        x -> Left x)
-
--- | This error indicates that you've reached the maximum number of hosted zones
--- that can be created for the current AWS account. You can request an
--- increase to the limit on the Contact Us page.
---
--- See: 'TooManyHostedZones'
-_TooManyHostedZones :: Prism' Route53Error (Maybe Text)
-_TooManyHostedZones = prism
-    TooManyHostedZones
-    (\case
-        TooManyHostedZones p1 -> Right p1
-        x -> Left x)
+    handle = xmlError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
 
-data ChangeAction
-    = Create -- ^ CREATE
-    | Delete -- ^ DELETE
-    | Upsert -- ^ UPSERT
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable ChangeAction
-
-instance FromText ChangeAction where
-    parser = match "CREATE" Create
-         <|> match "DELETE" Delete
-         <|> match "UPSERT" Upsert
-
-instance ToText ChangeAction where
-    toText Create = "CREATE"
-    toText Delete = "DELETE"
-    toText Upsert = "UPSERT"
-
-instance ToByteString ChangeAction
-
-instance FromXML ChangeAction where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeAction"
-
-instance ToXML ChangeAction where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeAction"
-
-instance ToQuery ChangeAction where
-      toQuery = toQuery . toBS
-
-data ChangeStatus
-    = Insync -- ^ INSYNC
-    | Pending -- ^ PENDING
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable ChangeStatus
-
-instance FromText ChangeStatus where
-    parser = match "INSYNC" Insync
-         <|> match "PENDING" Pending
-
-instance ToText ChangeStatus where
-    toText Insync = "INSYNC"
-    toText Pending = "PENDING"
-
-instance ToByteString ChangeStatus
-
-instance FromXML ChangeStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeStatus"
-
-instance ToQuery ChangeStatus where
-      toQuery = toQuery . toBS
-
-data Failover
-    = FailoverPrimary -- ^ PRIMARY
-    | FailoverSecondary -- ^ SECONDARY
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable Failover
-
-instance FromText Failover where
-    parser = match "PRIMARY" FailoverPrimary
-         <|> match "SECONDARY" FailoverSecondary
-
-instance ToText Failover where
-    toText FailoverPrimary = "PRIMARY"
-    toText FailoverSecondary = "SECONDARY"
-
-instance ToByteString Failover
-
-instance FromXML Failover where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Failover"
-
-instance ToXML Failover where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "Failover"
-
-instance ToQuery Failover where
-      toQuery = toQuery . toBS
-
-data HealthCheckType
-    = Http -- ^ HTTP
-    | HttpStrMatch -- ^ HTTP_STR_MATCH
-    | Https -- ^ HTTPS
-    | HttpsStrMatch -- ^ HTTPS_STR_MATCH
-    | Tcp -- ^ TCP
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable HealthCheckType
-
-instance FromText HealthCheckType where
-    parser = match "HTTP" Http
-         <|> match "HTTP_STR_MATCH" HttpStrMatch
-         <|> match "HTTPS" Https
-         <|> match "HTTPS_STR_MATCH" HttpsStrMatch
-         <|> match "TCP" Tcp
-
-instance ToText HealthCheckType where
-    toText Http = "HTTP"
-    toText HttpStrMatch = "HTTP_STR_MATCH"
-    toText Https = "HTTPS"
-    toText HttpsStrMatch = "HTTPS_STR_MATCH"
-    toText Tcp = "TCP"
-
-instance ToByteString HealthCheckType
-
-instance FromXML HealthCheckType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HealthCheckType"
-
-instance ToXML HealthCheckType where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HealthCheckType"
-
-instance ToQuery HealthCheckType where
-      toQuery = toQuery . toBS
-
-data TagResourceType
-    = Healthcheck -- ^ healthcheck
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable TagResourceType
-
-instance FromText TagResourceType where
-    parser = match "healthcheck" Healthcheck
-
-instance ToText TagResourceType where
-    toText Healthcheck = "healthcheck"
-
-instance ToByteString TagResourceType
-
-instance FromXML TagResourceType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TagResourceType"
-
-instance ToXML TagResourceType where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TagResourceType"
-
-instance ToQuery TagResourceType where
-      toQuery = toQuery . toBS
-
--- | A complex type that contains information about the name servers for the
--- specified hosted zone.
-newtype DelegationSet = DelegationSet
-    { _dsNameServers :: List1 Text
+data AliasTarget = AliasTarget
+    { _atDNSName              :: Text
+    , _atEvaluateTargetHealth :: Bool
+    , _atHostedZoneId         :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DelegationSet' data type.
---
--- 'DelegationSet' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'AliasTarget' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NameServers ::@ @List1 Text@
+-- * 'atDNSName' @::@ 'Text'
 --
-delegationSet :: List1 Text -- ^ 'dsNameServers'
-              -> DelegationSet
-delegationSet p1 = DelegationSet
-    { _dsNameServers = p1
+-- * 'atEvaluateTargetHealth' @::@ 'Bool'
+--
+-- * 'atHostedZoneId' @::@ 'Text'
+--
+aliasTarget :: Text -- ^ 'atHostedZoneId'
+            -> Text -- ^ 'atDNSName'
+            -> Bool -- ^ 'atEvaluateTargetHealth'
+            -> AliasTarget
+aliasTarget p1 p2 p3 = AliasTarget
+    { _atHostedZoneId         = p1
+    , _atDNSName              = p2
+    , _atEvaluateTargetHealth = p3
     }
 
--- | A complex type that contains the authoritative name servers for the hosted
--- zone. Use the method provided by your domain registrar to add an NS record
--- to your domain for each NameServer that is assigned to your hosted zone.
-dsNameServers :: Lens' DelegationSet (List1 Text)
-dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a })
+-- | Alias resource record sets only: The external DNS name associated with
+-- the AWS Resource. For more information and an example, see Creating Alias
+-- Resource Record Sets in the Amazon Route 53 Developer Guide.
+atDNSName :: Lens' AliasTarget Text
+atDNSName = lens _atDNSName (\s a -> s { _atDNSName = a })
 
-instance FromXML DelegationSet where
+-- | Alias resource record sets only: A boolean value that indicates whether
+-- this Resource Record Set should respect the health status of any health
+-- checks associated with the ALIAS target record which it is linked to. For
+-- more information and an example, see Creating Alias Resource Record Sets
+-- in the Amazon Route 53 Developer Guide.
+atEvaluateTargetHealth :: Lens' AliasTarget Bool
+atEvaluateTargetHealth =
+    lens _atEvaluateTargetHealth (\s a -> s { _atEvaluateTargetHealth = a })
+
+-- | Alias resource record sets only: The value of the hosted zone ID for the
+-- AWS resource. For more information and an example, see Creating Alias
+-- Resource Record Sets in the Amazon Route 53 Developer Guide.
+atHostedZoneId :: Lens' AliasTarget Text
+atHostedZoneId = lens _atHostedZoneId (\s a -> s { _atHostedZoneId = a })
+
+instance FromXML AliasTarget where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DelegationSet"
+    fromXMLRoot    = fromRoot "AliasTarget"
 
--- | A complex type that contains the Comment element.
-newtype HostedZoneConfig = HostedZoneConfig
-    { _hzcComment :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'HostedZoneConfig' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Comment ::@ @Maybe Text@
---
-hostedZoneConfig :: HostedZoneConfig
-hostedZoneConfig = HostedZoneConfig
-    { _hzcComment = Nothing
-    }
-
--- | An optional comment about your hosted zone. If you don't want to specify a
--- comment, you can omit the HostedZoneConfig and Comment elements from the
--- XML document.
-hzcComment :: Lens' HostedZoneConfig (Maybe Text)
-hzcComment = lens _hzcComment (\s a -> s { _hzcComment = a })
-
-instance FromXML HostedZoneConfig where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HostedZoneConfig"
-
-instance ToXML HostedZoneConfig where
+instance ToXML AliasTarget where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HostedZoneConfig"
+    toXMLRoot    = toRoot "AliasTarget"
 
--- | A complex type that contains the value of the Value element for the current
--- resource record set.
 newtype ResourceRecord = ResourceRecord
     { _rrValue :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ResourceRecord' data type to populate a request.
+-- | 'ResourceRecord' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Value ::@ @Text@
+-- * 'rrValue' @::@ 'Text'
 --
 resourceRecord :: Text -- ^ 'rrValue'
                -> ResourceRecord
@@ -774,315 +291,90 @@ instance ToXML ResourceRecord where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ResourceRecord"
 
--- | Alias resource record sets only: Information about the AWS resource to
--- which you are redirecting traffic.
-data AliasTarget = AliasTarget
-    { _atHostedZoneId :: ResourceId
-    , _atDNSName :: Text
-    , _atEvaluateTargetHealth :: !Bool
+data Tag = Tag
+    { _tagKey   :: Maybe Text
+    , _tagValue :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'AliasTarget' data type to populate a request.
+-- | 'Tag' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HostedZoneId ::@ @ResourceId@
+-- * 'tagKey' @::@ 'Maybe' 'Text'
 --
--- * @DNSName ::@ @Text@
+-- * 'tagValue' @::@ 'Maybe' 'Text'
 --
--- * @EvaluateTargetHealth ::@ @Bool@
---
-aliasTarget :: ResourceId -- ^ 'atHostedZoneId'
-            -> Text -- ^ 'atDNSName'
-            -> Bool -- ^ 'atEvaluateTargetHealth'
-            -> AliasTarget
-aliasTarget p1 p2 p3 = AliasTarget
-    { _atHostedZoneId = p1
-    , _atDNSName = p2
-    , _atEvaluateTargetHealth = p3
+tag :: Tag
+tag = Tag
+    { _tagKey   = Nothing
+    , _tagValue = Nothing
     }
 
--- | Alias resource record sets only: The value of the hosted zone ID for the
--- AWS resource. For more information and an example, see Creating Alias
--- Resource Record Sets in the Amazon Route 53 Developer Guide.
-atHostedZoneId :: Lens' AliasTarget ResourceId
-atHostedZoneId = lens _atHostedZoneId (\s a -> s { _atHostedZoneId = a })
+-- | The key for a Tag.
+tagKey :: Lens' Tag (Maybe Text)
+tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
--- | Alias resource record sets only: The external DNS name associated with the
--- AWS Resource. For more information and an example, see Creating Alias
--- Resource Record Sets in the Amazon Route 53 Developer Guide.
-atDNSName :: Lens' AliasTarget Text
-atDNSName = lens _atDNSName (\s a -> s { _atDNSName = a })
+-- | The value for a Tag.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
--- | Alias resource record sets only: A boolean value that indicates whether
--- this Resource Record Set should respect the health status of any health
--- checks associated with the ALIAS target record which it is linked to. For
--- more information and an example, see Creating Alias Resource Record Sets in
--- the Amazon Route 53 Developer Guide.
-atEvaluateTargetHealth :: Lens' AliasTarget Bool
-atEvaluateTargetHealth =
-    lens _atEvaluateTargetHealth (\s a -> s { _atEvaluateTargetHealth = a })
-
-instance FromXML AliasTarget where
+instance FromXML Tag where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AliasTarget"
+    fromXMLRoot    = fromRoot "Tag"
 
-instance ToXML AliasTarget where
+instance ToXML Tag where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AliasTarget"
+    toXMLRoot    = toRoot "Tag"
 
--- | A complex type that contains the information for each change in a change
--- batch request.
-data Change = Change
-    { _cAction :: ChangeAction
-    , _cResourceRecordSet :: ResourceRecordSet
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Change' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Action ::@ @ChangeAction@
---
--- * @ResourceRecordSet ::@ @ResourceRecordSet@
---
-change :: ChangeAction -- ^ 'cAction'
-       -> ResourceRecordSet -- ^ 'cResourceRecordSet'
-       -> Change
-change p1 p2 = Change
-    { _cAction = p1
-    , _cResourceRecordSet = p2
-    }
-
--- | The action to perform. Valid values: CREATE | DELETE | UPSERT.
-cAction :: Lens' Change ChangeAction
-cAction = lens _cAction (\s a -> s { _cAction = a })
-
--- | Information about the resource record set to create or delete.
-cResourceRecordSet :: Lens' Change ResourceRecordSet
-cResourceRecordSet =
-    lens _cResourceRecordSet (\s a -> s { _cResourceRecordSet = a })
-
-instance ToXML Change where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "Change"
-
--- | A complex type that contains an optional comment and the Changes element.
-data ChangeBatch = ChangeBatch
-    { _cbComment :: Maybe Text
-    , _cbChanges :: List1 Change
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ChangeBatch' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Comment ::@ @Maybe Text@
---
--- * @Changes ::@ @List1 Change@
---
-changeBatch :: List1 Change -- ^ 'cbChanges'
-            -> ChangeBatch
-changeBatch p2 = ChangeBatch
-    { _cbComment = Nothing
-    , _cbChanges = p2
-    }
-
--- | Optional: Any comments you want to include about a change batch request.
-cbComment :: Lens' ChangeBatch (Maybe Text)
-cbComment = lens _cbComment (\s a -> s { _cbComment = a })
-
--- | A complex type that contains one Change element for each resource record
--- set that you want to create or delete.
-cbChanges :: Lens' ChangeBatch (List1 Change)
-cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a })
-
-instance ToXML ChangeBatch where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeBatch"
-
--- | A complex type that contains information about the specified change batch,
--- including the change batch ID, the status of the change, and the date and
--- time of the request.
-data ChangeInfo = ChangeInfo
-    { _ciId :: ResourceId
-    , _ciStatus :: ChangeStatus
-    , _ciSubmittedAt :: ISO8601
-    , _ciComment :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ChangeInfo' data type.
---
--- 'ChangeInfo' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Id ::@ @ResourceId@
---
--- * @Status ::@ @ChangeStatus@
---
--- * @SubmittedAt ::@ @ISO8601@
---
--- * @Comment ::@ @Maybe Text@
---
-changeInfo :: ResourceId -- ^ 'ciId'
-           -> ChangeStatus -- ^ 'ciStatus'
-           -> ISO8601 -- ^ 'ciSubmittedAt'
-           -> ChangeInfo
-changeInfo p1 p2 p3 = ChangeInfo
-    { _ciId = p1
-    , _ciStatus = p2
-    , _ciSubmittedAt = p3
-    , _ciComment = Nothing
-    }
-
--- | The ID of the request. Use this ID to track when the change has completed
--- across all Amazon Route 53 DNS servers.
-ciId :: Lens' ChangeInfo ResourceId
-ciId = lens _ciId (\s a -> s { _ciId = a })
-
--- | The current state of the request. PENDING indicates that this request has
--- not yet been applied to all Amazon Route 53 DNS servers. Valid Values:
--- PENDING | INSYNC.
-ciStatus :: Lens' ChangeInfo ChangeStatus
-ciStatus = lens _ciStatus (\s a -> s { _ciStatus = a })
-
--- | The date and time the change was submitted, in the format
--- YYYY-MM-DDThh:mm:ssZ, as specified in the ISO 8601 standard (for example,
--- 2009-11-19T19:37:58Z). The Z after the time indicates that the time is
--- listed in Coordinated Universal Time (UTC), which is synonymous with
--- Greenwich Mean Time in this context.
-ciSubmittedAt :: Lens' ChangeInfo ISO8601
-ciSubmittedAt = lens _ciSubmittedAt (\s a -> s { _ciSubmittedAt = a })
-
--- | A complex type that describes change information about changes made to your
--- hosted zone. This element contains an ID that you use when performing a
--- GetChange action to get detailed information about the change.
-ciComment :: Lens' ChangeInfo (Maybe Text)
-ciComment = lens _ciComment (\s a -> s { _ciComment = a })
-
-instance FromXML ChangeInfo where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeInfo"
-
--- | Geo location resource record sets only: Among resource record sets that
--- have the same combination of DNS name and type, a value that specifies the
--- geo location for the current resource record set.
-data GeoLocation = GeoLocation
-    { _glContinentCode :: Maybe Text
-    , _glCountryCode :: Maybe Text
-    , _glSubdivisionCode :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'GeoLocation' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @ContinentCode ::@ @Maybe Text@
---
--- * @CountryCode ::@ @Maybe Text@
---
--- * @SubdivisionCode ::@ @Maybe Text@
---
-geoLocation :: GeoLocation
-geoLocation = GeoLocation
-    { _glContinentCode = Nothing
-    , _glCountryCode = Nothing
-    , _glSubdivisionCode = Nothing
-    }
-
--- | The code for a continent geo location. Note: only continent locations have
--- a continent code. Valid values: AF | AN | AS | EU | OC | NA | SA
--- Constraint: Specifying ContinentCode with either CountryCode or
--- SubdivisionCode returns an InvalidInput error.
-glContinentCode :: Lens' GeoLocation (Maybe Text)
-glContinentCode = lens _glContinentCode (\s a -> s { _glContinentCode = a })
-
--- | The code for a country geo location. The default location uses '*' for the
--- country code and will match all locations that are not matched by a geo
--- location. The default geo location uses a * for the country code. All other
--- country codes follow the ISO 3166 two-character code.
-glCountryCode :: Lens' GeoLocation (Maybe Text)
-glCountryCode = lens _glCountryCode (\s a -> s { _glCountryCode = a })
-
--- | The code for a country's subdivision (e.g., a province of Canada). A
--- subdivision code is only valid with the appropriate country code.
--- Constraint: Specifying SubdivisionCode without CountryCode returns an
--- InvalidInput error.
-glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
-glSubdivisionCode =
-    lens _glSubdivisionCode (\s a -> s { _glSubdivisionCode = a })
-
-instance FromXML GeoLocation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GeoLocation"
-
-instance ToXML GeoLocation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GeoLocation"
-
--- | A complex type that contains information about a GeoLocation.
 data GeoLocationDetails = GeoLocationDetails
-    { _gldContinentCode :: Maybe Text
-    , _gldContinentName :: Maybe Text
-    , _gldCountryCode :: Maybe Text
-    , _gldCountryName :: Maybe Text
+    { _gldContinentCode   :: Maybe Text
+    , _gldContinentName   :: Maybe Text
+    , _gldCountryCode     :: Maybe Text
+    , _gldCountryName     :: Maybe Text
     , _gldSubdivisionCode :: Maybe Text
     , _gldSubdivisionName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'GeoLocationDetails' data type.
---
--- 'GeoLocationDetails' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'GeoLocationDetails' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ContinentCode ::@ @Maybe Text@
+-- * 'gldContinentCode' @::@ 'Maybe' 'Text'
 --
--- * @ContinentName ::@ @Maybe Text@
+-- * 'gldContinentName' @::@ 'Maybe' 'Text'
 --
--- * @CountryCode ::@ @Maybe Text@
+-- * 'gldCountryCode' @::@ 'Maybe' 'Text'
 --
--- * @CountryName ::@ @Maybe Text@
+-- * 'gldCountryName' @::@ 'Maybe' 'Text'
 --
--- * @SubdivisionCode ::@ @Maybe Text@
+-- * 'gldSubdivisionCode' @::@ 'Maybe' 'Text'
 --
--- * @SubdivisionName ::@ @Maybe Text@
+-- * 'gldSubdivisionName' @::@ 'Maybe' 'Text'
 --
 geoLocationDetails :: GeoLocationDetails
 geoLocationDetails = GeoLocationDetails
-    { _gldContinentCode = Nothing
-    , _gldContinentName = Nothing
-    , _gldCountryCode = Nothing
-    , _gldCountryName = Nothing
+    { _gldContinentCode   = Nothing
+    , _gldContinentName   = Nothing
+    , _gldCountryCode     = Nothing
+    , _gldCountryName     = Nothing
     , _gldSubdivisionCode = Nothing
     , _gldSubdivisionName = Nothing
     }
 
--- | The code for a continent geo location. Note: only continent locations have
--- a continent code.
+-- | The code for a continent geo location. Note: only continent locations
+-- have a continent code.
 gldContinentCode :: Lens' GeoLocationDetails (Maybe Text)
-gldContinentCode =
-    lens _gldContinentCode (\s a -> s { _gldContinentCode = a })
+gldContinentCode = lens _gldContinentCode (\s a -> s { _gldContinentCode = a })
 
--- | The name of the continent. This element is only present if ContinentCode is
--- also present.
+-- | The name of the continent. This element is only present if ContinentCode
+-- is also present.
 gldContinentName :: Lens' GeoLocationDetails (Maybe Text)
-gldContinentName =
-    lens _gldContinentName (\s a -> s { _gldContinentName = a })
+gldContinentName = lens _gldContinentName (\s a -> s { _gldContinentName = a })
 
--- | The code for a country geo location. The default location uses '*' for the
--- country code and will match all locations that are not matched by a geo
--- location. The default geo location uses a * for the country code. All other
--- country codes follow the ISO 3166 two-character code.
+-- | The code for a country geo location. The default location uses '*' for
+-- the country code and will match all locations that are not matched by a
+-- geo location. The default geo location uses a * for the country code. All
+-- other country codes follow the ISO 3166 two-character code.
 gldCountryCode :: Lens' GeoLocationDetails (Maybe Text)
 gldCountryCode = lens _gldCountryCode (\s a -> s { _gldCountryCode = a })
 
@@ -1107,46 +399,40 @@ instance FromXML GeoLocationDetails where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GeoLocationDetails"
 
--- | A complex type that contains identifying information about the health
--- check.
-data HealthCheck = HealthCheck
-    { _hcId :: Text
-    , _hcCallerReference :: Text
-    , _hcHealthCheckConfig :: HealthCheckConfig
-    , _hcHealthCheckVersion :: !Integer
-    } deriving (Eq, Ord, Show, Generic)
+instance ToXML GeoLocationDetails where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GeoLocationDetails"
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'HealthCheck' data type.
---
--- 'HealthCheck' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+data HealthCheck = HealthCheck
+    { _hcCallerReference    :: Text
+    , _hcHealthCheckConfig  :: HealthCheckConfig
+    , _hcHealthCheckVersion :: Natural
+    , _hcId                 :: Text
+    } deriving (Eq, Show, Generic)
+
+-- | 'HealthCheck' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'hcCallerReference' @::@ 'Text'
 --
--- * @CallerReference ::@ @Text@
+-- * 'hcHealthCheckConfig' @::@ 'HealthCheckConfig'
 --
--- * @HealthCheckConfig ::@ @HealthCheckConfig@
+-- * 'hcHealthCheckVersion' @::@ 'Natural'
 --
--- * @HealthCheckVersion ::@ @Integer@
+-- * 'hcId' @::@ 'Text'
 --
 healthCheck :: Text -- ^ 'hcId'
             -> Text -- ^ 'hcCallerReference'
             -> HealthCheckConfig -- ^ 'hcHealthCheckConfig'
-            -> Integer -- ^ 'hcHealthCheckVersion'
+            -> Natural -- ^ 'hcHealthCheckVersion'
             -> HealthCheck
 healthCheck p1 p2 p3 p4 = HealthCheck
-    { _hcId = p1
-    , _hcCallerReference = p2
-    , _hcHealthCheckConfig = p3
+    { _hcId                 = p1
+    , _hcCallerReference    = p2
+    , _hcHealthCheckConfig  = p3
     , _hcHealthCheckVersion = p4
     }
-
--- | The ID of the specified health check.
-hcId :: Lens' HealthCheck Text
-hcId = lens _hcId (\s a -> s { _hcId = a })
 
 -- | A unique string that identifies the request to create the health check.
 hcCallerReference :: Lens' HealthCheck Text
@@ -1161,59 +447,175 @@ hcHealthCheckConfig =
 -- | The version of the health check. You can optionally pass this value in a
 -- call to UpdateHealthCheck to prevent overwriting another change to the
 -- health check.
-hcHealthCheckVersion :: Lens' HealthCheck Integer
+hcHealthCheckVersion :: Lens' HealthCheck Natural
 hcHealthCheckVersion =
     lens _hcHealthCheckVersion (\s a -> s { _hcHealthCheckVersion = a })
+
+-- | The ID of the specified health check.
+hcId :: Lens' HealthCheck Text
+hcId = lens _hcId (\s a -> s { _hcId = a })
 
 instance FromXML HealthCheck where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "HealthCheck"
 
--- | A complex type that contains the health check configuration.
+instance ToXML HealthCheck where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "HealthCheck"
+
+data VPCRegion
+    = ApNortheast1 -- ^ ap-northeast-1
+    | ApSoutheast1 -- ^ ap-southeast-1
+    | ApSoutheast2 -- ^ ap-southeast-2
+    | CnNorth1     -- ^ cn-north-1
+    | EuCentral1   -- ^ eu-central-1
+    | EuWest1      -- ^ eu-west-1
+    | SaEast1      -- ^ sa-east-1
+    | UsEast1      -- ^ us-east-1
+    | UsWest1      -- ^ us-west-1
+    | UsWest2      -- ^ us-west-2
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable VPCRegion
+
+instance FromText VPCRegion where
+    parser = match "ap-northeast-1" ApNortheast1
+         <|> match "ap-southeast-1" ApSoutheast1
+         <|> match "ap-southeast-2" ApSoutheast2
+         <|> match "cn-north-1"     CnNorth1
+         <|> match "eu-central-1"   EuCentral1
+         <|> match "eu-west-1"      EuWest1
+         <|> match "sa-east-1"      SaEast1
+         <|> match "us-east-1"      UsEast1
+         <|> match "us-west-1"      UsWest1
+         <|> match "us-west-2"      UsWest2
+
+instance ToText VPCRegion where
+    toText = \case
+        ApNortheast1 -> "ap-northeast-1"
+        ApSoutheast1 -> "ap-southeast-1"
+        ApSoutheast2 -> "ap-southeast-2"
+        CnNorth1     -> "cn-north-1"
+        EuCentral1   -> "eu-central-1"
+        EuWest1      -> "eu-west-1"
+        SaEast1      -> "sa-east-1"
+        UsEast1      -> "us-east-1"
+        UsWest1      -> "us-west-1"
+        UsWest2      -> "us-west-2"
+
+instance FromXML VPCRegion where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "VPCRegion"
+
+instance ToXML VPCRegion where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "VPCRegion"
+
+data ChangeAction
+    = Create -- ^ CREATE
+    | Delete -- ^ DELETE
+    | Upsert -- ^ UPSERT
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable ChangeAction
+
+instance FromText ChangeAction where
+    parser = match "CREATE" Create
+         <|> match "DELETE" Delete
+         <|> match "UPSERT" Upsert
+
+instance ToText ChangeAction where
+    toText = \case
+        Create -> "CREATE"
+        Delete -> "DELETE"
+        Upsert -> "UPSERT"
+
+instance FromXML ChangeAction where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ChangeAction"
+
+instance ToXML ChangeAction where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ChangeAction"
+
+data TagResourceType
+    = Healthcheck -- ^ healthcheck
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable TagResourceType
+
+instance FromText TagResourceType where
+    parser = match "healthcheck" Healthcheck
+
+instance ToText TagResourceType where
+    toText Healthcheck = "healthcheck"
+
+instance FromXML TagResourceType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "TagResourceType"
+
+instance ToXML TagResourceType where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "TagResourceType"
+
 data HealthCheckConfig = HealthCheckConfig
-    { _hccIPAddress :: Maybe Text
-    , _hccPort :: Maybe Integer
-    , _hccType :: HealthCheckType
-    , _hccResourcePath :: Maybe Text
+    { _hccFailureThreshold         :: Maybe Natural
     , _hccFullyQualifiedDomainName :: Maybe Text
-    , _hccSearchString :: Maybe Text
-    , _hccRequestInterval :: Maybe Integer
-    , _hccFailureThreshold :: Maybe Integer
+    , _hccIPAddress                :: Maybe Text
+    , _hccPort                     :: Maybe Natural
+    , _hccRequestInterval          :: Maybe Natural
+    , _hccResourcePath             :: Maybe Text
+    , _hccSearchString             :: Maybe Text
+    , _hccType                     :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'HealthCheckConfig' data type to populate a request.
+-- | 'HealthCheckConfig' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IPAddress ::@ @Maybe Text@
+-- * 'hccFailureThreshold' @::@ 'Maybe' 'Natural'
 --
--- * @Port ::@ @Maybe Integer@
+-- * 'hccFullyQualifiedDomainName' @::@ 'Maybe' 'Text'
 --
--- * @Type ::@ @HealthCheckType@
+-- * 'hccIPAddress' @::@ 'Maybe' 'Text'
 --
--- * @ResourcePath ::@ @Maybe Text@
+-- * 'hccPort' @::@ 'Maybe' 'Natural'
 --
--- * @FullyQualifiedDomainName ::@ @Maybe Text@
+-- * 'hccRequestInterval' @::@ 'Maybe' 'Natural'
 --
--- * @SearchString ::@ @Maybe Text@
+-- * 'hccResourcePath' @::@ 'Maybe' 'Text'
 --
--- * @RequestInterval ::@ @Maybe Integer@
+-- * 'hccSearchString' @::@ 'Maybe' 'Text'
 --
--- * @FailureThreshold ::@ @Maybe Integer@
+-- * 'hccType' @::@ 'Text'
 --
-healthCheckConfig :: HealthCheckType -- ^ 'hccType'
+healthCheckConfig :: Text -- ^ 'hccType'
                   -> HealthCheckConfig
-healthCheckConfig p3 = HealthCheckConfig
-    { _hccIPAddress = Nothing
-    , _hccPort = Nothing
-    , _hccType = p3
-    , _hccResourcePath = Nothing
+healthCheckConfig p1 = HealthCheckConfig
+    { _hccType                     = p1
+    , _hccIPAddress                = Nothing
+    , _hccPort                     = Nothing
+    , _hccResourcePath             = Nothing
     , _hccFullyQualifiedDomainName = Nothing
-    , _hccSearchString = Nothing
-    , _hccRequestInterval = Nothing
-    , _hccFailureThreshold = Nothing
+    , _hccSearchString             = Nothing
+    , _hccRequestInterval          = Nothing
+    , _hccFailureThreshold         = Nothing
     }
+
+-- | The number of consecutive health checks that an endpoint must pass or
+-- fail for Route 53 to change the current status of the endpoint from
+-- unhealthy to healthy or vice versa. Valid values are integers between 1
+-- and 10. For more information, see "How Amazon Route 53 Determines Whether
+-- an Endpoint Is Healthy" in the Amazon Route 53 Developer Guide.
+hccFailureThreshold :: Lens' HealthCheckConfig (Maybe Natural)
+hccFailureThreshold =
+    lens _hccFailureThreshold (\s a -> s { _hccFailureThreshold = a })
+
+-- | Fully qualified domain name of the instance to be health checked.
+hccFullyQualifiedDomainName :: Lens' HealthCheckConfig (Maybe Text)
+hccFullyQualifiedDomainName =
+    lens _hccFullyQualifiedDomainName
+        (\s a -> s { _hccFullyQualifiedDomainName = a })
 
 -- | IP Address of the instance being checked.
 hccIPAddress :: Lens' HealthCheckConfig (Maybe Text)
@@ -1223,47 +625,32 @@ hccIPAddress = lens _hccIPAddress (\s a -> s { _hccIPAddress = a })
 -- For HTTP and HTTP_STR_MATCH this defaults to 80 if the port is not
 -- specified. For HTTPS and HTTPS_STR_MATCH this defaults to 443 if the port
 -- is not specified.
-hccPort :: Lens' HealthCheckConfig (Maybe Integer)
+hccPort :: Lens' HealthCheckConfig (Maybe Natural)
 hccPort = lens _hccPort (\s a -> s { _hccPort = a })
-
--- | The type of health check to be performed. Currently supported types are
--- TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
-hccType :: Lens' HealthCheckConfig HealthCheckType
-hccType = lens _hccType (\s a -> s { _hccType = a })
-
--- | Path to ping on the instance to check the health. Required for HTTP, HTTPS,
--- HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks, HTTP request is issued
--- to the instance on the given port and path.
-hccResourcePath :: Lens' HealthCheckConfig (Maybe Text)
-hccResourcePath = lens _hccResourcePath (\s a -> s { _hccResourcePath = a })
-
--- | Fully qualified domain name of the instance to be health checked.
-hccFullyQualifiedDomainName :: Lens' HealthCheckConfig (Maybe Text)
-hccFullyQualifiedDomainName =
-    lens _hccFullyQualifiedDomainName
-         (\s a -> s { _hccFullyQualifiedDomainName = a })
-
--- | A string to search for in the body of a health check response. Required for
--- HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
-hccSearchString :: Lens' HealthCheckConfig (Maybe Text)
-hccSearchString = lens _hccSearchString (\s a -> s { _hccSearchString = a })
 
 -- | The number of seconds between the time that Route 53 gets a response from
 -- your endpoint and the time that it sends the next health-check request.
--- Each Route 53 health checker makes requests at this interval. Valid values
--- are 10 and 30. The default value is 30.
-hccRequestInterval :: Lens' HealthCheckConfig (Maybe Integer)
+-- Each Route 53 health checker makes requests at this interval. Valid
+-- values are 10 and 30. The default value is 30.
+hccRequestInterval :: Lens' HealthCheckConfig (Maybe Natural)
 hccRequestInterval =
     lens _hccRequestInterval (\s a -> s { _hccRequestInterval = a })
 
--- | The number of consecutive health checks that an endpoint must pass or fail
--- for Route 53 to change the current status of the endpoint from unhealthy to
--- healthy or vice versa. Valid values are integers between 1 and 10. For more
--- information, see "How Amazon Route 53 Determines Whether an Endpoint Is
--- Healthy" in the Amazon Route 53 Developer Guide.
-hccFailureThreshold :: Lens' HealthCheckConfig (Maybe Integer)
-hccFailureThreshold =
-    lens _hccFailureThreshold (\s a -> s { _hccFailureThreshold = a })
+-- | Path to ping on the instance to check the health. Required for HTTP,
+-- HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks, HTTP request is
+-- issued to the instance on the given port and path.
+hccResourcePath :: Lens' HealthCheckConfig (Maybe Text)
+hccResourcePath = lens _hccResourcePath (\s a -> s { _hccResourcePath = a })
+
+-- | A string to search for in the body of a health check response. Required
+-- for HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
+hccSearchString :: Lens' HealthCheckConfig (Maybe Text)
+hccSearchString = lens _hccSearchString (\s a -> s { _hccSearchString = a })
+
+-- | The type of health check to be performed. Currently supported types are
+-- TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
+hccType :: Lens' HealthCheckConfig Text
+hccType = lens _hccType (\s a -> s { _hccType = a })
 
 instance FromXML HealthCheckConfig where
     fromXMLOptions = xmlOptions
@@ -1273,59 +660,101 @@ instance ToXML HealthCheckConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "HealthCheckConfig"
 
--- | A complex type that contain information about the specified hosted zone.
-data HostedZone = HostedZone
-    { _hzId :: ResourceId
-    , _hzName :: Text
-    , _hzCallerReference :: Text
-    , _hzConfig :: Maybe HostedZoneConfig
-    , _hzResourceRecordSetCount :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+data Change = Change
+    { _cAction            :: Text
+    , _cResourceRecordSet :: ResourceRecordSet
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'HostedZone' data type.
---
--- 'HostedZone' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'Change' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @ResourceId@
+-- * 'cAction' @::@ 'Text'
 --
--- * @Name ::@ @Text@
+-- * 'cResourceRecordSet' @::@ 'ResourceRecordSet'
 --
--- * @CallerReference ::@ @Text@
+change :: Text -- ^ 'cAction'
+       -> ResourceRecordSet -- ^ 'cResourceRecordSet'
+       -> Change
+change p1 p2 = Change
+    { _cAction            = p1
+    , _cResourceRecordSet = p2
+    }
+
+-- | The action to perform. Valid values: CREATE | DELETE | UPSERT.
+cAction :: Lens' Change Text
+cAction = lens _cAction (\s a -> s { _cAction = a })
+
+-- | Information about the resource record set to create or delete.
+cResourceRecordSet :: Lens' Change ResourceRecordSet
+cResourceRecordSet =
+    lens _cResourceRecordSet (\s a -> s { _cResourceRecordSet = a })
+
+instance FromXML Change where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "Change"
+
+instance ToXML Change where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "Change"
+
+data ResourceRecordSetFailover
+    = Primary   -- ^ PRIMARY
+    | Secondary -- ^ SECONDARY
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable ResourceRecordSetFailover
+
+instance FromText ResourceRecordSetFailover where
+    parser = match "PRIMARY"   Primary
+         <|> match "SECONDARY" Secondary
+
+instance ToText ResourceRecordSetFailover where
+    toText = \case
+        Primary   -> "PRIMARY"
+        Secondary -> "SECONDARY"
+
+instance FromXML ResourceRecordSetFailover where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResourceRecordSetFailover"
+
+instance ToXML ResourceRecordSetFailover where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ResourceRecordSetFailover"
+
+data HostedZone = HostedZone
+    { _hzCallerReference        :: Text
+    , _hzConfig                 :: Maybe HostedZoneConfig
+    , _hzId                     :: Text
+    , _hzName                   :: Text
+    , _hzResourceRecordSetCount :: Maybe Integer
+    } deriving (Eq, Show, Generic)
+
+-- | 'HostedZone' constructor.
 --
--- * @Config ::@ @Maybe HostedZoneConfig@
+-- The fields accessible through corresponding lenses are:
 --
--- * @ResourceRecordSetCount ::@ @Maybe Integer@
+-- * 'hzCallerReference' @::@ 'Text'
 --
-hostedZone :: ResourceId -- ^ 'hzId'
+-- * 'hzConfig' @::@ 'Maybe' 'HostedZoneConfig'
+--
+-- * 'hzId' @::@ 'Text'
+--
+-- * 'hzName' @::@ 'Text'
+--
+-- * 'hzResourceRecordSetCount' @::@ 'Maybe' 'Integer'
+--
+hostedZone :: Text -- ^ 'hzId'
            -> Text -- ^ 'hzName'
            -> Text -- ^ 'hzCallerReference'
            -> HostedZone
 hostedZone p1 p2 p3 = HostedZone
-    { _hzId = p1
-    , _hzName = p2
-    , _hzCallerReference = p3
-    , _hzConfig = Nothing
+    { _hzId                     = p1
+    , _hzName                   = p2
+    , _hzCallerReference        = p3
+    , _hzConfig                 = Nothing
     , _hzResourceRecordSetCount = Nothing
     }
-
--- | The ID of the specified hosted zone.
-hzId :: Lens' HostedZone ResourceId
-hzId = lens _hzId (\s a -> s { _hzId = a })
-
--- | The name of the domain. This must be a fully-specified domain, for example,
--- www.example.com. The trailing dot is optional; Route 53 assumes that the
--- domain name is fully qualified. This means that Route 53 treats
--- www.example.com (without a trailing dot) and www.example.com. (with a
--- trailing dot) as identical. This is the name you have registered with your
--- DNS registrar. You should ask your registrar to change the authoritative
--- name servers for your domain to the set of NameServers elements returned in
--- DelegationSet.
-hzName :: Lens' HostedZone Text
-hzName = lens _hzName (\s a -> s { _hzName = a })
 
 -- | A unique string that identifies the request to create the hosted zone.
 hzCallerReference :: Lens' HostedZone Text
@@ -1336,149 +765,415 @@ hzCallerReference =
 hzConfig :: Lens' HostedZone (Maybe HostedZoneConfig)
 hzConfig = lens _hzConfig (\s a -> s { _hzConfig = a })
 
+-- | The ID of the specified hosted zone.
+hzId :: Lens' HostedZone Text
+hzId = lens _hzId (\s a -> s { _hzId = a })
+
+-- | The name of the domain. This must be a fully-specified domain, for
+-- example, www.example.com. The trailing dot is optional; Route 53 assumes
+-- that the domain name is fully qualified. This means that Route 53 treats
+-- www.example.com (without a trailing dot) and www.example.com. (with a
+-- trailing dot) as identical. This is the name you have registered with
+-- your DNS registrar. You should ask your registrar to change the
+-- authoritative name servers for your domain to the set of NameServers
+-- elements returned in DelegationSet.
+hzName :: Lens' HostedZone Text
+hzName = lens _hzName (\s a -> s { _hzName = a })
+
 -- | Total number of resource record sets in the hosted zone.
 hzResourceRecordSetCount :: Lens' HostedZone (Maybe Integer)
 hzResourceRecordSetCount =
     lens _hzResourceRecordSetCount
-         (\s a -> s { _hzResourceRecordSetCount = a })
+        (\s a -> s { _hzResourceRecordSetCount = a })
 
 instance FromXML HostedZone where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "HostedZone"
 
--- | A complex type that contains information about the current resource record
--- set.
-data ResourceRecordSet = ResourceRecordSet
-    { _rrsName :: Text
-    , _rrsType :: RecordType
-    , _rrsSetIdentifier :: Maybe Text
-    , _rrsWeight :: Maybe Integer
-    , _rrsRegion :: Maybe Region
-    , _rrsGeoLocation :: Maybe GeoLocation
-    , _rrsFailover :: Maybe Failover
-    , _rrsTTL :: Maybe Integer
-    , _rrsResourceRecords :: List1 ResourceRecord
-    , _rrsAliasTarget :: Maybe AliasTarget
-    , _rrsHealthCheckId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+instance ToXML HostedZone where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "HostedZone"
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ResourceRecordSet' data type to populate a request.
+data ResourceTagSet = ResourceTagSet
+    { _rtsResourceId   :: Maybe Text
+    , _rtsResourceType :: Maybe Text
+    , _rtsTags         :: List1 Tag
+    } deriving (Eq, Show, Generic)
+
+-- | 'ResourceTagSet' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Text@
+-- * 'rtsResourceId' @::@ 'Maybe' 'Text'
 --
--- * @Type ::@ @RecordType@
+-- * 'rtsResourceType' @::@ 'Maybe' 'Text'
 --
--- * @SetIdentifier ::@ @Maybe Text@
+-- * 'rtsTags' @::@ 'NonEmpty' 'Tag'
 --
--- * @Weight ::@ @Maybe Integer@
---
--- * @Region ::@ @Maybe Region@
---
--- * @GeoLocation ::@ @Maybe GeoLocation@
---
--- * @Failover ::@ @Maybe Failover@
---
--- * @TTL ::@ @Maybe Integer@
---
--- * @ResourceRecords ::@ @List1 ResourceRecord@
---
--- * @AliasTarget ::@ @Maybe AliasTarget@
---
--- * @HealthCheckId ::@ @Maybe Text@
---
-resourceRecordSet :: Text -- ^ 'rrsName'
-                  -> RecordType -- ^ 'rrsType'
-                  -> List1 ResourceRecord -- ^ 'rrsResourceRecords'
-                  -> ResourceRecordSet
-resourceRecordSet p1 p2 p9 = ResourceRecordSet
-    { _rrsName = p1
-    , _rrsType = p2
-    , _rrsSetIdentifier = Nothing
-    , _rrsWeight = Nothing
-    , _rrsRegion = Nothing
-    , _rrsGeoLocation = Nothing
-    , _rrsFailover = Nothing
-    , _rrsTTL = Nothing
-    , _rrsResourceRecords = p9
-    , _rrsAliasTarget = Nothing
-    , _rrsHealthCheckId = Nothing
+resourceTagSet :: NonEmpty Tag -- ^ 'rtsTags'
+               -> ResourceTagSet
+resourceTagSet p1 = ResourceTagSet
+    { _rtsTags         = withIso _List1 (const id) p1
+    , _rtsResourceType = Nothing
+    , _rtsResourceId   = Nothing
     }
 
--- | The domain name of the current resource record set.
-rrsName :: Lens' ResourceRecordSet Text
-rrsName = lens _rrsName (\s a -> s { _rrsName = a })
+-- | The ID for the specified resource.
+rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
+rtsResourceId = lens _rtsResourceId (\s a -> s { _rtsResourceId = a })
 
--- | The type of the current resource record set.
-rrsType :: Lens' ResourceRecordSet RecordType
-rrsType = lens _rrsType (\s a -> s { _rrsType = a })
+-- | The type of the resource. The resource type for health checks is
+-- healthcheck.
+rtsResourceType :: Lens' ResourceTagSet (Maybe Text)
+rtsResourceType = lens _rtsResourceType (\s a -> s { _rtsResourceType = a })
 
--- | Weighted, Latency, Geo, and Failover resource record sets only: An
--- identifier that differentiates among multiple resource record sets that
--- have the same combination of DNS name and type.
-rrsSetIdentifier :: Lens' ResourceRecordSet (Maybe Text)
-rrsSetIdentifier =
-    lens _rrsSetIdentifier (\s a -> s { _rrsSetIdentifier = a })
+-- | The tags associated with the specified resource.
+rtsTags :: Lens' ResourceTagSet (NonEmpty Tag)
+rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a })
+    . _List1
 
--- | Weighted resource record sets only: Among resource record sets that have
--- the same combination of DNS name and type, a value that determines what
--- portion of traffic for the current resource record set is routed to the
--- associated location.
-rrsWeight :: Lens' ResourceRecordSet (Maybe Integer)
-rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a })
+instance FromXML ResourceTagSet where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResourceTagSet"
 
--- | Latency-based resource record sets only: Among resource record sets that
--- have the same combination of DNS name and type, a value that specifies the
--- AWS region for the current resource record set.
-rrsRegion :: Lens' ResourceRecordSet (Maybe Region)
-rrsRegion = lens _rrsRegion (\s a -> s { _rrsRegion = a })
+instance ToXML ResourceTagSet where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ResourceTagSet"
 
--- | Geo location resource record sets only: Among resource record sets that
--- have the same combination of DNS name and type, a value that specifies the
--- geo location for the current resource record set.
-rrsGeoLocation :: Lens' ResourceRecordSet (Maybe GeoLocation)
-rrsGeoLocation = lens _rrsGeoLocation (\s a -> s { _rrsGeoLocation = a })
+data ChangeStatus
+    = Insync  -- ^ INSYNC
+    | Pending -- ^ PENDING
+      deriving (Eq, Ord, Show, Generic, Enum)
 
--- | Failover resource record sets only: Among resource record sets that have
--- the same combination of DNS name and type, a value that indicates whether
--- the current resource record set is a primary or secondary resource record
--- set. A failover set may contain at most one resource record set marked as
--- primary and one resource record set marked as secondary. A resource record
--- set marked as primary will be returned if any of the following are true:
--- (1) an associated health check is passing, (2) if the resource record set
--- is an alias with the evaluate target health and at least one target
--- resource record set is healthy, (3) both the primary and secondary resource
--- record set are failing health checks or (4) there is no secondary resource
--- record set. A secondary resource record set will be returned if: (1) the
--- primary is failing a health check and either the secondary is passing a
--- health check or has no associated health check, or (2) there is no primary
--- resource record set. Valid values: PRIMARY | SECONDARY.
-rrsFailover :: Lens' ResourceRecordSet (Maybe Failover)
-rrsFailover = lens _rrsFailover (\s a -> s { _rrsFailover = a })
+instance Hashable ChangeStatus
 
--- | The cache time to live for the current resource record set.
-rrsTTL :: Lens' ResourceRecordSet (Maybe Integer)
-rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a })
+instance FromText ChangeStatus where
+    parser = match "INSYNC"  Insync
+         <|> match "PENDING" Pending
 
--- | A complex type that contains the resource records for the current resource
--- record set.
-rrsResourceRecords :: Lens' ResourceRecordSet (List1 ResourceRecord)
-rrsResourceRecords =
-    lens _rrsResourceRecords (\s a -> s { _rrsResourceRecords = a })
+instance ToText ChangeStatus where
+    toText = \case
+        Insync  -> "INSYNC"
+        Pending -> "PENDING"
+
+instance FromXML ChangeStatus where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ChangeStatus"
+
+instance ToXML ChangeStatus where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ChangeStatus"
+
+data ChangeBatch = ChangeBatch
+    { _cbChanges :: List1 Change
+    , _cbComment :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+-- | 'ChangeBatch' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cbChanges' @::@ 'NonEmpty' 'Change'
+--
+-- * 'cbComment' @::@ 'Maybe' 'Text'
+--
+changeBatch :: NonEmpty Change -- ^ 'cbChanges'
+            -> ChangeBatch
+changeBatch p1 = ChangeBatch
+    { _cbChanges = withIso _List1 (const id) p1
+    , _cbComment = Nothing
+    }
+
+-- | A complex type that contains one Change element for each resource record
+-- set that you want to create or delete.
+cbChanges :: Lens' ChangeBatch (NonEmpty Change)
+cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a })
+    . _List1
+
+-- | Optional: Any comments you want to include about a change batch request.
+cbComment :: Lens' ChangeBatch (Maybe Text)
+cbComment = lens _cbComment (\s a -> s { _cbComment = a })
+
+instance FromXML ChangeBatch where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ChangeBatch"
+
+instance ToXML ChangeBatch where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ChangeBatch"
+
+data StatusReport = StatusReport
+    { _srCheckedTime :: Maybe RFC822
+    , _srStatus      :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'StatusReport' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'srCheckedTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'srStatus' @::@ 'Maybe' 'Text'
+--
+statusReport :: StatusReport
+statusReport = StatusReport
+    { _srStatus      = Nothing
+    , _srCheckedTime = Nothing
+    }
+
+-- | The date and time the health check status was observed, in the format
+-- YYYY-MM-DDThh:mm:ssZ, as specified in the ISO 8601 standard (for example,
+-- 2009-11-19T19:37:58Z). The Z after the time indicates that the time is
+-- listed in Coordinated Universal Time (UTC), which is synonymous with
+-- Greenwich Mean Time in this context.
+srCheckedTime :: Lens' StatusReport (Maybe UTCTime)
+srCheckedTime = lens _srCheckedTime (\s a -> s { _srCheckedTime = a })
+    . mapping _Time
+
+-- | The observed health check status.
+srStatus :: Lens' StatusReport (Maybe Text)
+srStatus = lens _srStatus (\s a -> s { _srStatus = a })
+
+instance FromXML StatusReport where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "StatusReport"
+
+instance ToXML StatusReport where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "StatusReport"
+
+data HealthCheckType
+    = Http          -- ^ HTTP
+    | HttpStrMatch  -- ^ HTTP_STR_MATCH
+    | Https         -- ^ HTTPS
+    | HttpsStrMatch -- ^ HTTPS_STR_MATCH
+    | Tcp           -- ^ TCP
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable HealthCheckType
+
+instance FromText HealthCheckType where
+    parser = match "HTTP"            Http
+         <|> match "HTTP_STR_MATCH"  HttpStrMatch
+         <|> match "HTTPS"           Https
+         <|> match "HTTPS_STR_MATCH" HttpsStrMatch
+         <|> match "TCP"             Tcp
+
+instance ToText HealthCheckType where
+    toText = \case
+        Http          -> "HTTP"
+        HttpStrMatch  -> "HTTP_STR_MATCH"
+        Https         -> "HTTPS"
+        HttpsStrMatch -> "HTTPS_STR_MATCH"
+        Tcp           -> "TCP"
+
+instance FromXML HealthCheckType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "HealthCheckType"
+
+instance ToXML HealthCheckType where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "HealthCheckType"
+
+data VPC = VPC
+    { _vpcVPCId     :: Maybe Text
+    , _vpcVPCRegion :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'VPC' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'vpcVPCId' @::@ 'Maybe' 'Text'
+--
+-- * 'vpcVPCRegion' @::@ 'Maybe' 'Text'
+--
+vpc :: VPC
+vpc = VPC
+    { _vpcVPCRegion = Nothing
+    , _vpcVPCId     = Nothing
+    }
+
+vpcVPCId :: Lens' VPC (Maybe Text)
+vpcVPCId = lens _vpcVPCId (\s a -> s { _vpcVPCId = a })
+
+vpcVPCRegion :: Lens' VPC (Maybe Text)
+vpcVPCRegion = lens _vpcVPCRegion (\s a -> s { _vpcVPCRegion = a })
+
+instance FromXML VPC where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "VPC"
+
+instance ToXML VPC where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "VPC"
+
+data HostedZoneConfig = HostedZoneConfig
+    { _hzcComment     :: Maybe Text
+    , _hzcPrivateZone :: Maybe Bool
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'HostedZoneConfig' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'hzcComment' @::@ 'Maybe' 'Text'
+--
+-- * 'hzcPrivateZone' @::@ 'Maybe' 'Bool'
+--
+hostedZoneConfig :: HostedZoneConfig
+hostedZoneConfig = HostedZoneConfig
+    { _hzcComment     = Nothing
+    , _hzcPrivateZone = Nothing
+    }
+
+-- | An optional comment about your hosted zone. If you don't want to specify
+-- a comment, you can omit the HostedZoneConfig and Comment elements from
+-- the XML document.
+hzcComment :: Lens' HostedZoneConfig (Maybe Text)
+hzcComment = lens _hzcComment (\s a -> s { _hzcComment = a })
+
+hzcPrivateZone :: Lens' HostedZoneConfig (Maybe Bool)
+hzcPrivateZone = lens _hzcPrivateZone (\s a -> s { _hzcPrivateZone = a })
+
+instance FromXML HostedZoneConfig where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "HostedZoneConfig"
+
+instance ToXML HostedZoneConfig where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "HostedZoneConfig"
+
+data ResourceRecordSet = ResourceRecordSet
+    { _rrsAliasTarget     :: Maybe AliasTarget
+    , _rrsFailover        :: Maybe Text
+    , _rrsGeoLocation     :: Maybe GeoLocation
+    , _rrsHealthCheckId   :: Maybe Text
+    , _rrsName            :: Text
+    , _rrsRegion          :: Maybe Text
+    , _rrsResourceRecords :: List1 ResourceRecord
+    , _rrsSetIdentifier   :: Maybe Text
+    , _rrsTTL             :: Maybe Natural
+    , _rrsType            :: Text
+    , _rrsWeight          :: Maybe Natural
+    } deriving (Eq, Show, Generic)
+
+-- | 'ResourceRecordSet' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rrsAliasTarget' @::@ 'Maybe' 'AliasTarget'
+--
+-- * 'rrsFailover' @::@ 'Maybe' 'Text'
+--
+-- * 'rrsGeoLocation' @::@ 'Maybe' 'GeoLocation'
+--
+-- * 'rrsHealthCheckId' @::@ 'Maybe' 'Text'
+--
+-- * 'rrsName' @::@ 'Text'
+--
+-- * 'rrsRegion' @::@ 'Maybe' 'Text'
+--
+-- * 'rrsResourceRecords' @::@ 'NonEmpty' 'ResourceRecord'
+--
+-- * 'rrsSetIdentifier' @::@ 'Maybe' 'Text'
+--
+-- * 'rrsTTL' @::@ 'Maybe' 'Natural'
+--
+-- * 'rrsType' @::@ 'Text'
+--
+-- * 'rrsWeight' @::@ 'Maybe' 'Natural'
+--
+resourceRecordSet :: Text -- ^ 'rrsName'
+                  -> Text -- ^ 'rrsType'
+                  -> NonEmpty ResourceRecord -- ^ 'rrsResourceRecords'
+                  -> ResourceRecordSet
+resourceRecordSet p1 p2 p3 = ResourceRecordSet
+    { _rrsName            = p1
+    , _rrsType            = p2
+    , _rrsResourceRecords = withIso _List1 (const id) p3
+    , _rrsSetIdentifier   = Nothing
+    , _rrsWeight          = Nothing
+    , _rrsRegion          = Nothing
+    , _rrsGeoLocation     = Nothing
+    , _rrsFailover        = Nothing
+    , _rrsTTL             = Nothing
+    , _rrsAliasTarget     = Nothing
+    , _rrsHealthCheckId   = Nothing
+    }
 
 -- | Alias resource record sets only: Information about the AWS resource to
 -- which you are redirecting traffic.
 rrsAliasTarget :: Lens' ResourceRecordSet (Maybe AliasTarget)
 rrsAliasTarget = lens _rrsAliasTarget (\s a -> s { _rrsAliasTarget = a })
 
+-- | Failover resource record sets only: Among resource record sets that have
+-- the same combination of DNS name and type, a value that indicates whether
+-- the current resource record set is a primary or secondary resource record
+-- set. A failover set may contain at most one resource record set marked as
+-- primary and one resource record set marked as secondary. A resource
+-- record set marked as primary will be returned if any of the following are
+-- true: (1) an associated health check is passing, (2) if the resource
+-- record set is an alias with the evaluate target health and at least one
+-- target resource record set is healthy, (3) both the primary and secondary
+-- resource record set are failing health checks or (4) there is no
+-- secondary resource record set. A secondary resource record set will be
+-- returned if: (1) the primary is failing a health check and either the
+-- secondary is passing a health check or has no associated health check, or
+-- (2) there is no primary resource record set. Valid values: PRIMARY |
+-- SECONDARY.
+rrsFailover :: Lens' ResourceRecordSet (Maybe Text)
+rrsFailover = lens _rrsFailover (\s a -> s { _rrsFailover = a })
+
+-- | Geo location resource record sets only: Among resource record sets that
+-- have the same combination of DNS name and type, a value that specifies
+-- the geo location for the current resource record set.
+rrsGeoLocation :: Lens' ResourceRecordSet (Maybe GeoLocation)
+rrsGeoLocation = lens _rrsGeoLocation (\s a -> s { _rrsGeoLocation = a })
+
 -- | Health Check resource record sets only, not required for alias resource
--- record sets: An identifier that is used to identify health check associated
--- with the resource record set.
+-- record sets: An identifier that is used to identify health check
+-- associated with the resource record set.
 rrsHealthCheckId :: Lens' ResourceRecordSet (Maybe Text)
-rrsHealthCheckId =
-    lens _rrsHealthCheckId (\s a -> s { _rrsHealthCheckId = a })
+rrsHealthCheckId = lens _rrsHealthCheckId (\s a -> s { _rrsHealthCheckId = a })
+
+-- | The domain name of the current resource record set.
+rrsName :: Lens' ResourceRecordSet Text
+rrsName = lens _rrsName (\s a -> s { _rrsName = a })
+
+-- | Latency-based resource record sets only: Among resource record sets that
+-- have the same combination of DNS name and type, a value that specifies
+-- the AWS region for the current resource record set.
+rrsRegion :: Lens' ResourceRecordSet (Maybe Text)
+rrsRegion = lens _rrsRegion (\s a -> s { _rrsRegion = a })
+
+-- | A complex type that contains the resource records for the current
+-- resource record set.
+rrsResourceRecords :: Lens' ResourceRecordSet (NonEmpty ResourceRecord)
+rrsResourceRecords =
+    lens _rrsResourceRecords (\s a -> s { _rrsResourceRecords = a })
+        . _List1
+
+-- | Weighted, Latency, Geo, and Failover resource record sets only: An
+-- identifier that differentiates among multiple resource record sets that
+-- have the same combination of DNS name and type.
+rrsSetIdentifier :: Lens' ResourceRecordSet (Maybe Text)
+rrsSetIdentifier = lens _rrsSetIdentifier (\s a -> s { _rrsSetIdentifier = a })
+
+-- | The cache time to live for the current resource record set.
+rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
+rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a })
+
+-- | The type of the current resource record set.
+rrsType :: Lens' ResourceRecordSet Text
+rrsType = lens _rrsType (\s a -> s { _rrsType = a })
+
+-- | Weighted resource record sets only: Among resource record sets that have
+-- the same combination of DNS name and type, a value that determines what
+-- portion of traffic for the current resource record set is routed to the
+-- associated location.
+rrsWeight :: Lens' ResourceRecordSet (Maybe Natural)
+rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a })
 
 instance FromXML ResourceRecordSet where
     fromXMLOptions = xmlOptions
@@ -1488,84 +1183,204 @@ instance ToXML ResourceRecordSet where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ResourceRecordSet"
 
--- | A complex type containing a resource and its associated tags.
-data ResourceTagSet = ResourceTagSet
-    { _rtsResourceType :: Maybe TagResourceType
-    , _rtsResourceId :: Maybe Text
-    , _rtsTags :: Maybe (List1 Tag)
+data DelegationSet = DelegationSet
+    { _dsCallerReference :: Maybe Text
+    , _dsId              :: Maybe Text
+    , _dsNameServers     :: List1 Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ResourceTagSet' data type.
---
--- 'ResourceTagSet' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'DelegationSet' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ResourceType ::@ @Maybe TagResourceType@
+-- * 'dsCallerReference' @::@ 'Maybe' 'Text'
 --
--- * @ResourceId ::@ @Maybe Text@
+-- * 'dsId' @::@ 'Maybe' 'Text'
 --
--- * @Tags ::@ @Maybe (List1 Tag)@
+-- * 'dsNameServers' @::@ 'NonEmpty' 'Text'
 --
-resourceTagSet :: ResourceTagSet
-resourceTagSet = ResourceTagSet
-    { _rtsResourceType = Nothing
-    , _rtsResourceId = Nothing
-    , _rtsTags = Nothing
+delegationSet :: NonEmpty Text -- ^ 'dsNameServers'
+              -> DelegationSet
+delegationSet p1 = DelegationSet
+    { _dsNameServers     = withIso _List1 (const id) p1
+    , _dsId              = Nothing
+    , _dsCallerReference = Nothing
     }
 
--- | The type of the resource. The resource type for health checks is
--- healthcheck.
-rtsResourceType :: Lens' ResourceTagSet (Maybe TagResourceType)
-rtsResourceType = lens _rtsResourceType (\s a -> s { _rtsResourceType = a })
+dsCallerReference :: Lens' DelegationSet (Maybe Text)
+dsCallerReference =
+    lens _dsCallerReference (\s a -> s { _dsCallerReference = a })
 
--- | The ID for the specified resource.
-rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
-rtsResourceId = lens _rtsResourceId (\s a -> s { _rtsResourceId = a })
+dsId :: Lens' DelegationSet (Maybe Text)
+dsId = lens _dsId (\s a -> s { _dsId = a })
 
--- | The tags associated with the specified resource.
-rtsTags :: Lens' ResourceTagSet (Maybe (List1 Tag))
-rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a })
+-- | A complex type that contains the authoritative name servers for the
+-- hosted zone. Use the method provided by your domain registrar to add an
+-- NS record to your domain for each NameServer that is assigned to your
+-- hosted zone.
+dsNameServers :: Lens' DelegationSet (NonEmpty Text)
+dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a })
+    . _List1
 
-instance FromXML ResourceTagSet where
+instance FromXML DelegationSet where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResourceTagSet"
+    fromXMLRoot    = fromRoot "DelegationSet"
 
--- | A single tag containing a key and value.
-data Tag = Tag
-    { _tKey :: Maybe Text
-    , _tValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Tag' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Key ::@ @Maybe Text@
---
--- * @Value ::@ @Maybe Text@
---
-tag :: Tag
-tag = Tag
-    { _tKey = Nothing
-    , _tValue = Nothing
-    }
-
--- | The key for a Tag.
-tKey :: Lens' Tag (Maybe Text)
-tKey = lens _tKey (\s a -> s { _tKey = a })
-
--- | The value for a Tag.
-tValue :: Lens' Tag (Maybe Text)
-tValue = lens _tValue (\s a -> s { _tValue = a })
-
-instance FromXML Tag where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Tag"
-
-instance ToXML Tag where
+instance ToXML DelegationSet where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "Tag"
+    toXMLRoot    = toRoot "DelegationSet"
+
+data ChangeInfo = ChangeInfo
+    { _ciComment     :: Maybe Text
+    , _ciId          :: Text
+    , _ciStatus      :: Text
+    , _ciSubmittedAt :: RFC822
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'ChangeInfo' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ciComment' @::@ 'Maybe' 'Text'
+--
+-- * 'ciId' @::@ 'Text'
+--
+-- * 'ciStatus' @::@ 'Text'
+--
+-- * 'ciSubmittedAt' @::@ 'UTCTime'
+--
+changeInfo :: Text -- ^ 'ciId'
+           -> Text -- ^ 'ciStatus'
+           -> UTCTime -- ^ 'ciSubmittedAt'
+           -> ChangeInfo
+changeInfo p1 p2 p3 = ChangeInfo
+    { _ciId          = p1
+    , _ciStatus      = p2
+    , _ciSubmittedAt = withIso _Time (const id) p3
+    , _ciComment     = Nothing
+    }
+
+-- | A complex type that describes change information about changes made to
+-- your hosted zone. This element contains an ID that you use when
+-- performing a GetChange action to get detailed information about the
+-- change.
+ciComment :: Lens' ChangeInfo (Maybe Text)
+ciComment = lens _ciComment (\s a -> s { _ciComment = a })
+
+-- | The ID of the request. Use this ID to track when the change has completed
+-- across all Amazon Route 53 DNS servers.
+ciId :: Lens' ChangeInfo Text
+ciId = lens _ciId (\s a -> s { _ciId = a })
+
+-- | The current state of the request. PENDING indicates that this request has
+-- not yet been applied to all Amazon Route 53 DNS servers. Valid Values:
+-- PENDING | INSYNC.
+ciStatus :: Lens' ChangeInfo Text
+ciStatus = lens _ciStatus (\s a -> s { _ciStatus = a })
+
+-- | The date and time the change was submitted, in the format
+-- YYYY-MM-DDThh:mm:ssZ, as specified in the ISO 8601 standard (for example,
+-- 2009-11-19T19:37:58Z). The Z after the time indicates that the time is
+-- listed in Coordinated Universal Time (UTC), which is synonymous with
+-- Greenwich Mean Time in this context.
+ciSubmittedAt :: Lens' ChangeInfo UTCTime
+ciSubmittedAt = lens _ciSubmittedAt (\s a -> s { _ciSubmittedAt = a })
+    . _Time
+
+instance FromXML ChangeInfo where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ChangeInfo"
+
+instance ToXML ChangeInfo where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ChangeInfo"
+
+data GeoLocation = GeoLocation
+    { _glContinentCode   :: Maybe Text
+    , _glCountryCode     :: Maybe Text
+    , _glSubdivisionCode :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'GeoLocation' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'glContinentCode' @::@ 'Maybe' 'Text'
+--
+-- * 'glCountryCode' @::@ 'Maybe' 'Text'
+--
+-- * 'glSubdivisionCode' @::@ 'Maybe' 'Text'
+--
+geoLocation :: GeoLocation
+geoLocation = GeoLocation
+    { _glContinentCode   = Nothing
+    , _glCountryCode     = Nothing
+    , _glSubdivisionCode = Nothing
+    }
+
+-- | The code for a continent geo location. Note: only continent locations
+-- have a continent code. Valid values: AF | AN | AS | EU | OC | NA | SA
+-- Constraint: Specifying ContinentCode with either CountryCode or
+-- SubdivisionCode returns an InvalidInput error.
+glContinentCode :: Lens' GeoLocation (Maybe Text)
+glContinentCode = lens _glContinentCode (\s a -> s { _glContinentCode = a })
+
+-- | The code for a country geo location. The default location uses '*' for
+-- the country code and will match all locations that are not matched by a
+-- geo location. The default geo location uses a * for the country code. All
+-- other country codes follow the ISO 3166 two-character code.
+glCountryCode :: Lens' GeoLocation (Maybe Text)
+glCountryCode = lens _glCountryCode (\s a -> s { _glCountryCode = a })
+
+-- | The code for a country's subdivision (e.g., a province of Canada). A
+-- subdivision code is only valid with the appropriate country code.
+-- Constraint: Specifying SubdivisionCode without CountryCode returns an
+-- InvalidInput error.
+glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
+glSubdivisionCode =
+    lens _glSubdivisionCode (\s a -> s { _glSubdivisionCode = a })
+
+instance FromXML GeoLocation where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GeoLocation"
+
+instance ToXML GeoLocation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GeoLocation"
+
+data HealthCheckObservation = HealthCheckObservation
+    { _hcoIPAddress    :: Maybe Text
+    , _hcoStatusReport :: Maybe StatusReport
+    } deriving (Eq, Show, Generic)
+
+-- | 'HealthCheckObservation' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'hcoIPAddress' @::@ 'Maybe' 'Text'
+--
+-- * 'hcoStatusReport' @::@ 'Maybe' 'StatusReport'
+--
+healthCheckObservation :: HealthCheckObservation
+healthCheckObservation = HealthCheckObservation
+    { _hcoIPAddress    = Nothing
+    , _hcoStatusReport = Nothing
+    }
+
+-- | The IP address of the Route 53 health checker that performed the health
+-- check.
+hcoIPAddress :: Lens' HealthCheckObservation (Maybe Text)
+hcoIPAddress = lens _hcoIPAddress (\s a -> s { _hcoIPAddress = a })
+
+-- | A complex type that contains information about the health check status
+-- for the current observation.
+hcoStatusReport :: Lens' HealthCheckObservation (Maybe StatusReport)
+hcoStatusReport = lens _hcoStatusReport (\s a -> s { _hcoStatusReport = a })
+
+instance FromXML HealthCheckObservation where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "HealthCheckObservation"
+
+instance ToXML HealthCheckObservation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "HealthCheckObservation"

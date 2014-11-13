@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,48 +21,54 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the datafeed for Spot Instances. For more information, see Spot
--- Instances in the Amazon Elastic Compute Cloud User Guide. Example This
--- example request deletes the datafeed for the AWS account.
--- https://ec2.amazonaws.com/?Action=DeleteSpotDatafeedSubscription
--- &amp;AUTHPARAMS &lt;DeleteSpotDatafeedSubscriptionResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt;
--- &lt;/DeleteSpotDatafeedSubscriptionResponse&gt;.
+-- Instances in the Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     (
     -- * Request
       DeleteSpotDatafeedSubscription
     -- ** Request constructor
     , deleteSpotDatafeedSubscription
+    -- ** Request lenses
+    , dsds1DryRun
+
     -- * Response
     , DeleteSpotDatafeedSubscriptionResponse
     -- ** Response constructor
     , deleteSpotDatafeedSubscriptionResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
-    deriving (Eq, Ord, Show, Generic)
+newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
+    { _dsds1DryRun :: Maybe Bool
+    } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSpotDatafeedSubscription' request.
+-- | 'DeleteSpotDatafeedSubscription' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dsds1DryRun' @::@ 'Maybe' 'Bool'
+--
 deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
 deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
+    { _dsds1DryRun = Nothing
+    }
 
-instance ToQuery DeleteSpotDatafeedSubscription where
-    toQuery = genericQuery def
+dsds1DryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
+dsds1DryRun = lens _dsds1DryRun (\s a -> s { _dsds1DryRun = a })
+
+instance ToQuery DeleteSpotDatafeedSubscription
+
+instance ToPath DeleteSpotDatafeedSubscription where
+    toPath = const "/"
 
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSpotDatafeedSubscriptionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteSpotDatafeedSubscriptionResponse' constructor.
 deleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse
 deleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
 
@@ -68,5 +76,5 @@ instance AWSRequest DeleteSpotDatafeedSubscription where
     type Sv DeleteSpotDatafeedSubscription = EC2
     type Rs DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscriptionResponse
 
-    request = post "DeleteSpotDatafeedSubscription"
-    response _ = nullaryResponse DeleteSpotDatafeedSubscriptionResponse
+    request  = post "DeleteSpotDatafeedSubscription"
+    response = nullaryResponse DeleteSpotDatafeedSubscriptionResponse

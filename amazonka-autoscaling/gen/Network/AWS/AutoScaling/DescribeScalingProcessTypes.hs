@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeScalingProcessTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,16 +22,13 @@
 
 -- | Returns scaling process types for use in the ResumeProcesses and
 -- SuspendProcesses actions.
--- https://autoscaling.amazonaws.com/?Version=2011-01-01
--- &Action=DescribeScalingProcessTypes &AUTHPARAMS AZRebalance
--- AddToLoadBalancer AlarmNotification HealthCheck Launch ReplaceUnhealthy
--- ScheduledActions Terminate 27f2eacc-b73f-11e2-ad99-c7aba3a9c963.
 module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     (
     -- * Request
       DescribeScalingProcessTypes
     -- ** Request constructor
     , describeScalingProcessTypes
+
     -- * Response
     , DescribeScalingProcessTypesResponse
     -- ** Response constructor
@@ -38,34 +37,38 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     , dsptrProcesses
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeScalingProcessTypes' request.
+-- | 'DescribeScalingProcessTypes' constructor.
 describeScalingProcessTypes :: DescribeScalingProcessTypes
 describeScalingProcessTypes = DescribeScalingProcessTypes
 
-instance ToQuery DescribeScalingProcessTypes where
-    toQuery = genericQuery def
+instance ToQuery DescribeScalingProcessTypes
 
--- | The output of the DescribeScalingProcessTypes action.
+instance ToPath DescribeScalingProcessTypes where
+    toPath = const "/"
+
 newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     { _dsptrProcesses :: [ProcessType]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeScalingProcessTypesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeScalingProcessTypesResponse where
+    type Item DescribeScalingProcessTypesResponse = ProcessType
+
+    fromList = DescribeScalingProcessTypesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsptrProcesses
+
+-- | 'DescribeScalingProcessTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Processes ::@ @[ProcessType]@
+-- * 'dsptrProcesses' @::@ ['ProcessType']
 --
 describeScalingProcessTypesResponse :: DescribeScalingProcessTypesResponse
 describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
@@ -76,12 +79,10 @@ describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
 dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrProcesses = lens _dsptrProcesses (\s a -> s { _dsptrProcesses = a })
 
-instance FromXML DescribeScalingProcessTypesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeScalingProcessTypes where
     type Sv DescribeScalingProcessTypes = AutoScaling
     type Rs DescribeScalingProcessTypes = DescribeScalingProcessTypesResponse
 
-    request = post "DescribeScalingProcessTypes"
-    response _ = xmlResponse
+    request  = post "DescribeScalingProcessTypes"
+    response = xmlResponse $ \h x -> DescribeScalingProcessTypesResponse
+        <$> x %| "Processes"

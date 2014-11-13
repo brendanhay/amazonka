@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ModifyImageAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,8 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Modifies the specified attribute of the specified AMI. You can specify only
--- one attribute at a time. AWS Marketplace product codes cannot be modified.
--- Images with an AWS Marketplace product code cannot be made public. Example.
+-- one attribute at a time.
 module Network.AWS.EC2.ModifyImageAttribute
     (
     -- * Request
@@ -28,15 +29,16 @@ module Network.AWS.EC2.ModifyImageAttribute
     -- ** Request constructor
     , modifyImageAttribute
     -- ** Request lenses
-    , miaImageId
     , miaAttribute
-    , miaOperationType
-    , miaUserIds
-    , miaUserGroups
-    , miaProductCodes
-    , miaValue
-    , miaLaunchPermission
     , miaDescription
+    , miaDryRun
+    , miaImageId
+    , miaLaunchPermission
+    , miaOperationType
+    , miaProductCodes
+    , miaUserGroups
+    , miaUserIds
+    , miaValue
 
     -- * Response
     , ModifyImageAttributeResponse
@@ -44,111 +46,117 @@ module Network.AWS.EC2.ModifyImageAttribute
     , modifyImageAttributeResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ModifyImageAttribute = ModifyImageAttribute
-    { _miaImageId :: Text
-    , _miaAttribute :: Maybe Text
-    , _miaOperationType :: Maybe Text
-    , _miaUserIds :: [Text]
-    , _miaUserGroups :: [Text]
-    , _miaProductCodes :: [Text]
-    , _miaValue :: Maybe Text
+    { _miaAttribute        :: Maybe Text
+    , _miaDescription      :: Maybe AttributeValue
+    , _miaDryRun           :: Maybe Bool
+    , _miaImageId          :: Text
     , _miaLaunchPermission :: Maybe LaunchPermissionModifications
-    , _miaDescription :: Maybe AttributeValue
-    } deriving (Eq, Ord, Show, Generic)
+    , _miaOperationType    :: Maybe Text
+    , _miaProductCodes     :: [Text]
+    , _miaUserGroups       :: [Text]
+    , _miaUserIds          :: [Text]
+    , _miaValue            :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyImageAttribute' request.
+-- | 'ModifyImageAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ImageId ::@ @Text@
+-- * 'miaAttribute' @::@ 'Maybe' 'Text'
 --
--- * @Attribute ::@ @Maybe Text@
+-- * 'miaDescription' @::@ 'Maybe' 'AttributeValue'
 --
--- * @OperationType ::@ @Maybe Text@
+-- * 'miaDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @UserIds ::@ @[Text]@
+-- * 'miaImageId' @::@ 'Text'
 --
--- * @UserGroups ::@ @[Text]@
+-- * 'miaLaunchPermission' @::@ 'Maybe' 'LaunchPermissionModifications'
 --
--- * @ProductCodes ::@ @[Text]@
+-- * 'miaOperationType' @::@ 'Maybe' 'Text'
 --
--- * @Value ::@ @Maybe Text@
+-- * 'miaProductCodes' @::@ ['Text']
 --
--- * @LaunchPermission ::@ @Maybe LaunchPermissionModifications@
+-- * 'miaUserGroups' @::@ ['Text']
 --
--- * @Description ::@ @Maybe AttributeValue@
+-- * 'miaUserIds' @::@ ['Text']
+--
+-- * 'miaValue' @::@ 'Maybe' 'Text'
 --
 modifyImageAttribute :: Text -- ^ 'miaImageId'
                      -> ModifyImageAttribute
 modifyImageAttribute p1 = ModifyImageAttribute
-    { _miaImageId = p1
-    , _miaAttribute = Nothing
-    , _miaOperationType = Nothing
-    , _miaUserIds = mempty
-    , _miaUserGroups = mempty
-    , _miaProductCodes = mempty
-    , _miaValue = Nothing
+    { _miaImageId          = p1
+    , _miaDryRun           = Nothing
+    , _miaAttribute        = Nothing
+    , _miaOperationType    = Nothing
+    , _miaUserIds          = mempty
+    , _miaUserGroups       = mempty
+    , _miaProductCodes     = mempty
+    , _miaValue            = Nothing
     , _miaLaunchPermission = Nothing
-    , _miaDescription = Nothing
+    , _miaDescription      = Nothing
     }
-
--- | The ID of the AMI.
-miaImageId :: Lens' ModifyImageAttribute Text
-miaImageId = lens _miaImageId (\s a -> s { _miaImageId = a })
 
 -- | The name of the attribute to modify.
 miaAttribute :: Lens' ModifyImageAttribute (Maybe Text)
 miaAttribute = lens _miaAttribute (\s a -> s { _miaAttribute = a })
 
--- | The operation type.
-miaOperationType :: Lens' ModifyImageAttribute (Maybe Text)
-miaOperationType =
-    lens _miaOperationType (\s a -> s { _miaOperationType = a })
+-- | A description for the AMI.
+miaDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
+miaDescription = lens _miaDescription (\s a -> s { _miaDescription = a })
 
--- | One or more AWS account IDs. This is only valid when modifying the
--- launchPermission attribute.
-miaUserIds :: Lens' ModifyImageAttribute [Text]
-miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a })
+miaDryRun :: Lens' ModifyImageAttribute (Maybe Bool)
+miaDryRun = lens _miaDryRun (\s a -> s { _miaDryRun = a })
 
--- | One or more user groups. This is only valid when modifying the
--- launchPermission attribute.
-miaUserGroups :: Lens' ModifyImageAttribute [Text]
-miaUserGroups = lens _miaUserGroups (\s a -> s { _miaUserGroups = a })
-
--- | One or more product codes. After you add a product code to an AMI, it can't
--- be removed. This is only valid when modifying the productCodes attribute.
-miaProductCodes :: Lens' ModifyImageAttribute [Text]
-miaProductCodes = lens _miaProductCodes (\s a -> s { _miaProductCodes = a })
-
--- | The value of the attribute being modified. This is only valid when
--- modifying the description attribute.
-miaValue :: Lens' ModifyImageAttribute (Maybe Text)
-miaValue = lens _miaValue (\s a -> s { _miaValue = a })
+-- | The ID of the AMI.
+miaImageId :: Lens' ModifyImageAttribute Text
+miaImageId = lens _miaImageId (\s a -> s { _miaImageId = a })
 
 -- | 
 miaLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
 miaLaunchPermission =
     lens _miaLaunchPermission (\s a -> s { _miaLaunchPermission = a })
 
--- | A description for the AMI.
-miaDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
-miaDescription = lens _miaDescription (\s a -> s { _miaDescription = a })
+-- | The operation type.
+miaOperationType :: Lens' ModifyImageAttribute (Maybe Text)
+miaOperationType = lens _miaOperationType (\s a -> s { _miaOperationType = a })
 
-instance ToQuery ModifyImageAttribute where
-    toQuery = genericQuery def
+-- | One or more product codes. After you add a product code to an AMI, it
+-- can't be removed. This is only valid when modifying the productCodes
+-- attribute.
+miaProductCodes :: Lens' ModifyImageAttribute [Text]
+miaProductCodes = lens _miaProductCodes (\s a -> s { _miaProductCodes = a })
+
+-- | One or more user groups. This is only valid when modifying the
+-- launchPermission attribute.
+miaUserGroups :: Lens' ModifyImageAttribute [Text]
+miaUserGroups = lens _miaUserGroups (\s a -> s { _miaUserGroups = a })
+
+-- | One or more AWS account IDs. This is only valid when modifying the
+-- launchPermission attribute.
+miaUserIds :: Lens' ModifyImageAttribute [Text]
+miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a })
+
+-- | The value of the attribute being modified. This is only valid when
+-- modifying the description attribute.
+miaValue :: Lens' ModifyImageAttribute (Maybe Text)
+miaValue = lens _miaValue (\s a -> s { _miaValue = a })
+
+instance ToQuery ModifyImageAttribute
+
+instance ToPath ModifyImageAttribute where
+    toPath = const "/"
 
 data ModifyImageAttributeResponse = ModifyImageAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyImageAttributeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ModifyImageAttributeResponse' constructor.
 modifyImageAttributeResponse :: ModifyImageAttributeResponse
 modifyImageAttributeResponse = ModifyImageAttributeResponse
 
@@ -156,5 +164,5 @@ instance AWSRequest ModifyImageAttribute where
     type Sv ModifyImageAttribute = EC2
     type Rs ModifyImageAttribute = ModifyImageAttributeResponse
 
-    request = post "ModifyImageAttribute"
-    response _ = nullaryResponse ModifyImageAttributeResponse
+    request  = post "ModifyImageAttribute"
+    response = nullaryResponse ModifyImageAttributeResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.SetTimeBasedAutoScaling
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,8 +33,8 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     -- ** Request constructor
     , setTimeBasedAutoScaling
     -- ** Request lenses
-    , stbasInstanceId
     , stbasAutoScalingSchedule
+    , stbasInstanceId
 
     -- * Response
     , SetTimeBasedAutoScalingResponse
@@ -40,62 +42,63 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     , setTimeBasedAutoScalingResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
-    { _stbasInstanceId :: Text
-    , _stbasAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
+    { _stbasAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
+    , _stbasInstanceId          :: Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetTimeBasedAutoScaling' request.
+-- | 'SetTimeBasedAutoScaling' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @Text@
+-- * 'stbasAutoScalingSchedule' @::@ 'Maybe' 'WeeklyAutoScalingSchedule'
 --
--- * @AutoScalingSchedule ::@ @Maybe WeeklyAutoScalingSchedule@
+-- * 'stbasInstanceId' @::@ 'Text'
 --
 setTimeBasedAutoScaling :: Text -- ^ 'stbasInstanceId'
                         -> SetTimeBasedAutoScaling
 setTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
-    { _stbasInstanceId = p1
+    { _stbasInstanceId          = p1
     , _stbasAutoScalingSchedule = Nothing
     }
-
--- | The instance ID.
-stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
-stbasInstanceId = lens _stbasInstanceId (\s a -> s { _stbasInstanceId = a })
 
 -- | An AutoScalingSchedule with the instance schedule.
 stbasAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
 stbasAutoScalingSchedule =
     lens _stbasAutoScalingSchedule
-         (\s a -> s { _stbasAutoScalingSchedule = a })
+        (\s a -> s { _stbasAutoScalingSchedule = a })
 
-instance ToPath SetTimeBasedAutoScaling
+-- | The instance ID.
+stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
+stbasInstanceId = lens _stbasInstanceId (\s a -> s { _stbasInstanceId = a })
 
-instance ToQuery SetTimeBasedAutoScaling
+instance ToPath SetTimeBasedAutoScaling where
+    toPath = const "/"
+
+instance ToQuery SetTimeBasedAutoScaling where
+    toQuery = const mempty
 
 instance ToHeaders SetTimeBasedAutoScaling
 
-instance ToJSON SetTimeBasedAutoScaling
+instance ToBody SetTimeBasedAutoScaling where
+    toBody = toBody . encode . _stbasInstanceId
 
 data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetTimeBasedAutoScalingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SetTimeBasedAutoScalingResponse' constructor.
 setTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse
 setTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
+
+-- FromJSON
 
 instance AWSRequest SetTimeBasedAutoScaling where
     type Sv SetTimeBasedAutoScaling = OpsWorks
     type Rs SetTimeBasedAutoScaling = SetTimeBasedAutoScalingResponse
 
-    request = get
-    response _ = nullaryResponse SetTimeBasedAutoScalingResponse
+    request  = post'
+    response = nullaryResponse SetTimeBasedAutoScalingResponse

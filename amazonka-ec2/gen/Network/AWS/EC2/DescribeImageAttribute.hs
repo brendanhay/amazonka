@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeImageAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,16 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes the specified attribute of the specified AMI. You can specify
--- only one attribute at a time. Example 1 This example lists the launch
--- permissions for the specified AMI.
--- https://ec2.amazonaws.com/?Action=DescribeImageAttribute
--- &amp;ImageId=ami-61a54008 &amp;Attribute=launchPermission &amp;AUTHPARAMS
--- 59dbff89-35bd-4eac-99ed-be587EXAMPLE ami-61a54008 all 495219933132 Example
--- 2 This example lists the product codes for the specified AMI.
--- https://ec2.amazonaws.com/?Action=DescribeImageAttribute
--- &amp;ImageId=ami-2bb65342 &amp;Attribute=productCodes &amp;AUTHPARAMS
--- 59dbff89-35bd-4eac-99ed-be587EXAMPLE ami-2bb65342 a1b2c3d4e5f6g7h8i9j10k11
--- marketplace.
+-- only one attribute at a time.
 module Network.AWS.EC2.DescribeImageAttribute
     (
     -- * Request
@@ -36,111 +29,130 @@ module Network.AWS.EC2.DescribeImageAttribute
     -- ** Request constructor
     , describeImageAttribute
     -- ** Request lenses
-    , diaImageId
-    , diaAttribute
+    , dia1Attribute
+    , dia1DryRun
+    , dia1ImageId
 
     -- * Response
     , DescribeImageAttributeResponse
     -- ** Response constructor
     , describeImageAttributeResponse
     -- ** Response lenses
+    , diarBlockDeviceMappings
+    , diarDescription
     , diarImageId
+    , diarKernelId
     , diarLaunchPermissions
     , diarProductCodes
-    , diarKernelId
     , diarRamdiskId
-    , diarDescription
     , diarSriovNetSupport
-    , diarBlockDeviceMappings
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeImageAttribute = DescribeImageAttribute
-    { _diaImageId :: Text
-    , _diaAttribute :: ImageAttributeName
+    { _dia1Attribute :: Text
+    , _dia1DryRun    :: Maybe Bool
+    , _dia1ImageId   :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeImageAttribute' request.
+-- | 'DescribeImageAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ImageId ::@ @Text@
+-- * 'dia1Attribute' @::@ 'Text'
 --
--- * @Attribute ::@ @ImageAttributeName@
+-- * 'dia1DryRun' @::@ 'Maybe' 'Bool'
 --
-describeImageAttribute :: Text -- ^ 'diaImageId'
-                       -> ImageAttributeName -- ^ 'diaAttribute'
+-- * 'dia1ImageId' @::@ 'Text'
+--
+describeImageAttribute :: Text -- ^ 'dia1ImageId'
+                       -> Text -- ^ 'dia1Attribute'
                        -> DescribeImageAttribute
 describeImageAttribute p1 p2 = DescribeImageAttribute
-    { _diaImageId = p1
-    , _diaAttribute = p2
+    { _dia1ImageId   = p1
+    , _dia1Attribute = p2
+    , _dia1DryRun    = Nothing
     }
 
--- | The ID of the AMI.
-diaImageId :: Lens' DescribeImageAttribute Text
-diaImageId = lens _diaImageId (\s a -> s { _diaImageId = a })
-
 -- | The AMI attribute.
-diaAttribute :: Lens' DescribeImageAttribute ImageAttributeName
-diaAttribute = lens _diaAttribute (\s a -> s { _diaAttribute = a })
+dia1Attribute :: Lens' DescribeImageAttribute Text
+dia1Attribute = lens _dia1Attribute (\s a -> s { _dia1Attribute = a })
 
-instance ToQuery DescribeImageAttribute where
-    toQuery = genericQuery def
+dia1DryRun :: Lens' DescribeImageAttribute (Maybe Bool)
+dia1DryRun = lens _dia1DryRun (\s a -> s { _dia1DryRun = a })
 
--- | Information about the image attribute.
+-- | The ID of the AMI.
+dia1ImageId :: Lens' DescribeImageAttribute Text
+dia1ImageId = lens _dia1ImageId (\s a -> s { _dia1ImageId = a })
+
+instance ToQuery DescribeImageAttribute
+
+instance ToPath DescribeImageAttribute where
+    toPath = const "/"
+
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse
-    { _diarImageId :: Maybe Text
-    , _diarLaunchPermissions :: [LaunchPermission]
-    , _diarProductCodes :: [ProductCode]
-    , _diarKernelId :: Maybe AttributeValue
-    , _diarRamdiskId :: Maybe AttributeValue
-    , _diarDescription :: Maybe AttributeValue
-    , _diarSriovNetSupport :: Maybe AttributeValue
-    , _diarBlockDeviceMappings :: [BlockDeviceMapping]
-    } deriving (Eq, Ord, Show, Generic)
+    { _diarBlockDeviceMappings :: [BlockDeviceMapping]
+    , _diarDescription         :: Maybe AttributeValue
+    , _diarImageId             :: Maybe Text
+    , _diarKernelId            :: Maybe AttributeValue
+    , _diarLaunchPermissions   :: [LaunchPermission]
+    , _diarProductCodes        :: [ProductCode]
+    , _diarRamdiskId           :: Maybe AttributeValue
+    , _diarSriovNetSupport     :: Maybe AttributeValue
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeImageAttributeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeImageAttributeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ImageId ::@ @Maybe Text@
+-- * 'diarBlockDeviceMappings' @::@ ['BlockDeviceMapping']
 --
--- * @LaunchPermissions ::@ @[LaunchPermission]@
+-- * 'diarDescription' @::@ 'Maybe' 'AttributeValue'
 --
--- * @ProductCodes ::@ @[ProductCode]@
+-- * 'diarImageId' @::@ 'Maybe' 'Text'
 --
--- * @KernelId ::@ @Maybe AttributeValue@
+-- * 'diarKernelId' @::@ 'Maybe' 'AttributeValue'
 --
--- * @RamdiskId ::@ @Maybe AttributeValue@
+-- * 'diarLaunchPermissions' @::@ ['LaunchPermission']
 --
--- * @Description ::@ @Maybe AttributeValue@
+-- * 'diarProductCodes' @::@ ['ProductCode']
 --
--- * @SriovNetSupport ::@ @Maybe AttributeValue@
+-- * 'diarRamdiskId' @::@ 'Maybe' 'AttributeValue'
 --
--- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
+-- * 'diarSriovNetSupport' @::@ 'Maybe' 'AttributeValue'
 --
 describeImageAttributeResponse :: DescribeImageAttributeResponse
 describeImageAttributeResponse = DescribeImageAttributeResponse
-    { _diarImageId = Nothing
-    , _diarLaunchPermissions = mempty
-    , _diarProductCodes = mempty
-    , _diarKernelId = Nothing
-    , _diarRamdiskId = Nothing
-    , _diarDescription = Nothing
-    , _diarSriovNetSupport = Nothing
+    { _diarImageId             = Nothing
+    , _diarLaunchPermissions   = mempty
+    , _diarProductCodes        = mempty
+    , _diarKernelId            = Nothing
+    , _diarRamdiskId           = Nothing
+    , _diarDescription         = Nothing
+    , _diarSriovNetSupport     = Nothing
     , _diarBlockDeviceMappings = mempty
     }
+
+-- | One or more block device mapping entries.
+diarBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
+diarBlockDeviceMappings =
+    lens _diarBlockDeviceMappings (\s a -> s { _diarBlockDeviceMappings = a })
+
+-- | A description for the AMI.
+diarDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarDescription = lens _diarDescription (\s a -> s { _diarDescription = a })
 
 -- | The ID of the AMI.
 diarImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
 diarImageId = lens _diarImageId (\s a -> s { _diarImageId = a })
+
+-- | The kernel ID.
+diarKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarKernelId = lens _diarKernelId (\s a -> s { _diarKernelId = a })
 
 -- | One or more launch permissions.
 diarLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
@@ -149,38 +161,27 @@ diarLaunchPermissions =
 
 -- | One or more product codes.
 diarProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
-diarProductCodes =
-    lens _diarProductCodes (\s a -> s { _diarProductCodes = a })
-
--- | The kernel ID.
-diarKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarKernelId = lens _diarKernelId (\s a -> s { _diarKernelId = a })
+diarProductCodes = lens _diarProductCodes (\s a -> s { _diarProductCodes = a })
 
 -- | The RAM disk ID.
 diarRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarRamdiskId = lens _diarRamdiskId (\s a -> s { _diarRamdiskId = a })
 
--- | A description for the AMI.
-diarDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarDescription = lens _diarDescription (\s a -> s { _diarDescription = a })
-
--- | 
 diarSriovNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarSriovNetSupport =
     lens _diarSriovNetSupport (\s a -> s { _diarSriovNetSupport = a })
-
--- | One or more block device mapping entries.
-diarBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
-diarBlockDeviceMappings =
-    lens _diarBlockDeviceMappings
-         (\s a -> s { _diarBlockDeviceMappings = a })
-
-instance FromXML DescribeImageAttributeResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DescribeImageAttribute where
     type Sv DescribeImageAttribute = EC2
     type Rs DescribeImageAttribute = DescribeImageAttributeResponse
 
-    request = post "DescribeImageAttribute"
-    response _ = xmlResponse
+    request  = post "DescribeImageAttribute"
+    response = xmlResponse $ \h x -> DescribeImageAttributeResponse
+        <$> x %| "blockDeviceMapping"
+        <*> x %| "description"
+        <*> x %| "imageId"
+        <*> x %| "kernel"
+        <*> x %| "launchPermission"
+        <*> x %| "productCodes"
+        <*> x %| "ramdisk"
+        <*> x %| "sriovNetSupport"

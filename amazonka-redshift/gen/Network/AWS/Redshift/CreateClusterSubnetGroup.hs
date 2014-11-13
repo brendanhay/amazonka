@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,16 +24,7 @@
 -- or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC)
 -- when creating Amazon Redshift subnet group. For information about subnet
 -- groups, go to Amazon Redshift Cluster Subnet Groups in the Amazon Redshift
--- Management Guide. https://redshift.us-east-1.amazonaws.com/
--- ?Action=CreateClusterSubnetGroup &ClusterSubnetGroupName=mysubnetgroup1
--- &Description=My subnet group 1 &SubnetIds.member.1=subnet-756a591f
--- &SubnetIds.member.1=subnet-716a591b &Version=2012-12-01
--- &x-amz-algorithm=AWS4-HMAC-SHA256
--- &x-amz-credential=AKIAIOSFODNN7EXAMPLE/20130129/us-east-1/redshift/aws4_request
--- &x-amz-date=20130129T192820Z
--- &x-amz-signedheaders=content-type;host;x-amz-date vpc-796a5913 My subnet
--- group 1 mysubnetgroup1 Complete Active subnet-756a591f us-east-1c
--- 0a60660f-6a4a-11e2-aad2-71d00c36728e.
+-- Management Guide.
 module Network.AWS.Redshift.CreateClusterSubnetGroup
     (
     -- * Request
@@ -39,102 +32,95 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     -- ** Request constructor
     , createClusterSubnetGroup
     -- ** Request lenses
-    , ccsg1ClusterSubnetGroupName
-    , ccsg1Description
-    , ccsg1SubnetIds
+    , ccsgClusterSubnetGroupName
+    , ccsgDescription
+    , ccsgSubnetIds
 
     -- * Response
     , CreateClusterSubnetGroupResponse
     -- ** Response constructor
     , createClusterSubnetGroupResponse
     -- ** Response lenses
-    , ccsgrrClusterSubnetGroup
+    , ccsgrClusterSubnetGroup
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup
-    { _ccsg1ClusterSubnetGroupName :: Text
-    , _ccsg1Description :: Text
-    , _ccsg1SubnetIds :: [Text]
+    { _ccsgClusterSubnetGroupName :: Text
+    , _ccsgDescription            :: Text
+    , _ccsgSubnetIds              :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateClusterSubnetGroup' request.
+-- | 'CreateClusterSubnetGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ClusterSubnetGroupName ::@ @Text@
+-- * 'ccsgClusterSubnetGroupName' @::@ 'Text'
 --
--- * @Description ::@ @Text@
+-- * 'ccsgDescription' @::@ 'Text'
 --
--- * @SubnetIds ::@ @[Text]@
+-- * 'ccsgSubnetIds' @::@ ['Text']
 --
-createClusterSubnetGroup :: Text -- ^ 'ccsg1ClusterSubnetGroupName'
-                         -> Text -- ^ 'ccsg1Description'
-                         -> [Text] -- ^ 'ccsg1SubnetIds'
+createClusterSubnetGroup :: Text -- ^ 'ccsgClusterSubnetGroupName'
+                         -> Text -- ^ 'ccsgDescription'
                          -> CreateClusterSubnetGroup
-createClusterSubnetGroup p1 p2 p3 = CreateClusterSubnetGroup
-    { _ccsg1ClusterSubnetGroupName = p1
-    , _ccsg1Description = p2
-    , _ccsg1SubnetIds = p3
+createClusterSubnetGroup p1 p2 = CreateClusterSubnetGroup
+    { _ccsgClusterSubnetGroupName = p1
+    , _ccsgDescription            = p2
+    , _ccsgSubnetIds              = mempty
     }
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a
 -- lowercase string. Constraints: Must contain no more than 255 alphanumeric
--- characters or hyphens. Must not be "Default". Must be unique for all subnet
--- groups that are created by your AWS account. Example: examplesubnetgroup.
-ccsg1ClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
-ccsg1ClusterSubnetGroupName =
-    lens _ccsg1ClusterSubnetGroupName
-         (\s a -> s { _ccsg1ClusterSubnetGroupName = a })
+-- characters or hyphens. Must not be "Default". Must be unique for all
+-- subnet groups that are created by your AWS account. Example:
+-- examplesubnetgroup.
+ccsgClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
+ccsgClusterSubnetGroupName =
+    lens _ccsgClusterSubnetGroupName
+        (\s a -> s { _ccsgClusterSubnetGroupName = a })
 
 -- | A description for the subnet group.
-ccsg1Description :: Lens' CreateClusterSubnetGroup Text
-ccsg1Description =
-    lens _ccsg1Description (\s a -> s { _ccsg1Description = a })
+ccsgDescription :: Lens' CreateClusterSubnetGroup Text
+ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
-ccsg1SubnetIds :: Lens' CreateClusterSubnetGroup [Text]
-ccsg1SubnetIds = lens _ccsg1SubnetIds (\s a -> s { _ccsg1SubnetIds = a })
+ccsgSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
+ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s { _ccsgSubnetIds = a })
 
-instance ToQuery CreateClusterSubnetGroup where
-    toQuery = genericQuery def
+instance ToQuery CreateClusterSubnetGroup
+
+instance ToPath CreateClusterSubnetGroup where
+    toPath = const "/"
 
 newtype CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
-    { _ccsgrrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } deriving (Eq, Ord, Show, Generic)
+    { _ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateClusterSubnetGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateClusterSubnetGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ClusterSubnetGroup ::@ @Maybe ClusterSubnetGroup@
+-- * 'ccsgrClusterSubnetGroup' @::@ 'Maybe' 'ClusterSubnetGroup'
 --
 createClusterSubnetGroupResponse :: CreateClusterSubnetGroupResponse
 createClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
-    { _ccsgrrClusterSubnetGroup = Nothing
+    { _ccsgrClusterSubnetGroup = Nothing
     }
 
--- | Describes a subnet group.
-ccsgrrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
-ccsgrrClusterSubnetGroup =
-    lens _ccsgrrClusterSubnetGroup
-         (\s a -> s { _ccsgrrClusterSubnetGroup = a })
-
-instance FromXML CreateClusterSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
+ccsgrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
+ccsgrClusterSubnetGroup =
+    lens _ccsgrClusterSubnetGroup (\s a -> s { _ccsgrClusterSubnetGroup = a })
 
 instance AWSRequest CreateClusterSubnetGroup where
     type Sv CreateClusterSubnetGroup = Redshift
     type Rs CreateClusterSubnetGroup = CreateClusterSubnetGroupResponse
 
-    request = post "CreateClusterSubnetGroup"
-    response _ = xmlResponse
+    request  = post "CreateClusterSubnetGroup"
+    response = xmlResponse $ \h x -> CreateClusterSubnetGroupResponse
+        <$> x %| "ClusterSubnetGroup"

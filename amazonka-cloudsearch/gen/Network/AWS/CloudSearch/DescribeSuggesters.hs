@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeSuggesters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,99 +34,95 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     -- ** Request constructor
     , describeSuggesters
     -- ** Request lenses
-    , ds3DomainName
-    , ds3SuggesterNames
-    , ds3Deployed
+    , ds1Deployed
+    , ds1DomainName
+    , ds1SuggesterNames
 
     -- * Response
     , DescribeSuggestersResponse
     -- ** Response constructor
     , describeSuggestersResponse
     -- ** Response lenses
-    , dsr1Suggesters
+    , dsrSuggesters
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DescribeSuggester operation. Specifies
--- the name of the domain you want to describe. To restrict the response to
--- particular suggesters, specify the names of the suggesters you want to
--- describe. To show the active configuration and exclude any pending changes,
--- set the Deployed option to true.
 data DescribeSuggesters = DescribeSuggesters
-    { _ds3DomainName :: Text
-    , _ds3SuggesterNames :: [Text]
-    , _ds3Deployed :: Maybe Bool
+    { _ds1Deployed       :: Maybe Bool
+    , _ds1DomainName     :: Text
+    , _ds1SuggesterNames :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSuggesters' request.
+-- | 'DescribeSuggesters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'ds1Deployed' @::@ 'Maybe' 'Bool'
 --
--- * @SuggesterNames ::@ @[Text]@
+-- * 'ds1DomainName' @::@ 'Text'
 --
--- * @Deployed ::@ @Maybe Bool@
+-- * 'ds1SuggesterNames' @::@ ['Text']
 --
-describeSuggesters :: Text -- ^ 'ds3DomainName'
+describeSuggesters :: Text -- ^ 'ds1DomainName'
                    -> DescribeSuggesters
 describeSuggesters p1 = DescribeSuggesters
-    { _ds3DomainName = p1
-    , _ds3SuggesterNames = mempty
-    , _ds3Deployed = Nothing
+    { _ds1DomainName     = p1
+    , _ds1SuggesterNames = mempty
+    , _ds1Deployed       = Nothing
     }
 
+-- | Whether to display the deployed configuration (true) or include any
+-- pending changes (false). Defaults to false.
+ds1Deployed :: Lens' DescribeSuggesters (Maybe Bool)
+ds1Deployed = lens _ds1Deployed (\s a -> s { _ds1Deployed = a })
+
 -- | The name of the domain you want to describe.
-ds3DomainName :: Lens' DescribeSuggesters Text
-ds3DomainName = lens _ds3DomainName (\s a -> s { _ds3DomainName = a })
+ds1DomainName :: Lens' DescribeSuggesters Text
+ds1DomainName = lens _ds1DomainName (\s a -> s { _ds1DomainName = a })
 
 -- | The suggesters you want to describe.
-ds3SuggesterNames :: Lens' DescribeSuggesters [Text]
-ds3SuggesterNames =
-    lens _ds3SuggesterNames (\s a -> s { _ds3SuggesterNames = a })
+ds1SuggesterNames :: Lens' DescribeSuggesters [Text]
+ds1SuggesterNames =
+    lens _ds1SuggesterNames (\s a -> s { _ds1SuggesterNames = a })
 
--- | Whether to display the deployed configuration (true) or include any pending
--- changes (false). Defaults to false.
-ds3Deployed :: Lens' DescribeSuggesters (Maybe Bool)
-ds3Deployed = lens _ds3Deployed (\s a -> s { _ds3Deployed = a })
+instance ToQuery DescribeSuggesters
 
-instance ToQuery DescribeSuggesters where
-    toQuery = genericQuery def
+instance ToPath DescribeSuggesters where
+    toPath = const "/"
 
--- | The result of a DescribeSuggesters request.
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
-    { _dsr1Suggesters :: [SuggesterStatus]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dsrSuggesters :: [SuggesterStatus]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSuggestersResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeSuggestersResponse where
+    type Item DescribeSuggestersResponse = SuggesterStatus
+
+    fromList = DescribeSuggestersResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsrSuggesters
+
+-- | 'DescribeSuggestersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Suggesters ::@ @[SuggesterStatus]@
+-- * 'dsrSuggesters' @::@ ['SuggesterStatus']
 --
-describeSuggestersResponse :: [SuggesterStatus] -- ^ 'dsr1Suggesters'
-                           -> DescribeSuggestersResponse
-describeSuggestersResponse p1 = DescribeSuggestersResponse
-    { _dsr1Suggesters = p1
+describeSuggestersResponse :: DescribeSuggestersResponse
+describeSuggestersResponse = DescribeSuggestersResponse
+    { _dsrSuggesters = mempty
     }
 
 -- | The suggesters configured for the domain specified in the request.
-dsr1Suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
-dsr1Suggesters = lens _dsr1Suggesters (\s a -> s { _dsr1Suggesters = a })
-
-instance FromXML DescribeSuggestersResponse where
-    fromXMLOptions = xmlOptions
+dsrSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
+dsrSuggesters = lens _dsrSuggesters (\s a -> s { _dsrSuggesters = a })
 
 instance AWSRequest DescribeSuggesters where
     type Sv DescribeSuggesters = CloudSearch
     type Rs DescribeSuggesters = DescribeSuggestersResponse
 
-    request = post "DescribeSuggesters"
-    response _ = xmlResponse
+    request  = post "DescribeSuggesters"
+    response = xmlResponse $ \h x -> DescribeSuggestersResponse
+        <$> x %| "Suggesters"

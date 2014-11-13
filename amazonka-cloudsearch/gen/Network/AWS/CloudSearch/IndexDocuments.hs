@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.IndexDocuments
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,22 +40,20 @@ module Network.AWS.CloudSearch.IndexDocuments
     , idrFieldNames
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the IndexDocuments operation. Specifies the
--- name of the domain you want to re-index.
 newtype IndexDocuments = IndexDocuments
     { _idDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'IndexDocuments' request.
+-- | 'IndexDocuments' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'idDomainName' @::@ 'Text'
 --
 indexDocuments :: Text -- ^ 'idDomainName'
                -> IndexDocuments
@@ -61,30 +61,29 @@ indexDocuments p1 = IndexDocuments
     { _idDomainName = p1
     }
 
--- | A string that represents the name of a domain. Domain names are unique
--- across the domains owned by an account within an AWS region. Domain names
--- start with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
 idDomainName :: Lens' IndexDocuments Text
 idDomainName = lens _idDomainName (\s a -> s { _idDomainName = a })
 
-instance ToQuery IndexDocuments where
-    toQuery = genericQuery def
+instance ToQuery IndexDocuments
 
--- | The result of an IndexDocuments request. Contains the status of the
--- indexing operation, including the fields being indexed.
+instance ToPath IndexDocuments where
+    toPath = const "/"
+
 newtype IndexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'IndexDocumentsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList IndexDocumentsResponse where
+    type Item IndexDocumentsResponse = Text
+
+    fromList = IndexDocumentsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _idrFieldNames
+
+-- | 'IndexDocumentsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @FieldNames ::@ @[Text]@
+-- * 'idrFieldNames' @::@ ['Text']
 --
 indexDocumentsResponse :: IndexDocumentsResponse
 indexDocumentsResponse = IndexDocumentsResponse
@@ -95,12 +94,10 @@ indexDocumentsResponse = IndexDocumentsResponse
 idrFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrFieldNames = lens _idrFieldNames (\s a -> s { _idrFieldNames = a })
 
-instance FromXML IndexDocumentsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest IndexDocuments where
     type Sv IndexDocuments = CloudSearch
     type Rs IndexDocuments = IndexDocumentsResponse
 
-    request = post "IndexDocuments"
-    response _ = xmlResponse
+    request  = post "IndexDocuments"
+    response = xmlResponse $ \h x -> IndexDocumentsResponse
+        <$> x %| "FieldNames"

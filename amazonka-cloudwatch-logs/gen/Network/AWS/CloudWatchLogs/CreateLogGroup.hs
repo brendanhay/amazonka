@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,16 +24,8 @@
 -- must be unique within a region for an AWS account. You can create up to 500
 -- log groups per account. You must use the following guidelines when naming a
 -- log group: Log group names can be between 1 and 512 characters long.
--- Allowed characters are a–z, A–Z, 0–9, '_' (underscore), '-' (hyphen), '/'
--- (forward slash), and '.' (period). Create a new Log Group The following is
--- an example of a CreateLogGroup request and response. POST / HTTP/1.1 Host:
--- logs.. X-Amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Accept: application/json Content-Type:
--- application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]>
--- X-Amz-Target: Logs_20140328.CreateLogGroup { "logGroupName":
--- "exampleLogGroupName" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
--- application/x-amz-json-1.1 Content-Length: Date: ]]>.
+-- Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/'
+-- (forward slash), and '.' (period).
 module Network.AWS.CloudWatchLogs.CreateLogGroup
     (
     -- * Request
@@ -47,20 +41,19 @@ module Network.AWS.CloudWatchLogs.CreateLogGroup
     , createLogGroupResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudWatchLogs.Types
 
 newtype CreateLogGroup = CreateLogGroup
     { _clgLogGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateLogGroup' request.
+-- | 'CreateLogGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogGroupName ::@ @Text@
+-- * 'clgLogGroupName' @::@ 'Text'
 --
 createLogGroup :: Text -- ^ 'clgLogGroupName'
                -> CreateLogGroup
@@ -71,27 +64,29 @@ createLogGroup p1 = CreateLogGroup
 clgLogGroupName :: Lens' CreateLogGroup Text
 clgLogGroupName = lens _clgLogGroupName (\s a -> s { _clgLogGroupName = a })
 
-instance ToPath CreateLogGroup
+instance ToPath CreateLogGroup where
+    toPath = const "/"
 
-instance ToQuery CreateLogGroup
+instance ToQuery CreateLogGroup where
+    toQuery = const mempty
 
 instance ToHeaders CreateLogGroup
 
-instance ToJSON CreateLogGroup
+instance ToBody CreateLogGroup where
+    toBody = toBody . encode . _clgLogGroupName
 
 data CreateLogGroupResponse = CreateLogGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateLogGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateLogGroupResponse' constructor.
 createLogGroupResponse :: CreateLogGroupResponse
 createLogGroupResponse = CreateLogGroupResponse
+
+-- FromJSON
 
 instance AWSRequest CreateLogGroup where
     type Sv CreateLogGroup = CloudWatchLogs
     type Rs CreateLogGroup = CreateLogGroupResponse
 
-    request = get
-    response _ = nullaryResponse CreateLogGroupResponse
+    request  = post'
+    response = nullaryResponse CreateLogGroupResponse

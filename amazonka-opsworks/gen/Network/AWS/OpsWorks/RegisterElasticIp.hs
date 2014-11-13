@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterElasticIp
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,30 +45,29 @@ module Network.AWS.OpsWorks.RegisterElasticIp
     , reirElasticIp
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data RegisterElasticIp = RegisterElasticIp
     { _reiElasticIp :: Text
-    , _reiStackId :: Text
+    , _reiStackId   :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RegisterElasticIp' request.
+-- | 'RegisterElasticIp' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ElasticIp ::@ @Text@
+-- * 'reiElasticIp' @::@ 'Text'
 --
--- * @StackId ::@ @Text@
+-- * 'reiStackId' @::@ 'Text'
 --
 registerElasticIp :: Text -- ^ 'reiElasticIp'
                   -> Text -- ^ 'reiStackId'
                   -> RegisterElasticIp
 registerElasticIp p1 p2 = RegisterElasticIp
     { _reiElasticIp = p1
-    , _reiStackId = p2
+    , _reiStackId   = p2
     }
 
 -- | The Elastic IP address.
@@ -77,27 +78,26 @@ reiElasticIp = lens _reiElasticIp (\s a -> s { _reiElasticIp = a })
 reiStackId :: Lens' RegisterElasticIp Text
 reiStackId = lens _reiStackId (\s a -> s { _reiStackId = a })
 
-instance ToPath RegisterElasticIp
+instance ToPath RegisterElasticIp where
+    toPath = const "/"
 
-instance ToQuery RegisterElasticIp
+instance ToQuery RegisterElasticIp where
+    toQuery = const mempty
 
 instance ToHeaders RegisterElasticIp
 
-instance ToJSON RegisterElasticIp
+instance ToBody RegisterElasticIp where
+    toBody = toBody . encode . _reiElasticIp
 
--- | Contains the response to a RegisterElasticIp request.
 newtype RegisterElasticIpResponse = RegisterElasticIpResponse
     { _reirElasticIp :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RegisterElasticIpResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RegisterElasticIpResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ElasticIp ::@ @Maybe Text@
+-- * 'reirElasticIp' @::@ 'Maybe' 'Text'
 --
 registerElasticIpResponse :: RegisterElasticIpResponse
 registerElasticIpResponse = RegisterElasticIpResponse
@@ -108,11 +108,12 @@ registerElasticIpResponse = RegisterElasticIpResponse
 reirElasticIp :: Lens' RegisterElasticIpResponse (Maybe Text)
 reirElasticIp = lens _reirElasticIp (\s a -> s { _reirElasticIp = a })
 
-instance FromJSON RegisterElasticIpResponse
+-- FromJSON
 
 instance AWSRequest RegisterElasticIp where
     type Sv RegisterElasticIp = OpsWorks
     type Rs RegisterElasticIp = RegisterElasticIpResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> RegisterElasticIpResponse
+        <$> o .: "ElasticIp"

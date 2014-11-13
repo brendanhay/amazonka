@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketCors
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,51 +38,56 @@ module Network.AWS.S3.GetBucketCors
     , gbcrCORSRules
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketCors = GetBucketCors
-    { _gbcBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbcBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketCors' request.
+-- | 'GetBucketCors' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'gbcBucket' @::@ 'Text'
 --
-getBucketCors :: BucketName -- ^ 'gbcBucket'
+getBucketCors :: Text -- ^ 'gbcBucket'
               -> GetBucketCors
 getBucketCors p1 = GetBucketCors
     { _gbcBucket = p1
     }
 
-gbcBucket :: Lens' GetBucketCors BucketName
+gbcBucket :: Lens' GetBucketCors Text
 gbcBucket = lens _gbcBucket (\s a -> s { _gbcBucket = a })
 
-instance ToPath GetBucketCors
+instance ToPath GetBucketCors where
+    toPath GetBucketCors{..} = mconcat
+        [ "/"
+        , toText _gbcBucket
+        ]
 
-instance ToQuery GetBucketCors
+instance ToQuery GetBucketCors where
+    toQuery = const "cors"
 
 instance ToHeaders GetBucketCors
 
-instance ToBody GetBucketCors
-
 newtype GetBucketCorsResponse = GetBucketCorsResponse
     { _gbcrCORSRules :: [CORSRule]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketCorsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList GetBucketCorsResponse where
+    type Item GetBucketCorsResponse = CORSRule
+
+    fromList = GetBucketCorsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gbcrCORSRules
+
+-- | 'GetBucketCorsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CORSRules ::@ @[CORSRule]@
+-- * 'gbcrCORSRules' @::@ ['CORSRule']
 --
 getBucketCorsResponse :: GetBucketCorsResponse
 getBucketCorsResponse = GetBucketCorsResponse
@@ -90,12 +97,10 @@ getBucketCorsResponse = GetBucketCorsResponse
 gbcrCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
 gbcrCORSRules = lens _gbcrCORSRules (\s a -> s { _gbcrCORSRules = a })
 
-instance FromXML GetBucketCorsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
     type Rs GetBucketCors = GetBucketCorsResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetBucketCorsResponse
+        <$> x %| "CORSRule"

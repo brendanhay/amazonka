@@ -28,7 +28,7 @@ module Control.Monad.Trans.AWS
     , AWST
     , MonadAWS
 
-    -- * Run
+    -- * Running
     , runAWST
 
     -- * Environment
@@ -36,7 +36,7 @@ module Control.Monad.Trans.AWS
     , envAuth
     , envRegion
     , envManager
-    , envLogging
+    , envLogger
     , scoped
     -- ** Creating the environment
     , Credentials (..)
@@ -51,6 +51,7 @@ module Control.Monad.Trans.AWS
     , within
 
     -- * Errors
+    , Error
     , hoistEither
     , throwAWSError
     , verify
@@ -67,16 +68,11 @@ module Control.Monad.Trans.AWS
     -- ** Pre-signing URLs
     , presign
 
-    -- * Asynchronous actions
-    , Async.async
-    , Async.wait
-
     -- * Types
     , module Network.AWS.Types
     ) where
 
 import           Control.Applicative
-import qualified Control.Concurrent.Async.Lifted as Async
 import           Control.Lens
 import           Control.Monad.Base
 import           Control.Monad.Catch
@@ -87,13 +83,16 @@ import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
 import           Data.Bifunctor
 import           Data.Conduit
-import           Data.Text                       (Text)
+import           Data.Text                    (Text)
 import           Data.Time
-import           Network.AWS                     (Env, newEnv, envRegion, envLogging, envAuth, envManager)
-import qualified Network.AWS                     as AWS
+import           Network.AWS                  (Env, newEnv, envRegion, envLogger, envAuth, envManager)
+import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
-import qualified Network.AWS.Types               as Types
-import           Network.AWS.Types               hiding (debug)
+import qualified Network.AWS.Types            as Types
+import           Network.AWS.Types            hiding (debug)
+
+-- | The top-level error type.
+type Error = ServiceError String
 
 -- | A convenient alias for 'AWST' 'IO'.
 type AWS = AWST IO
@@ -225,16 +224,16 @@ verifyWith p f e = either (const err) g (matching p e)
 scoped :: MonadReader Env m => (Env -> m a) -> m a
 scoped f = ask >>= f
 
--- | Use the logger from 'envLogging' to log a debug message.
+-- | Use the logger from 'envLogger' to log a debug message.
 debug :: (MonadIO m, MonadReader Env m) => Text -> m ()
-debug t = view envLogging >>= (`Types.debug` t)
+debug t = view envLogger >>= (`Types.debug` t)
 
--- | Perform a monadic action if 'envLogging' is set to 'Debug'.
+-- | Perform a monadic action if 'envLogger' is set to 'Debug'.
 --
 -- Analogous to 'when'.
 whenDebug :: MonadReader Env m => m () -> m ()
 whenDebug f = do
-    l <- view envLogging
+    l <- view envLogger
     case l of
         Debug _ -> f
         _       -> return ()
@@ -283,7 +282,7 @@ sendCatch :: ( MonadCatch m
              , AWSRequest a
              )
           => a
-          -> m (Either (Er (Sv a)) (Rs a))
+          -> m (Response a)
 sendCatch rq = scoped (`AWS.send` rq)
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate while
@@ -315,15 +314,8 @@ paginateCatch :: ( MonadCatch m
                  , AWSPager a
                  )
               => a
-              -> Source m (Either (Er (Sv a)) (Rs a))
+              -> Source m (Response a)
 paginateCatch rq = scoped (`AWS.paginate` rq)
-
--- | Wait for an asynchronous computation initiated by 'async' to complete and
--- raise any returned error case using 'hoistEither'.
--- wait :: (MonadBaseControl IO m, MonadError Error m, AWSError e)
---      => Async (StM m (Either e a))
---      -> m a
--- wait = Async.wait >=> hoistEither
 
 -- | Presign a URL with expiry to be used at a later time.
 --

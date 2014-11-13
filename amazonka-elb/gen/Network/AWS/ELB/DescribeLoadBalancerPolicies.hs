@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,19 +26,7 @@
 -- your load balancer, the action returns the description of that policy. If
 -- you don't specify a load balancer name, the action returns descriptions of
 -- the specified sample policies, or descriptions of all the sample policies.
--- The names of the sample policies have the ELBSample- prefix. Description of
--- all the policies associated with a load balancer
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyLoadBalancer
--- &Version=2012-06-01 &Action=DescribeLoadBalancerPolicies &AUTHPARAMS
--- MyDurationStickyPolicy LBCookieStickinessPolicyType CookieExpirationPeriod
--- 60 MyAppStickyPolicy AppCookieStickinessPolicyType CookieName MyAppCookie
--- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE Description of a specified policy
--- associated with the load balancer
--- https://elasticloadbalancing.amazonaws.com/?PolicyNames.member.1=EnableProxyProtocol
--- &LoadBalancerName=my-test-loadbalancer &Version=2012-06-01
--- &Action=DescribeLoadBalancerPolicies &AUTHPARAMS EnableProxyProtocol
--- ProxyProtocolPolicyType ProxyProtocol true
--- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
+-- The names of the sample policies have the ELBSample- prefix.
 module Network.AWS.ELB.DescribeLoadBalancerPolicies
     (
     -- * Request
@@ -44,89 +34,89 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     -- ** Request constructor
     , describeLoadBalancerPolicies
     -- ** Request lenses
-    , dlbp1LoadBalancerName
-    , dlbp1PolicyNames
+    , dlbpLoadBalancerName
+    , dlbpPolicyNames
 
     -- * Response
     , DescribeLoadBalancerPoliciesResponse
     -- ** Response constructor
     , describeLoadBalancerPoliciesResponse
     -- ** Response lenses
-    , dlbprrPolicyDescriptions
+    , dlbprPolicyDescriptions
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
-    { _dlbp1LoadBalancerName :: Maybe Text
-    , _dlbp1PolicyNames :: [Text]
+    { _dlbpLoadBalancerName :: Maybe Text
+    , _dlbpPolicyNames      :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLoadBalancerPolicies' request.
+-- | 'DescribeLoadBalancerPolicies' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Maybe Text@
+-- * 'dlbpLoadBalancerName' @::@ 'Maybe' 'Text'
 --
--- * @PolicyNames ::@ @[Text]@
+-- * 'dlbpPolicyNames' @::@ ['Text']
 --
 describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
 describeLoadBalancerPolicies = DescribeLoadBalancerPolicies
-    { _dlbp1LoadBalancerName = Nothing
-    , _dlbp1PolicyNames = mempty
+    { _dlbpLoadBalancerName = Nothing
+    , _dlbpPolicyNames      = mempty
     }
 
 -- | The mnemonic name associated with the load balancer. If no name is
 -- specified, the operation returns the attributes of either all the sample
 -- policies pre-defined by Elastic Load Balancing or the specified sample
 -- polices.
-dlbp1LoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
-dlbp1LoadBalancerName =
-    lens _dlbp1LoadBalancerName (\s a -> s { _dlbp1LoadBalancerName = a })
+dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
+dlbpLoadBalancerName =
+    lens _dlbpLoadBalancerName (\s a -> s { _dlbpLoadBalancerName = a })
 
 -- | The names of load balancer policies you've created or Elastic Load
 -- Balancing sample policy names.
-dlbp1PolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
-dlbp1PolicyNames =
-    lens _dlbp1PolicyNames (\s a -> s { _dlbp1PolicyNames = a })
+dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
+dlbpPolicyNames = lens _dlbpPolicyNames (\s a -> s { _dlbpPolicyNames = a })
 
-instance ToQuery DescribeLoadBalancerPolicies where
-    toQuery = genericQuery def
+instance ToQuery DescribeLoadBalancerPolicies
 
--- | The output for the DescribeLoadBalancerPolicies action.
+instance ToPath DescribeLoadBalancerPolicies where
+    toPath = const "/"
+
 newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
-    { _dlbprrPolicyDescriptions :: [PolicyDescription]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dlbprPolicyDescriptions :: [PolicyDescription]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLoadBalancerPoliciesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeLoadBalancerPoliciesResponse where
+    type Item DescribeLoadBalancerPoliciesResponse = PolicyDescription
+
+    fromList = DescribeLoadBalancerPoliciesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlbprPolicyDescriptions
+
+-- | 'DescribeLoadBalancerPoliciesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PolicyDescriptions ::@ @[PolicyDescription]@
+-- * 'dlbprPolicyDescriptions' @::@ ['PolicyDescription']
 --
 describeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesResponse
 describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
-    { _dlbprrPolicyDescriptions = mempty
+    { _dlbprPolicyDescriptions = mempty
     }
 
 -- | A list of policy description structures.
-dlbprrPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
-dlbprrPolicyDescriptions =
-    lens _dlbprrPolicyDescriptions
-         (\s a -> s { _dlbprrPolicyDescriptions = a })
-
-instance FromXML DescribeLoadBalancerPoliciesResponse where
-    fromXMLOptions = xmlOptions
+dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
+dlbprPolicyDescriptions =
+    lens _dlbprPolicyDescriptions (\s a -> s { _dlbprPolicyDescriptions = a })
 
 instance AWSRequest DescribeLoadBalancerPolicies where
     type Sv DescribeLoadBalancerPolicies = ELB
     type Rs DescribeLoadBalancerPolicies = DescribeLoadBalancerPoliciesResponse
 
-    request = post "DescribeLoadBalancerPolicies"
-    response _ = xmlResponse
+    request  = post "DescribeLoadBalancerPolicies"
+    response = xmlResponse $ \h x -> DescribeLoadBalancerPoliciesResponse
+        <$> x %| "PolicyDescriptions"

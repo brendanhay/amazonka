@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.UnmonitorInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,19 +22,7 @@
 
 -- | Disables monitoring for a running instance. For more information about
 -- monitoring instances, see Monitoring Your Instances and Volumes in the
--- Amazon Elastic Compute Cloud User Guide. Example This example disables
--- monitoring for the specified instances.
--- https://ec2.amazonaws.com/?Action=UnmonitorInstances
--- &amp;InstanceId.1=i-43a4412a &amp;InstanceId.2=i-23a3397d &amp;AUTHPARAMS
--- &lt;UnmonitorInstancesResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;instancesSet&gt; &lt;item&gt;
--- &lt;instanceId&gt;i-43a4412a&lt;/instanceId&gt; &lt;monitoring&gt;
--- &lt;state&gt;disabled&lt;/state&gt; &lt;/monitoring&gt; &lt;/item&gt;
--- &lt;item&gt; &lt;instanceId&gt;i-23a3397d&lt;/instanceId&gt;
--- &lt;monitoring&gt; &lt;state&gt;disabled&lt;/state&gt; &lt;/monitoring&gt;
--- &lt;/item&gt; &lt;/instancesSet&gt; &lt;/UnmonitorInstancesResponse&gt;.
+-- Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.UnmonitorInstances
     (
     -- * Request
@@ -40,6 +30,7 @@ module Network.AWS.EC2.UnmonitorInstances
     -- ** Request constructor
     , unmonitorInstances
     -- ** Request lenses
+    , uiDryRun
     , uiInstanceIds
 
     -- * Response
@@ -50,46 +41,57 @@ module Network.AWS.EC2.UnmonitorInstances
     , uirInstanceMonitorings
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype UnmonitorInstances = UnmonitorInstances
-    { _uiInstanceIds :: [Text]
+data UnmonitorInstances = UnmonitorInstances
+    { _uiDryRun      :: Maybe Bool
+    , _uiInstanceIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UnmonitorInstances' request.
+-- | 'UnmonitorInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceIds ::@ @[Text]@
+-- * 'uiDryRun' @::@ 'Maybe' 'Bool'
 --
-unmonitorInstances :: [Text] -- ^ 'uiInstanceIds'
-                   -> UnmonitorInstances
-unmonitorInstances p1 = UnmonitorInstances
-    { _uiInstanceIds = p1
+-- * 'uiInstanceIds' @::@ ['Text']
+--
+unmonitorInstances :: UnmonitorInstances
+unmonitorInstances = UnmonitorInstances
+    { _uiDryRun      = Nothing
+    , _uiInstanceIds = mempty
     }
+
+uiDryRun :: Lens' UnmonitorInstances (Maybe Bool)
+uiDryRun = lens _uiDryRun (\s a -> s { _uiDryRun = a })
 
 -- | One or more instance IDs.
 uiInstanceIds :: Lens' UnmonitorInstances [Text]
 uiInstanceIds = lens _uiInstanceIds (\s a -> s { _uiInstanceIds = a })
 
-instance ToQuery UnmonitorInstances where
-    toQuery = genericQuery def
+instance ToQuery UnmonitorInstances
+
+instance ToPath UnmonitorInstances where
+    toPath = const "/"
 
 newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings :: [InstanceMonitoring]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UnmonitorInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList UnmonitorInstancesResponse where
+    type Item UnmonitorInstancesResponse = InstanceMonitoring
+
+    fromList = UnmonitorInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _uirInstanceMonitorings
+
+-- | 'UnmonitorInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceMonitorings ::@ @[InstanceMonitoring]@
+-- * 'uirInstanceMonitorings' @::@ ['InstanceMonitoring']
 --
 unmonitorInstancesResponse :: UnmonitorInstancesResponse
 unmonitorInstancesResponse = UnmonitorInstancesResponse
@@ -101,12 +103,10 @@ uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirInstanceMonitorings =
     lens _uirInstanceMonitorings (\s a -> s { _uirInstanceMonitorings = a })
 
-instance FromXML UnmonitorInstancesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest UnmonitorInstances where
     type Sv UnmonitorInstances = EC2
     type Rs UnmonitorInstances = UnmonitorInstancesResponse
 
-    request = post "UnmonitorInstances"
-    response _ = xmlResponse
+    request  = post "UnmonitorInstances"
+    response = xmlResponse $ \h x -> UnmonitorInstancesResponse
+        <$> x %| "instancesSet"

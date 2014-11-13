@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DataPipeline.EvaluateExpression
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,17 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Evaluates a string in the context of a specified object. A task runner can
--- use this action to evaluate SQL queries stored in Amazon S3. POST /
--- HTTP/1.1 Content-Type: application/x-amz-json-1.1 X-Amz-Target:
--- DataPipeline.DescribePipelines Content-Length: 164 Host:
--- datapipeline.us-east-1.amazonaws.com X-Amz-Date: Mon, 12 Nov 2012 17:49:52
--- GMT Authorization: AuthParams {"pipelineId": "df-08785951KAKJEXAMPLE",
--- "objectId": "Schedule", "expression": "Transform started at
--- #{startDateTime} and finished at #{endDateTime}"} x-amzn-RequestId:
--- 02870eb7-0736-11e2-af6f-6bc7a6be60d9 Content-Type:
--- application/x-amz-json-1.1 Content-Length: 103 Date: Mon, 12 Nov 2012
--- 17:50:53 GMT {"evaluatedExpression": "Transform started at
--- 2012-12-12T00:00:00 and finished at 2012-12-21T18:00:00"}.
+-- use this action to evaluate SQL queries stored in Amazon S3.
 module Network.AWS.DataPipeline.EvaluateExpression
     (
     -- * Request
@@ -37,9 +29,9 @@ module Network.AWS.DataPipeline.EvaluateExpression
     -- ** Request constructor
     , evaluateExpression
     -- ** Request lenses
-    , eePipelineId
-    , eeObjectId
     , eeExpression
+    , eeObjectId
+    , eePipelineId
 
     -- * Response
     , EvaluateExpressionResponse
@@ -49,27 +41,25 @@ module Network.AWS.DataPipeline.EvaluateExpression
     , eerEvaluatedExpression
     ) where
 
-import Network.AWS.DataPipeline.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DataPipeline.Types
 
--- | The input for the EvaluateExpression action.
 data EvaluateExpression = EvaluateExpression
-    { _eePipelineId :: Text
-    , _eeObjectId :: Text
-    , _eeExpression :: Text
+    { _eeExpression :: Text
+    , _eeObjectId   :: Text
+    , _eePipelineId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EvaluateExpression' request.
+-- | 'EvaluateExpression' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PipelineId ::@ @Text@
+-- * 'eeExpression' @::@ 'Text'
 --
--- * @ObjectId ::@ @Text@
+-- * 'eeObjectId' @::@ 'Text'
 --
--- * @Expression ::@ @Text@
+-- * 'eePipelineId' @::@ 'Text'
 --
 evaluateExpression :: Text -- ^ 'eePipelineId'
                    -> Text -- ^ 'eeObjectId'
@@ -77,43 +67,42 @@ evaluateExpression :: Text -- ^ 'eePipelineId'
                    -> EvaluateExpression
 evaluateExpression p1 p2 p3 = EvaluateExpression
     { _eePipelineId = p1
-    , _eeObjectId = p2
+    , _eeObjectId   = p2
     , _eeExpression = p3
     }
-
--- | The identifier of the pipeline.
-eePipelineId :: Lens' EvaluateExpression Text
-eePipelineId = lens _eePipelineId (\s a -> s { _eePipelineId = a })
-
--- | The identifier of the object.
-eeObjectId :: Lens' EvaluateExpression Text
-eeObjectId = lens _eeObjectId (\s a -> s { _eeObjectId = a })
 
 -- | The expression to evaluate.
 eeExpression :: Lens' EvaluateExpression Text
 eeExpression = lens _eeExpression (\s a -> s { _eeExpression = a })
 
-instance ToPath EvaluateExpression
+-- | The identifier of the object.
+eeObjectId :: Lens' EvaluateExpression Text
+eeObjectId = lens _eeObjectId (\s a -> s { _eeObjectId = a })
 
-instance ToQuery EvaluateExpression
+-- | The identifier of the pipeline.
+eePipelineId :: Lens' EvaluateExpression Text
+eePipelineId = lens _eePipelineId (\s a -> s { _eePipelineId = a })
+
+instance ToPath EvaluateExpression where
+    toPath = const "/"
+
+instance ToQuery EvaluateExpression where
+    toQuery = const mempty
 
 instance ToHeaders EvaluateExpression
 
-instance ToJSON EvaluateExpression
+instance ToBody EvaluateExpression where
+    toBody = toBody . encode . _eePipelineId
 
--- | Contains the output from the EvaluateExpression action.
 newtype EvaluateExpressionResponse = EvaluateExpressionResponse
     { _eerEvaluatedExpression :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EvaluateExpressionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'EvaluateExpressionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EvaluatedExpression ::@ @Text@
+-- * 'eerEvaluatedExpression' @::@ 'Text'
 --
 evaluateExpressionResponse :: Text -- ^ 'eerEvaluatedExpression'
                            -> EvaluateExpressionResponse
@@ -126,11 +115,12 @@ eerEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
 eerEvaluatedExpression =
     lens _eerEvaluatedExpression (\s a -> s { _eerEvaluatedExpression = a })
 
-instance FromJSON EvaluateExpressionResponse
+-- FromJSON
 
 instance AWSRequest EvaluateExpression where
     type Sv EvaluateExpression = DataPipeline
     type Rs EvaluateExpression = EvaluateExpressionResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> EvaluateExpressionResponse
+        <$> o .: "evaluatedExpression"

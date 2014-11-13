@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheEngineVersions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,12 +22,6 @@
 
 -- | The DescribeCacheEngineVersions operation returns a list of the available
 -- cache engines and their versions.
--- https://elasticache.us-east-1.amazonaws.com/
--- ?Action=DescribeCacheEngineVersions &MaxRecords=100 &Version=2014-03-24
--- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
--- &X-Amz-Credential= memcached1.4 memcached memcached version 1.4.14
--- memcached 1.4.14 memcached1.4 memcached memcached version 1.4.5 memcached
--- 1.4.5 a6ac9ad2-f8a4-11e1-a4d1-a345e5370093.
 module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     (
     -- * Request
@@ -33,62 +29,75 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- ** Request constructor
     , describeCacheEngineVersions
     -- ** Request lenses
+    , dcevCacheParameterGroupFamily
+    , dcevDefaultOnly
     , dcevEngine
     , dcevEngineVersion
-    , dcevCacheParameterGroupFamily
-    , dcevMaxRecords
     , dcevMarker
-    , dcevDefaultOnly
+    , dcevMaxRecords
 
     -- * Response
     , DescribeCacheEngineVersionsResponse
     -- ** Response constructor
     , describeCacheEngineVersionsResponse
     -- ** Response lenses
-    , dcevrMarker
     , dcevrCacheEngineVersions
+    , dcevrMarker
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents the input of a DescribeCacheEngineVersions operation.
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions
-    { _dcevEngine :: Maybe Text
-    , _dcevEngineVersion :: Maybe Text
-    , _dcevCacheParameterGroupFamily :: Maybe Text
-    , _dcevMaxRecords :: Maybe Integer
-    , _dcevMarker :: Maybe Text
-    , _dcevDefaultOnly :: Maybe Bool
+    { _dcevCacheParameterGroupFamily :: Maybe Text
+    , _dcevDefaultOnly               :: Maybe Bool
+    , _dcevEngine                    :: Maybe Text
+    , _dcevEngineVersion             :: Maybe Text
+    , _dcevMarker                    :: Maybe Text
+    , _dcevMaxRecords                :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeCacheEngineVersions' request.
+-- | 'DescribeCacheEngineVersions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Engine ::@ @Maybe Text@
+-- * 'dcevCacheParameterGroupFamily' @::@ 'Maybe' 'Text'
 --
--- * @EngineVersion ::@ @Maybe Text@
+-- * 'dcevDefaultOnly' @::@ 'Maybe' 'Bool'
 --
--- * @CacheParameterGroupFamily ::@ @Maybe Text@
+-- * 'dcevEngine' @::@ 'Maybe' 'Text'
 --
--- * @MaxRecords ::@ @Maybe Integer@
+-- * 'dcevEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'dcevMarker' @::@ 'Maybe' 'Text'
 --
--- * @DefaultOnly ::@ @Maybe Bool@
+-- * 'dcevMaxRecords' @::@ 'Maybe' 'Int'
 --
 describeCacheEngineVersions :: DescribeCacheEngineVersions
 describeCacheEngineVersions = DescribeCacheEngineVersions
-    { _dcevEngine = Nothing
-    , _dcevEngineVersion = Nothing
+    { _dcevEngine                    = Nothing
+    , _dcevEngineVersion             = Nothing
     , _dcevCacheParameterGroupFamily = Nothing
-    , _dcevMaxRecords = Nothing
-    , _dcevMarker = Nothing
-    , _dcevDefaultOnly = Nothing
+    , _dcevMaxRecords                = Nothing
+    , _dcevMarker                    = Nothing
+    , _dcevDefaultOnly               = Nothing
     }
+
+-- | The name of a specific cache parameter group family to return details
+-- for. Constraints: Must be 1 to 255 alphanumeric characters First
+-- character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens.
+dcevCacheParameterGroupFamily :: Lens' DescribeCacheEngineVersions (Maybe Text)
+dcevCacheParameterGroupFamily =
+    lens _dcevCacheParameterGroupFamily
+        (\s a -> s { _dcevCacheParameterGroupFamily = a })
+
+-- | If true, specifies that only the default version of the specified engine
+-- or engine and major version combination is to be returned.
+dcevDefaultOnly :: Lens' DescribeCacheEngineVersions (Maybe Bool)
+dcevDefaultOnly = lens _dcevDefaultOnly (\s a -> s { _dcevDefaultOnly = a })
 
 -- | The cache engine to return. Valid values: memcached | redis.
 dcevEngine :: Lens' DescribeCacheEngineVersions (Maybe Text)
@@ -99,80 +108,60 @@ dcevEngineVersion :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevEngineVersion =
     lens _dcevEngineVersion (\s a -> s { _dcevEngineVersion = a })
 
--- | The name of a specific cache parameter group family to return details for.
--- Constraints: Must be 1 to 255 alphanumeric characters First character must
--- be a letter Cannot end with a hyphen or contain two consecutive hyphens.
-dcevCacheParameterGroupFamily :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevCacheParameterGroupFamily =
-    lens _dcevCacheParameterGroupFamily
-         (\s a -> s { _dcevCacheParameterGroupFamily = a })
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by MaxRecords.
+dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
+dcevMarker = lens _dcevMarker (\s a -> s { _dcevMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dcevMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Integer)
+dcevMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Int)
 dcevMaxRecords = lens _dcevMaxRecords (\s a -> s { _dcevMaxRecords = a })
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by MaxRecords.
-dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevMarker = lens _dcevMarker (\s a -> s { _dcevMarker = a })
+instance ToQuery DescribeCacheEngineVersions
 
--- | If true, specifies that only the default version of the specified engine or
--- engine and major version combination is to be returned.
-dcevDefaultOnly :: Lens' DescribeCacheEngineVersions (Maybe Bool)
-dcevDefaultOnly = lens _dcevDefaultOnly (\s a -> s { _dcevDefaultOnly = a })
+instance ToPath DescribeCacheEngineVersions where
+    toPath = const "/"
 
-instance ToQuery DescribeCacheEngineVersions where
-    toQuery = genericQuery def
-
--- | Represents the output of a DescribeCacheEngineVersions operation.
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
-    { _dcevrMarker :: Maybe Text
-    , _dcevrCacheEngineVersions :: [CacheEngineVersion]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dcevrCacheEngineVersions :: [CacheEngineVersion]
+    , _dcevrMarker              :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeCacheEngineVersionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeCacheEngineVersionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'dcevrCacheEngineVersions' @::@ ['CacheEngineVersion']
 --
--- * @CacheEngineVersions ::@ @[CacheEngineVersion]@
+-- * 'dcevrMarker' @::@ 'Maybe' 'Text'
 --
 describeCacheEngineVersionsResponse :: DescribeCacheEngineVersionsResponse
 describeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
-    { _dcevrMarker = Nothing
+    { _dcevrMarker              = Nothing
     , _dcevrCacheEngineVersions = mempty
     }
+
+-- | A list of cache engine version details. Each element in the list contains
+-- detailed information about one cache engine version.
+dcevrCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
+dcevrCacheEngineVersions =
+    lens _dcevrCacheEngineVersions
+        (\s a -> s { _dcevrCacheEngineVersions = a })
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcevrMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
 dcevrMarker = lens _dcevrMarker (\s a -> s { _dcevrMarker = a })
 
--- | A list of cache engine version details. Each element in the list contains
--- detailed information about once cache engine version.
-dcevrCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
-dcevrCacheEngineVersions =
-    lens _dcevrCacheEngineVersions
-         (\s a -> s { _dcevrCacheEngineVersions = a })
-
-instance FromXML DescribeCacheEngineVersionsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeCacheEngineVersions where
     type Sv DescribeCacheEngineVersions = ElastiCache
     type Rs DescribeCacheEngineVersions = DescribeCacheEngineVersionsResponse
 
-    request = post "DescribeCacheEngineVersions"
-    response _ = xmlResponse
-
-instance AWSPager DescribeCacheEngineVersions where
-    next rq rs = (\x -> rq & dcevMarker ?~ x)
-        <$> (rs ^. dcevrMarker)
+    request  = post "DescribeCacheEngineVersions"
+    response = xmlResponse $ \h x -> DescribeCacheEngineVersionsResponse
+        <$> x %| "CacheEngineVersions"
+        <*> x %| "Marker"

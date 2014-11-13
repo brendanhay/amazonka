@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ConfirmProductInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,16 +23,7 @@
 -- | Determines whether a product code is associated with an instance. This
 -- action can only be used by the owner of the product code. It is useful when
 -- a product code owner needs to verify whether another user's instance is
--- eligible for support. Example This example determines whether the specified
--- product code is associated with the specified instance.
--- https://ec2.amazonaws.com/?Action=ConfirmProductInstance
--- &amp;ProductCode=774F4FF8 &amp;InstanceId=i-10a64379 &amp;AUTHPARAMS
--- &lt;ConfirmProductInstanceResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt;
--- &lt;ownerId&gt;111122223333&lt;/ownerId&gt;
--- &lt;/ConfirmProductInstanceResponse&gt;.
+-- eligible for support.
 module Network.AWS.EC2.ConfirmProductInstance
     (
     -- * Request
@@ -38,8 +31,9 @@ module Network.AWS.EC2.ConfirmProductInstance
     -- ** Request constructor
     , confirmProductInstance
     -- ** Request lenses
-    , cpiProductCode
+    , cpiDryRun
     , cpiInstanceId
+    , cpiProductCode
 
     -- * Response
     , ConfirmProductInstanceResponse
@@ -49,55 +43,61 @@ module Network.AWS.EC2.ConfirmProductInstance
     , cpirOwnerId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ConfirmProductInstance = ConfirmProductInstance
-    { _cpiProductCode :: Text
-    , _cpiInstanceId :: Text
+    { _cpiDryRun      :: Maybe Bool
+    , _cpiInstanceId  :: Text
+    , _cpiProductCode :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfirmProductInstance' request.
+-- | 'ConfirmProductInstance' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ProductCode ::@ @Text@
+-- * 'cpiDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @InstanceId ::@ @Text@
+-- * 'cpiInstanceId' @::@ 'Text'
+--
+-- * 'cpiProductCode' @::@ 'Text'
 --
 confirmProductInstance :: Text -- ^ 'cpiProductCode'
                        -> Text -- ^ 'cpiInstanceId'
                        -> ConfirmProductInstance
 confirmProductInstance p1 p2 = ConfirmProductInstance
     { _cpiProductCode = p1
-    , _cpiInstanceId = p2
+    , _cpiInstanceId  = p2
+    , _cpiDryRun      = Nothing
     }
 
--- | The product code. This must be an Amazon DevPay product code that you own.
-cpiProductCode :: Lens' ConfirmProductInstance Text
-cpiProductCode = lens _cpiProductCode (\s a -> s { _cpiProductCode = a })
+cpiDryRun :: Lens' ConfirmProductInstance (Maybe Bool)
+cpiDryRun = lens _cpiDryRun (\s a -> s { _cpiDryRun = a })
 
 -- | The ID of the instance.
 cpiInstanceId :: Lens' ConfirmProductInstance Text
 cpiInstanceId = lens _cpiInstanceId (\s a -> s { _cpiInstanceId = a })
 
-instance ToQuery ConfirmProductInstance where
-    toQuery = genericQuery def
+-- | The product code. This must be a product code that you own.
+cpiProductCode :: Lens' ConfirmProductInstance Text
+cpiProductCode = lens _cpiProductCode (\s a -> s { _cpiProductCode = a })
+
+instance ToQuery ConfirmProductInstance
+
+instance ToPath ConfirmProductInstance where
+    toPath = const "/"
 
 newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfirmProductInstanceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ConfirmProductInstanceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OwnerId ::@ @Maybe Text@
+-- * 'cpirOwnerId' @::@ 'Maybe' 'Text'
 --
 confirmProductInstanceResponse :: ConfirmProductInstanceResponse
 confirmProductInstanceResponse = ConfirmProductInstanceResponse
@@ -109,12 +109,10 @@ confirmProductInstanceResponse = ConfirmProductInstanceResponse
 cpirOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirOwnerId = lens _cpirOwnerId (\s a -> s { _cpirOwnerId = a })
 
-instance FromXML ConfirmProductInstanceResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ConfirmProductInstance where
     type Sv ConfirmProductInstance = EC2
     type Rs ConfirmProductInstance = ConfirmProductInstanceResponse
 
-    request = post "ConfirmProductInstance"
-    response _ = xmlResponse
+    request  = post "ConfirmProductInstance"
+    response = xmlResponse $ \h x -> ConfirmProductInstanceResponse
+        <$> x %| "ownerId"

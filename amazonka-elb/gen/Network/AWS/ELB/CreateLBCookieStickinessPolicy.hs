@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.CreateLBCookieStickinessPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,10 +34,6 @@
 -- cookie expiration time, which is specified in the policy configuration. For
 -- more information, see Enabling Duration-Based Session Stickiness in the
 -- Elastic Load Balancing Developer Guide.
--- https://elasticloadbalancing.amazonaws.com/?CookieExpirationPeriod=60
--- &LoadBalancerName=MyLoadBalancer&PolicyName=MyDurationStickyPolicy
--- &Version=2012-06-01 &Action=CreateLBCookieStickinessPolicy &AUTHPARAMS
--- 99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE.
 module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     (
     -- * Request
@@ -43,9 +41,9 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     -- ** Request constructor
     , createLBCookieStickinessPolicy
     -- ** Request lenses
+    , clbcspCookieExpirationPeriod
     , clbcspLoadBalancerName
     , clbcspPolicyName
-    , clbcspCookieExpirationPeriod
 
     -- * Response
     , CreateLBCookieStickinessPolicyResponse
@@ -53,36 +51,43 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     , createLBCookieStickinessPolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the CreateLBCookieStickinessPolicy action.
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
-    { _clbcspLoadBalancerName :: Text
-    , _clbcspPolicyName :: Text
-    , _clbcspCookieExpirationPeriod :: Maybe Integer
+    { _clbcspCookieExpirationPeriod :: Maybe Integer
+    , _clbcspLoadBalancerName       :: Text
+    , _clbcspPolicyName             :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateLBCookieStickinessPolicy' request.
+-- | 'CreateLBCookieStickinessPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'clbcspCookieExpirationPeriod' @::@ 'Maybe' 'Integer'
 --
--- * @PolicyName ::@ @Text@
+-- * 'clbcspLoadBalancerName' @::@ 'Text'
 --
--- * @CookieExpirationPeriod ::@ @Maybe Integer@
+-- * 'clbcspPolicyName' @::@ 'Text'
 --
 createLBCookieStickinessPolicy :: Text -- ^ 'clbcspLoadBalancerName'
                                -> Text -- ^ 'clbcspPolicyName'
                                -> CreateLBCookieStickinessPolicy
 createLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicy
-    { _clbcspLoadBalancerName = p1
-    , _clbcspPolicyName = p2
+    { _clbcspLoadBalancerName       = p1
+    , _clbcspPolicyName             = p2
     , _clbcspCookieExpirationPeriod = Nothing
     }
+
+-- | The time period in seconds after which the cookie should be considered
+-- stale. Not specifying this parameter indicates that the sticky session
+-- will last for the duration of the browser session.
+clbcspCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Integer)
+clbcspCookieExpirationPeriod =
+    lens _clbcspCookieExpirationPeriod
+        (\s a -> s { _clbcspCookieExpirationPeriod = a })
 
 -- | The name associated with the load balancer.
 clbcspLoadBalancerName :: Lens' CreateLBCookieStickinessPolicy Text
@@ -92,28 +97,17 @@ clbcspLoadBalancerName =
 -- | The name of the policy being created. The name must be unique within the
 -- set of policies for this load balancer.
 clbcspPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
-clbcspPolicyName =
-    lens _clbcspPolicyName (\s a -> s { _clbcspPolicyName = a })
+clbcspPolicyName = lens _clbcspPolicyName (\s a -> s { _clbcspPolicyName = a })
 
--- | The time period in seconds after which the cookie should be considered
--- stale. Not specifying this parameter indicates that the sticky session will
--- last for the duration of the browser session.
-clbcspCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Integer)
-clbcspCookieExpirationPeriod =
-    lens _clbcspCookieExpirationPeriod
-         (\s a -> s { _clbcspCookieExpirationPeriod = a })
+instance ToQuery CreateLBCookieStickinessPolicy
 
-instance ToQuery CreateLBCookieStickinessPolicy where
-    toQuery = genericQuery def
+instance ToPath CreateLBCookieStickinessPolicy where
+    toPath = const "/"
 
--- | The output for the CreateLBCookieStickinessPolicy action.
 data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateLBCookieStickinessPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateLBCookieStickinessPolicyResponse' constructor.
 createLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse
 createLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
 
@@ -121,5 +115,5 @@ instance AWSRequest CreateLBCookieStickinessPolicy where
     type Sv CreateLBCookieStickinessPolicy = ELB
     type Rs CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicyResponse
 
-    request = post "CreateLBCookieStickinessPolicy"
-    response _ = nullaryResponse CreateLBCookieStickinessPolicyResponse
+    request  = post "CreateLBCookieStickinessPolicy"
+    response = nullaryResponse CreateLBCookieStickinessPolicyResponse

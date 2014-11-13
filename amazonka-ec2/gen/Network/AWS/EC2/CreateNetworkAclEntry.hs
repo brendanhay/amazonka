@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CreateNetworkAclEntry
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,17 +32,7 @@
 -- having to renumber the rules. After you add an entry, you can't modify it;
 -- you must either replace it, or create an entry and delete the old one. For
 -- more information about network ACLs, see Network ACLs in the Amazon Virtual
--- Private Cloud User Guide. Example This example creates an entry with rule
--- number 110 in the network ACL with the ID acl-2cb85d45. The rule allows
--- ingress traffic from anywhere (0.0.0.0/0) on UDP port 53 into any
--- associated subnet. https://ec2.amazonaws.com/?Action=CreateNetworkAclEntry
--- &amp;NetworkAclId=acl-2cb85d45 &amp;RuleNumber=110 &amp;Protocol=udp
--- &amp;RuleAction=allow &amp;Egress=false &amp;CidrBlock=0.0.0.0/0
--- &amp;PortRange.From=53 &amp;PortRange.To=53 &amp;AUTHPARAMS
--- &lt;CreateNetworkAclEntryResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/CreateNetworkAclEntryResponse&gt;.
+-- Private Cloud User Guide.
 module Network.AWS.EC2.CreateNetworkAclEntry
     (
     -- * Request
@@ -48,14 +40,15 @@ module Network.AWS.EC2.CreateNetworkAclEntry
     -- ** Request constructor
     , createNetworkAclEntry
     -- ** Request lenses
+    , cnaeCidrBlock
+    , cnaeDryRun
+    , cnaeEgress
+    , cnaeIcmpTypeCode
     , cnaeNetworkAclId
-    , cnaeRuleNumber
+    , cnaePortRange
     , cnaeProtocol
     , cnaeRuleAction
-    , cnaeEgress
-    , cnaeCidrBlock
-    , cnaeIcmpTypeCode
-    , cnaePortRange
+    , cnaeRuleNumber
 
     -- * Response
     , CreateNetworkAclEntryResponse
@@ -63,107 +56,113 @@ module Network.AWS.EC2.CreateNetworkAclEntry
     , createNetworkAclEntryResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateNetworkAclEntry = CreateNetworkAclEntry
-    { _cnaeNetworkAclId :: Text
-    , _cnaeRuleNumber :: !Integer
-    , _cnaeProtocol :: Text
-    , _cnaeRuleAction :: RuleAction
-    , _cnaeEgress :: !Bool
-    , _cnaeCidrBlock :: Text
+    { _cnaeCidrBlock    :: Text
+    , _cnaeDryRun       :: Maybe Bool
+    , _cnaeEgress       :: Bool
     , _cnaeIcmpTypeCode :: Maybe IcmpTypeCode
-    , _cnaePortRange :: Maybe PortRange
-    } deriving (Eq, Ord, Show, Generic)
+    , _cnaeNetworkAclId :: Text
+    , _cnaePortRange    :: Maybe PortRange
+    , _cnaeProtocol     :: Text
+    , _cnaeRuleAction   :: Text
+    , _cnaeRuleNumber   :: Int
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateNetworkAclEntry' request.
+-- | 'CreateNetworkAclEntry' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkAclId ::@ @Text@
+-- * 'cnaeCidrBlock' @::@ 'Text'
 --
--- * @RuleNumber ::@ @Integer@
+-- * 'cnaeDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Protocol ::@ @Text@
+-- * 'cnaeEgress' @::@ 'Bool'
 --
--- * @RuleAction ::@ @RuleAction@
+-- * 'cnaeIcmpTypeCode' @::@ 'Maybe' 'IcmpTypeCode'
 --
--- * @Egress ::@ @Bool@
+-- * 'cnaeNetworkAclId' @::@ 'Text'
 --
--- * @CidrBlock ::@ @Text@
+-- * 'cnaePortRange' @::@ 'Maybe' 'PortRange'
 --
--- * @IcmpTypeCode ::@ @Maybe IcmpTypeCode@
+-- * 'cnaeProtocol' @::@ 'Text'
 --
--- * @PortRange ::@ @Maybe PortRange@
+-- * 'cnaeRuleAction' @::@ 'Text'
+--
+-- * 'cnaeRuleNumber' @::@ 'Int'
 --
 createNetworkAclEntry :: Text -- ^ 'cnaeNetworkAclId'
-                      -> Integer -- ^ 'cnaeRuleNumber'
+                      -> Int -- ^ 'cnaeRuleNumber'
                       -> Text -- ^ 'cnaeProtocol'
-                      -> RuleAction -- ^ 'cnaeRuleAction'
+                      -> Text -- ^ 'cnaeRuleAction'
                       -> Bool -- ^ 'cnaeEgress'
                       -> Text -- ^ 'cnaeCidrBlock'
                       -> CreateNetworkAclEntry
 createNetworkAclEntry p1 p2 p3 p4 p5 p6 = CreateNetworkAclEntry
     { _cnaeNetworkAclId = p1
-    , _cnaeRuleNumber = p2
-    , _cnaeProtocol = p3
-    , _cnaeRuleAction = p4
-    , _cnaeEgress = p5
-    , _cnaeCidrBlock = p6
+    , _cnaeRuleNumber   = p2
+    , _cnaeProtocol     = p3
+    , _cnaeRuleAction   = p4
+    , _cnaeEgress       = p5
+    , _cnaeCidrBlock    = p6
+    , _cnaeDryRun       = Nothing
     , _cnaeIcmpTypeCode = Nothing
-    , _cnaePortRange = Nothing
+    , _cnaePortRange    = Nothing
     }
 
--- | The ID of the ACL.
-cnaeNetworkAclId :: Lens' CreateNetworkAclEntry Text
-cnaeNetworkAclId =
-    lens _cnaeNetworkAclId (\s a -> s { _cnaeNetworkAclId = a })
+-- | The network range to allow or deny, in CIDR notation (for example
+-- 172.16.0.0/24).
+cnaeCidrBlock :: Lens' CreateNetworkAclEntry Text
+cnaeCidrBlock = lens _cnaeCidrBlock (\s a -> s { _cnaeCidrBlock = a })
 
--- | The rule number for the entry (for example, 100). ACL entries are processed
--- in ascending order by rule number. Constraints: Positive integer from 1 to
--- 32766.
-cnaeRuleNumber :: Lens' CreateNetworkAclEntry Integer
-cnaeRuleNumber = lens _cnaeRuleNumber (\s a -> s { _cnaeRuleNumber = a })
-
--- | The protocol. A value of -1 means all protocols.
-cnaeProtocol :: Lens' CreateNetworkAclEntry Text
-cnaeProtocol = lens _cnaeProtocol (\s a -> s { _cnaeProtocol = a })
-
--- | Indicates whether to allow or deny the traffic that matches the rule.
-cnaeRuleAction :: Lens' CreateNetworkAclEntry RuleAction
-cnaeRuleAction = lens _cnaeRuleAction (\s a -> s { _cnaeRuleAction = a })
+cnaeDryRun :: Lens' CreateNetworkAclEntry (Maybe Bool)
+cnaeDryRun = lens _cnaeDryRun (\s a -> s { _cnaeDryRun = a })
 
 -- | Indicates whether this is an egress rule (rule is applied to traffic
 -- leaving the subnet).
 cnaeEgress :: Lens' CreateNetworkAclEntry Bool
 cnaeEgress = lens _cnaeEgress (\s a -> s { _cnaeEgress = a })
 
--- | The network range to allow or deny, in CIDR notation.
-cnaeCidrBlock :: Lens' CreateNetworkAclEntry Text
-cnaeCidrBlock = lens _cnaeCidrBlock (\s a -> s { _cnaeCidrBlock = a })
-
--- | ICMP protocol: The ICMP type and code.
+-- | ICMP protocol: The ICMP type and code. Required if specifying ICMP for
+-- the protocol.
 cnaeIcmpTypeCode :: Lens' CreateNetworkAclEntry (Maybe IcmpTypeCode)
-cnaeIcmpTypeCode =
-    lens _cnaeIcmpTypeCode (\s a -> s { _cnaeIcmpTypeCode = a })
+cnaeIcmpTypeCode = lens _cnaeIcmpTypeCode (\s a -> s { _cnaeIcmpTypeCode = a })
+
+-- | The ID of the network ACL.
+cnaeNetworkAclId :: Lens' CreateNetworkAclEntry Text
+cnaeNetworkAclId = lens _cnaeNetworkAclId (\s a -> s { _cnaeNetworkAclId = a })
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
 cnaePortRange :: Lens' CreateNetworkAclEntry (Maybe PortRange)
 cnaePortRange = lens _cnaePortRange (\s a -> s { _cnaePortRange = a })
 
-instance ToQuery CreateNetworkAclEntry where
-    toQuery = genericQuery def
+-- | The protocol. A value of -1 means all protocols.
+cnaeProtocol :: Lens' CreateNetworkAclEntry Text
+cnaeProtocol = lens _cnaeProtocol (\s a -> s { _cnaeProtocol = a })
+
+-- | Indicates whether to allow or deny the traffic that matches the rule.
+cnaeRuleAction :: Lens' CreateNetworkAclEntry Text
+cnaeRuleAction = lens _cnaeRuleAction (\s a -> s { _cnaeRuleAction = a })
+
+-- | The rule number for the entry (for example, 100). ACL entries are
+-- processed in ascending order by rule number. Constraints: Positive
+-- integer from 1 to 32766.
+cnaeRuleNumber :: Lens' CreateNetworkAclEntry Int
+cnaeRuleNumber = lens _cnaeRuleNumber (\s a -> s { _cnaeRuleNumber = a })
+
+instance ToQuery CreateNetworkAclEntry
+
+instance ToPath CreateNetworkAclEntry where
+    toPath = const "/"
 
 data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateNetworkAclEntryResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateNetworkAclEntryResponse' constructor.
 createNetworkAclEntryResponse :: CreateNetworkAclEntryResponse
 createNetworkAclEntryResponse = CreateNetworkAclEntryResponse
 
@@ -171,5 +170,5 @@ instance AWSRequest CreateNetworkAclEntry where
     type Sv CreateNetworkAclEntry = EC2
     type Rs CreateNetworkAclEntry = CreateNetworkAclEntryResponse
 
-    request = post "CreateNetworkAclEntry"
-    response _ = nullaryResponse CreateNetworkAclEntryResponse
+    request  = post "CreateNetworkAclEntry"
+    response = nullaryResponse CreateNetworkAclEntryResponse

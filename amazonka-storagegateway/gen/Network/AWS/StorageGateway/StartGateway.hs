@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.StartGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,24 +23,9 @@
 -- | This operation starts a gateway that you previously shut down (see
 -- ShutdownGateway). After the gateway starts, you can then make other API
 -- calls, your applications can read from or write to the gateway's storage
--- volumes and you will be able to take snapshot backups. When you make a
--- request, you will get a 200 OK success response immediately. However, it
--- might take some time for the gateway to be ready. You should call
--- DescribeGatewayInformation and check the status before making any
--- additional API calls. For more information, see ActivateGateway. To specify
--- which gateway to start, use the Amazon Resource Name (ARN) of the gateway
--- in your request. Example Request The following example shows a request that
--- starts a gateway. POST / HTTP/1.1 Host:
--- storagegateway.us-east-1.amazonaws.com x-amz-Date: 20120425T120000Z
--- Authorization: CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG
--- Content-type: application/x-amz-json-1.1 x-amz-target:
--- StorageGateway_20120630.StartGateway { "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }
--- HTTP/1.1 200 OK x-amzn-RequestId:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Date: Wed, 25 Apr 2012
--- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 80 {
--- "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
+-- volumes and you will be able to take snapshot backups. To specify which
+-- gateway to start, use the Amazon Resource Name (ARN) of the gateway in your
+-- request.
 module Network.AWS.StorageGateway.StartGateway
     (
     -- * Request
@@ -46,80 +33,74 @@ module Network.AWS.StorageGateway.StartGateway
     -- ** Request constructor
     , startGateway
     -- ** Request lenses
-    , sg1GatewayARN
+    , sgGatewayARN
 
     -- * Response
     , StartGatewayResponse
     -- ** Response constructor
     , startGatewayResponse
     -- ** Response lenses
-    , sgrrGatewayARN
+    , sgrGatewayARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
--- | A JSON object containing the of the gateway to start.
 newtype StartGateway = StartGateway
-    { _sg1GatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _sgGatewayARN :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartGateway' request.
+-- | 'StartGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'sgGatewayARN' @::@ 'Text'
 --
-startGateway :: Text -- ^ 'sg1GatewayARN'
+startGateway :: Text -- ^ 'sgGatewayARN'
              -> StartGateway
 startGateway p1 = StartGateway
-    { _sg1GatewayARN = p1
+    { _sgGatewayARN = p1
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
-sg1GatewayARN :: Lens' StartGateway Text
-sg1GatewayARN = lens _sg1GatewayARN (\s a -> s { _sg1GatewayARN = a })
+sgGatewayARN :: Lens' StartGateway Text
+sgGatewayARN = lens _sgGatewayARN (\s a -> s { _sgGatewayARN = a })
 
-instance ToPath StartGateway
+instance ToPath StartGateway where
+    toPath = const "/"
 
-instance ToQuery StartGateway
+instance ToQuery StartGateway where
+    toQuery = const mempty
 
 instance ToHeaders StartGateway
 
-instance ToJSON StartGateway
+instance ToBody StartGateway where
+    toBody = toBody . encode . _sgGatewayARN
 
--- | A JSON object containing the of the gateway that was restarted.
 newtype StartGatewayResponse = StartGatewayResponse
-    { _sgrrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _sgrGatewayARN :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartGatewayResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'StartGatewayResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Maybe Text@
+-- * 'sgrGatewayARN' @::@ 'Maybe' 'Text'
 --
 startGatewayResponse :: StartGatewayResponse
 startGatewayResponse = StartGatewayResponse
-    { _sgrrGatewayARN = Nothing
+    { _sgrGatewayARN = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
-sgrrGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
-sgrrGatewayARN = lens _sgrrGatewayARN (\s a -> s { _sgrrGatewayARN = a })
+sgrGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
+sgrGatewayARN = lens _sgrGatewayARN (\s a -> s { _sgrGatewayARN = a })
 
-instance FromJSON StartGatewayResponse
+-- FromJSON
 
 instance AWSRequest StartGateway where
     type Sv StartGateway = StorageGateway
     type Rs StartGateway = StartGatewayResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> StartGatewayResponse
+        <$> o .: "GatewayARN"

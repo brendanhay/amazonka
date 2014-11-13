@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutMetricFilter
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,21 +22,7 @@
 
 -- | Creates or updates a metric filter and associates it with the specified log
 -- group. Metric filters allow you to configure rules to extract metric data
--- from log events ingested through PutLogEvents requests. Create or update a
--- metric filter The following is an example of a PutMetricFilter request and
--- response. POST / HTTP/1.1 Host: logs.. X-Amz-Date: Authorization:
--- AWS4-HMAC-SHA256 Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Accept: application/json Content-Type:
--- application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]>
--- X-Amz-Target: Logs_20140328.PutMetricFilter { "logGroupName":
--- "exampleLogGroupName", "filterName": "exampleMetricFilterName",
--- "filterPattern": "[ip, identity, user_id, timestamp, request, status_code,
--- size]", "metricTransformations": [ { "metricValue": "$size",
--- "metricNamespace": "MyApp", "metricName": "Volume" }, { "metricValue": "1",
--- "metricNamespace": "MyApp", "metricName": "RequestCount" } ] } HTTP/1.1 200
--- OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
--- Content-Length: Date: ]]>.
+-- from log events ingested through PutLogEvents requests.
 module Network.AWS.CloudWatchLogs.PutMetricFilter
     (
     -- * Request
@@ -42,9 +30,9 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
     -- ** Request constructor
     , putMetricFilter
     -- ** Request lenses
-    , pmfLogGroupName
     , pmfFilterName
     , pmfFilterPattern
+    , pmfLogGroupName
     , pmfMetricTransformations
 
     -- * Response
@@ -53,79 +41,79 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
     , putMetricFilterResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudWatchLogs.Types
 
 data PutMetricFilter = PutMetricFilter
-    { _pmfLogGroupName :: Text
-    , _pmfFilterName :: Text
-    , _pmfFilterPattern :: Text
+    { _pmfFilterName            :: Text
+    , _pmfFilterPattern         :: Text
+    , _pmfLogGroupName          :: Text
     , _pmfMetricTransformations :: List1 MetricTransformation
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutMetricFilter' request.
+-- | 'PutMetricFilter' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogGroupName ::@ @Text@
+-- * 'pmfFilterName' @::@ 'Text'
 --
--- * @FilterName ::@ @Text@
+-- * 'pmfFilterPattern' @::@ 'Text'
 --
--- * @FilterPattern ::@ @Text@
+-- * 'pmfLogGroupName' @::@ 'Text'
 --
--- * @MetricTransformations ::@ @List1 MetricTransformation@
+-- * 'pmfMetricTransformations' @::@ 'NonEmpty' 'MetricTransformation'
 --
 putMetricFilter :: Text -- ^ 'pmfLogGroupName'
                 -> Text -- ^ 'pmfFilterName'
                 -> Text -- ^ 'pmfFilterPattern'
-                -> List1 MetricTransformation -- ^ 'pmfMetricTransformations'
+                -> NonEmpty MetricTransformation -- ^ 'pmfMetricTransformations'
                 -> PutMetricFilter
 putMetricFilter p1 p2 p3 p4 = PutMetricFilter
-    { _pmfLogGroupName = p1
-    , _pmfFilterName = p2
-    , _pmfFilterPattern = p3
-    , _pmfMetricTransformations = p4
+    { _pmfLogGroupName          = p1
+    , _pmfFilterName            = p2
+    , _pmfFilterPattern         = p3
+    , _pmfMetricTransformations = withIso _List1 (const id) p4
     }
 
-pmfLogGroupName :: Lens' PutMetricFilter Text
-pmfLogGroupName = lens _pmfLogGroupName (\s a -> s { _pmfLogGroupName = a })
-
--- | The name of the metric filter.
 pmfFilterName :: Lens' PutMetricFilter Text
 pmfFilterName = lens _pmfFilterName (\s a -> s { _pmfFilterName = a })
 
 pmfFilterPattern :: Lens' PutMetricFilter Text
-pmfFilterPattern =
-    lens _pmfFilterPattern (\s a -> s { _pmfFilterPattern = a })
+pmfFilterPattern = lens _pmfFilterPattern (\s a -> s { _pmfFilterPattern = a })
 
-pmfMetricTransformations :: Lens' PutMetricFilter (List1 MetricTransformation)
+pmfLogGroupName :: Lens' PutMetricFilter Text
+pmfLogGroupName = lens _pmfLogGroupName (\s a -> s { _pmfLogGroupName = a })
+
+pmfMetricTransformations :: Lens' PutMetricFilter (NonEmpty MetricTransformation)
 pmfMetricTransformations =
     lens _pmfMetricTransformations
-         (\s a -> s { _pmfMetricTransformations = a })
+        (\s a -> s { _pmfMetricTransformations = a })
+            . _List1
 
-instance ToPath PutMetricFilter
+instance ToPath PutMetricFilter where
+    toPath = const "/"
 
-instance ToQuery PutMetricFilter
+instance ToQuery PutMetricFilter where
+    toQuery = const mempty
 
 instance ToHeaders PutMetricFilter
 
-instance ToJSON PutMetricFilter
+instance ToBody PutMetricFilter where
+    toBody = toBody . encode . _pmfLogGroupName
 
 data PutMetricFilterResponse = PutMetricFilterResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutMetricFilterResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutMetricFilterResponse' constructor.
 putMetricFilterResponse :: PutMetricFilterResponse
 putMetricFilterResponse = PutMetricFilterResponse
+
+-- FromJSON
 
 instance AWSRequest PutMetricFilter where
     type Sv PutMetricFilter = CloudWatchLogs
     type Rs PutMetricFilter = PutMetricFilterResponse
 
-    request = get
-    response _ = nullaryResponse PutMetricFilterResponse
+    request  = post'
+    response = nullaryResponse PutMetricFilterResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteDomain
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,22 +40,20 @@ module Network.AWS.CloudSearch.DeleteDomain
     , ddrDomainStatus
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DeleteDomain operation. Specifies the
--- name of the domain you want to delete.
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDomain' request.
+-- | 'DeleteDomain' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'ddDomainName' @::@ 'Text'
 --
 deleteDomain :: Text -- ^ 'ddDomainName'
              -> DeleteDomain
@@ -65,40 +65,33 @@ deleteDomain p1 = DeleteDomain
 ddDomainName :: Lens' DeleteDomain Text
 ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
 
-instance ToQuery DeleteDomain where
-    toQuery = genericQuery def
+instance ToQuery DeleteDomain
 
--- | The result of a DeleteDomain request. Contains the status of a newly
--- deleted domain, or no status if the domain has already been completely
--- deleted.
+instance ToPath DeleteDomain where
+    toPath = const "/"
+
 newtype DeleteDomainResponse = DeleteDomainResponse
     { _ddrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDomainResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteDomainResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainStatus ::@ @Maybe DomainStatus@
+-- * 'ddrDomainStatus' @::@ 'Maybe' 'DomainStatus'
 --
 deleteDomainResponse :: DeleteDomainResponse
 deleteDomainResponse = DeleteDomainResponse
     { _ddrDomainStatus = Nothing
     }
 
--- | The current status of the search domain.
 ddrDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
 ddrDomainStatus = lens _ddrDomainStatus (\s a -> s { _ddrDomainStatus = a })
-
-instance FromXML DeleteDomainResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DeleteDomain where
     type Sv DeleteDomain = CloudSearch
     type Rs DeleteDomain = DeleteDomainResponse
 
-    request = post "DeleteDomain"
-    response _ = xmlResponse
+    request  = post "DeleteDomain"
+    response = xmlResponse $ \h x -> DeleteDomainResponse
+        <$> x %| "DomainStatus"

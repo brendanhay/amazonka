@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterRdsDbInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,10 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deregisters an Amazon RDS instance. Required Permissions: To use this
--- action, an IAM user must have a Manage permissions level for the stack, or
--- an attached policy that explicitly grants permissions. For more information
--- on user permissions, see Managing User Permissions.
+-- | Deregisters an Amazon RDS instance.
 module Network.AWS.OpsWorks.DeregisterRdsDbInstance
     (
     -- * Request
@@ -37,20 +36,19 @@ module Network.AWS.OpsWorks.DeregisterRdsDbInstance
     , deregisterRdsDbInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype DeregisterRdsDbInstance = DeregisterRdsDbInstance
     { _drdiRdsDbInstanceArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterRdsDbInstance' request.
+-- | 'DeregisterRdsDbInstance' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RdsDbInstanceArn ::@ @Text@
+-- * 'drdiRdsDbInstanceArn' @::@ 'Text'
 --
 deregisterRdsDbInstance :: Text -- ^ 'drdiRdsDbInstanceArn'
                         -> DeregisterRdsDbInstance
@@ -63,27 +61,29 @@ drdiRdsDbInstanceArn :: Lens' DeregisterRdsDbInstance Text
 drdiRdsDbInstanceArn =
     lens _drdiRdsDbInstanceArn (\s a -> s { _drdiRdsDbInstanceArn = a })
 
-instance ToPath DeregisterRdsDbInstance
+instance ToPath DeregisterRdsDbInstance where
+    toPath = const "/"
 
-instance ToQuery DeregisterRdsDbInstance
+instance ToQuery DeregisterRdsDbInstance where
+    toQuery = const mempty
 
 instance ToHeaders DeregisterRdsDbInstance
 
-instance ToJSON DeregisterRdsDbInstance
+instance ToBody DeregisterRdsDbInstance where
+    toBody = toBody . encode . _drdiRdsDbInstanceArn
 
 data DeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterRdsDbInstanceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeregisterRdsDbInstanceResponse' constructor.
 deregisterRdsDbInstanceResponse :: DeregisterRdsDbInstanceResponse
 deregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
+
+-- FromJSON
 
 instance AWSRequest DeregisterRdsDbInstance where
     type Sv DeregisterRdsDbInstance = OpsWorks
     type Rs DeregisterRdsDbInstance = DeregisterRdsDbInstanceResponse
 
-    request = get
-    response _ = nullaryResponse DeregisterRdsDbInstanceResponse
+    request  = post'
+    response = nullaryResponse DeregisterRdsDbInstanceResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SES.DeleteIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,15 +22,6 @@
 
 -- | Deletes the specified identity (email address or domain) from the list of
 -- verified identities. This action is throttled at one request per second.
--- POST / HTTP/1.1 Date: Sat, 12 May 2012 05:25:58 GMT Host:
--- email.us-east-1.amazonaws.com Content-Type:
--- application/x-www-form-urlencoded X-Amzn-Authorization: AWS3
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
--- Signature=w943pl3zIvtszwzZxypi+LsgjzquvhYhnG42S6b2WLo=,
--- Algorithm=HmacSHA256, SignedHeaders=Date;Host Content-Length: 135
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=DeleteIdentity
--- &Identity=domain.com &Timestamp=2012-05-12T05%3A25%3A58.000Z
--- &Version=2010-12-01 d96bd874-9bf2-11e1-8ee7-c98a0037a2b6.
 module Network.AWS.SES.DeleteIdentity
     (
     -- * Request
@@ -44,22 +37,20 @@ module Network.AWS.SES.DeleteIdentity
     , deleteIdentityResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents a request instructing the service to delete an identity from the
--- list of identities for the AWS Account.
 newtype DeleteIdentity = DeleteIdentity
     { _diIdentity :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteIdentity' request.
+-- | 'DeleteIdentity' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Identity ::@ @Text@
+-- * 'diIdentity' @::@ 'Text'
 --
 deleteIdentity :: Text -- ^ 'diIdentity'
                -> DeleteIdentity
@@ -67,22 +58,20 @@ deleteIdentity p1 = DeleteIdentity
     { _diIdentity = p1
     }
 
--- | The identity to be removed from the list of identities for the AWS Account.
+-- | The identity to be removed from the list of identities for the AWS
+-- Account.
 diIdentity :: Lens' DeleteIdentity Text
 diIdentity = lens _diIdentity (\s a -> s { _diIdentity = a })
 
-instance ToQuery DeleteIdentity where
-    toQuery = genericQuery def
+instance ToQuery DeleteIdentity
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
+instance ToPath DeleteIdentity where
+    toPath = const "/"
+
 data DeleteIdentityResponse = DeleteIdentityResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteIdentityResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteIdentityResponse' constructor.
 deleteIdentityResponse :: DeleteIdentityResponse
 deleteIdentityResponse = DeleteIdentityResponse
 
@@ -90,5 +79,5 @@ instance AWSRequest DeleteIdentity where
     type Sv DeleteIdentity = SES
     type Rs DeleteIdentity = DeleteIdentityResponse
 
-    request = post "DeleteIdentity"
-    response _ = nullaryResponse DeleteIdentityResponse
+    request  = post "DeleteIdentity"
+    response = nullaryResponse DeleteIdentityResponse

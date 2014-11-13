@@ -22,7 +22,7 @@ module Network.AWS.Signing.V4
     , authorisation
 
     -- * Re-exports
-    , module Network.AWS.Internal.Signing
+    , module Network.AWS.Signing.Internal
     ) where
 
 import           Control.Applicative
@@ -41,8 +41,8 @@ import           Data.Monoid
 import           Data.Ord
 import           Data.Time
 import           Network.AWS.Data
-import           Network.AWS.Internal.Request
-import           Network.AWS.Internal.Signing
+import           Network.AWS.Request
+import           Network.AWS.Signing.Internal
 import           Network.AWS.Types
 import           Network.HTTP.Types.Header
 import           System.Locale
@@ -72,10 +72,10 @@ instance Show (Meta V4) where
         ]
 
 instance AWSPresigner V4 where
-    presigned s a r rq l t x = out
+    presigned a r rq l t x = out
         & sgRequest . queryString <>~ auth (out ^. sgMeta)
       where
-        out = finalise Nothing qry s a r rq l t
+        out = finalise Nothing qry service a r rq l t
 
         qry cs sh =
               pair "X-AMZ-Algorithm"      algorithm
@@ -89,12 +89,12 @@ instance AWSPresigner V4 where
         auth = mappend "&X-AMZ-Signature=" . _mSignature
 
 instance AWSSigner V4 where
-    signed s a r rq l t = out
+    signed a r rq l t = out
         & sgRequest
         %~ requestHeaders
         %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
       where
-        out = finalise (Just "AWS4") (\_ _ -> id) s a r inp l t
+        out = finalise (Just "AWS4") (\_ _ -> id) service a r inp l t
 
         inp = rq & rqHeaders %~ hdrs (maybeToList tok)
 

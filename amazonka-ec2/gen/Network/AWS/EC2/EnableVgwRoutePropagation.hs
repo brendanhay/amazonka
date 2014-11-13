@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.EnableVgwRoutePropagation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,15 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Enables a virtual private gateway (VGW) to propagate routes to the routing
--- tables of a VPC. Example This example enables the specified virtual private
--- gateway to propagate routes automatically to the routing table with the ID
--- rtb-c98a35a0. https://ec2.amazonaws.com/?Action=EnableVgwRoutePropagation
--- &amp;RouteTableID=rtb-c98a35a0 &amp;GatewayId= vgw-d8e09e8a &amp;AUTHPARAMS
--- &lt;EnableVgwRoutePropagation
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;4f35a1b2-c2c3-4093-b51f-abb9d7311990&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/EnableVgwRoutePropagation&gt;.
+-- | Enables a virtual private gateway (VGW) to propagate routes to the
+-- specified route table of a VPC.
 module Network.AWS.EC2.EnableVgwRoutePropagation
     (
     -- * Request
@@ -34,8 +29,8 @@ module Network.AWS.EC2.EnableVgwRoutePropagation
     -- ** Request constructor
     , enableVgwRoutePropagation
     -- ** Request lenses
-    , evrpRouteTableId
     , evrpGatewayId
+    , evrpRouteTableId
 
     -- * Response
     , EnableVgwRoutePropagationResponse
@@ -43,51 +38,49 @@ module Network.AWS.EC2.EnableVgwRoutePropagation
     , enableVgwRoutePropagationResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
-    { _evrpRouteTableId :: Text
-    , _evrpGatewayId :: Text
+    { _evrpGatewayId    :: Text
+    , _evrpRouteTableId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableVgwRoutePropagation' request.
+-- | 'EnableVgwRoutePropagation' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RouteTableId ::@ @Text@
+-- * 'evrpGatewayId' @::@ 'Text'
 --
--- * @GatewayId ::@ @Text@
+-- * 'evrpRouteTableId' @::@ 'Text'
 --
 enableVgwRoutePropagation :: Text -- ^ 'evrpRouteTableId'
                           -> Text -- ^ 'evrpGatewayId'
                           -> EnableVgwRoutePropagation
 enableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
     { _evrpRouteTableId = p1
-    , _evrpGatewayId = p2
+    , _evrpGatewayId    = p2
     }
-
--- | The ID of the routing table.
-evrpRouteTableId :: Lens' EnableVgwRoutePropagation Text
-evrpRouteTableId =
-    lens _evrpRouteTableId (\s a -> s { _evrpRouteTableId = a })
 
 -- | The ID of the virtual private gateway.
 evrpGatewayId :: Lens' EnableVgwRoutePropagation Text
 evrpGatewayId = lens _evrpGatewayId (\s a -> s { _evrpGatewayId = a })
 
-instance ToQuery EnableVgwRoutePropagation where
-    toQuery = genericQuery def
+-- | The ID of the route table.
+evrpRouteTableId :: Lens' EnableVgwRoutePropagation Text
+evrpRouteTableId = lens _evrpRouteTableId (\s a -> s { _evrpRouteTableId = a })
+
+instance ToQuery EnableVgwRoutePropagation
+
+instance ToPath EnableVgwRoutePropagation where
+    toPath = const "/"
 
 data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableVgwRoutePropagationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'EnableVgwRoutePropagationResponse' constructor.
 enableVgwRoutePropagationResponse :: EnableVgwRoutePropagationResponse
 enableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
 
@@ -95,5 +88,5 @@ instance AWSRequest EnableVgwRoutePropagation where
     type Sv EnableVgwRoutePropagation = EC2
     type Rs EnableVgwRoutePropagation = EnableVgwRoutePropagationResponse
 
-    request = post "EnableVgwRoutePropagation"
-    response _ = nullaryResponse EnableVgwRoutePropagationResponse
+    request  = post "EnableVgwRoutePropagation"
+    response = nullaryResponse EnableVgwRoutePropagationResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,8 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Terminates the specified instance. Optionally, the desired group size can
--- be adjusted. This call simply registers a termination request. The
--- termination of the instance cannot happen immediately.
+-- be adjusted.
 module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     (
     -- * Request
@@ -39,61 +40,57 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     , tiiasgrActivity
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
-    { _tiiasgInstanceId :: Text
-    , _tiiasgShouldDecrementDesiredCapacity :: !Bool
+    { _tiiasgInstanceId                     :: Text
+    , _tiiasgShouldDecrementDesiredCapacity :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'TerminateInstanceInAutoScalingGroup' request.
+-- | 'TerminateInstanceInAutoScalingGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @Text@
+-- * 'tiiasgInstanceId' @::@ 'Text'
 --
--- * @ShouldDecrementDesiredCapacity ::@ @Bool@
+-- * 'tiiasgShouldDecrementDesiredCapacity' @::@ 'Bool'
 --
 terminateInstanceInAutoScalingGroup :: Text -- ^ 'tiiasgInstanceId'
                                     -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
                                     -> TerminateInstanceInAutoScalingGroup
 terminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGroup
-    { _tiiasgInstanceId = p1
+    { _tiiasgInstanceId                     = p1
     , _tiiasgShouldDecrementDesiredCapacity = p2
     }
 
 -- | The ID of the Amazon EC2 instance to be terminated.
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
-tiiasgInstanceId =
-    lens _tiiasgInstanceId (\s a -> s { _tiiasgInstanceId = a })
+tiiasgInstanceId = lens _tiiasgInstanceId (\s a -> s { _tiiasgInstanceId = a })
 
 -- | Specifies whether (true) or not (false) terminating this instance should
 -- also decrement the size of the AutoScalingGroup.
 tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
 tiiasgShouldDecrementDesiredCapacity =
     lens _tiiasgShouldDecrementDesiredCapacity
-         (\s a -> s { _tiiasgShouldDecrementDesiredCapacity = a })
+        (\s a -> s { _tiiasgShouldDecrementDesiredCapacity = a })
 
-instance ToQuery TerminateInstanceInAutoScalingGroup where
-    toQuery = genericQuery def
+instance ToQuery TerminateInstanceInAutoScalingGroup
 
--- | The output for the TerminateInstanceInAutoScalingGroup action.
+instance ToPath TerminateInstanceInAutoScalingGroup where
+    toPath = const "/"
+
 newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
     { _tiiasgrActivity :: Maybe Activity
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'TerminateInstanceInAutoScalingGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'TerminateInstanceInAutoScalingGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Activity ::@ @Maybe Activity@
+-- * 'tiiasgrActivity' @::@ 'Maybe' 'Activity'
 --
 terminateInstanceInAutoScalingGroupResponse :: TerminateInstanceInAutoScalingGroupResponse
 terminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
@@ -104,12 +101,10 @@ terminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGrou
 tiiasgrActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
 tiiasgrActivity = lens _tiiasgrActivity (\s a -> s { _tiiasgrActivity = a })
 
-instance FromXML TerminateInstanceInAutoScalingGroupResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest TerminateInstanceInAutoScalingGroup where
     type Sv TerminateInstanceInAutoScalingGroup = AutoScaling
     type Rs TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroupResponse
 
-    request = post "TerminateInstanceInAutoScalingGroup"
-    response _ = xmlResponse
+    request  = post "TerminateInstanceInAutoScalingGroup"
+    response = xmlResponse $ \h x -> TerminateInstanceInAutoScalingGroupResponse
+        <$> x %| "Activity"

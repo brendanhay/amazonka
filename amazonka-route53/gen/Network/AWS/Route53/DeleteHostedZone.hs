@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53.DeleteHostedZone
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,57 +47,51 @@ module Network.AWS.Route53.DeleteHostedZone
     , dhzrChangeInfo
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
--- | A complex type containing the response information for the delete request.
 newtype DeleteHostedZone = DeleteHostedZone
-    { _dhzId :: ResourceId
-    } deriving (Eq, Ord, Show, Generic)
+    { _dhzId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteHostedZone' request.
+-- | 'DeleteHostedZone' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @ResourceId@
+-- * 'dhzId' @::@ 'Text'
 --
-deleteHostedZone :: ResourceId -- ^ 'dhzId'
+deleteHostedZone :: Text -- ^ 'dhzId'
                  -> DeleteHostedZone
 deleteHostedZone p1 = DeleteHostedZone
     { _dhzId = p1
     }
 
--- | The ID of the request. Include this ID in a call to GetChange to track when
--- the change has propagated to all Route 53 DNS servers.
-dhzId :: Lens' DeleteHostedZone ResourceId
+-- | The ID of the hosted zone you want to delete.
+dhzId :: Lens' DeleteHostedZone Text
 dhzId = lens _dhzId (\s a -> s { _dhzId = a })
 
-instance ToPath DeleteHostedZone
+instance ToPath DeleteHostedZone where
+    toPath DeleteHostedZone{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _dhzId
+        ]
 
-instance ToQuery DeleteHostedZone
+instance ToQuery DeleteHostedZone where
+    toQuery = const mempty
 
 instance ToHeaders DeleteHostedZone
 
-instance ToXML DeleteHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteHostedZone"
-
--- | A complex type containing the response information for the request.
 newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { _dhzrChangeInfo :: ChangeInfo
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteHostedZoneResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteHostedZoneResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ChangeInfo ::@ @ChangeInfo@
+-- * 'dhzrChangeInfo' @::@ 'ChangeInfo'
 --
 deleteHostedZoneResponse :: ChangeInfo -- ^ 'dhzrChangeInfo'
                          -> DeleteHostedZoneResponse
@@ -108,12 +104,10 @@ deleteHostedZoneResponse p1 = DeleteHostedZoneResponse
 dhzrChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
 dhzrChangeInfo = lens _dhzrChangeInfo (\s a -> s { _dhzrChangeInfo = a })
 
-instance FromXML DeleteHostedZoneResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DeleteHostedZone where
     type Sv DeleteHostedZone = Route53
     type Rs DeleteHostedZone = DeleteHostedZoneResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = delete
+    response = xmlResponse $ \h x -> DeleteHostedZoneResponse
+        <$> x %| "ChangeInfo"

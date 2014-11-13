@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,17 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes a network interface attribute. You can specify only one attribute
--- at a time. Example This example describes the sourceDestCheck attribute of
--- the specified network interface.
--- https://ec2.amazonaws.com/?Action=DescribeNetworkInterfaceAttribute
--- &amp;NetworkInterfaceId=eni-686ea200 &amp;Attribute=sourceDestCheck
--- &amp;AUTHPARAMS &lt;DescribeNetworkInterfaceAttributeResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a20c6b2-d71c-45fb-bba7-37306850544b&lt;/requestId&gt;
--- &lt;networkInterfaceId&gt;eni-686ea200&lt;/networkInterfaceId&gt;
--- &lt;sourceDestCheck&gt; &lt;value&gt;true&lt;/value&gt;
--- &lt;/sourceDestCheck&gt;
--- &lt;/DescribeNetworkInterfaceAttributeResponse&gt;.
+-- at a time.
 module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     (
     -- * Request
@@ -37,122 +29,129 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     -- ** Request constructor
     , describeNetworkInterfaceAttribute
     -- ** Request lenses
-    , dniaNetworkInterfaceId
     , dniaAttribute
+    , dniaDryRun
+    , dniaNetworkInterfaceId
 
     -- * Response
     , DescribeNetworkInterfaceAttributeResponse
     -- ** Response constructor
     , describeNetworkInterfaceAttributeResponse
     -- ** Response lenses
-    , dniarNetworkInterfaceId
-    , dniarDescription
-    , dniarSourceDestCheck
-    , dniarGroups
     , dniarAttachment
+    , dniarDescription
+    , dniarGroups
+    , dniarNetworkInterfaceId
+    , dniarSourceDestCheck
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
-    { _dniaNetworkInterfaceId :: Text
-    , _dniaAttribute :: Maybe NetworkInterfaceAttribute
+    { _dniaAttribute          :: Maybe Text
+    , _dniaDryRun             :: Maybe Bool
+    , _dniaNetworkInterfaceId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeNetworkInterfaceAttribute' request.
+-- | 'DescribeNetworkInterfaceAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkInterfaceId ::@ @Text@
+-- * 'dniaAttribute' @::@ 'Maybe' 'Text'
 --
--- * @Attribute ::@ @Maybe NetworkInterfaceAttribute@
+-- * 'dniaDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'dniaNetworkInterfaceId' @::@ 'Text'
 --
 describeNetworkInterfaceAttribute :: Text -- ^ 'dniaNetworkInterfaceId'
                                   -> DescribeNetworkInterfaceAttribute
 describeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
     { _dniaNetworkInterfaceId = p1
-    , _dniaAttribute = Nothing
+    , _dniaDryRun             = Nothing
+    , _dniaAttribute          = Nothing
     }
+
+-- | The attribute of the network interface.
+dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe Text)
+dniaAttribute = lens _dniaAttribute (\s a -> s { _dniaAttribute = a })
+
+dniaDryRun :: Lens' DescribeNetworkInterfaceAttribute (Maybe Bool)
+dniaDryRun = lens _dniaDryRun (\s a -> s { _dniaDryRun = a })
 
 -- | The ID of the network interface.
 dniaNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
 dniaNetworkInterfaceId =
     lens _dniaNetworkInterfaceId (\s a -> s { _dniaNetworkInterfaceId = a })
 
--- | The attribute of the network interface.
-dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
-dniaAttribute = lens _dniaAttribute (\s a -> s { _dniaAttribute = a })
+instance ToQuery DescribeNetworkInterfaceAttribute
 
-instance ToQuery DescribeNetworkInterfaceAttribute where
-    toQuery = genericQuery def
+instance ToPath DescribeNetworkInterfaceAttribute where
+    toPath = const "/"
 
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
-    { _dniarNetworkInterfaceId :: Maybe Text
-    , _dniarDescription :: Maybe AttributeValue
-    , _dniarSourceDestCheck :: Maybe AttributeBooleanValue
-    , _dniarGroups :: [GroupIdentifier]
-    , _dniarAttachment :: Maybe NetworkInterfaceAttachment
-    } deriving (Eq, Ord, Show, Generic)
+    { _dniarAttachment         :: Maybe NetworkInterfaceAttachment
+    , _dniarDescription        :: Maybe AttributeValue
+    , _dniarGroups             :: [GroupIdentifier]
+    , _dniarNetworkInterfaceId :: Maybe Text
+    , _dniarSourceDestCheck    :: Maybe AttributeBooleanValue
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeNetworkInterfaceAttributeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeNetworkInterfaceAttributeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkInterfaceId ::@ @Maybe Text@
+-- * 'dniarAttachment' @::@ 'Maybe' 'NetworkInterfaceAttachment'
 --
--- * @Description ::@ @Maybe AttributeValue@
+-- * 'dniarDescription' @::@ 'Maybe' 'AttributeValue'
 --
--- * @SourceDestCheck ::@ @Maybe AttributeBooleanValue@
+-- * 'dniarGroups' @::@ ['GroupIdentifier']
 --
--- * @Groups ::@ @[GroupIdentifier]@
+-- * 'dniarNetworkInterfaceId' @::@ 'Maybe' 'Text'
 --
--- * @Attachment ::@ @Maybe NetworkInterfaceAttachment@
+-- * 'dniarSourceDestCheck' @::@ 'Maybe' 'AttributeBooleanValue'
 --
 describeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse
 describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
     { _dniarNetworkInterfaceId = Nothing
-    , _dniarDescription = Nothing
-    , _dniarSourceDestCheck = Nothing
-    , _dniarGroups = mempty
-    , _dniarAttachment = Nothing
+    , _dniarDescription        = Nothing
+    , _dniarSourceDestCheck    = Nothing
+    , _dniarGroups             = mempty
+    , _dniarAttachment         = Nothing
     }
+
+-- | The attachment (if any) of the network interface.
+dniarAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
+dniarAttachment = lens _dniarAttachment (\s a -> s { _dniarAttachment = a })
+
+-- | The description of the network interface.
+dniarDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
+dniarDescription = lens _dniarDescription (\s a -> s { _dniarDescription = a })
+
+-- | The security groups associated with the network interface.
+dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
+dniarGroups = lens _dniarGroups (\s a -> s { _dniarGroups = a })
 
 -- | The ID of the network interface.
 dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
 dniarNetworkInterfaceId =
-    lens _dniarNetworkInterfaceId
-         (\s a -> s { _dniarNetworkInterfaceId = a })
-
--- | The description of the network interface.
-dniarDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
-dniarDescription =
-    lens _dniarDescription (\s a -> s { _dniarDescription = a })
+    lens _dniarNetworkInterfaceId (\s a -> s { _dniarNetworkInterfaceId = a })
 
 -- | Indicates whether source/destination checking is enabled.
 dniarSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
 dniarSourceDestCheck =
     lens _dniarSourceDestCheck (\s a -> s { _dniarSourceDestCheck = a })
 
--- | The security groups associated with the network interface.
-dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
-dniarGroups = lens _dniarGroups (\s a -> s { _dniarGroups = a })
-
--- | The attachment (if any) of the network interface.
-dniarAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
-dniarAttachment = lens _dniarAttachment (\s a -> s { _dniarAttachment = a })
-
-instance FromXML DescribeNetworkInterfaceAttributeResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeNetworkInterfaceAttribute where
     type Sv DescribeNetworkInterfaceAttribute = EC2
     type Rs DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttributeResponse
 
-    request = post "DescribeNetworkInterfaceAttribute"
-    response _ = xmlResponse
+    request  = post "DescribeNetworkInterfaceAttribute"
+    response = xmlResponse $ \h x -> DescribeNetworkInterfaceAttributeResponse
+        <$> x %| "attachment"
+        <*> x %| "description"
+        <*> x %| "groupSet"
+        <*> x %| "networkInterfaceId"
+        <*> x %| "sourceDestCheck"

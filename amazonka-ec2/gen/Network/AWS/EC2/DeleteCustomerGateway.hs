@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteCustomerGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,14 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified customer gateway. You must delete the VPN connection
--- before you can delete the customer gateway. Example This example deletes
--- the specified customer gateway.
--- https://ec2.amazonaws.com/?Action=DeleteCustomerGateway
--- &amp;CustomerGatewayId=cgw-b4dc3961 &amp;AUTHPARAMS
--- &lt;DeleteCustomerGatewayResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteCustomerGatewayResponse&gt;.
+-- before you can delete the customer gateway.
 module Network.AWS.EC2.DeleteCustomerGateway
     (
     -- * Request
@@ -34,7 +29,8 @@ module Network.AWS.EC2.DeleteCustomerGateway
     -- ** Request constructor
     , deleteCustomerGateway
     -- ** Request lenses
-    , dcgCustomerGatewayId
+    , dcg1CustomerGatewayId
+    , dcg1DryRun
 
     -- * Response
     , DeleteCustomerGatewayResponse
@@ -42,42 +38,48 @@ module Network.AWS.EC2.DeleteCustomerGateway
     , deleteCustomerGatewayResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteCustomerGateway = DeleteCustomerGateway
-    { _dcgCustomerGatewayId :: Text
+data DeleteCustomerGateway = DeleteCustomerGateway
+    { _dcg1CustomerGatewayId :: Text
+    , _dcg1DryRun            :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteCustomerGateway' request.
+-- | 'DeleteCustomerGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CustomerGatewayId ::@ @Text@
+-- * 'dcg1CustomerGatewayId' @::@ 'Text'
 --
-deleteCustomerGateway :: Text -- ^ 'dcgCustomerGatewayId'
+-- * 'dcg1DryRun' @::@ 'Maybe' 'Bool'
+--
+deleteCustomerGateway :: Text -- ^ 'dcg1CustomerGatewayId'
                       -> DeleteCustomerGateway
 deleteCustomerGateway p1 = DeleteCustomerGateway
-    { _dcgCustomerGatewayId = p1
+    { _dcg1CustomerGatewayId = p1
+    , _dcg1DryRun            = Nothing
     }
 
 -- | The ID of the customer gateway.
-dcgCustomerGatewayId :: Lens' DeleteCustomerGateway Text
-dcgCustomerGatewayId =
-    lens _dcgCustomerGatewayId (\s a -> s { _dcgCustomerGatewayId = a })
+dcg1CustomerGatewayId :: Lens' DeleteCustomerGateway Text
+dcg1CustomerGatewayId =
+    lens _dcg1CustomerGatewayId (\s a -> s { _dcg1CustomerGatewayId = a })
 
-instance ToQuery DeleteCustomerGateway where
-    toQuery = genericQuery def
+dcg1DryRun :: Lens' DeleteCustomerGateway (Maybe Bool)
+dcg1DryRun = lens _dcg1DryRun (\s a -> s { _dcg1DryRun = a })
+
+instance ToQuery DeleteCustomerGateway
+
+instance ToPath DeleteCustomerGateway where
+    toPath = const "/"
 
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteCustomerGatewayResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteCustomerGatewayResponse' constructor.
 deleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse
 deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
 
@@ -85,5 +87,5 @@ instance AWSRequest DeleteCustomerGateway where
     type Sv DeleteCustomerGateway = EC2
     type Rs DeleteCustomerGateway = DeleteCustomerGatewayResponse
 
-    request = post "DeleteCustomerGateway"
-    response _ = nullaryResponse DeleteCustomerGatewayResponse
+    request  = post "DeleteCustomerGateway"
+    response = nullaryResponse DeleteCustomerGatewayResponse

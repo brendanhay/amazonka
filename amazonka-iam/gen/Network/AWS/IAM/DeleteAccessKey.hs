@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.DeleteAccessKey
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,10 +23,8 @@
 -- | Deletes the access key associated with the specified user. If you do not
 -- specify a user name, IAM determines the user name implicitly based on the
 -- AWS access key ID signing the request. Because this action works for access
--- keys under the AWS account, you can use this API to manage root credentials
--- even if the AWS account has no associated users. https://iam.amazonaws.com/
--- ?Action=DeleteAccessKey &UserName=Bob &AccessKeyId=AKIAIOSFODNN7EXAMPLE
--- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- keys under the AWS account, you can use this action to manage root
+-- credentials even if the AWS account has no associated users.
 module Network.AWS.IAM.DeleteAccessKey
     (
     -- * Request
@@ -32,8 +32,8 @@ module Network.AWS.IAM.DeleteAccessKey
     -- ** Request constructor
     , deleteAccessKey
     -- ** Request lenses
-    , dakUserName
     , dakAccessKeyId
+    , dakUserName
 
     -- * Response
     , DeleteAccessKeyResponse
@@ -41,50 +41,49 @@ module Network.AWS.IAM.DeleteAccessKey
     , deleteAccessKeyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DeleteAccessKey = DeleteAccessKey
-    { _dakUserName :: Maybe Text
-    , _dakAccessKeyId :: Text
+    { _dakAccessKeyId :: Text
+    , _dakUserName    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteAccessKey' request.
+-- | 'DeleteAccessKey' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Maybe Text@
+-- * 'dakAccessKeyId' @::@ 'Text'
 --
--- * @AccessKeyId ::@ @Text@
+-- * 'dakUserName' @::@ 'Maybe' 'Text'
 --
 deleteAccessKey :: Text -- ^ 'dakAccessKeyId'
                 -> DeleteAccessKey
-deleteAccessKey p2 = DeleteAccessKey
-    { _dakUserName = Nothing
-    , _dakAccessKeyId = p2
+deleteAccessKey p1 = DeleteAccessKey
+    { _dakAccessKeyId = p1
+    , _dakUserName    = Nothing
     }
-
--- | Name of the user whose key you want to delete.
-dakUserName :: Lens' DeleteAccessKey (Maybe Text)
-dakUserName = lens _dakUserName (\s a -> s { _dakUserName = a })
 
 -- | The access key ID for the access key ID and secret access key you want to
 -- delete.
 dakAccessKeyId :: Lens' DeleteAccessKey Text
 dakAccessKeyId = lens _dakAccessKeyId (\s a -> s { _dakAccessKeyId = a })
 
-instance ToQuery DeleteAccessKey where
-    toQuery = genericQuery def
+-- | The name of the user whose key you want to delete.
+dakUserName :: Lens' DeleteAccessKey (Maybe Text)
+dakUserName = lens _dakUserName (\s a -> s { _dakUserName = a })
+
+instance ToQuery DeleteAccessKey
+
+instance ToPath DeleteAccessKey where
+    toPath = const "/"
 
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteAccessKeyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteAccessKeyResponse' constructor.
 deleteAccessKeyResponse :: DeleteAccessKeyResponse
 deleteAccessKeyResponse = DeleteAccessKeyResponse
 
@@ -92,5 +91,5 @@ instance AWSRequest DeleteAccessKey where
     type Sv DeleteAccessKey = IAM
     type Rs DeleteAccessKey = DeleteAccessKeyResponse
 
-    request = post "DeleteAccessKey"
-    response _ = nullaryResponse DeleteAccessKeyResponse
+    request  = post "DeleteAccessKey"
+    response = nullaryResponse DeleteAccessKeyResponse

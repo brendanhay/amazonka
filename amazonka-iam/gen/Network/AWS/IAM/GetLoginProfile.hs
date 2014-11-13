@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.GetLoginProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,9 +22,7 @@
 
 -- | Retrieves the user name and password-creation date for the specified user.
 -- If the user has not been assigned a password, the action returns a 404
--- (NoSuchEntity) error. https://iam.amazonaws.com/ ?Action=GetLoginProfile
--- &UserName=Bob &AUTHPARAMS Bob 2011-09-19T23:00:56Z
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- (NoSuchEntity) error.
 module Network.AWS.IAM.GetLoginProfile
     (
     -- * Request
@@ -40,20 +40,20 @@ module Network.AWS.IAM.GetLoginProfile
     , glprLoginProfile
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype GetLoginProfile = GetLoginProfile
     { _glpUserName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetLoginProfile' request.
+-- | 'GetLoginProfile' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Text@
+-- * 'glpUserName' @::@ 'Text'
 --
 getLoginProfile :: Text -- ^ 'glpUserName'
                 -> GetLoginProfile
@@ -61,27 +61,24 @@ getLoginProfile p1 = GetLoginProfile
     { _glpUserName = p1
     }
 
--- | Name of the user whose login profile you want to retrieve.
+-- | The name of the user whose login profile you want to retrieve.
 glpUserName :: Lens' GetLoginProfile Text
 glpUserName = lens _glpUserName (\s a -> s { _glpUserName = a })
 
-instance ToQuery GetLoginProfile where
-    toQuery = genericQuery def
+instance ToQuery GetLoginProfile
 
--- | Contains the result of a successful invocation of the GetLoginProfile
--- action.
+instance ToPath GetLoginProfile where
+    toPath = const "/"
+
 newtype GetLoginProfileResponse = GetLoginProfileResponse
     { _glprLoginProfile :: LoginProfile
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetLoginProfileResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetLoginProfileResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoginProfile ::@ @LoginProfile@
+-- * 'glprLoginProfile' @::@ 'LoginProfile'
 --
 getLoginProfileResponse :: LoginProfile -- ^ 'glprLoginProfile'
                         -> GetLoginProfileResponse
@@ -89,17 +86,14 @@ getLoginProfileResponse p1 = GetLoginProfileResponse
     { _glprLoginProfile = p1
     }
 
--- | User name and password create date for the user.
+-- | The user name and password create date for the user.
 glprLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
-glprLoginProfile =
-    lens _glprLoginProfile (\s a -> s { _glprLoginProfile = a })
-
-instance FromXML GetLoginProfileResponse where
-    fromXMLOptions = xmlOptions
+glprLoginProfile = lens _glprLoginProfile (\s a -> s { _glprLoginProfile = a })
 
 instance AWSRequest GetLoginProfile where
     type Sv GetLoginProfile = IAM
     type Rs GetLoginProfile = GetLoginProfileResponse
 
-    request = post "GetLoginProfile"
-    response _ = xmlResponse
+    request  = post "GetLoginProfile"
+    response = xmlResponse $ \h x -> GetLoginProfileResponse
+        <$> x %| "LoginProfile"

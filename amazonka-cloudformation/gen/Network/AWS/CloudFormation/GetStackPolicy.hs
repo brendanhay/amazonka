@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFormation.GetStackPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,13 +22,6 @@
 
 -- | Returns the stack policy for a specified stack. If a stack doesn't have a
 -- policy, a null value is returned.
--- https://cloudformation.us-east-1.amazonaws.com/ ?Action=GetStackPolicy
--- &StackName=MyStack &Version=2010-05-15 &SignatureVersion=2
--- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
--- &Signature=[Signature] "{ "Statement" : [ { "Effect" : "Deny", "Action" :
--- "Update:*", "Principal" : "*", "Resource" :
--- "LogicalResourceId/ProductionDatabase" }, { "Effect" : "Allow", "Action" :
--- "Update:*", "Principal" : "*", "Resource" : "*" } ] }.
 module Network.AWS.CloudFormation.GetStackPolicy
     (
     -- * Request
@@ -44,21 +39,20 @@ module Network.AWS.CloudFormation.GetStackPolicy
     , gsprStackPolicyBody
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the GetStackPolicy action.
 newtype GetStackPolicy = GetStackPolicy
     { _gspStackName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetStackPolicy' request.
+-- | 'GetStackPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackName ::@ @Text@
+-- * 'gspStackName' @::@ 'Text'
 --
 getStackPolicy :: Text -- ^ 'gspStackName'
                -> GetStackPolicy
@@ -71,22 +65,20 @@ getStackPolicy p1 = GetStackPolicy
 gspStackName :: Lens' GetStackPolicy Text
 gspStackName = lens _gspStackName (\s a -> s { _gspStackName = a })
 
-instance ToQuery GetStackPolicy where
-    toQuery = genericQuery def
+instance ToQuery GetStackPolicy
 
--- | The output for the GetStackPolicy action.
+instance ToPath GetStackPolicy where
+    toPath = const "/"
+
 newtype GetStackPolicyResponse = GetStackPolicyResponse
     { _gsprStackPolicyBody :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetStackPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetStackPolicyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackPolicyBody ::@ @Maybe Text@
+-- * 'gsprStackPolicyBody' @::@ 'Maybe' 'Text'
 --
 getStackPolicyResponse :: GetStackPolicyResponse
 getStackPolicyResponse = GetStackPolicyResponse
@@ -94,17 +86,16 @@ getStackPolicyResponse = GetStackPolicyResponse
     }
 
 -- | Structure containing the stack policy body. (For more information, go to
--- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.).
+-- Prevent Updates to Stack Resources in the AWS CloudFormation User
+-- Guide.).
 gsprStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprStackPolicyBody =
     lens _gsprStackPolicyBody (\s a -> s { _gsprStackPolicyBody = a })
-
-instance FromXML GetStackPolicyResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest GetStackPolicy where
     type Sv GetStackPolicy = CloudFormation
     type Rs GetStackPolicy = GetStackPolicyResponse
 
-    request = post "GetStackPolicy"
-    response _ = xmlResponse
+    request  = post "GetStackPolicy"
+    response = xmlResponse $ \h x -> GetStackPolicyResponse
+        <$> x %| "StackPolicyBody"

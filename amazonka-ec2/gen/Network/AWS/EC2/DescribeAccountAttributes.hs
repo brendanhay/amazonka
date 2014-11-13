@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeAccountAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,54 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes the specified attribute of your AWS account. Example This example
--- describes the platforms that are supported by your AWS account. The first
--- response is for an account that supports only EC2-VPC. The second response
--- if for an account that supports both EC2-Classic and EC2-VPC.
--- https://ec2.amazonaws.com/?Action=DescribeAccountAttributes
--- &amp;AttributeName.1=supported-platforms &amp;AUTHPARAMS
--- &lt;DescribeAccountAttributesResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;accountAttributeSet&gt; &lt;item&gt;
--- &lt;attributeName&gt;supported-platforms&lt;/attributeName&gt;
--- &lt;attributeValueSet&gt; &lt;item&gt;
--- &lt;attributeValue&gt;VPC&lt;/attributeValue&gt; &lt;/item&gt;
--- &lt;/attributeValueSet&gt; &lt;/item&gt; &lt;/accountAttributeSet&gt;
--- &lt;/DescribeAccountAttributesResponse&gt;
--- &lt;DescribeAccountAttributesResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;accountAttributeSet&gt; &lt;item&gt;
--- &lt;attributeName&gt;supported-platforms&lt;/attributeName&gt;
--- &lt;attributeValueSet&gt; &lt;item&gt;
--- &lt;attributeValue&gt;EC2&lt;/attributeValue&gt; &lt;/item&gt; &lt;item&gt;
--- &lt;attributeValue&gt;VPC&lt;/attributeValue&gt; &lt;/item&gt;
--- &lt;/attributeValueSet&gt; &lt;/item&gt; &lt;/accountAttributeSet&gt;
--- &lt;/DescribeAccountAttributesResponse&gt; Example 2 This example describes
--- the ID of your default VPC. The first response is for an account that
--- supports only EC2-VPC. The second response if for an account that supports
--- both EC2-Classic and EC2-VPC.
--- https://ec2.amazonaws.com/?Action=DescribeAccountAttributes
--- &amp;AttributeName.1=default-vpc &amp;AUTHPARAMS
--- &lt;DescribeAccountAttributesResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;accountAttributeSet&gt; &lt;item&gt;
--- &lt;attributeName&gt;default-vpc&lt;/attributeName&gt;
--- &lt;attributeValueSet&gt; &lt;item&gt;
--- &lt;attributeValue&gt;vpc-xxxxxxxx&lt;/attributeValue&gt; &lt;/item&gt;
--- &lt;/attributeValueSet&gt; &lt;/item&gt; &lt;/accountAttributeSet&gt;
--- &lt;/DescribeAccountAttributesResponse&gt;
--- &lt;DescribeAccountAttributesResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;accountAttributeSet&gt; &lt;item&gt;
--- &lt;attributeName&gt;default-vpc&lt;/attributeName&gt;
--- &lt;attributeValueSet&gt; &lt;item&gt;
--- &lt;attributeValue&gt;none&lt;/attributeValue&gt; &lt;/item&gt;
--- &lt;/attributeValueSet&gt; &lt;/item&gt; &lt;/accountAttributeSet&gt;
--- &lt;/DescribeAccountAttributesResponse&gt;.
+-- | Describes the specified attribute of your AWS account.
 module Network.AWS.EC2.DescribeAccountAttributes
     (
     -- * Request
@@ -74,6 +29,7 @@ module Network.AWS.EC2.DescribeAccountAttributes
     , describeAccountAttributes
     -- ** Request lenses
     , daaAttributeNames
+    , daaDryRun
 
     -- * Response
     , DescribeAccountAttributesResponse
@@ -83,46 +39,58 @@ module Network.AWS.EC2.DescribeAccountAttributes
     , daarAccountAttributes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DescribeAccountAttributes = DescribeAccountAttributes
-    { _daaAttributeNames :: [AccountAttributeName]
+data DescribeAccountAttributes = DescribeAccountAttributes
+    { _daaAttributeNames :: [Text]
+    , _daaDryRun         :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAccountAttributes' request.
+-- | 'DescribeAccountAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AttributeNames ::@ @[AccountAttributeName]@
+-- * 'daaAttributeNames' @::@ ['Text']
+--
+-- * 'daaDryRun' @::@ 'Maybe' 'Bool'
 --
 describeAccountAttributes :: DescribeAccountAttributes
 describeAccountAttributes = DescribeAccountAttributes
-    { _daaAttributeNames = mempty
+    { _daaDryRun         = Nothing
+    , _daaAttributeNames = mempty
     }
 
 -- | One or more account attribute names.
-daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
+daaAttributeNames :: Lens' DescribeAccountAttributes [Text]
 daaAttributeNames =
     lens _daaAttributeNames (\s a -> s { _daaAttributeNames = a })
 
-instance ToQuery DescribeAccountAttributes where
-    toQuery = genericQuery def
+daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
+daaDryRun = lens _daaDryRun (\s a -> s { _daaDryRun = a })
+
+instance ToQuery DescribeAccountAttributes
+
+instance ToPath DescribeAccountAttributes where
+    toPath = const "/"
 
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes :: [AccountAttribute]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAccountAttributesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeAccountAttributesResponse where
+    type Item DescribeAccountAttributesResponse = AccountAttribute
+
+    fromList = DescribeAccountAttributesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _daarAccountAttributes
+
+-- | 'DescribeAccountAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AccountAttributes ::@ @[AccountAttribute]@
+-- * 'daarAccountAttributes' @::@ ['AccountAttribute']
 --
 describeAccountAttributesResponse :: DescribeAccountAttributesResponse
 describeAccountAttributesResponse = DescribeAccountAttributesResponse
@@ -134,12 +102,10 @@ daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribu
 daarAccountAttributes =
     lens _daarAccountAttributes (\s a -> s { _daarAccountAttributes = a })
 
-instance FromXML DescribeAccountAttributesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeAccountAttributes where
     type Sv DescribeAccountAttributes = EC2
     type Rs DescribeAccountAttributes = DescribeAccountAttributesResponse
 
-    request = post "DescribeAccountAttributes"
-    response _ = xmlResponse
+    request  = post "DescribeAccountAttributes"
+    response = xmlResponse $ \h x -> DescribeAccountAttributesResponse
+        <$> x %| "accountAttributeSet"

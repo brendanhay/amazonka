@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SimpleDB.GetAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,9 +25,7 @@
 -- attributes by specifying an attribute name parameter. If the item does not
 -- exist on the replica that was accessed for this operation, an empty set is
 -- returned. The system does not return an error as it cannot guarantee the
--- item does not exist on other replicas. If GetAttributes is called without
--- being passed any attribute names, all the attributes for the item are
--- returned.
+-- item does not exist on other replicas.
 module Network.AWS.SimpleDB.GetAttributes
     (
     -- * Request
@@ -33,10 +33,10 @@ module Network.AWS.SimpleDB.GetAttributes
     -- ** Request constructor
     , getAttributes
     -- ** Request lenses
-    , gaDomainName
-    , gaItemName
     , gaAttributeNames
     , gaConsistentRead
+    , gaDomainName
+    , gaItemName
 
     -- * Response
     , GetAttributesResponse
@@ -46,39 +46,51 @@ module Network.AWS.SimpleDB.GetAttributes
     , garAttributes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data GetAttributes = GetAttributes
-    { _gaDomainName :: Text
-    , _gaItemName :: Text
-    , _gaAttributeNames :: [Text]
+    { _gaAttributeNames :: [Text]
     , _gaConsistentRead :: Maybe Bool
+    , _gaDomainName     :: Text
+    , _gaItemName       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetAttributes' request.
+-- | 'GetAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'gaAttributeNames' @::@ ['Text']
 --
--- * @ItemName ::@ @Text@
+-- * 'gaConsistentRead' @::@ 'Maybe' 'Bool'
 --
--- * @AttributeNames ::@ @[Text]@
+-- * 'gaDomainName' @::@ 'Text'
 --
--- * @ConsistentRead ::@ @Maybe Bool@
+-- * 'gaItemName' @::@ 'Text'
 --
 getAttributes :: Text -- ^ 'gaDomainName'
               -> Text -- ^ 'gaItemName'
               -> GetAttributes
 getAttributes p1 p2 = GetAttributes
-    { _gaDomainName = p1
-    , _gaItemName = p2
+    { _gaDomainName     = p1
+    , _gaItemName       = p2
     , _gaAttributeNames = mempty
     , _gaConsistentRead = Nothing
     }
+
+-- | The names of the attributes.
+gaAttributeNames :: Lens' GetAttributes [Text]
+gaAttributeNames = lens _gaAttributeNames (\s a -> s { _gaAttributeNames = a })
+
+-- | Determines whether or not strong consistency should be enforced when data
+-- is read from SimpleDB. If true, any data previously written to SimpleDB
+-- will be returned. Otherwise, results will be consistent eventually, and
+-- the client may not see data that was written immediately before your
+-- read.
+gaConsistentRead :: Lens' GetAttributes (Maybe Bool)
+gaConsistentRead = lens _gaConsistentRead (\s a -> s { _gaConsistentRead = a })
 
 -- | The name of the domain in which to perform the operation.
 gaDomainName :: Lens' GetAttributes Text
@@ -88,34 +100,26 @@ gaDomainName = lens _gaDomainName (\s a -> s { _gaDomainName = a })
 gaItemName :: Lens' GetAttributes Text
 gaItemName = lens _gaItemName (\s a -> s { _gaItemName = a })
 
--- | The names of the attributes.
-gaAttributeNames :: Lens' GetAttributes [Text]
-gaAttributeNames =
-    lens _gaAttributeNames (\s a -> s { _gaAttributeNames = a })
+instance ToQuery GetAttributes
 
--- | Determines whether or not strong consistency should be enforced when data
--- is read from SimpleDB. If true, any data previously written to SimpleDB
--- will be returned. Otherwise, results will be consistent eventually, and the
--- client may not see data that was written immediately before your read.
-gaConsistentRead :: Lens' GetAttributes (Maybe Bool)
-gaConsistentRead =
-    lens _gaConsistentRead (\s a -> s { _gaConsistentRead = a })
-
-instance ToQuery GetAttributes where
-    toQuery = genericQuery def
+instance ToPath GetAttributes where
+    toPath = const "/"
 
 newtype GetAttributesResponse = GetAttributesResponse
     { _garAttributes :: [Attribute]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetAttributesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList GetAttributesResponse where
+    type Item GetAttributesResponse = Attribute
+
+    fromList = GetAttributesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _garAttributes
+
+-- | 'GetAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Attributes ::@ @[Attribute]@
+-- * 'garAttributes' @::@ ['Attribute']
 --
 getAttributesResponse :: GetAttributesResponse
 getAttributesResponse = GetAttributesResponse
@@ -126,12 +130,10 @@ getAttributesResponse = GetAttributesResponse
 garAttributes :: Lens' GetAttributesResponse [Attribute]
 garAttributes = lens _garAttributes (\s a -> s { _garAttributes = a })
 
-instance FromXML GetAttributesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetAttributes where
     type Sv GetAttributes = SimpleDB
     type Rs GetAttributes = GetAttributesResponse
 
-    request = post "GetAttributes"
-    response _ = xmlResponse
+    request  = post "GetAttributes"
+    response = xmlResponse $ \h x -> GetAttributesResponse
+        <$> x %| "Attributes"

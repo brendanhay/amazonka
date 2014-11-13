@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CreateSecurityGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,25 +37,7 @@
 -- default rule that grants instances unrestricted network access to each
 -- other. You can add or remove rules from your security groups using
 -- AuthorizeSecurityGroupIngress, AuthorizeSecurityGroupEgress,
--- RevokeSecurityGroupIngress, and RevokeSecurityGroupEgress. Example for
--- EC2-Classic This example creates a security group named websrv for
--- EC2-Classic. https://ec2.amazonaws.com/?Action=CreateSecurityGroup
--- &amp;GroupName=websrv &amp;GroupDescription=Web Servers &amp;AUTHPARAMS
--- &lt;CreateSecurityGroupResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt;
--- &lt;groupId&gt;sg-1a2b3c4d&lt;/groupId&gt;
--- &lt;/CreateSecurityGroupResponse&gt; Example for EC2-VPC This example
--- creates a security group named WebServerSG for the specified VPC.
--- https://ec2.amazonaws.com/?Action=CreateSecurityGroup
--- &amp;GroupName=WebServerSG &amp;GroupDescription=Web Servers
--- &amp;VpcId=vpc-3325caf2 &amp;AUTHPARAMS &lt;CreateSecurityGroupResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt;
--- &lt;groupId&gt;sg-0a42d66a&lt;/groupId&gt;
--- &lt;/CreateSecurityGroupResponse&gt;.
+-- RevokeSecurityGroupIngress, and RevokeSecurityGroupEgress.
 module Network.AWS.EC2.CreateSecurityGroup
     (
     -- * Request
@@ -61,8 +45,9 @@ module Network.AWS.EC2.CreateSecurityGroup
     -- ** Request constructor
     , createSecurityGroup
     -- ** Request lenses
-    , csgGroupName
     , csgDescription
+    , csgDryRun
+    , csgGroupName
     , csgVpcId
 
     -- * Response
@@ -73,65 +58,74 @@ module Network.AWS.EC2.CreateSecurityGroup
     , csgrGroupId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateSecurityGroup = CreateSecurityGroup
-    { _csgGroupName :: Text
-    , _csgDescription :: Text
-    , _csgVpcId :: Maybe Text
+    { _csgDescription :: Text
+    , _csgDryRun      :: Maybe Bool
+    , _csgGroupName   :: Text
+    , _csgVpcId       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateSecurityGroup' request.
+-- | 'CreateSecurityGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupName ::@ @Text@
+-- * 'csgDescription' @::@ 'Text'
 --
--- * @Description ::@ @Text@
+-- * 'csgDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @VpcId ::@ @Maybe Text@
+-- * 'csgGroupName' @::@ 'Text'
+--
+-- * 'csgVpcId' @::@ 'Maybe' 'Text'
 --
 createSecurityGroup :: Text -- ^ 'csgGroupName'
                     -> Text -- ^ 'csgDescription'
                     -> CreateSecurityGroup
 createSecurityGroup p1 p2 = CreateSecurityGroup
-    { _csgGroupName = p1
+    { _csgGroupName   = p1
     , _csgDescription = p2
-    , _csgVpcId = Nothing
+    , _csgDryRun      = Nothing
+    , _csgVpcId       = Nothing
     }
 
--- | The name of the security group. Constraints: Up to 255 characters in length
--- Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z,
--- A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*.
-csgGroupName :: Lens' CreateSecurityGroup Text
-csgGroupName = lens _csgGroupName (\s a -> s { _csgGroupName = a })
-
 -- | A description for the security group. This is informational only.
+-- Constraints: Up to 255 characters in length Constraints for EC2-Classic:
+-- ASCII characters Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
+-- ._-:/()#,@[]+=&amp;;{}!$*.
 csgDescription :: Lens' CreateSecurityGroup Text
 csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
 
--- | [EC2-VPC] The ID of the VPC.
+csgDryRun :: Lens' CreateSecurityGroup (Maybe Bool)
+csgDryRun = lens _csgDryRun (\s a -> s { _csgDryRun = a })
+
+-- | The name of the security group. Constraints: Up to 255 characters in
+-- length Constraints for EC2-Classic: ASCII characters Constraints for
+-- EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*.
+csgGroupName :: Lens' CreateSecurityGroup Text
+csgGroupName = lens _csgGroupName (\s a -> s { _csgGroupName = a })
+
+-- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
 csgVpcId :: Lens' CreateSecurityGroup (Maybe Text)
 csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
 
-instance ToQuery CreateSecurityGroup where
-    toQuery = genericQuery def
+instance ToQuery CreateSecurityGroup
+
+instance ToPath CreateSecurityGroup where
+    toPath = const "/"
 
 newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgrGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateSecurityGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateSecurityGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupId ::@ @Maybe Text@
+-- * 'csgrGroupId' @::@ 'Maybe' 'Text'
 --
 createSecurityGroupResponse :: CreateSecurityGroupResponse
 createSecurityGroupResponse = CreateSecurityGroupResponse
@@ -142,12 +136,10 @@ createSecurityGroupResponse = CreateSecurityGroupResponse
 csgrGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
 csgrGroupId = lens _csgrGroupId (\s a -> s { _csgrGroupId = a })
 
-instance FromXML CreateSecurityGroupResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateSecurityGroup where
     type Sv CreateSecurityGroup = EC2
     type Rs CreateSecurityGroup = CreateSecurityGroupResponse
 
-    request = post "CreateSecurityGroup"
-    response _ = xmlResponse
+    request  = post "CreateSecurityGroup"
+    response = xmlResponse $ \h x -> CreateSecurityGroupResponse
+        <$> x %| "groupId"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SES.SetIdentityDkimEnabled
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,16 +30,7 @@
 -- example.com) has been set up for Easy DKIM using the AWS Console or the
 -- VerifyDomainDkim action. This action is throttled at one request per
 -- second. For more information about Easy DKIM signing, go to the Amazon SES
--- Developer Guide. POST / HTTP/1.1 Date: Fri, 29 Jun 2012 22:42:08 GMT Host:
--- email.us-east-1.amazonaws.com Content-Type:
--- application/x-www-form-urlencoded X-Amzn-Authorization: AWS3
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
--- Signature=u/hDNhYm87AV7LAPzouTBz6HJxUEuE5k96sLzYHjR24=,
--- Algorithm=HmacSHA256, SignedHeaders=Date;Host Content-Length: 168
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=SetIdentityDkimEnabled
--- &DkimEnabled=true&Identity=user%40example.com
--- &Timestamp=2012-06-29T22%3A42%3A08.000Z &Version=2010-12-01
--- 7aa61362-c469-11e1-aee5-6bbb4608fbcc.
+-- Developer Guide.
 module Network.AWS.SES.SetIdentityDkimEnabled
     (
     -- * Request
@@ -45,8 +38,8 @@ module Network.AWS.SES.SetIdentityDkimEnabled
     -- ** Request constructor
     , setIdentityDkimEnabled
     -- ** Request lenses
-    , sideIdentity
     , sideDkimEnabled
+    , sideIdentity
 
     -- * Response
     , SetIdentityDkimEnabledResponse
@@ -54,55 +47,50 @@ module Network.AWS.SES.SetIdentityDkimEnabled
     , setIdentityDkimEnabledResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents a request instructing the service to enable or disable DKIM
--- signing for an identity.
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
-    { _sideIdentity :: Text
-    , _sideDkimEnabled :: !Bool
+    { _sideDkimEnabled :: Bool
+    , _sideIdentity    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetIdentityDkimEnabled' request.
+-- | 'SetIdentityDkimEnabled' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Identity ::@ @Text@
+-- * 'sideDkimEnabled' @::@ 'Bool'
 --
--- * @DkimEnabled ::@ @Bool@
+-- * 'sideIdentity' @::@ 'Text'
 --
 setIdentityDkimEnabled :: Text -- ^ 'sideIdentity'
                        -> Bool -- ^ 'sideDkimEnabled'
                        -> SetIdentityDkimEnabled
 setIdentityDkimEnabled p1 p2 = SetIdentityDkimEnabled
-    { _sideIdentity = p1
+    { _sideIdentity    = p1
     , _sideDkimEnabled = p2
     }
+
+-- | Sets whether DKIM signing is enabled for an identity. Set to true to
+-- enable DKIM signing for this identity; false to disable it.
+sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
+sideDkimEnabled = lens _sideDkimEnabled (\s a -> s { _sideDkimEnabled = a })
 
 -- | The identity for which DKIM signing should be enabled or disabled.
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
 sideIdentity = lens _sideIdentity (\s a -> s { _sideIdentity = a })
 
--- | Sets whether DKIM signing is enabled for an identity. Set to true to enable
--- DKIM signing for this identity; false to disable it.
-sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
-sideDkimEnabled = lens _sideDkimEnabled (\s a -> s { _sideDkimEnabled = a })
+instance ToQuery SetIdentityDkimEnabled
 
-instance ToQuery SetIdentityDkimEnabled where
-    toQuery = genericQuery def
+instance ToPath SetIdentityDkimEnabled where
+    toPath = const "/"
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
 data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetIdentityDkimEnabledResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SetIdentityDkimEnabledResponse' constructor.
 setIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse
 setIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
 
@@ -110,5 +98,5 @@ instance AWSRequest SetIdentityDkimEnabled where
     type Sv SetIdentityDkimEnabled = SES
     type Rs SetIdentityDkimEnabled = SetIdentityDkimEnabledResponse
 
-    request = post "SetIdentityDkimEnabled"
-    response _ = nullaryResponse SetIdentityDkimEnabledResponse
+    request  = post "SetIdentityDkimEnabled"
+    response = nullaryResponse SetIdentityDkimEnabledResponse

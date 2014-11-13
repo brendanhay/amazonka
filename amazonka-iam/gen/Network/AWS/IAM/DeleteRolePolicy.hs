@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.DeleteRolePolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,9 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified policy associated with the specified role.
--- https://iam.amazonaws.com/ ?Action=DeleteRolePolicy
--- &PolicyName=S3AccessPolicy &RoleName=S3Access &Version=2010-05-08
--- &AUTHPARAMS c749ee7f-99ef-11e1-a4c3-27EXAMPLE804.
 module Network.AWS.IAM.DeleteRolePolicy
     (
     -- * Request
@@ -29,8 +28,8 @@ module Network.AWS.IAM.DeleteRolePolicy
     -- ** Request constructor
     , deleteRolePolicy
     -- ** Request lenses
-    , drpRoleName
     , drpPolicyName
+    , drpRoleName
 
     -- * Response
     , DeleteRolePolicyResponse
@@ -38,50 +37,49 @@ module Network.AWS.IAM.DeleteRolePolicy
     , deleteRolePolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DeleteRolePolicy = DeleteRolePolicy
-    { _drpRoleName :: Text
-    , _drpPolicyName :: Text
+    { _drpPolicyName :: Text
+    , _drpRoleName   :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteRolePolicy' request.
+-- | 'DeleteRolePolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RoleName ::@ @Text@
+-- * 'drpPolicyName' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'drpRoleName' @::@ 'Text'
 --
 deleteRolePolicy :: Text -- ^ 'drpRoleName'
                  -> Text -- ^ 'drpPolicyName'
                  -> DeleteRolePolicy
 deleteRolePolicy p1 p2 = DeleteRolePolicy
-    { _drpRoleName = p1
+    { _drpRoleName   = p1
     , _drpPolicyName = p2
     }
 
--- | Name of the role the associated with the policy.
-drpRoleName :: Lens' DeleteRolePolicy Text
-drpRoleName = lens _drpRoleName (\s a -> s { _drpRoleName = a })
-
--- | Name of the policy document to delete.
+-- | The name of the policy document to delete.
 drpPolicyName :: Lens' DeleteRolePolicy Text
 drpPolicyName = lens _drpPolicyName (\s a -> s { _drpPolicyName = a })
 
-instance ToQuery DeleteRolePolicy where
-    toQuery = genericQuery def
+-- | The name of the role the associated with the policy.
+drpRoleName :: Lens' DeleteRolePolicy Text
+drpRoleName = lens _drpRoleName (\s a -> s { _drpRoleName = a })
+
+instance ToQuery DeleteRolePolicy
+
+instance ToPath DeleteRolePolicy where
+    toPath = const "/"
 
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteRolePolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteRolePolicyResponse' constructor.
 deleteRolePolicyResponse :: DeleteRolePolicyResponse
 deleteRolePolicyResponse = DeleteRolePolicyResponse
 
@@ -89,5 +87,5 @@ instance AWSRequest DeleteRolePolicy where
     type Sv DeleteRolePolicy = IAM
     type Rs DeleteRolePolicy = DeleteRolePolicyResponse
 
-    request = post "DeleteRolePolicy"
-    response _ = nullaryResponse DeleteRolePolicyResponse
+    request  = post "DeleteRolePolicy"
+    response = nullaryResponse DeleteRolePolicyResponse

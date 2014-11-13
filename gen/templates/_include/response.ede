@@ -1,0 +1,19 @@
+{% case response.type %}
+{% when "empty" %}
+    response = nullaryResponse {{ response.name }}
+{% else %}
+  {% if response.streaming %}
+    response = bodyResponse $ \h b -> {{ response.name }}
+{% include "response-fields.ede" %}
+  {% elif protocol == "json" %}
+    response = jsonResponse $ \h o -> {{ response.name }}
+{% include "response-fields.ede" %}
+  {% else %}
+    {% if response.shared %}
+    response = xmlResponse $ const decodeCursor
+    {% else %}
+    response = xmlResponse $ \h x -> {{ response.name }}
+{% include "response-fields.ede" %}
+    {% endif %}
+  {% endif %}
+{% endcase %}

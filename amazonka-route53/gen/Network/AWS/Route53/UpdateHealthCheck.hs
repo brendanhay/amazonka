@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53.UpdateHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This action updates an existing health check. To update a health check,
--- send a POST request to the 2013-05-27/healthcheck/health check ID resource.
+-- send a POST request to the 2013-04-01/healthcheck/health check ID resource.
 -- The request body must include an XML document with an
 -- UpdateHealthCheckRequest element. The response returns an
 -- UpdateHealthCheckResponse element, which contains metadata about the health
@@ -31,14 +33,14 @@ module Network.AWS.Route53.UpdateHealthCheck
     -- ** Request constructor
     , updateHealthCheck
     -- ** Request lenses
+    , uhcFailureThreshold
+    , uhcFullyQualifiedDomainName
     , uhcHealthCheckId
     , uhcHealthCheckVersion
     , uhcIPAddress
     , uhcPort
     , uhcResourcePath
-    , uhcFullyQualifiedDomainName
     , uhcSearchString
-    , uhcFailureThreshold
 
     -- * Response
     , UpdateHealthCheckResponse
@@ -48,69 +50,82 @@ module Network.AWS.Route53.UpdateHealthCheck
     , uhcrHealthCheck
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
--- | &gt;A complex type that contains information about the request to update a
--- health check.
 data UpdateHealthCheck = UpdateHealthCheck
-    { _uhcHealthCheckId :: Text
-    , _uhcHealthCheckVersion :: Maybe Integer
-    , _uhcIPAddress :: Maybe Text
-    , _uhcPort :: Maybe Integer
-    , _uhcResourcePath :: Maybe Text
+    { _uhcFailureThreshold         :: Maybe Natural
     , _uhcFullyQualifiedDomainName :: Maybe Text
-    , _uhcSearchString :: Maybe Text
-    , _uhcFailureThreshold :: Maybe Integer
+    , _uhcHealthCheckId            :: Text
+    , _uhcHealthCheckVersion       :: Maybe Natural
+    , _uhcIPAddress                :: Maybe Text
+    , _uhcPort                     :: Maybe Natural
+    , _uhcResourcePath             :: Maybe Text
+    , _uhcSearchString             :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateHealthCheck' request.
+-- | 'UpdateHealthCheck' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HealthCheckId ::@ @Text@
+-- * 'uhcFailureThreshold' @::@ 'Maybe' 'Natural'
 --
--- * @HealthCheckVersion ::@ @Maybe Integer@
+-- * 'uhcFullyQualifiedDomainName' @::@ 'Maybe' 'Text'
 --
--- * @IPAddress ::@ @Maybe Text@
+-- * 'uhcHealthCheckId' @::@ 'Text'
 --
--- * @Port ::@ @Maybe Integer@
+-- * 'uhcHealthCheckVersion' @::@ 'Maybe' 'Natural'
 --
--- * @ResourcePath ::@ @Maybe Text@
+-- * 'uhcIPAddress' @::@ 'Maybe' 'Text'
 --
--- * @FullyQualifiedDomainName ::@ @Maybe Text@
+-- * 'uhcPort' @::@ 'Maybe' 'Natural'
 --
--- * @SearchString ::@ @Maybe Text@
+-- * 'uhcResourcePath' @::@ 'Maybe' 'Text'
 --
--- * @FailureThreshold ::@ @Maybe Integer@
+-- * 'uhcSearchString' @::@ 'Maybe' 'Text'
 --
 updateHealthCheck :: Text -- ^ 'uhcHealthCheckId'
                   -> UpdateHealthCheck
 updateHealthCheck p1 = UpdateHealthCheck
-    { _uhcHealthCheckId = p1
-    , _uhcHealthCheckVersion = Nothing
-    , _uhcIPAddress = Nothing
-    , _uhcPort = Nothing
-    , _uhcResourcePath = Nothing
+    { _uhcHealthCheckId            = p1
+    , _uhcHealthCheckVersion       = Nothing
+    , _uhcIPAddress                = Nothing
+    , _uhcPort                     = Nothing
+    , _uhcResourcePath             = Nothing
     , _uhcFullyQualifiedDomainName = Nothing
-    , _uhcSearchString = Nothing
-    , _uhcFailureThreshold = Nothing
+    , _uhcSearchString             = Nothing
+    , _uhcFailureThreshold         = Nothing
     }
+
+-- | The number of consecutive health checks that an endpoint must pass or
+-- fail for Route 53 to change the current status of the endpoint from
+-- unhealthy to healthy or vice versa. Valid values are integers between 1
+-- and 10. For more information, see "How Amazon Route 53 Determines Whether
+-- an Endpoint Is Healthy" in the Amazon Route 53 Developer Guide. Specify
+-- this value only if you want to change it.
+uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
+uhcFailureThreshold =
+    lens _uhcFailureThreshold (\s a -> s { _uhcFailureThreshold = a })
+
+-- | Fully qualified domain name of the instance to be health checked. Specify
+-- this value only if you want to change it.
+uhcFullyQualifiedDomainName :: Lens' UpdateHealthCheck (Maybe Text)
+uhcFullyQualifiedDomainName =
+    lens _uhcFullyQualifiedDomainName
+        (\s a -> s { _uhcFullyQualifiedDomainName = a })
 
 -- | The ID of the health check to update.
 uhcHealthCheckId :: Lens' UpdateHealthCheck Text
-uhcHealthCheckId =
-    lens _uhcHealthCheckId (\s a -> s { _uhcHealthCheckId = a })
+uhcHealthCheckId = lens _uhcHealthCheckId (\s a -> s { _uhcHealthCheckId = a })
 
 -- | Optional. When you specify a health check version, Route 53 compares this
 -- value with the current value in the health check, which prevents you from
 -- updating the health check when the versions don't match. Using
 -- HealthCheckVersion lets you prevent overwriting another change to the
 -- health check.
-uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Integer)
+uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcHealthCheckVersion =
     lens _uhcHealthCheckVersion (\s a -> s { _uhcHealthCheckVersion = a })
 
@@ -119,9 +134,9 @@ uhcHealthCheckVersion =
 uhcIPAddress :: Lens' UpdateHealthCheck (Maybe Text)
 uhcIPAddress = lens _uhcIPAddress (\s a -> s { _uhcIPAddress = a })
 
--- | The port on which you want Route 53 to open a connection to perform health
--- checks. Specify this value only if you want to change it.
-uhcPort :: Lens' UpdateHealthCheck (Maybe Integer)
+-- | The port on which you want Route 53 to open a connection to perform
+-- health checks. Specify this value only if you want to change it.
+uhcPort :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcPort = lens _uhcPort (\s a -> s { _uhcPort = a })
 
 -- | The path that you want Amazon Route 53 to request when performing health
@@ -132,13 +147,6 @@ uhcPort = lens _uhcPort (\s a -> s { _uhcPort = a })
 uhcResourcePath :: Lens' UpdateHealthCheck (Maybe Text)
 uhcResourcePath = lens _uhcResourcePath (\s a -> s { _uhcResourcePath = a })
 
--- | Fully qualified domain name of the instance to be health checked. Specify
--- this value only if you want to change it.
-uhcFullyQualifiedDomainName :: Lens' UpdateHealthCheck (Maybe Text)
-uhcFullyQualifiedDomainName =
-    lens _uhcFullyQualifiedDomainName
-         (\s a -> s { _uhcFullyQualifiedDomainName = a })
-
 -- | If the value of Type is HTTP_STR_MATCH or HTTP_STR_MATCH, the string that
 -- you want Route 53 to search for in the response body from the specified
 -- resource. If the string appears in the response body, Route 53 considers
@@ -146,38 +154,29 @@ uhcFullyQualifiedDomainName =
 uhcSearchString :: Lens' UpdateHealthCheck (Maybe Text)
 uhcSearchString = lens _uhcSearchString (\s a -> s { _uhcSearchString = a })
 
--- | The number of consecutive health checks that an endpoint must pass or fail
--- for Route 53 to change the current status of the endpoint from unhealthy to
--- healthy or vice versa. Valid values are integers between 1 and 10. For more
--- information, see "How Amazon Route 53 Determines Whether an Endpoint Is
--- Healthy" in the Amazon Route 53 Developer Guide. Specify this value only if
--- you want to change it.
-uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Integer)
-uhcFailureThreshold =
-    lens _uhcFailureThreshold (\s a -> s { _uhcFailureThreshold = a })
+instance ToPath UpdateHealthCheck where
+    toPath UpdateHealthCheck{..} = mconcat
+        [ "/2013-04-01/healthcheck/"
+        , toText _uhcHealthCheckId
+        ]
 
-instance ToPath UpdateHealthCheck
-
-instance ToQuery UpdateHealthCheck
+instance ToQuery UpdateHealthCheck where
+    toQuery = const mempty
 
 instance ToHeaders UpdateHealthCheck
 
-instance ToXML UpdateHealthCheck where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateHealthCheck"
+instance ToBody UpdateHealthCheck where
+    toBody = toBody . encodeXML . _uhcHealthCheckVersion
 
 newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
     { _uhcrHealthCheck :: HealthCheck
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateHealthCheckResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateHealthCheckResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HealthCheck ::@ @HealthCheck@
+-- * 'uhcrHealthCheck' @::@ 'HealthCheck'
 --
 updateHealthCheckResponse :: HealthCheck -- ^ 'uhcrHealthCheck'
                           -> UpdateHealthCheckResponse
@@ -185,17 +184,13 @@ updateHealthCheckResponse p1 = UpdateHealthCheckResponse
     { _uhcrHealthCheck = p1
     }
 
--- | A complex type that contains identifying information about the health
--- check.
 uhcrHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
 uhcrHealthCheck = lens _uhcrHealthCheck (\s a -> s { _uhcrHealthCheck = a })
-
-instance FromXML UpdateHealthCheckResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest UpdateHealthCheck where
     type Sv UpdateHealthCheck = Route53
     type Rs UpdateHealthCheck = UpdateHealthCheckResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = post
+    response = xmlResponse $ \h x -> UpdateHealthCheckResponse
+        <$> x %| "HealthCheck"

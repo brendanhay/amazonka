@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ModifySubnetAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,12 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Modifies a subnet attribute. Example This example modifies the attribute
--- for subnet-1a2b3c4d to specify that all instances launched into this subnet
--- are assigned a public IP address.
--- https://ec2.amazonaws.com/?Action=ModifySubnetAttribute
--- &amp;SubnetId=subnet-1a2b3c4d &amp;MapPublicIpOnLaunch.Value=true
--- &amp;AUTHPARAMS.
+-- | Modifies a subnet attribute.
 module Network.AWS.EC2.ModifySubnetAttribute
     (
     -- * Request
@@ -31,8 +28,8 @@ module Network.AWS.EC2.ModifySubnetAttribute
     -- ** Request constructor
     , modifySubnetAttribute
     -- ** Request lenses
-    , msa1SubnetId
-    , msa1MapPublicIpOnLaunch
+    , msaMapPublicIpOnLaunch
+    , msaSubnetId
 
     -- * Response
     , ModifySubnetAttributeResponse
@@ -40,51 +37,48 @@ module Network.AWS.EC2.ModifySubnetAttribute
     , modifySubnetAttributeResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ModifySubnetAttribute = ModifySubnetAttribute
-    { _msa1SubnetId :: Text
-    , _msa1MapPublicIpOnLaunch :: Maybe AttributeBooleanValue
-    } deriving (Eq, Ord, Show, Generic)
+    { _msaMapPublicIpOnLaunch :: Maybe AttributeBooleanValue
+    , _msaSubnetId            :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifySubnetAttribute' request.
+-- | 'ModifySubnetAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SubnetId ::@ @Text@
+-- * 'msaMapPublicIpOnLaunch' @::@ 'Maybe' 'AttributeBooleanValue'
 --
--- * @MapPublicIpOnLaunch ::@ @Maybe AttributeBooleanValue@
+-- * 'msaSubnetId' @::@ 'Text'
 --
-modifySubnetAttribute :: Text -- ^ 'msa1SubnetId'
+modifySubnetAttribute :: Text -- ^ 'msaSubnetId'
                       -> ModifySubnetAttribute
 modifySubnetAttribute p1 = ModifySubnetAttribute
-    { _msa1SubnetId = p1
-    , _msa1MapPublicIpOnLaunch = Nothing
+    { _msaSubnetId            = p1
+    , _msaMapPublicIpOnLaunch = Nothing
     }
 
+msaMapPublicIpOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
+msaMapPublicIpOnLaunch =
+    lens _msaMapPublicIpOnLaunch (\s a -> s { _msaMapPublicIpOnLaunch = a })
+
 -- | The ID of the subnet.
-msa1SubnetId :: Lens' ModifySubnetAttribute Text
-msa1SubnetId = lens _msa1SubnetId (\s a -> s { _msa1SubnetId = a })
+msaSubnetId :: Lens' ModifySubnetAttribute Text
+msaSubnetId = lens _msaSubnetId (\s a -> s { _msaSubnetId = a })
 
--- | 
-msa1MapPublicIpOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
-msa1MapPublicIpOnLaunch =
-    lens _msa1MapPublicIpOnLaunch
-         (\s a -> s { _msa1MapPublicIpOnLaunch = a })
+instance ToQuery ModifySubnetAttribute
 
-instance ToQuery ModifySubnetAttribute where
-    toQuery = genericQuery def
+instance ToPath ModifySubnetAttribute where
+    toPath = const "/"
 
 data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifySubnetAttributeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ModifySubnetAttributeResponse' constructor.
 modifySubnetAttributeResponse :: ModifySubnetAttributeResponse
 modifySubnetAttributeResponse = ModifySubnetAttributeResponse
 
@@ -92,5 +86,5 @@ instance AWSRequest ModifySubnetAttribute where
     type Sv ModifySubnetAttribute = EC2
     type Rs ModifySubnetAttribute = ModifySubnetAttributeResponse
 
-    request = post "ModifySubnetAttribute"
-    response _ = nullaryResponse ModifySubnetAttributeResponse
+    request  = post "ModifySubnetAttribute"
+    response = nullaryResponse ModifySubnetAttributeResponse

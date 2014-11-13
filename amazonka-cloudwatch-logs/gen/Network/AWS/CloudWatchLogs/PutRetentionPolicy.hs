@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutRetentionPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,17 +22,7 @@
 
 -- | Sets the retention of the specified log group. A retention policy allows
 -- you to configure the number of days you want to retain log events in the
--- specified log group. Creates or updates a 30 day retention policy for a log
--- group The following is an example of a PutRetentionPolicy request and
--- response. POST / HTTP/1.1 Host: logs.. X-Amz-Date: Authorization:
--- AWS4-HMAC-SHA256 Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Accept: application/json Content-Type:
--- application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]>
--- X-Amz-Target: Logs_20140328.PutRetentionPolicy { "logGroupName":
--- "exampleLogGroupName", "retentionInDays": 30 } HTTP/1.1 200 OK
--- x-amzn-RequestId: Content-Type: application/x-amz-json-1.1 Content-Length:
--- Date: ]]>.
+-- specified log group.
 module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     (
     -- * Request
@@ -47,63 +39,61 @@ module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     , putRetentionPolicyResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudWatchLogs.Types
 
 data PutRetentionPolicy = PutRetentionPolicy
-    { _prpLogGroupName :: Text
-    , _prpRetentionInDays :: !Integer
+    { _prpLogGroupName    :: Text
+    , _prpRetentionInDays :: Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutRetentionPolicy' request.
+-- | 'PutRetentionPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogGroupName ::@ @Text@
+-- * 'prpLogGroupName' @::@ 'Text'
 --
--- * @RetentionInDays ::@ @Integer@
+-- * 'prpRetentionInDays' @::@ 'Int'
 --
 putRetentionPolicy :: Text -- ^ 'prpLogGroupName'
-                   -> Integer -- ^ 'prpRetentionInDays'
+                   -> Int -- ^ 'prpRetentionInDays'
                    -> PutRetentionPolicy
 putRetentionPolicy p1 p2 = PutRetentionPolicy
-    { _prpLogGroupName = p1
+    { _prpLogGroupName    = p1
     , _prpRetentionInDays = p2
     }
 
 prpLogGroupName :: Lens' PutRetentionPolicy Text
 prpLogGroupName = lens _prpLogGroupName (\s a -> s { _prpLogGroupName = a })
 
--- | Specifies the number of days you want to retain log events in the specified
--- log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180,
--- 365, 400, 547, 730.
-prpRetentionInDays :: Lens' PutRetentionPolicy Integer
+prpRetentionInDays :: Lens' PutRetentionPolicy Int
 prpRetentionInDays =
     lens _prpRetentionInDays (\s a -> s { _prpRetentionInDays = a })
 
-instance ToPath PutRetentionPolicy
+instance ToPath PutRetentionPolicy where
+    toPath = const "/"
 
-instance ToQuery PutRetentionPolicy
+instance ToQuery PutRetentionPolicy where
+    toQuery = const mempty
 
 instance ToHeaders PutRetentionPolicy
 
-instance ToJSON PutRetentionPolicy
+instance ToBody PutRetentionPolicy where
+    toBody = toBody . encode . _prpLogGroupName
 
 data PutRetentionPolicyResponse = PutRetentionPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutRetentionPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutRetentionPolicyResponse' constructor.
 putRetentionPolicyResponse :: PutRetentionPolicyResponse
 putRetentionPolicyResponse = PutRetentionPolicyResponse
+
+-- FromJSON
 
 instance AWSRequest PutRetentionPolicy where
     type Sv PutRetentionPolicy = CloudWatchLogs
     type Rs PutRetentionPolicy = PutRetentionPolicyResponse
 
-    request = get
-    response _ = nullaryResponse PutRetentionPolicyResponse
+    request  = post'
+    response = nullaryResponse PutRetentionPolicyResponse

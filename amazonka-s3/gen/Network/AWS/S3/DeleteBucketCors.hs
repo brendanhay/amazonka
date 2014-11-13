@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketCors
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,46 +36,45 @@ module Network.AWS.S3.DeleteBucketCors
     , deleteBucketCorsResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype DeleteBucketCors = DeleteBucketCors
-    { _dbcBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _dbcBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteBucketCors' request.
+-- | 'DeleteBucketCors' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'dbcBucket' @::@ 'Text'
 --
-deleteBucketCors :: BucketName -- ^ 'dbcBucket'
+deleteBucketCors :: Text -- ^ 'dbcBucket'
                  -> DeleteBucketCors
 deleteBucketCors p1 = DeleteBucketCors
     { _dbcBucket = p1
     }
 
-dbcBucket :: Lens' DeleteBucketCors BucketName
+dbcBucket :: Lens' DeleteBucketCors Text
 dbcBucket = lens _dbcBucket (\s a -> s { _dbcBucket = a })
 
-instance ToPath DeleteBucketCors
+instance ToPath DeleteBucketCors where
+    toPath DeleteBucketCors{..} = mconcat
+        [ "/"
+        , toText _dbcBucket
+        ]
 
-instance ToQuery DeleteBucketCors
+instance ToQuery DeleteBucketCors where
+    toQuery = const "cors"
 
 instance ToHeaders DeleteBucketCors
-
-instance ToBody DeleteBucketCors
 
 data DeleteBucketCorsResponse = DeleteBucketCorsResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteBucketCorsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteBucketCorsResponse' constructor.
 deleteBucketCorsResponse :: DeleteBucketCorsResponse
 deleteBucketCorsResponse = DeleteBucketCorsResponse
 
@@ -81,5 +82,5 @@ instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3
     type Rs DeleteBucketCors = DeleteBucketCorsResponse
 
-    request = get
-    response _ = nullaryResponse DeleteBucketCorsResponse
+    request  = delete
+    response = nullaryResponse DeleteBucketCorsResponse

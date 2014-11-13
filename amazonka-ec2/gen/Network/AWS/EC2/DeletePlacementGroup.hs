@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeletePlacementGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,13 +23,7 @@
 -- | Deletes the specified placement group. You must terminate all instances in
 -- the placement group before you can delete the placement group. For more
 -- information about placement groups and cluster instances, see Cluster
--- Instances in the Amazon Elastic Compute Cloud User Guide. Example This
--- example deletes the placement group named XYZ-cluster.
--- https://ec2.amazonaws.com/?Action=DeletePlacementGroup
--- &amp;GroupName=XYZ-cluster &amp;AUTHPARAMS &lt;DeletePlacementGroupResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeletePlacementGroupResponse&gt;.
+-- Instances in the Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.DeletePlacementGroup
     (
     -- * Request
@@ -35,6 +31,7 @@ module Network.AWS.EC2.DeletePlacementGroup
     -- ** Request constructor
     , deletePlacementGroup
     -- ** Request lenses
+    , dpgDryRun
     , dpgGroupName
 
     -- * Response
@@ -43,41 +40,47 @@ module Network.AWS.EC2.DeletePlacementGroup
     , deletePlacementGroupResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeletePlacementGroup = DeletePlacementGroup
-    { _dpgGroupName :: Text
+data DeletePlacementGroup = DeletePlacementGroup
+    { _dpgDryRun    :: Maybe Bool
+    , _dpgGroupName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeletePlacementGroup' request.
+-- | 'DeletePlacementGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupName ::@ @Text@
+-- * 'dpgDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'dpgGroupName' @::@ 'Text'
 --
 deletePlacementGroup :: Text -- ^ 'dpgGroupName'
                      -> DeletePlacementGroup
 deletePlacementGroup p1 = DeletePlacementGroup
     { _dpgGroupName = p1
+    , _dpgDryRun    = Nothing
     }
+
+dpgDryRun :: Lens' DeletePlacementGroup (Maybe Bool)
+dpgDryRun = lens _dpgDryRun (\s a -> s { _dpgDryRun = a })
 
 -- | The name of the placement group.
 dpgGroupName :: Lens' DeletePlacementGroup Text
 dpgGroupName = lens _dpgGroupName (\s a -> s { _dpgGroupName = a })
 
-instance ToQuery DeletePlacementGroup where
-    toQuery = genericQuery def
+instance ToQuery DeletePlacementGroup
+
+instance ToPath DeletePlacementGroup where
+    toPath = const "/"
 
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeletePlacementGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeletePlacementGroupResponse' constructor.
 deletePlacementGroupResponse :: DeletePlacementGroupResponse
 deletePlacementGroupResponse = DeletePlacementGroupResponse
 
@@ -85,5 +88,5 @@ instance AWSRequest DeletePlacementGroup where
     type Sv DeletePlacementGroup = EC2
     type Rs DeletePlacementGroup = DeletePlacementGroupResponse
 
-    request = post "DeletePlacementGroup"
-    response _ = nullaryResponse DeletePlacementGroupResponse
+    request  = post "DeletePlacementGroup"
+    response = nullaryResponse DeletePlacementGroupResponse

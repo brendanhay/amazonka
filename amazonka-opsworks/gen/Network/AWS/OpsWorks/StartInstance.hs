@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.StartInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,7 +32,7 @@ module Network.AWS.OpsWorks.StartInstance
     -- ** Request constructor
     , startInstance
     -- ** Request lenses
-    , siInstanceId
+    , si1InstanceId
 
     -- * Response
     , StartInstanceResponse
@@ -38,52 +40,53 @@ module Network.AWS.OpsWorks.StartInstance
     , startInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype StartInstance = StartInstance
-    { _siInstanceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _si1InstanceId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartInstance' request.
+-- | 'StartInstance' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @Text@
+-- * 'si1InstanceId' @::@ 'Text'
 --
-startInstance :: Text -- ^ 'siInstanceId'
+startInstance :: Text -- ^ 'si1InstanceId'
               -> StartInstance
 startInstance p1 = StartInstance
-    { _siInstanceId = p1
+    { _si1InstanceId = p1
     }
 
 -- | The instance ID.
-siInstanceId :: Lens' StartInstance Text
-siInstanceId = lens _siInstanceId (\s a -> s { _siInstanceId = a })
+si1InstanceId :: Lens' StartInstance Text
+si1InstanceId = lens _si1InstanceId (\s a -> s { _si1InstanceId = a })
 
-instance ToPath StartInstance
+instance ToPath StartInstance where
+    toPath = const "/"
 
-instance ToQuery StartInstance
+instance ToQuery StartInstance where
+    toQuery = const mempty
 
 instance ToHeaders StartInstance
 
-instance ToJSON StartInstance
+instance ToBody StartInstance where
+    toBody = toBody . encode . _si1InstanceId
 
 data StartInstanceResponse = StartInstanceResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartInstanceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'StartInstanceResponse' constructor.
 startInstanceResponse :: StartInstanceResponse
 startInstanceResponse = StartInstanceResponse
+
+-- FromJSON
 
 instance AWSRequest StartInstance where
     type Sv StartInstance = OpsWorks
     type Rs StartInstance = StartInstanceResponse
 
-    request = get
-    response _ = nullaryResponse StartInstanceResponse
+    request  = post'
+    response = nullaryResponse StartInstanceResponse

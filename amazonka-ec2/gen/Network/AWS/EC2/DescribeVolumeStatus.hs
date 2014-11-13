@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeVolumeStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,25 +45,7 @@
 -- shows potential-data-inconsistency, then the action shows enable-volume-io.
 -- This means that you may want to enable the I/O operations for the volume by
 -- calling the EnableVolumeIO action and then check the volume for data
--- consistency. Volume status is based on the volume status checks, and does
--- not reflect the volume state. Therefore, volume status does not indicate
--- volumes in the error state (for example, when a volume is incapable of
--- accepting I/O.) Example This example describes the status of all the
--- volumes associated with your account.
--- https://ec2.amazonaws.com/?Action=DescribeVolumeStatus &amp;AUTHPARAMS
--- 5jkdf074-37ed-4004-8671-a78ee82bf1cbEXAMPLE vol-11111111 us-east-1d ok
--- io-enabled passed vol-22222222 us-east-1d impaired io-enabled failed
--- evol-61a54008 potential-data-inconsistency THIS IS AN EXAMPLE
--- 2011-12-01T14:00:00.000Z 2011-12-01T15:00:00.000Z enable-volume-io
--- evol-61a54008 potential-data-inconsistency THIS IS AN EXAMPLE Example This
--- example describes all the volumes in the us-east-1d Availability Zone with
--- failed io-enabled status.
--- https://ec2.amazonaws.com/?Action=DescribeVolumeStatus
--- &amp;Filter.1.Name=availability-zone &amp;Filter.1.Value.1=us-east-1d
--- &amp;Filter.2.Name=volume-status.details-name
--- &amp;Filter.2.Value.1=io-enabled
--- &amp;Filter.3.Name=volume-status.details-status
--- &amp;Filter.3.Value.1=failed &amp;AUTHPARAMS.
+-- consistency.
 module Network.AWS.EC2.DescribeVolumeStatus
     (
     -- * Request
@@ -69,127 +53,129 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- ** Request constructor
     , describeVolumeStatus
     -- ** Request lenses
-    , dvsVolumeIds
+    , dvsDryRun
     , dvsFilters
-    , dvsNextToken
     , dvsMaxResults
+    , dvsNextToken
+    , dvsVolumeIds
 
     -- * Response
     , DescribeVolumeStatusResponse
     -- ** Response constructor
     , describeVolumeStatusResponse
     -- ** Response lenses
-    , dvsrVolumeStatuses
     , dvsrNextToken
+    , dvsrVolumeStatuses
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeVolumeStatus = DescribeVolumeStatus
-    { _dvsVolumeIds :: [Text]
-    , _dvsFilters :: [Filter]
-    , _dvsNextToken :: Maybe Text
-    , _dvsMaxResults :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    { _dvsDryRun     :: Maybe Bool
+    , _dvsFilters    :: [Filter]
+    , _dvsMaxResults :: Maybe Int
+    , _dvsNextToken  :: Maybe Text
+    , _dvsVolumeIds  :: [Text]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVolumeStatus' request.
+-- | 'DescribeVolumeStatus' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeIds ::@ @[Text]@
+-- * 'dvsDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Filters ::@ @[Filter]@
+-- * 'dvsFilters' @::@ ['Filter']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dvsMaxResults' @::@ 'Maybe' 'Int'
 --
--- * @MaxResults ::@ @Maybe Integer@
+-- * 'dvsNextToken' @::@ 'Maybe' 'Text'
+--
+-- * 'dvsVolumeIds' @::@ ['Text']
 --
 describeVolumeStatus :: DescribeVolumeStatus
 describeVolumeStatus = DescribeVolumeStatus
-    { _dvsVolumeIds = mempty
-    , _dvsFilters = mempty
-    , _dvsNextToken = Nothing
+    { _dvsDryRun     = Nothing
+    , _dvsVolumeIds  = mempty
+    , _dvsFilters    = mempty
+    , _dvsNextToken  = Nothing
     , _dvsMaxResults = Nothing
     }
 
--- | One or more volume IDs. Default: Describes all your volumes.
-dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
-dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
+dvsDryRun :: Lens' DescribeVolumeStatus (Maybe Bool)
+dvsDryRun = lens _dvsDryRun (\s a -> s { _dvsDryRun = a })
 
 -- | One or more filters. action.code - The action code for the event (for
 -- example, enable-volume-io). action.description - A description of the
 -- action. action.event-id - The event ID associated with the action.
 -- availability-zone - The Availability Zone of the instance.
--- event.description - A description of the event. event.event-id - The event
--- ID. event.event-type - The event type (for io-enabled: passed | failed; for
--- io-performance: io-performance:degraded | io-performance:severely-degraded
--- | io-performance:stalled). event.not-after - The latest end time for the
--- event. event.not-before - The earliest start time for the event.
--- volume-status.details-name - The cause for volume-status.status (io-enabled
--- | io-performance). volume-status.details-status - The status of
--- volume-status.details-name (for io-enabled: passed | failed; for
--- io-performance: normal | degraded | severely-degraded | stalled).
--- volume-status.status - The status of the volume (ok | impaired | warning |
--- insufficient-data).
+-- event.description - A description of the event. event.event-id - The
+-- event ID. event.event-type - The event type (for io-enabled: passed |
+-- failed; for io-performance: io-performance:degraded |
+-- io-performance:severely-degraded | io-performance:stalled).
+-- event.not-after - The latest end time for the event. event.not-before -
+-- The earliest start time for the event. volume-status.details-name - The
+-- cause for volume-status.status (io-enabled | io-performance).
+-- volume-status.details-status - The status of volume-status.details-name
+-- (for io-enabled: passed | failed; for io-performance: normal | degraded |
+-- severely-degraded | stalled). volume-status.status - The status of the
+-- volume (ok | impaired | warning | insufficient-data).
 dvsFilters :: Lens' DescribeVolumeStatus [Filter]
 dvsFilters = lens _dvsFilters (\s a -> s { _dvsFilters = a })
+
+-- | The maximum number of paginated volume items per response.
+dvsMaxResults :: Lens' DescribeVolumeStatus (Maybe Int)
+dvsMaxResults = lens _dvsMaxResults (\s a -> s { _dvsMaxResults = a })
 
 -- | The next paginated set of results to return using the pagination token
 -- returned by a previous call.
 dvsNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
 dvsNextToken = lens _dvsNextToken (\s a -> s { _dvsNextToken = a })
 
--- | The maximum number of paginated volume items per response.
-dvsMaxResults :: Lens' DescribeVolumeStatus (Maybe Integer)
-dvsMaxResults = lens _dvsMaxResults (\s a -> s { _dvsMaxResults = a })
+-- | One or more volume IDs. Default: Describes all your volumes.
+dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
+dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
 
-instance ToQuery DescribeVolumeStatus where
-    toQuery = genericQuery def
+instance ToQuery DescribeVolumeStatus
+
+instance ToPath DescribeVolumeStatus where
+    toPath = const "/"
 
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
-    { _dvsrVolumeStatuses :: [VolumeStatusItem]
-    , _dvsrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dvsrNextToken      :: Maybe Text
+    , _dvsrVolumeStatuses :: [VolumeStatusItem]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVolumeStatusResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeVolumeStatusResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeStatuses ::@ @[VolumeStatusItem]@
+-- * 'dvsrNextToken' @::@ 'Maybe' 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dvsrVolumeStatuses' @::@ ['VolumeStatusItem']
 --
 describeVolumeStatusResponse :: DescribeVolumeStatusResponse
 describeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrVolumeStatuses = mempty
-    , _dvsrNextToken = Nothing
+    , _dvsrNextToken      = Nothing
     }
+
+-- | The next paginated set of results to return.
+dvsrNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
+dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
 
 -- | A list of volumes.
 dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrVolumeStatuses =
     lens _dvsrVolumeStatuses (\s a -> s { _dvsrVolumeStatuses = a })
 
--- | The next paginated set of results to return.
-dvsrNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
-dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
-
-instance FromXML DescribeVolumeStatusResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeVolumeStatus where
     type Sv DescribeVolumeStatus = EC2
     type Rs DescribeVolumeStatus = DescribeVolumeStatusResponse
 
-    request = post "DescribeVolumeStatus"
-    response _ = xmlResponse
-
-instance AWSPager DescribeVolumeStatus where
-    next rq rs = (\x -> rq & dvsNextToken ?~ x)
-        <$> (rs ^. dvsrNextToken)
+    request  = post "DescribeVolumeStatus"
+    response = xmlResponse $ \h x -> DescribeVolumeStatusResponse
+        <$> x %| "nextToken"
+        <*> x %| "volumeStatusSet"

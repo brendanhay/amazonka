@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFormation.ListStacks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,18 +25,6 @@
 -- deleted is kept for 90 days after the stack is deleted. If no
 -- StackStatusFilter is specified, summary information for all stacks is
 -- returned (including existing stacks and stacks that have been deleted).
--- https://cloudformation.us-east-1.amazonaws.com/ ?Action=ListStacks
--- &StackStatusFilter.member.1=CREATE_IN_PROGRESS
--- &StackStatusFilter.member.2=DELETE_COMPLETE &Version=2010-05-15
--- &SignatureVersion=2 &SignatureMethod=HmacSHA256
--- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
--- &Signature=[Signature]
--- arn:aws:cloudformation:us-east-1:1234567:stack/TestCreate1/aaaaa
--- CREATE_IN_PROGRESS vpc1 2011-05-23T15:47:44Z Creates one EC2 instance and a
--- load balancer.
--- arn:aws:cloudformation:us-east-1:1234567:stack/TestDelete2/bbbbb
--- DELETE_COMPLETE 2011-03-10T16:20:51Z WP1 2011-03-05T19:57:58Z A simple
--- basic Cloudformation Template.
 module Network.AWS.CloudFormation.ListStacks
     (
     -- * Request
@@ -50,32 +40,31 @@ module Network.AWS.CloudFormation.ListStacks
     -- ** Response constructor
     , listStacksResponse
     -- ** Response lenses
-    , lsr1StackSummaries
     , lsr1NextToken
+    , lsr1StackSummaries
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for ListStacks action.
 data ListStacks = ListStacks
-    { _lsNextToken :: Maybe Text
-    , _lsStackStatusFilter :: [StackStatus]
+    { _lsNextToken         :: Maybe Text
+    , _lsStackStatusFilter :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListStacks' request.
+-- | 'ListStacks' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'lsNextToken' @::@ 'Maybe' 'Text'
 --
--- * @StackStatusFilter ::@ @[StackStatus]@
+-- * 'lsStackStatusFilter' @::@ ['Text']
 --
 listStacks :: ListStacks
 listStacks = ListStacks
-    { _lsNextToken = Nothing
+    { _lsNextToken         = Nothing
     , _lsStackStatusFilter = mempty
     }
 
@@ -84,38 +73,42 @@ listStacks = ListStacks
 lsNextToken :: Lens' ListStacks (Maybe Text)
 lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 
--- | Stack status to use as a filter. Specify one or more stack status codes to
--- list only stacks with the specified status codes. For a complete list of
--- stack status codes, see the StackStatus parameter of the Stack data type.
-lsStackStatusFilter :: Lens' ListStacks [StackStatus]
+-- | Stack status to use as a filter. Specify one or more stack status codes
+-- to list only stacks with the specified status codes. For a complete list
+-- of stack status codes, see the StackStatus parameter of the Stack data
+-- type.
+lsStackStatusFilter :: Lens' ListStacks [Text]
 lsStackStatusFilter =
     lens _lsStackStatusFilter (\s a -> s { _lsStackStatusFilter = a })
 
-instance ToQuery ListStacks where
-    toQuery = genericQuery def
+instance ToQuery ListStacks
 
--- | The output for ListStacks action.
+instance ToPath ListStacks where
+    toPath = const "/"
+
 data ListStacksResponse = ListStacksResponse
-    { _lsr1StackSummaries :: [StackSummary]
-    , _lsr1NextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _lsr1NextToken      :: Maybe Text
+    , _lsr1StackSummaries :: [StackSummary]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListStacksResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListStacksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackSummaries ::@ @[StackSummary]@
+-- * 'lsr1NextToken' @::@ 'Maybe' 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'lsr1StackSummaries' @::@ ['StackSummary']
 --
 listStacksResponse :: ListStacksResponse
 listStacksResponse = ListStacksResponse
     { _lsr1StackSummaries = mempty
-    , _lsr1NextToken = Nothing
+    , _lsr1NextToken      = Nothing
     }
+
+-- | String that identifies the start of the next list of stacks, if there is
+-- one.
+lsr1NextToken :: Lens' ListStacksResponse (Maybe Text)
+lsr1NextToken = lens _lsr1NextToken (\s a -> s { _lsr1NextToken = a })
 
 -- | A list of StackSummary structures containing information about the
 -- specified stacks.
@@ -123,21 +116,11 @@ lsr1StackSummaries :: Lens' ListStacksResponse [StackSummary]
 lsr1StackSummaries =
     lens _lsr1StackSummaries (\s a -> s { _lsr1StackSummaries = a })
 
--- | String that identifies the start of the next list of stacks, if there is
--- one.
-lsr1NextToken :: Lens' ListStacksResponse (Maybe Text)
-lsr1NextToken = lens _lsr1NextToken (\s a -> s { _lsr1NextToken = a })
-
-instance FromXML ListStacksResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ListStacks where
     type Sv ListStacks = CloudFormation
     type Rs ListStacks = ListStacksResponse
 
-    request = post "ListStacks"
-    response _ = xmlResponse
-
-instance AWSPager ListStacks where
-    next rq rs = (\x -> rq & lsNextToken ?~ x)
-        <$> (rs ^. lsr1NextToken)
+    request  = post "ListStacks"
+    response = xmlResponse $ \h x -> ListStacksResponse
+        <$> x %| "NextToken"
+        <*> x %| "StackSummaries"

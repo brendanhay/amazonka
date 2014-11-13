@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.SuspendProcesses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,8 +35,8 @@ module Network.AWS.AutoScaling.SuspendProcesses
     -- ** Request constructor
     , suspendProcesses
     -- ** Request lenses
-    , sp1AutoScalingGroupName
-    , sp1ScalingProcesses
+    , spAutoScalingGroupName
+    , spScalingProcesses
 
     -- * Response
     , SuspendProcessesResponse
@@ -42,55 +44,53 @@ module Network.AWS.AutoScaling.SuspendProcesses
     , suspendProcessesResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data SuspendProcesses = SuspendProcesses
-    { _sp1AutoScalingGroupName :: Text
-    , _sp1ScalingProcesses :: [Text]
+    { _spAutoScalingGroupName :: Text
+    , _spScalingProcesses     :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SuspendProcesses' request.
+-- | 'SuspendProcesses' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AutoScalingGroupName ::@ @Text@
+-- * 'spAutoScalingGroupName' @::@ 'Text'
 --
--- * @ScalingProcesses ::@ @[Text]@
+-- * 'spScalingProcesses' @::@ ['Text']
 --
-suspendProcesses :: Text -- ^ 'sp1AutoScalingGroupName'
+suspendProcesses :: Text -- ^ 'spAutoScalingGroupName'
                  -> SuspendProcesses
 suspendProcesses p1 = SuspendProcesses
-    { _sp1AutoScalingGroupName = p1
-    , _sp1ScalingProcesses = mempty
+    { _spAutoScalingGroupName = p1
+    , _spScalingProcesses     = mempty
     }
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-sp1AutoScalingGroupName :: Lens' SuspendProcesses Text
-sp1AutoScalingGroupName =
-    lens _sp1AutoScalingGroupName
-         (\s a -> s { _sp1AutoScalingGroupName = a })
+spAutoScalingGroupName :: Lens' SuspendProcesses Text
+spAutoScalingGroupName =
+    lens _spAutoScalingGroupName (\s a -> s { _spAutoScalingGroupName = a })
 
--- | The processes that you want to suspend or resume, which can include one or
--- more of the following: Launch Terminate HealthCheck ReplaceUnhealthy
--- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To suspend
--- all process types, omit this parameter.
-sp1ScalingProcesses :: Lens' SuspendProcesses [Text]
-sp1ScalingProcesses =
-    lens _sp1ScalingProcesses (\s a -> s { _sp1ScalingProcesses = a })
+-- | The processes that you want to suspend or resume, which can include one
+-- or more of the following: Launch Terminate HealthCheck ReplaceUnhealthy
+-- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To
+-- suspend all process types, omit this parameter.
+spScalingProcesses :: Lens' SuspendProcesses [Text]
+spScalingProcesses =
+    lens _spScalingProcesses (\s a -> s { _spScalingProcesses = a })
 
-instance ToQuery SuspendProcesses where
-    toQuery = genericQuery def
+instance ToQuery SuspendProcesses
+
+instance ToPath SuspendProcesses where
+    toPath = const "/"
 
 data SuspendProcessesResponse = SuspendProcessesResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SuspendProcessesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SuspendProcessesResponse' constructor.
 suspendProcessesResponse :: SuspendProcessesResponse
 suspendProcessesResponse = SuspendProcessesResponse
 
@@ -98,5 +98,5 @@ instance AWSRequest SuspendProcesses where
     type Sv SuspendProcesses = AutoScaling
     type Rs SuspendProcesses = SuspendProcessesResponse
 
-    request = post "SuspendProcesses"
-    response _ = nullaryResponse SuspendProcessesResponse
+    request  = post "SuspendProcesses"
+    response = nullaryResponse SuspendProcessesResponse

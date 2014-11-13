@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SQS.ListDeadLetterSourceQueues
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,12 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of your queues that have the RedrivePolicy queue attribute
--- configured with a dead letter queue. The following example Query request
--- returns a list of dead letter source queues. In this example only one
--- source queue, MySourceQueue, was configured with a dead letter queue.
--- Action=ListDeadLetterSourceQueues &Version=2012-11-05
--- http://sqs.us-east-1.amazonaws.com/123456789012/MySourceQueue
--- 8ffb921f-b85e-53d9-abcf-d8d0057f38fc For more information about using dead
+-- configured with a dead letter queue. For more information about using dead
 -- letter queues, see Using Amazon SQS Dead Letter Queues.
 module Network.AWS.SQS.ListDeadLetterSourceQueues
     (
@@ -43,20 +40,20 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     , ldlsqrQueueUrls
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
     { _ldlsqQueueUrl :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListDeadLetterSourceQueues' request.
+-- | 'ListDeadLetterSourceQueues' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @QueueUrl ::@ @Text@
+-- * 'ldlsqQueueUrl' @::@ 'Text'
 --
 listDeadLetterSourceQueues :: Text -- ^ 'ldlsqQueueUrl'
                            -> ListDeadLetterSourceQueues
@@ -68,27 +65,30 @@ listDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
 ldlsqQueueUrl :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueUrl = lens _ldlsqQueueUrl (\s a -> s { _ldlsqQueueUrl = a })
 
-instance ToQuery ListDeadLetterSourceQueues where
-    toQuery = genericQuery def
+instance ToQuery ListDeadLetterSourceQueues
 
--- | A list of your dead letter source queues.
+instance ToPath ListDeadLetterSourceQueues where
+    toPath = const "/"
+
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
     { _ldlsqrQueueUrls :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListDeadLetterSourceQueuesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList ListDeadLetterSourceQueuesResponse where
+    type Item ListDeadLetterSourceQueuesResponse = Text
+
+    fromList = ListDeadLetterSourceQueuesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ldlsqrQueueUrls
+
+-- | 'ListDeadLetterSourceQueuesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @QueueUrls ::@ @[Text]@
+-- * 'ldlsqrQueueUrls' @::@ ['Text']
 --
-listDeadLetterSourceQueuesResponse :: [Text] -- ^ 'ldlsqrQueueUrls'
-                                   -> ListDeadLetterSourceQueuesResponse
-listDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls = p1
+listDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResponse
+listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
+    { _ldlsqrQueueUrls = mempty
     }
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
@@ -96,12 +96,10 @@ listDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
 ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
 
-instance FromXML ListDeadLetterSourceQueuesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ListDeadLetterSourceQueues where
     type Sv ListDeadLetterSourceQueues = SQS
     type Rs ListDeadLetterSourceQueues = ListDeadLetterSourceQueuesResponse
 
-    request = post "ListDeadLetterSourceQueues"
-    response _ = xmlResponse
+    request  = post "ListDeadLetterSourceQueues"
+    response = xmlResponse $ \h x -> ListDeadLetterSourceQueuesResponse
+        <$> x %| "queueUrls"

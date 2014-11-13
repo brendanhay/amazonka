@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.RegisterInstancesWithLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +41,6 @@
 -- changes will happen shortly. You can use DescribeLoadBalancers or
 -- DescribeInstanceHealth action to check the state of the newly registered
 -- instances.
--- https://elasticloadbalancing.amazonaws.com/?Instances.member.1.InstanceId=i-315b7e51
--- &LoadBalancerName=my-test-loadbalancer &Version=2012-06-01
--- &Action=RegisterInstancesWithLoadBalancer &AUTHPARAMS i-315b7e51
--- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     (
     -- * Request
@@ -50,8 +48,8 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     -- ** Request constructor
     , registerInstancesWithLoadBalancer
     -- ** Request lenses
-    , riwlbLoadBalancerName
     , riwlbInstances
+    , riwlbLoadBalancerName
 
     -- * Response
     , RegisterInstancesWithLoadBalancerResponse
@@ -61,59 +59,61 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     , riwlbrInstances
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the RegisterInstancesWithLoadBalancer action.
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
-    { _riwlbLoadBalancerName :: Text
-    , _riwlbInstances :: [Instance]
-    } deriving (Eq, Ord, Show, Generic)
+    { _riwlbInstances        :: [Instance]
+    , _riwlbLoadBalancerName :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RegisterInstancesWithLoadBalancer' request.
+-- | 'RegisterInstancesWithLoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'riwlbInstances' @::@ ['Instance']
 --
--- * @Instances ::@ @[Instance]@
+-- * 'riwlbLoadBalancerName' @::@ 'Text'
 --
 registerInstancesWithLoadBalancer :: Text -- ^ 'riwlbLoadBalancerName'
-                                  -> [Instance] -- ^ 'riwlbInstances'
                                   -> RegisterInstancesWithLoadBalancer
-registerInstancesWithLoadBalancer p1 p2 = RegisterInstancesWithLoadBalancer
+registerInstancesWithLoadBalancer p1 = RegisterInstancesWithLoadBalancer
     { _riwlbLoadBalancerName = p1
-    , _riwlbInstances = p2
+    , _riwlbInstances        = mempty
     }
-
--- | The name associated with the load balancer. The name must be unique within
--- your set of load balancers.
-riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
-riwlbLoadBalancerName =
-    lens _riwlbLoadBalancerName (\s a -> s { _riwlbLoadBalancerName = a })
 
 -- | A list of instance IDs that should be registered with the load balancer.
 riwlbInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
 riwlbInstances = lens _riwlbInstances (\s a -> s { _riwlbInstances = a })
 
-instance ToQuery RegisterInstancesWithLoadBalancer where
-    toQuery = genericQuery def
+-- | The name associated with the load balancer. The name must be unique
+-- within your set of load balancers.
+riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
+riwlbLoadBalancerName =
+    lens _riwlbLoadBalancerName (\s a -> s { _riwlbLoadBalancerName = a })
 
--- | The output for the RegisterInstancesWithLoadBalancer action.
+instance ToQuery RegisterInstancesWithLoadBalancer
+
+instance ToPath RegisterInstancesWithLoadBalancer where
+    toPath = const "/"
+
 newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
     { _riwlbrInstances :: [Instance]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RegisterInstancesWithLoadBalancerResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList RegisterInstancesWithLoadBalancerResponse where
+    type Item RegisterInstancesWithLoadBalancerResponse = Instance
+
+    fromList = RegisterInstancesWithLoadBalancerResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _riwlbrInstances
+
+-- | 'RegisterInstancesWithLoadBalancerResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Instances ::@ @[Instance]@
+-- * 'riwlbrInstances' @::@ ['Instance']
 --
 registerInstancesWithLoadBalancerResponse :: RegisterInstancesWithLoadBalancerResponse
 registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
@@ -124,12 +124,10 @@ registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerRes
 riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrInstances = lens _riwlbrInstances (\s a -> s { _riwlbrInstances = a })
 
-instance FromXML RegisterInstancesWithLoadBalancerResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest RegisterInstancesWithLoadBalancer where
     type Sv RegisterInstancesWithLoadBalancer = ELB
     type Rs RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancerResponse
 
-    request = post "RegisterInstancesWithLoadBalancer"
-    response _ = xmlResponse
+    request  = post "RegisterInstancesWithLoadBalancer"
+    response = xmlResponse $ \h x -> RegisterInstancesWithLoadBalancerResponse
+        <$> x %| "Instances"

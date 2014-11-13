@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DynamoDB.UpdateTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,22 +32,7 @@
 -- The new provisioned throughput setting is in effect only when the table
 -- returns to the ACTIVE state after the UpdateTable operation. You cannot
 -- add, modify or delete indexes using UpdateTable. Indexes can only be
--- defined at table creation time. Modify Provisioned Write Throughput This
--- example changes both the provisioned read and write throughput of the
--- Thread table to 10 capacity units. { "TableDescription": {
--- "AttributeDefinitions": [ { "AttributeName": "ForumName", "AttributeType":
--- "S" }, { "AttributeName": "LastPostDateTime", "AttributeType": "S" }, {
--- "AttributeName": "Subject", "AttributeType": "S" } ], "CreationDateTime":
--- 1.363801528686E9, "ItemCount": 0, "KeySchema": [ { "AttributeName":
--- "ForumName", "KeyType": "HASH" }, { "AttributeName": "Subject", "KeyType":
--- "RANGE" } ], "LocalSecondaryIndexes": [ { "IndexName": "LastPostIndex",
--- "IndexSizeBytes": 0, "ItemCount": 0, "KeySchema": [ { "AttributeName":
--- "ForumName", "KeyType": "HASH" }, { "AttributeName": "LastPostDateTime",
--- "KeyType": "RANGE" } ], "Projection": { "ProjectionType": "KEYS_ONLY" } }
--- ], "ProvisionedThroughput": { "LastIncreaseDateTime": 1.363801701282E9,
--- "NumberOfDecreasesToday": 0, "ReadCapacityUnits": 5, "WriteCapacityUnits":
--- 5 }, "TableName": "Thread", "TableSizeBytes": 0, "TableStatus": "UPDATING"
--- } }.
+-- defined at table creation time.
 module Network.AWS.DynamoDB.UpdateTable
     (
     -- * Request
@@ -53,9 +40,9 @@ module Network.AWS.DynamoDB.UpdateTable
     -- ** Request constructor
     , updateTable
     -- ** Request lenses
-    , utTableName
-    , utProvisionedThroughput
     , utGlobalSecondaryIndexUpdates
+    , utProvisionedThroughput
+    , utTableName
 
     -- * Response
     , UpdateTableResponse
@@ -65,93 +52,85 @@ module Network.AWS.DynamoDB.UpdateTable
     , utrTableDescription
     ) where
 
-import Network.AWS.DynamoDB.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DynamoDB.Types
 
--- | Represents the input of an UpdateTable operation.
 data UpdateTable = UpdateTable
-    { _utTableName :: Text
-    , _utProvisionedThroughput :: Maybe ProvisionedThroughput
-    , _utGlobalSecondaryIndexUpdates :: [GlobalSecondaryIndexUpdate]
-    } deriving (Eq, Ord, Show, Generic)
+    { _utGlobalSecondaryIndexUpdates :: [GlobalSecondaryIndexUpdate]
+    , _utProvisionedThroughput       :: Maybe ProvisionedThroughput
+    , _utTableName                   :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateTable' request.
+-- | 'UpdateTable' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TableName ::@ @Text@
+-- * 'utGlobalSecondaryIndexUpdates' @::@ ['GlobalSecondaryIndexUpdate']
 --
--- * @ProvisionedThroughput ::@ @Maybe ProvisionedThroughput@
+-- * 'utProvisionedThroughput' @::@ 'Maybe' 'ProvisionedThroughput'
 --
--- * @GlobalSecondaryIndexUpdates ::@ @[GlobalSecondaryIndexUpdate]@
+-- * 'utTableName' @::@ 'Text'
 --
 updateTable :: Text -- ^ 'utTableName'
             -> UpdateTable
 updateTable p1 = UpdateTable
-    { _utTableName = p1
-    , _utProvisionedThroughput = Nothing
+    { _utTableName                   = p1
+    , _utProvisionedThroughput       = Nothing
     , _utGlobalSecondaryIndexUpdates = mempty
     }
-
--- | The name of the table to be updated.
-utTableName :: Lens' UpdateTable Text
-utTableName = lens _utTableName (\s a -> s { _utTableName = a })
-
--- | Represents the provisioned throughput settings for a specified table or
--- index. The settings can be modified using the UpdateTable operation. For
--- current minimum and maximum provisioned throughput values, see Limits in
--- the Amazon DynamoDB Developer Guide.
-utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
-utProvisionedThroughput =
-    lens _utProvisionedThroughput
-         (\s a -> s { _utProvisionedThroughput = a })
 
 -- | An array of one or more global secondary indexes on the table, together
 -- with provisioned throughput settings for each index.
 utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
 utGlobalSecondaryIndexUpdates =
     lens _utGlobalSecondaryIndexUpdates
-         (\s a -> s { _utGlobalSecondaryIndexUpdates = a })
+        (\s a -> s { _utGlobalSecondaryIndexUpdates = a })
 
-instance ToPath UpdateTable
+utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
+utProvisionedThroughput =
+    lens _utProvisionedThroughput (\s a -> s { _utProvisionedThroughput = a })
 
-instance ToQuery UpdateTable
+-- | The name of the table to be updated.
+utTableName :: Lens' UpdateTable Text
+utTableName = lens _utTableName (\s a -> s { _utTableName = a })
+
+instance ToPath UpdateTable where
+    toPath = const "/"
+
+instance ToQuery UpdateTable where
+    toQuery = const mempty
 
 instance ToHeaders UpdateTable
 
-instance ToJSON UpdateTable
+instance ToBody UpdateTable where
+    toBody = toBody . encode . _utTableName
 
--- | Represents the output of an UpdateTable operation.
 newtype UpdateTableResponse = UpdateTableResponse
     { _utrTableDescription :: Maybe TableDescription
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateTableResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateTableResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TableDescription ::@ @Maybe TableDescription@
+-- * 'utrTableDescription' @::@ 'Maybe' 'TableDescription'
 --
 updateTableResponse :: UpdateTableResponse
 updateTableResponse = UpdateTableResponse
     { _utrTableDescription = Nothing
     }
 
--- | Represents the properties of a table.
 utrTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
 utrTableDescription =
     lens _utrTableDescription (\s a -> s { _utrTableDescription = a })
 
-instance FromJSON UpdateTableResponse
+-- FromJSON
 
 instance AWSRequest UpdateTable where
     type Sv UpdateTable = DynamoDB
     type Rs UpdateTable = UpdateTableResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> UpdateTableResponse
+        <$> o .: "TableDescription"

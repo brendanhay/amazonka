@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ReleaseAddress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,15 +29,9 @@
 -- VPC] Releasing an Elastic IP address automatically disassociates it from
 -- any instance that it's associated with. To disassociate an Elastic IP
 -- address without releasing it, use DisassociateAddress. [Nondefault VPC] You
--- must use the DisassociateAddress to disassociate the Elastic IP address
--- before you try to release it. Otherwise, Amazon EC2 returns an error
--- (InvalidIPAddress.InUse). Example for EC2-Classic This example releases the
--- specified Elastic IP address for EC2-Classic.
--- https://ec2.amazonaws.com/?Action=ReleaseAddress &amp;PublicIp=192.0.2.1
--- &amp;AUTHPARAMS Example for EC2-VPC This example releases the specified
--- Elastic IP address for EC2-VPC.
--- https://ec2.amazonaws.com/?Action=ReleaseAddress
--- &amp;AllocationId=eipalloc-5723d13e &amp;AUTHPARAMS.
+-- must use DisassociateAddress to disassociate the Elastic IP address before
+-- you try to release it. Otherwise, Amazon EC2 returns an error
+-- (InvalidIPAddress.InUse).
 module Network.AWS.EC2.ReleaseAddress
     (
     -- * Request
@@ -43,8 +39,9 @@ module Network.AWS.EC2.ReleaseAddress
     -- ** Request constructor
     , releaseAddress
     -- ** Request lenses
-    , raPublicIp
     , raAllocationId
+    , raDryRun
+    , raPublicIp
 
     -- * Response
     , ReleaseAddressResponse
@@ -52,48 +49,54 @@ module Network.AWS.EC2.ReleaseAddress
     , releaseAddressResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ReleaseAddress = ReleaseAddress
-    { _raPublicIp :: Maybe Text
-    , _raAllocationId :: Maybe Text
+    { _raAllocationId :: Maybe Text
+    , _raDryRun       :: Maybe Bool
+    , _raPublicIp     :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReleaseAddress' request.
+-- | 'ReleaseAddress' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PublicIp ::@ @Maybe Text@
+-- * 'raAllocationId' @::@ 'Maybe' 'Text'
 --
--- * @AllocationId ::@ @Maybe Text@
+-- * 'raDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'raPublicIp' @::@ 'Maybe' 'Text'
 --
 releaseAddress :: ReleaseAddress
 releaseAddress = ReleaseAddress
-    { _raPublicIp = Nothing
+    { _raDryRun       = Nothing
+    , _raPublicIp     = Nothing
     , _raAllocationId = Nothing
     }
 
--- | [EC2-Classic] The Elastic IP address.
-raPublicIp :: Lens' ReleaseAddress (Maybe Text)
-raPublicIp = lens _raPublicIp (\s a -> s { _raPublicIp = a })
-
--- | [EC2-VPC] The allocation ID.
+-- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
 raAllocationId :: Lens' ReleaseAddress (Maybe Text)
 raAllocationId = lens _raAllocationId (\s a -> s { _raAllocationId = a })
 
-instance ToQuery ReleaseAddress where
-    toQuery = genericQuery def
+raDryRun :: Lens' ReleaseAddress (Maybe Bool)
+raDryRun = lens _raDryRun (\s a -> s { _raDryRun = a })
+
+-- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+raPublicIp :: Lens' ReleaseAddress (Maybe Text)
+raPublicIp = lens _raPublicIp (\s a -> s { _raPublicIp = a })
+
+instance ToQuery ReleaseAddress
+
+instance ToPath ReleaseAddress where
+    toPath = const "/"
 
 data ReleaseAddressResponse = ReleaseAddressResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReleaseAddressResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ReleaseAddressResponse' constructor.
 releaseAddressResponse :: ReleaseAddressResponse
 releaseAddressResponse = ReleaseAddressResponse
 
@@ -101,5 +104,5 @@ instance AWSRequest ReleaseAddress where
     type Sv ReleaseAddress = EC2
     type Rs ReleaseAddress = ReleaseAddressResponse
 
-    request = post "ReleaseAddress"
-    response _ = nullaryResponse ReleaseAddressResponse
+    request  = post "ReleaseAddress"
+    response = nullaryResponse ReleaseAddressResponse

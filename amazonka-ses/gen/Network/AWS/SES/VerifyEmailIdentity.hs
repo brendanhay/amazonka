@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SES.VerifyEmailIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,15 +22,7 @@
 
 -- | Verifies an email address. This action causes a confirmation email message
 -- to be sent to the specified address. This action is throttled at one
--- request per second. POST / HTTP/1.1 Date: Sat, 12 May 2012 05:21:58 GMT
--- Host: email.us-east-1.amazonaws.com Content-Type:
--- application/x-www-form-urlencoded X-Amzn-Authorization: AWS3
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
--- Signature=hQJj2pxypqJHQgU/BW1EZGUiNIYGhkQDf7tI6UgQ2qw=,
--- Algorithm=HmacSHA256, SignedHeaders=Date;Host Content-Length: 151
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=VerifyEmailIdentity
--- &EmailAddress=user%40domain.com &Timestamp=2012-05-12T05%3A21%3A58.000Z
--- &Version=2010-12-01 47e0ef1a-9bf2-11e1-9279-0100e8cf109a.
+-- request per second.
 module Network.AWS.SES.VerifyEmailIdentity
     (
     -- * Request
@@ -44,22 +38,20 @@ module Network.AWS.SES.VerifyEmailIdentity
     , verifyEmailIdentityResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents a request instructing the service to begin email address
--- verification.
 newtype VerifyEmailIdentity = VerifyEmailIdentity
     { _veiEmailAddress :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'VerifyEmailIdentity' request.
+-- | 'VerifyEmailIdentity' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EmailAddress ::@ @Text@
+-- * 'veiEmailAddress' @::@ 'Text'
 --
 verifyEmailIdentity :: Text -- ^ 'veiEmailAddress'
                     -> VerifyEmailIdentity
@@ -71,18 +63,15 @@ verifyEmailIdentity p1 = VerifyEmailIdentity
 veiEmailAddress :: Lens' VerifyEmailIdentity Text
 veiEmailAddress = lens _veiEmailAddress (\s a -> s { _veiEmailAddress = a })
 
-instance ToQuery VerifyEmailIdentity where
-    toQuery = genericQuery def
+instance ToQuery VerifyEmailIdentity
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
+instance ToPath VerifyEmailIdentity where
+    toPath = const "/"
+
 data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'VerifyEmailIdentityResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'VerifyEmailIdentityResponse' constructor.
 verifyEmailIdentityResponse :: VerifyEmailIdentityResponse
 verifyEmailIdentityResponse = VerifyEmailIdentityResponse
 
@@ -90,5 +79,5 @@ instance AWSRequest VerifyEmailIdentity where
     type Sv VerifyEmailIdentity = SES
     type Rs VerifyEmailIdentity = VerifyEmailIdentityResponse
 
-    request = post "VerifyEmailIdentity"
-    response _ = nullaryResponse VerifyEmailIdentityResponse
+    request  = post "VerifyEmailIdentity"
+    response = nullaryResponse VerifyEmailIdentityResponse

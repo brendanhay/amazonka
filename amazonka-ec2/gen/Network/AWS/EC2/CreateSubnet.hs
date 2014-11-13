@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CreateSubnet
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,19 +31,13 @@
 -- reserves both the first four and the last IP address in each subnet's CIDR
 -- block. They're not available for use. If you add more than one subnet to a
 -- VPC, they're set up in a star topology with a logical router in the middle.
+-- If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP
+-- address doesn't change if you stop and restart the instance (unlike a
+-- similar instance launched outside a VPC, which gets a new IP address when
+-- restarted). It's therefore possible to have a subnet with no running
+-- instances (they're all stopped), but no remaining IP addresses available.
 -- For more information about subnets, see Your VPC and Subnets in the Amazon
--- Virtual Private Cloud User Guide. Example This example creates a subnet
--- with CIDR block 10.0.1.0/24 in the VPC with the ID vpc-1a2b3c4d.
--- https://ec2.amazonaws.com/?Action=CreateSubnet &amp;VpcId=vpc-1a2b3c4d
--- &amp;CidrBlock=10.0.1.0/24 &amp;AUTHPARAMS &lt;CreateSubnetResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;subnet&gt; &lt;subnetId&gt;subnet-9d4a7b6c&lt;/subnetId&gt;
--- &lt;state&gt;pending&lt;/state&gt; &lt;vpcId&gt;vpc-1a2b3c4d&lt;/vpcId&gt;
--- &lt;cidrBlock&gt;10.0.1.0/24&lt;/cidrBlock&gt;
--- &lt;availableIpAddressCount&gt;251&lt;/availableIpAddressCount&gt;
--- &lt;availabilityZone&gt;us-east-1a&lt;/availabilityZone&gt; &lt;tagSet/&gt;
--- &lt;/subnet&gt; &lt;/CreateSubnetResponse&gt;.
+-- Virtual Private Cloud User Guide.
 module Network.AWS.EC2.CreateSubnet
     (
     -- * Request
@@ -49,94 +45,99 @@ module Network.AWS.EC2.CreateSubnet
     -- ** Request constructor
     , createSubnet
     -- ** Request lenses
-    , cs2VpcId
-    , cs2CidrBlock
-    , cs2AvailabilityZone
+    , cs1AvailabilityZone
+    , cs1CidrBlock
+    , cs1DryRun
+    , cs1VpcId
 
     -- * Response
     , CreateSubnetResponse
     -- ** Response constructor
     , createSubnetResponse
     -- ** Response lenses
-    , csr1Subnet
+    , csrSubnet
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateSubnet = CreateSubnet
-    { _cs2VpcId :: Text
-    , _cs2CidrBlock :: Text
-    , _cs2AvailabilityZone :: Maybe Text
+    { _cs1AvailabilityZone :: Maybe Text
+    , _cs1CidrBlock        :: Text
+    , _cs1DryRun           :: Maybe Bool
+    , _cs1VpcId            :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateSubnet' request.
+-- | 'CreateSubnet' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcId ::@ @Text@
+-- * 'cs1AvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * @CidrBlock ::@ @Text@
+-- * 'cs1CidrBlock' @::@ 'Text'
 --
--- * @AvailabilityZone ::@ @Maybe Text@
+-- * 'cs1DryRun' @::@ 'Maybe' 'Bool'
 --
-createSubnet :: Text -- ^ 'cs2VpcId'
-             -> Text -- ^ 'cs2CidrBlock'
+-- * 'cs1VpcId' @::@ 'Text'
+--
+createSubnet :: Text -- ^ 'cs1VpcId'
+             -> Text -- ^ 'cs1CidrBlock'
              -> CreateSubnet
 createSubnet p1 p2 = CreateSubnet
-    { _cs2VpcId = p1
-    , _cs2CidrBlock = p2
-    , _cs2AvailabilityZone = Nothing
+    { _cs1VpcId            = p1
+    , _cs1CidrBlock        = p2
+    , _cs1DryRun           = Nothing
+    , _cs1AvailabilityZone = Nothing
     }
-
--- | The ID of the VPC.
-cs2VpcId :: Lens' CreateSubnet Text
-cs2VpcId = lens _cs2VpcId (\s a -> s { _cs2VpcId = a })
-
--- | The network range for the subnet, in CIDR notation. For example,
--- 10.0.0.0/24.
-cs2CidrBlock :: Lens' CreateSubnet Text
-cs2CidrBlock = lens _cs2CidrBlock (\s a -> s { _cs2CidrBlock = a })
 
 -- | The Availability Zone for the subnet. Default: Amazon EC2 selects one for
 -- you (recommended).
-cs2AvailabilityZone :: Lens' CreateSubnet (Maybe Text)
-cs2AvailabilityZone =
-    lens _cs2AvailabilityZone (\s a -> s { _cs2AvailabilityZone = a })
+cs1AvailabilityZone :: Lens' CreateSubnet (Maybe Text)
+cs1AvailabilityZone =
+    lens _cs1AvailabilityZone (\s a -> s { _cs1AvailabilityZone = a })
 
-instance ToQuery CreateSubnet where
-    toQuery = genericQuery def
+-- | The network range for the subnet, in CIDR notation. For example,
+-- 10.0.0.0/24.
+cs1CidrBlock :: Lens' CreateSubnet Text
+cs1CidrBlock = lens _cs1CidrBlock (\s a -> s { _cs1CidrBlock = a })
+
+cs1DryRun :: Lens' CreateSubnet (Maybe Bool)
+cs1DryRun = lens _cs1DryRun (\s a -> s { _cs1DryRun = a })
+
+-- | The ID of the VPC.
+cs1VpcId :: Lens' CreateSubnet Text
+cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
+
+instance ToQuery CreateSubnet
+
+instance ToPath CreateSubnet where
+    toPath = const "/"
 
 newtype CreateSubnetResponse = CreateSubnetResponse
-    { _csr1Subnet :: Maybe Subnet
-    } deriving (Eq, Ord, Show, Generic)
+    { _csrSubnet :: Maybe Subnet
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateSubnetResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateSubnetResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Subnet ::@ @Maybe Subnet@
+-- * 'csrSubnet' @::@ 'Maybe' 'Subnet'
 --
 createSubnetResponse :: CreateSubnetResponse
 createSubnetResponse = CreateSubnetResponse
-    { _csr1Subnet = Nothing
+    { _csrSubnet = Nothing
     }
 
 -- | Information about the subnet.
-csr1Subnet :: Lens' CreateSubnetResponse (Maybe Subnet)
-csr1Subnet = lens _csr1Subnet (\s a -> s { _csr1Subnet = a })
-
-instance FromXML CreateSubnetResponse where
-    fromXMLOptions = xmlOptions
+csrSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
+csrSubnet = lens _csrSubnet (\s a -> s { _csrSubnet = a })
 
 instance AWSRequest CreateSubnet where
     type Sv CreateSubnet = EC2
     type Rs CreateSubnet = CreateSubnetResponse
 
-    request = post "CreateSubnet"
-    response _ = xmlResponse
+    request  = post "CreateSubnet"
+    response = xmlResponse $ \h x -> CreateSubnetResponse
+        <$> x %| "subnet"

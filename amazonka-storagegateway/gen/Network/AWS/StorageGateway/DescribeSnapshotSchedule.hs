@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeSnapshotSchedule
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,21 +22,7 @@
 
 -- | This operation describes the snapshot schedule for the specified gateway
 -- volume. The snapshot schedule information includes intervals at which
--- snapshots are automatically initiated on the volume. Example Request The
--- following example shows a request that retrieves the snapshot schedule for
--- a volume. POST / HTTP/1.1 Host: storagegateway.us-east-1.amazonaws.com
--- x-amz-Date: 20120425T120000Z Authorization:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Content-type:
--- application/x-amz-json-1.1 x-amz-target:
--- StorageGateway_20120630.DescribeSnapshotSchedule { "VolumeARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
--- } HTTP/1.1 200 OK x-amzn-RequestId:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Date: Wed, 25 Apr 2012
--- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 211 {
--- "VolumeARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
--- "StartAt": 6, "RecurrenceInHours": 24, "Description":
--- "sgw-AABB1122:vol-AABB1122:Schedule", "Timezone": "GMT+7:00" }.
+-- snapshots are automatically initiated on the volume.
 module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     (
     -- * Request
@@ -42,112 +30,113 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     -- ** Request constructor
     , describeSnapshotSchedule
     -- ** Request lenses
-    , dss1VolumeARN
+    , dssVolumeARN
 
     -- * Response
     , DescribeSnapshotScheduleResponse
     -- ** Response constructor
     , describeSnapshotScheduleResponse
     -- ** Response lenses
-    , dssrrVolumeARN
-    , dssrrStartAt
-    , dssrrRecurrenceInHours
-    , dssrrDescription
-    , dssrrTimezone
+    , dssrDescription
+    , dssrRecurrenceInHours
+    , dssrStartAt
+    , dssrTimezone
+    , dssrVolumeARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
--- | A JSON object containing the DescribeSnapshotScheduleInput$VolumeARN of the
--- volume.
 newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule
-    { _dss1VolumeARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dssVolumeARN :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSnapshotSchedule' request.
+-- | 'DescribeSnapshotSchedule' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeARN ::@ @Text@
+-- * 'dssVolumeARN' @::@ 'Text'
 --
-describeSnapshotSchedule :: Text -- ^ 'dss1VolumeARN'
+describeSnapshotSchedule :: Text -- ^ 'dssVolumeARN'
                          -> DescribeSnapshotSchedule
 describeSnapshotSchedule p1 = DescribeSnapshotSchedule
-    { _dss1VolumeARN = p1
+    { _dssVolumeARN = p1
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
--- to return a list of gateway volumes.
-dss1VolumeARN :: Lens' DescribeSnapshotSchedule Text
-dss1VolumeARN = lens _dss1VolumeARN (\s a -> s { _dss1VolumeARN = a })
+-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- operation to return a list of gateway volumes.
+dssVolumeARN :: Lens' DescribeSnapshotSchedule Text
+dssVolumeARN = lens _dssVolumeARN (\s a -> s { _dssVolumeARN = a })
 
-instance ToPath DescribeSnapshotSchedule
+instance ToPath DescribeSnapshotSchedule where
+    toPath = const "/"
 
-instance ToQuery DescribeSnapshotSchedule
+instance ToQuery DescribeSnapshotSchedule where
+    toQuery = const mempty
 
 instance ToHeaders DescribeSnapshotSchedule
 
-instance ToJSON DescribeSnapshotSchedule
+instance ToBody DescribeSnapshotSchedule where
+    toBody = toBody . encode . _dssVolumeARN
 
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
-    { _dssrrVolumeARN :: Maybe Text
-    , _dssrrStartAt :: Maybe Integer
-    , _dssrrRecurrenceInHours :: Maybe Integer
-    , _dssrrDescription :: Maybe Text
-    , _dssrrTimezone :: Maybe Text
+    { _dssrDescription       :: Maybe Text
+    , _dssrRecurrenceInHours :: Maybe Natural
+    , _dssrStartAt           :: Maybe Natural
+    , _dssrTimezone          :: Maybe Text
+    , _dssrVolumeARN         :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSnapshotScheduleResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeSnapshotScheduleResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeARN ::@ @Maybe Text@
+-- * 'dssrDescription' @::@ 'Maybe' 'Text'
 --
--- * @StartAt ::@ @Maybe Integer@
+-- * 'dssrRecurrenceInHours' @::@ 'Maybe' 'Natural'
 --
--- * @RecurrenceInHours ::@ @Maybe Integer@
+-- * 'dssrStartAt' @::@ 'Maybe' 'Natural'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'dssrTimezone' @::@ 'Maybe' 'Text'
 --
--- * @Timezone ::@ @Maybe Text@
+-- * 'dssrVolumeARN' @::@ 'Maybe' 'Text'
 --
 describeSnapshotScheduleResponse :: DescribeSnapshotScheduleResponse
 describeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
-    { _dssrrVolumeARN = Nothing
-    , _dssrrStartAt = Nothing
-    , _dssrrRecurrenceInHours = Nothing
-    , _dssrrDescription = Nothing
-    , _dssrrTimezone = Nothing
+    { _dssrVolumeARN         = Nothing
+    , _dssrStartAt           = Nothing
+    , _dssrRecurrenceInHours = Nothing
+    , _dssrDescription       = Nothing
+    , _dssrTimezone          = Nothing
     }
 
-dssrrVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrrVolumeARN = lens _dssrrVolumeARN (\s a -> s { _dssrrVolumeARN = a })
+dssrDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrDescription = lens _dssrDescription (\s a -> s { _dssrDescription = a })
 
-dssrrStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
-dssrrStartAt = lens _dssrrStartAt (\s a -> s { _dssrrStartAt = a })
+dssrRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
+dssrRecurrenceInHours =
+    lens _dssrRecurrenceInHours (\s a -> s { _dssrRecurrenceInHours = a })
 
-dssrrRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
-dssrrRecurrenceInHours =
-    lens _dssrrRecurrenceInHours (\s a -> s { _dssrrRecurrenceInHours = a })
+dssrStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
+dssrStartAt = lens _dssrStartAt (\s a -> s { _dssrStartAt = a })
 
-dssrrDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrrDescription =
-    lens _dssrrDescription (\s a -> s { _dssrrDescription = a })
+dssrTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrTimezone = lens _dssrTimezone (\s a -> s { _dssrTimezone = a })
 
-dssrrTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrrTimezone = lens _dssrrTimezone (\s a -> s { _dssrrTimezone = a })
+dssrVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrVolumeARN = lens _dssrVolumeARN (\s a -> s { _dssrVolumeARN = a })
 
-instance FromJSON DescribeSnapshotScheduleResponse
+-- FromJSON
 
 instance AWSRequest DescribeSnapshotSchedule where
     type Sv DescribeSnapshotSchedule = StorageGateway
     type Rs DescribeSnapshotSchedule = DescribeSnapshotScheduleResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeSnapshotScheduleResponse
+        <$> o .: "Description"
+        <*> o .: "RecurrenceInHours"
+        <*> o .: "StartAt"
+        <*> o .: "Timezone"
+        <*> o .: "VolumeARN"

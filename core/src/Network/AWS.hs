@@ -24,7 +24,7 @@ module Network.AWS
     , envAuth
     , envRegion
     , envManager
-    , envLogging
+    , envLogger
     -- ** Creating the environment
     , Credentials (..)
     , newEnv
@@ -50,14 +50,14 @@ import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Auth
 import           Network.AWS.Data
-import qualified Network.AWS.Internal.Signing as Sign
+import qualified Network.AWS.Signing.Internal as Sign
 import           Network.AWS.Types
-import           Network.HTTP.Conduit
+import           Network.HTTP.Conduit         hiding (Response)
 
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
     { _envRegion  :: !Region
-    , _envLogging :: Logging
+    , _envLogger  :: Logger
     , _envManager :: Manager
     , _envAuth    :: Auth
     }
@@ -67,7 +67,7 @@ makeLenses ''Env
 -- | This creates a new environment without debug logging and uses 'getAuth'
 -- to expand/discover the supplied 'Credentials'.
 --
--- Lenses such as 'envLogging' can be used to modify the 'Env' with a debug logger.
+-- Lenses such as 'envLogger' can be used to modify the 'Env' with a debug logger.
 newEnv :: (Functor m, MonadIO m)
        => Region
        -> Credentials
@@ -84,18 +84,18 @@ newEnv r c m = Env r None m `liftM` getAuth m c
 send :: (MonadCatch m, MonadResource m, AWSRequest a)
      => Env
      -> a
-     -> m (Either (Er (Sv a)) (Rs a))
+     -> m (Response a)
 send Env{..} x@(request -> rq) = go `catch` er >>= response x
   where
     go = do
-        debug _envLogging $
+        debug _envLogger $
             "[Raw Request]\n" <> toText rq
         t  <- liftIO getCurrentTime
         s  <- Sign.sign _envAuth _envRegion rq t
-        debug _envLogging $
+        debug _envLogger $
             "[Signed Request]\n" <> toText s
         rs <- liftResourceT (http (s^.sgRequest) _envManager)
-        debug _envLogging $
+        debug _envLogger $
             "[Raw Response]\n" <> toText rs
         return (Right rs)
 
@@ -110,7 +110,7 @@ send Env{..} x@(request -> rq) = go `catch` er >>= response x
 paginate :: (MonadCatch m, MonadResource m, AWSPager a)
          => Env
          -> a
-         -> Source m (Either (Er (Sv a)) (Rs a))
+         -> Source m (Response a)
 paginate e = go
   where
     go rq = do

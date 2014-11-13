@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,10 +31,6 @@
 -- balancer does nothing. For more information, see Disable an Availability
 -- Zone from a Load-Balanced Application in the Elastic Load Balancing
 -- Developer Guide.
--- https://elasticloadbalancing.amazonaws.com/?AvailabilityZones.member.1=us-east-1a
--- &LoadBalancerName=MyHTTPSLoadBalancer &Version=2012-06-01
--- &Action=DisableAvailabilityZonesForLoadBalancer &AUTHPARAMS us-east-1b
--- ba6267d5-2566-11e3-9c6d-eb728EXAMPLE.
 module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     (
     -- * Request
@@ -40,8 +38,8 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     -- ** Request constructor
     , disableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
-    , dazflbLoadBalancerName
     , dazflbAvailabilityZones
+    , dazflbLoadBalancerName
 
     -- * Response
     , DisableAvailabilityZonesForLoadBalancerResponse
@@ -51,62 +49,63 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     , dazflbrAvailabilityZones
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the DisableAvailabilityZonesForLoadBalancer action.
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer
-    { _dazflbLoadBalancerName :: Text
-    , _dazflbAvailabilityZones :: [Text]
+    { _dazflbAvailabilityZones :: [Text]
+    , _dazflbLoadBalancerName  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableAvailabilityZonesForLoadBalancer' request.
+-- | 'DisableAvailabilityZonesForLoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'dazflbAvailabilityZones' @::@ ['Text']
 --
--- * @AvailabilityZones ::@ @[Text]@
+-- * 'dazflbLoadBalancerName' @::@ 'Text'
 --
 disableAvailabilityZonesForLoadBalancer :: Text -- ^ 'dazflbLoadBalancerName'
-                                        -> [Text] -- ^ 'dazflbAvailabilityZones'
                                         -> DisableAvailabilityZonesForLoadBalancer
-disableAvailabilityZonesForLoadBalancer p1 p2 = DisableAvailabilityZonesForLoadBalancer
-    { _dazflbLoadBalancerName = p1
-    , _dazflbAvailabilityZones = p2
+disableAvailabilityZonesForLoadBalancer p1 = DisableAvailabilityZonesForLoadBalancer
+    { _dazflbLoadBalancerName  = p1
+    , _dazflbAvailabilityZones = mempty
     }
-
--- | The name associated with the load balancer.
-dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
-dazflbLoadBalancerName =
-    lens _dazflbLoadBalancerName (\s a -> s { _dazflbLoadBalancerName = a })
 
 -- | A list of Availability Zones to be removed from the load balancer. There
 -- must be at least one Availability Zone registered with a load balancer at
 -- all times. Specified Availability Zones must be in the same region.
 dazflbAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
 dazflbAvailabilityZones =
-    lens _dazflbAvailabilityZones
-         (\s a -> s { _dazflbAvailabilityZones = a })
+    lens _dazflbAvailabilityZones (\s a -> s { _dazflbAvailabilityZones = a })
 
-instance ToQuery DisableAvailabilityZonesForLoadBalancer where
-    toQuery = genericQuery def
+-- | The name associated with the load balancer.
+dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
+dazflbLoadBalancerName =
+    lens _dazflbLoadBalancerName (\s a -> s { _dazflbLoadBalancerName = a })
 
--- | The output for the DisableAvailabilityZonesForLoadBalancer action.
+instance ToQuery DisableAvailabilityZonesForLoadBalancer
+
+instance ToPath DisableAvailabilityZonesForLoadBalancer where
+    toPath = const "/"
+
 newtype DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
     { _dazflbrAvailabilityZones :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableAvailabilityZonesForLoadBalancerResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DisableAvailabilityZonesForLoadBalancerResponse where
+    type Item DisableAvailabilityZonesForLoadBalancerResponse = Text
+
+    fromList = DisableAvailabilityZonesForLoadBalancerResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dazflbrAvailabilityZones
+
+-- | 'DisableAvailabilityZonesForLoadBalancerResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AvailabilityZones ::@ @[Text]@
+-- * 'dazflbrAvailabilityZones' @::@ ['Text']
 --
 disableAvailabilityZonesForLoadBalancerResponse :: DisableAvailabilityZonesForLoadBalancerResponse
 disableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
@@ -117,14 +116,12 @@ disableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoa
 dazflbrAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
 dazflbrAvailabilityZones =
     lens _dazflbrAvailabilityZones
-         (\s a -> s { _dazflbrAvailabilityZones = a })
-
-instance FromXML DisableAvailabilityZonesForLoadBalancerResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _dazflbrAvailabilityZones = a })
 
 instance AWSRequest DisableAvailabilityZonesForLoadBalancer where
     type Sv DisableAvailabilityZonesForLoadBalancer = ELB
     type Rs DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancerResponse
 
-    request = post "DisableAvailabilityZonesForLoadBalancer"
-    response _ = xmlResponse
+    request  = post "DisableAvailabilityZonesForLoadBalancer"
+    response = xmlResponse $ \h x -> DisableAvailabilityZonesForLoadBalancerResponse
+        <$> x %| "AvailabilityZones"

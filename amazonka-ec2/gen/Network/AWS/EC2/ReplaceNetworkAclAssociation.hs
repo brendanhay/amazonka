@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ReplaceNetworkAclAssociation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,18 +23,7 @@
 -- | Changes which network ACL a subnet is associated with. By default when you
 -- create a subnet, it's automatically associated with the default network
 -- ACL. For more information about network ACLs, see Network ACLs in the
--- Amazon Virtual Private Cloud User Guide. Example This example starts with a
--- network ACL associated with a subnet, and a corresponding association ID
--- aclassoc-e5b95c8c. You want to associate a different network ACL
--- (acl-5fb85d36) with the subnet. The result is a new association ID
--- representing the new association.
--- https://ec2.amazonaws.com/?Action=ReplaceNetworkAclAssociation
--- &amp;AssociationId=aclassoc-e5b95c8c &amp;NetworkAclId=acl-5fb85d36
--- &amp;AUTHPARAMS &lt;ReplaceNetworkAclAssociationResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;newAssociationId&gt;aclassoc-17b85d7e&lt;/newAssociationId&gt;
--- &lt;/ReplaceNetworkAclAssociationResponse&gt;.
+-- Amazon Virtual Private Cloud User Guide.
 module Network.AWS.EC2.ReplaceNetworkAclAssociation
     (
     -- * Request
@@ -41,6 +32,7 @@ module Network.AWS.EC2.ReplaceNetworkAclAssociation
     , replaceNetworkAclAssociation
     -- ** Request lenses
     , rnaaAssociationId
+    , rnaaDryRun
     , rnaaNetworkAclId
 
     -- * Response
@@ -51,58 +43,63 @@ module Network.AWS.EC2.ReplaceNetworkAclAssociation
     , rnaarNewAssociationId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaaAssociationId :: Text
-    , _rnaaNetworkAclId :: Text
+    , _rnaaDryRun        :: Maybe Bool
+    , _rnaaNetworkAclId  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReplaceNetworkAclAssociation' request.
+-- | 'ReplaceNetworkAclAssociation' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AssociationId ::@ @Text@
+-- * 'rnaaAssociationId' @::@ 'Text'
 --
--- * @NetworkAclId ::@ @Text@
+-- * 'rnaaDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'rnaaNetworkAclId' @::@ 'Text'
 --
 replaceNetworkAclAssociation :: Text -- ^ 'rnaaAssociationId'
                              -> Text -- ^ 'rnaaNetworkAclId'
                              -> ReplaceNetworkAclAssociation
 replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
     { _rnaaAssociationId = p1
-    , _rnaaNetworkAclId = p2
+    , _rnaaNetworkAclId  = p2
+    , _rnaaDryRun        = Nothing
     }
 
--- | The ID of the current association between the original network ACL and the
--- subnet.
+-- | The ID of the current association between the original network ACL and
+-- the subnet.
 rnaaAssociationId :: Lens' ReplaceNetworkAclAssociation Text
 rnaaAssociationId =
     lens _rnaaAssociationId (\s a -> s { _rnaaAssociationId = a })
 
--- | The ID of the new ACL to associate with the subnet.
-rnaaNetworkAclId :: Lens' ReplaceNetworkAclAssociation Text
-rnaaNetworkAclId =
-    lens _rnaaNetworkAclId (\s a -> s { _rnaaNetworkAclId = a })
+rnaaDryRun :: Lens' ReplaceNetworkAclAssociation (Maybe Bool)
+rnaaDryRun = lens _rnaaDryRun (\s a -> s { _rnaaDryRun = a })
 
-instance ToQuery ReplaceNetworkAclAssociation where
-    toQuery = genericQuery def
+-- | The ID of the new network ACL to associate with the subnet.
+rnaaNetworkAclId :: Lens' ReplaceNetworkAclAssociation Text
+rnaaNetworkAclId = lens _rnaaNetworkAclId (\s a -> s { _rnaaNetworkAclId = a })
+
+instance ToQuery ReplaceNetworkAclAssociation
+
+instance ToPath ReplaceNetworkAclAssociation where
+    toPath = const "/"
 
 newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { _rnaarNewAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReplaceNetworkAclAssociationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ReplaceNetworkAclAssociationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NewAssociationId ::@ @Maybe Text@
+-- * 'rnaarNewAssociationId' @::@ 'Maybe' 'Text'
 --
 replaceNetworkAclAssociationResponse :: ReplaceNetworkAclAssociationResponse
 replaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
@@ -114,12 +111,10 @@ rnaarNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
 rnaarNewAssociationId =
     lens _rnaarNewAssociationId (\s a -> s { _rnaarNewAssociationId = a })
 
-instance FromXML ReplaceNetworkAclAssociationResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ReplaceNetworkAclAssociation where
     type Sv ReplaceNetworkAclAssociation = EC2
     type Rs ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociationResponse
 
-    request = post "ReplaceNetworkAclAssociation"
-    response _ = xmlResponse
+    request  = post "ReplaceNetworkAclAssociation"
+    response = xmlResponse $ \h x -> ReplaceNetworkAclAssociationResponse
+        <$> x %| "newAssociationId"

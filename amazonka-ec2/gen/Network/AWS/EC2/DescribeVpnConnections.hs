@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeVpnConnections
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,31 +22,7 @@
 
 -- | Describes one or more of your VPN connections. For more information about
 -- VPN connections, see Adding a Hardware Virtual Private Gateway to Your VPC
--- in the Amazon Virtual Private Cloud User Guide. Example 1 This example
--- describes the specified VPN connection. The response includes the customer
--- gateway configuration information. Because it's a long set of information,
--- we haven't displayed it here. To see an example of the configuration
--- information, see the Amazon Virtual Private Cloud Network Administrator
--- Guide. https://ec2.amazonaws.com/?Action=DescribeVpnConnections
--- &amp;VpnConnectionId.1=vpn-44a8938f &amp;AUTHPARAMS
--- &lt;DescribeVpnConnectionsResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;vpnConnectionSet&gt; &lt;item&gt;
--- &lt;vpnConnectionId&gt;vpn-44a8938f&lt;/vpnConnectionId&gt;
--- &lt;state&gt;available&lt;/state&gt; &lt;customerGatewayConfiguration&gt;
--- ...Customer gateway configuration data in escaped XML format...
--- &lt;/customerGatewayConfiguration&gt; &lt;type&gt;ipsec.1&lt;/type&gt;
--- &lt;customerGatewayId&gt;cgw-b4dc3961&lt;/customerGatewayId&gt;
--- &lt;vpnGatewayId&gt;vgw-8db04f81&lt;/vpnGatewayId&gt; &lt;tagSet/&gt;
--- &lt;/item&gt; &lt;/vpnConnectionSet&gt;
--- &lt;/DescribeVpnConnectionsResponse&gt; Example 2 This example describes
--- any VPN connection you own that is associated with the customer gateway
--- with ID cgw-b4dc3961, and whose state is either pending or available.
--- https://ec2.amazonaws.com/?Action=DescribeVpnConnections
--- &amp;Filter.1.Name=customer-gateway-id &amp;Filter.1.Value.1=cgw-b4dc3961
--- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=pending
--- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
+-- in the Amazon Virtual Private Cloud User Guide.
 module Network.AWS.EC2.DescribeVpnConnections
     (
     -- * Request
@@ -52,45 +30,48 @@ module Network.AWS.EC2.DescribeVpnConnections
     -- ** Request constructor
     , describeVpnConnections
     -- ** Request lenses
-    , dvc1VpnConnectionIds
+    , dvc1DryRun
     , dvc1Filters
+    , dvc1VpnConnectionIds
 
     -- * Response
     , DescribeVpnConnectionsResponse
     -- ** Response constructor
     , describeVpnConnectionsResponse
     -- ** Response lenses
-    , dvcrrVpnConnections
+    , dvcrVpnConnections
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeVpnConnections = DescribeVpnConnections
-    { _dvc1VpnConnectionIds :: [Text]
-    , _dvc1Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dvc1DryRun           :: Maybe Bool
+    , _dvc1Filters          :: [Filter]
+    , _dvc1VpnConnectionIds :: [Text]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVpnConnections' request.
+-- | 'DescribeVpnConnections' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpnConnectionIds ::@ @[Text]@
+-- * 'dvc1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Filters ::@ @[Filter]@
+-- * 'dvc1Filters' @::@ ['Filter']
+--
+-- * 'dvc1VpnConnectionIds' @::@ ['Text']
 --
 describeVpnConnections :: DescribeVpnConnections
 describeVpnConnections = DescribeVpnConnections
-    { _dvc1VpnConnectionIds = mempty
-    , _dvc1Filters = mempty
+    { _dvc1DryRun           = Nothing
+    , _dvc1VpnConnectionIds = mempty
+    , _dvc1Filters          = mempty
     }
 
--- | One or more VPN connection IDs. Default: Describes your VPN connections.
-dvc1VpnConnectionIds :: Lens' DescribeVpnConnections [Text]
-dvc1VpnConnectionIds =
-    lens _dvc1VpnConnectionIds (\s a -> s { _dvc1VpnConnectionIds = a })
+dvc1DryRun :: Lens' DescribeVpnConnections (Maybe Bool)
+dvc1DryRun = lens _dvc1DryRun (\s a -> s { _dvc1DryRun = a })
 
 -- | One or more filters. customer-gateway-configuration - The configuration
 -- information for the customer gateway. customer-gateway-id - The ID of a
@@ -99,55 +80,63 @@ dvc1VpnConnectionIds =
 -- option.static-routes-only - Indicates whether the connection has static
 -- routes only. Used for devices that do not support Border Gateway Protocol
 -- (BGP). route.destination-cidr-block - The destination CIDR block. This
--- corresponds to the subnet used in a customer data center. bgp-asn - The BGP
--- Autonomous System Number (ASN) associated with a BGP device. tag:key=value
--- - The key/value combination of a tag assigned to the resource. tag-key -
--- The key of a tag assigned to the resource. This filter is independent of
--- the tag-value filter. For example, if you use both the filter
--- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
--- assigned both the tag key Purpose (regardless of what the tag's value is),
--- and the tag value X (regardless of what the tag's key is). If you want to
--- list only resources where Purpose is X, see the tag:key=value filter.
--- tag-value - The value of a tag assigned to the resource. This filter is
--- independent of the tag-key filter. type - The type of VPN connection.
--- Currently the only supported type is ipsec.1. vpn-connection-id - The ID of
--- the VPN connection. vpn-gateway-id - The ID of a virtual private gateway
--- associated with the VPN connection.
+-- corresponds to the subnet used in a customer data center. bgp-asn - The
+-- BGP Autonomous System Number (ASN) associated with a BGP device.
+-- tag:key=value - The key/value combination of a tag assigned to the
+-- resource. tag-key - The key of a tag assigned to the resource. This
+-- filter is independent of the tag-value filter. For example, if you use
+-- both the filter "tag-key=Purpose" and the filter "tag-value=X", you get
+-- any resources assigned both the tag key Purpose (regardless of what the
+-- tag's value is), and the tag value X (regardless of what the tag's key
+-- is). If you want to list only resources where Purpose is X, see the
+-- tag:key=value filter. tag-value - The value of a tag assigned to the
+-- resource. This filter is independent of the tag-key filter. type - The
+-- type of VPN connection. Currently the only supported type is ipsec.1.
+-- vpn-connection-id - The ID of the VPN connection. vpn-gateway-id - The ID
+-- of a virtual private gateway associated with the VPN connection.
 dvc1Filters :: Lens' DescribeVpnConnections [Filter]
 dvc1Filters = lens _dvc1Filters (\s a -> s { _dvc1Filters = a })
 
-instance ToQuery DescribeVpnConnections where
-    toQuery = genericQuery def
+-- | One or more VPN connection IDs. Default: Describes your VPN connections.
+dvc1VpnConnectionIds :: Lens' DescribeVpnConnections [Text]
+dvc1VpnConnectionIds =
+    lens _dvc1VpnConnectionIds (\s a -> s { _dvc1VpnConnectionIds = a })
+
+instance ToQuery DescribeVpnConnections
+
+instance ToPath DescribeVpnConnections where
+    toPath = const "/"
 
 newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
-    { _dvcrrVpnConnections :: [VpnConnection]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dvcrVpnConnections :: [VpnConnection]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVpnConnectionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeVpnConnectionsResponse where
+    type Item DescribeVpnConnectionsResponse = VpnConnection
+
+    fromList = DescribeVpnConnectionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dvcrVpnConnections
+
+-- | 'DescribeVpnConnectionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpnConnections ::@ @[VpnConnection]@
+-- * 'dvcrVpnConnections' @::@ ['VpnConnection']
 --
 describeVpnConnectionsResponse :: DescribeVpnConnectionsResponse
 describeVpnConnectionsResponse = DescribeVpnConnectionsResponse
-    { _dvcrrVpnConnections = mempty
+    { _dvcrVpnConnections = mempty
     }
 
 -- | Information about one or more VPN connections.
-dvcrrVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
-dvcrrVpnConnections =
-    lens _dvcrrVpnConnections (\s a -> s { _dvcrrVpnConnections = a })
-
-instance FromXML DescribeVpnConnectionsResponse where
-    fromXMLOptions = xmlOptions
+dvcrVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
+dvcrVpnConnections =
+    lens _dvcrVpnConnections (\s a -> s { _dvcrVpnConnections = a })
 
 instance AWSRequest DescribeVpnConnections where
     type Sv DescribeVpnConnections = EC2
     type Rs DescribeVpnConnections = DescribeVpnConnectionsResponse
 
-    request = post "DescribeVpnConnections"
-    response _ = xmlResponse
+    request  = post "DescribeVpnConnections"
+    response = xmlResponse $ \h x -> DescribeVpnConnectionsResponse
+        <$> x %| "vpnConnectionSet"

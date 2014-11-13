@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,19 +26,7 @@
 -- cancel jobs after Elastic Transcoder has started processing them; if you
 -- pause the pipeline to which you submitted the jobs, you have more time to
 -- get the job IDs for the jobs that you want to cancel, and to send a
--- CancelJob request. POST /2012-09-25/pipelines/1111111111111-abcde1/status
--- HTTP/1.1 Content-Type: application/json; charset=UTF-8 Accept: */* Host:
--- elastictranscoder.[Elastic Transcoder-endpoint].amazonaws.com:443
--- x-amz-date: 20130114T174952Z Authorization: AWS4-HMAC-SHA256
--- Credential=[access-key-id]/[request-date]/[Elastic
--- Transcoder-endpoint]/ets/aws4_request,
--- SignedHeaders=host;x-amz-date;x-amz-target,
--- Signature=[calculated-signature] Content-Length:
--- [number-of-characters-in-JSON-string] { "Id":"1111111111111-abcde1",
--- "Status":"Active" } Status: 202 Accepted x-amzn-RequestId:
--- c321ec43-378e-11e2-8e4c-4d5b971203e9 Content-Type: application/json
--- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
--- 06:01:47 GMT { "Id":"1111111111111-abcde1", "Status":"Active" }.
+-- CancelJob request.
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     (
     -- * Request
@@ -55,30 +45,28 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     , upsrPipeline
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.ElasticTranscoder.Types
 
--- | The UpdatePipelineStatusRequest structure.
 data UpdatePipelineStatus = UpdatePipelineStatus
-    { _upsId :: Text
+    { _upsId     :: Text
     , _upsStatus :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdatePipelineStatus' request.
+-- | 'UpdatePipelineStatus' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'upsId' @::@ 'Text'
 --
--- * @Status ::@ @Text@
+-- * 'upsStatus' @::@ 'Text'
 --
 updatePipelineStatus :: Text -- ^ 'upsId'
                      -> Text -- ^ 'upsStatus'
                      -> UpdatePipelineStatus
 updatePipelineStatus p1 p2 = UpdatePipelineStatus
-    { _upsId = p1
+    { _upsId     = p1
     , _upsStatus = p2
     }
 
@@ -91,28 +79,30 @@ upsId = lens _upsId (\s a -> s { _upsId = a })
 upsStatus :: Lens' UpdatePipelineStatus Text
 upsStatus = lens _upsStatus (\s a -> s { _upsStatus = a })
 
-instance ToPath UpdatePipelineStatus
+instance ToPath UpdatePipelineStatus where
+    toPath UpdatePipelineStatus{..} = mconcat
+        [ "/2012-09-25/pipelines/"
+        , toText _upsId
+        , "/status"
+        ]
 
-instance ToQuery UpdatePipelineStatus
+instance ToQuery UpdatePipelineStatus where
+    toQuery = const mempty
 
 instance ToHeaders UpdatePipelineStatus
 
-instance ToJSON UpdatePipelineStatus
+instance ToBody UpdatePipelineStatus where
+    toBody = toBody . encode . _upsStatus
 
--- | When you update status for a pipeline, Elastic Transcoder returns the
--- values that you specified in the request.
 newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
     { _upsrPipeline :: Maybe Pipeline
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdatePipelineStatusResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdatePipelineStatusResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Pipeline ::@ @Maybe Pipeline@
+-- * 'upsrPipeline' @::@ 'Maybe' 'Pipeline'
 --
 updatePipelineStatusResponse :: UpdatePipelineStatusResponse
 updatePipelineStatusResponse = UpdatePipelineStatusResponse
@@ -124,11 +114,12 @@ updatePipelineStatusResponse = UpdatePipelineStatusResponse
 upsrPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrPipeline = lens _upsrPipeline (\s a -> s { _upsrPipeline = a })
 
-instance FromJSON UpdatePipelineStatusResponse
+-- FromJSON
 
 instance AWSRequest UpdatePipelineStatus where
     type Sv UpdatePipelineStatus = ElasticTranscoder
     type Rs UpdatePipelineStatus = UpdatePipelineStatusResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> UpdatePipelineStatusResponse
+        <$> o .: "Pipeline"

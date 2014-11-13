@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DetachElasticLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,8 +32,8 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     -- ** Request constructor
     , detachElasticLoadBalancer
     -- ** Request lenses
-    , delb1ElasticLoadBalancerName
-    , delb1LayerId
+    , delbElasticLoadBalancerName
+    , delbLayerId
 
     -- * Response
     , DetachElasticLoadBalancerResponse
@@ -39,64 +41,65 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     , detachElasticLoadBalancerResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer
-    { _delb1ElasticLoadBalancerName :: Text
-    , _delb1LayerId :: Text
+    { _delbElasticLoadBalancerName :: Text
+    , _delbLayerId                 :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachElasticLoadBalancer' request.
+-- | 'DetachElasticLoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ElasticLoadBalancerName ::@ @Text@
+-- * 'delbElasticLoadBalancerName' @::@ 'Text'
 --
--- * @LayerId ::@ @Text@
+-- * 'delbLayerId' @::@ 'Text'
 --
-detachElasticLoadBalancer :: Text -- ^ 'delb1ElasticLoadBalancerName'
-                          -> Text -- ^ 'delb1LayerId'
+detachElasticLoadBalancer :: Text -- ^ 'delbElasticLoadBalancerName'
+                          -> Text -- ^ 'delbLayerId'
                           -> DetachElasticLoadBalancer
 detachElasticLoadBalancer p1 p2 = DetachElasticLoadBalancer
-    { _delb1ElasticLoadBalancerName = p1
-    , _delb1LayerId = p2
+    { _delbElasticLoadBalancerName = p1
+    , _delbLayerId                 = p2
     }
 
 -- | The Elastic Load Balancing instance's name.
-delb1ElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
-delb1ElasticLoadBalancerName =
-    lens _delb1ElasticLoadBalancerName
-         (\s a -> s { _delb1ElasticLoadBalancerName = a })
+delbElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
+delbElasticLoadBalancerName =
+    lens _delbElasticLoadBalancerName
+        (\s a -> s { _delbElasticLoadBalancerName = a })
 
 -- | The ID of the layer that the Elastic Load Balancing instance is attached
 -- to.
-delb1LayerId :: Lens' DetachElasticLoadBalancer Text
-delb1LayerId = lens _delb1LayerId (\s a -> s { _delb1LayerId = a })
+delbLayerId :: Lens' DetachElasticLoadBalancer Text
+delbLayerId = lens _delbLayerId (\s a -> s { _delbLayerId = a })
 
-instance ToPath DetachElasticLoadBalancer
+instance ToPath DetachElasticLoadBalancer where
+    toPath = const "/"
 
-instance ToQuery DetachElasticLoadBalancer
+instance ToQuery DetachElasticLoadBalancer where
+    toQuery = const mempty
 
 instance ToHeaders DetachElasticLoadBalancer
 
-instance ToJSON DetachElasticLoadBalancer
+instance ToBody DetachElasticLoadBalancer where
+    toBody = toBody . encode . _delbElasticLoadBalancerName
 
 data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachElasticLoadBalancerResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DetachElasticLoadBalancerResponse' constructor.
 detachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse
 detachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
+
+-- FromJSON
 
 instance AWSRequest DetachElasticLoadBalancer where
     type Sv DetachElasticLoadBalancer = OpsWorks
     type Rs DetachElasticLoadBalancer = DetachElasticLoadBalancerResponse
 
-    request = get
-    response _ = nullaryResponse DetachElasticLoadBalancerResponse
+    request  = post'
+    response = nullaryResponse DetachElasticLoadBalancerResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DirectConnect.ConfirmConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,24 +38,22 @@ module Network.AWS.DirectConnect.ConfirmConnection
     -- ** Response constructor
     , confirmConnectionResponse
     -- ** Response lenses
-    , ccrConnectionState
+    , ccr1ConnectionState
     ) where
 
-import Network.AWS.DirectConnect.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DirectConnect.Types
 
--- | Container for the parameters to the ConfirmConnection operation.
 newtype ConfirmConnection = ConfirmConnection
     { _ccConnectionId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfirmConnection' request.
+-- | 'ConfirmConnection' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ConnectionId ::@ @Text@
+-- * 'ccConnectionId' @::@ 'Text'
 --
 confirmConnection :: Text -- ^ 'ccConnectionId'
                   -> ConfirmConnection
@@ -61,57 +61,45 @@ confirmConnection p1 = ConfirmConnection
     { _ccConnectionId = p1
     }
 
--- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 ccConnectionId :: Lens' ConfirmConnection Text
 ccConnectionId = lens _ccConnectionId (\s a -> s { _ccConnectionId = a })
 
-instance ToPath ConfirmConnection
+instance ToPath ConfirmConnection where
+    toPath = const "/"
 
-instance ToQuery ConfirmConnection
+instance ToQuery ConfirmConnection where
+    toQuery = const mempty
 
 instance ToHeaders ConfirmConnection
 
-instance ToJSON ConfirmConnection
+instance ToBody ConfirmConnection where
+    toBody = toBody . encode . _ccConnectionId
 
--- | The response received when ConfirmConnection is called.
 newtype ConfirmConnectionResponse = ConfirmConnectionResponse
-    { _ccrConnectionState :: Maybe ConnectionState
-    } deriving (Eq, Ord, Show, Generic)
+    { _ccr1ConnectionState :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfirmConnectionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ConfirmConnectionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ConnectionState ::@ @Maybe ConnectionState@
+-- * 'ccr1ConnectionState' @::@ 'Maybe' 'Text'
 --
 confirmConnectionResponse :: ConfirmConnectionResponse
 confirmConnectionResponse = ConfirmConnectionResponse
-    { _ccrConnectionState = Nothing
+    { _ccr1ConnectionState = Nothing
     }
 
--- | State of the connection. Ordering: The initial state of a hosted connection
--- provisioned on an interconnect. The connection stays in the ordering state
--- until the owner of the hosted connection confirms or declines the
--- connection order. Requested: The initial state of a standard connection.
--- The connection stays in the requested state until the Letter of
--- Authorization (LOA) is sent to the customer. Pending: The connection has
--- been approved, and is being initialized. Available: The network link is up,
--- and the connection is ready for use. Down: The network link is down.
--- Deleted: The connection has been deleted. Rejected: A hosted connection in
--- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
--- the end customer.
-ccrConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
-ccrConnectionState =
-    lens _ccrConnectionState (\s a -> s { _ccrConnectionState = a })
+ccr1ConnectionState :: Lens' ConfirmConnectionResponse (Maybe Text)
+ccr1ConnectionState =
+    lens _ccr1ConnectionState (\s a -> s { _ccr1ConnectionState = a })
 
-instance FromJSON ConfirmConnectionResponse
+-- FromJSON
 
 instance AWSRequest ConfirmConnection where
     type Sv ConfirmConnection = DirectConnect
     type Rs ConfirmConnection = ConfirmConnectionResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> ConfirmConnectionResponse
+        <$> o .: "connectionState"

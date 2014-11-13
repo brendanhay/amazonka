@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,7 +32,7 @@ module Network.AWS.OpsWorks.DeleteStack
     -- ** Request constructor
     , deleteStack
     -- ** Request lenses
-    , ds1StackId
+    , dsStackId
 
     -- * Response
     , DeleteStackResponse
@@ -38,52 +40,53 @@ module Network.AWS.OpsWorks.DeleteStack
     , deleteStackResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype DeleteStack = DeleteStack
-    { _ds1StackId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dsStackId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteStack' request.
+-- | 'DeleteStack' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Text@
+-- * 'dsStackId' @::@ 'Text'
 --
-deleteStack :: Text -- ^ 'ds1StackId'
+deleteStack :: Text -- ^ 'dsStackId'
             -> DeleteStack
 deleteStack p1 = DeleteStack
-    { _ds1StackId = p1
+    { _dsStackId = p1
     }
 
 -- | The stack ID.
-ds1StackId :: Lens' DeleteStack Text
-ds1StackId = lens _ds1StackId (\s a -> s { _ds1StackId = a })
+dsStackId :: Lens' DeleteStack Text
+dsStackId = lens _dsStackId (\s a -> s { _dsStackId = a })
 
-instance ToPath DeleteStack
+instance ToPath DeleteStack where
+    toPath = const "/"
 
-instance ToQuery DeleteStack
+instance ToQuery DeleteStack where
+    toQuery = const mempty
 
 instance ToHeaders DeleteStack
 
-instance ToJSON DeleteStack
+instance ToBody DeleteStack where
+    toBody = toBody . encode . _dsStackId
 
 data DeleteStackResponse = DeleteStackResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteStackResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteStackResponse' constructor.
 deleteStackResponse :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse
+
+-- FromJSON
 
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = OpsWorks
     type Rs DeleteStack = DeleteStackResponse
 
-    request = get
-    response _ = nullaryResponse DeleteStackResponse
+    request  = post'
+    response = nullaryResponse DeleteStackResponse

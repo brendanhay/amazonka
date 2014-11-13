@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,22 +39,19 @@ module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     , dcoirConnections
     ) where
 
-import Network.AWS.DirectConnect.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DirectConnect.Types
 
--- | Container for the parameters to the DescribeConnectionsOnInterconnect
--- operation.
 newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
     { _dcoiInterconnectId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeConnectionsOnInterconnect' request.
+-- | 'DescribeConnectionsOnInterconnect' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InterconnectId ::@ @Text@
+-- * 'dcoiInterconnectId' @::@ 'Text'
 --
 describeConnectionsOnInterconnect :: Text -- ^ 'dcoiInterconnectId'
                                   -> DescribeConnectionsOnInterconnect
@@ -66,27 +65,32 @@ dcoiInterconnectId :: Lens' DescribeConnectionsOnInterconnect Text
 dcoiInterconnectId =
     lens _dcoiInterconnectId (\s a -> s { _dcoiInterconnectId = a })
 
-instance ToPath DescribeConnectionsOnInterconnect
+instance ToPath DescribeConnectionsOnInterconnect where
+    toPath = const "/"
 
-instance ToQuery DescribeConnectionsOnInterconnect
+instance ToQuery DescribeConnectionsOnInterconnect where
+    toQuery = const mempty
 
 instance ToHeaders DescribeConnectionsOnInterconnect
 
-instance ToJSON DescribeConnectionsOnInterconnect
+instance ToBody DescribeConnectionsOnInterconnect where
+    toBody = toBody . encode . _dcoiInterconnectId
 
--- | A structure containing a list of connections.
 newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
     { _dcoirConnections :: [Connection]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeConnectionsOnInterconnectResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeConnectionsOnInterconnectResponse where
+    type Item DescribeConnectionsOnInterconnectResponse = Connection
+
+    fromList = DescribeConnectionsOnInterconnectResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dcoirConnections
+
+-- | 'DescribeConnectionsOnInterconnectResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Connections ::@ @[Connection]@
+-- * 'dcoirConnections' @::@ ['Connection']
 --
 describeConnectionsOnInterconnectResponse :: DescribeConnectionsOnInterconnectResponse
 describeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
@@ -95,14 +99,14 @@ describeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectRes
 
 -- | A list of connections.
 dcoirConnections :: Lens' DescribeConnectionsOnInterconnectResponse [Connection]
-dcoirConnections =
-    lens _dcoirConnections (\s a -> s { _dcoirConnections = a })
+dcoirConnections = lens _dcoirConnections (\s a -> s { _dcoirConnections = a })
 
-instance FromJSON DescribeConnectionsOnInterconnectResponse
+-- FromJSON
 
 instance AWSRequest DescribeConnectionsOnInterconnect where
     type Sv DescribeConnectionsOnInterconnect = DirectConnect
     type Rs DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnectResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeConnectionsOnInterconnectResponse
+        <$> o .: "connections"

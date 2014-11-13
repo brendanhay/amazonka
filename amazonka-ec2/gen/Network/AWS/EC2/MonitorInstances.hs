@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.MonitorInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,19 +22,7 @@
 
 -- | Enables monitoring for a running instance. For more information about
 -- monitoring instances, see Monitoring Your Instances and Volumes in the
--- Amazon Elastic Compute Cloud User Guide. Example This example enables
--- monitoring for two instances.
--- https://ec2.amazonaws.com/?Action=MonitorInstances
--- &amp;InstanceId.1=i-43a4412a &amp;InstanceId.2=i-23a3397d &amp;AUTHPARAMS
--- &lt;MonitorInstancesResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;instancesSet&gt; &lt;item&gt;
--- &lt;instanceId&gt;i-43a4412a&lt;/instanceId&gt; &lt;monitoring&gt;
--- &lt;state&gt;pending&lt;/state&gt; &lt;/monitoring&gt; &lt;/item&gt;
--- &lt;item&gt; &lt;instanceId&gt;i-23a3397d&lt;/instanceId&gt;
--- &lt;monitoring&gt; &lt;state&gt;pending&lt;/state&gt; &lt;/monitoring&gt;
--- &lt;/item&gt; &lt;/instancesSet&gt; &lt;/MonitorInstancesResponse&gt;.
+-- Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.MonitorInstances
     (
     -- * Request
@@ -40,6 +30,7 @@ module Network.AWS.EC2.MonitorInstances
     -- ** Request constructor
     , monitorInstances
     -- ** Request lenses
+    , miDryRun
     , miInstanceIds
 
     -- * Response
@@ -50,46 +41,57 @@ module Network.AWS.EC2.MonitorInstances
     , mirInstanceMonitorings
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype MonitorInstances = MonitorInstances
-    { _miInstanceIds :: [Text]
+data MonitorInstances = MonitorInstances
+    { _miDryRun      :: Maybe Bool
+    , _miInstanceIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'MonitorInstances' request.
+-- | 'MonitorInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceIds ::@ @[Text]@
+-- * 'miDryRun' @::@ 'Maybe' 'Bool'
 --
-monitorInstances :: [Text] -- ^ 'miInstanceIds'
-                 -> MonitorInstances
-monitorInstances p1 = MonitorInstances
-    { _miInstanceIds = p1
+-- * 'miInstanceIds' @::@ ['Text']
+--
+monitorInstances :: MonitorInstances
+monitorInstances = MonitorInstances
+    { _miDryRun      = Nothing
+    , _miInstanceIds = mempty
     }
+
+miDryRun :: Lens' MonitorInstances (Maybe Bool)
+miDryRun = lens _miDryRun (\s a -> s { _miDryRun = a })
 
 -- | One or more instance IDs.
 miInstanceIds :: Lens' MonitorInstances [Text]
 miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a })
 
-instance ToQuery MonitorInstances where
-    toQuery = genericQuery def
+instance ToQuery MonitorInstances
+
+instance ToPath MonitorInstances where
+    toPath = const "/"
 
 newtype MonitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings :: [InstanceMonitoring]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'MonitorInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList MonitorInstancesResponse where
+    type Item MonitorInstancesResponse = InstanceMonitoring
+
+    fromList = MonitorInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _mirInstanceMonitorings
+
+-- | 'MonitorInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceMonitorings ::@ @[InstanceMonitoring]@
+-- * 'mirInstanceMonitorings' @::@ ['InstanceMonitoring']
 --
 monitorInstancesResponse :: MonitorInstancesResponse
 monitorInstancesResponse = MonitorInstancesResponse
@@ -101,12 +103,10 @@ mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirInstanceMonitorings =
     lens _mirInstanceMonitorings (\s a -> s { _mirInstanceMonitorings = a })
 
-instance FromXML MonitorInstancesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest MonitorInstances where
     type Sv MonitorInstances = EC2
     type Rs MonitorInstances = MonitorInstancesResponse
 
-    request = post "MonitorInstances"
-    response _ = xmlResponse
+    request  = post "MonitorInstances"
+    response = xmlResponse $ \h x -> MonitorInstancesResponse
+        <$> x %| "instancesSet"

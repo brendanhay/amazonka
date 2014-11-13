@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketRequestPayment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,38 +41,37 @@ module Network.AWS.S3.PutBucketRequestPayment
     , putBucketRequestPaymentResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutBucketRequestPayment = PutBucketRequestPayment
-    { _pbrpBucket :: BucketName
-    , _pbrpContentMD5 :: Maybe Text
+    { _pbrpBucket                      :: Text
+    , _pbrpContentMD5                  :: Maybe Text
     , _pbrpRequestPaymentConfiguration :: RequestPaymentConfiguration
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketRequestPayment' request.
+-- | 'PutBucketRequestPayment' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'pbrpBucket' @::@ 'Text'
 --
--- * @ContentMD5 ::@ @Maybe Text@
+-- * 'pbrpContentMD5' @::@ 'Maybe' 'Text'
 --
--- * @RequestPaymentConfiguration ::@ @RequestPaymentConfiguration@
+-- * 'pbrpRequestPaymentConfiguration' @::@ 'RequestPaymentConfiguration'
 --
-putBucketRequestPayment :: BucketName -- ^ 'pbrpBucket'
+putBucketRequestPayment :: Text -- ^ 'pbrpBucket'
                         -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
                         -> PutBucketRequestPayment
-putBucketRequestPayment p1 p3 = PutBucketRequestPayment
-    { _pbrpBucket = p1
-    , _pbrpContentMD5 = Nothing
-    , _pbrpRequestPaymentConfiguration = p3
+putBucketRequestPayment p1 p2 = PutBucketRequestPayment
+    { _pbrpBucket                      = p1
+    , _pbrpRequestPaymentConfiguration = p2
+    , _pbrpContentMD5                  = Nothing
     }
 
-pbrpBucket :: Lens' PutBucketRequestPayment BucketName
+pbrpBucket :: Lens' PutBucketRequestPayment Text
 pbrpBucket = lens _pbrpBucket (\s a -> s { _pbrpBucket = a })
 
 pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
@@ -79,14 +80,19 @@ pbrpContentMD5 = lens _pbrpContentMD5 (\s a -> s { _pbrpContentMD5 = a })
 pbrpRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentConfiguration
 pbrpRequestPaymentConfiguration =
     lens _pbrpRequestPaymentConfiguration
-         (\s a -> s { _pbrpRequestPaymentConfiguration = a })
+        (\s a -> s { _pbrpRequestPaymentConfiguration = a })
 
-instance ToPath PutBucketRequestPayment
+instance ToPath PutBucketRequestPayment where
+    toPath PutBucketRequestPayment{..} = mconcat
+        [ "/"
+        , toText _pbrpBucket
+        ]
 
-instance ToQuery PutBucketRequestPayment
+instance ToQuery PutBucketRequestPayment where
+    toQuery = const "requestPayment"
 
 instance ToHeaders PutBucketRequestPayment where
-    toHeaders PutBucketRequestPayment{..} = concat
+    toHeaders PutBucketRequestPayment{..} = mconcat
         [ "Content-MD5" =: _pbrpContentMD5
         ]
 
@@ -96,10 +102,7 @@ instance ToBody PutBucketRequestPayment where
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketRequestPaymentResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutBucketRequestPaymentResponse' constructor.
 putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 
@@ -107,5 +110,5 @@ instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
     type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
 
-    request = get
-    response _ = nullaryResponse PutBucketRequestPaymentResponse
+    request  = put
+    response = nullaryResponse PutBucketRequestPaymentResponse

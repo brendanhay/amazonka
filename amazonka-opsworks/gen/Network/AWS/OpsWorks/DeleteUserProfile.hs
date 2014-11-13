@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteUserProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,20 +38,19 @@ module Network.AWS.OpsWorks.DeleteUserProfile
     , deleteUserProfileResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype DeleteUserProfile = DeleteUserProfile
     { _dupIamUserArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteUserProfile' request.
+-- | 'DeleteUserProfile' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IamUserArn ::@ @Text@
+-- * 'dupIamUserArn' @::@ 'Text'
 --
 deleteUserProfile :: Text -- ^ 'dupIamUserArn'
                   -> DeleteUserProfile
@@ -61,27 +62,29 @@ deleteUserProfile p1 = DeleteUserProfile
 dupIamUserArn :: Lens' DeleteUserProfile Text
 dupIamUserArn = lens _dupIamUserArn (\s a -> s { _dupIamUserArn = a })
 
-instance ToPath DeleteUserProfile
+instance ToPath DeleteUserProfile where
+    toPath = const "/"
 
-instance ToQuery DeleteUserProfile
+instance ToQuery DeleteUserProfile where
+    toQuery = const mempty
 
 instance ToHeaders DeleteUserProfile
 
-instance ToJSON DeleteUserProfile
+instance ToBody DeleteUserProfile where
+    toBody = toBody . encode . _dupIamUserArn
 
 data DeleteUserProfileResponse = DeleteUserProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteUserProfileResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteUserProfileResponse' constructor.
 deleteUserProfileResponse :: DeleteUserProfileResponse
 deleteUserProfileResponse = DeleteUserProfileResponse
+
+-- FromJSON
 
 instance AWSRequest DeleteUserProfile where
     type Sv DeleteUserProfile = OpsWorks
     type Rs DeleteUserProfile = DeleteUserProfileResponse
 
-    request = get
-    response _ = nullaryResponse DeleteUserProfileResponse
+    request  = post'
+    response = nullaryResponse DeleteUserProfileResponse

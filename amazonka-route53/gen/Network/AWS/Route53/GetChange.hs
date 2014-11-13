@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53.GetChange
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,58 +42,53 @@ module Network.AWS.Route53.GetChange
     , gcrChangeInfo
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
--- | The input for a GetChange request.
 newtype GetChange = GetChange
-    { _gcId :: ResourceId
-    } deriving (Eq, Ord, Show, Generic)
+    { _gcId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetChange' request.
+-- | 'GetChange' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @ResourceId@
+-- * 'gcId' @::@ 'Text'
 --
-getChange :: ResourceId -- ^ 'gcId'
+getChange :: Text -- ^ 'gcId'
           -> GetChange
 getChange p1 = GetChange
     { _gcId = p1
     }
 
--- | The ID of the change batch request. The value that you specify here is the
--- value that ChangeResourceRecordSets returned in the Id element when you
--- submitted the request.
-gcId :: Lens' GetChange ResourceId
+-- | The ID of the change batch request. The value that you specify here is
+-- the value that ChangeResourceRecordSets returned in the Id element when
+-- you submitted the request.
+gcId :: Lens' GetChange Text
 gcId = lens _gcId (\s a -> s { _gcId = a })
 
-instance ToPath GetChange
+instance ToPath GetChange where
+    toPath GetChange{..} = mconcat
+        [ "/2013-04-01/change/"
+        , toText _gcId
+        ]
 
-instance ToQuery GetChange
+instance ToQuery GetChange where
+    toQuery = const mempty
 
 instance ToHeaders GetChange
 
-instance ToXML GetChange where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetChange"
-
--- | A complex type that contains the ChangeInfo element.
 newtype GetChangeResponse = GetChangeResponse
     { _gcrChangeInfo :: ChangeInfo
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetChangeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetChangeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ChangeInfo ::@ @ChangeInfo@
+-- * 'gcrChangeInfo' @::@ 'ChangeInfo'
 --
 getChangeResponse :: ChangeInfo -- ^ 'gcrChangeInfo'
                   -> GetChangeResponse
@@ -99,18 +96,16 @@ getChangeResponse p1 = GetChangeResponse
     { _gcrChangeInfo = p1
     }
 
--- | A complex type that contains information about the specified change batch,
--- including the change batch ID, the status of the change, and the date and
--- time of the request.
+-- | A complex type that contains information about the specified change
+-- batch, including the change batch ID, the status of the change, and the
+-- date and time of the request.
 gcrChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrChangeInfo = lens _gcrChangeInfo (\s a -> s { _gcrChangeInfo = a })
-
-instance FromXML GetChangeResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest GetChange where
     type Sv GetChange = Route53
     type Rs GetChange = GetChangeResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetChangeResponse
+        <$> x %| "ChangeInfo"

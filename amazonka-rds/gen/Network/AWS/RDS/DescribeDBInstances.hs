@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,15 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns information about provisioned RDS instances. This API supports
--- pagination. https://rds.amazonaws.com/ ?Action=DescribeDBInstances
--- &Version=2013-05-15 &MaxRecords=100 &SignatureVersion=2
--- &SignatureMethod=HmacSHA256 &Timestamp=2011-05-23T06%3A54%3A55.116Z
--- &AWSAccessKeyId= &Signature= 2011-05-23T06:50:00Z mysql 1 false
--- general-public-license available 5.1.50 3306
--- simcoprod01.cu7u2t4uz396.us-east-1.rds.amazonaws.com simcoprod01 in-sync
--- default.mysql5.1 active default 00:00-00:30 true sat:07:30-sat:08:00
--- us-east-1a 2011-05-23T06:06:43.110Z 10 default.mysql5.1 in-sync db.m1.large
--- master 9135fff3-8509-11e0-bd9b-a7b1ece36d51.
+-- pagination.
 module Network.AWS.RDS.DescribeDBInstances
     (
     -- * Request
@@ -36,118 +30,117 @@ module Network.AWS.RDS.DescribeDBInstances
     , describeDBInstances
     -- ** Request lenses
     , ddbi1DBInstanceIdentifier
-    , ddbi1MaxRecords
+    , ddbi1Filters
     , ddbi1Marker
+    , ddbi1MaxRecords
 
     -- * Response
     , DescribeDBInstancesResponse
     -- ** Response constructor
     , describeDBInstancesResponse
     -- ** Response lenses
-    , ddbirrMarker
-    , ddbirrDBInstances
+    , ddbirDBInstances
+    , ddbirMarker
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data DescribeDBInstances = DescribeDBInstances
     { _ddbi1DBInstanceIdentifier :: Maybe Text
-    , _ddbi1MaxRecords :: Maybe Integer
-    , _ddbi1Marker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _ddbi1Filters              :: [Filter]
+    , _ddbi1Marker               :: Maybe Text
+    , _ddbi1MaxRecords           :: Maybe Int
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeDBInstances' request.
+-- | 'DescribeDBInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBInstanceIdentifier ::@ @Maybe Text@
+-- * 'ddbi1DBInstanceIdentifier' @::@ 'Maybe' 'Text'
 --
--- * @MaxRecords ::@ @Maybe Integer@
+-- * 'ddbi1Filters' @::@ ['Filter']
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'ddbi1Marker' @::@ 'Maybe' 'Text'
+--
+-- * 'ddbi1MaxRecords' @::@ 'Maybe' 'Int'
 --
 describeDBInstances :: DescribeDBInstances
 describeDBInstances = DescribeDBInstances
     { _ddbi1DBInstanceIdentifier = Nothing
-    , _ddbi1MaxRecords = Nothing
-    , _ddbi1Marker = Nothing
+    , _ddbi1Filters              = mempty
+    , _ddbi1MaxRecords           = Nothing
+    , _ddbi1Marker               = Nothing
     }
 
 -- | The user-supplied instance identifier. If this parameter is specified,
--- information from only the specific DB instance is returned. This parameter
--- isn't case sensitive. Constraints: Must contain from 1 to 63 alphanumeric
--- characters or hyphens First character must be a letter Cannot end with a
--- hyphen or contain two consecutive hyphens.
+-- information from only the specific DB instance is returned. This
+-- parameter isn't case sensitive. Constraints: Must contain from 1 to 63
+-- alphanumeric characters or hyphens First character must be a letter
+-- Cannot end with a hyphen or contain two consecutive hyphens.
 ddbi1DBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
 ddbi1DBInstanceIdentifier =
     lens _ddbi1DBInstanceIdentifier
-         (\s a -> s { _ddbi1DBInstanceIdentifier = a })
+        (\s a -> s { _ddbi1DBInstanceIdentifier = a })
+
+-- | This parameter is not currently supported.
+ddbi1Filters :: Lens' DescribeDBInstances [Filter]
+ddbi1Filters = lens _ddbi1Filters (\s a -> s { _ddbi1Filters = a })
+
+-- | An optional pagination token provided by a previous DescribeDBInstances
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by MaxRecords .
+ddbi1Marker :: Lens' DescribeDBInstances (Maybe Text)
+ddbi1Marker = lens _ddbi1Marker (\s a -> s { _ddbi1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-ddbi1MaxRecords :: Lens' DescribeDBInstances (Maybe Integer)
+ddbi1MaxRecords :: Lens' DescribeDBInstances (Maybe Int)
 ddbi1MaxRecords = lens _ddbi1MaxRecords (\s a -> s { _ddbi1MaxRecords = a })
 
--- | An optional pagination token provided by a previous DescribeDBInstances
--- request. If this parameter is specified, the response includes only records
--- beyond the marker, up to the value specified by MaxRecords .
-ddbi1Marker :: Lens' DescribeDBInstances (Maybe Text)
-ddbi1Marker = lens _ddbi1Marker (\s a -> s { _ddbi1Marker = a })
+instance ToQuery DescribeDBInstances
 
-instance ToQuery DescribeDBInstances where
-    toQuery = genericQuery def
+instance ToPath DescribeDBInstances where
+    toPath = const "/"
 
--- | Contains the result of a successful invocation of the DescribeDBInstances
--- action.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse
-    { _ddbirrMarker :: Maybe Text
-    , _ddbirrDBInstances :: [DBInstance]
-    } deriving (Eq, Ord, Show, Generic)
+    { _ddbirDBInstances :: [DBInstance]
+    , _ddbirMarker      :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeDBInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeDBInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'ddbirDBInstances' @::@ ['DBInstance']
 --
--- * @DBInstances ::@ @[DBInstance]@
+-- * 'ddbirMarker' @::@ 'Maybe' 'Text'
 --
 describeDBInstancesResponse :: DescribeDBInstancesResponse
 describeDBInstancesResponse = DescribeDBInstancesResponse
-    { _ddbirrMarker = Nothing
-    , _ddbirrDBInstances = mempty
+    { _ddbirMarker      = Nothing
+    , _ddbirDBInstances = mempty
     }
+
+-- | A list of DBInstance instances.
+ddbirDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
+ddbirDBInstances = lens _ddbirDBInstances (\s a -> s { _ddbirDBInstances = a })
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords .
-ddbirrMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
-ddbirrMarker = lens _ddbirrMarker (\s a -> s { _ddbirrMarker = a })
-
--- | A list of DBInstance instances.
-ddbirrDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
-ddbirrDBInstances =
-    lens _ddbirrDBInstances (\s a -> s { _ddbirrDBInstances = a })
-
-instance FromXML DescribeDBInstancesResponse where
-    fromXMLOptions = xmlOptions
+ddbirMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
+ddbirMarker = lens _ddbirMarker (\s a -> s { _ddbirMarker = a })
 
 instance AWSRequest DescribeDBInstances where
     type Sv DescribeDBInstances = RDS
     type Rs DescribeDBInstances = DescribeDBInstancesResponse
 
-    request = post "DescribeDBInstances"
-    response _ = xmlResponse
-
-instance AWSPager DescribeDBInstances where
-    next rq rs = (\x -> rq & ddbi1Marker ?~ x)
-        <$> (rs ^. ddbirrMarker)
+    request  = post "DescribeDBInstances"
+    response = xmlResponse $ \h x -> DescribeDBInstancesResponse
+        <$> x %| "DBInstances"
+        <*> x %| "Marker"

@@ -21,7 +21,7 @@ module Network.AWS.Signing.V2
     , Meta (..)
 
     -- * Re-exports
-    , module Network.AWS.Internal.Signing
+    , module Network.AWS.Signing.Internal
     ) where
 
 import           Control.Applicative
@@ -32,8 +32,8 @@ import qualified Data.ByteString.Char8        as BS
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data
-import           Network.AWS.Internal.Request
-import           Network.AWS.Internal.Signing
+import           Network.AWS.Request
+import           Network.AWS.Signing.Internal
 import           Network.AWS.Types
 import           Network.HTTP.Types           hiding (renderQuery, toQuery)
 
@@ -52,7 +52,7 @@ instance Show (Meta V2) where
         ]
 
 instance AWSSigner V2 where
-    signed s AuthEnv{..} r Request{..} l t = Signed meta rq
+    signed AuthEnv{..} r x@Request{..} l t = Signed meta rq
       where
         meta = Meta
             { _mSignature = signature
@@ -68,7 +68,7 @@ instance AWSSigner V2 where
             & requestBody    .~ _bdyBody _rqBody
 
         meth  = toBS _rqMethod
-        host' = toBS (endpoint s r)
+        host' = toBS (endpoint svc r)
 
         authorised = pair "Signature" (urlEncode True signature) query
 
@@ -82,7 +82,7 @@ instance AWSSigner V2 where
                 ]
 
         query =
-             pair "Version"          (_svcVersion s)
+             pair "Version"          (_svcVersion svc)
            . pair "SignatureVersion" ("2" :: ByteString)
            . pair "SignatureMethod"  ("HmacSHA256" :: ByteString)
            . pair "Timestamp"        time
@@ -94,3 +94,5 @@ instance AWSSigner V2 where
         headers = hdr hDate time _rqHeaders
 
         time = toBS (LocaleTime l t :: ISO8601)
+
+        svc = serviceOf x

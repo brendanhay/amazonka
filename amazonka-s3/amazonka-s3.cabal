@@ -1,11 +1,11 @@
 name:                  amazonka-s3
 version:               0.0.0
-synopsis:              Amazon Simple Storage Service SDK
+synopsis:              Amazon Simple Storage Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,13 +13,13 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Simple Storage Service is storage for the Internet.
-    .
-    Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web.
-    .
-    It gives any developer access to the same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites.
-    .
-    The service aims to maximize benefits of scale and to pass those benefits on to developers.
+    Amazon Simple Storage Service is storage for the Internet. Amazon S3
+    has a simple web services interface that you can use to store and
+    retrieve any amount of data, at any time, from anywhere on the web. It
+    gives any developer access to the same highly scalable, reliable, fast,
+    inexpensive data storage infrastructure that Amazon uses to run its own
+    global network of web sites. The service aims to maximize benefits of
+    scale and to pass those benefits on to developers.
 
 source-repository head
     type:     git
@@ -33,7 +33,6 @@ library
 
     exposed-modules:
           Network.AWS.S3
-        , Network.AWS.S3.Types
         , Network.AWS.S3.AbortMultipartUpload
         , Network.AWS.S3.CompleteMultipartUpload
         , Network.AWS.S3.CopyObject
@@ -81,11 +80,12 @@ library
         , Network.AWS.S3.PutObject
         , Network.AWS.S3.PutObjectAcl
         , Network.AWS.S3.RestoreObject
+        , Network.AWS.S3.Types
         , Network.AWS.S3.UploadPart
         , Network.AWS.S3.UploadPartCopy
 
     other-modules:
-          Network.AWS.S3.Internal.Types
+          Network.AWS.S3.Internal
 
     build-depends:
           amazonka-core

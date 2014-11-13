@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.EnableSnapshotCopy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,27 +41,26 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     , escrCluster
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data EnableSnapshotCopy = EnableSnapshotCopy
     { _escClusterIdentifier :: Text
     , _escDestinationRegion :: Text
-    , _escRetentionPeriod :: Maybe Integer
+    , _escRetentionPeriod   :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableSnapshotCopy' request.
+-- | 'EnableSnapshotCopy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ClusterIdentifier ::@ @Text@
+-- * 'escClusterIdentifier' @::@ 'Text'
 --
--- * @DestinationRegion ::@ @Text@
+-- * 'escDestinationRegion' @::@ 'Text'
 --
--- * @RetentionPeriod ::@ @Maybe Integer@
+-- * 'escRetentionPeriod' @::@ 'Maybe' 'Int'
 --
 enableSnapshotCopy :: Text -- ^ 'escClusterIdentifier'
                    -> Text -- ^ 'escDestinationRegion'
@@ -67,7 +68,7 @@ enableSnapshotCopy :: Text -- ^ 'escClusterIdentifier'
 enableSnapshotCopy p1 p2 = EnableSnapshotCopy
     { _escClusterIdentifier = p1
     , _escDestinationRegion = p2
-    , _escRetentionPeriod = Nothing
+    , _escRetentionPeriod   = Nothing
     }
 
 -- | The unique identifier of the source cluster to copy snapshots from.
@@ -84,44 +85,40 @@ escDestinationRegion :: Lens' EnableSnapshotCopy Text
 escDestinationRegion =
     lens _escDestinationRegion (\s a -> s { _escDestinationRegion = a })
 
--- | The number of days to retain automated snapshots in the destination region
--- after they are copied from the source region. Default: 7. Constraints: Must
--- be at least 1 and no more than 35.
-escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Integer)
+-- | The number of days to retain automated snapshots in the destination
+-- region after they are copied from the source region. Default: 7.
+-- Constraints: Must be at least 1 and no more than 35.
+escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
 escRetentionPeriod =
     lens _escRetentionPeriod (\s a -> s { _escRetentionPeriod = a })
 
-instance ToQuery EnableSnapshotCopy where
-    toQuery = genericQuery def
+instance ToQuery EnableSnapshotCopy
+
+instance ToPath EnableSnapshotCopy where
+    toPath = const "/"
 
 newtype EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
     { _escrCluster :: Maybe Cluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableSnapshotCopyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'EnableSnapshotCopyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Cluster ::@ @Maybe Cluster@
+-- * 'escrCluster' @::@ 'Maybe' 'Cluster'
 --
 enableSnapshotCopyResponse :: EnableSnapshotCopyResponse
 enableSnapshotCopyResponse = EnableSnapshotCopyResponse
     { _escrCluster = Nothing
     }
 
--- | Describes a cluster.
 escrCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
 escrCluster = lens _escrCluster (\s a -> s { _escrCluster = a })
-
-instance FromXML EnableSnapshotCopyResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest EnableSnapshotCopy where
     type Sv EnableSnapshotCopy = Redshift
     type Rs EnableSnapshotCopy = EnableSnapshotCopyResponse
 
-    request = post "EnableSnapshotCopy"
-    response _ = xmlResponse
+    request  = post "EnableSnapshotCopy"
+    response = xmlResponse $ \h x -> EnableSnapshotCopyResponse
+        <$> x %| "Cluster"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeregisterImage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,13 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deregisters the specified AMI. After you deregister an AMI, it can't be
--- used to launch new instances. This command does not delete the AMI. Example
--- This example request deregisters the specified AMI.
--- https://ec2.amazonaws.com/?Action=DeregisterImage &amp;ImageId=ami-4fa54026
--- &amp;AUTHPARAMS &lt;DeregisterImageResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-02-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeregisterImageResponse&gt;.
+-- used to launch new instances. This command does not delete the AMI.
 module Network.AWS.EC2.DeregisterImage
     (
     -- * Request
@@ -33,6 +29,7 @@ module Network.AWS.EC2.DeregisterImage
     -- ** Request constructor
     , deregisterImage
     -- ** Request lenses
+    , diDryRun
     , diImageId
 
     -- * Response
@@ -41,41 +38,47 @@ module Network.AWS.EC2.DeregisterImage
     , deregisterImageResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeregisterImage = DeregisterImage
-    { _diImageId :: Text
+data DeregisterImage = DeregisterImage
+    { _diDryRun  :: Maybe Bool
+    , _diImageId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterImage' request.
+-- | 'DeregisterImage' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ImageId ::@ @Text@
+-- * 'diDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'diImageId' @::@ 'Text'
 --
 deregisterImage :: Text -- ^ 'diImageId'
                 -> DeregisterImage
 deregisterImage p1 = DeregisterImage
     { _diImageId = p1
+    , _diDryRun  = Nothing
     }
+
+diDryRun :: Lens' DeregisterImage (Maybe Bool)
+diDryRun = lens _diDryRun (\s a -> s { _diDryRun = a })
 
 -- | The ID of the AMI.
 diImageId :: Lens' DeregisterImage Text
 diImageId = lens _diImageId (\s a -> s { _diImageId = a })
 
-instance ToQuery DeregisterImage where
-    toQuery = genericQuery def
+instance ToQuery DeregisterImage
+
+instance ToPath DeregisterImage where
+    toPath = const "/"
 
 data DeregisterImageResponse = DeregisterImageResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterImageResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeregisterImageResponse' constructor.
 deregisterImageResponse :: DeregisterImageResponse
 deregisterImageResponse = DeregisterImageResponse
 
@@ -83,5 +86,5 @@ instance AWSRequest DeregisterImage where
     type Sv DeregisterImage = EC2
     type Rs DeregisterImage = DeregisterImageResponse
 
-    request = post "DeregisterImage"
-    response _ = nullaryResponse DeregisterImageResponse
+    request  = post "DeregisterImage"
+    response = nullaryResponse DeregisterImageResponse

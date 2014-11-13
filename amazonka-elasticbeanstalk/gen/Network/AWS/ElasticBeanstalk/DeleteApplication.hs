@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,11 +22,7 @@
 
 -- | Deletes the specified application along with all associated versions and
 -- configurations. The application versions will not be deleted from your
--- Amazon S3 bucket. You cannot delete an application that has a running
--- environment.
--- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
--- &Operation=DeleteApplication &AuthParams
--- 1f155abd-f1d7-11df-8a78-9f77047e0d0c.
+-- Amazon S3 bucket.
 module Network.AWS.ElasticBeanstalk.DeleteApplication
     (
     -- * Request
@@ -41,29 +39,28 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
     , deleteApplicationResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | This documentation target is not reported in the API reference.
 data DeleteApplication = DeleteApplication
-    { _daApplicationName :: Text
+    { _daApplicationName     :: Text
     , _daTerminateEnvByForce :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteApplication' request.
+-- | 'DeleteApplication' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ApplicationName ::@ @Text@
+-- * 'daApplicationName' @::@ 'Text'
 --
--- * @TerminateEnvByForce ::@ @Maybe Bool@
+-- * 'daTerminateEnvByForce' @::@ 'Maybe' 'Bool'
 --
 deleteApplication :: Text -- ^ 'daApplicationName'
                   -> DeleteApplication
 deleteApplication p1 = DeleteApplication
-    { _daApplicationName = p1
+    { _daApplicationName     = p1
     , _daTerminateEnvByForce = Nothing
     }
 
@@ -78,16 +75,15 @@ daTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
 daTerminateEnvByForce =
     lens _daTerminateEnvByForce (\s a -> s { _daTerminateEnvByForce = a })
 
-instance ToQuery DeleteApplication where
-    toQuery = genericQuery def
+instance ToQuery DeleteApplication
+
+instance ToPath DeleteApplication where
+    toPath = const "/"
 
 data DeleteApplicationResponse = DeleteApplicationResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteApplicationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteApplicationResponse' constructor.
 deleteApplicationResponse :: DeleteApplicationResponse
 deleteApplicationResponse = DeleteApplicationResponse
 
@@ -95,5 +91,5 @@ instance AWSRequest DeleteApplication where
     type Sv DeleteApplication = ElasticBeanstalk
     type Rs DeleteApplication = DeleteApplicationResponse
 
-    request = post "DeleteApplication"
-    response _ = nullaryResponse DeleteApplicationResponse
+    request  = post "DeleteApplication"
+    response = nullaryResponse DeleteApplicationResponse

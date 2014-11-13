@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.ShutdownGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,30 +23,14 @@
 -- | This operation shuts down a gateway. To specify which gateway to shut down,
 -- use the Amazon Resource Name (ARN) of the gateway in the body of your
 -- request. The operation shuts down the gateway service component running in
--- the storage gateway's virtual machine (VM) and not the VM. If you want to
--- shut down the VM, it is recommended that you first shut down the gateway
--- component in the VM to avoid unpredictable conditions. After the gateway is
--- shutdown, you cannot call any other API except StartGateway,
+-- the storage gateway's virtual machine (VM) and not the VM. After the
+-- gateway is shutdown, you cannot call any other API except StartGateway,
 -- DescribeGatewayInformation, and ListGateways. For more information, see
 -- ActivateGateway. Your applications cannot read from or write to the
--- gateway's storage volumes, and there are no snapshots taken. When you make
--- a shutdown request, you will get a 200 OK success response immediately.
--- However, it might take some time for the gateway to shut down. You can call
--- the DescribeGatewayInformation API to check the status. For more
--- information, see ActivateGateway. If do not intend to use the gateway
--- again, you must delete the gateway (using DeleteGateway) to no longer pay
--- software charges associated with the gateway. Example Request The following
--- example shows a request that shuts down a gateway. POST / HTTP/1.1 Host:
--- storagegateway.us-east-1.amazonaws.com x-amz-Date: 20120425T120000Z
--- Authorization: CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG
--- Content-type: application/x-amz-json-1.1 x-amz-target:
--- StorageGateway_20120630.ShutdownGateway { "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }
--- HTTP/1.1 200 OK x-amzn-RequestId:
--- CSOC7TJPLR0OOKIRLGOHVAICUFVV4KQNSO5AEMVJF66Q9ASUAAJG Date: Wed, 25 Apr 2012
--- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 80 {
--- "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
+-- gateway's storage volumes, and there are no snapshots taken. If do not
+-- intend to use the gateway again, you must delete the gateway (using
+-- DeleteGateway) to no longer pay software charges associated with the
+-- gateway.
 module Network.AWS.StorageGateway.ShutdownGateway
     (
     -- * Request
@@ -52,80 +38,74 @@ module Network.AWS.StorageGateway.ShutdownGateway
     -- ** Request constructor
     , shutdownGateway
     -- ** Request lenses
-    , sgGatewayARN
+    , sg1GatewayARN
 
     -- * Response
     , ShutdownGatewayResponse
     -- ** Response constructor
     , shutdownGatewayResponse
     -- ** Response lenses
-    , sgrGatewayARN
+    , sgr1GatewayARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
--- | A JSON object containing the of the gateway to shut down.
 newtype ShutdownGateway = ShutdownGateway
-    { _sgGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _sg1GatewayARN :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ShutdownGateway' request.
+-- | 'ShutdownGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'sg1GatewayARN' @::@ 'Text'
 --
-shutdownGateway :: Text -- ^ 'sgGatewayARN'
+shutdownGateway :: Text -- ^ 'sg1GatewayARN'
                 -> ShutdownGateway
 shutdownGateway p1 = ShutdownGateway
-    { _sgGatewayARN = p1
+    { _sg1GatewayARN = p1
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
-sgGatewayARN :: Lens' ShutdownGateway Text
-sgGatewayARN = lens _sgGatewayARN (\s a -> s { _sgGatewayARN = a })
+sg1GatewayARN :: Lens' ShutdownGateway Text
+sg1GatewayARN = lens _sg1GatewayARN (\s a -> s { _sg1GatewayARN = a })
 
-instance ToPath ShutdownGateway
+instance ToPath ShutdownGateway where
+    toPath = const "/"
 
-instance ToQuery ShutdownGateway
+instance ToQuery ShutdownGateway where
+    toQuery = const mempty
 
 instance ToHeaders ShutdownGateway
 
-instance ToJSON ShutdownGateway
+instance ToBody ShutdownGateway where
+    toBody = toBody . encode . _sg1GatewayARN
 
--- | A JSON object containing the of the gateway that was shut down.
 newtype ShutdownGatewayResponse = ShutdownGatewayResponse
-    { _sgrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _sgr1GatewayARN :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ShutdownGatewayResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ShutdownGatewayResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Maybe Text@
+-- * 'sgr1GatewayARN' @::@ 'Maybe' 'Text'
 --
 shutdownGatewayResponse :: ShutdownGatewayResponse
 shutdownGatewayResponse = ShutdownGatewayResponse
-    { _sgrGatewayARN = Nothing
+    { _sgr1GatewayARN = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
-sgrGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
-sgrGatewayARN = lens _sgrGatewayARN (\s a -> s { _sgrGatewayARN = a })
+sgr1GatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
+sgr1GatewayARN = lens _sgr1GatewayARN (\s a -> s { _sgr1GatewayARN = a })
 
-instance FromJSON ShutdownGatewayResponse
+-- FromJSON
 
 instance AWSRequest ShutdownGateway where
     type Sv ShutdownGateway = StorageGateway
     type Rs ShutdownGateway = ShutdownGatewayResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> ShutdownGatewayResponse
+        <$> o .: "GatewayARN"

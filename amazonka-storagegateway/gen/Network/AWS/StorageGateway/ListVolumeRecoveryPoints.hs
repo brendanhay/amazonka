@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.ListVolumeRecoveryPoints
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,25 +26,6 @@
 -- is a point in time at which all data of the volume is consistent and from
 -- which you can create a snapshot. To create a snapshot from a volume
 -- recovery point use the CreateSnapshotFromVolumeRecoveryPoint operation.
--- Example Request The following example sends a ListVolumeRecoveryPoints
--- request to take a snapshot of the specified example volume. POST / HTTP/1.1
--- Host: storagegateway.us-east-1.amazonaws.com Content-Type:
--- application/x-amz-json-1.1 Authorization: AWS4-HMAC-SHA256
--- Credential=AKIAIOSFODNN7EXAMPLE/20120425/us-east-1/storagegateway/aws4_request,
--- SignedHeaders=content-type;host;x-amz-date;x-amz-target,
--- Signature=9cd5a3584d1d67d57e61f120f35102d6b3649066abdd4bf4bbcf05bd9f2f8fe2
--- x-amz-date: 20120912T120000Z x-amz-target:
--- StorageGateway_20120630.ListVolumeRecoveryPoints { "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }
--- HTTP/1.1 200 OK x-amzn-RequestId:
--- gur28r2rqlgb8vvs0mq17hlgij1q8glle1qeu3kpgg6f0kstauu0 Date: Wed, 12 Sep 2012
--- 12:00:02 GMT Content-Type: application/x-amz-json-1.1 Content-length: 137 {
--- "GatewayARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
--- "VolumeRecoveryPointInfos": [ { "VolumeARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
--- "VolumeRecoveryPointTime": "2012-09-04T21:08:44.627Z", "VolumeSizeInBytes":
--- 536870912000, "VolumeUsageInBytes": 6694048 } ] }.
 module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     (
     -- * Request
@@ -61,20 +44,19 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     , lvrprVolumeRecoveryPointInfos
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
     { _lvrpGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListVolumeRecoveryPoints' request.
+-- | 'ListVolumeRecoveryPoints' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'lvrpGatewayARN' @::@ 'Text'
 --
 listVolumeRecoveryPoints :: Text -- ^ 'lvrpGatewayARN'
                          -> ListVolumeRecoveryPoints
@@ -82,56 +64,54 @@ listVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
     { _lvrpGatewayARN = p1
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
 lvrpGatewayARN = lens _lvrpGatewayARN (\s a -> s { _lvrpGatewayARN = a })
 
-instance ToPath ListVolumeRecoveryPoints
+instance ToPath ListVolumeRecoveryPoints where
+    toPath = const "/"
 
-instance ToQuery ListVolumeRecoveryPoints
+instance ToQuery ListVolumeRecoveryPoints where
+    toQuery = const mempty
 
 instance ToHeaders ListVolumeRecoveryPoints
 
-instance ToJSON ListVolumeRecoveryPoints
+instance ToBody ListVolumeRecoveryPoints where
+    toBody = toBody . encode . _lvrpGatewayARN
 
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
-    { _lvrprGatewayARN :: Maybe Text
+    { _lvrprGatewayARN               :: Maybe Text
     , _lvrprVolumeRecoveryPointInfos :: [VolumeRecoveryPointInfo]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListVolumeRecoveryPointsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListVolumeRecoveryPointsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Maybe Text@
+-- * 'lvrprGatewayARN' @::@ 'Maybe' 'Text'
 --
--- * @VolumeRecoveryPointInfos ::@ @[VolumeRecoveryPointInfo]@
+-- * 'lvrprVolumeRecoveryPointInfos' @::@ ['VolumeRecoveryPointInfo']
 --
 listVolumeRecoveryPointsResponse :: ListVolumeRecoveryPointsResponse
 listVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
-    { _lvrprGatewayARN = Nothing
+    { _lvrprGatewayARN               = Nothing
     , _lvrprVolumeRecoveryPointInfos = mempty
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 lvrprGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrprGatewayARN = lens _lvrprGatewayARN (\s a -> s { _lvrprGatewayARN = a })
 
 lvrprVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
 lvrprVolumeRecoveryPointInfos =
     lens _lvrprVolumeRecoveryPointInfos
-         (\s a -> s { _lvrprVolumeRecoveryPointInfos = a })
+        (\s a -> s { _lvrprVolumeRecoveryPointInfos = a })
 
-instance FromJSON ListVolumeRecoveryPointsResponse
+-- FromJSON
 
 instance AWSRequest ListVolumeRecoveryPoints where
     type Sv ListVolumeRecoveryPoints = StorageGateway
     type Rs ListVolumeRecoveryPoints = ListVolumeRecoveryPointsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> ListVolumeRecoveryPointsResponse
+        <$> o .: "GatewayARN"
+        <*> o .: "VolumeRecoveryPointInfos"

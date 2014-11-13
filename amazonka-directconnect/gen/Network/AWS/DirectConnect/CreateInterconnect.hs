@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DirectConnect.CreateInterconnect
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,8 +40,8 @@ module Network.AWS.DirectConnect.CreateInterconnect
     -- ** Request constructor
     , createInterconnect
     -- ** Request lenses
-    , ciInterconnectName
     , ciBandwidth
+    , ciInterconnectName
     , ciLocation
 
     -- * Response
@@ -47,35 +49,33 @@ module Network.AWS.DirectConnect.CreateInterconnect
     -- ** Response constructor
     , createInterconnectResponse
     -- ** Response lenses
+    , cirBandwidth
     , cirInterconnectId
     , cirInterconnectName
     , cirInterconnectState
-    , cirRegion
     , cirLocation
-    , cirBandwidth
+    , cirRegion
     ) where
 
-import Network.AWS.DirectConnect.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DirectConnect.Types
 
--- | Container for the parameters to the CreateInterconnect operation.
 data CreateInterconnect = CreateInterconnect
-    { _ciInterconnectName :: Text
-    , _ciBandwidth :: Text
-    , _ciLocation :: Text
+    { _ciBandwidth        :: Text
+    , _ciInterconnectName :: Text
+    , _ciLocation         :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateInterconnect' request.
+-- | 'CreateInterconnect' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InterconnectName ::@ @Text@
+-- * 'ciBandwidth' @::@ 'Text'
 --
--- * @Bandwidth ::@ @Text@
+-- * 'ciInterconnectName' @::@ 'Text'
 --
--- * @Location ::@ @Text@
+-- * 'ciLocation' @::@ 'Text'
 --
 createInterconnect :: Text -- ^ 'ciInterconnectName'
                    -> Text -- ^ 'ciBandwidth'
@@ -83,9 +83,14 @@ createInterconnect :: Text -- ^ 'ciInterconnectName'
                    -> CreateInterconnect
 createInterconnect p1 p2 p3 = CreateInterconnect
     { _ciInterconnectName = p1
-    , _ciBandwidth = p2
-    , _ciLocation = p3
+    , _ciBandwidth        = p2
+    , _ciLocation         = p3
     }
+
+-- | The port bandwidth Example: 1Gbps Default: None Available values:
+-- 1Gbps,10Gbps.
+ciBandwidth :: Lens' CreateInterconnect Text
+ciBandwidth = lens _ciBandwidth (\s a -> s { _ciBandwidth = a })
 
 -- | The name of the interconnect. Example: "1G Interconnect to AWS" Default:
 -- None.
@@ -93,109 +98,88 @@ ciInterconnectName :: Lens' CreateInterconnect Text
 ciInterconnectName =
     lens _ciInterconnectName (\s a -> s { _ciInterconnectName = a })
 
--- | The port bandwidth Example: 1Gbps Default: None Available values:
--- 1Gbps,10Gbps.
-ciBandwidth :: Lens' CreateInterconnect Text
-ciBandwidth = lens _ciBandwidth (\s a -> s { _ciBandwidth = a })
-
 -- | Where the interconnect is located Example: EqSV5 Default: None.
 ciLocation :: Lens' CreateInterconnect Text
 ciLocation = lens _ciLocation (\s a -> s { _ciLocation = a })
 
-instance ToPath CreateInterconnect
+instance ToPath CreateInterconnect where
+    toPath = const "/"
 
-instance ToQuery CreateInterconnect
+instance ToQuery CreateInterconnect where
+    toQuery = const mempty
 
 instance ToHeaders CreateInterconnect
 
-instance ToJSON CreateInterconnect
+instance ToBody CreateInterconnect where
+    toBody = toBody . encode . _ciInterconnectName
 
--- | An interconnect is a connection that can host other connections. Like a
--- standard AWS Direct Connect connection, an interconnect represents the
--- physical connection between an AWS Direct Connect partner's network and a
--- specific Direct Connect location. An AWS Direct Connect partner who owns an
--- interconnect can provision hosted connections on the interconnect for their
--- end customers, thereby providing the end customers with connectivity to AWS
--- services. The resources of the interconnect, including bandwidth and VLAN
--- numbers, are shared by all of the hosted connections on the interconnect,
--- and the owner of the interconnect determines how these resources are
--- assigned.
 data CreateInterconnectResponse = CreateInterconnectResponse
-    { _cirInterconnectId :: Maybe Text
-    , _cirInterconnectName :: Maybe Text
-    , _cirInterconnectState :: Maybe InterconnectState
-    , _cirRegion :: Maybe Text
-    , _cirLocation :: Maybe Text
-    , _cirBandwidth :: Maybe Text
+    { _cirBandwidth         :: Maybe Text
+    , _cirInterconnectId    :: Maybe Text
+    , _cirInterconnectName  :: Maybe Text
+    , _cirInterconnectState :: Maybe Text
+    , _cirLocation          :: Maybe Text
+    , _cirRegion            :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateInterconnectResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateInterconnectResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InterconnectId ::@ @Maybe Text@
+-- * 'cirBandwidth' @::@ 'Maybe' 'Text'
 --
--- * @InterconnectName ::@ @Maybe Text@
+-- * 'cirInterconnectId' @::@ 'Maybe' 'Text'
 --
--- * @InterconnectState ::@ @Maybe InterconnectState@
+-- * 'cirInterconnectName' @::@ 'Maybe' 'Text'
 --
--- * @Region ::@ @Maybe Text@
+-- * 'cirInterconnectState' @::@ 'Maybe' 'Text'
 --
--- * @Location ::@ @Maybe Text@
+-- * 'cirLocation' @::@ 'Maybe' 'Text'
 --
--- * @Bandwidth ::@ @Maybe Text@
+-- * 'cirRegion' @::@ 'Maybe' 'Text'
 --
 createInterconnectResponse :: CreateInterconnectResponse
 createInterconnectResponse = CreateInterconnectResponse
-    { _cirInterconnectId = Nothing
-    , _cirInterconnectName = Nothing
+    { _cirInterconnectId    = Nothing
+    , _cirInterconnectName  = Nothing
     , _cirInterconnectState = Nothing
-    , _cirRegion = Nothing
-    , _cirLocation = Nothing
-    , _cirBandwidth = Nothing
+    , _cirRegion            = Nothing
+    , _cirLocation          = Nothing
+    , _cirBandwidth         = Nothing
     }
 
--- | The ID of the interconnect. Example: dxcon-abc123.
+cirBandwidth :: Lens' CreateInterconnectResponse (Maybe Text)
+cirBandwidth = lens _cirBandwidth (\s a -> s { _cirBandwidth = a })
+
 cirInterconnectId :: Lens' CreateInterconnectResponse (Maybe Text)
 cirInterconnectId =
     lens _cirInterconnectId (\s a -> s { _cirInterconnectId = a })
 
--- | The name of the interconnect. Example: "1G Interconnect to AWS".
 cirInterconnectName :: Lens' CreateInterconnectResponse (Maybe Text)
 cirInterconnectName =
     lens _cirInterconnectName (\s a -> s { _cirInterconnectName = a })
 
--- | State of the interconnect. Requested: The initial state of an interconnect.
--- The interconnect stays in the requested state until the Letter of
--- Authorization (LOA) is sent to the customer. Pending: The interconnect has
--- been approved, and is being initialized. Available: The network link is up,
--- and the interconnect is ready for use. Down: The network link is down.
--- Deleted: The interconnect has been deleted.
-cirInterconnectState :: Lens' CreateInterconnectResponse (Maybe InterconnectState)
+cirInterconnectState :: Lens' CreateInterconnectResponse (Maybe Text)
 cirInterconnectState =
     lens _cirInterconnectState (\s a -> s { _cirInterconnectState = a })
 
--- | The AWS region where the connection is located. Example: us-east-1 Default:
--- None.
-cirRegion :: Lens' CreateInterconnectResponse (Maybe Text)
-cirRegion = lens _cirRegion (\s a -> s { _cirRegion = a })
-
--- | Where the connection is located. Example: EqSV5 Default: None.
 cirLocation :: Lens' CreateInterconnectResponse (Maybe Text)
 cirLocation = lens _cirLocation (\s a -> s { _cirLocation = a })
 
--- | Bandwidth of the connection. Example: 1Gbps Default: None.
-cirBandwidth :: Lens' CreateInterconnectResponse (Maybe Text)
-cirBandwidth = lens _cirBandwidth (\s a -> s { _cirBandwidth = a })
+cirRegion :: Lens' CreateInterconnectResponse (Maybe Text)
+cirRegion = lens _cirRegion (\s a -> s { _cirRegion = a })
 
-instance FromJSON CreateInterconnectResponse
+-- FromJSON
 
 instance AWSRequest CreateInterconnect where
     type Sv CreateInterconnect = DirectConnect
     type Rs CreateInterconnect = CreateInterconnectResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> CreateInterconnectResponse
+        <$> o .: "bandwidth"
+        <*> o .: "interconnectId"
+        <*> o .: "interconnectName"
+        <*> o .: "interconnectState"
+        <*> o .: "location"
+        <*> o .: "region"

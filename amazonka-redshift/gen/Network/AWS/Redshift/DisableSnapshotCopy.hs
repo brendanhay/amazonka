@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.DisableSnapshotCopy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,21 +39,20 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     , dscrCluster
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DisableSnapshotCopy = DisableSnapshotCopy
     { _dscClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableSnapshotCopy' request.
+-- | 'DisableSnapshotCopy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ClusterIdentifier ::@ @Text@
+-- * 'dscClusterIdentifier' @::@ 'Text'
 --
 disableSnapshotCopy :: Text -- ^ 'dscClusterIdentifier'
                     -> DisableSnapshotCopy
@@ -67,37 +68,33 @@ dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
 dscClusterIdentifier =
     lens _dscClusterIdentifier (\s a -> s { _dscClusterIdentifier = a })
 
-instance ToQuery DisableSnapshotCopy where
-    toQuery = genericQuery def
+instance ToQuery DisableSnapshotCopy
+
+instance ToPath DisableSnapshotCopy where
+    toPath = const "/"
 
 newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
     { _dscrCluster :: Maybe Cluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableSnapshotCopyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DisableSnapshotCopyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Cluster ::@ @Maybe Cluster@
+-- * 'dscrCluster' @::@ 'Maybe' 'Cluster'
 --
 disableSnapshotCopyResponse :: DisableSnapshotCopyResponse
 disableSnapshotCopyResponse = DisableSnapshotCopyResponse
     { _dscrCluster = Nothing
     }
 
--- | Describes a cluster.
 dscrCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrCluster = lens _dscrCluster (\s a -> s { _dscrCluster = a })
-
-instance FromXML DisableSnapshotCopyResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DisableSnapshotCopy where
     type Sv DisableSnapshotCopy = Redshift
     type Rs DisableSnapshotCopy = DisableSnapshotCopyResponse
 
-    request = post "DisableSnapshotCopy"
-    response _ = xmlResponse
+    request  = post "DisableSnapshotCopy"
+    response = xmlResponse $ \h x -> DisableSnapshotCopyResponse
+        <$> x %| "Cluster"

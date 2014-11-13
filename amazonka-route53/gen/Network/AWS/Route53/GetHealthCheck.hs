@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53.GetHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,23 +39,20 @@ module Network.AWS.Route53.GetHealthCheck
     , ghcrHealthCheck
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
--- | A complex type that contains information about the request to get a health
--- check.
 newtype GetHealthCheck = GetHealthCheck
     { _ghcHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetHealthCheck' request.
+-- | 'GetHealthCheck' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HealthCheckId ::@ @Text@
+-- * 'ghcHealthCheckId' @::@ 'Text'
 --
 getHealthCheck :: Text -- ^ 'ghcHealthCheckId'
                -> GetHealthCheck
@@ -63,32 +62,28 @@ getHealthCheck p1 = GetHealthCheck
 
 -- | The ID of the health check to retrieve.
 ghcHealthCheckId :: Lens' GetHealthCheck Text
-ghcHealthCheckId =
-    lens _ghcHealthCheckId (\s a -> s { _ghcHealthCheckId = a })
+ghcHealthCheckId = lens _ghcHealthCheckId (\s a -> s { _ghcHealthCheckId = a })
 
-instance ToPath GetHealthCheck
+instance ToPath GetHealthCheck where
+    toPath GetHealthCheck{..} = mconcat
+        [ "/2013-04-01/healthcheck/"
+        , toText _ghcHealthCheckId
+        ]
 
-instance ToQuery GetHealthCheck
+instance ToQuery GetHealthCheck where
+    toQuery = const mempty
 
 instance ToHeaders GetHealthCheck
 
-instance ToXML GetHealthCheck where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHealthCheck"
-
--- | A complex type containing information about the specified health check.
 newtype GetHealthCheckResponse = GetHealthCheckResponse
     { _ghcrHealthCheck :: HealthCheck
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetHealthCheckResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetHealthCheckResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HealthCheck ::@ @HealthCheck@
+-- * 'ghcrHealthCheck' @::@ 'HealthCheck'
 --
 getHealthCheckResponse :: HealthCheck -- ^ 'ghcrHealthCheck'
                        -> GetHealthCheckResponse
@@ -101,12 +96,10 @@ getHealthCheckResponse p1 = GetHealthCheckResponse
 ghcrHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrHealthCheck = lens _ghcrHealthCheck (\s a -> s { _ghcrHealthCheck = a })
 
-instance FromXML GetHealthCheckResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetHealthCheck where
     type Sv GetHealthCheck = Route53
     type Rs GetHealthCheck = GetHealthCheckResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetHealthCheckResponse
+        <$> x %| "HealthCheck"

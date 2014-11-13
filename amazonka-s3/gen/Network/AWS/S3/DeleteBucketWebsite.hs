@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketWebsite
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,46 +36,45 @@ module Network.AWS.S3.DeleteBucketWebsite
     , deleteBucketWebsiteResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype DeleteBucketWebsite = DeleteBucketWebsite
-    { _dbwBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _dbwBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteBucketWebsite' request.
+-- | 'DeleteBucketWebsite' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'dbwBucket' @::@ 'Text'
 --
-deleteBucketWebsite :: BucketName -- ^ 'dbwBucket'
+deleteBucketWebsite :: Text -- ^ 'dbwBucket'
                     -> DeleteBucketWebsite
 deleteBucketWebsite p1 = DeleteBucketWebsite
     { _dbwBucket = p1
     }
 
-dbwBucket :: Lens' DeleteBucketWebsite BucketName
+dbwBucket :: Lens' DeleteBucketWebsite Text
 dbwBucket = lens _dbwBucket (\s a -> s { _dbwBucket = a })
 
-instance ToPath DeleteBucketWebsite
+instance ToPath DeleteBucketWebsite where
+    toPath DeleteBucketWebsite{..} = mconcat
+        [ "/"
+        , toText _dbwBucket
+        ]
 
-instance ToQuery DeleteBucketWebsite
+instance ToQuery DeleteBucketWebsite where
+    toQuery = const "website"
 
 instance ToHeaders DeleteBucketWebsite
-
-instance ToBody DeleteBucketWebsite
 
 data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteBucketWebsiteResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteBucketWebsiteResponse' constructor.
 deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
 deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
 
@@ -81,5 +82,5 @@ instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3
     type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
 
-    request = get
-    response _ = nullaryResponse DeleteBucketWebsiteResponse
+    request  = delete
+    response = nullaryResponse DeleteBucketWebsiteResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.DeleteAccountPasswordPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,43 +20,41 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the password policy for the AWS account. https://iam.amazonaws.com/
--- ?Action=DeleteAccountPasswordPolicy &Version=2010-05-08 &AUTHPARAMS
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- | Deletes the password policy for the AWS account.
 module Network.AWS.IAM.DeleteAccountPasswordPolicy
     (
     -- * Request
       DeleteAccountPasswordPolicy
     -- ** Request constructor
     , deleteAccountPasswordPolicy
+
     -- * Response
     , DeleteAccountPasswordPolicyResponse
     -- ** Response constructor
     , deleteAccountPasswordPolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteAccountPasswordPolicy' request.
+-- | 'DeleteAccountPasswordPolicy' constructor.
 deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
 deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
 
-instance ToQuery DeleteAccountPasswordPolicy where
-    toQuery = genericQuery def
+instance ToQuery DeleteAccountPasswordPolicy
+
+instance ToPath DeleteAccountPasswordPolicy where
+    toPath = const "/"
 
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteAccountPasswordPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteAccountPasswordPolicyResponse' constructor.
 deleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse
 deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
 
@@ -62,5 +62,5 @@ instance AWSRequest DeleteAccountPasswordPolicy where
     type Sv DeleteAccountPasswordPolicy = IAM
     type Rs DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicyResponse
 
-    request = post "DeleteAccountPasswordPolicy"
-    response _ = nullaryResponse DeleteAccountPasswordPolicyResponse
+    request  = post "DeleteAccountPasswordPolicy"
+    response = nullaryResponse DeleteAccountPasswordPolicyResponse

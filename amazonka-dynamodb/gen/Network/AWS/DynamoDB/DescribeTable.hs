@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DynamoDB.DescribeTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,20 +22,7 @@
 
 -- | Returns information about the table, including the current status of the
 -- table, when it was created, the primary key schema, and any indexes on the
--- table. Describe a Table This example describes the Thread table. { "Table":
--- { "AttributeDefinitions": [ { "AttributeName": "ForumName",
--- "AttributeType": "S" }, { "AttributeName": "LastPostDateTime",
--- "AttributeType": "S" }, { "AttributeName": "Subject", "AttributeType": "S"
--- } ], "CreationDateTime": 1.363729002358E9, "ItemCount": 0, "KeySchema": [ {
--- "AttributeName": "ForumName", "KeyType": "HASH" }, { "AttributeName":
--- "Subject", "KeyType": "RANGE" } ], "LocalSecondaryIndexes": [ {
--- "IndexName": "LastPostIndex", "IndexSizeBytes": 0, "ItemCount": 0,
--- "KeySchema": [ { "AttributeName": "ForumName", "KeyType": "HASH" }, {
--- "AttributeName": "LastPostDateTime", "KeyType": "RANGE" } ], "Projection":
--- { "ProjectionType": "KEYS_ONLY" } } ], "ProvisionedThroughput": {
--- "NumberOfDecreasesToday": 0, "ReadCapacityUnits": 5, "WriteCapacityUnits":
--- 5 }, "TableName": "Thread", "TableSizeBytes": 0, "TableStatus": "ACTIVE" }
--- }.
+-- table.
 module Network.AWS.DynamoDB.DescribeTable
     (
     -- * Request
@@ -48,24 +37,22 @@ module Network.AWS.DynamoDB.DescribeTable
     -- ** Response constructor
     , describeTableResponse
     -- ** Response lenses
-    , dtrrTable
+    , dtrTable
     ) where
 
-import Network.AWS.DynamoDB.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DynamoDB.Types
 
--- | Represents the input of a DescribeTable operation.
 newtype DescribeTable = DescribeTable
     { _dt1TableName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTable' request.
+-- | 'DescribeTable' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TableName ::@ @Text@
+-- * 'dt1TableName' @::@ 'Text'
 --
 describeTable :: Text -- ^ 'dt1TableName'
               -> DescribeTable
@@ -77,42 +64,41 @@ describeTable p1 = DescribeTable
 dt1TableName :: Lens' DescribeTable Text
 dt1TableName = lens _dt1TableName (\s a -> s { _dt1TableName = a })
 
-instance ToPath DescribeTable
+instance ToPath DescribeTable where
+    toPath = const "/"
 
-instance ToQuery DescribeTable
+instance ToQuery DescribeTable where
+    toQuery = const mempty
 
 instance ToHeaders DescribeTable
 
-instance ToJSON DescribeTable
+instance ToBody DescribeTable where
+    toBody = toBody . encode . _dt1TableName
 
--- | Represents the output of a DescribeTable operation.
 newtype DescribeTableResponse = DescribeTableResponse
-    { _dtrrTable :: Maybe TableDescription
-    } deriving (Eq, Ord, Show, Generic)
+    { _dtrTable :: Maybe TableDescription
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTableResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeTableResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Table ::@ @Maybe TableDescription@
+-- * 'dtrTable' @::@ 'Maybe' 'TableDescription'
 --
 describeTableResponse :: DescribeTableResponse
 describeTableResponse = DescribeTableResponse
-    { _dtrrTable = Nothing
+    { _dtrTable = Nothing
     }
 
--- | Represents the properties of a table.
-dtrrTable :: Lens' DescribeTableResponse (Maybe TableDescription)
-dtrrTable = lens _dtrrTable (\s a -> s { _dtrrTable = a })
+dtrTable :: Lens' DescribeTableResponse (Maybe TableDescription)
+dtrTable = lens _dtrTable (\s a -> s { _dtrTable = a })
 
-instance FromJSON DescribeTableResponse
+-- FromJSON
 
 instance AWSRequest DescribeTable where
     type Sv DescribeTable = DynamoDB
     type Rs DescribeTable = DescribeTableResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeTableResponse
+        <$> o .: "Table"

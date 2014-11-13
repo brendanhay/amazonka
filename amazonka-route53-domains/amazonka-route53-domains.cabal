@@ -1,11 +1,11 @@
 name:                  amazonka-route53-domains
 version:               0.0.0
-synopsis:              Amazon Route 53 Domains SDK
+synopsis:              Amazon Route 53 Domains SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,7 +13,7 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-
+    Pending
 
 source-repository head
     type:     git
@@ -27,9 +27,10 @@ library
 
     exposed-modules:
           Network.AWS.Route53Domains
-        , Network.AWS.Route53Domains.Types
         , Network.AWS.Route53Domains.CheckDomainAvailability
+        , Network.AWS.Route53Domains.DisableDomainAutoRenew
         , Network.AWS.Route53Domains.DisableDomainTransferLock
+        , Network.AWS.Route53Domains.EnableDomainAutoRenew
         , Network.AWS.Route53Domains.EnableDomainTransferLock
         , Network.AWS.Route53Domains.GetDomainDetail
         , Network.AWS.Route53Domains.GetOperationDetail
@@ -38,9 +39,12 @@ library
         , Network.AWS.Route53Domains.RegisterDomain
         , Network.AWS.Route53Domains.RetrieveDomainAuthCode
         , Network.AWS.Route53Domains.TransferDomain
+        , Network.AWS.Route53Domains.Types
         , Network.AWS.Route53Domains.UpdateDomainContact
         , Network.AWS.Route53Domains.UpdateDomainContactPrivacy
         , Network.AWS.Route53Domains.UpdateDomainNameservers
+
+    other-modules:
 
     build-depends:
           amazonka-core

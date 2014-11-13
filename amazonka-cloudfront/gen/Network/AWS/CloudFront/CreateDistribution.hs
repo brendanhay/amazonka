@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.CreateDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,108 +24,102 @@
 module Network.AWS.CloudFront.CreateDistribution
     (
     -- * Request
-      CreateDistribution
+      CreateDistribution2014_05_31
     -- ** Request constructor
-    , createDistribution
+    , createDistribution2014_05_31
     -- ** Request lenses
     , cdDistributionConfig
 
     -- * Response
-    , CreateDistributionResponse
+    , CreateDistribution2014_05_31Response
     -- ** Response constructor
-    , createDistributionResponse
+    , createDistribution2014_05_31Response
     -- ** Response lenses
     , cdrDistribution
-    , cdrLocation
     , cdrETag
+    , cdrLocation
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to create a new distribution.
-newtype CreateDistribution = CreateDistribution
+newtype CreateDistribution2014_05_31 = CreateDistribution2014_05_31
     { _cdDistributionConfig :: DistributionConfig
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDistribution' request.
+-- | 'CreateDistribution2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DistributionConfig ::@ @DistributionConfig@
+-- * 'cdDistributionConfig' @::@ 'DistributionConfig'
 --
-createDistribution :: DistributionConfig -- ^ 'cdDistributionConfig'
-                   -> CreateDistribution
-createDistribution p1 = CreateDistribution
+createDistribution2014_05_31 :: DistributionConfig -- ^ 'cdDistributionConfig'
+                             -> CreateDistribution2014_05_31
+createDistribution2014_05_31 p1 = CreateDistribution2014_05_31
     { _cdDistributionConfig = p1
     }
 
 -- | The distribution's configuration information.
-cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
+cdDistributionConfig :: Lens' CreateDistribution2014_05_31 DistributionConfig
 cdDistributionConfig =
     lens _cdDistributionConfig (\s a -> s { _cdDistributionConfig = a })
 
-instance ToPath CreateDistribution
+instance ToPath CreateDistribution2014_05_31 where
+    toPath = const "/2014-05-31/distribution"
 
-instance ToQuery CreateDistribution
+instance ToQuery CreateDistribution2014_05_31 where
+    toQuery = const mempty
 
-instance ToHeaders CreateDistribution
+instance ToHeaders CreateDistribution2014_05_31
 
-instance ToXML CreateDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateDistribution"
+instance ToBody CreateDistribution2014_05_31 where
+    toBody = toBody . encodeXML . _cdDistributionConfig
 
--- | The returned result of the corresponding request.
-data CreateDistributionResponse = CreateDistributionResponse
+data CreateDistribution2014_05_31Response = CreateDistribution2014_05_31Response
     { _cdrDistribution :: Maybe Distribution
-    , _cdrLocation :: Maybe Text
-    , _cdrETag :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _cdrETag         :: Maybe Text
+    , _cdrLocation     :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDistributionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateDistribution2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Distribution ::@ @Maybe Distribution@
+-- * 'cdrDistribution' @::@ 'Maybe' 'Distribution'
 --
--- * @Location ::@ @Maybe Text@
+-- * 'cdrETag' @::@ 'Maybe' 'Text'
 --
--- * @ETag ::@ @Maybe Text@
+-- * 'cdrLocation' @::@ 'Maybe' 'Text'
 --
-createDistributionResponse :: CreateDistributionResponse
-createDistributionResponse = CreateDistributionResponse
+createDistribution2014_05_31Response :: CreateDistribution2014_05_31Response
+createDistribution2014_05_31Response = CreateDistribution2014_05_31Response
     { _cdrDistribution = Nothing
-    , _cdrLocation = Nothing
-    , _cdrETag = Nothing
+    , _cdrLocation     = Nothing
+    , _cdrETag         = Nothing
     }
 
 -- | The distribution's information.
-cdrDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
+cdrDistribution :: Lens' CreateDistribution2014_05_31Response (Maybe Distribution)
 cdrDistribution = lens _cdrDistribution (\s a -> s { _cdrDistribution = a })
 
--- | The fully qualified URI of the new distribution resource just created. For
--- example:
--- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
-cdrLocation :: Lens' CreateDistributionResponse (Maybe Text)
-cdrLocation = lens _cdrLocation (\s a -> s { _cdrLocation = a })
-
 -- | The current version of the distribution created.
-cdrETag :: Lens' CreateDistributionResponse (Maybe Text)
+cdrETag :: Lens' CreateDistribution2014_05_31Response (Maybe Text)
 cdrETag = lens _cdrETag (\s a -> s { _cdrETag = a })
 
-instance AWSRequest CreateDistribution where
-    type Sv CreateDistribution = CloudFront
-    type Rs CreateDistribution = CreateDistributionResponse
+-- | The fully qualified URI of the new distribution resource just created.
+-- For example:
+-- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
+cdrLocation :: Lens' CreateDistribution2014_05_31Response (Maybe Text)
+cdrLocation = lens _cdrLocation (\s a -> s { _cdrLocation = a })
 
-    request = get
-    response _ = cursorResponse $ \hs xml ->
-        pure CreateDistributionResponse
-            <*> xml %|? "Distribution"
-            <*> hs ~:? "Location"
-            <*> hs ~:? "ETag"
+instance AWSRequest CreateDistribution2014_05_31 where
+    type Sv CreateDistribution2014_05_31 = CloudFront
+    type Rs CreateDistribution2014_05_31 = CreateDistribution2014_05_31Response
+
+    request  = post
+    response = xmlResponse $ \h x -> CreateDistribution2014_05_31Response
+        <$> x %| "Distribution"
+        <*> h ~:? "ETag"
+        <*> h ~:? "Location"

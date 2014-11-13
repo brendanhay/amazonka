@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CreateDhcpOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,29 +38,12 @@
 -- four NetBIOS name servers. netbios-node-type - The NetBIOS node type (1, 2,
 -- 4, or 8). We recommend that you specify 2 (broadcast and multicast are not
 -- currently supported). For more information about these node types, see RFC
--- 2132. For more information about DHCP options, see DHCP Options Sets in the
--- Amazon Virtual Private Cloud User Guide. Example This example creates a set
--- of DHCP options with a domain name example.com and two DNS servers
--- (10.2.5.1 and 10.2.5.2). The DNS servers' IP addresses are specified in a
--- single parameter, separated by commas, to preserve the order in which they
--- are specified. https://ec2.amazonaws.com/?Action=CreateDhcpOptions
--- &amp;DhcpConfiguration.1.Key=domain-name
--- &amp;DhcpConfiguration.1.Value.1=example.com
--- &amp;DhcpConfiguration.2.Key=domain-name-servers
--- &amp;DhcpConfiguration.2.Value.1=10.2.5.1,10.2.5.2 &amp;AUTHPARAMS
--- &lt;CreateDhcpOptionsResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;dhcpOptions&gt;
--- &lt;dhcpOptionsId&gt;dopt-7a8b9c2d&lt;/dhcpOptionsId&gt;
--- &lt;dhcpConfigurationSet&gt; &lt;item&gt;
--- &lt;key&gt;domain-name&lt;/key&gt; &lt;valueSet&gt; &lt;item&gt;
--- &lt;value&gt;example.com&lt;/value&gt; &lt;/item&gt; &lt;/valueSet&gt;
--- &lt;/item&gt; &lt;item&gt; &lt;key&gt;domain-name-servers&lt;/key&gt;
--- &lt;valueSet&gt; &lt;item&gt; &lt;value&gt;10.2.5.1&lt;/value&gt;
--- &lt;/item&gt; &lt;item&gt; &lt;value&gt;10.2.5.2&lt;/value&gt;
--- &lt;/item&gt; &lt;/valueSet&gt; &lt;/item&gt; &lt;/dhcpConfigurationSet&gt;
--- &lt;tagSet/&gt; &lt;/dhcpOptions&gt; &lt;/CreateDhcpOptionsResponse&gt;.
+-- 2132. Your VPC automatically starts out with a set of DHCP options that
+-- includes only a DNS server that we provide (AmazonProvidedDNS). If you
+-- create a set of options, and if your VPC has an Internet gateway, make sure
+-- to set the domain-name-servers option either to AmazonProvidedDNS or to a
+-- domain name server of your choice. For more information about DHCP options,
+-- see DHCP Options Sets in the Amazon Virtual Private Cloud User Guide.
 module Network.AWS.EC2.CreateDhcpOptions
     (
     -- * Request
@@ -67,6 +52,7 @@ module Network.AWS.EC2.CreateDhcpOptions
     , createDhcpOptions
     -- ** Request lenses
     , cdoDhcpConfigurations
+    , cdoDryRun
 
     -- * Response
     , CreateDhcpOptionsResponse
@@ -76,47 +62,52 @@ module Network.AWS.EC2.CreateDhcpOptions
     , cdorDhcpOptions
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype CreateDhcpOptions = CreateDhcpOptions
-    { _cdoDhcpConfigurations :: [DhcpConfiguration]
-    } deriving (Eq, Ord, Show, Generic)
+data CreateDhcpOptions = CreateDhcpOptions
+    { _cdoDhcpConfigurations :: [NewDhcpConfiguration]
+    , _cdoDryRun             :: Maybe Bool
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDhcpOptions' request.
+-- | 'CreateDhcpOptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DhcpConfigurations ::@ @[DhcpConfiguration]@
+-- * 'cdoDhcpConfigurations' @::@ ['NewDhcpConfiguration']
 --
-createDhcpOptions :: [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
-                  -> CreateDhcpOptions
-createDhcpOptions p1 = CreateDhcpOptions
-    { _cdoDhcpConfigurations = p1
+-- * 'cdoDryRun' @::@ 'Maybe' 'Bool'
+--
+createDhcpOptions :: CreateDhcpOptions
+createDhcpOptions = CreateDhcpOptions
+    { _cdoDryRun             = Nothing
+    , _cdoDhcpConfigurations = mempty
     }
 
 -- | A DHCP configuration option.
-cdoDhcpConfigurations :: Lens' CreateDhcpOptions [DhcpConfiguration]
+cdoDhcpConfigurations :: Lens' CreateDhcpOptions [NewDhcpConfiguration]
 cdoDhcpConfigurations =
     lens _cdoDhcpConfigurations (\s a -> s { _cdoDhcpConfigurations = a })
 
-instance ToQuery CreateDhcpOptions where
-    toQuery = genericQuery def
+cdoDryRun :: Lens' CreateDhcpOptions (Maybe Bool)
+cdoDryRun = lens _cdoDryRun (\s a -> s { _cdoDryRun = a })
+
+instance ToQuery CreateDhcpOptions
+
+instance ToPath CreateDhcpOptions where
+    toPath = const "/"
 
 newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdorDhcpOptions :: Maybe DhcpOptions
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDhcpOptionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateDhcpOptionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DhcpOptions ::@ @Maybe DhcpOptions@
+-- * 'cdorDhcpOptions' @::@ 'Maybe' 'DhcpOptions'
 --
 createDhcpOptionsResponse :: CreateDhcpOptionsResponse
 createDhcpOptionsResponse = CreateDhcpOptionsResponse
@@ -127,12 +118,10 @@ createDhcpOptionsResponse = CreateDhcpOptionsResponse
 cdorDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
 cdorDhcpOptions = lens _cdorDhcpOptions (\s a -> s { _cdorDhcpOptions = a })
 
-instance FromXML CreateDhcpOptionsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateDhcpOptions where
     type Sv CreateDhcpOptions = EC2
     type Rs CreateDhcpOptions = CreateDhcpOptionsResponse
 
-    request = post "CreateDhcpOptions"
-    response _ = xmlResponse
+    request  = post "CreateDhcpOptions"
+    response = xmlResponse $ \h x -> CreateDhcpOptionsResponse
+        <$> x %| "dhcpOptions"

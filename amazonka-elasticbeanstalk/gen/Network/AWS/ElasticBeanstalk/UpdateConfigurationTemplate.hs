@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,53 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Updates the specified configuration template to have the specified
--- properties or configuration option values. If a property (for example,
--- ApplicationName) is not provided, its value remains unchanged. To clear
--- such properties, specify an empty string. Related Topics
--- DescribeConfigurationOptions
--- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
--- &TemplateName=default &Description=changed%20description
--- &OptionSettings.member.1.Namespace=aws%3Aautoscaling%3Atrigger
--- &OptionSettings.member.1.OptionName=LowerThreshold
--- &OptionSettings.member.1.Value=1000000
--- &Operation=UpdateConfigurationTemplate &AuthParams 32bit Amazon Linux
--- running Tomcat 7 Availability Zones Any 1 aws:autoscaling:asg PARAM5
--- aws:elasticbeanstalk:application:environment LowerThreshold 1000000
--- aws:autoscaling:trigger UpperThreshold 9000000 aws:autoscaling:trigger
--- LowerBreachScaleIncrement -1 aws:autoscaling:trigger MeasureName NetworkOut
--- aws:autoscaling:trigger Period 60 aws:autoscaling:trigger Xmx 256m
--- aws:elasticbeanstalk:container:tomcat:jvmoptions PARAM3
--- aws:elasticbeanstalk:application:environment EC2KeyName
--- aws:autoscaling:launchconfiguration MinSize 1 aws:autoscaling:asg JVM
--- Options aws:elasticbeanstalk:container:tomcat:jvmoptions XX:MaxPermSize 64m
--- aws:elasticbeanstalk:container:tomcat:jvmoptions AWS_SECRET_KEY
--- aws:elasticbeanstalk:application:environment UpperBreachScaleIncrement 1
--- aws:autoscaling:trigger Notification Topic ARN
--- aws:elasticbeanstalk:sns:topics InstanceType t1.micro
--- aws:autoscaling:launchconfiguration Custom Availability Zones us-east-1a
--- aws:autoscaling:asg Statistic Average aws:autoscaling:trigger Notification
--- Protocol email aws:elasticbeanstalk:sns:topics JDBC_CONNECTION_STRING
--- aws:elasticbeanstalk:application:environment PARAM2
--- aws:elasticbeanstalk:application:environment Stickiness Cookie Expiration 0
--- aws:elb:policies SSLCertificateId aws:elb:loadbalancer MaxSize 4
--- aws:autoscaling:asg Stickiness Policy false aws:elb:policies Notification
--- Topic Name aws:elasticbeanstalk:sns:topics SecurityGroups
--- elasticbeanstalk-default aws:autoscaling:launchconfiguration
--- LoadBalancerHTTPPort 80 aws:elb:loadbalancer Unit None
--- aws:autoscaling:trigger AWS_ACCESS_KEY_ID
--- aws:elasticbeanstalk:application:environment PARAM4
--- aws:elasticbeanstalk:application:environment Application Healthcheck URL /
--- aws:elasticbeanstalk:application LoadBalancerHTTPSPort OFF
--- aws:elb:loadbalancer HealthyThreshold 3 aws:elb:healthcheck Timeout 5
--- aws:elb:healthcheck Cooldown 0 aws:autoscaling:asg UnhealthyThreshold 5
--- aws:elb:healthcheck Interval 30 aws:elb:healthcheck LogPublicationControl
--- false aws:elasticbeanstalk:hostmanager BreachDuration 120
--- aws:autoscaling:trigger PARAM1 aws:elasticbeanstalk:application:environment
--- Notification Endpoint aws:elasticbeanstalk:sns:topics Protocol HTTP
--- aws:elb:loadbalancer Xms 256m
--- aws:elasticbeanstalk:container:tomcat:jvmoptions changed description
--- SampleApp 2010-11-17T19:26:20.420Z Default 2010-11-17T20:58:27.508Z
--- 6cbcb09a-f28d-11df-8a78-9f77047e0d0c.
+-- properties or configuration option values. Related Topics
+-- DescribeConfigurationOptions.
 module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     (
     -- * Request
@@ -74,63 +31,62 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     , updateConfigurationTemplate
     -- ** Request lenses
     , uctApplicationName
-    , uctTemplateName
     , uctDescription
     , uctOptionSettings
     , uctOptionsToRemove
+    , uctTemplateName
 
     -- * Response
     , UpdateConfigurationTemplateResponse
     -- ** Response constructor
     , updateConfigurationTemplateResponse
     -- ** Response lenses
-    , uctrSolutionStackName
     , uctrApplicationName
-    , uctrTemplateName
-    , uctrDescription
-    , uctrEnvironmentName
-    , uctrDeploymentStatus
     , uctrDateCreated
     , uctrDateUpdated
+    , uctrDeploymentStatus
+    , uctrDescription
+    , uctrEnvironmentName
     , uctrOptionSettings
+    , uctrSolutionStackName
+    , uctrTemplateName
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The result message containing the options for the specified solution stack.
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate
     { _uctApplicationName :: Text
-    , _uctTemplateName :: Text
-    , _uctDescription :: Maybe Text
-    , _uctOptionSettings :: [ConfigurationOptionSetting]
+    , _uctDescription     :: Maybe Text
+    , _uctOptionSettings  :: [ConfigurationOptionSetting]
     , _uctOptionsToRemove :: [OptionSpecification]
-    } deriving (Eq, Ord, Show, Generic)
+    , _uctTemplateName    :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateConfigurationTemplate' request.
+-- | 'UpdateConfigurationTemplate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ApplicationName ::@ @Text@
+-- * 'uctApplicationName' @::@ 'Text'
 --
--- * @TemplateName ::@ @Text@
+-- * 'uctDescription' @::@ 'Maybe' 'Text'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'uctOptionSettings' @::@ ['ConfigurationOptionSetting']
 --
--- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+-- * 'uctOptionsToRemove' @::@ ['OptionSpecification']
 --
--- * @OptionsToRemove ::@ @[OptionSpecification]@
+-- * 'uctTemplateName' @::@ 'Text'
 --
 updateConfigurationTemplate :: Text -- ^ 'uctApplicationName'
                             -> Text -- ^ 'uctTemplateName'
                             -> UpdateConfigurationTemplate
 updateConfigurationTemplate p1 p2 = UpdateConfigurationTemplate
     { _uctApplicationName = p1
-    , _uctTemplateName = p2
-    , _uctDescription = Nothing
-    , _uctOptionSettings = mempty
+    , _uctTemplateName    = p2
+    , _uctDescription     = Nothing
+    , _uctOptionSettings  = mempty
     , _uctOptionsToRemove = mempty
     }
 
@@ -140,12 +96,6 @@ updateConfigurationTemplate p1 p2 = UpdateConfigurationTemplate
 uctApplicationName :: Lens' UpdateConfigurationTemplate Text
 uctApplicationName =
     lens _uctApplicationName (\s a -> s { _uctApplicationName = a })
-
--- | The name of the configuration template to update. If no configuration
--- template is found with this name, UpdateConfigurationTemplate returns an
--- InvalidParameterValue error.
-uctTemplateName :: Lens' UpdateConfigurationTemplate Text
-uctTemplateName = lens _uctTemplateName (\s a -> s { _uctTemplateName = a })
 
 -- | A new description for the configuration.
 uctDescription :: Lens' UpdateConfigurationTemplate (Maybe Text)
@@ -163,75 +113,96 @@ uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
 uctOptionsToRemove =
     lens _uctOptionsToRemove (\s a -> s { _uctOptionsToRemove = a })
 
-instance ToQuery UpdateConfigurationTemplate where
-    toQuery = genericQuery def
+-- | The name of the configuration template to update. If no configuration
+-- template is found with this name, UpdateConfigurationTemplate returns an
+-- InvalidParameterValue error.
+uctTemplateName :: Lens' UpdateConfigurationTemplate Text
+uctTemplateName = lens _uctTemplateName (\s a -> s { _uctTemplateName = a })
 
--- | Describes the settings for a configuration set.
+instance ToQuery UpdateConfigurationTemplate
+
+instance ToPath UpdateConfigurationTemplate where
+    toPath = const "/"
+
 data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
-    { _uctrSolutionStackName :: Maybe Text
-    , _uctrApplicationName :: Maybe Text
-    , _uctrTemplateName :: Maybe Text
-    , _uctrDescription :: Maybe Text
-    , _uctrEnvironmentName :: Maybe Text
-    , _uctrDeploymentStatus :: Maybe ConfigurationDeploymentStatus
-    , _uctrDateCreated :: Maybe ISO8601
-    , _uctrDateUpdated :: Maybe ISO8601
-    , _uctrOptionSettings :: [ConfigurationOptionSetting]
-    } deriving (Eq, Ord, Show, Generic)
+    { _uctrApplicationName   :: Maybe Text
+    , _uctrDateCreated       :: Maybe RFC822
+    , _uctrDateUpdated       :: Maybe RFC822
+    , _uctrDeploymentStatus  :: Maybe Text
+    , _uctrDescription       :: Maybe Text
+    , _uctrEnvironmentName   :: Maybe Text
+    , _uctrOptionSettings    :: [ConfigurationOptionSetting]
+    , _uctrSolutionStackName :: Maybe Text
+    , _uctrTemplateName      :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateConfigurationTemplateResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateConfigurationTemplateResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SolutionStackName ::@ @Maybe Text@
+-- * 'uctrApplicationName' @::@ 'Maybe' 'Text'
 --
--- * @ApplicationName ::@ @Maybe Text@
+-- * 'uctrDateCreated' @::@ 'Maybe' 'UTCTime'
 --
--- * @TemplateName ::@ @Maybe Text@
+-- * 'uctrDateUpdated' @::@ 'Maybe' 'UTCTime'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'uctrDeploymentStatus' @::@ 'Maybe' 'Text'
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'uctrDescription' @::@ 'Maybe' 'Text'
 --
--- * @DeploymentStatus ::@ @Maybe ConfigurationDeploymentStatus@
+-- * 'uctrEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * @DateCreated ::@ @Maybe ISO8601@
+-- * 'uctrOptionSettings' @::@ ['ConfigurationOptionSetting']
 --
--- * @DateUpdated ::@ @Maybe ISO8601@
+-- * 'uctrSolutionStackName' @::@ 'Maybe' 'Text'
 --
--- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+-- * 'uctrTemplateName' @::@ 'Maybe' 'Text'
 --
 updateConfigurationTemplateResponse :: UpdateConfigurationTemplateResponse
 updateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
     { _uctrSolutionStackName = Nothing
-    , _uctrApplicationName = Nothing
-    , _uctrTemplateName = Nothing
-    , _uctrDescription = Nothing
-    , _uctrEnvironmentName = Nothing
-    , _uctrDeploymentStatus = Nothing
-    , _uctrDateCreated = Nothing
-    , _uctrDateUpdated = Nothing
-    , _uctrOptionSettings = mempty
+    , _uctrApplicationName   = Nothing
+    , _uctrTemplateName      = Nothing
+    , _uctrDescription       = Nothing
+    , _uctrEnvironmentName   = Nothing
+    , _uctrDeploymentStatus  = Nothing
+    , _uctrDateCreated       = Nothing
+    , _uctrDateUpdated       = Nothing
+    , _uctrOptionSettings    = mempty
     }
-
--- | The name of the solution stack this configuration set uses.
-uctrSolutionStackName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
-uctrSolutionStackName =
-    lens _uctrSolutionStackName (\s a -> s { _uctrSolutionStackName = a })
 
 -- | The name of the application associated with this configuration set.
 uctrApplicationName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrApplicationName =
     lens _uctrApplicationName (\s a -> s { _uctrApplicationName = a })
 
--- | If not null, the name of the configuration template for this configuration
--- set.
-uctrTemplateName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
-uctrTemplateName =
-    lens _uctrTemplateName (\s a -> s { _uctrTemplateName = a })
+-- | The date (in UTC time) when this configuration set was created.
+uctrDateCreated :: Lens' UpdateConfigurationTemplateResponse (Maybe UTCTime)
+uctrDateCreated = lens _uctrDateCreated (\s a -> s { _uctrDateCreated = a })
+    . mapping _Time
+
+-- | The date (in UTC time) when this configuration set was last modified.
+uctrDateUpdated :: Lens' UpdateConfigurationTemplateResponse (Maybe UTCTime)
+uctrDateUpdated = lens _uctrDateUpdated (\s a -> s { _uctrDateUpdated = a })
+    . mapping _Time
+
+-- | If this configuration set is associated with an environment, the
+-- DeploymentStatus parameter indicates the deployment status of this
+-- configuration set: null: This configuration is not associated with a
+-- running environment. pending: This is a draft configuration that is not
+-- deployed to the associated environment but is in the process of
+-- deploying. deployed: This is the configuration that is currently deployed
+-- to the associated running environment. failed: This is a draft
+-- configuration, that failed to successfully deploy. null: This
+-- configuration is not associated with a running environment. pending: This
+-- is a draft configuration that is not deployed to the associated
+-- environment but is in the process of deploying. deployed: This is the
+-- configuration that is currently deployed to the associated running
+-- environment. failed: This is a draft configuration that failed to
+-- successfully deploy.
+uctrDeploymentStatus :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
+uctrDeploymentStatus =
+    lens _uctrDeploymentStatus (\s a -> s { _uctrDeploymentStatus = a })
 
 -- | Describes this configuration set.
 uctrDescription :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
@@ -242,43 +213,34 @@ uctrEnvironmentName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrEnvironmentName =
     lens _uctrEnvironmentName (\s a -> s { _uctrEnvironmentName = a })
 
--- | If this configuration set is associated with an environment, the
--- DeploymentStatus parameter indicates the deployment status of this
--- configuration set: null: This configuration is not associated with a
--- running environment. pending: This is a draft configuration that is not
--- deployed to the associated environment but is in the process of deploying.
--- deployed: This is the configuration that is currently deployed to the
--- associated running environment. failed: This is a draft configuration, that
--- failed to successfully deploy. null: This configuration is not associated
--- with a running environment. pending: This is a draft configuration that is
--- not deployed to the associated environment but is in the process of
--- deploying. deployed: This is the configuration that is currently deployed
--- to the associated running environment. failed: This is a draft
--- configuration that failed to successfully deploy.
-uctrDeploymentStatus :: Lens' UpdateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
-uctrDeploymentStatus =
-    lens _uctrDeploymentStatus (\s a -> s { _uctrDeploymentStatus = a })
-
--- | The date (in UTC time) when this configuration set was created.
-uctrDateCreated :: Lens' UpdateConfigurationTemplateResponse (Maybe ISO8601)
-uctrDateCreated = lens _uctrDateCreated (\s a -> s { _uctrDateCreated = a })
-
--- | The date (in UTC time) when this configuration set was last modified.
-uctrDateUpdated :: Lens' UpdateConfigurationTemplateResponse (Maybe ISO8601)
-uctrDateUpdated = lens _uctrDateUpdated (\s a -> s { _uctrDateUpdated = a })
-
--- | A list of the configuration options and their values in this configuration
--- set.
+-- | A list of the configuration options and their values in this
+-- configuration set.
 uctrOptionSettings :: Lens' UpdateConfigurationTemplateResponse [ConfigurationOptionSetting]
 uctrOptionSettings =
     lens _uctrOptionSettings (\s a -> s { _uctrOptionSettings = a })
 
-instance FromXML UpdateConfigurationTemplateResponse where
-    fromXMLOptions = xmlOptions
+-- | The name of the solution stack this configuration set uses.
+uctrSolutionStackName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
+uctrSolutionStackName =
+    lens _uctrSolutionStackName (\s a -> s { _uctrSolutionStackName = a })
+
+-- | If not null, the name of the configuration template for this
+-- configuration set.
+uctrTemplateName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
+uctrTemplateName = lens _uctrTemplateName (\s a -> s { _uctrTemplateName = a })
 
 instance AWSRequest UpdateConfigurationTemplate where
     type Sv UpdateConfigurationTemplate = ElasticBeanstalk
     type Rs UpdateConfigurationTemplate = UpdateConfigurationTemplateResponse
 
-    request = post "UpdateConfigurationTemplate"
-    response _ = xmlResponse
+    request  = post "UpdateConfigurationTemplate"
+    response = xmlResponse $ \h x -> UpdateConfigurationTemplateResponse
+        <$> x %| "ApplicationName"
+        <*> x %| "DateCreated"
+        <*> x %| "DateUpdated"
+        <*> x %| "DeploymentStatus"
+        <*> x %| "Description"
+        <*> x %| "EnvironmentName"
+        <*> x %| "OptionSettings"
+        <*> x %| "SolutionStackName"
+        <*> x %| "TemplateName"

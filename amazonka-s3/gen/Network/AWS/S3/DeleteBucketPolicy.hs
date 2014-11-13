@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,46 +36,45 @@ module Network.AWS.S3.DeleteBucketPolicy
     , deleteBucketPolicyResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype DeleteBucketPolicy = DeleteBucketPolicy
-    { _dbpBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _dbpBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteBucketPolicy' request.
+-- | 'DeleteBucketPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'dbpBucket' @::@ 'Text'
 --
-deleteBucketPolicy :: BucketName -- ^ 'dbpBucket'
+deleteBucketPolicy :: Text -- ^ 'dbpBucket'
                    -> DeleteBucketPolicy
 deleteBucketPolicy p1 = DeleteBucketPolicy
     { _dbpBucket = p1
     }
 
-dbpBucket :: Lens' DeleteBucketPolicy BucketName
+dbpBucket :: Lens' DeleteBucketPolicy Text
 dbpBucket = lens _dbpBucket (\s a -> s { _dbpBucket = a })
 
-instance ToPath DeleteBucketPolicy
+instance ToPath DeleteBucketPolicy where
+    toPath DeleteBucketPolicy{..} = mconcat
+        [ "/"
+        , toText _dbpBucket
+        ]
 
-instance ToQuery DeleteBucketPolicy
+instance ToQuery DeleteBucketPolicy where
+    toQuery = const "policy"
 
 instance ToHeaders DeleteBucketPolicy
-
-instance ToBody DeleteBucketPolicy
 
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteBucketPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteBucketPolicyResponse' constructor.
 deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
 deleteBucketPolicyResponse = DeleteBucketPolicyResponse
 
@@ -81,5 +82,5 @@ instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3
     type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
 
-    request = get
-    response _ = nullaryResponse DeleteBucketPolicyResponse
+    request  = delete
+    response = nullaryResponse DeleteBucketPolicyResponse

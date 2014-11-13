@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,11 +26,6 @@
 -- of 20 items. This action supports pagination by returning a token if there
 -- are more pages to retrieve. To get the next page, call this action again
 -- with the returned token as the NextToken parameter.
--- https://autoscaling.amazonaws.com/?MaxRecords=20
--- &InstanceIds.member.1=i-78e0d40b &Version=2011-01-01
--- &Action=DescribeAutoScalingInstances &AUTHPARAMS Healthy my-test-asg
--- us-east-1e i-78e0d40b my-test-lc InService
--- df992dc3-b72f-11e2-81e1-750aa6EXAMPLE.
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     (
     -- * Request
@@ -49,44 +46,44 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     , dasirNextToken
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances
     { _dasiInstanceIds :: [Text]
-    , _dasiMaxRecords :: Maybe Integer
-    , _dasiNextToken :: Maybe Text
+    , _dasiMaxRecords  :: Maybe Int
+    , _dasiNextToken   :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAutoScalingInstances' request.
+-- | 'DescribeAutoScalingInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceIds ::@ @[Text]@
+-- * 'dasiInstanceIds' @::@ ['Text']
 --
--- * @MaxRecords ::@ @Maybe Integer@
+-- * 'dasiMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dasiNextToken' @::@ 'Maybe' 'Text'
 --
 describeAutoScalingInstances :: DescribeAutoScalingInstances
 describeAutoScalingInstances = DescribeAutoScalingInstances
     { _dasiInstanceIds = mempty
-    , _dasiMaxRecords = Nothing
-    , _dasiNextToken = Nothing
+    , _dasiMaxRecords  = Nothing
+    , _dasiNextToken   = Nothing
     }
 
 -- | The list of Auto Scaling instances to describe. If this list is omitted,
 -- all auto scaling instances are described. The list of requested instances
--- cannot contain more than 50 items. If unknown instances are requested, they
--- are ignored with no error.
+-- cannot contain more than 50 items. If unknown instances are requested,
+-- they are ignored with no error.
 dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
 dasiInstanceIds = lens _dasiInstanceIds (\s a -> s { _dasiInstanceIds = a })
 
 -- | The maximum number of Auto Scaling instances to be described with each
 -- call.
-dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Integer)
+dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Int)
 dasiMaxRecords = lens _dasiMaxRecords (\s a -> s { _dasiMaxRecords = a })
 
 -- | The token returned by a previous call to indicate that there is more data
@@ -94,52 +91,45 @@ dasiMaxRecords = lens _dasiMaxRecords (\s a -> s { _dasiMaxRecords = a })
 dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
 dasiNextToken = lens _dasiNextToken (\s a -> s { _dasiNextToken = a })
 
-instance ToQuery DescribeAutoScalingInstances where
-    toQuery = genericQuery def
+instance ToQuery DescribeAutoScalingInstances
 
--- | The AutoScalingInstancesType data type.
+instance ToPath DescribeAutoScalingInstances where
+    toPath = const "/"
+
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { _dasirAutoScalingInstances :: [AutoScalingInstanceDetails]
-    , _dasirNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _dasirNextToken            :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAutoScalingInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeAutoScalingInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AutoScalingInstances ::@ @[AutoScalingInstanceDetails]@
+-- * 'dasirAutoScalingInstances' @::@ ['AutoScalingInstanceDetails']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dasirNextToken' @::@ 'Maybe' 'Text'
 --
 describeAutoScalingInstancesResponse :: DescribeAutoScalingInstancesResponse
 describeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { _dasirAutoScalingInstances = mempty
-    , _dasirNextToken = Nothing
+    , _dasirNextToken            = Nothing
     }
 
 -- | A list of Auto Scaling instances.
 dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
 dasirAutoScalingInstances =
     lens _dasirAutoScalingInstances
-         (\s a -> s { _dasirAutoScalingInstances = a })
+        (\s a -> s { _dasirAutoScalingInstances = a })
 
 -- | A string that marks the start of the next batch of returned results.
 dasirNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
 dasirNextToken = lens _dasirNextToken (\s a -> s { _dasirNextToken = a })
 
-instance FromXML DescribeAutoScalingInstancesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeAutoScalingInstances where
     type Sv DescribeAutoScalingInstances = AutoScaling
     type Rs DescribeAutoScalingInstances = DescribeAutoScalingInstancesResponse
 
-    request = post "DescribeAutoScalingInstances"
-    response _ = xmlResponse
-
-instance AWSPager DescribeAutoScalingInstances where
-    next rq rs = (\x -> rq & dasiNextToken ?~ x)
-        <$> (rs ^. dasirNextToken)
+    request  = post "DescribeAutoScalingInstances"
+    response = xmlResponse $ \h x -> DescribeAutoScalingInstancesResponse
+        <$> x %| "AutoScalingInstances"
+        <*> x %| "NextToken"

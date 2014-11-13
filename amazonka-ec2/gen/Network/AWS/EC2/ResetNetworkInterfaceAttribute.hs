@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ResetNetworkInterfaceAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,15 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Resets a network interface attribute. You can specify only one attribute at
--- a time. Example This example resets the sourceDestCheck attribute for the
--- specified network interface.
--- https://ec2.amazonaws.com/?Action=ResetNetworkInterfaceAttribute
--- &amp;NetworkInterfaceId=eni-ffda3197 &amp;Attribute=sourceDestCheck
--- &amp;AUTHPARAMS &lt;ResetNetworkInterfaceAttributeResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;5187642e-3f16-44a3-b05f-24c3848b5162&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt;
--- &lt;/ResetNetworkInterfaceAttributeResponse&gt;.
+-- a time.
 module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     (
     -- * Request
@@ -35,6 +29,7 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     -- ** Request constructor
     , resetNetworkInterfaceAttribute
     -- ** Request lenses
+    , rniaDryRun
     , rniaNetworkInterfaceId
     , rniaSourceDestCheck
 
@@ -44,53 +39,57 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     , resetNetworkInterfaceAttributeResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
-    { _rniaNetworkInterfaceId :: Text
-    , _rniaSourceDestCheck :: Maybe Text
+    { _rniaDryRun             :: Maybe Bool
+    , _rniaNetworkInterfaceId :: Text
+    , _rniaSourceDestCheck    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetNetworkInterfaceAttribute' request.
+-- | 'ResetNetworkInterfaceAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkInterfaceId ::@ @Text@
+-- * 'rniaDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @SourceDestCheck ::@ @Maybe Text@
+-- * 'rniaNetworkInterfaceId' @::@ 'Text'
+--
+-- * 'rniaSourceDestCheck' @::@ 'Maybe' 'Text'
 --
 resetNetworkInterfaceAttribute :: Text -- ^ 'rniaNetworkInterfaceId'
                                -> ResetNetworkInterfaceAttribute
 resetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
     { _rniaNetworkInterfaceId = p1
-    , _rniaSourceDestCheck = Nothing
+    , _rniaDryRun             = Nothing
+    , _rniaSourceDestCheck    = Nothing
     }
+
+rniaDryRun :: Lens' ResetNetworkInterfaceAttribute (Maybe Bool)
+rniaDryRun = lens _rniaDryRun (\s a -> s { _rniaDryRun = a })
 
 -- | The ID of the network interface.
 rniaNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
 rniaNetworkInterfaceId =
     lens _rniaNetworkInterfaceId (\s a -> s { _rniaNetworkInterfaceId = a })
 
--- | Indicates whether source/destination checking is enabled. A value of true
--- means checking is enabled, and false means checking is disabled. This value
--- must be false for a NAT instance to perform NAT.
+-- | The source/destination checking attribute. Resets the value to true.
 rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
 rniaSourceDestCheck =
     lens _rniaSourceDestCheck (\s a -> s { _rniaSourceDestCheck = a })
 
-instance ToQuery ResetNetworkInterfaceAttribute where
-    toQuery = genericQuery def
+instance ToQuery ResetNetworkInterfaceAttribute
+
+instance ToPath ResetNetworkInterfaceAttribute where
+    toPath = const "/"
 
 data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetNetworkInterfaceAttributeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ResetNetworkInterfaceAttributeResponse' constructor.
 resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
 resetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
 
@@ -98,5 +97,5 @@ instance AWSRequest ResetNetworkInterfaceAttribute where
     type Sv ResetNetworkInterfaceAttribute = EC2
     type Rs ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttributeResponse
 
-    request = post "ResetNetworkInterfaceAttribute"
-    response _ = nullaryResponse ResetNetworkInterfaceAttributeResponse
+    request  = post "ResetNetworkInterfaceAttribute"
+    response = nullaryResponse ResetNetworkInterfaceAttributeResponse

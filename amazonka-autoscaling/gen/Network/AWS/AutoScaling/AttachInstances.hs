@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.AttachInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,8 +31,8 @@ module Network.AWS.AutoScaling.AttachInstances
     -- ** Request constructor
     , attachInstances
     -- ** Request lenses
-    , aiInstanceIds
     , aiAutoScalingGroupName
+    , aiInstanceIds
 
     -- * Response
     , AttachInstancesResponse
@@ -38,36 +40,30 @@ module Network.AWS.AutoScaling.AttachInstances
     , attachInstancesResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data AttachInstances = AttachInstances
-    { _aiInstanceIds :: List1 Text
-    , _aiAutoScalingGroupName :: Text
+    { _aiAutoScalingGroupName :: Text
+    , _aiInstanceIds          :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AttachInstances' request.
+-- | 'AttachInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceIds ::@ @List1 Text@
+-- * 'aiAutoScalingGroupName' @::@ 'Text'
 --
--- * @AutoScalingGroupName ::@ @Text@
+-- * 'aiInstanceIds' @::@ ['Text']
 --
-attachInstances :: List1 Text -- ^ 'aiInstanceIds'
-                -> Text -- ^ 'aiAutoScalingGroupName'
+attachInstances :: Text -- ^ 'aiAutoScalingGroupName'
                 -> AttachInstances
-attachInstances p1 p2 = AttachInstances
-    { _aiInstanceIds = p1
-    , _aiAutoScalingGroupName = p2
+attachInstances p1 = AttachInstances
+    { _aiAutoScalingGroupName = p1
+    , _aiInstanceIds          = mempty
     }
-
--- | One or more IDs of the Amazon EC2 instances to attach to the specified Auto
--- Scaling group. You must specify at least one instance ID.
-aiInstanceIds :: Lens' AttachInstances (List1 Text)
-aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a })
 
 -- | The name of the Auto Scaling group to which to attach the specified
 -- instance(s).
@@ -75,16 +71,20 @@ aiAutoScalingGroupName :: Lens' AttachInstances Text
 aiAutoScalingGroupName =
     lens _aiAutoScalingGroupName (\s a -> s { _aiAutoScalingGroupName = a })
 
-instance ToQuery AttachInstances where
-    toQuery = genericQuery def
+-- | One or more IDs of the Amazon EC2 instances to attach to the specified
+-- Auto Scaling group. You must specify at least one instance ID.
+aiInstanceIds :: Lens' AttachInstances [Text]
+aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a })
+
+instance ToQuery AttachInstances
+
+instance ToPath AttachInstances where
+    toPath = const "/"
 
 data AttachInstancesResponse = AttachInstancesResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AttachInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AttachInstancesResponse' constructor.
 attachInstancesResponse :: AttachInstancesResponse
 attachInstancesResponse = AttachInstancesResponse
 
@@ -92,5 +92,5 @@ instance AWSRequest AttachInstances where
     type Sv AttachInstances = AutoScaling
     type Rs AttachInstances = AttachInstancesResponse
 
-    request = post "AttachInstances"
-    response _ = nullaryResponse AttachInstancesResponse
+    request  = post "AttachInstances"
+    response = nullaryResponse AttachInstancesResponse

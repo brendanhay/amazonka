@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.DeleteRole
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,8 +25,6 @@
 -- do not have any Amazon EC2 instances running with the role you are about to
 -- delete. Deleting a role or instance profile that is associated with a
 -- running instance will break any applications running on the instance.
--- https://iam.amazonaws.com/ ?Action=DeleteRole &RoleName=S3Access
--- &Version=2010-05-08 &AUTHPARAMS 913e3f37-99ed-11e1-a4c3-270EXAMPLE04.
 module Network.AWS.IAM.DeleteRole
     (
     -- * Request
@@ -40,20 +40,20 @@ module Network.AWS.IAM.DeleteRole
     , deleteRoleResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype DeleteRole = DeleteRole
     { _drRoleName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteRole' request.
+-- | 'DeleteRole' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RoleName ::@ @Text@
+-- * 'drRoleName' @::@ 'Text'
 --
 deleteRole :: Text -- ^ 'drRoleName'
            -> DeleteRole
@@ -61,20 +61,19 @@ deleteRole p1 = DeleteRole
     { _drRoleName = p1
     }
 
--- | Name of the role to delete.
+-- | The name of the role to delete.
 drRoleName :: Lens' DeleteRole Text
 drRoleName = lens _drRoleName (\s a -> s { _drRoleName = a })
 
-instance ToQuery DeleteRole where
-    toQuery = genericQuery def
+instance ToQuery DeleteRole
+
+instance ToPath DeleteRole where
+    toPath = const "/"
 
 data DeleteRoleResponse = DeleteRoleResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteRoleResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteRoleResponse' constructor.
 deleteRoleResponse :: DeleteRoleResponse
 deleteRoleResponse = DeleteRoleResponse
 
@@ -82,5 +81,5 @@ instance AWSRequest DeleteRole where
     type Sv DeleteRole = IAM
     type Rs DeleteRole = DeleteRoleResponse
 
-    request = post "DeleteRole"
-    response _ = nullaryResponse DeleteRoleResponse
+    request  = post "DeleteRole"
+    response = nullaryResponse DeleteRoleResponse

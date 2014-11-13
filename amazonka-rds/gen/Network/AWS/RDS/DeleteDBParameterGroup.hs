@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,14 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a specified DBParameterGroup. The DBParameterGroup cannot be
--- associated with any RDS instances to be deleted. The specified DB parameter
--- group cannot be associated with any DB instances.
--- https://rds.amazonaws.com/ ?Action=DeleteDBParameterGroup
--- &DBParameterGroupName=mydbparametergroup &Version=2013-05-15
--- &SignatureVersion=2&SignatureMethod=HmacSHA256
--- &Timestamp=2011-05-11T18%3A47%3A08.851Z &AWSAccessKeyId= &Signature=
--- 4dc38be9-bf3b-11de-a88b-7b5b3d23b3a7.
+-- | Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted
+-- cannot be associated with any DB instances.
 module Network.AWS.RDS.DeleteDBParameterGroup
     (
     -- * Request
@@ -33,7 +29,7 @@ module Network.AWS.RDS.DeleteDBParameterGroup
     -- ** Request constructor
     , deleteDBParameterGroup
     -- ** Request lenses
-    , ddbpgDBParameterGroupName
+    , ddbpg1DBParameterGroupName
 
     -- * Response
     , DeleteDBParameterGroupResponse
@@ -41,46 +37,44 @@ module Network.AWS.RDS.DeleteDBParameterGroup
     , deleteDBParameterGroupResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup
-    { _ddbpgDBParameterGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _ddbpg1DBParameterGroupName :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDBParameterGroup' request.
+-- | 'DeleteDBParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBParameterGroupName ::@ @Text@
+-- * 'ddbpg1DBParameterGroupName' @::@ 'Text'
 --
-deleteDBParameterGroup :: Text -- ^ 'ddbpgDBParameterGroupName'
+deleteDBParameterGroup :: Text -- ^ 'ddbpg1DBParameterGroupName'
                        -> DeleteDBParameterGroup
 deleteDBParameterGroup p1 = DeleteDBParameterGroup
-    { _ddbpgDBParameterGroupName = p1
+    { _ddbpg1DBParameterGroupName = p1
     }
 
 -- | The name of the DB parameter group. Constraints: Must be the name of an
--- existing DB parameter group You cannot delete a default DB parameter group
--- Cannot be associated with any DB instances.
-ddbpgDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
-ddbpgDBParameterGroupName =
-    lens _ddbpgDBParameterGroupName
-         (\s a -> s { _ddbpgDBParameterGroupName = a })
+-- existing DB parameter group You cannot delete a default DB parameter
+-- group Cannot be associated with any DB instances.
+ddbpg1DBParameterGroupName :: Lens' DeleteDBParameterGroup Text
+ddbpg1DBParameterGroupName =
+    lens _ddbpg1DBParameterGroupName
+        (\s a -> s { _ddbpg1DBParameterGroupName = a })
 
-instance ToQuery DeleteDBParameterGroup where
-    toQuery = genericQuery def
+instance ToQuery DeleteDBParameterGroup
+
+instance ToPath DeleteDBParameterGroup where
+    toPath = const "/"
 
 data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDBParameterGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteDBParameterGroupResponse' constructor.
 deleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse
 deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
 
@@ -88,5 +82,5 @@ instance AWSRequest DeleteDBParameterGroup where
     type Sv DeleteDBParameterGroup = RDS
     type Rs DeleteDBParameterGroup = DeleteDBParameterGroupResponse
 
-    request = post "DeleteDBParameterGroup"
-    response _ = nullaryResponse DeleteDBParameterGroupResponse
+    request  = post "DeleteDBParameterGroup"
+    response = nullaryResponse DeleteDBParameterGroupResponse

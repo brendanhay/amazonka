@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteExpression
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,92 +29,80 @@ module Network.AWS.CloudSearch.DeleteExpression
     -- ** Request constructor
     , deleteExpression
     -- ** Request lenses
-    , de1DomainName
-    , de1ExpressionName
+    , de2DomainName
+    , de2ExpressionName
 
     -- * Response
     , DeleteExpressionResponse
     -- ** Response constructor
     , deleteExpressionResponse
     -- ** Response lenses
-    , derrExpression
+    , der1Expression
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DeleteExpression operation. Specifies
--- the name of the domain you want to update and the name of the expression
--- you want to delete.
 data DeleteExpression = DeleteExpression
-    { _de1DomainName :: Text
-    , _de1ExpressionName :: Text
+    { _de2DomainName     :: Text
+    , _de2ExpressionName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteExpression' request.
+-- | 'DeleteExpression' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'de2DomainName' @::@ 'Text'
 --
--- * @ExpressionName ::@ @Text@
+-- * 'de2ExpressionName' @::@ 'Text'
 --
-deleteExpression :: Text -- ^ 'de1DomainName'
-                 -> Text -- ^ 'de1ExpressionName'
+deleteExpression :: Text -- ^ 'de2DomainName'
+                 -> Text -- ^ 'de2ExpressionName'
                  -> DeleteExpression
 deleteExpression p1 p2 = DeleteExpression
-    { _de1DomainName = p1
-    , _de1ExpressionName = p2
+    { _de2DomainName     = p1
+    , _de2ExpressionName = p2
     }
 
--- | A string that represents the name of a domain. Domain names are unique
--- across the domains owned by an account within an AWS region. Domain names
--- start with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
-de1DomainName :: Lens' DeleteExpression Text
-de1DomainName = lens _de1DomainName (\s a -> s { _de1DomainName = a })
+de2DomainName :: Lens' DeleteExpression Text
+de2DomainName = lens _de2DomainName (\s a -> s { _de2DomainName = a })
 
 -- | The name of the Expression to delete.
-de1ExpressionName :: Lens' DeleteExpression Text
-de1ExpressionName =
-    lens _de1ExpressionName (\s a -> s { _de1ExpressionName = a })
+de2ExpressionName :: Lens' DeleteExpression Text
+de2ExpressionName =
+    lens _de2ExpressionName (\s a -> s { _de2ExpressionName = a })
 
-instance ToQuery DeleteExpression where
-    toQuery = genericQuery def
+instance ToQuery DeleteExpression
 
--- | The result of a DeleteExpression request. Specifies the expression being
--- deleted.
+instance ToPath DeleteExpression where
+    toPath = const "/"
+
 newtype DeleteExpressionResponse = DeleteExpressionResponse
-    { _derrExpression :: ExpressionStatus
-    } deriving (Eq, Ord, Show, Generic)
+    { _der1Expression :: ExpressionStatus
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteExpressionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteExpressionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Expression ::@ @ExpressionStatus@
+-- * 'der1Expression' @::@ 'ExpressionStatus'
 --
-deleteExpressionResponse :: ExpressionStatus -- ^ 'derrExpression'
+deleteExpressionResponse :: ExpressionStatus -- ^ 'der1Expression'
                          -> DeleteExpressionResponse
 deleteExpressionResponse p1 = DeleteExpressionResponse
-    { _derrExpression = p1
+    { _der1Expression = p1
     }
 
 -- | The status of the expression being deleted.
-derrExpression :: Lens' DeleteExpressionResponse ExpressionStatus
-derrExpression = lens _derrExpression (\s a -> s { _derrExpression = a })
-
-instance FromXML DeleteExpressionResponse where
-    fromXMLOptions = xmlOptions
+der1Expression :: Lens' DeleteExpressionResponse ExpressionStatus
+der1Expression = lens _der1Expression (\s a -> s { _der1Expression = a })
 
 instance AWSRequest DeleteExpression where
     type Sv DeleteExpression = CloudSearch
     type Rs DeleteExpression = DeleteExpressionResponse
 
-    request = post "DeleteExpression"
-    response _ = xmlResponse
+    request  = post "DeleteExpression"
+    response = xmlResponse $ \h x -> DeleteExpressionResponse
+        <$> x %| "Expression"

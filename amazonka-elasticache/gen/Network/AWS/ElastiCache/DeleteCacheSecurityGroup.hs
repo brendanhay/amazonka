@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSecurityGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,13 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DeleteCacheSecurityGroup operation deletes a cache security group. You
--- cannot delete a cache security group if it is associated with any cache
--- clusters. https://elasticache.us-east-1.amazonaws.com/
--- ?Action=DeleteCacheSecurityGroup
--- &CacheSecurityGroupName=mycachesecuritygroup3 &Version=2014-03-24
--- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
--- &X-Amz-Credential= c130cfb7-3650-11e0-ae57-f96cfe56749c.
+-- | The DeleteCacheSecurityGroup operation deletes a cache security group.
 module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     (
     -- * Request
@@ -40,21 +36,20 @@ module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     , deleteCacheSecurityGroupResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents the input of a DeleteCacheSecurityGroup operation.
 newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
     { _dcsgCacheSecurityGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteCacheSecurityGroup' request.
+-- | 'DeleteCacheSecurityGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CacheSecurityGroupName ::@ @Text@
+-- * 'dcsgCacheSecurityGroupName' @::@ 'Text'
 --
 deleteCacheSecurityGroup :: Text -- ^ 'dcsgCacheSecurityGroupName'
                          -> DeleteCacheSecurityGroup
@@ -62,23 +57,21 @@ deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
     { _dcsgCacheSecurityGroupName = p1
     }
 
--- | The name of the cache security group to delete. You cannot delete the
--- default security group.
+-- | The name of the cache security group to delete.
 dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
 dcsgCacheSecurityGroupName =
     lens _dcsgCacheSecurityGroupName
-         (\s a -> s { _dcsgCacheSecurityGroupName = a })
+        (\s a -> s { _dcsgCacheSecurityGroupName = a })
 
-instance ToQuery DeleteCacheSecurityGroup where
-    toQuery = genericQuery def
+instance ToQuery DeleteCacheSecurityGroup
+
+instance ToPath DeleteCacheSecurityGroup where
+    toPath = const "/"
 
 data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteCacheSecurityGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteCacheSecurityGroupResponse' constructor.
 deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
 deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
 
@@ -86,5 +79,5 @@ instance AWSRequest DeleteCacheSecurityGroup where
     type Sv DeleteCacheSecurityGroup = ElastiCache
     type Rs DeleteCacheSecurityGroup = DeleteCacheSecurityGroupResponse
 
-    request = post "DeleteCacheSecurityGroup"
-    response _ = nullaryResponse DeleteCacheSecurityGroupResponse
+    request  = post "DeleteCacheSecurityGroup"
+    response = nullaryResponse DeleteCacheSecurityGroupResponse

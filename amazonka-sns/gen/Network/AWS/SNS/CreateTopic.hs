@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SNS.CreateTopic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,18 +24,7 @@
 -- at most 3000 topics. For more information, see http://aws.amazon.com/sns.
 -- This action is idempotent, so if the requester already owns a topic with
 -- the specified name, that topic's ARN is returned without creating a new
--- topic. http://sns.us-east-1.amazonaws.com/ ?Name=My-Topic
--- &amp;Action=CreateTopic &amp;SignatureVersion=2
--- &amp;SignatureMethod=HmacSHA256 &amp;Timestamp=2010-03-31T12%3A00%3A00.000Z
--- &amp;AWSAccessKeyId=(AWS Access Key ID)
--- &amp;Signature=gfzIF53exFVdpSNb8AiwN3Lv%2FNYXh6S%2Br3yySK70oX4%3D
--- &lt;CreateTopicResponse
--- xmlns="http://sns.amazonaws.com/doc/2010-03-31/"&gt;
--- &lt;CreateTopicResult&gt;
--- &lt;TopicArn&gt;arn:aws:sns:us-east-1:123456789012:My-Topic&lt;/TopicArn&gt;
--- &lt;/CreateTopicResult&gt; &lt;ResponseMetadata&gt;
--- &lt;RequestId&gt;a8dec8b3-33a4-11df-8963-01868b7c937a&lt;/RequestId&gt;
--- &lt;/ResponseMetadata&gt; &lt;/CreateTopicResponse&gt;.
+-- topic.
 module Network.AWS.SNS.CreateTopic
     (
     -- * Request
@@ -51,21 +42,20 @@ module Network.AWS.SNS.CreateTopic
     , ctrTopicArn
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input for CreateTopic action.
 newtype CreateTopic = CreateTopic
     { _ctName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateTopic' request.
+-- | 'CreateTopic' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Text@
+-- * 'ctName' @::@ 'Text'
 --
 createTopic :: Text -- ^ 'ctName'
             -> CreateTopic
@@ -73,28 +63,26 @@ createTopic p1 = CreateTopic
     { _ctName = p1
     }
 
--- | The name of the topic you want to create. Constraints: Topic names must be
--- made up of only uppercase and lowercase ASCII letters, numbers,
+-- | The name of the topic you want to create. Constraints: Topic names must
+-- be made up of only uppercase and lowercase ASCII letters, numbers,
 -- underscores, and hyphens, and must be between 1 and 256 characters long.
 ctName :: Lens' CreateTopic Text
 ctName = lens _ctName (\s a -> s { _ctName = a })
 
-instance ToQuery CreateTopic where
-    toQuery = genericQuery def
+instance ToQuery CreateTopic
 
--- | Response from CreateTopic action.
+instance ToPath CreateTopic where
+    toPath = const "/"
+
 newtype CreateTopicResponse = CreateTopicResponse
     { _ctrTopicArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateTopicResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateTopicResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TopicArn ::@ @Maybe Text@
+-- * 'ctrTopicArn' @::@ 'Maybe' 'Text'
 --
 createTopicResponse :: CreateTopicResponse
 createTopicResponse = CreateTopicResponse
@@ -105,12 +93,10 @@ createTopicResponse = CreateTopicResponse
 ctrTopicArn :: Lens' CreateTopicResponse (Maybe Text)
 ctrTopicArn = lens _ctrTopicArn (\s a -> s { _ctrTopicArn = a })
 
-instance FromXML CreateTopicResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateTopic where
     type Sv CreateTopic = SNS
     type Rs CreateTopic = CreateTopicResponse
 
-    request = post "CreateTopic"
-    response _ = xmlResponse
+    request  = post "CreateTopic"
+    response = xmlResponse $ \h x -> CreateTopicResponse
+        <$> x %| "TopicArn"

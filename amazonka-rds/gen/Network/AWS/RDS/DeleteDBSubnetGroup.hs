@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,12 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a DB subnet group. The specified database subnet group must not be
--- associated with any DB instances. https://rds.amazonaws.com/
--- ?Action=DeleteDBSubnetGroup &DBSubnetGroupName=mysubnetgroup
--- &Version=2013-05-15 &SignatureVersion=2 &SignatureMethod=HmacSHA256
--- &Timestamp=2011-02-15T17%3A48%3A21.746Z &AWSAccessKeyId= &Signature=
--- 5d013245-4172-11df-8520-e7e1e602a915.
+-- | Deletes a DB subnet group.
 module Network.AWS.RDS.DeleteDBSubnetGroup
     (
     -- * Request
@@ -39,21 +36,20 @@ module Network.AWS.RDS.DeleteDBSubnetGroup
     , deleteDBSubnetGroupResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup
     { _ddbsg1DBSubnetGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDBSubnetGroup' request.
+-- | 'DeleteDBSubnetGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBSubnetGroupName ::@ @Text@
+-- * 'ddbsg1DBSubnetGroupName' @::@ 'Text'
 --
 deleteDBSubnetGroup :: Text -- ^ 'ddbsg1DBSubnetGroupName'
                     -> DeleteDBSubnetGroup
@@ -61,25 +57,22 @@ deleteDBSubnetGroup p1 = DeleteDBSubnetGroup
     { _ddbsg1DBSubnetGroupName = p1
     }
 
--- | The name of the database subnet group to delete. You cannot delete the
--- default subnet group. Constraints: Must be 1 to 255 alphanumeric characters
--- First character must be a letter Cannot end with a hyphen or contain two
--- consecutive hyphens.
+-- | The name of the database subnet group to delete. Constraints: Must be 1
+-- to 255 alphanumeric characters First character must be a letter Cannot
+-- end with a hyphen or contain two consecutive hyphens.
 ddbsg1DBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
 ddbsg1DBSubnetGroupName =
-    lens _ddbsg1DBSubnetGroupName
-         (\s a -> s { _ddbsg1DBSubnetGroupName = a })
+    lens _ddbsg1DBSubnetGroupName (\s a -> s { _ddbsg1DBSubnetGroupName = a })
 
-instance ToQuery DeleteDBSubnetGroup where
-    toQuery = genericQuery def
+instance ToQuery DeleteDBSubnetGroup
+
+instance ToPath DeleteDBSubnetGroup where
+    toPath = const "/"
 
 data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDBSubnetGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteDBSubnetGroupResponse' constructor.
 deleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse
 deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
 
@@ -87,5 +80,5 @@ instance AWSRequest DeleteDBSubnetGroup where
     type Sv DeleteDBSubnetGroup = RDS
     type Rs DeleteDBSubnetGroup = DeleteDBSubnetGroupResponse
 
-    request = post "DeleteDBSubnetGroup"
-    response _ = nullaryResponse DeleteDBSubnetGroupResponse
+    request  = post "DeleteDBSubnetGroup"
+    response = nullaryResponse DeleteDBSubnetGroupResponse

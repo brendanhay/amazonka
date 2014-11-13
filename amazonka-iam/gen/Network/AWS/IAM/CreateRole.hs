@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.CreateRole
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,15 +26,7 @@
 -- in the Using IAM guide. The example policy grants permission to an EC2
 -- instance to assume the role. The policy is URL-encoded according to RFC
 -- 3986. For more information about RFC 3986, go to
--- http://www.faqs.org/rfcs/rfc3986.html. https://iam.amazonaws.com/
--- ?Action=CreateRole &RoleName=S3Access &Path=/application_abc/component_xyz/
--- &AssumeRolePolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
--- &Version=2010-05-08 &AUTHPARAMS /application_abc/component_xyz/
--- arn:aws:iam::123456789012:role/application_abc/component_xyz/S3Access
--- S3Access
--- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
--- 2012-05-08T23:34:01.495Z AROADBQP57FF2AEXAMPLE
--- 4a93ceee-9966-11e1-b624-b1aEXAMPLE7c.
+-- http://www.faqs.org/rfcs/rfc3986.html.
 module Network.AWS.IAM.CreateRole
     (
     -- * Request
@@ -40,9 +34,9 @@ module Network.AWS.IAM.CreateRole
     -- ** Request constructor
     , createRole
     -- ** Request lenses
+    , crAssumeRolePolicyDocument
     , crPath
     , crRoleName
-    , crAssumeRolePolicyDocument
 
     -- * Response
     , CreateRoleResponse
@@ -52,68 +46,66 @@ module Network.AWS.IAM.CreateRole
     , crrRole
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CreateRole = CreateRole
-    { _crPath :: Maybe Text
-    , _crRoleName :: Text
-    , _crAssumeRolePolicyDocument :: Text
+    { _crAssumeRolePolicyDocument :: Text
+    , _crPath                     :: Maybe Text
+    , _crRoleName                 :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateRole' request.
+-- | 'CreateRole' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Path ::@ @Maybe Text@
+-- * 'crAssumeRolePolicyDocument' @::@ 'Text'
 --
--- * @RoleName ::@ @Text@
+-- * 'crPath' @::@ 'Maybe' 'Text'
 --
--- * @AssumeRolePolicyDocument ::@ @Text@
+-- * 'crRoleName' @::@ 'Text'
 --
 createRole :: Text -- ^ 'crRoleName'
            -> Text -- ^ 'crAssumeRolePolicyDocument'
            -> CreateRole
-createRole p2 p3 = CreateRole
-    { _crPath = Nothing
-    , _crRoleName = p2
-    , _crAssumeRolePolicyDocument = p3
+createRole p1 p2 = CreateRole
+    { _crRoleName                 = p1
+    , _crAssumeRolePolicyDocument = p2
+    , _crPath                     = Nothing
     }
-
--- | The path to the role. For more information about paths, see Identifiers for
--- IAM Entities in the Using IAM guide. This parameter is optional. If it is
--- not included, it defaults to a slash (/).
-crPath :: Lens' CreateRole (Maybe Text)
-crPath = lens _crPath (\s a -> s { _crPath = a })
-
--- | Name of the role to create.
-crRoleName :: Lens' CreateRole Text
-crRoleName = lens _crRoleName (\s a -> s { _crRoleName = a })
 
 -- | The policy that grants an entity permission to assume the role.
 crAssumeRolePolicyDocument :: Lens' CreateRole Text
 crAssumeRolePolicyDocument =
     lens _crAssumeRolePolicyDocument
-         (\s a -> s { _crAssumeRolePolicyDocument = a })
+        (\s a -> s { _crAssumeRolePolicyDocument = a })
 
-instance ToQuery CreateRole where
-    toQuery = genericQuery def
+-- | The path to the role. For more information about paths, see IAM
+-- Identifiers in the Using IAM guide. This parameter is optional. If it is
+-- not included, it defaults to a slash (/).
+crPath :: Lens' CreateRole (Maybe Text)
+crPath = lens _crPath (\s a -> s { _crPath = a })
 
--- | Contains the result of a successful invocation of the CreateRole action.
+-- | The name of the role to create.
+crRoleName :: Lens' CreateRole Text
+crRoleName = lens _crRoleName (\s a -> s { _crRoleName = a })
+
+instance ToQuery CreateRole
+
+instance ToPath CreateRole where
+    toPath = const "/"
+
 newtype CreateRoleResponse = CreateRoleResponse
     { _crrRole :: Role
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateRoleResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateRoleResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Role ::@ @Role@
+-- * 'crrRole' @::@ 'Role'
 --
 createRoleResponse :: Role -- ^ 'crrRole'
                    -> CreateRoleResponse
@@ -125,12 +117,10 @@ createRoleResponse p1 = CreateRoleResponse
 crrRole :: Lens' CreateRoleResponse Role
 crrRole = lens _crrRole (\s a -> s { _crrRole = a })
 
-instance FromXML CreateRoleResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateRole where
     type Sv CreateRole = IAM
     type Rs CreateRole = CreateRoleResponse
 
-    request = post "CreateRole"
-    response _ = xmlResponse
+    request  = post "CreateRole"
+    response = xmlResponse $ \h x -> CreateRoleResponse
+        <$> x %| "Role"

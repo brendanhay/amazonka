@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DynamoDB.Scan
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,26 +22,16 @@
 
 -- | The Scan operation returns one or more items and item attributes by
 -- accessing every item in the table. To have DynamoDB return fewer items, you
--- can provide a ScanFilter. If the total number of scanned items exceeds the
--- maximum data set size limit of 1 MB, the scan stops and results are
--- returned to the user with a LastEvaluatedKey to continue the scan in a
--- subsequent operation. The results also include the number of items
+-- can provide a ScanFilter operation. If the total number of scanned items
+-- exceeds the maximum data set size limit of 1 MB, the scan stops and results
+-- are returned to the user as a LastEvaluatedKey value to continue the scan
+-- in a subsequent operation. The results also include the number of items
 -- exceeding the limit. A scan can result in no table data meeting the filter
 -- criteria. The result set is eventually consistent. By default, Scan
 -- operations proceed sequentially; however, for faster performance on large
--- tables, applications can request a parallel Scan by specifying the Segment
--- and TotalSegments parameters. For more information, see Parallel Scan in
--- the Amazon DynamoDB Developer Guide. Returning All Items This example
--- returns all of the items in a table. No scan filter is applied. {
--- "ConsumedCapacity": { "CapacityUnits": 0.5, "TableName": "Reply" },
--- "Count": 2, "Items": [ { "PostedBy": { "S": "joe@example.com" },
--- "ReplyDateTime": { "S": "20130320115336" }, "Id": { "S": "Amazon
--- DynamoDB#How do I update multiple items?" }, "Message": { "S": "Have you
--- looked at the BatchWriteItem API?" } }, { "PostedBy": { "S":
--- "joe@example.com" }, "ReplyDateTime": { "S": "20130320115347" }, "Id": {
--- "S": "Amazon DynamoDB#How do I update multiple items?" }, "Message": { "S":
--- "BatchWriteItem is documented in the Amazon DynamoDB API Reference." } } ],
--- "ScannedCount": 4 }.
+-- tables, applications can request a parallel Scan operation by specifying
+-- the Segment and TotalSegments parameters. For more information, see
+-- Parallel Scan in the Amazon DynamoDB Developer Guide.
 module Network.AWS.DynamoDB.Scan
     (
     -- * Request
@@ -47,350 +39,374 @@ module Network.AWS.DynamoDB.Scan
     -- ** Request constructor
     , scan
     -- ** Request lenses
-    , sTableName
     , sAttributesToGet
-    , sLimit
-    , sSelect
-    , sScanFilter
     , sConditionalOperator
     , sExclusiveStartKey
+    , sExpressionAttributeNames
+    , sExpressionAttributeValues
+    , sFilterExpression
+    , sLimit
+    , sProjectionExpression
     , sReturnConsumedCapacity
-    , sTotalSegments
+    , sScanFilter
     , sSegment
+    , sSelect
+    , sTableName
+    , sTotalSegments
 
     -- * Response
     , ScanResponse
     -- ** Response constructor
     , scanResponse
     -- ** Response lenses
-    , srItems
-    , srCount
-    , srScannedCount
-    , srLastEvaluatedKey
     , srConsumedCapacity
+    , srCount
+    , srItems
+    , srLastEvaluatedKey
+    , srScannedCount
     ) where
 
-import Network.AWS.DynamoDB.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DynamoDB.Types
 
--- | Represents the input of a Scan operation.
 data Scan = Scan
-    { _sTableName :: Text
-    , _sAttributesToGet :: Maybe (List1 Text)
-    , _sLimit :: Maybe Integer
-    , _sSelect :: Maybe Select
-    , _sScanFilter :: Map Text Condition
-    , _sConditionalOperator :: Maybe ConditionalOperator
-    , _sExclusiveStartKey :: Map Text AttributeValue
-    , _sReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
-    , _sTotalSegments :: Maybe Integer
-    , _sSegment :: Maybe Integer
+    { _sAttributesToGet           :: List1 Text
+    , _sConditionalOperator       :: Maybe Text
+    , _sExclusiveStartKey         :: Map Text AttributeValue
+    , _sExpressionAttributeNames  :: Map Text Text
+    , _sExpressionAttributeValues :: Map Text AttributeValue
+    , _sFilterExpression          :: Maybe Text
+    , _sLimit                     :: Maybe Natural
+    , _sProjectionExpression      :: Maybe Text
+    , _sReturnConsumedCapacity    :: Maybe Text
+    , _sScanFilter                :: Map Text Condition
+    , _sSegment                   :: Maybe Natural
+    , _sSelect                    :: Maybe Text
+    , _sTableName                 :: Text
+    , _sTotalSegments             :: Maybe Natural
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'Scan' request.
+-- | 'Scan' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TableName ::@ @Text@
+-- * 'sAttributesToGet' @::@ 'NonEmpty' 'Text'
 --
--- * @AttributesToGet ::@ @Maybe (List1 Text)@
+-- * 'sConditionalOperator' @::@ 'Maybe' 'Text'
 --
--- * @Limit ::@ @Maybe Integer@
+-- * 'sExclusiveStartKey' @::@ 'HashMap' 'Text' 'AttributeValue'
 --
--- * @Select ::@ @Maybe Select@
+-- * 'sExpressionAttributeNames' @::@ 'HashMap' 'Text' 'Text'
 --
--- * @ScanFilter ::@ @Map Text Condition@
+-- * 'sExpressionAttributeValues' @::@ 'HashMap' 'Text' 'AttributeValue'
 --
--- * @ConditionalOperator ::@ @Maybe ConditionalOperator@
+-- * 'sFilterExpression' @::@ 'Maybe' 'Text'
 --
--- * @ExclusiveStartKey ::@ @Map Text AttributeValue@
+-- * 'sLimit' @::@ 'Maybe' 'Natural'
 --
--- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
+-- * 'sProjectionExpression' @::@ 'Maybe' 'Text'
 --
--- * @TotalSegments ::@ @Maybe Integer@
+-- * 'sReturnConsumedCapacity' @::@ 'Maybe' 'Text'
 --
--- * @Segment ::@ @Maybe Integer@
+-- * 'sScanFilter' @::@ 'HashMap' 'Text' 'Condition'
+--
+-- * 'sSegment' @::@ 'Maybe' 'Natural'
+--
+-- * 'sSelect' @::@ 'Maybe' 'Text'
+--
+-- * 'sTableName' @::@ 'Text'
+--
+-- * 'sTotalSegments' @::@ 'Maybe' 'Natural'
 --
 scan :: Text -- ^ 'sTableName'
+     -> NonEmpty Text -- ^ 'sAttributesToGet'
      -> Scan
-scan p1 = Scan
-    { _sTableName = p1
-    , _sAttributesToGet = Nothing
-    , _sLimit = Nothing
-    , _sSelect = Nothing
-    , _sScanFilter = mempty
-    , _sConditionalOperator = Nothing
-    , _sExclusiveStartKey = mempty
-    , _sReturnConsumedCapacity = Nothing
-    , _sTotalSegments = Nothing
-    , _sSegment = Nothing
+scan p1 p2 = Scan
+    { _sTableName                 = p1
+    , _sAttributesToGet           = withIso _List1 (const id) p2
+    , _sLimit                     = Nothing
+    , _sSelect                    = Nothing
+    , _sScanFilter                = mempty
+    , _sConditionalOperator       = Nothing
+    , _sExclusiveStartKey         = mempty
+    , _sReturnConsumedCapacity    = Nothing
+    , _sTotalSegments             = Nothing
+    , _sSegment                   = Nothing
+    , _sProjectionExpression      = Nothing
+    , _sFilterExpression          = Nothing
+    , _sExpressionAttributeNames  = mempty
+    , _sExpressionAttributeValues = mempty
     }
+
+-- | There is a newer parameter available. Use ProjectionExpression instead.
+-- Note that if you use AttributesToGet and ProjectionExpression at the same
+-- time, DynamoDB will return a ValidationException exception. This
+-- parameter allows you to retrieve lists or maps; however, it cannot
+-- retrieve individual list or map elements. The names of one or more
+-- attributes to retrieve. If no attribute names are specified, then all
+-- attributes will be returned. If any of the requested attributes are not
+-- found, they will not appear in the result. Note that AttributesToGet has
+-- no effect on provisioned throughput consumption. DynamoDB determines
+-- capacity units consumed based on item size, not on the amount of data
+-- that is returned to an application.
+sAttributesToGet :: Lens' Scan (NonEmpty Text)
+sAttributesToGet = lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a })
+    . _List1
+
+-- | There is a newer parameter available. Use ConditionExpression instead.
+-- Note that if you use ConditionalOperator and ConditionExpression at the
+-- same time, DynamoDB will return a ValidationException exception. This
+-- parameter does not support lists or maps. A logical operator to apply to
+-- the conditions in the ScanFilter map: AND - If all of the conditions
+-- evaluate to true, then the entire map evaluates to true. OR - If at least
+-- one of the conditions evaluate to true, then the entire map evaluates to
+-- true. If you omit ConditionalOperator, then AND is the default. The
+-- operation will succeed only if the entire map evaluates to true.
+sConditionalOperator :: Lens' Scan (Maybe Text)
+sConditionalOperator =
+    lens _sConditionalOperator (\s a -> s { _sConditionalOperator = a })
+
+-- | The primary key of the first item that this operation will evaluate. Use
+-- the value that was returned for LastEvaluatedKey in the previous
+-- operation. The data type for ExclusiveStartKey must be String, Number or
+-- Binary. No set data types are allowed. In a parallel scan, a Scan request
+-- that includes ExclusiveStartKey must specify the same segment whose
+-- previous Scan returned the corresponding value of LastEvaluatedKey.
+sExclusiveStartKey :: Lens' Scan (HashMap Text AttributeValue)
+sExclusiveStartKey =
+    lens _sExclusiveStartKey (\s a -> s { _sExclusiveStartKey = a })
+        . _Map
+
+-- | One or more substitution tokens for simplifying complex expressions. The
+-- following are some use cases for an ExpressionAttributeNames value: To
+-- shorten an attribute name that is very long or unwieldy in an expression.
+-- To create a placeholder for repeating occurrences of an attribute name in
+-- an expression. To prevent special characters in an attribute name from
+-- being misinterpreted in an expression. Use the # character in an
+-- expression to dereference an attribute name. For example, consider the
+-- following expression: order.customerInfo.LastName = "Smith" OR
+-- order.customerInfo.LastName = "Jones" Now suppose that you specified the
+-- following for ExpressionAttributeNames:
+-- {"n":"order.customerInfo.LastName"} The expression can now be simplified
+-- as follows: #n = "Smith" OR #n = "Jones".
+sExpressionAttributeNames :: Lens' Scan (HashMap Text Text)
+sExpressionAttributeNames =
+    lens _sExpressionAttributeNames
+        (\s a -> s { _sExpressionAttributeNames = a })
+            . _Map
+
+-- | One or more values that can be substituted in an expression. Use the :
+-- character in an expression to dereference an attribute value. For
+-- example, consider the following expression: ProductStatus IN
+-- ("Available","Backordered","Discontinued") Now suppose that you specified
+-- the following for ExpressionAttributeValues: { "a":{"S":"Available"},
+-- "b":{"S":"Backordered"}, "d":{"S":"Discontinued"} } The expression can
+-- now be simplified as follows: ProductStatus IN (:a,:b,:c).
+sExpressionAttributeValues :: Lens' Scan (HashMap Text AttributeValue)
+sExpressionAttributeValues =
+    lens _sExpressionAttributeValues
+        (\s a -> s { _sExpressionAttributeValues = a })
+            . _Map
+
+-- | A condition that evaluates the scan results and returns only the desired
+-- values. The condition you specify is applied to the items scanned; any
+-- items that do not match the expression are not returned.
+sFilterExpression :: Lens' Scan (Maybe Text)
+sFilterExpression =
+    lens _sFilterExpression (\s a -> s { _sFilterExpression = a })
+
+-- | The maximum number of items to evaluate (not necessarily the number of
+-- matching items). If DynamoDB processes the number of items up to the
+-- limit while processing the results, it stops the operation and returns
+-- the matching values up to that point, and a key in LastEvaluatedKey to
+-- apply in a subsequent operation, so that you can pick up where you left
+-- off. Also, if the processed data set size exceeds 1 MB before DynamoDB
+-- reaches this limit, it stops the operation and returns the matching
+-- values up to the limit, and a key in LastEvaluatedKey to apply in a
+-- subsequent operation to continue the operation. For more information, see
+-- Query and Scan in the Amazon DynamoDB Developer Guide.
+sLimit :: Lens' Scan (Maybe Natural)
+sLimit = lens _sLimit (\s a -> s { _sLimit = a })
+
+-- | One or more attributes to retrieve from the table. These attributes can
+-- include scalars, sets, or elements of a JSON document. The attributes in
+-- the expression must be separated by commas. If no attribute names are
+-- specified, then all attributes will be returned. If any of the requested
+-- attributes are not found, they will not appear in the result.
+sProjectionExpression :: Lens' Scan (Maybe Text)
+sProjectionExpression =
+    lens _sProjectionExpression (\s a -> s { _sProjectionExpression = a })
+
+sReturnConsumedCapacity :: Lens' Scan (Maybe Text)
+sReturnConsumedCapacity =
+    lens _sReturnConsumedCapacity (\s a -> s { _sReturnConsumedCapacity = a })
+
+-- | There is a newer parameter available. Use FilterExpression instead. Note
+-- that if you use ScanFilter and FilterExpression at the same time,
+-- DynamoDB will return a ValidationException exception. This parameter does
+-- not support lists or maps. A condition that evaluates the scan results
+-- and returns only the desired values. If you specify more than one
+-- condition in the ScanFilter map, then by default all of the conditions
+-- must evaluate to true. In other words, the conditions are ANDed together.
+-- (You can use the ConditionalOperator parameter to OR the conditions
+-- instead. If you do this, then at least one of the conditions must
+-- evaluate to true, rather than all of them.) Each ScanFilter element
+-- consists of an attribute name to compare, along with the following:
+-- AttributeValueList - One or more values to evaluate against the supplied
+-- attribute. The number of values in the list depends on the operator
+-- specified in ComparisonOperator . For type Number, value comparisons are
+-- numeric. String value comparisons for greater than, equals, or less than
+-- are based on ASCII character code values. For example, a is greater than
+-- A, and aa is greater than B. For a list of code values, see
+-- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters. For
+-- Binary, DynamoDB treats each byte of the binary data as unsigned when it
+-- compares binary values, for example when evaluating query expressions.
+-- For information on specifying data types in JSON, see JSON Data Format in
+-- the Amazon DynamoDB Developer Guide. ComparisonOperator - A comparator
+-- for evaluating attributes. For example, equals, greater than, less than,
+-- etc. The following comparison operators are available: EQ | NE | LE | LT
+-- | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN
+-- | BETWEEN For complete descriptions of all comparison operators, see
+-- Condition.
+sScanFilter :: Lens' Scan (HashMap Text Condition)
+sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a })
+    . _Map
+
+-- | For a parallel Scan request, Segment identifies an individual segment to
+-- be scanned by an application worker. Segment IDs are zero-based, so the
+-- first segment is always 0. For example, if you want to scan a table using
+-- four application threads, the first thread specifies a Segment value of
+-- 0, the second thread specifies 1, and so on. The value of
+-- LastEvaluatedKey returned from a parallel Scan request must be used as
+-- ExclusiveStartKey with the same segment ID in a subsequent Scan
+-- operation. The value for Segment must be greater than or equal to 0, and
+-- less than the value provided for TotalSegments. If you specify Segment,
+-- you must also specify TotalSegments.
+sSegment :: Lens' Scan (Maybe Natural)
+sSegment = lens _sSegment (\s a -> s { _sSegment = a })
+
+-- | The attributes to be returned in the result. You can retrieve all item
+-- attributes, specific item attributes, or the count of matching items.
+-- ALL_ATTRIBUTES - Returns all of the item attributes. COUNT - Returns the
+-- number of matching items, rather than the matching items themselves.
+-- SPECIFIC_ATTRIBUTES - Returns only the attributes listed in
+-- AttributesToGet. This return value is equivalent to specifying
+-- AttributesToGet without specifying any value for Select. If neither
+-- Select nor AttributesToGet are specified, DynamoDB defaults to
+-- ALL_ATTRIBUTES. You cannot use both AttributesToGet and Select together
+-- in a single request, unless the value for Select is SPECIFIC_ATTRIBUTES.
+-- (This usage is equivalent to specifying AttributesToGet without any value
+-- for Select.).
+sSelect :: Lens' Scan (Maybe Text)
+sSelect = lens _sSelect (\s a -> s { _sSelect = a })
 
 -- | The name of the table containing the requested items.
 sTableName :: Lens' Scan Text
 sTableName = lens _sTableName (\s a -> s { _sTableName = a })
 
--- | The names of one or more attributes to retrieve. If no attribute names are
--- specified, then all attributes will be returned. If any of the requested
--- attributes are not found, they will not appear in the result.
-sAttributesToGet :: Lens' Scan (Maybe (List1 Text))
-sAttributesToGet =
-    lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a })
-
--- | The maximum number of items to evaluate (not necessarily the number of
--- matching items). If DynamoDB processes the number of items up to the limit
--- while processing the results, it stops the operation and returns the
--- matching values up to that point, and a LastEvaluatedKey to apply in a
--- subsequent operation, so that you can pick up where you left off. Also, if
--- the processed data set size exceeds 1 MB before DynamoDB reaches this
--- limit, it stops the operation and returns the matching values up to the
--- limit, and a LastEvaluatedKey to apply in a subsequent operation to
--- continue the operation. For more information see
--- href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html"
--- >Query and Scan in the Amazon DynamoDB Developer Guide.
-sLimit :: Lens' Scan (Maybe Integer)
-sLimit = lens _sLimit (\s a -> s { _sLimit = a })
-
--- | The attributes to be returned in the result. You can retrieve all item
--- attributes, specific item attributes, or the count of matching items.
--- ALL_ATTRIBUTES: Returns all of the item attributes. COUNT: Returns the
--- number of matching items, rather than the matching items themselves.
--- SPECIFIC_ATTRIBUTES : Returns only the attributes listed in
--- AttributesToGet. This is equivalent to specifying AttributesToGet without
--- specifying any value for Select. If neither Select nor AttributesToGet are
--- specified, DynamoDB defaults to ALL_ATTRIBUTES. You cannot use both Select
--- and AttributesToGet together in a single request, unless the value for
--- Select is SPECIFIC_ATTRIBUTES. (This usage is equivalent to specifying
--- AttributesToGet without any value for Select.).
-sSelect :: Lens' Scan (Maybe Select)
-sSelect = lens _sSelect (\s a -> s { _sSelect = a })
-
--- | Evaluates the scan results and returns only the desired values. Multiple
--- conditions are treated as "AND" operations: all conditions must be met to
--- be included in the results. Each ScanConditions element consists of an
--- attribute name to compare, along with the following: AttributeValueList -
--- One or more values to evaluate against the supplied attribute. This list
--- contains exactly one value, except for a BETWEEN or IN comparison, in which
--- case the list contains two values. For type Number, value comparisons are
--- numeric. String value comparisons for greater than, equals, or less than
--- are based on ASCII character code values. For example, a is greater than A,
--- and aa is greater than B. For a list of code values, see
--- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters. For Binary,
--- DynamoDB treats each byte of the binary data as unsigned when it compares
--- binary values, for example when evaluating query expressions.
--- ComparisonOperator - A comparator for evaluating attributes. For example,
--- equals, greater than, less than, etc. Valid comparison operators for Scan:
--- EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS |
--- BEGINS_WITH | IN | BETWEEN For information on specifying data types in
--- JSON, see JSON Data Format in the Amazon DynamoDB Developer Guide. The
--- following are descriptions of each comparison operator. EQ : Equal.
--- AttributeValueList can contain only one AttributeValue of type String,
--- Number, or Binary (not a set). If an item contains an AttributeValue of a
--- different type than the one specified in the request, the value does not
--- match. For example, {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"}
--- does not equal {"NS":["6", "2", "1"]}. NE : Not equal. AttributeValueList
--- can contain only one AttributeValue of type String, Number, or Binary (not
--- a set). If an item contains an AttributeValue of a different type than the
--- one specified in the request, the value does not match. For example,
--- {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"} does not equal
--- {"NS":["6", "2", "1"]}. LE : Less than or equal. AttributeValueList can
--- contain only one AttributeValue of type String, Number, or Binary (not a
--- set). If an item contains an AttributeValue of a different type than the
--- one specified in the request, the value does not match. For example,
--- {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"} does not compare to
--- {"NS":["6", "2", "1"]}. LT : Less than. AttributeValueList can contain only
--- one AttributeValue of type String, Number, or Binary (not a set). If an
--- item contains an AttributeValue of a different type than the one specified
--- in the request, the value does not match. For example, {"S":"6"} does not
--- equal {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
--- "1"]}. GE : Greater than or equal. AttributeValueList can contain only one
--- AttributeValue of type String, Number, or Binary (not a set). If an item
--- contains an AttributeValue of a different type than the one specified in
--- the request, the value does not match. For example, {"S":"6"} does not
--- equal {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
--- "1"]}. GT : Greater than. AttributeValueList can contain only one
--- AttributeValue of type String, Number, or Binary (not a set). If an item
--- contains an AttributeValue of a different type than the one specified in
--- the request, the value does not match. For example, {"S":"6"} does not
--- equal {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
--- "1"]}. NOT_NULL : The attribute exists. NULL : The attribute does not
--- exist. CONTAINS : checks for a subsequence, or value in a set.
--- AttributeValueList can contain only one AttributeValue of type String,
--- Number, or Binary (not a set). If the target attribute of the comparison is
--- a String, then the operation checks for a substring match. If the target
--- attribute of the comparison is Binary, then the operation looks for a
--- subsequence of the target that matches the input. If the target attribute
--- of the comparison is a set ("SS", "NS", or "BS"), then the operation checks
--- for a member of the set (not as a substring). NOT_CONTAINS : checks for
--- absence of a subsequence, or absence of a value in a set.
--- AttributeValueList can contain only one AttributeValue of type String,
--- Number, or Binary (not a set). If the target attribute of the comparison is
--- a String, then the operation checks for the absence of a substring match.
--- If the target attribute of the comparison is Binary, then the operation
--- checks for the absence of a subsequence of the target that matches the
--- input. If the target attribute of the comparison is a set ("SS", "NS", or
--- "BS"), then the operation checks for the absence of a member of the set
--- (not as a substring). BEGINS_WITH : checks for a prefix. AttributeValueList
--- can contain only one AttributeValue of type String or Binary (not a Number
--- or a set). The target attribute of the comparison must be a String or
--- Binary (not a Number or a set). IN : checks for exact matches.
--- AttributeValueList can contain more than one AttributeValue of type String,
--- Number, or Binary (not a set). The target attribute of the comparison must
--- be of the same type and exact value to match. A String never matches a
--- String set. BETWEEN : Greater than or equal to the first value, and less
--- than or equal to the second value. AttributeValueList must contain two
--- AttributeValue elements of the same type, either String, Number, or Binary
--- (not a set). A target attribute matches if the target value is greater
--- than, or equal to, the first element and less than, or equal to, the second
--- element. If an item contains an AttributeValue of a different type than the
--- one specified in the request, the value does not match. For example,
--- {"S":"6"} does not compare to {"N":"6"}. Also, {"N":"6"} does not compare
--- to {"NS":["6", "2", "1"]}.
-sScanFilter :: Lens' Scan (Map Text Condition)
-sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a })
-
-sConditionalOperator :: Lens' Scan (Maybe ConditionalOperator)
-sConditionalOperator =
-    lens _sConditionalOperator (\s a -> s { _sConditionalOperator = a })
-
--- | The primary key of the first item that this operation will evalute. Use the
--- value that was returned for LastEvaluatedKey in the previous operation. The
--- data type for ExclusiveStartKey must be String, Number or Binary. No set
--- data types are allowed. In a parallel scan, a Scan request that includes
--- ExclusiveStartKey must specify the same segment whose previous Scan
--- returned the corresponding value of LastEvaluatedKey.
-sExclusiveStartKey :: Lens' Scan (Map Text AttributeValue)
-sExclusiveStartKey =
-    lens _sExclusiveStartKey (\s a -> s { _sExclusiveStartKey = a })
-
--- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
--- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
--- indexes. If set to NONE (the default), ConsumedCapacity is not included in
--- the response.
-sReturnConsumedCapacity :: Lens' Scan (Maybe ReturnConsumedCapacity)
-sReturnConsumedCapacity =
-    lens _sReturnConsumedCapacity
-         (\s a -> s { _sReturnConsumedCapacity = a })
-
 -- | For a parallel Scan request, TotalSegments represents the total number of
 -- segments into which the Scan operation will be divided. The value of
 -- TotalSegments corresponds to the number of application workers that will
 -- perform the parallel scan. For example, if you want to scan a table using
--- four application threads, you would specify a TotalSegments value of 4. The
--- value for TotalSegments must be greater than or equal to 1, and less than
--- or equal to 4096. If you specify a TotalSegments value of 1, the Scan will
--- be sequential rather than parallel. If you specify TotalSegments, you must
--- also specify Segment.
-sTotalSegments :: Lens' Scan (Maybe Integer)
+-- four application threads, specify a TotalSegments value of 4. The value
+-- for TotalSegments must be greater than or equal to 1, and less than or
+-- equal to 1000000. If you specify a TotalSegments value of 1, the Scan
+-- operation will be sequential rather than parallel. If you specify
+-- TotalSegments, you must also specify Segment.
+sTotalSegments :: Lens' Scan (Maybe Natural)
 sTotalSegments = lens _sTotalSegments (\s a -> s { _sTotalSegments = a })
 
--- | For a parallel Scan request, Segment identifies an individual segment to be
--- scanned by an application worker. Segment IDs are zero-based, so the first
--- segment is always 0. For example, if you want to scan a table using four
--- application threads, the first thread would specify a Segment value of 0,
--- the second thread would specify 1, and so on. The value of LastEvaluatedKey
--- returned from a parallel Scan request must be used as ExclusiveStartKey
--- with the same Segment ID in a subsequent Scan operation. The value for
--- Segment must be greater than or equal to 0, and less than the value
--- provided for TotalSegments. If you specify Segment, you must also specify
--- TotalSegments.
-sSegment :: Lens' Scan (Maybe Integer)
-sSegment = lens _sSegment (\s a -> s { _sSegment = a })
+instance ToPath Scan where
+    toPath = const "/"
 
-instance ToPath Scan
-
-instance ToQuery Scan
+instance ToQuery Scan where
+    toQuery = const mempty
 
 instance ToHeaders Scan
 
-instance ToJSON Scan
+instance ToBody Scan where
+    toBody = toBody . encode . _sTableName
 
--- | Represents the output of a Scan operation.
 data ScanResponse = ScanResponse
-    { _srItems :: [Map Text AttributeValue]
-    , _srCount :: Maybe Integer
-    , _srScannedCount :: Maybe Integer
+    { _srConsumedCapacity :: Maybe ConsumedCapacity
+    , _srCount            :: Maybe Int
+    , _srItems            :: [(Map Text AttributeValue)]
     , _srLastEvaluatedKey :: Map Text AttributeValue
-    , _srConsumedCapacity :: Maybe ConsumedCapacity
+    , _srScannedCount     :: Maybe Int
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ScanResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ScanResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Items ::@ @[Map Text AttributeValue]@
+-- * 'srConsumedCapacity' @::@ 'Maybe' 'ConsumedCapacity'
 --
--- * @Count ::@ @Maybe Integer@
+-- * 'srCount' @::@ 'Maybe' 'Int'
 --
--- * @ScannedCount ::@ @Maybe Integer@
+-- * 'srItems' @::@ ['(HashMap' 'Text' 'AttributeValue)']
 --
--- * @LastEvaluatedKey ::@ @Map Text AttributeValue@
+-- * 'srLastEvaluatedKey' @::@ 'HashMap' 'Text' 'AttributeValue'
 --
--- * @ConsumedCapacity ::@ @Maybe ConsumedCapacity@
+-- * 'srScannedCount' @::@ 'Maybe' 'Int'
 --
 scanResponse :: ScanResponse
 scanResponse = ScanResponse
-    { _srItems = mempty
-    , _srCount = Nothing
-    , _srScannedCount = Nothing
+    { _srItems            = mempty
+    , _srCount            = Nothing
+    , _srScannedCount     = Nothing
     , _srLastEvaluatedKey = mempty
     , _srConsumedCapacity = Nothing
     }
 
--- | An array of item attributes that match the scan criteria. Each element in
--- this array consists of an attribute name and the value for that attribute.
-srItems :: Lens' ScanResponse [Map Text AttributeValue]
-srItems = lens _srItems (\s a -> s { _srItems = a })
-
--- | The number of items in the response.
-srCount :: Lens' ScanResponse (Maybe Integer)
-srCount = lens _srCount (\s a -> s { _srCount = a })
-
--- | The number of items in the complete scan, before any filters are applied. A
--- high ScannedCount value with few, or no, Count results indicates an
--- inefficient Scan operation. For more information, see Count and
--- ScannedCount in the Amazon DynamoDB Developer Guide.
-srScannedCount :: Lens' ScanResponse (Maybe Integer)
-srScannedCount = lens _srScannedCount (\s a -> s { _srScannedCount = a })
-
--- | The primary key of the item where the operation stopped, inclusive of the
--- previous result set. Use this value to start a new operation, excluding
--- this value in the new request. If LastEvaluatedKey is null, then the "last
--- page" of results has been processed and there is no more data to be
--- retrieved. If LastEvaluatedKey is anything other than null, this does not
--- necessarily mean that there is more data in the result set. The only way to
--- know when you have reached the end of the result set is when
--- LastEvaluatedKey is null.
-srLastEvaluatedKey :: Lens' ScanResponse (Map Text AttributeValue)
-srLastEvaluatedKey =
-    lens _srLastEvaluatedKey (\s a -> s { _srLastEvaluatedKey = a })
-
--- | Represents the capacity units consumed by an operation. The data returned
--- includes the total provisioned throughput consumed, along with statistics
--- for the table and any indexes involved in the operation. ConsumedCapacity
--- is only returned if it was asked for in the request. For more information,
--- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
 srConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
 srConsumedCapacity =
     lens _srConsumedCapacity (\s a -> s { _srConsumedCapacity = a })
 
-instance FromJSON ScanResponse
+-- | The number of items in the response. If you set ScanFilter in the
+-- request, then Count is the number of items returned after the filter was
+-- applied, and ScannedCount is the number of matching items before the
+-- filter was applied. If you did not use a filter in the request, then
+-- Count is the same as ScannedCount.
+srCount :: Lens' ScanResponse (Maybe Int)
+srCount = lens _srCount (\s a -> s { _srCount = a })
+
+-- | An array of item attributes that match the scan criteria. Each element in
+-- this array consists of an attribute name and the value for that
+-- attribute.
+srItems :: Lens' ScanResponse ([(HashMap Text AttributeValue)])
+srItems = lens _srItems (\s a -> s { _srItems = a })
+
+-- | The primary key of the item where the operation stopped, inclusive of the
+-- previous result set. Use this value to start a new operation, excluding
+-- this value in the new request. If LastEvaluatedKey is empty, then the
+-- "last page" of results has been processed and there is no more data to be
+-- retrieved. If LastEvaluatedKey is not empty, it does not necessarily mean
+-- that there is more data in the result set. The only way to know when you
+-- have reached the end of the result set is when LastEvaluatedKey is empty.
+srLastEvaluatedKey :: Lens' ScanResponse (HashMap Text AttributeValue)
+srLastEvaluatedKey =
+    lens _srLastEvaluatedKey (\s a -> s { _srLastEvaluatedKey = a })
+        . _Map
+
+-- | The number of items evaluated, before any ScanFilter is applied. A high
+-- ScannedCount value with few, or no, Count results indicates an
+-- inefficient Scan operation. For more information, see Count and
+-- ScannedCount in the Amazon DynamoDB Developer Guide. If you did not use a
+-- filter in the request, then ScannedCount is the same as Count.
+srScannedCount :: Lens' ScanResponse (Maybe Int)
+srScannedCount = lens _srScannedCount (\s a -> s { _srScannedCount = a })
+
+-- FromJSON
 
 instance AWSRequest Scan where
     type Sv Scan = DynamoDB
     type Rs Scan = ScanResponse
 
-    request = get
-    response _ = jsonResponse
-
-instance AWSPager Scan where
-    next rq rs
-        | nullMap k = Nothing
-        | otherwise = Just (rq & sExclusiveStartKey .~ k)
-      where
-        k = rs ^. srLastEvaluatedKey
+    request  = post'
+    response = jsonResponse $ \h o -> ScanResponse
+        <$> o .: "ConsumedCapacity"
+        <*> o .: "Count"
+        <*> o .: "Items"
+        <*> o .: "LastEvaluatedKey"
+        <*> o .: "ScannedCount"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.DeleteOptionGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,8 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes an existing option group. https://rds.amazonaws.com/
--- ?Action=DeleteOptionGroup &OptionGroupName=myoptiongroup.
+-- | Deletes an existing option group.
 module Network.AWS.RDS.DeleteOptionGroup
     (
     -- * Request
@@ -27,7 +28,7 @@ module Network.AWS.RDS.DeleteOptionGroup
     -- ** Request constructor
     , deleteOptionGroup
     -- ** Request lenses
-    , dogOptionGroupName
+    , dog1OptionGroupName
 
     -- * Response
     , DeleteOptionGroupResponse
@@ -35,44 +36,41 @@ module Network.AWS.RDS.DeleteOptionGroup
     , deleteOptionGroupResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DeleteOptionGroup = DeleteOptionGroup
-    { _dogOptionGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dog1OptionGroupName :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteOptionGroup' request.
+-- | 'DeleteOptionGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OptionGroupName ::@ @Text@
+-- * 'dog1OptionGroupName' @::@ 'Text'
 --
-deleteOptionGroup :: Text -- ^ 'dogOptionGroupName'
+deleteOptionGroup :: Text -- ^ 'dog1OptionGroupName'
                   -> DeleteOptionGroup
 deleteOptionGroup p1 = DeleteOptionGroup
-    { _dogOptionGroupName = p1
+    { _dog1OptionGroupName = p1
     }
 
--- | The name of the option group to be deleted. You cannot delete default
--- option groups.
-dogOptionGroupName :: Lens' DeleteOptionGroup Text
-dogOptionGroupName =
-    lens _dogOptionGroupName (\s a -> s { _dogOptionGroupName = a })
+-- | The name of the option group to be deleted.
+dog1OptionGroupName :: Lens' DeleteOptionGroup Text
+dog1OptionGroupName =
+    lens _dog1OptionGroupName (\s a -> s { _dog1OptionGroupName = a })
 
-instance ToQuery DeleteOptionGroup where
-    toQuery = genericQuery def
+instance ToQuery DeleteOptionGroup
+
+instance ToPath DeleteOptionGroup where
+    toPath = const "/"
 
 data DeleteOptionGroupResponse = DeleteOptionGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteOptionGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteOptionGroupResponse' constructor.
 deleteOptionGroupResponse :: DeleteOptionGroupResponse
 deleteOptionGroupResponse = DeleteOptionGroupResponse
 
@@ -80,5 +78,5 @@ instance AWSRequest DeleteOptionGroup where
     type Sv DeleteOptionGroup = RDS
     type Rs DeleteOptionGroup = DeleteOptionGroupResponse
 
-    request = post "DeleteOptionGroup"
-    response _ = nullaryResponse DeleteOptionGroupResponse
+    request  = post "DeleteOptionGroup"
+    response = nullaryResponse DeleteOptionGroupResponse

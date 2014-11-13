@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteNetworkAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,12 +22,6 @@
 
 -- | Deletes the specified network ACL. You can't delete the ACL if it's
 -- associated with any subnets. You can't delete the default network ACL.
--- Example This example deletes the specified network ACL.
--- https://ec2.amazonaws.com/?Action=DeleteNetworkAcl
--- &amp;NetworkAclId=acl-2cb85d45 &amp;AUTHPARAMS &lt;DeleteNetworkAclResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkAclResponse&gt;.
 module Network.AWS.EC2.DeleteNetworkAcl
     (
     -- * Request
@@ -33,6 +29,7 @@ module Network.AWS.EC2.DeleteNetworkAcl
     -- ** Request constructor
     , deleteNetworkAcl
     -- ** Request lenses
+    , dnaDryRun
     , dnaNetworkAclId
 
     -- * Response
@@ -41,41 +38,47 @@ module Network.AWS.EC2.DeleteNetworkAcl
     , deleteNetworkAclResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteNetworkAcl = DeleteNetworkAcl
-    { _dnaNetworkAclId :: Text
+data DeleteNetworkAcl = DeleteNetworkAcl
+    { _dnaDryRun       :: Maybe Bool
+    , _dnaNetworkAclId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteNetworkAcl' request.
+-- | 'DeleteNetworkAcl' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkAclId ::@ @Text@
+-- * 'dnaDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'dnaNetworkAclId' @::@ 'Text'
 --
 deleteNetworkAcl :: Text -- ^ 'dnaNetworkAclId'
                  -> DeleteNetworkAcl
 deleteNetworkAcl p1 = DeleteNetworkAcl
     { _dnaNetworkAclId = p1
+    , _dnaDryRun       = Nothing
     }
+
+dnaDryRun :: Lens' DeleteNetworkAcl (Maybe Bool)
+dnaDryRun = lens _dnaDryRun (\s a -> s { _dnaDryRun = a })
 
 -- | The ID of the network ACL.
 dnaNetworkAclId :: Lens' DeleteNetworkAcl Text
 dnaNetworkAclId = lens _dnaNetworkAclId (\s a -> s { _dnaNetworkAclId = a })
 
-instance ToQuery DeleteNetworkAcl where
-    toQuery = genericQuery def
+instance ToQuery DeleteNetworkAcl
+
+instance ToPath DeleteNetworkAcl where
+    toPath = const "/"
 
 data DeleteNetworkAclResponse = DeleteNetworkAclResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteNetworkAclResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteNetworkAclResponse' constructor.
 deleteNetworkAclResponse :: DeleteNetworkAclResponse
 deleteNetworkAclResponse = DeleteNetworkAclResponse
 
@@ -83,5 +86,5 @@ instance AWSRequest DeleteNetworkAcl where
     type Sv DeleteNetworkAcl = EC2
     type Rs DeleteNetworkAcl = DeleteNetworkAclResponse
 
-    request = post "DeleteNetworkAcl"
-    response _ = nullaryResponse DeleteNetworkAclResponse
+    request  = post "DeleteNetworkAcl"
+    response = nullaryResponse DeleteNetworkAclResponse

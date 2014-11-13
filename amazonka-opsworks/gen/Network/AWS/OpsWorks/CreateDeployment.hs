@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateDeployment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,12 +35,12 @@ module Network.AWS.OpsWorks.CreateDeployment
     -- ** Request constructor
     , createDeployment
     -- ** Request lenses
-    , cdStackId
     , cdAppId
-    , cdInstanceIds
     , cdCommand
     , cdComment
     , cdCustomJson
+    , cdInstanceIds
+    , cdStackId
 
     -- * Response
     , CreateDeploymentResponse
@@ -48,60 +50,51 @@ module Network.AWS.OpsWorks.CreateDeployment
     , cdrDeploymentId
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data CreateDeployment = CreateDeployment
-    { _cdStackId :: Text
-    , _cdAppId :: Maybe Text
+    { _cdAppId       :: Maybe Text
+    , _cdCommand     :: DeploymentCommand
+    , _cdComment     :: Maybe Text
+    , _cdCustomJson  :: Maybe Text
     , _cdInstanceIds :: [Text]
-    , _cdCommand :: DeploymentCommand
-    , _cdComment :: Maybe Text
-    , _cdCustomJson :: Maybe Text
+    , _cdStackId     :: Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDeployment' request.
+-- | 'CreateDeployment' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Text@
+-- * 'cdAppId' @::@ 'Maybe' 'Text'
 --
--- * @AppId ::@ @Maybe Text@
+-- * 'cdCommand' @::@ 'DeploymentCommand'
 --
--- * @InstanceIds ::@ @[Text]@
+-- * 'cdComment' @::@ 'Maybe' 'Text'
 --
--- * @Command ::@ @DeploymentCommand@
+-- * 'cdCustomJson' @::@ 'Maybe' 'Text'
 --
--- * @Comment ::@ @Maybe Text@
+-- * 'cdInstanceIds' @::@ ['Text']
 --
--- * @CustomJson ::@ @Maybe Text@
+-- * 'cdStackId' @::@ 'Text'
 --
 createDeployment :: Text -- ^ 'cdStackId'
                  -> DeploymentCommand -- ^ 'cdCommand'
                  -> CreateDeployment
-createDeployment p1 p4 = CreateDeployment
-    { _cdStackId = p1
-    , _cdAppId = Nothing
+createDeployment p1 p2 = CreateDeployment
+    { _cdStackId     = p1
+    , _cdCommand     = p2
+    , _cdAppId       = Nothing
     , _cdInstanceIds = mempty
-    , _cdCommand = p4
-    , _cdComment = Nothing
-    , _cdCustomJson = Nothing
+    , _cdComment     = Nothing
+    , _cdCustomJson  = Nothing
     }
-
--- | The stack ID.
-cdStackId :: Lens' CreateDeployment Text
-cdStackId = lens _cdStackId (\s a -> s { _cdStackId = a })
 
 -- | The app ID. This parameter is required for app deployments, but not for
 -- other deployment commands.
 cdAppId :: Lens' CreateDeployment (Maybe Text)
 cdAppId = lens _cdAppId (\s a -> s { _cdAppId = a })
-
--- | The instance IDs for the deployment targets.
-cdInstanceIds :: Lens' CreateDeployment [Text]
-cdInstanceIds = lens _cdInstanceIds (\s a -> s { _cdInstanceIds = a })
 
 -- | A DeploymentCommand object that specifies the deployment command and any
 -- associated arguments.
@@ -114,33 +107,41 @@ cdComment = lens _cdComment (\s a -> s { _cdComment = a })
 
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
--- should be in the following format and must escape characters such as '"'.:
--- "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more information on
--- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
+-- should be in the following format and must escape characters such as
+-- '"'.: "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more
+-- information on custom JSON, see Use Custom JSON to Modify the Stack
+-- Configuration JSON.
 cdCustomJson :: Lens' CreateDeployment (Maybe Text)
 cdCustomJson = lens _cdCustomJson (\s a -> s { _cdCustomJson = a })
 
-instance ToPath CreateDeployment
+-- | The instance IDs for the deployment targets.
+cdInstanceIds :: Lens' CreateDeployment [Text]
+cdInstanceIds = lens _cdInstanceIds (\s a -> s { _cdInstanceIds = a })
 
-instance ToQuery CreateDeployment
+-- | The stack ID.
+cdStackId :: Lens' CreateDeployment Text
+cdStackId = lens _cdStackId (\s a -> s { _cdStackId = a })
+
+instance ToPath CreateDeployment where
+    toPath = const "/"
+
+instance ToQuery CreateDeployment where
+    toQuery = const mempty
 
 instance ToHeaders CreateDeployment
 
-instance ToJSON CreateDeployment
+instance ToBody CreateDeployment where
+    toBody = toBody . encode . _cdStackId
 
--- | Contains the response to a CreateDeployment request.
 newtype CreateDeploymentResponse = CreateDeploymentResponse
     { _cdrDeploymentId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDeploymentResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateDeploymentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DeploymentId ::@ @Maybe Text@
+-- * 'cdrDeploymentId' @::@ 'Maybe' 'Text'
 --
 createDeploymentResponse :: CreateDeploymentResponse
 createDeploymentResponse = CreateDeploymentResponse
@@ -152,11 +153,12 @@ createDeploymentResponse = CreateDeploymentResponse
 cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrDeploymentId = lens _cdrDeploymentId (\s a -> s { _cdrDeploymentId = a })
 
-instance FromJSON CreateDeploymentResponse
+-- FromJSON
 
 instance AWSRequest CreateDeployment where
     type Sv CreateDeployment = OpsWorks
     type Rs CreateDeployment = CreateDeploymentResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> CreateDeploymentResponse
+        <$> o .: "DeploymentId"

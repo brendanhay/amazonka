@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,13 +23,6 @@
 -- | The DeleteSnapshot operation deletes an existing snapshot. When you receive
 -- a successful response from this operation, ElastiCache immediately begins
 -- deleting the snapshot; you cannot cancel or revert this operation.
--- https://elasticache.us-east-1.amazonaws.com/ ?Action=DeleteSnapshot
--- &SnapshotName=my-manual-snapshot &Version=2014-03-24 &SignatureVersion=4
--- &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z &X-Amz-Credential=
--- my-redis-primary 6379 cache.m1.small default.redis2.8 redis us-east-1d
--- 2014-04-01T18:46:57.972Z 2.8.6 manual true wed:09:00-wed:10:00
--- my-manual-snapshot 5 2014-04-01T18:54:12Z 2014-04-01T18:46:57.972Z 0001 3
--- MB deleting 1 07:30-08:30 694d7017-b9d2-11e3-8a16-7978bb24ffdf.
 module Network.AWS.ElastiCache.DeleteSnapshot
     (
     -- * Request
@@ -35,7 +30,7 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     -- ** Request constructor
     , deleteSnapshot
     -- ** Request lenses
-    , dsSnapshotName
+    , ds1SnapshotName
 
     -- * Response
     , DeleteSnapshotResponse
@@ -45,64 +40,58 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     , dsrSnapshot
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents the input of a DeleteSnapshotMessage operation.
 newtype DeleteSnapshot = DeleteSnapshot
-    { _dsSnapshotName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _ds1SnapshotName :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSnapshot' request.
+-- | 'DeleteSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SnapshotName ::@ @Text@
+-- * 'ds1SnapshotName' @::@ 'Text'
 --
-deleteSnapshot :: Text -- ^ 'dsSnapshotName'
+deleteSnapshot :: Text -- ^ 'ds1SnapshotName'
                -> DeleteSnapshot
 deleteSnapshot p1 = DeleteSnapshot
-    { _dsSnapshotName = p1
+    { _ds1SnapshotName = p1
     }
 
 -- | The name of the snapshot to be deleted.
-dsSnapshotName :: Lens' DeleteSnapshot Text
-dsSnapshotName = lens _dsSnapshotName (\s a -> s { _dsSnapshotName = a })
+ds1SnapshotName :: Lens' DeleteSnapshot Text
+ds1SnapshotName = lens _ds1SnapshotName (\s a -> s { _ds1SnapshotName = a })
 
-instance ToQuery DeleteSnapshot where
-    toQuery = genericQuery def
+instance ToQuery DeleteSnapshot
+
+instance ToPath DeleteSnapshot where
+    toPath = const "/"
 
 newtype DeleteSnapshotResponse = DeleteSnapshotResponse
     { _dsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSnapshotResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Snapshot ::@ @Maybe Snapshot@
+-- * 'dsrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
 deleteSnapshotResponse :: DeleteSnapshotResponse
 deleteSnapshotResponse = DeleteSnapshotResponse
     { _dsrSnapshot = Nothing
     }
 
--- | Represents a copy of an entire cache cluster as of the time when the
--- snapshot was taken.
 dsrSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
 dsrSnapshot = lens _dsrSnapshot (\s a -> s { _dsrSnapshot = a })
-
-instance FromXML DeleteSnapshotResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = ElastiCache
     type Rs DeleteSnapshot = DeleteSnapshotResponse
 
-    request = post "DeleteSnapshot"
-    response _ = xmlResponse
+    request  = post "DeleteSnapshot"
+    response = xmlResponse $ \h x -> DeleteSnapshotResponse
+        <$> x %| "Snapshot"

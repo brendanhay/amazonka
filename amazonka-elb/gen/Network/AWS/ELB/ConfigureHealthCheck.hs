@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.ConfigureHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,11 +23,6 @@
 -- | Specifies the health check settings to use for evaluating the health state
 -- of your back-end instances. For more information, see Health Check in the
 -- Elastic Load Balancing Developer Guide.
--- https://elasticloadbalancing.amazonaws.com/?HealthCheck.HealthyThreshold=2
--- &HealthCheck.UnhealthyThreshold=2 &LoadBalancerName=MyLoadBalancer
--- &HealthCheck.Target=HTTP:80/ping &HealthCheck.Interval=30
--- &HealthCheck.Timeout=3 &Version=2012-06-01 &Action=ConfigureHealthCheck
--- &AUTHPARAMS 30 HTTP:80/ping 2 3 2 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 module Network.AWS.ELB.ConfigureHealthCheck
     (
     -- * Request
@@ -33,8 +30,8 @@ module Network.AWS.ELB.ConfigureHealthCheck
     -- ** Request constructor
     , configureHealthCheck
     -- ** Request lenses
-    , chcLoadBalancerName
     , chcHealthCheck
+    , chcLoadBalancerName
 
     -- * Response
     , ConfigureHealthCheckResponse
@@ -44,32 +41,36 @@ module Network.AWS.ELB.ConfigureHealthCheck
     , chcrHealthCheck
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input for the ConfigureHealthCheck action.
 data ConfigureHealthCheck = ConfigureHealthCheck
-    { _chcLoadBalancerName :: Text
-    , _chcHealthCheck :: HealthCheck
-    } deriving (Eq, Ord, Show, Generic)
+    { _chcHealthCheck      :: HealthCheck
+    , _chcLoadBalancerName :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfigureHealthCheck' request.
+-- | 'ConfigureHealthCheck' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'chcHealthCheck' @::@ 'HealthCheck'
 --
--- * @HealthCheck ::@ @HealthCheck@
+-- * 'chcLoadBalancerName' @::@ 'Text'
 --
 configureHealthCheck :: Text -- ^ 'chcLoadBalancerName'
                      -> HealthCheck -- ^ 'chcHealthCheck'
                      -> ConfigureHealthCheck
 configureHealthCheck p1 p2 = ConfigureHealthCheck
     { _chcLoadBalancerName = p1
-    , _chcHealthCheck = p2
+    , _chcHealthCheck      = p2
     }
+
+-- | A structure containing the configuration information for the new
+-- healthcheck.
+chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
+chcHealthCheck = lens _chcHealthCheck (\s a -> s { _chcHealthCheck = a })
 
 -- | The mnemonic name associated with the load balancer. The name must be
 -- unique within the set of load balancers associated with your AWS account.
@@ -77,27 +78,20 @@ chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
 chcLoadBalancerName =
     lens _chcLoadBalancerName (\s a -> s { _chcLoadBalancerName = a })
 
--- | A structure containing the configuration information for the new
--- healthcheck.
-chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
-chcHealthCheck = lens _chcHealthCheck (\s a -> s { _chcHealthCheck = a })
+instance ToQuery ConfigureHealthCheck
 
-instance ToQuery ConfigureHealthCheck where
-    toQuery = genericQuery def
+instance ToPath ConfigureHealthCheck where
+    toPath = const "/"
 
--- | The output for the ConfigureHealthCheck action.
 newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
     { _chcrHealthCheck :: Maybe HealthCheck
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfigureHealthCheckResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ConfigureHealthCheckResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HealthCheck ::@ @Maybe HealthCheck@
+-- * 'chcrHealthCheck' @::@ 'Maybe' 'HealthCheck'
 --
 configureHealthCheckResponse :: ConfigureHealthCheckResponse
 configureHealthCheckResponse = ConfigureHealthCheckResponse
@@ -108,12 +102,10 @@ configureHealthCheckResponse = ConfigureHealthCheckResponse
 chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
 
-instance FromXML ConfigureHealthCheckResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ConfigureHealthCheck where
     type Sv ConfigureHealthCheck = ELB
     type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse
 
-    request = post "ConfigureHealthCheck"
-    response _ = xmlResponse
+    request  = post "ConfigureHealthCheck"
+    response = xmlResponse $ \h x -> ConfigureHealthCheckResponse
+        <$> x %| "HealthCheck"

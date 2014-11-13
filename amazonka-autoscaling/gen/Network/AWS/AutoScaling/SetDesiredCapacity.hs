@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.SetDesiredCapacity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,10 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Sets the desired size of the specified AutoScalingGroup.
--- https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
--- &HonorCooldown=false &DesiredCapacity=2 &Version=2011-01-01
--- &Action=SetDesiredCapacity &AUTHPARAMS
--- 9fb7e2db-6998-11e2-a985-57c82EXAMPLE.
 module Network.AWS.AutoScaling.SetDesiredCapacity
     (
     -- * Request
@@ -40,67 +38,63 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
     , setDesiredCapacityResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data SetDesiredCapacity = SetDesiredCapacity
     { _sdcAutoScalingGroupName :: Text
-    , _sdcDesiredCapacity :: !Integer
-    , _sdcHonorCooldown :: Maybe Bool
+    , _sdcDesiredCapacity      :: Int
+    , _sdcHonorCooldown        :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetDesiredCapacity' request.
+-- | 'SetDesiredCapacity' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AutoScalingGroupName ::@ @Text@
+-- * 'sdcAutoScalingGroupName' @::@ 'Text'
 --
--- * @DesiredCapacity ::@ @Integer@
+-- * 'sdcDesiredCapacity' @::@ 'Int'
 --
--- * @HonorCooldown ::@ @Maybe Bool@
+-- * 'sdcHonorCooldown' @::@ 'Maybe' 'Bool'
 --
 setDesiredCapacity :: Text -- ^ 'sdcAutoScalingGroupName'
-                   -> Integer -- ^ 'sdcDesiredCapacity'
+                   -> Int -- ^ 'sdcDesiredCapacity'
                    -> SetDesiredCapacity
 setDesiredCapacity p1 p2 = SetDesiredCapacity
     { _sdcAutoScalingGroupName = p1
-    , _sdcDesiredCapacity = p2
-    , _sdcHonorCooldown = Nothing
+    , _sdcDesiredCapacity      = p2
+    , _sdcHonorCooldown        = Nothing
     }
 
 -- | The name of the Auto Scaling group.
 sdcAutoScalingGroupName :: Lens' SetDesiredCapacity Text
 sdcAutoScalingGroupName =
-    lens _sdcAutoScalingGroupName
-         (\s a -> s { _sdcAutoScalingGroupName = a })
+    lens _sdcAutoScalingGroupName (\s a -> s { _sdcAutoScalingGroupName = a })
 
 -- | The new capacity setting for the Auto Scaling group.
-sdcDesiredCapacity :: Lens' SetDesiredCapacity Integer
+sdcDesiredCapacity :: Lens' SetDesiredCapacity Int
 sdcDesiredCapacity =
     lens _sdcDesiredCapacity (\s a -> s { _sdcDesiredCapacity = a })
 
 -- | By default, SetDesiredCapacity overrides any cooldown period associated
 -- with the Auto Scaling group. Set to True if you want Auto Scaling to wait
--- for the cooldown period associated with the Auto Scaling group to complete
--- before initiating a scaling activity to set your Auto Scaling group to the
--- new capacity setting.
+-- for the cooldown period associated with the Auto Scaling group to
+-- complete before initiating a scaling activity to set your Auto Scaling
+-- group to the new capacity setting.
 sdcHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
-sdcHonorCooldown =
-    lens _sdcHonorCooldown (\s a -> s { _sdcHonorCooldown = a })
+sdcHonorCooldown = lens _sdcHonorCooldown (\s a -> s { _sdcHonorCooldown = a })
 
-instance ToQuery SetDesiredCapacity where
-    toQuery = genericQuery def
+instance ToQuery SetDesiredCapacity
+
+instance ToPath SetDesiredCapacity where
+    toPath = const "/"
 
 data SetDesiredCapacityResponse = SetDesiredCapacityResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetDesiredCapacityResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SetDesiredCapacityResponse' constructor.
 setDesiredCapacityResponse :: SetDesiredCapacityResponse
 setDesiredCapacityResponse = SetDesiredCapacityResponse
 
@@ -108,5 +102,5 @@ instance AWSRequest SetDesiredCapacity where
     type Sv SetDesiredCapacity = AutoScaling
     type Rs SetDesiredCapacity = SetDesiredCapacityResponse
 
-    request = post "SetDesiredCapacity"
-    response _ = nullaryResponse SetDesiredCapacityResponse
+    request  = post "SetDesiredCapacity"
+    response = nullaryResponse SetDesiredCapacityResponse

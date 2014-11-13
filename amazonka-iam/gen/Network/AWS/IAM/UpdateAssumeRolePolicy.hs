@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.UpdateAssumeRolePolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,10 +22,6 @@
 
 -- | Updates the policy that grants an entity permission to assume a role. For
 -- more information about roles, go to Working with Roles.
--- https://iam.amazonaws.com/ ?Action=UpdateAssumeRolePolicy
--- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
--- &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
--- 309c1671-99ed-11e1-a4c3-270EXAMPLE04.
 module Network.AWS.IAM.UpdateAssumeRolePolicy
     (
     -- * Request
@@ -31,8 +29,8 @@ module Network.AWS.IAM.UpdateAssumeRolePolicy
     -- ** Request constructor
     , updateAssumeRolePolicy
     -- ** Request lenses
-    , uarpRoleName
     , uarpPolicyDocument
+    , uarpRoleName
 
     -- * Response
     , UpdateAssumeRolePolicyResponse
@@ -40,51 +38,50 @@ module Network.AWS.IAM.UpdateAssumeRolePolicy
     , updateAssumeRolePolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
-    { _uarpRoleName :: Text
-    , _uarpPolicyDocument :: Text
+    { _uarpPolicyDocument :: Text
+    , _uarpRoleName       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateAssumeRolePolicy' request.
+-- | 'UpdateAssumeRolePolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RoleName ::@ @Text@
+-- * 'uarpPolicyDocument' @::@ 'Text'
 --
--- * @PolicyDocument ::@ @Text@
+-- * 'uarpRoleName' @::@ 'Text'
 --
 updateAssumeRolePolicy :: Text -- ^ 'uarpRoleName'
                        -> Text -- ^ 'uarpPolicyDocument'
                        -> UpdateAssumeRolePolicy
 updateAssumeRolePolicy p1 p2 = UpdateAssumeRolePolicy
-    { _uarpRoleName = p1
+    { _uarpRoleName       = p1
     , _uarpPolicyDocument = p2
     }
-
--- | Name of the role to update.
-uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
-uarpRoleName = lens _uarpRoleName (\s a -> s { _uarpRoleName = a })
 
 -- | The policy that grants an entity permission to assume the role.
 uarpPolicyDocument :: Lens' UpdateAssumeRolePolicy Text
 uarpPolicyDocument =
     lens _uarpPolicyDocument (\s a -> s { _uarpPolicyDocument = a })
 
-instance ToQuery UpdateAssumeRolePolicy where
-    toQuery = genericQuery def
+-- | The name of the role to update.
+uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
+uarpRoleName = lens _uarpRoleName (\s a -> s { _uarpRoleName = a })
+
+instance ToQuery UpdateAssumeRolePolicy
+
+instance ToPath UpdateAssumeRolePolicy where
+    toPath = const "/"
 
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateAssumeRolePolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateAssumeRolePolicyResponse' constructor.
 updateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse
 updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
 
@@ -92,5 +89,5 @@ instance AWSRequest UpdateAssumeRolePolicy where
     type Sv UpdateAssumeRolePolicy = IAM
     type Rs UpdateAssumeRolePolicy = UpdateAssumeRolePolicyResponse
 
-    request = post "UpdateAssumeRolePolicy"
-    response _ = nullaryResponse UpdateAssumeRolePolicyResponse
+    request  = post "UpdateAssumeRolePolicy"
+    response = nullaryResponse UpdateAssumeRolePolicyResponse

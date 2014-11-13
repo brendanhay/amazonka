@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.DeleteHsmConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,21 +36,20 @@ module Network.AWS.Redshift.DeleteHsmConfiguration
     , deleteHsmConfigurationResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 newtype DeleteHsmConfiguration = DeleteHsmConfiguration
     { _dhcHsmConfigurationIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteHsmConfiguration' request.
+-- | 'DeleteHsmConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HsmConfigurationIdentifier ::@ @Text@
+-- * 'dhcHsmConfigurationIdentifier' @::@ 'Text'
 --
 deleteHsmConfiguration :: Text -- ^ 'dhcHsmConfigurationIdentifier'
                        -> DeleteHsmConfiguration
@@ -60,18 +61,17 @@ deleteHsmConfiguration p1 = DeleteHsmConfiguration
 dhcHsmConfigurationIdentifier :: Lens' DeleteHsmConfiguration Text
 dhcHsmConfigurationIdentifier =
     lens _dhcHsmConfigurationIdentifier
-         (\s a -> s { _dhcHsmConfigurationIdentifier = a })
+        (\s a -> s { _dhcHsmConfigurationIdentifier = a })
 
-instance ToQuery DeleteHsmConfiguration where
-    toQuery = genericQuery def
+instance ToQuery DeleteHsmConfiguration
+
+instance ToPath DeleteHsmConfiguration where
+    toPath = const "/"
 
 data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteHsmConfigurationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteHsmConfigurationResponse' constructor.
 deleteHsmConfigurationResponse :: DeleteHsmConfigurationResponse
 deleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
 
@@ -79,5 +79,5 @@ instance AWSRequest DeleteHsmConfiguration where
     type Sv DeleteHsmConfiguration = Redshift
     type Rs DeleteHsmConfiguration = DeleteHsmConfigurationResponse
 
-    request = post "DeleteHsmConfiguration"
-    response _ = nullaryResponse DeleteHsmConfigurationResponse
+    request  = post "DeleteHsmConfiguration"
+    response = nullaryResponse DeleteHsmConfigurationResponse

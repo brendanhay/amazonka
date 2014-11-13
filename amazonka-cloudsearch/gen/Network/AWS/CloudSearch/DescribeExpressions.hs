@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeExpressions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,101 +33,96 @@ module Network.AWS.CloudSearch.DescribeExpressions
     -- ** Request constructor
     , describeExpressions
     -- ** Request lenses
-    , de2DomainName
-    , de2ExpressionNames
-    , de2Deployed
+    , deDeployed
+    , deDomainName
+    , deExpressionNames
 
     -- * Response
     , DescribeExpressionsResponse
     -- ** Response constructor
     , describeExpressionsResponse
     -- ** Response lenses
-    , der1Expressions
+    , derExpressions
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DescribeDomains operation. Specifies
--- the name of the domain you want to describe. To restrict the response to
--- particular expressions, specify the names of the expressions you want to
--- describe. To show the active configuration and exclude any pending changes,
--- set the Deployed option to true.
 data DescribeExpressions = DescribeExpressions
-    { _de2DomainName :: Text
-    , _de2ExpressionNames :: [Text]
-    , _de2Deployed :: Maybe Bool
+    { _deDeployed        :: Maybe Bool
+    , _deDomainName      :: Text
+    , _deExpressionNames :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeExpressions' request.
+-- | 'DescribeExpressions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'deDeployed' @::@ 'Maybe' 'Bool'
 --
--- * @ExpressionNames ::@ @[Text]@
+-- * 'deDomainName' @::@ 'Text'
 --
--- * @Deployed ::@ @Maybe Bool@
+-- * 'deExpressionNames' @::@ ['Text']
 --
-describeExpressions :: Text -- ^ 'de2DomainName'
+describeExpressions :: Text -- ^ 'deDomainName'
                     -> DescribeExpressions
 describeExpressions p1 = DescribeExpressions
-    { _de2DomainName = p1
-    , _de2ExpressionNames = mempty
-    , _de2Deployed = Nothing
+    { _deDomainName      = p1
+    , _deExpressionNames = mempty
+    , _deDeployed        = Nothing
     }
 
+-- | Whether to display the deployed configuration (true) or include any
+-- pending changes (false). Defaults to false.
+deDeployed :: Lens' DescribeExpressions (Maybe Bool)
+deDeployed = lens _deDeployed (\s a -> s { _deDeployed = a })
+
 -- | The name of the domain you want to describe.
-de2DomainName :: Lens' DescribeExpressions Text
-de2DomainName = lens _de2DomainName (\s a -> s { _de2DomainName = a })
+deDomainName :: Lens' DescribeExpressions Text
+deDomainName = lens _deDomainName (\s a -> s { _deDomainName = a })
 
 -- | Limits the DescribeExpressions response to the specified expressions. If
 -- not specified, all expressions are shown.
-de2ExpressionNames :: Lens' DescribeExpressions [Text]
-de2ExpressionNames =
-    lens _de2ExpressionNames (\s a -> s { _de2ExpressionNames = a })
+deExpressionNames :: Lens' DescribeExpressions [Text]
+deExpressionNames =
+    lens _deExpressionNames (\s a -> s { _deExpressionNames = a })
 
--- | Whether to display the deployed configuration (true) or include any pending
--- changes (false). Defaults to false.
-de2Deployed :: Lens' DescribeExpressions (Maybe Bool)
-de2Deployed = lens _de2Deployed (\s a -> s { _de2Deployed = a })
+instance ToQuery DescribeExpressions
 
-instance ToQuery DescribeExpressions where
-    toQuery = genericQuery def
+instance ToPath DescribeExpressions where
+    toPath = const "/"
 
--- | The result of a DescribeExpressions request. Contains the expressions
--- configured for the domain specified in the request.
 newtype DescribeExpressionsResponse = DescribeExpressionsResponse
-    { _der1Expressions :: [ExpressionStatus]
-    } deriving (Eq, Ord, Show, Generic)
+    { _derExpressions :: [ExpressionStatus]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeExpressionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeExpressionsResponse where
+    type Item DescribeExpressionsResponse = ExpressionStatus
+
+    fromList = DescribeExpressionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _derExpressions
+
+-- | 'DescribeExpressionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Expressions ::@ @[ExpressionStatus]@
+-- * 'derExpressions' @::@ ['ExpressionStatus']
 --
-describeExpressionsResponse :: [ExpressionStatus] -- ^ 'der1Expressions'
-                            -> DescribeExpressionsResponse
-describeExpressionsResponse p1 = DescribeExpressionsResponse
-    { _der1Expressions = p1
+describeExpressionsResponse :: DescribeExpressionsResponse
+describeExpressionsResponse = DescribeExpressionsResponse
+    { _derExpressions = mempty
     }
 
 -- | The expressions configured for the domain.
-der1Expressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-der1Expressions = lens _der1Expressions (\s a -> s { _der1Expressions = a })
-
-instance FromXML DescribeExpressionsResponse where
-    fromXMLOptions = xmlOptions
+derExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
+derExpressions = lens _derExpressions (\s a -> s { _derExpressions = a })
 
 instance AWSRequest DescribeExpressions where
     type Sv DescribeExpressions = CloudSearch
     type Rs DescribeExpressions = DescribeExpressionsResponse
 
-    request = post "DescribeExpressions"
-    response _ = xmlResponse
+    request  = post "DescribeExpressions"
+    response = xmlResponse $ \h x -> DescribeExpressionsResponse
+        <$> x %| "Expressions"

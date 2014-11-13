@@ -2,8 +2,10 @@ ifndef TOP
 $(error TOP is not set)
 endif
 
-SHELL   := /usr/bin/env bash
-SANDBOX := $(TOP)/.cabal-sandbox
+SHELL := /usr/bin/env bash
+CABAL_SANDBOX_CONFIG := $(TOP)/cabal.sandbox.config
+
+export CABAL_SANDBOX_CONFIG
 
 build:
 	cabal build -j
@@ -15,11 +17,10 @@ install: cabal.sandbox.config
  --only-dependencies
 
 cabal.sandbox.config:
-	cabal sandbox init --sandbox=$(SANDBOX)
+	cabal sandbox add-source $(TOP)/core
 
 clean:
 	cabal clean
-	rm -f cabal.sandbox.config
 
 doc:
 	cabal haddock

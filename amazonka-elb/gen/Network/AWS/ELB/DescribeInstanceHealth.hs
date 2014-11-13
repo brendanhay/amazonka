@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.DescribeInstanceHealth
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,26 +24,7 @@
 -- specified load balancer. If no instances are specified, the state of all
 -- the instances registered with the load balancer is returned. You must
 -- provide the same account credentials as those that were used to create the
--- load balancer. Description of a healthy (InService) instance
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
--- &Version=2012-06-01 &Action=DescribeInstanceHealth &AUTHPARAMS N/A
--- i-90d8c2a5 InService N/A 1549581b-12b7-11e3-895e-1334aEXAMPLE Description
--- of an instance with registration in progress
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
--- &Version=2012-06-01 &Action=DescribeInstanceHealth &AUTHPARAMS Instance
--- registration is still in progress. i-315b7e51 OutOfService ELB
--- 1549581b-12b7-11e3-895e-1334aEXAMPLE Description of an unhealthy
--- (OutOfService) instance
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
--- &Version=2012-06-01 &Action=DescribeInstanceHealth &AUTHPARAMS Instance has
--- failed at least the UnhealthyThreshold number of health checks
--- consecutively. i-fda142c9 OutOfService Instance
--- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE Description of an instance in an
--- unknown state
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
--- &Version=2012-06-01 &Action=DescribeInstanceHealth &AUTHPARAMS A transient
--- error occurred. Please try again later. i-7f12e649 Unknown ELB
--- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
+-- load balancer.
 module Network.AWS.ELB.DescribeInstanceHealth
     (
     -- * Request
@@ -49,8 +32,8 @@ module Network.AWS.ELB.DescribeInstanceHealth
     -- ** Request constructor
     , describeInstanceHealth
     -- ** Request lenses
-    , dihLoadBalancerName
     , dihInstances
+    , dihLoadBalancerName
 
     -- * Response
     , DescribeInstanceHealthResponse
@@ -60,57 +43,60 @@ module Network.AWS.ELB.DescribeInstanceHealth
     , dihrInstanceStates
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the DescribeEndPointState action.
 data DescribeInstanceHealth = DescribeInstanceHealth
-    { _dihLoadBalancerName :: Text
-    , _dihInstances :: [Instance]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dihInstances        :: [Instance]
+    , _dihLoadBalancerName :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeInstanceHealth' request.
+-- | 'DescribeInstanceHealth' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'dihInstances' @::@ ['Instance']
 --
--- * @Instances ::@ @[Instance]@
+-- * 'dihLoadBalancerName' @::@ 'Text'
 --
 describeInstanceHealth :: Text -- ^ 'dihLoadBalancerName'
                        -> DescribeInstanceHealth
 describeInstanceHealth p1 = DescribeInstanceHealth
     { _dihLoadBalancerName = p1
-    , _dihInstances = mempty
+    , _dihInstances        = mempty
     }
+
+-- | A list of instance IDs whose states are being queried.
+dihInstances :: Lens' DescribeInstanceHealth [Instance]
+dihInstances = lens _dihInstances (\s a -> s { _dihInstances = a })
 
 -- | The name of the load balancer.
 dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
 dihLoadBalancerName =
     lens _dihLoadBalancerName (\s a -> s { _dihLoadBalancerName = a })
 
--- | A list of instance IDs whose states are being queried.
-dihInstances :: Lens' DescribeInstanceHealth [Instance]
-dihInstances = lens _dihInstances (\s a -> s { _dihInstances = a })
+instance ToQuery DescribeInstanceHealth
 
-instance ToQuery DescribeInstanceHealth where
-    toQuery = genericQuery def
+instance ToPath DescribeInstanceHealth where
+    toPath = const "/"
 
--- | The output for the DescribeInstanceHealth action.
 newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
     { _dihrInstanceStates :: [InstanceState]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeInstanceHealthResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeInstanceHealthResponse where
+    type Item DescribeInstanceHealthResponse = InstanceState
+
+    fromList = DescribeInstanceHealthResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dihrInstanceStates
+
+-- | 'DescribeInstanceHealthResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceStates ::@ @[InstanceState]@
+-- * 'dihrInstanceStates' @::@ ['InstanceState']
 --
 describeInstanceHealthResponse :: DescribeInstanceHealthResponse
 describeInstanceHealthResponse = DescribeInstanceHealthResponse
@@ -122,12 +108,10 @@ dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrInstanceStates =
     lens _dihrInstanceStates (\s a -> s { _dihrInstanceStates = a })
 
-instance FromXML DescribeInstanceHealthResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeInstanceHealth where
     type Sv DescribeInstanceHealth = ELB
     type Rs DescribeInstanceHealth = DescribeInstanceHealthResponse
 
-    request = post "DescribeInstanceHealth"
-    response _ = xmlResponse
+    request  = post "DescribeInstanceHealth"
+    response = xmlResponse $ \h x -> DescribeInstanceHealthResponse
+        <$> x %| "InstanceStates"

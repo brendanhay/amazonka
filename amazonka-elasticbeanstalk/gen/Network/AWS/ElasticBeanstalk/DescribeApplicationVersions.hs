@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,10 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns descriptions for existing application versions.
--- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
--- &Operation=DescribeApplicationVersions &AuthParams amazonaws.com sample.war
--- Version1 description SampleApp 2010-11-17T03:21:59.161Z
--- 2010-11-17T03:21:59.161Z 773cd80a-f26c-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     (
     -- * Request
@@ -41,59 +39,62 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     , davrApplicationVersions
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Result message containing a list of configuration descriptions.
 data DescribeApplicationVersions = DescribeApplicationVersions
     { _dav1ApplicationName :: Maybe Text
-    , _dav1VersionLabels :: [Text]
+    , _dav1VersionLabels   :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeApplicationVersions' request.
+-- | 'DescribeApplicationVersions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ApplicationName ::@ @Maybe Text@
+-- * 'dav1ApplicationName' @::@ 'Maybe' 'Text'
 --
--- * @VersionLabels ::@ @[Text]@
+-- * 'dav1VersionLabels' @::@ ['Text']
 --
 describeApplicationVersions :: DescribeApplicationVersions
 describeApplicationVersions = DescribeApplicationVersions
     { _dav1ApplicationName = Nothing
-    , _dav1VersionLabels = mempty
+    , _dav1VersionLabels   = mempty
     }
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
--- only include ones that are associated with the specified application.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to only include ones that are associated with the specified application.
 dav1ApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
 dav1ApplicationName =
     lens _dav1ApplicationName (\s a -> s { _dav1ApplicationName = a })
 
--- | If specified, restricts the returned descriptions to only include ones that
--- have the specified version labels.
+-- | If specified, restricts the returned descriptions to only include ones
+-- that have the specified version labels.
 dav1VersionLabels :: Lens' DescribeApplicationVersions [Text]
 dav1VersionLabels =
     lens _dav1VersionLabels (\s a -> s { _dav1VersionLabels = a })
 
-instance ToQuery DescribeApplicationVersions where
-    toQuery = genericQuery def
+instance ToQuery DescribeApplicationVersions
 
--- | Result message wrapping a list of application version descriptions.
+instance ToPath DescribeApplicationVersions where
+    toPath = const "/"
+
 newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
     { _davrApplicationVersions :: [ApplicationVersionDescription]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeApplicationVersionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeApplicationVersionsResponse where
+    type Item DescribeApplicationVersionsResponse = ApplicationVersionDescription
+
+    fromList = DescribeApplicationVersionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _davrApplicationVersions
+
+-- | 'DescribeApplicationVersionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ApplicationVersions ::@ @[ApplicationVersionDescription]@
+-- * 'davrApplicationVersions' @::@ ['ApplicationVersionDescription']
 --
 describeApplicationVersionsResponse :: DescribeApplicationVersionsResponse
 describeApplicationVersionsResponse = DescribeApplicationVersionsResponse
@@ -103,15 +104,12 @@ describeApplicationVersionsResponse = DescribeApplicationVersionsResponse
 -- | A list of ApplicationVersionDescription .
 davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrApplicationVersions =
-    lens _davrApplicationVersions
-         (\s a -> s { _davrApplicationVersions = a })
-
-instance FromXML DescribeApplicationVersionsResponse where
-    fromXMLOptions = xmlOptions
+    lens _davrApplicationVersions (\s a -> s { _davrApplicationVersions = a })
 
 instance AWSRequest DescribeApplicationVersions where
     type Sv DescribeApplicationVersions = ElasticBeanstalk
     type Rs DescribeApplicationVersions = DescribeApplicationVersionsResponse
 
-    request = post "DescribeApplicationVersions"
-    response _ = xmlResponse
+    request  = post "DescribeApplicationVersions"
+    response = xmlResponse $ \h x -> DescribeApplicationVersionsResponse
+        <$> x %| "ApplicationVersions"

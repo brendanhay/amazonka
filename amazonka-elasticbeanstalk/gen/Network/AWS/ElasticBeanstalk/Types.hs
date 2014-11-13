@@ -1,13 +1,13 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,123 +19,63 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling
--- web applications and services developed with Java, .NET, PHP, Node.js,
--- Python, Ruby, and Docker on familiar servers such as Apache HTTP Server,
--- Apache Tomcat, Nginx, Passenger, and IIS 7.5/8. You can simply upload your
--- code and Elastic Beanstalk automatically handles the deployment, from
--- capacity provisioning, load balancing, auto-scaling to application health
--- monitoring. At the same time, you retain full control over the AWS
--- resources powering your application and can access the underlying resources
--- at any time. There is no additional charge for Elastic Beanstalk - you pay
--- only for the AWS resources needed to store and run your applications.
 module Network.AWS.ElasticBeanstalk.Types
     (
     -- * Service
       ElasticBeanstalk
-    -- ** Errors
-    , ElasticBeanstalkError (..)
-    , _ElasticBeanstalkClient
-    , _ElasticBeanstalkSerializer
-    , _ElasticBeanstalkService
-    , _InsufficientPrivilegesException
-    , _OperationInProgressException
-    , _S3LocationNotInServiceRegionException
-    , _S3SubscriptionRequiredException
-    , _SourceBundleDeletionException
-    , _TooManyApplicationVersionsException
-    , _TooManyApplicationsException
-    , _TooManyBucketsException
-    , _TooManyConfigurationTemplatesException
-    , _TooManyEnvironmentsException
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
-    -- * ConfigurationDeploymentStatus
-    , ConfigurationDeploymentStatus (..)
-
-    -- * ConfigurationOptionValueType
-    , ConfigurationOptionValueType (..)
-
-    -- * EnvironmentHealth
-    , EnvironmentHealth (..)
-
-    -- * EnvironmentInfoType
-    , EnvironmentInfoType (..)
-
-    -- * EnvironmentStatus
-    , EnvironmentStatus (..)
+    -- * ApplicationDescription
+    , ApplicationDescription
+    , applicationDescription
+    , adApplicationName
+    , adConfigurationTemplates
+    , adDateCreated
+    , adDateUpdated
+    , adDescription
+    , adVersions
 
     -- * EventSeverity
     , EventSeverity (..)
 
-    -- * ValidationSeverity
-    , ValidationSeverity (..)
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
 
-    -- * AutoScalingGroup
-    , AutoScalingGroup
-    , autoScalingGroup
-    , asgName
-
-    -- * EnvironmentResourcesDescription
-    , EnvironmentResourcesDescription
-    , environmentResourcesDescription
-    , erdLoadBalancer
-
-    -- * Instance
-    , Instance
-    , instance'
-    , iId
+    -- * EventDescription
+    , EventDescription
+    , eventDescription
+    , edApplicationName
+    , edEnvironmentName
+    , edEventDate
+    , edMessage
+    , edRequestId
+    , edSeverity
+    , edTemplateName
+    , edVersionLabel
 
     -- * LaunchConfiguration
     , LaunchConfiguration
     , launchConfiguration
     , lcName
 
-    -- * LoadBalancer
-    , LoadBalancer
-    , loadBalancer
-    , lbName
+    -- * ApplicationVersionDescriptionMessage
+    , ApplicationVersionDescriptionMessage
+    , applicationVersionDescriptionMessage
+    , avdmApplicationVersion
 
-    -- * Trigger
-    , Trigger
-    , trigger
-    , trName
+    -- * AutoScalingGroup
+    , AutoScalingGroup
+    , autoScalingGroup
+    , asgName
 
-    -- * ApplicationDescription
-    , ApplicationDescription
-    , applicationDescription
-    , adApplicationName
-    , adDescription
-    , adDateCreated
-    , adDateUpdated
-    , adVersions
-    , adConfigurationTemplates
-
-    -- * ApplicationVersionDescription
-    , ApplicationVersionDescription
-    , applicationVersionDescription
-    , avdApplicationName
-    , avdDescription
-    , avdVersionLabel
-    , avdSourceBundle
-    , avdDateCreated
-    , avdDateUpdated
-
-    -- * ConfigurationOptionDescription
-    , ConfigurationOptionDescription
-    , configurationOptionDescription
-    , codNamespace
-    , codName
-    , codDefaultValue
-    , codChangeSeverity
-    , codUserDefined
-    , codValueType
-    , codValueOptions
-    , codMinValue
-    , codMaxValue
-    , codMaxLength
-    , codRegex
+    -- * ConfigurationDeploymentStatus
+    , ConfigurationDeploymentStatus (..)
 
     -- * ConfigurationOptionSetting
     , ConfigurationOptionSetting
@@ -144,56 +84,69 @@ module Network.AWS.ElasticBeanstalk.Types
     , cosOptionName
     , cosValue
 
+    -- * ConfigurationOptionValueType
+    , ConfigurationOptionValueType (..)
+
     -- * ConfigurationSettingsDescription
     , ConfigurationSettingsDescription
     , configurationSettingsDescription
-    , csdSolutionStackName
     , csdApplicationName
-    , csdTemplateName
-    , csdDescription
-    , csdEnvironmentName
-    , csdDeploymentStatus
     , csdDateCreated
     , csdDateUpdated
+    , csdDeploymentStatus
+    , csdDescription
+    , csdEnvironmentName
     , csdOptionSettings
+    , csdSolutionStackName
+    , csdTemplateName
 
-    -- * EnvironmentDescription
-    , EnvironmentDescription
-    , environmentDescription
-    , edEnvironmentName
-    , edEnvironmentId
-    , edApplicationName
-    , edVersionLabel
-    , edSolutionStackName
-    , edTemplateName
-    , edDescription
-    , edEndpointURL
-    , edCNAME
-    , edDateCreated
-    , edDateUpdated
-    , edStatus
-    , edHealth
-    , edResources
-    , edTier
+    -- * ApplicationVersionDescription
+    , ApplicationVersionDescription
+    , applicationVersionDescription
+    , avdApplicationName
+    , avdDateCreated
+    , avdDateUpdated
+    , avdDescription
+    , avdSourceBundle
+    , avdVersionLabel
 
-    -- * EnvironmentInfoDescription
-    , EnvironmentInfoDescription
-    , environmentInfoDescription
-    , eidInfoType
-    , eidEc2InstanceId
-    , eidSampleTimestamp
-    , eidMessage
+    -- * OptionSpecification
+    , OptionSpecification
+    , optionSpecification
+    , osNamespace
+    , osOptionName
 
     -- * EnvironmentResourceDescription
     , EnvironmentResourceDescription
     , environmentResourceDescription
-    , erdrEnvironmentName
-    , erdrAutoScalingGroups
-    , erdrInstances
-    , erdrLaunchConfigurations
-    , erdrLoadBalancers
-    , erdrTriggers
-    , erdrQueues
+    , erdAutoScalingGroups
+    , erdEnvironmentName
+    , erdInstances
+    , erdLaunchConfigurations
+    , erdLoadBalancers
+    , erdQueues
+    , erdTriggers
+
+    -- * Queue
+    , Queue
+    , queue
+    , qName
+    , qURL
+
+    -- * EnvironmentStatus
+    , EnvironmentStatus (..)
+
+    -- * LoadBalancerDescription
+    , LoadBalancerDescription
+    , loadBalancerDescription
+    , lbdDomain
+    , lbdListeners
+    , lbdLoadBalancerName
+
+    -- * ApplicationDescriptionMessage
+    , ApplicationDescriptionMessage
+    , applicationDescriptionMessage
+    , admApplication
 
     -- * EnvironmentTier
     , EnvironmentTier
@@ -202,60 +155,36 @@ module Network.AWS.ElasticBeanstalk.Types
     , etType
     , etVersion
 
-    -- * EventDescription
-    , EventDescription
-    , eventDescription
-    , edrEventDate
-    , edrMessage
-    , edrApplicationName
-    , edrVersionLabel
-    , edrTemplateName
-    , edrEnvironmentName
-    , edrRequestId
-    , edrSeverity
+    -- * LoadBalancer
+    , LoadBalancer
+    , loadBalancer
+    , lbName
 
-    -- * Listener
-    , Listener
-    , listener
-    , lProtocol
-    , lPort
-
-    -- * LoadBalancerDescription
-    , LoadBalancerDescription
-    , loadBalancerDescription
-    , lbdLoadBalancerName
-    , lbdDomain
-    , lbdListeners
+    -- * EnvironmentResourcesDescription
+    , EnvironmentResourcesDescription
+    , environmentResourcesDescription
+    , erdLoadBalancer
 
     -- * OptionRestrictionRegex
     , OptionRestrictionRegex
     , optionRestrictionRegex
-    , orrPattern
     , orrLabel
+    , orrPattern
 
-    -- * OptionSpecification
-    , OptionSpecification
-    , optionSpecification
-    , osNamespace
-    , osOptionName
-
-    -- * Queue
-    , Queue
-    , queue
-    , qName
-    , qURL
-
-    -- * S3Location
-    , S3Location
-    , s3Location
-    , slS3Bucket
-    , slS3Key
-
-    -- * SolutionStackDescription
-    , SolutionStackDescription
-    , solutionStackDescription
-    , ssdSolutionStackName
-    , ssdPermittedFileTypes
+    -- * ConfigurationOptionDescription
+    , ConfigurationOptionDescription
+    , configurationOptionDescription
+    , codChangeSeverity
+    , codDefaultValue
+    , codMaxLength
+    , codMaxValue
+    , codMinValue
+    , codName
+    , codNamespace
+    , codRegex
+    , codUserDefined
+    , codValueOptions
+    , codValueType
 
     -- * SourceConfiguration
     , SourceConfiguration
@@ -263,524 +192,336 @@ module Network.AWS.ElasticBeanstalk.Types
     , scApplicationName
     , scTemplateName
 
-    -- * Tag
-    , Tag
-    , tag
-    , tKey
-    , tValue
+    -- * EnvironmentInfoDescription
+    , EnvironmentInfoDescription
+    , environmentInfoDescription
+    , eidEc2InstanceId
+    , eidInfoType
+    , eidMessage
+    , eidSampleTimestamp
+
+    -- * S3Location
+    , S3Location
+    , s3Location
+    , slS3Bucket
+    , slS3Key
 
     -- * ValidationMessage
     , ValidationMessage
     , validationMessage
     , vmMessage
-    , vmSeverity
     , vmNamespace
     , vmOptionName
+    , vmSeverity
+
+    -- * ValidationSeverity
+    , ValidationSeverity (..)
+
+    -- * Trigger
+    , Trigger
+    , trigger
+    , tName
+
+    -- * EnvironmentInfoType
+    , EnvironmentInfoType (..)
+
+    -- * EnvironmentDescription
+    , EnvironmentDescription
+    , environmentDescription
+    , ed1ApplicationName
+    , ed1CNAME
+    , ed1DateCreated
+    , ed1DateUpdated
+    , ed1Description
+    , ed1EndpointURL
+    , ed1EnvironmentId
+    , ed1EnvironmentName
+    , ed1Health
+    , ed1Resources
+    , ed1SolutionStackName
+    , ed1Status
+    , ed1TemplateName
+    , ed1Tier
+    , ed1VersionLabel
+
+    -- * Listener
+    , Listener
+    , listener
+    , lPort
+    , lProtocol
+
+    -- * EnvironmentHealth
+    , EnvironmentHealth (..)
+
+    -- * Instance
+    , Instance
+    , instance'
+    , iId
+
+    -- * SolutionStackDescription
+    , SolutionStackDescription
+    , solutionStackDescription
+    , ssdPermittedFileTypes
+    , ssdSolutionStackName
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
--- | Supported version (@2010-12-01@) of the
--- @AWS Elastic Beanstalk@ service.
+-- | Supported version (@2010-12-01@) of the Amazon Elastic Beanstalk.
 data ElasticBeanstalk deriving (Typeable)
 
 instance AWSService ElasticBeanstalk where
     type Sg ElasticBeanstalk = V4
-    type Er ElasticBeanstalk = ElasticBeanstalkError
+    type Er ElasticBeanstalk = RESTError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
+        , _svcAbbrev   = "ElasticBeanstalk"
         , _svcPrefix   = "elasticbeanstalk"
         , _svcVersion  = "2010-12-01"
         , _svcTarget   = Nothing
         }
 
--- | A sum type representing possible errors returned by the 'ElasticBeanstalk' service.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data ElasticBeanstalkError
-    = ElasticBeanstalkClient HttpException
-    | ElasticBeanstalkSerializer String
-    | ElasticBeanstalkService String
-      -- | Unable to perform the specified operation because the user does
-      -- not have enough privileges for one of more downstream aws
-      -- services.
-    | InsufficientPrivilegesException
-      -- | Unable to perform the specified operation because another
-      -- operation is already in progress affecting an an element in this
-      -- activity.
-    | OperationInProgressException
-      -- | The specified S3 bucket does not belong to the S3 region in which
-      -- the service is running.
-    | S3LocationNotInServiceRegionException
-      -- | The caller does not have a subscription to Amazon S3.
-    | S3SubscriptionRequiredException
-      -- | Unable to delete the Amazon S3 source bundle associated with the
-      -- application version, although the application version deleted
-      -- successfully.
-    | SourceBundleDeletionException
-      -- | The caller has exceeded the limit on the number of application
-      -- versions associated with their account.
-    | TooManyApplicationVersionsException
-      -- | The caller has exceeded the limit on the number of applications
-      -- associated with their account.
-    | TooManyApplicationsException
-      -- | The web service attempted to create a bucket in an Amazon S3
-      -- account that already has 100 buckets.
-    | TooManyBucketsException
-      -- | The caller has exceeded the limit on the number of configuration
-      -- templates associated with their account.
-    | TooManyConfigurationTemplatesException
-      -- | The caller has exceeded the limit of allowed environments
-      -- associated with the account.
-    | TooManyEnvironmentsException
-      deriving (Show, Typeable, Generic)
-
-instance AWSError ElasticBeanstalkError where
-    awsError = const "ElasticBeanstalkError"
-
-instance AWSServiceError ElasticBeanstalkError where
-    serviceError    = ElasticBeanstalkService
-    clientError     = ElasticBeanstalkClient
-    serializerError = ElasticBeanstalkSerializer
-
-instance Exception ElasticBeanstalkError
-
--- | See: 'ElasticBeanstalkClient'
-_ElasticBeanstalkClient :: Prism' ElasticBeanstalkError HttpException
-_ElasticBeanstalkClient = prism
-    ElasticBeanstalkClient
-    (\case
-        ElasticBeanstalkClient p1 -> Right p1
-        x -> Left x)
-
--- | See: 'ElasticBeanstalkSerializer'
-_ElasticBeanstalkSerializer :: Prism' ElasticBeanstalkError String
-_ElasticBeanstalkSerializer = prism
-    ElasticBeanstalkSerializer
-    (\case
-        ElasticBeanstalkSerializer p1 -> Right p1
-        x -> Left x)
-
--- | See: 'ElasticBeanstalkService'
-_ElasticBeanstalkService :: Prism' ElasticBeanstalkError String
-_ElasticBeanstalkService = prism
-    ElasticBeanstalkService
-    (\case
-        ElasticBeanstalkService p1 -> Right p1
-        x -> Left x)
-
--- | Unable to perform the specified operation because the user does not have
--- enough privileges for one of more downstream aws services.
---
--- See: 'InsufficientPrivilegesException'
-_InsufficientPrivilegesException :: Prism' ElasticBeanstalkError ()
-_InsufficientPrivilegesException = prism
-    (const InsufficientPrivilegesException)
-    (\case
-        InsufficientPrivilegesException -> Right ()
-        x -> Left x)
-
--- | Unable to perform the specified operation because another operation is
--- already in progress affecting an an element in this activity.
---
--- See: 'OperationInProgressException'
-_OperationInProgressException :: Prism' ElasticBeanstalkError ()
-_OperationInProgressException = prism
-    (const OperationInProgressException)
-    (\case
-        OperationInProgressException -> Right ()
-        x -> Left x)
-
--- | The specified S3 bucket does not belong to the S3 region in which the
--- service is running.
---
--- See: 'S3LocationNotInServiceRegionException'
-_S3LocationNotInServiceRegionException :: Prism' ElasticBeanstalkError ()
-_S3LocationNotInServiceRegionException = prism
-    (const S3LocationNotInServiceRegionException)
-    (\case
-        S3LocationNotInServiceRegionException -> Right ()
-        x -> Left x)
-
--- | The caller does not have a subscription to Amazon S3.
---
--- See: 'S3SubscriptionRequiredException'
-_S3SubscriptionRequiredException :: Prism' ElasticBeanstalkError ()
-_S3SubscriptionRequiredException = prism
-    (const S3SubscriptionRequiredException)
-    (\case
-        S3SubscriptionRequiredException -> Right ()
-        x -> Left x)
-
--- | Unable to delete the Amazon S3 source bundle associated with the
--- application version, although the application version deleted successfully.
---
--- See: 'SourceBundleDeletionException'
-_SourceBundleDeletionException :: Prism' ElasticBeanstalkError ()
-_SourceBundleDeletionException = prism
-    (const SourceBundleDeletionException)
-    (\case
-        SourceBundleDeletionException -> Right ()
-        x -> Left x)
-
--- | The caller has exceeded the limit on the number of application versions
--- associated with their account.
---
--- See: 'TooManyApplicationVersionsException'
-_TooManyApplicationVersionsException :: Prism' ElasticBeanstalkError ()
-_TooManyApplicationVersionsException = prism
-    (const TooManyApplicationVersionsException)
-    (\case
-        TooManyApplicationVersionsException -> Right ()
-        x -> Left x)
-
--- | The caller has exceeded the limit on the number of applications associated
--- with their account.
---
--- See: 'TooManyApplicationsException'
-_TooManyApplicationsException :: Prism' ElasticBeanstalkError ()
-_TooManyApplicationsException = prism
-    (const TooManyApplicationsException)
-    (\case
-        TooManyApplicationsException -> Right ()
-        x -> Left x)
-
--- | The web service attempted to create a bucket in an Amazon S3 account that
--- already has 100 buckets.
---
--- See: 'TooManyBucketsException'
-_TooManyBucketsException :: Prism' ElasticBeanstalkError ()
-_TooManyBucketsException = prism
-    (const TooManyBucketsException)
-    (\case
-        TooManyBucketsException -> Right ()
-        x -> Left x)
-
--- | The caller has exceeded the limit on the number of configuration templates
--- associated with their account.
---
--- See: 'TooManyConfigurationTemplatesException'
-_TooManyConfigurationTemplatesException :: Prism' ElasticBeanstalkError ()
-_TooManyConfigurationTemplatesException = prism
-    (const TooManyConfigurationTemplatesException)
-    (\case
-        TooManyConfigurationTemplatesException -> Right ()
-        x -> Left x)
-
--- | The caller has exceeded the limit of allowed environments associated with
--- the account.
---
--- See: 'TooManyEnvironmentsException'
-_TooManyEnvironmentsException :: Prism' ElasticBeanstalkError ()
-_TooManyEnvironmentsException = prism
-    (const TooManyEnvironmentsException)
-    (\case
-        TooManyEnvironmentsException -> Right ()
-        x -> Left x)
+    handle = xmlError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/"
+    }
 
-data ConfigurationDeploymentStatus
-    = ConfigurationDeploymentStatusDeployed -- ^ deployed
-    | ConfigurationDeploymentStatusFailed -- ^ failed
-    | ConfigurationDeploymentStatusPending -- ^ pending
-      deriving (Eq, Ord, Show, Generic)
+data ApplicationDescription = ApplicationDescription
+    { _adApplicationName        :: Maybe Text
+    , _adConfigurationTemplates :: [Text]
+    , _adDateCreated            :: Maybe RFC822
+    , _adDateUpdated            :: Maybe RFC822
+    , _adDescription            :: Maybe Text
+    , _adVersions               :: [Text]
+    } deriving (Eq, Ord, Show, Generic)
 
-instance Hashable ConfigurationDeploymentStatus
+-- | 'ApplicationDescription' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'adApplicationName' @::@ 'Maybe' 'Text'
+--
+-- * 'adConfigurationTemplates' @::@ ['Text']
+--
+-- * 'adDateCreated' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'adDateUpdated' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'adDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'adVersions' @::@ ['Text']
+--
+applicationDescription :: ApplicationDescription
+applicationDescription = ApplicationDescription
+    { _adApplicationName        = Nothing
+    , _adDescription            = Nothing
+    , _adDateCreated            = Nothing
+    , _adDateUpdated            = Nothing
+    , _adVersions               = mempty
+    , _adConfigurationTemplates = mempty
+    }
 
-instance FromText ConfigurationDeploymentStatus where
-    parser = match "deployed" ConfigurationDeploymentStatusDeployed
-         <|> match "failed" ConfigurationDeploymentStatusFailed
-         <|> match "pending" ConfigurationDeploymentStatusPending
+-- | The name of the application.
+adApplicationName :: Lens' ApplicationDescription (Maybe Text)
+adApplicationName =
+    lens _adApplicationName (\s a -> s { _adApplicationName = a })
 
-instance ToText ConfigurationDeploymentStatus where
-    toText ConfigurationDeploymentStatusDeployed = "deployed"
-    toText ConfigurationDeploymentStatusFailed = "failed"
-    toText ConfigurationDeploymentStatusPending = "pending"
+-- | The names of the configuration templates associated with this
+-- application.
+adConfigurationTemplates :: Lens' ApplicationDescription [Text]
+adConfigurationTemplates =
+    lens _adConfigurationTemplates
+        (\s a -> s { _adConfigurationTemplates = a })
 
-instance ToByteString ConfigurationDeploymentStatus
+-- | The date when the application was created.
+adDateCreated :: Lens' ApplicationDescription (Maybe UTCTime)
+adDateCreated = lens _adDateCreated (\s a -> s { _adDateCreated = a })
+    . mapping _Time
 
-instance FromXML ConfigurationDeploymentStatus where
+-- | The date when the application was last modified.
+adDateUpdated :: Lens' ApplicationDescription (Maybe UTCTime)
+adDateUpdated = lens _adDateUpdated (\s a -> s { _adDateUpdated = a })
+    . mapping _Time
+
+-- | User-defined description of the application.
+adDescription :: Lens' ApplicationDescription (Maybe Text)
+adDescription = lens _adDescription (\s a -> s { _adDescription = a })
+
+-- | The names of the versions for this application.
+adVersions :: Lens' ApplicationDescription [Text]
+adVersions = lens _adVersions (\s a -> s { _adVersions = a })
+
+instance FromXML ApplicationDescription where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfigurationDeploymentStatus"
+    fromXMLRoot    = fromRoot "ApplicationDescription"
 
-instance ToQuery ConfigurationDeploymentStatus where
-    toQuery = genericQuery def
-
-data ConfigurationOptionValueType
-    = ConfigurationOptionValueTypeList -- ^ List
-    | ConfigurationOptionValueTypeScalar -- ^ Scalar
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable ConfigurationOptionValueType
-
-instance FromText ConfigurationOptionValueType where
-    parser = match "List" ConfigurationOptionValueTypeList
-         <|> match "Scalar" ConfigurationOptionValueTypeScalar
-
-instance ToText ConfigurationOptionValueType where
-    toText ConfigurationOptionValueTypeList = "List"
-    toText ConfigurationOptionValueTypeScalar = "Scalar"
-
-instance ToByteString ConfigurationOptionValueType
-
-instance FromXML ConfigurationOptionValueType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfigurationOptionValueType"
-
-instance ToQuery ConfigurationOptionValueType where
-    toQuery = genericQuery def
-
-data EnvironmentHealth
-    = EnvironmentHealthGreen -- ^ Green
-    | EnvironmentHealthGrey -- ^ Grey
-    | EnvironmentHealthRed -- ^ Red
-    | EnvironmentHealthYellow -- ^ Yellow
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable EnvironmentHealth
-
-instance FromText EnvironmentHealth where
-    parser = match "Green" EnvironmentHealthGreen
-         <|> match "Grey" EnvironmentHealthGrey
-         <|> match "Red" EnvironmentHealthRed
-         <|> match "Yellow" EnvironmentHealthYellow
-
-instance ToText EnvironmentHealth where
-    toText EnvironmentHealthGreen = "Green"
-    toText EnvironmentHealthGrey = "Grey"
-    toText EnvironmentHealthRed = "Red"
-    toText EnvironmentHealthYellow = "Yellow"
-
-instance ToByteString EnvironmentHealth
-
-instance FromXML EnvironmentHealth where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnvironmentHealth"
-
-instance ToQuery EnvironmentHealth where
-    toQuery = genericQuery def
-
-data EnvironmentInfoType
-    = EnvironmentInfoTypeBundle -- ^ bundle
-    | EnvironmentInfoTypeTail -- ^ tail
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable EnvironmentInfoType
-
-instance FromText EnvironmentInfoType where
-    parser = match "bundle" EnvironmentInfoTypeBundle
-         <|> match "tail" EnvironmentInfoTypeTail
-
-instance ToText EnvironmentInfoType where
-    toText EnvironmentInfoTypeBundle = "bundle"
-    toText EnvironmentInfoTypeTail = "tail"
-
-instance ToByteString EnvironmentInfoType
-
-instance FromXML EnvironmentInfoType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnvironmentInfoType"
-
-instance ToQuery EnvironmentInfoType where
-    toQuery = genericQuery def
-
-data EnvironmentStatus
-    = EnvironmentStatusLaunching -- ^ Launching
-    | EnvironmentStatusReady -- ^ Ready
-    | EnvironmentStatusTerminated -- ^ Terminated
-    | EnvironmentStatusTerminating -- ^ Terminating
-    | EnvironmentStatusUpdating -- ^ Updating
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable EnvironmentStatus
-
-instance FromText EnvironmentStatus where
-    parser = match "Launching" EnvironmentStatusLaunching
-         <|> match "Ready" EnvironmentStatusReady
-         <|> match "Terminated" EnvironmentStatusTerminated
-         <|> match "Terminating" EnvironmentStatusTerminating
-         <|> match "Updating" EnvironmentStatusUpdating
-
-instance ToText EnvironmentStatus where
-    toText EnvironmentStatusLaunching = "Launching"
-    toText EnvironmentStatusReady = "Ready"
-    toText EnvironmentStatusTerminated = "Terminated"
-    toText EnvironmentStatusTerminating = "Terminating"
-    toText EnvironmentStatusUpdating = "Updating"
-
-instance ToByteString EnvironmentStatus
-
-instance FromXML EnvironmentStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnvironmentStatus"
-
-instance ToQuery EnvironmentStatus where
-    toQuery = genericQuery def
+instance ToQuery ApplicationDescription
 
 data EventSeverity
-    = EventSeverityDebug -- ^ DEBUG
-    | EventSeverityError -- ^ ERROR
-    | EventSeverityFatal -- ^ FATAL
-    | EventSeverityInfo -- ^ INFO
-    | EventSeverityTrace -- ^ TRACE
-    | EventSeverityWarn -- ^ WARN
-      deriving (Eq, Ord, Show, Generic)
+    = Debug -- ^ DEBUG
+    | Error -- ^ ERROR
+    | Fatal -- ^ FATAL
+    | Info  -- ^ INFO
+    | Trace -- ^ TRACE
+    | Warn  -- ^ WARN
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable EventSeverity
 
 instance FromText EventSeverity where
-    parser = match "DEBUG" EventSeverityDebug
-         <|> match "ERROR" EventSeverityError
-         <|> match "FATAL" EventSeverityFatal
-         <|> match "INFO" EventSeverityInfo
-         <|> match "TRACE" EventSeverityTrace
-         <|> match "WARN" EventSeverityWarn
+    parser = match "DEBUG" Debug
+         <|> match "ERROR" Error
+         <|> match "FATAL" Fatal
+         <|> match "INFO"  Info
+         <|> match "TRACE" Trace
+         <|> match "WARN"  Warn
 
 instance ToText EventSeverity where
-    toText EventSeverityDebug = "DEBUG"
-    toText EventSeverityError = "ERROR"
-    toText EventSeverityFatal = "FATAL"
-    toText EventSeverityInfo = "INFO"
-    toText EventSeverityTrace = "TRACE"
-    toText EventSeverityWarn = "WARN"
-
-instance ToByteString EventSeverity
+    toText = \case
+        Debug -> "DEBUG"
+        Error -> "ERROR"
+        Fatal -> "FATAL"
+        Info  -> "INFO"
+        Trace -> "TRACE"
+        Warn  -> "WARN"
 
 instance FromXML EventSeverity where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EventSeverity"
 
-instance ToQuery EventSeverity where
-    toQuery = genericQuery def
+instance ToQuery EventSeverity
 
-data ValidationSeverity
-    = ValidationSeverityError -- ^ error
-    | ValidationSeverityWarning -- ^ warning
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable ValidationSeverity
-
-instance FromText ValidationSeverity where
-    parser = match "error" ValidationSeverityError
-         <|> match "warning" ValidationSeverityWarning
-
-instance ToText ValidationSeverity where
-    toText ValidationSeverityError = "error"
-    toText ValidationSeverityWarning = "warning"
-
-instance ToByteString ValidationSeverity
-
-instance FromXML ValidationSeverity where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ValidationSeverity"
-
-instance ToQuery ValidationSeverity where
-    toQuery = genericQuery def
-
--- | Describes an Auto Scaling launch configuration.
-newtype AutoScalingGroup = AutoScalingGroup
-    { _asgName :: Maybe Text
+data Tag = Tag
+    { _tagKey   :: Maybe Text
+    , _tagValue :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'AutoScalingGroup' data type.
---
--- 'AutoScalingGroup' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'Tag' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Maybe Text@
+-- * 'tagKey' @::@ 'Maybe' 'Text'
 --
-autoScalingGroup :: AutoScalingGroup
-autoScalingGroup = AutoScalingGroup
-    { _asgName = Nothing
+-- * 'tagValue' @::@ 'Maybe' 'Text'
+--
+tag :: Tag
+tag = Tag
+    { _tagKey   = Nothing
+    , _tagValue = Nothing
     }
 
--- | The name of the AutoScalingGroup .
-asgName :: Lens' AutoScalingGroup (Maybe Text)
-asgName = lens _asgName (\s a -> s { _asgName = a })
+-- | The key of the tag.
+tagKey :: Lens' Tag (Maybe Text)
+tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
-instance FromXML AutoScalingGroup where
+-- | The value of the tag.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\s a -> s { _tagValue = a })
+
+instance FromXML Tag where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AutoScalingGroup"
+    fromXMLRoot    = fromRoot "Tag"
 
--- | The description of the AWS resources used by this environment.
-newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription
-    { _erdLoadBalancer :: Maybe LoadBalancerDescription
+instance ToQuery Tag
+
+data EventDescription = EventDescription
+    { _edApplicationName :: Maybe Text
+    , _edEnvironmentName :: Maybe Text
+    , _edEventDate       :: Maybe RFC822
+    , _edMessage         :: Maybe Text
+    , _edRequestId       :: Maybe Text
+    , _edSeverity        :: Maybe Text
+    , _edTemplateName    :: Maybe Text
+    , _edVersionLabel    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'EnvironmentResourcesDescription' data type to populate a request.
+-- | 'EventDescription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancer ::@ @Maybe LoadBalancerDescription@
+-- * 'edApplicationName' @::@ 'Maybe' 'Text'
 --
-environmentResourcesDescription :: EnvironmentResourcesDescription
-environmentResourcesDescription = EnvironmentResourcesDescription
-    { _erdLoadBalancer = Nothing
+-- * 'edEnvironmentName' @::@ 'Maybe' 'Text'
+--
+-- * 'edEventDate' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'edMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'edRequestId' @::@ 'Maybe' 'Text'
+--
+-- * 'edSeverity' @::@ 'Maybe' 'Text'
+--
+-- * 'edTemplateName' @::@ 'Maybe' 'Text'
+--
+-- * 'edVersionLabel' @::@ 'Maybe' 'Text'
+--
+eventDescription :: EventDescription
+eventDescription = EventDescription
+    { _edEventDate       = Nothing
+    , _edMessage         = Nothing
+    , _edApplicationName = Nothing
+    , _edVersionLabel    = Nothing
+    , _edTemplateName    = Nothing
+    , _edEnvironmentName = Nothing
+    , _edRequestId       = Nothing
+    , _edSeverity        = Nothing
     }
 
--- | Describes the LoadBalancer.
-erdLoadBalancer :: Lens' EnvironmentResourcesDescription (Maybe LoadBalancerDescription)
-erdLoadBalancer = lens _erdLoadBalancer (\s a -> s { _erdLoadBalancer = a })
+-- | The application associated with the event.
+edApplicationName :: Lens' EventDescription (Maybe Text)
+edApplicationName =
+    lens _edApplicationName (\s a -> s { _edApplicationName = a })
 
-instance FromXML EnvironmentResourcesDescription where
+-- | The name of the environment associated with this event.
+edEnvironmentName :: Lens' EventDescription (Maybe Text)
+edEnvironmentName =
+    lens _edEnvironmentName (\s a -> s { _edEnvironmentName = a })
+
+-- | The date when the event occurred.
+edEventDate :: Lens' EventDescription (Maybe UTCTime)
+edEventDate = lens _edEventDate (\s a -> s { _edEventDate = a })
+    . mapping _Time
+
+-- | The event message.
+edMessage :: Lens' EventDescription (Maybe Text)
+edMessage = lens _edMessage (\s a -> s { _edMessage = a })
+
+-- | The web service request ID for the activity of this event.
+edRequestId :: Lens' EventDescription (Maybe Text)
+edRequestId = lens _edRequestId (\s a -> s { _edRequestId = a })
+
+-- | The severity level of this event.
+edSeverity :: Lens' EventDescription (Maybe Text)
+edSeverity = lens _edSeverity (\s a -> s { _edSeverity = a })
+
+-- | The name of the configuration associated with this event.
+edTemplateName :: Lens' EventDescription (Maybe Text)
+edTemplateName = lens _edTemplateName (\s a -> s { _edTemplateName = a })
+
+-- | The release label for the application version associated with this event.
+edVersionLabel :: Lens' EventDescription (Maybe Text)
+edVersionLabel = lens _edVersionLabel (\s a -> s { _edVersionLabel = a })
+
+instance FromXML EventDescription where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnvironmentResourcesDescription"
+    fromXMLRoot    = fromRoot "EventDescription"
 
-instance ToQuery EnvironmentResourcesDescription where
-    toQuery = genericQuery def
+instance ToQuery EventDescription
 
--- | The description of an Amazon EC2 instance.
-newtype Instance = Instance
-    { _iId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Instance' data type.
---
--- 'Instance' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Id ::@ @Maybe Text@
---
-instance' :: Instance
-instance' = Instance
-    { _iId = Nothing
-    }
-
--- | The ID of the Amazon EC2 instance.
-iId :: Lens' Instance (Maybe Text)
-iId = lens _iId (\s a -> s { _iId = a })
-
-instance FromXML Instance where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Instance"
-
--- | Describes an Auto Scaling launch configuration.
 newtype LaunchConfiguration = LaunchConfiguration
     { _lcName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'LaunchConfiguration' data type.
---
--- 'LaunchConfiguration' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'LaunchConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Maybe Text@
+-- * 'lcName' @::@ 'Maybe' 'Text'
 --
 launchConfiguration :: LaunchConfiguration
 launchConfiguration = LaunchConfiguration
@@ -795,372 +536,105 @@ instance FromXML LaunchConfiguration where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "LaunchConfiguration"
 
--- | Describes a LoadBalancer.
-newtype LoadBalancer = LoadBalancer
-    { _lbName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+instance ToQuery LaunchConfiguration
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'LoadBalancer' data type.
---
--- 'LoadBalancer' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage
+    { _avdmApplicationVersion :: Maybe ApplicationVersionDescription
+    } deriving (Eq, Show, Generic)
+
+-- | 'ApplicationVersionDescriptionMessage' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Maybe Text@
+-- * 'avdmApplicationVersion' @::@ 'Maybe' 'ApplicationVersionDescription'
 --
-loadBalancer :: LoadBalancer
-loadBalancer = LoadBalancer
-    { _lbName = Nothing
+applicationVersionDescriptionMessage :: ApplicationVersionDescriptionMessage
+applicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage
+    { _avdmApplicationVersion = Nothing
     }
-
--- | The name of the LoadBalancer.
-lbName :: Lens' LoadBalancer (Maybe Text)
-lbName = lens _lbName (\s a -> s { _lbName = a })
-
-instance FromXML LoadBalancer where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LoadBalancer"
-
--- | Describes a trigger.
-newtype Trigger = Trigger
-    { _trName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Trigger' data type.
---
--- 'Trigger' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Name ::@ @Maybe Text@
---
-trigger :: Trigger
-trigger = Trigger
-    { _trName = Nothing
-    }
-
--- | The name of the trigger.
-trName :: Lens' Trigger (Maybe Text)
-trName = lens _trName (\s a -> s { _trName = a })
-
-instance FromXML Trigger where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Trigger"
-
--- | The ApplicationDescription of the application.
-data ApplicationDescription = ApplicationDescription
-    { _adApplicationName :: Maybe Text
-    , _adDescription :: Maybe Text
-    , _adDateCreated :: Maybe ISO8601
-    , _adDateUpdated :: Maybe ISO8601
-    , _adVersions :: [Text]
-    , _adConfigurationTemplates :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ApplicationDescription' data type.
---
--- 'ApplicationDescription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @ApplicationName ::@ @Maybe Text@
---
--- * @Description ::@ @Maybe Text@
---
--- * @DateCreated ::@ @Maybe ISO8601@
---
--- * @DateUpdated ::@ @Maybe ISO8601@
---
--- * @Versions ::@ @[Text]@
---
--- * @ConfigurationTemplates ::@ @[Text]@
---
-applicationDescription :: ApplicationDescription
-applicationDescription = ApplicationDescription
-    { _adApplicationName = Nothing
-    , _adDescription = Nothing
-    , _adDateCreated = Nothing
-    , _adDateUpdated = Nothing
-    , _adVersions = mempty
-    , _adConfigurationTemplates = mempty
-    }
-
--- | The name of the application.
-adApplicationName :: Lens' ApplicationDescription (Maybe Text)
-adApplicationName =
-    lens _adApplicationName (\s a -> s { _adApplicationName = a })
-
--- | User-defined description of the application.
-adDescription :: Lens' ApplicationDescription (Maybe Text)
-adDescription = lens _adDescription (\s a -> s { _adDescription = a })
-
--- | The date when the application was created.
-adDateCreated :: Lens' ApplicationDescription (Maybe ISO8601)
-adDateCreated = lens _adDateCreated (\s a -> s { _adDateCreated = a })
-
--- | The date when the application was last modified.
-adDateUpdated :: Lens' ApplicationDescription (Maybe ISO8601)
-adDateUpdated = lens _adDateUpdated (\s a -> s { _adDateUpdated = a })
-
--- | The names of the versions for this application.
-adVersions :: Lens' ApplicationDescription [Text]
-adVersions = lens _adVersions (\s a -> s { _adVersions = a })
-
--- | The names of the configuration templates associated with this application.
-adConfigurationTemplates :: Lens' ApplicationDescription [Text]
-adConfigurationTemplates =
-    lens _adConfigurationTemplates
-         (\s a -> s { _adConfigurationTemplates = a })
-
-instance FromXML ApplicationDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ApplicationDescription"
 
 -- | The ApplicationVersionDescription of the application version.
-data ApplicationVersionDescription = ApplicationVersionDescription
-    { _avdApplicationName :: Maybe Text
-    , _avdDescription :: Maybe Text
-    , _avdVersionLabel :: Maybe Text
-    , _avdSourceBundle :: Maybe S3Location
-    , _avdDateCreated :: Maybe ISO8601
-    , _avdDateUpdated :: Maybe ISO8601
-    } deriving (Eq, Ord, Show, Generic)
+avdmApplicationVersion :: Lens' ApplicationVersionDescriptionMessage (Maybe ApplicationVersionDescription)
+avdmApplicationVersion =
+    lens _avdmApplicationVersion (\s a -> s { _avdmApplicationVersion = a })
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ApplicationVersionDescription' data type.
---
--- 'ApplicationVersionDescription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+instance FromXML ApplicationVersionDescriptionMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ApplicationVersionDescriptionMessage"
+
+instance ToQuery ApplicationVersionDescriptionMessage
+
+newtype AutoScalingGroup = AutoScalingGroup
+    { _asgName :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
+
+-- | 'AutoScalingGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ApplicationName ::@ @Maybe Text@
+-- * 'asgName' @::@ 'Maybe' 'Text'
 --
--- * @Description ::@ @Maybe Text@
---
--- * @VersionLabel ::@ @Maybe Text@
---
--- * @SourceBundle ::@ @Maybe S3Location@
---
--- * @DateCreated ::@ @Maybe ISO8601@
---
--- * @DateUpdated ::@ @Maybe ISO8601@
---
-applicationVersionDescription :: ApplicationVersionDescription
-applicationVersionDescription = ApplicationVersionDescription
-    { _avdApplicationName = Nothing
-    , _avdDescription = Nothing
-    , _avdVersionLabel = Nothing
-    , _avdSourceBundle = Nothing
-    , _avdDateCreated = Nothing
-    , _avdDateUpdated = Nothing
+autoScalingGroup :: AutoScalingGroup
+autoScalingGroup = AutoScalingGroup
+    { _asgName = Nothing
     }
 
--- | The name of the application associated with this release.
-avdApplicationName :: Lens' ApplicationVersionDescription (Maybe Text)
-avdApplicationName =
-    lens _avdApplicationName (\s a -> s { _avdApplicationName = a })
+-- | The name of the AutoScalingGroup .
+asgName :: Lens' AutoScalingGroup (Maybe Text)
+asgName = lens _asgName (\s a -> s { _asgName = a })
 
--- | The description of this application version.
-avdDescription :: Lens' ApplicationVersionDescription (Maybe Text)
-avdDescription = lens _avdDescription (\s a -> s { _avdDescription = a })
-
--- | A label uniquely identifying the version for the associated application.
-avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
-avdVersionLabel = lens _avdVersionLabel (\s a -> s { _avdVersionLabel = a })
-
--- | The location where the source bundle is located for this version.
-avdSourceBundle :: Lens' ApplicationVersionDescription (Maybe S3Location)
-avdSourceBundle = lens _avdSourceBundle (\s a -> s { _avdSourceBundle = a })
-
--- | The creation date of the application version.
-avdDateCreated :: Lens' ApplicationVersionDescription (Maybe ISO8601)
-avdDateCreated = lens _avdDateCreated (\s a -> s { _avdDateCreated = a })
-
--- | The last modified date of the application version.
-avdDateUpdated :: Lens' ApplicationVersionDescription (Maybe ISO8601)
-avdDateUpdated = lens _avdDateUpdated (\s a -> s { _avdDateUpdated = a })
-
-instance FromXML ApplicationVersionDescription where
+instance FromXML AutoScalingGroup where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ApplicationVersionDescription"
+    fromXMLRoot    = fromRoot "AutoScalingGroup"
 
--- | Describes the possible values for a configuration option.
-data ConfigurationOptionDescription = ConfigurationOptionDescription
-    { _codNamespace :: Maybe Text
-    , _codName :: Maybe Text
-    , _codDefaultValue :: Maybe Text
-    , _codChangeSeverity :: Maybe Text
-    , _codUserDefined :: Maybe Bool
-    , _codValueType :: Maybe ConfigurationOptionValueType
-    , _codValueOptions :: [Text]
-    , _codMinValue :: Maybe Integer
-    , _codMaxValue :: Maybe Integer
-    , _codMaxLength :: Maybe Integer
-    , _codRegex :: Maybe OptionRestrictionRegex
-    } deriving (Eq, Ord, Show, Generic)
+instance ToQuery AutoScalingGroup
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ConfigurationOptionDescription' data type.
---
--- 'ConfigurationOptionDescription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Namespace ::@ @Maybe Text@
---
--- * @Name ::@ @Maybe Text@
---
--- * @DefaultValue ::@ @Maybe Text@
---
--- * @ChangeSeverity ::@ @Maybe Text@
---
--- * @UserDefined ::@ @Maybe Bool@
---
--- * @ValueType ::@ @Maybe ConfigurationOptionValueType@
---
--- * @ValueOptions ::@ @[Text]@
---
--- * @MinValue ::@ @Maybe Integer@
---
--- * @MaxValue ::@ @Maybe Integer@
---
--- * @MaxLength ::@ @Maybe Integer@
---
--- * @Regex ::@ @Maybe OptionRestrictionRegex@
---
-configurationOptionDescription :: ConfigurationOptionDescription
-configurationOptionDescription = ConfigurationOptionDescription
-    { _codNamespace = Nothing
-    , _codName = Nothing
-    , _codDefaultValue = Nothing
-    , _codChangeSeverity = Nothing
-    , _codUserDefined = Nothing
-    , _codValueType = Nothing
-    , _codValueOptions = mempty
-    , _codMinValue = Nothing
-    , _codMaxValue = Nothing
-    , _codMaxLength = Nothing
-    , _codRegex = Nothing
-    }
+data ConfigurationDeploymentStatus
+    = Deployed -- ^ deployed
+    | Failed   -- ^ failed
+    | Pending  -- ^ pending
+      deriving (Eq, Ord, Show, Generic, Enum)
 
--- | A unique namespace identifying the option's associated AWS resource.
-codNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
-codNamespace = lens _codNamespace (\s a -> s { _codNamespace = a })
+instance Hashable ConfigurationDeploymentStatus
 
--- | The name of the configuration option.
-codName :: Lens' ConfigurationOptionDescription (Maybe Text)
-codName = lens _codName (\s a -> s { _codName = a })
+instance FromText ConfigurationDeploymentStatus where
+    parser = match "deployed" Deployed
+         <|> match "failed"   Failed
+         <|> match "pending"  Pending
 
--- | The default value for this configuration option.
-codDefaultValue :: Lens' ConfigurationOptionDescription (Maybe Text)
-codDefaultValue = lens _codDefaultValue (\s a -> s { _codDefaultValue = a })
+instance ToText ConfigurationDeploymentStatus where
+    toText = \case
+        Deployed -> "deployed"
+        Failed   -> "failed"
+        Pending  -> "pending"
 
--- | An indication of which action is required if the value for this
--- configuration option changes: NoInterruption - There is no interruption to
--- the environment or application availability. RestartEnvironment - The
--- environment is restarted, all AWS resources are deleted and recreated, and
--- the environment is unavailable during the process. RestartApplicationServer
--- - The environment is available the entire time. However, a short
--- application outage occurs when the application servers on the running
--- Amazon EC2 instances are restarted. NoInterruption : There is no
--- interruption to the environment or application availability.
--- RestartEnvironment : The environment is entirely restarted, all AWS
--- resources are deleted and recreated, and the environment is unavailable
--- during the process. RestartApplicationServer : The environment is available
--- the entire time. However, a short application outage occurs when the
--- application servers on the running Amazon EC2 instances are restarted.
-codChangeSeverity :: Lens' ConfigurationOptionDescription (Maybe Text)
-codChangeSeverity =
-    lens _codChangeSeverity (\s a -> s { _codChangeSeverity = a })
-
--- | An indication of whether the user defined this configuration option: true :
--- This configuration option was defined by the user. It is a valid choice for
--- specifying this as an Option to Remove when updating configuration
--- settings. false : This configuration was not defined by the user. true :
--- This configuration option was defined by the user. It is a valid choice for
--- specifying if this as an Option to Remove when updating configuration
--- settings. false : This configuration was not defined by the user.
--- Constraint: You can remove only UserDefined options from a configuration.
--- Valid Values: true | false.
-codUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
-codUserDefined = lens _codUserDefined (\s a -> s { _codUserDefined = a })
-
--- | An indication of which type of values this option has and whether it is
--- allowable to select one or more than one of the possible values: Scalar :
--- Values for this option are a single selection from the possible values, or
--- a unformatted string or numeric value governed by the MIN/MAX/Regex
--- constraints: List : Values for this option are multiple selections of the
--- possible values. Boolean : Values for this option are either true or false
--- . Scalar : Values for this option are a single selection from the possible
--- values, or an unformatted string, or numeric value governed by the
--- MIN/MAX/Regex constraints. List : Values for this option are multiple
--- selections from the possible values. Boolean : Values for this option are
--- either true or false .
-codValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
-codValueType = lens _codValueType (\s a -> s { _codValueType = a })
-
--- | If specified, values for the configuration option are selected from this
--- list.
-codValueOptions :: Lens' ConfigurationOptionDescription [Text]
-codValueOptions = lens _codValueOptions (\s a -> s { _codValueOptions = a })
-
--- | If specified, the configuration option must be a numeric value greater than
--- this value.
-codMinValue :: Lens' ConfigurationOptionDescription (Maybe Integer)
-codMinValue = lens _codMinValue (\s a -> s { _codMinValue = a })
-
--- | If specified, the configuration option must be a numeric value less than
--- this value.
-codMaxValue :: Lens' ConfigurationOptionDescription (Maybe Integer)
-codMaxValue = lens _codMaxValue (\s a -> s { _codMaxValue = a })
-
--- | If specified, the configuration option must be a string value no longer
--- than this value.
-codMaxLength :: Lens' ConfigurationOptionDescription (Maybe Integer)
-codMaxLength = lens _codMaxLength (\s a -> s { _codMaxLength = a })
-
--- | If specified, the configuration option must be a string value that
--- satisfies this regular expression.
-codRegex :: Lens' ConfigurationOptionDescription (Maybe OptionRestrictionRegex)
-codRegex = lens _codRegex (\s a -> s { _codRegex = a })
-
-instance FromXML ConfigurationOptionDescription where
+instance FromXML ConfigurationDeploymentStatus where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfigurationOptionDescription"
+    fromXMLRoot    = fromRoot "ConfigurationDeploymentStatus"
 
--- | A specification identifying an individual configuration option along with
--- its current value. For a list of possible option values, go to Option
--- Values in the AWS Elastic Beanstalk Developer Guide.
+instance ToQuery ConfigurationDeploymentStatus
+
 data ConfigurationOptionSetting = ConfigurationOptionSetting
-    { _cosNamespace :: Maybe Text
+    { _cosNamespace  :: Maybe Text
     , _cosOptionName :: Maybe Text
-    , _cosValue :: Maybe Text
+    , _cosValue      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ConfigurationOptionSetting' data type to populate a request.
+-- | 'ConfigurationOptionSetting' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Namespace ::@ @Maybe Text@
+-- * 'cosNamespace' @::@ 'Maybe' 'Text'
 --
--- * @OptionName ::@ @Maybe Text@
+-- * 'cosOptionName' @::@ 'Maybe' 'Text'
 --
--- * @Value ::@ @Maybe Text@
+-- * 'cosValue' @::@ 'Maybe' 'Text'
 --
 configurationOptionSetting :: ConfigurationOptionSetting
 configurationOptionSetting = ConfigurationOptionSetting
-    { _cosNamespace = Nothing
+    { _cosNamespace  = Nothing
     , _cosOptionName = Nothing
-    , _cosValue = Nothing
+    , _cosValue      = Nothing
     }
 
 -- | A unique namespace identifying the option's associated AWS resource.
@@ -1179,75 +653,109 @@ instance FromXML ConfigurationOptionSetting where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ConfigurationOptionSetting"
 
-instance ToQuery ConfigurationOptionSetting where
-    toQuery = genericQuery def
+instance ToQuery ConfigurationOptionSetting
 
--- | Describes the settings for a configuration set.
+data ConfigurationOptionValueType
+    = List   -- ^ List
+    | Scalar -- ^ Scalar
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable ConfigurationOptionValueType
+
+instance FromText ConfigurationOptionValueType where
+    parser = match "List"   List
+         <|> match "Scalar" Scalar
+
+instance ToText ConfigurationOptionValueType where
+    toText = \case
+        List   -> "List"
+        Scalar -> "Scalar"
+
+instance FromXML ConfigurationOptionValueType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ConfigurationOptionValueType"
+
+instance ToQuery ConfigurationOptionValueType
+
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription
-    { _csdSolutionStackName :: Maybe Text
-    , _csdApplicationName :: Maybe Text
-    , _csdTemplateName :: Maybe Text
-    , _csdDescription :: Maybe Text
-    , _csdEnvironmentName :: Maybe Text
-    , _csdDeploymentStatus :: Maybe ConfigurationDeploymentStatus
-    , _csdDateCreated :: Maybe ISO8601
-    , _csdDateUpdated :: Maybe ISO8601
-    , _csdOptionSettings :: [ConfigurationOptionSetting]
-    } deriving (Eq, Ord, Show, Generic)
+    { _csdApplicationName   :: Maybe Text
+    , _csdDateCreated       :: Maybe RFC822
+    , _csdDateUpdated       :: Maybe RFC822
+    , _csdDeploymentStatus  :: Maybe Text
+    , _csdDescription       :: Maybe Text
+    , _csdEnvironmentName   :: Maybe Text
+    , _csdOptionSettings    :: [ConfigurationOptionSetting]
+    , _csdSolutionStackName :: Maybe Text
+    , _csdTemplateName      :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ConfigurationSettingsDescription' data type.
---
--- 'ConfigurationSettingsDescription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'ConfigurationSettingsDescription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SolutionStackName ::@ @Maybe Text@
+-- * 'csdApplicationName' @::@ 'Maybe' 'Text'
 --
--- * @ApplicationName ::@ @Maybe Text@
+-- * 'csdDateCreated' @::@ 'Maybe' 'UTCTime'
 --
--- * @TemplateName ::@ @Maybe Text@
+-- * 'csdDateUpdated' @::@ 'Maybe' 'UTCTime'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'csdDeploymentStatus' @::@ 'Maybe' 'Text'
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'csdDescription' @::@ 'Maybe' 'Text'
 --
--- * @DeploymentStatus ::@ @Maybe ConfigurationDeploymentStatus@
+-- * 'csdEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * @DateCreated ::@ @Maybe ISO8601@
+-- * 'csdOptionSettings' @::@ ['ConfigurationOptionSetting']
 --
--- * @DateUpdated ::@ @Maybe ISO8601@
+-- * 'csdSolutionStackName' @::@ 'Maybe' 'Text'
 --
--- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+-- * 'csdTemplateName' @::@ 'Maybe' 'Text'
 --
 configurationSettingsDescription :: ConfigurationSettingsDescription
 configurationSettingsDescription = ConfigurationSettingsDescription
     { _csdSolutionStackName = Nothing
-    , _csdApplicationName = Nothing
-    , _csdTemplateName = Nothing
-    , _csdDescription = Nothing
-    , _csdEnvironmentName = Nothing
-    , _csdDeploymentStatus = Nothing
-    , _csdDateCreated = Nothing
-    , _csdDateUpdated = Nothing
-    , _csdOptionSettings = mempty
+    , _csdApplicationName   = Nothing
+    , _csdTemplateName      = Nothing
+    , _csdDescription       = Nothing
+    , _csdEnvironmentName   = Nothing
+    , _csdDeploymentStatus  = Nothing
+    , _csdDateCreated       = Nothing
+    , _csdDateUpdated       = Nothing
+    , _csdOptionSettings    = mempty
     }
-
--- | The name of the solution stack this configuration set uses.
-csdSolutionStackName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdSolutionStackName =
-    lens _csdSolutionStackName (\s a -> s { _csdSolutionStackName = a })
 
 -- | The name of the application associated with this configuration set.
 csdApplicationName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdApplicationName =
     lens _csdApplicationName (\s a -> s { _csdApplicationName = a })
 
--- | If not null, the name of the configuration template for this configuration
--- set.
-csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdTemplateName = lens _csdTemplateName (\s a -> s { _csdTemplateName = a })
+-- | The date (in UTC time) when this configuration set was created.
+csdDateCreated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
+csdDateCreated = lens _csdDateCreated (\s a -> s { _csdDateCreated = a })
+    . mapping _Time
+
+-- | The date (in UTC time) when this configuration set was last modified.
+csdDateUpdated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
+csdDateUpdated = lens _csdDateUpdated (\s a -> s { _csdDateUpdated = a })
+    . mapping _Time
+
+-- | If this configuration set is associated with an environment, the
+-- DeploymentStatus parameter indicates the deployment status of this
+-- configuration set: null: This configuration is not associated with a
+-- running environment. pending: This is a draft configuration that is not
+-- deployed to the associated environment but is in the process of
+-- deploying. deployed: This is the configuration that is currently deployed
+-- to the associated running environment. failed: This is a draft
+-- configuration, that failed to successfully deploy. null: This
+-- configuration is not associated with a running environment. pending: This
+-- is a draft configuration that is not deployed to the associated
+-- environment but is in the process of deploying. deployed: This is the
+-- configuration that is currently deployed to the associated running
+-- environment. failed: This is a draft configuration that failed to
+-- successfully deploy.
+csdDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe Text)
+csdDeploymentStatus =
+    lens _csdDeploymentStatus (\s a -> s { _csdDeploymentStatus = a })
 
 -- | Describes this configuration set.
 csdDescription :: Lens' ConfigurationSettingsDescription (Maybe Text)
@@ -1258,360 +766,356 @@ csdEnvironmentName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdEnvironmentName =
     lens _csdEnvironmentName (\s a -> s { _csdEnvironmentName = a })
 
--- | If this configuration set is associated with an environment, the
--- DeploymentStatus parameter indicates the deployment status of this
--- configuration set: null: This configuration is not associated with a
--- running environment. pending: This is a draft configuration that is not
--- deployed to the associated environment but is in the process of deploying.
--- deployed: This is the configuration that is currently deployed to the
--- associated running environment. failed: This is a draft configuration, that
--- failed to successfully deploy. null: This configuration is not associated
--- with a running environment. pending: This is a draft configuration that is
--- not deployed to the associated environment but is in the process of
--- deploying. deployed: This is the configuration that is currently deployed
--- to the associated running environment. failed: This is a draft
--- configuration that failed to successfully deploy.
-csdDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe ConfigurationDeploymentStatus)
-csdDeploymentStatus =
-    lens _csdDeploymentStatus (\s a -> s { _csdDeploymentStatus = a })
-
--- | The date (in UTC time) when this configuration set was created.
-csdDateCreated :: Lens' ConfigurationSettingsDescription (Maybe ISO8601)
-csdDateCreated = lens _csdDateCreated (\s a -> s { _csdDateCreated = a })
-
--- | The date (in UTC time) when this configuration set was last modified.
-csdDateUpdated :: Lens' ConfigurationSettingsDescription (Maybe ISO8601)
-csdDateUpdated = lens _csdDateUpdated (\s a -> s { _csdDateUpdated = a })
-
--- | A list of the configuration options and their values in this configuration
--- set.
+-- | A list of the configuration options and their values in this
+-- configuration set.
 csdOptionSettings :: Lens' ConfigurationSettingsDescription [ConfigurationOptionSetting]
 csdOptionSettings =
     lens _csdOptionSettings (\s a -> s { _csdOptionSettings = a })
+
+-- | The name of the solution stack this configuration set uses.
+csdSolutionStackName :: Lens' ConfigurationSettingsDescription (Maybe Text)
+csdSolutionStackName =
+    lens _csdSolutionStackName (\s a -> s { _csdSolutionStackName = a })
+
+-- | If not null, the name of the configuration template for this
+-- configuration set.
+csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
+csdTemplateName = lens _csdTemplateName (\s a -> s { _csdTemplateName = a })
 
 instance FromXML ConfigurationSettingsDescription where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ConfigurationSettingsDescription"
 
--- | Describes the properties of an environment.
-data EnvironmentDescription = EnvironmentDescription
-    { _edEnvironmentName :: Maybe Text
-    , _edEnvironmentId :: Maybe Text
-    , _edApplicationName :: Maybe Text
-    , _edVersionLabel :: Maybe Text
-    , _edSolutionStackName :: Maybe Text
-    , _edTemplateName :: Maybe Text
-    , _edDescription :: Maybe Text
-    , _edEndpointURL :: Maybe Text
-    , _edCNAME :: Maybe Text
-    , _edDateCreated :: Maybe ISO8601
-    , _edDateUpdated :: Maybe ISO8601
-    , _edStatus :: Maybe EnvironmentStatus
-    , _edHealth :: Maybe EnvironmentHealth
-    , _edResources :: Maybe EnvironmentResourcesDescription
-    , _edTier :: Maybe EnvironmentTier
-    } deriving (Eq, Ord, Show, Generic)
+instance ToQuery ConfigurationSettingsDescription
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'EnvironmentDescription' data type.
---
--- 'EnvironmentDescription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+data ApplicationVersionDescription = ApplicationVersionDescription
+    { _avdApplicationName :: Maybe Text
+    , _avdDateCreated     :: Maybe RFC822
+    , _avdDateUpdated     :: Maybe RFC822
+    , _avdDescription     :: Maybe Text
+    , _avdSourceBundle    :: Maybe S3Location
+    , _avdVersionLabel    :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+-- | 'ApplicationVersionDescription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'avdApplicationName' @::@ 'Maybe' 'Text'
 --
--- * @EnvironmentId ::@ @Maybe Text@
+-- * 'avdDateCreated' @::@ 'Maybe' 'UTCTime'
 --
--- * @ApplicationName ::@ @Maybe Text@
+-- * 'avdDateUpdated' @::@ 'Maybe' 'UTCTime'
 --
--- * @VersionLabel ::@ @Maybe Text@
+-- * 'avdDescription' @::@ 'Maybe' 'Text'
 --
--- * @SolutionStackName ::@ @Maybe Text@
+-- * 'avdSourceBundle' @::@ 'Maybe' 'S3Location'
 --
--- * @TemplateName ::@ @Maybe Text@
+-- * 'avdVersionLabel' @::@ 'Maybe' 'Text'
 --
--- * @Description ::@ @Maybe Text@
---
--- * @EndpointURL ::@ @Maybe Text@
---
--- * @CNAME ::@ @Maybe Text@
---
--- * @DateCreated ::@ @Maybe ISO8601@
---
--- * @DateUpdated ::@ @Maybe ISO8601@
---
--- * @Status ::@ @Maybe EnvironmentStatus@
---
--- * @Health ::@ @Maybe EnvironmentHealth@
---
--- * @Resources ::@ @Maybe EnvironmentResourcesDescription@
---
--- * @Tier ::@ @Maybe EnvironmentTier@
---
-environmentDescription :: EnvironmentDescription
-environmentDescription = EnvironmentDescription
-    { _edEnvironmentName = Nothing
-    , _edEnvironmentId = Nothing
-    , _edApplicationName = Nothing
-    , _edVersionLabel = Nothing
-    , _edSolutionStackName = Nothing
-    , _edTemplateName = Nothing
-    , _edDescription = Nothing
-    , _edEndpointURL = Nothing
-    , _edCNAME = Nothing
-    , _edDateCreated = Nothing
-    , _edDateUpdated = Nothing
-    , _edStatus = Nothing
-    , _edHealth = Nothing
-    , _edResources = Nothing
-    , _edTier = Nothing
+applicationVersionDescription :: ApplicationVersionDescription
+applicationVersionDescription = ApplicationVersionDescription
+    { _avdApplicationName = Nothing
+    , _avdDescription     = Nothing
+    , _avdVersionLabel    = Nothing
+    , _avdSourceBundle    = Nothing
+    , _avdDateCreated     = Nothing
+    , _avdDateUpdated     = Nothing
     }
 
--- | The name of this environment.
-edEnvironmentName :: Lens' EnvironmentDescription (Maybe Text)
-edEnvironmentName =
-    lens _edEnvironmentName (\s a -> s { _edEnvironmentName = a })
+-- | The name of the application associated with this release.
+avdApplicationName :: Lens' ApplicationVersionDescription (Maybe Text)
+avdApplicationName =
+    lens _avdApplicationName (\s a -> s { _avdApplicationName = a })
 
--- | The ID of this environment.
-edEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
-edEnvironmentId = lens _edEnvironmentId (\s a -> s { _edEnvironmentId = a })
+-- | The creation date of the application version.
+avdDateCreated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
+avdDateCreated = lens _avdDateCreated (\s a -> s { _avdDateCreated = a })
+    . mapping _Time
 
--- | The name of the application associated with this environment.
-edApplicationName :: Lens' EnvironmentDescription (Maybe Text)
-edApplicationName =
-    lens _edApplicationName (\s a -> s { _edApplicationName = a })
+-- | The last modified date of the application version.
+avdDateUpdated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
+avdDateUpdated = lens _avdDateUpdated (\s a -> s { _avdDateUpdated = a })
+    . mapping _Time
 
--- | The application version deployed in this environment.
-edVersionLabel :: Lens' EnvironmentDescription (Maybe Text)
-edVersionLabel = lens _edVersionLabel (\s a -> s { _edVersionLabel = a })
+-- | The description of this application version.
+avdDescription :: Lens' ApplicationVersionDescription (Maybe Text)
+avdDescription = lens _avdDescription (\s a -> s { _avdDescription = a })
 
--- | The name of the SolutionStack deployed with this environment.
-edSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
-edSolutionStackName =
-    lens _edSolutionStackName (\s a -> s { _edSolutionStackName = a })
+-- | The location where the source bundle is located for this version.
+avdSourceBundle :: Lens' ApplicationVersionDescription (Maybe S3Location)
+avdSourceBundle = lens _avdSourceBundle (\s a -> s { _avdSourceBundle = a })
 
--- | The name of the configuration template used to originally launch this
--- environment.
-edTemplateName :: Lens' EnvironmentDescription (Maybe Text)
-edTemplateName = lens _edTemplateName (\s a -> s { _edTemplateName = a })
+-- | A label uniquely identifying the version for the associated application.
+avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
+avdVersionLabel = lens _avdVersionLabel (\s a -> s { _avdVersionLabel = a })
 
--- | Describes this environment.
-edDescription :: Lens' EnvironmentDescription (Maybe Text)
-edDescription = lens _edDescription (\s a -> s { _edDescription = a })
-
--- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
--- For single-instance environments, the IP address of the instance.
-edEndpointURL :: Lens' EnvironmentDescription (Maybe Text)
-edEndpointURL = lens _edEndpointURL (\s a -> s { _edEndpointURL = a })
-
--- | The URL to the CNAME for this environment.
-edCNAME :: Lens' EnvironmentDescription (Maybe Text)
-edCNAME = lens _edCNAME (\s a -> s { _edCNAME = a })
-
--- | The creation date for this environment.
-edDateCreated :: Lens' EnvironmentDescription (Maybe ISO8601)
-edDateCreated = lens _edDateCreated (\s a -> s { _edDateCreated = a })
-
--- | The last modified date for this environment.
-edDateUpdated :: Lens' EnvironmentDescription (Maybe ISO8601)
-edDateUpdated = lens _edDateUpdated (\s a -> s { _edDateUpdated = a })
-
--- | The current operational status of the environment: Launching: Environment
--- is in the process of initial deployment. Updating: Environment is in the
--- process of updating its configuration settings or application version.
--- Ready: Environment is available to have an action performed on it, such as
--- update or terminate. Terminating: Environment is in the shut-down process.
--- Terminated: Environment is not running.
-edStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
-edStatus = lens _edStatus (\s a -> s { _edStatus = a })
-
--- | Describes the health status of the environment. AWS Elastic Beanstalk
--- indicates the failure levels for a running environment: Red : Indicates the
--- environment is not working. Yellow: Indicates that something is wrong, the
--- application might not be available, but the instances appear running.
--- Green: Indicates the environment is healthy and fully functional. Red:
--- Indicates the environment is not responsive. Occurs when three or more
--- consecutive failures occur for an environment. Yellow: Indicates that
--- something is wrong. Occurs when two consecutive failures occur for an
--- environment. Green: Indicates the environment is healthy and fully
--- functional. Grey: Default health for a new environment. The environment is
--- not fully launched and health checks have not started or health checks are
--- suspended during an UpdateEnvironment or RestartEnvironement request.
--- Default: Grey.
-edHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
-edHealth = lens _edHealth (\s a -> s { _edHealth = a })
-
--- | The description of the AWS resources used by this environment.
-edResources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
-edResources = lens _edResources (\s a -> s { _edResources = a })
-
--- | Describes the current tier of this environment.
-edTier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
-edTier = lens _edTier (\s a -> s { _edTier = a })
-
-instance FromXML EnvironmentDescription where
+instance FromXML ApplicationVersionDescription where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnvironmentDescription"
+    fromXMLRoot    = fromRoot "ApplicationVersionDescription"
 
--- | The information retrieved from the Amazon EC2 instances.
-data EnvironmentInfoDescription = EnvironmentInfoDescription
-    { _eidInfoType :: Maybe EnvironmentInfoType
-    , _eidEc2InstanceId :: Maybe Text
-    , _eidSampleTimestamp :: Maybe ISO8601
-    , _eidMessage :: Maybe Text
+instance ToQuery ApplicationVersionDescription
+
+data OptionSpecification = OptionSpecification
+    { _osNamespace  :: Maybe Text
+    , _osOptionName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'EnvironmentInfoDescription' data type.
---
--- 'EnvironmentInfoDescription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'OptionSpecification' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InfoType ::@ @Maybe EnvironmentInfoType@
+-- * 'osNamespace' @::@ 'Maybe' 'Text'
 --
--- * @Ec2InstanceId ::@ @Maybe Text@
+-- * 'osOptionName' @::@ 'Maybe' 'Text'
 --
--- * @SampleTimestamp ::@ @Maybe ISO8601@
---
--- * @Message ::@ @Maybe Text@
---
-environmentInfoDescription :: EnvironmentInfoDescription
-environmentInfoDescription = EnvironmentInfoDescription
-    { _eidInfoType = Nothing
-    , _eidEc2InstanceId = Nothing
-    , _eidSampleTimestamp = Nothing
-    , _eidMessage = Nothing
+optionSpecification :: OptionSpecification
+optionSpecification = OptionSpecification
+    { _osNamespace  = Nothing
+    , _osOptionName = Nothing
     }
 
--- | The type of information retrieved.
-eidInfoType :: Lens' EnvironmentInfoDescription (Maybe EnvironmentInfoType)
-eidInfoType = lens _eidInfoType (\s a -> s { _eidInfoType = a })
+-- | A unique namespace identifying the option's associated AWS resource.
+osNamespace :: Lens' OptionSpecification (Maybe Text)
+osNamespace = lens _osNamespace (\s a -> s { _osNamespace = a })
 
--- | The Amazon EC2 Instance ID for this information.
-eidEc2InstanceId :: Lens' EnvironmentInfoDescription (Maybe Text)
-eidEc2InstanceId =
-    lens _eidEc2InstanceId (\s a -> s { _eidEc2InstanceId = a })
+-- | The name of the configuration option.
+osOptionName :: Lens' OptionSpecification (Maybe Text)
+osOptionName = lens _osOptionName (\s a -> s { _osOptionName = a })
 
--- | The time stamp when this information was retrieved.
-eidSampleTimestamp :: Lens' EnvironmentInfoDescription (Maybe ISO8601)
-eidSampleTimestamp =
-    lens _eidSampleTimestamp (\s a -> s { _eidSampleTimestamp = a })
-
--- | The retrieved information.
-eidMessage :: Lens' EnvironmentInfoDescription (Maybe Text)
-eidMessage = lens _eidMessage (\s a -> s { _eidMessage = a })
-
-instance FromXML EnvironmentInfoDescription where
+instance FromXML OptionSpecification where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnvironmentInfoDescription"
+    fromXMLRoot    = fromRoot "OptionSpecification"
 
--- | A list of EnvironmentResourceDescription.
+instance ToQuery OptionSpecification
+
 data EnvironmentResourceDescription = EnvironmentResourceDescription
-    { _erdrEnvironmentName :: Maybe Text
-    , _erdrAutoScalingGroups :: [AutoScalingGroup]
-    , _erdrInstances :: [Instance]
-    , _erdrLaunchConfigurations :: [LaunchConfiguration]
-    , _erdrLoadBalancers :: [LoadBalancer]
-    , _erdrTriggers :: [Trigger]
-    , _erdrQueues :: [Queue]
-    } deriving (Eq, Ord, Show, Generic)
+    { _erdAutoScalingGroups    :: [AutoScalingGroup]
+    , _erdEnvironmentName      :: Maybe Text
+    , _erdInstances            :: [Instance]
+    , _erdLaunchConfigurations :: [LaunchConfiguration]
+    , _erdLoadBalancers        :: [LoadBalancer]
+    , _erdQueues               :: [Queue]
+    , _erdTriggers             :: [Trigger]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'EnvironmentResourceDescription' data type.
---
--- 'EnvironmentResourceDescription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'EnvironmentResourceDescription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'erdAutoScalingGroups' @::@ ['AutoScalingGroup']
 --
--- * @AutoScalingGroups ::@ @[AutoScalingGroup]@
+-- * 'erdEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * @Instances ::@ @[Instance]@
+-- * 'erdInstances' @::@ ['Instance']
 --
--- * @LaunchConfigurations ::@ @[LaunchConfiguration]@
+-- * 'erdLaunchConfigurations' @::@ ['LaunchConfiguration']
 --
--- * @LoadBalancers ::@ @[LoadBalancer]@
+-- * 'erdLoadBalancers' @::@ ['LoadBalancer']
 --
--- * @Triggers ::@ @[Trigger]@
+-- * 'erdQueues' @::@ ['Queue']
 --
--- * @Queues ::@ @[Queue]@
+-- * 'erdTriggers' @::@ ['Trigger']
 --
 environmentResourceDescription :: EnvironmentResourceDescription
 environmentResourceDescription = EnvironmentResourceDescription
-    { _erdrEnvironmentName = Nothing
-    , _erdrAutoScalingGroups = mempty
-    , _erdrInstances = mempty
-    , _erdrLaunchConfigurations = mempty
-    , _erdrLoadBalancers = mempty
-    , _erdrTriggers = mempty
-    , _erdrQueues = mempty
+    { _erdEnvironmentName      = Nothing
+    , _erdAutoScalingGroups    = mempty
+    , _erdInstances            = mempty
+    , _erdLaunchConfigurations = mempty
+    , _erdLoadBalancers        = mempty
+    , _erdTriggers             = mempty
+    , _erdQueues               = mempty
     }
 
--- | The name of the environment.
-erdrEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
-erdrEnvironmentName =
-    lens _erdrEnvironmentName (\s a -> s { _erdrEnvironmentName = a })
-
 -- | The AutoScalingGroups used by this environment.
-erdrAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
-erdrAutoScalingGroups =
-    lens _erdrAutoScalingGroups (\s a -> s { _erdrAutoScalingGroups = a })
+erdAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
+erdAutoScalingGroups =
+    lens _erdAutoScalingGroups (\s a -> s { _erdAutoScalingGroups = a })
+
+-- | The name of the environment.
+erdEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
+erdEnvironmentName =
+    lens _erdEnvironmentName (\s a -> s { _erdEnvironmentName = a })
 
 -- | The Amazon EC2 instances used by this environment.
-erdrInstances :: Lens' EnvironmentResourceDescription [Instance]
-erdrInstances = lens _erdrInstances (\s a -> s { _erdrInstances = a })
+erdInstances :: Lens' EnvironmentResourceDescription [Instance]
+erdInstances = lens _erdInstances (\s a -> s { _erdInstances = a })
 
 -- | The Auto Scaling launch configurations in use by this environment.
-erdrLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
-erdrLaunchConfigurations =
-    lens _erdrLaunchConfigurations
-         (\s a -> s { _erdrLaunchConfigurations = a })
+erdLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
+erdLaunchConfigurations =
+    lens _erdLaunchConfigurations (\s a -> s { _erdLaunchConfigurations = a })
 
 -- | The LoadBalancers in use by this environment.
-erdrLoadBalancers :: Lens' EnvironmentResourceDescription [LoadBalancer]
-erdrLoadBalancers =
-    lens _erdrLoadBalancers (\s a -> s { _erdrLoadBalancers = a })
-
--- | The AutoScaling triggers in use by this environment.
-erdrTriggers :: Lens' EnvironmentResourceDescription [Trigger]
-erdrTriggers = lens _erdrTriggers (\s a -> s { _erdrTriggers = a })
+erdLoadBalancers :: Lens' EnvironmentResourceDescription [LoadBalancer]
+erdLoadBalancers = lens _erdLoadBalancers (\s a -> s { _erdLoadBalancers = a })
 
 -- | The queues used by this environment.
-erdrQueues :: Lens' EnvironmentResourceDescription [Queue]
-erdrQueues = lens _erdrQueues (\s a -> s { _erdrQueues = a })
+erdQueues :: Lens' EnvironmentResourceDescription [Queue]
+erdQueues = lens _erdQueues (\s a -> s { _erdQueues = a })
+
+-- | The AutoScaling triggers in use by this environment.
+erdTriggers :: Lens' EnvironmentResourceDescription [Trigger]
+erdTriggers = lens _erdTriggers (\s a -> s { _erdTriggers = a })
 
 instance FromXML EnvironmentResourceDescription where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnvironmentResourceDescription"
 
--- | Describes the current tier of this environment.
-data EnvironmentTier = EnvironmentTier
-    { _etName :: Maybe Text
-    , _etType :: Maybe Text
-    , _etVersion :: Maybe Text
+instance ToQuery EnvironmentResourceDescription
+
+data Queue = Queue
+    { _qName :: Maybe Text
+    , _qURL  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'EnvironmentTier' data type to populate a request.
+-- | 'Queue' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Maybe Text@
+-- * 'qName' @::@ 'Maybe' 'Text'
 --
--- * @Type ::@ @Maybe Text@
+-- * 'qURL' @::@ 'Maybe' 'Text'
 --
--- * @Version ::@ @Maybe Text@
+queue :: Queue
+queue = Queue
+    { _qName = Nothing
+    , _qURL  = Nothing
+    }
+
+-- | The name of the queue.
+qName :: Lens' Queue (Maybe Text)
+qName = lens _qName (\s a -> s { _qName = a })
+
+-- | The URL of the queue.
+qURL :: Lens' Queue (Maybe Text)
+qURL = lens _qURL (\s a -> s { _qURL = a })
+
+instance FromXML Queue where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "Queue"
+
+instance ToQuery Queue
+
+data EnvironmentStatus
+    = Launching   -- ^ Launching
+    | Ready       -- ^ Ready
+    | Terminated  -- ^ Terminated
+    | Terminating -- ^ Terminating
+    | Updating    -- ^ Updating
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable EnvironmentStatus
+
+instance FromText EnvironmentStatus where
+    parser = match "Launching"   Launching
+         <|> match "Ready"       Ready
+         <|> match "Terminated"  Terminated
+         <|> match "Terminating" Terminating
+         <|> match "Updating"    Updating
+
+instance ToText EnvironmentStatus where
+    toText = \case
+        Launching   -> "Launching"
+        Ready       -> "Ready"
+        Terminated  -> "Terminated"
+        Terminating -> "Terminating"
+        Updating    -> "Updating"
+
+instance FromXML EnvironmentStatus where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnvironmentStatus"
+
+instance ToQuery EnvironmentStatus
+
+data LoadBalancerDescription = LoadBalancerDescription
+    { _lbdDomain           :: Maybe Text
+    , _lbdListeners        :: [Listener]
+    , _lbdLoadBalancerName :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+-- | 'LoadBalancerDescription' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lbdDomain' @::@ 'Maybe' 'Text'
+--
+-- * 'lbdListeners' @::@ ['Listener']
+--
+-- * 'lbdLoadBalancerName' @::@ 'Maybe' 'Text'
+--
+loadBalancerDescription :: LoadBalancerDescription
+loadBalancerDescription = LoadBalancerDescription
+    { _lbdLoadBalancerName = Nothing
+    , _lbdDomain           = Nothing
+    , _lbdListeners        = mempty
+    }
+
+-- | The domain name of the LoadBalancer.
+lbdDomain :: Lens' LoadBalancerDescription (Maybe Text)
+lbdDomain = lens _lbdDomain (\s a -> s { _lbdDomain = a })
+
+-- | A list of Listeners used by the LoadBalancer.
+lbdListeners :: Lens' LoadBalancerDescription [Listener]
+lbdListeners = lens _lbdListeners (\s a -> s { _lbdListeners = a })
+
+-- | The name of the LoadBalancer.
+lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
+lbdLoadBalancerName =
+    lens _lbdLoadBalancerName (\s a -> s { _lbdLoadBalancerName = a })
+
+instance FromXML LoadBalancerDescription where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "LoadBalancerDescription"
+
+instance ToQuery LoadBalancerDescription
+
+newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage
+    { _admApplication :: Maybe ApplicationDescription
+    } deriving (Eq, Show, Generic)
+
+-- | 'ApplicationDescriptionMessage' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'admApplication' @::@ 'Maybe' 'ApplicationDescription'
+--
+applicationDescriptionMessage :: ApplicationDescriptionMessage
+applicationDescriptionMessage = ApplicationDescriptionMessage
+    { _admApplication = Nothing
+    }
+
+-- | The ApplicationDescription of the application.
+admApplication :: Lens' ApplicationDescriptionMessage (Maybe ApplicationDescription)
+admApplication = lens _admApplication (\s a -> s { _admApplication = a })
+
+instance FromXML ApplicationDescriptionMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ApplicationDescriptionMessage"
+
+instance ToQuery ApplicationDescriptionMessage
+
+data EnvironmentTier = EnvironmentTier
+    { _etName    :: Maybe Text
+    , _etType    :: Maybe Text
+    , _etVersion :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'EnvironmentTier' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'etName' @::@ 'Maybe' 'Text'
+--
+-- * 'etType' @::@ 'Maybe' 'Text'
+--
+-- * 'etVersion' @::@ 'Maybe' 'Text'
 --
 environmentTier :: EnvironmentTier
 environmentTier = EnvironmentTier
-    { _etName = Nothing
-    , _etType = Nothing
+    { _etName    = Nothing
+    , _etType    = Nothing
     , _etVersion = Nothing
     }
 
@@ -1631,301 +1135,337 @@ instance FromXML EnvironmentTier where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnvironmentTier"
 
-instance ToQuery EnvironmentTier where
-    toQuery = genericQuery def
+instance ToQuery EnvironmentTier
 
--- | Describes an event.
-data EventDescription = EventDescription
-    { _edrEventDate :: Maybe ISO8601
-    , _edrMessage :: Maybe Text
-    , _edrApplicationName :: Maybe Text
-    , _edrVersionLabel :: Maybe Text
-    , _edrTemplateName :: Maybe Text
-    , _edrEnvironmentName :: Maybe Text
-    , _edrRequestId :: Maybe Text
-    , _edrSeverity :: Maybe EventSeverity
-    } deriving (Eq, Ord, Show, Generic)
+newtype LoadBalancer = LoadBalancer
+    { _lbName :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'EventDescription' data type.
---
--- 'EventDescription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'LoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EventDate ::@ @Maybe ISO8601@
+-- * 'lbName' @::@ 'Maybe' 'Text'
 --
--- * @Message ::@ @Maybe Text@
---
--- * @ApplicationName ::@ @Maybe Text@
---
--- * @VersionLabel ::@ @Maybe Text@
---
--- * @TemplateName ::@ @Maybe Text@
---
--- * @EnvironmentName ::@ @Maybe Text@
---
--- * @RequestId ::@ @Maybe Text@
---
--- * @Severity ::@ @Maybe EventSeverity@
---
-eventDescription :: EventDescription
-eventDescription = EventDescription
-    { _edrEventDate = Nothing
-    , _edrMessage = Nothing
-    , _edrApplicationName = Nothing
-    , _edrVersionLabel = Nothing
-    , _edrTemplateName = Nothing
-    , _edrEnvironmentName = Nothing
-    , _edrRequestId = Nothing
-    , _edrSeverity = Nothing
-    }
-
--- | The date when the event occurred.
-edrEventDate :: Lens' EventDescription (Maybe ISO8601)
-edrEventDate = lens _edrEventDate (\s a -> s { _edrEventDate = a })
-
--- | The event message.
-edrMessage :: Lens' EventDescription (Maybe Text)
-edrMessage = lens _edrMessage (\s a -> s { _edrMessage = a })
-
--- | The application associated with the event.
-edrApplicationName :: Lens' EventDescription (Maybe Text)
-edrApplicationName =
-    lens _edrApplicationName (\s a -> s { _edrApplicationName = a })
-
--- | The release label for the application version associated with this event.
-edrVersionLabel :: Lens' EventDescription (Maybe Text)
-edrVersionLabel = lens _edrVersionLabel (\s a -> s { _edrVersionLabel = a })
-
--- | The name of the configuration associated with this event.
-edrTemplateName :: Lens' EventDescription (Maybe Text)
-edrTemplateName = lens _edrTemplateName (\s a -> s { _edrTemplateName = a })
-
--- | The name of the environment associated with this event.
-edrEnvironmentName :: Lens' EventDescription (Maybe Text)
-edrEnvironmentName =
-    lens _edrEnvironmentName (\s a -> s { _edrEnvironmentName = a })
-
--- | The web service request ID for the activity of this event.
-edrRequestId :: Lens' EventDescription (Maybe Text)
-edrRequestId = lens _edrRequestId (\s a -> s { _edrRequestId = a })
-
--- | The severity level of this event.
-edrSeverity :: Lens' EventDescription (Maybe EventSeverity)
-edrSeverity = lens _edrSeverity (\s a -> s { _edrSeverity = a })
-
-instance FromXML EventDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EventDescription"
-
--- | Describes the properties of a Listener for the LoadBalancer.
-data Listener = Listener
-    { _lProtocol :: Maybe Text
-    , _lPort :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Listener' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Protocol ::@ @Maybe Text@
---
--- * @Port ::@ @Maybe Integer@
---
-listener :: Listener
-listener = Listener
-    { _lProtocol = Nothing
-    , _lPort = Nothing
-    }
-
--- | The protocol that is used by the Listener.
-lProtocol :: Lens' Listener (Maybe Text)
-lProtocol = lens _lProtocol (\s a -> s { _lProtocol = a })
-
--- | The port that is used by the Listener.
-lPort :: Lens' Listener (Maybe Integer)
-lPort = lens _lPort (\s a -> s { _lPort = a })
-
-instance FromXML Listener where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Listener"
-
-instance ToQuery Listener where
-    toQuery = genericQuery def
-
--- | Describes the LoadBalancer.
-data LoadBalancerDescription = LoadBalancerDescription
-    { _lbdLoadBalancerName :: Maybe Text
-    , _lbdDomain :: Maybe Text
-    , _lbdListeners :: [Listener]
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'LoadBalancerDescription' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @LoadBalancerName ::@ @Maybe Text@
---
--- * @Domain ::@ @Maybe Text@
---
--- * @Listeners ::@ @[Listener]@
---
-loadBalancerDescription :: LoadBalancerDescription
-loadBalancerDescription = LoadBalancerDescription
-    { _lbdLoadBalancerName = Nothing
-    , _lbdDomain = Nothing
-    , _lbdListeners = mempty
+loadBalancer :: LoadBalancer
+loadBalancer = LoadBalancer
+    { _lbName = Nothing
     }
 
 -- | The name of the LoadBalancer.
-lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
-lbdLoadBalancerName =
-    lens _lbdLoadBalancerName (\s a -> s { _lbdLoadBalancerName = a })
+lbName :: Lens' LoadBalancer (Maybe Text)
+lbName = lens _lbName (\s a -> s { _lbName = a })
 
--- | The domain name of the LoadBalancer.
-lbdDomain :: Lens' LoadBalancerDescription (Maybe Text)
-lbdDomain = lens _lbdDomain (\s a -> s { _lbdDomain = a })
-
--- | A list of Listeners used by the LoadBalancer.
-lbdListeners :: Lens' LoadBalancerDescription [Listener]
-lbdListeners = lens _lbdListeners (\s a -> s { _lbdListeners = a })
-
-instance FromXML LoadBalancerDescription where
+instance FromXML LoadBalancer where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LoadBalancerDescription"
+    fromXMLRoot    = fromRoot "LoadBalancer"
 
-instance ToQuery LoadBalancerDescription where
-    toQuery = genericQuery def
+instance ToQuery LoadBalancer
 
--- | If specified, the configuration option must be a string value that
--- satisfies this regular expression.
-data OptionRestrictionRegex = OptionRestrictionRegex
-    { _orrPattern :: Maybe Text
-    , _orrLabel :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription
+    { _erdLoadBalancer :: Maybe LoadBalancerDescription
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'OptionRestrictionRegex' data type to populate a request.
+-- | 'EnvironmentResourcesDescription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Pattern ::@ @Maybe Text@
+-- * 'erdLoadBalancer' @::@ 'Maybe' 'LoadBalancerDescription'
 --
--- * @Label ::@ @Maybe Text@
+environmentResourcesDescription :: EnvironmentResourcesDescription
+environmentResourcesDescription = EnvironmentResourcesDescription
+    { _erdLoadBalancer = Nothing
+    }
+
+-- | Describes the LoadBalancer.
+erdLoadBalancer :: Lens' EnvironmentResourcesDescription (Maybe LoadBalancerDescription)
+erdLoadBalancer = lens _erdLoadBalancer (\s a -> s { _erdLoadBalancer = a })
+
+instance FromXML EnvironmentResourcesDescription where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnvironmentResourcesDescription"
+
+instance ToQuery EnvironmentResourcesDescription
+
+data OptionRestrictionRegex = OptionRestrictionRegex
+    { _orrLabel   :: Maybe Text
+    , _orrPattern :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'OptionRestrictionRegex' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'orrLabel' @::@ 'Maybe' 'Text'
+--
+-- * 'orrPattern' @::@ 'Maybe' 'Text'
 --
 optionRestrictionRegex :: OptionRestrictionRegex
 optionRestrictionRegex = OptionRestrictionRegex
     { _orrPattern = Nothing
-    , _orrLabel = Nothing
+    , _orrLabel   = Nothing
     }
+
+-- | A unique name representing this regular expression.
+orrLabel :: Lens' OptionRestrictionRegex (Maybe Text)
+orrLabel = lens _orrLabel (\s a -> s { _orrLabel = a })
 
 -- | The regular expression pattern that a string configuration option value
 -- with this restriction must match.
 orrPattern :: Lens' OptionRestrictionRegex (Maybe Text)
 orrPattern = lens _orrPattern (\s a -> s { _orrPattern = a })
 
--- | A unique name representing this regular expression.
-orrLabel :: Lens' OptionRestrictionRegex (Maybe Text)
-orrLabel = lens _orrLabel (\s a -> s { _orrLabel = a })
-
 instance FromXML OptionRestrictionRegex where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "OptionRestrictionRegex"
 
-instance ToQuery OptionRestrictionRegex where
-    toQuery = genericQuery def
+instance ToQuery OptionRestrictionRegex
 
--- | A specification identifying an individual configuration option.
-data OptionSpecification = OptionSpecification
-    { _osNamespace :: Maybe Text
-    , _osOptionName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+data ConfigurationOptionDescription = ConfigurationOptionDescription
+    { _codChangeSeverity :: Maybe Text
+    , _codDefaultValue   :: Maybe Text
+    , _codMaxLength      :: Maybe Int
+    , _codMaxValue       :: Maybe Int
+    , _codMinValue       :: Maybe Int
+    , _codName           :: Maybe Text
+    , _codNamespace      :: Maybe Text
+    , _codRegex          :: Maybe OptionRestrictionRegex
+    , _codUserDefined    :: Maybe Bool
+    , _codValueOptions   :: [Text]
+    , _codValueType      :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'OptionSpecification' data type to populate a request.
+-- | 'ConfigurationOptionDescription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Namespace ::@ @Maybe Text@
+-- * 'codChangeSeverity' @::@ 'Maybe' 'Text'
 --
--- * @OptionName ::@ @Maybe Text@
+-- * 'codDefaultValue' @::@ 'Maybe' 'Text'
 --
-optionSpecification :: OptionSpecification
-optionSpecification = OptionSpecification
-    { _osNamespace = Nothing
-    , _osOptionName = Nothing
+-- * 'codMaxLength' @::@ 'Maybe' 'Int'
+--
+-- * 'codMaxValue' @::@ 'Maybe' 'Int'
+--
+-- * 'codMinValue' @::@ 'Maybe' 'Int'
+--
+-- * 'codName' @::@ 'Maybe' 'Text'
+--
+-- * 'codNamespace' @::@ 'Maybe' 'Text'
+--
+-- * 'codRegex' @::@ 'Maybe' 'OptionRestrictionRegex'
+--
+-- * 'codUserDefined' @::@ 'Maybe' 'Bool'
+--
+-- * 'codValueOptions' @::@ ['Text']
+--
+-- * 'codValueType' @::@ 'Maybe' 'Text'
+--
+configurationOptionDescription :: ConfigurationOptionDescription
+configurationOptionDescription = ConfigurationOptionDescription
+    { _codNamespace      = Nothing
+    , _codName           = Nothing
+    , _codDefaultValue   = Nothing
+    , _codChangeSeverity = Nothing
+    , _codUserDefined    = Nothing
+    , _codValueType      = Nothing
+    , _codValueOptions   = mempty
+    , _codMinValue       = Nothing
+    , _codMaxValue       = Nothing
+    , _codMaxLength      = Nothing
+    , _codRegex          = Nothing
     }
 
--- | A unique namespace identifying the option's associated AWS resource.
-osNamespace :: Lens' OptionSpecification (Maybe Text)
-osNamespace = lens _osNamespace (\s a -> s { _osNamespace = a })
+-- | An indication of which action is required if the value for this
+-- configuration option changes: NoInterruption - There is no interruption
+-- to the environment or application availability. RestartEnvironment - The
+-- environment is restarted, all AWS resources are deleted and recreated,
+-- and the environment is unavailable during the process.
+-- RestartApplicationServer - The environment is available the entire time.
+-- However, a short application outage occurs when the application servers
+-- on the running Amazon EC2 instances are restarted. NoInterruption : There
+-- is no interruption to the environment or application availability.
+-- RestartEnvironment : The environment is entirely restarted, all AWS
+-- resources are deleted and recreated, and the environment is unavailable
+-- during the process. RestartApplicationServer : The environment is
+-- available the entire time. However, a short application outage occurs
+-- when the application servers on the running Amazon EC2 instances are
+-- restarted.
+codChangeSeverity :: Lens' ConfigurationOptionDescription (Maybe Text)
+codChangeSeverity =
+    lens _codChangeSeverity (\s a -> s { _codChangeSeverity = a })
+
+-- | The default value for this configuration option.
+codDefaultValue :: Lens' ConfigurationOptionDescription (Maybe Text)
+codDefaultValue = lens _codDefaultValue (\s a -> s { _codDefaultValue = a })
+
+-- | If specified, the configuration option must be a string value no longer
+-- than this value.
+codMaxLength :: Lens' ConfigurationOptionDescription (Maybe Int)
+codMaxLength = lens _codMaxLength (\s a -> s { _codMaxLength = a })
+
+-- | If specified, the configuration option must be a numeric value less than
+-- this value.
+codMaxValue :: Lens' ConfigurationOptionDescription (Maybe Int)
+codMaxValue = lens _codMaxValue (\s a -> s { _codMaxValue = a })
+
+-- | If specified, the configuration option must be a numeric value greater
+-- than this value.
+codMinValue :: Lens' ConfigurationOptionDescription (Maybe Int)
+codMinValue = lens _codMinValue (\s a -> s { _codMinValue = a })
 
 -- | The name of the configuration option.
-osOptionName :: Lens' OptionSpecification (Maybe Text)
-osOptionName = lens _osOptionName (\s a -> s { _osOptionName = a })
+codName :: Lens' ConfigurationOptionDescription (Maybe Text)
+codName = lens _codName (\s a -> s { _codName = a })
 
-instance ToQuery OptionSpecification where
-    toQuery = genericQuery def
+-- | A unique namespace identifying the option's associated AWS resource.
+codNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
+codNamespace = lens _codNamespace (\s a -> s { _codNamespace = a })
 
--- | Describes a queue.
-data Queue = Queue
-    { _qName :: Maybe Text
-    , _qURL :: Maybe Text
+-- | If specified, the configuration option must be a string value that
+-- satisfies this regular expression.
+codRegex :: Lens' ConfigurationOptionDescription (Maybe OptionRestrictionRegex)
+codRegex = lens _codRegex (\s a -> s { _codRegex = a })
+
+-- | An indication of whether the user defined this configuration option: true
+-- : This configuration option was defined by the user. It is a valid choice
+-- for specifying this as an Option to Remove when updating configuration
+-- settings. false : This configuration was not defined by the user. true :
+-- This configuration option was defined by the user. It is a valid choice
+-- for specifying if this as an Option to Remove when updating configuration
+-- settings. false : This configuration was not defined by the user.
+-- Constraint: You can remove only UserDefined options from a configuration.
+-- Valid Values: true | false.
+codUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
+codUserDefined = lens _codUserDefined (\s a -> s { _codUserDefined = a })
+
+-- | If specified, values for the configuration option are selected from this
+-- list.
+codValueOptions :: Lens' ConfigurationOptionDescription [Text]
+codValueOptions = lens _codValueOptions (\s a -> s { _codValueOptions = a })
+
+-- | An indication of which type of values this option has and whether it is
+-- allowable to select one or more than one of the possible values: Scalar :
+-- Values for this option are a single selection from the possible values,
+-- or a unformatted string or numeric value governed by the MIN/MAX/Regex
+-- constraints: List : Values for this option are multiple selections of the
+-- possible values. Boolean : Values for this option are either true or
+-- false . Scalar : Values for this option are a single selection from the
+-- possible values, or an unformatted string, or numeric value governed by
+-- the MIN/MAX/Regex constraints. List : Values for this option are multiple
+-- selections from the possible values. Boolean : Values for this option are
+-- either true or false .
+codValueType :: Lens' ConfigurationOptionDescription (Maybe Text)
+codValueType = lens _codValueType (\s a -> s { _codValueType = a })
+
+instance FromXML ConfigurationOptionDescription where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ConfigurationOptionDescription"
+
+instance ToQuery ConfigurationOptionDescription
+
+data SourceConfiguration = SourceConfiguration
+    { _scApplicationName :: Maybe Text
+    , _scTemplateName    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Queue' data type.
---
--- 'Queue' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'SourceConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Maybe Text@
+-- * 'scApplicationName' @::@ 'Maybe' 'Text'
 --
--- * @URL ::@ @Maybe Text@
+-- * 'scTemplateName' @::@ 'Maybe' 'Text'
 --
-queue :: Queue
-queue = Queue
-    { _qName = Nothing
-    , _qURL = Nothing
+sourceConfiguration :: SourceConfiguration
+sourceConfiguration = SourceConfiguration
+    { _scApplicationName = Nothing
+    , _scTemplateName    = Nothing
     }
 
--- | The name of the queue.
-qName :: Lens' Queue (Maybe Text)
-qName = lens _qName (\s a -> s { _qName = a })
+-- | The name of the application associated with the configuration.
+scApplicationName :: Lens' SourceConfiguration (Maybe Text)
+scApplicationName =
+    lens _scApplicationName (\s a -> s { _scApplicationName = a })
 
--- | The URL of the queue.
-qURL :: Lens' Queue (Maybe Text)
-qURL = lens _qURL (\s a -> s { _qURL = a })
+-- | The name of the configuration template.
+scTemplateName :: Lens' SourceConfiguration (Maybe Text)
+scTemplateName = lens _scTemplateName (\s a -> s { _scTemplateName = a })
 
-instance FromXML Queue where
+instance FromXML SourceConfiguration where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Queue"
+    fromXMLRoot    = fromRoot "SourceConfiguration"
 
--- | The location where the source bundle is located for this version.
-data S3Location = S3Location
-    { _slS3Bucket :: Maybe Text
-    , _slS3Key :: Maybe Text
+instance ToQuery SourceConfiguration
+
+data EnvironmentInfoDescription = EnvironmentInfoDescription
+    { _eidEc2InstanceId   :: Maybe Text
+    , _eidInfoType        :: Maybe Text
+    , _eidMessage         :: Maybe Text
+    , _eidSampleTimestamp :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'S3Location' data type to populate a request.
+-- | 'EnvironmentInfoDescription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @S3Bucket ::@ @Maybe Text@
+-- * 'eidEc2InstanceId' @::@ 'Maybe' 'Text'
 --
--- * @S3Key ::@ @Maybe Text@
+-- * 'eidInfoType' @::@ 'Maybe' 'Text'
+--
+-- * 'eidMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'eidSampleTimestamp' @::@ 'Maybe' 'UTCTime'
+--
+environmentInfoDescription :: EnvironmentInfoDescription
+environmentInfoDescription = EnvironmentInfoDescription
+    { _eidInfoType        = Nothing
+    , _eidEc2InstanceId   = Nothing
+    , _eidSampleTimestamp = Nothing
+    , _eidMessage         = Nothing
+    }
+
+-- | The Amazon EC2 Instance ID for this information.
+eidEc2InstanceId :: Lens' EnvironmentInfoDescription (Maybe Text)
+eidEc2InstanceId = lens _eidEc2InstanceId (\s a -> s { _eidEc2InstanceId = a })
+
+-- | The type of information retrieved.
+eidInfoType :: Lens' EnvironmentInfoDescription (Maybe Text)
+eidInfoType = lens _eidInfoType (\s a -> s { _eidInfoType = a })
+
+-- | The retrieved information.
+eidMessage :: Lens' EnvironmentInfoDescription (Maybe Text)
+eidMessage = lens _eidMessage (\s a -> s { _eidMessage = a })
+
+-- | The time stamp when this information was retrieved.
+eidSampleTimestamp :: Lens' EnvironmentInfoDescription (Maybe UTCTime)
+eidSampleTimestamp =
+    lens _eidSampleTimestamp (\s a -> s { _eidSampleTimestamp = a })
+        . mapping _Time
+
+instance FromXML EnvironmentInfoDescription where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnvironmentInfoDescription"
+
+instance ToQuery EnvironmentInfoDescription
+
+data S3Location = S3Location
+    { _slS3Bucket :: Maybe Text
+    , _slS3Key    :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'S3Location' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'slS3Bucket' @::@ 'Maybe' 'Text'
+--
+-- * 'slS3Key' @::@ 'Maybe' 'Text'
 --
 s3Location :: S3Location
 s3Location = S3Location
     { _slS3Bucket = Nothing
-    , _slS3Key = Nothing
+    , _slS3Key    = Nothing
     }
 
 -- | The Amazon S3 bucket where the data is located.
@@ -1940,163 +1480,38 @@ instance FromXML S3Location where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "S3Location"
 
-instance ToQuery S3Location where
-    toQuery = genericQuery def
+instance ToQuery S3Location
 
--- | Describes the solution stack.
-data SolutionStackDescription = SolutionStackDescription
-    { _ssdSolutionStackName :: Maybe Text
-    , _ssdPermittedFileTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'SolutionStackDescription' data type.
---
--- 'SolutionStackDescription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @SolutionStackName ::@ @Maybe Text@
---
--- * @PermittedFileTypes ::@ @[Text]@
---
-solutionStackDescription :: SolutionStackDescription
-solutionStackDescription = SolutionStackDescription
-    { _ssdSolutionStackName = Nothing
-    , _ssdPermittedFileTypes = mempty
-    }
-
--- | The name of the solution stack.
-ssdSolutionStackName :: Lens' SolutionStackDescription (Maybe Text)
-ssdSolutionStackName =
-    lens _ssdSolutionStackName (\s a -> s { _ssdSolutionStackName = a })
-
--- | The permitted file types allowed for a solution stack.
-ssdPermittedFileTypes :: Lens' SolutionStackDescription [Text]
-ssdPermittedFileTypes =
-    lens _ssdPermittedFileTypes (\s a -> s { _ssdPermittedFileTypes = a })
-
-instance FromXML SolutionStackDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SolutionStackDescription"
-
--- | If specified, AWS Elastic Beanstalk uses the configuration values from the
--- specified configuration template to create a new configuration. Values
--- specified in the OptionSettings parameter of this call overrides any values
--- obtained from the SourceConfiguration. If no configuration template is
--- found, returns an InvalidParameterValue error. Constraint: If both the
--- solution stack name parameter and the source configuration parameters are
--- specified, the solution stack of the source configuration template must
--- match the specified solution stack name or else AWS Elastic Beanstalk
--- returns an InvalidParameterCombination error.
-data SourceConfiguration = SourceConfiguration
-    { _scApplicationName :: Maybe Text
-    , _scTemplateName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'SourceConfiguration' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @ApplicationName ::@ @Maybe Text@
---
--- * @TemplateName ::@ @Maybe Text@
---
-sourceConfiguration :: SourceConfiguration
-sourceConfiguration = SourceConfiguration
-    { _scApplicationName = Nothing
-    , _scTemplateName = Nothing
-    }
-
--- | The name of the application associated with the configuration.
-scApplicationName :: Lens' SourceConfiguration (Maybe Text)
-scApplicationName =
-    lens _scApplicationName (\s a -> s { _scApplicationName = a })
-
--- | The name of the configuration template.
-scTemplateName :: Lens' SourceConfiguration (Maybe Text)
-scTemplateName = lens _scTemplateName (\s a -> s { _scTemplateName = a })
-
-instance ToQuery SourceConfiguration where
-    toQuery = genericQuery def
-
--- | Describes a tag applied to a resource in an environment.
-data Tag = Tag
-    { _tKey :: Maybe Text
-    , _tValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Tag' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Key ::@ @Maybe Text@
---
--- * @Value ::@ @Maybe Text@
---
-tag :: Tag
-tag = Tag
-    { _tKey = Nothing
-    , _tValue = Nothing
-    }
-
--- | The key of the tag.
-tKey :: Lens' Tag (Maybe Text)
-tKey = lens _tKey (\s a -> s { _tKey = a })
-
--- | The value of the tag.
-tValue :: Lens' Tag (Maybe Text)
-tValue = lens _tValue (\s a -> s { _tValue = a })
-
-instance ToQuery Tag where
-    toQuery = genericQuery def
-
--- | An error or warning for a desired configuration option value.
 data ValidationMessage = ValidationMessage
-    { _vmMessage :: Maybe Text
-    , _vmSeverity :: Maybe ValidationSeverity
-    , _vmNamespace :: Maybe Text
+    { _vmMessage    :: Maybe Text
+    , _vmNamespace  :: Maybe Text
     , _vmOptionName :: Maybe Text
+    , _vmSeverity   :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ValidationMessage' data type.
---
--- 'ValidationMessage' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'ValidationMessage' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Message ::@ @Maybe Text@
+-- * 'vmMessage' @::@ 'Maybe' 'Text'
 --
--- * @Severity ::@ @Maybe ValidationSeverity@
+-- * 'vmNamespace' @::@ 'Maybe' 'Text'
 --
--- * @Namespace ::@ @Maybe Text@
+-- * 'vmOptionName' @::@ 'Maybe' 'Text'
 --
--- * @OptionName ::@ @Maybe Text@
+-- * 'vmSeverity' @::@ 'Maybe' 'Text'
 --
 validationMessage :: ValidationMessage
 validationMessage = ValidationMessage
-    { _vmMessage = Nothing
-    , _vmSeverity = Nothing
-    , _vmNamespace = Nothing
+    { _vmMessage    = Nothing
+    , _vmSeverity   = Nothing
+    , _vmNamespace  = Nothing
     , _vmOptionName = Nothing
     }
 
 -- | A message describing the error or warning.
 vmMessage :: Lens' ValidationMessage (Maybe Text)
 vmMessage = lens _vmMessage (\s a -> s { _vmMessage = a })
-
--- | An indication of the severity of this message: error: This message
--- indicates that this is not a valid setting for an option. warning: This
--- message is providing information you should take into account. error: This
--- message indicates that this is not a valid setting for an option. warning:
--- This message is providing information you should take into account.
-vmSeverity :: Lens' ValidationMessage (Maybe ValidationSeverity)
-vmSeverity = lens _vmSeverity (\s a -> s { _vmSeverity = a })
 
 -- | 
 vmNamespace :: Lens' ValidationMessage (Maybe Text)
@@ -2106,6 +1521,364 @@ vmNamespace = lens _vmNamespace (\s a -> s { _vmNamespace = a })
 vmOptionName :: Lens' ValidationMessage (Maybe Text)
 vmOptionName = lens _vmOptionName (\s a -> s { _vmOptionName = a })
 
+-- | An indication of the severity of this message: error: This message
+-- indicates that this is not a valid setting for an option. warning: This
+-- message is providing information you should take into account. error:
+-- This message indicates that this is not a valid setting for an option.
+-- warning: This message is providing information you should take into
+-- account.
+vmSeverity :: Lens' ValidationMessage (Maybe Text)
+vmSeverity = lens _vmSeverity (\s a -> s { _vmSeverity = a })
+
 instance FromXML ValidationMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ValidationMessage"
+
+instance ToQuery ValidationMessage
+
+data ValidationSeverity
+    = VSError   -- ^ error
+    | VSWarning -- ^ warning
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable ValidationSeverity
+
+instance FromText ValidationSeverity where
+    parser = match "error"   VSError
+         <|> match "warning" VSWarning
+
+instance ToText ValidationSeverity where
+    toText = \case
+        VSError   -> "error"
+        VSWarning -> "warning"
+
+instance FromXML ValidationSeverity where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ValidationSeverity"
+
+instance ToQuery ValidationSeverity
+
+newtype Trigger = Trigger
+    { _tName :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
+
+-- | 'Trigger' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tName' @::@ 'Maybe' 'Text'
+--
+trigger :: Trigger
+trigger = Trigger
+    { _tName = Nothing
+    }
+
+-- | The name of the trigger.
+tName :: Lens' Trigger (Maybe Text)
+tName = lens _tName (\s a -> s { _tName = a })
+
+instance FromXML Trigger where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "Trigger"
+
+instance ToQuery Trigger
+
+data EnvironmentInfoType
+    = Tail -- ^ tail
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable EnvironmentInfoType
+
+instance FromText EnvironmentInfoType where
+    parser = match "tail" Tail
+
+instance ToText EnvironmentInfoType where
+    toText Tail = "tail"
+
+instance FromXML EnvironmentInfoType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnvironmentInfoType"
+
+instance ToQuery EnvironmentInfoType
+
+data EnvironmentDescription = EnvironmentDescription
+    { _ed1ApplicationName   :: Maybe Text
+    , _ed1CNAME             :: Maybe Text
+    , _ed1DateCreated       :: Maybe RFC822
+    , _ed1DateUpdated       :: Maybe RFC822
+    , _ed1Description       :: Maybe Text
+    , _ed1EndpointURL       :: Maybe Text
+    , _ed1EnvironmentId     :: Maybe Text
+    , _ed1EnvironmentName   :: Maybe Text
+    , _ed1Health            :: Maybe Text
+    , _ed1Resources         :: Maybe EnvironmentResourcesDescription
+    , _ed1SolutionStackName :: Maybe Text
+    , _ed1Status            :: Maybe Text
+    , _ed1TemplateName      :: Maybe Text
+    , _ed1Tier              :: Maybe EnvironmentTier
+    , _ed1VersionLabel      :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+-- | 'EnvironmentDescription' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ed1ApplicationName' @::@ 'Maybe' 'Text'
+--
+-- * 'ed1CNAME' @::@ 'Maybe' 'Text'
+--
+-- * 'ed1DateCreated' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'ed1DateUpdated' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'ed1Description' @::@ 'Maybe' 'Text'
+--
+-- * 'ed1EndpointURL' @::@ 'Maybe' 'Text'
+--
+-- * 'ed1EnvironmentId' @::@ 'Maybe' 'Text'
+--
+-- * 'ed1EnvironmentName' @::@ 'Maybe' 'Text'
+--
+-- * 'ed1Health' @::@ 'Maybe' 'Text'
+--
+-- * 'ed1Resources' @::@ 'Maybe' 'EnvironmentResourcesDescription'
+--
+-- * 'ed1SolutionStackName' @::@ 'Maybe' 'Text'
+--
+-- * 'ed1Status' @::@ 'Maybe' 'Text'
+--
+-- * 'ed1TemplateName' @::@ 'Maybe' 'Text'
+--
+-- * 'ed1Tier' @::@ 'Maybe' 'EnvironmentTier'
+--
+-- * 'ed1VersionLabel' @::@ 'Maybe' 'Text'
+--
+environmentDescription :: EnvironmentDescription
+environmentDescription = EnvironmentDescription
+    { _ed1EnvironmentName   = Nothing
+    , _ed1EnvironmentId     = Nothing
+    , _ed1ApplicationName   = Nothing
+    , _ed1VersionLabel      = Nothing
+    , _ed1SolutionStackName = Nothing
+    , _ed1TemplateName      = Nothing
+    , _ed1Description       = Nothing
+    , _ed1EndpointURL       = Nothing
+    , _ed1CNAME             = Nothing
+    , _ed1DateCreated       = Nothing
+    , _ed1DateUpdated       = Nothing
+    , _ed1Status            = Nothing
+    , _ed1Health            = Nothing
+    , _ed1Resources         = Nothing
+    , _ed1Tier              = Nothing
+    }
+
+-- | The name of the application associated with this environment.
+ed1ApplicationName :: Lens' EnvironmentDescription (Maybe Text)
+ed1ApplicationName =
+    lens _ed1ApplicationName (\s a -> s { _ed1ApplicationName = a })
+
+-- | The URL to the CNAME for this environment.
+ed1CNAME :: Lens' EnvironmentDescription (Maybe Text)
+ed1CNAME = lens _ed1CNAME (\s a -> s { _ed1CNAME = a })
+
+-- | The creation date for this environment.
+ed1DateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
+ed1DateCreated = lens _ed1DateCreated (\s a -> s { _ed1DateCreated = a })
+    . mapping _Time
+
+-- | The last modified date for this environment.
+ed1DateUpdated :: Lens' EnvironmentDescription (Maybe UTCTime)
+ed1DateUpdated = lens _ed1DateUpdated (\s a -> s { _ed1DateUpdated = a })
+    . mapping _Time
+
+-- | Describes this environment.
+ed1Description :: Lens' EnvironmentDescription (Maybe Text)
+ed1Description = lens _ed1Description (\s a -> s { _ed1Description = a })
+
+-- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
+-- For single-instance environments, the IP address of the instance.
+ed1EndpointURL :: Lens' EnvironmentDescription (Maybe Text)
+ed1EndpointURL = lens _ed1EndpointURL (\s a -> s { _ed1EndpointURL = a })
+
+-- | The ID of this environment.
+ed1EnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
+ed1EnvironmentId = lens _ed1EnvironmentId (\s a -> s { _ed1EnvironmentId = a })
+
+-- | The name of this environment.
+ed1EnvironmentName :: Lens' EnvironmentDescription (Maybe Text)
+ed1EnvironmentName =
+    lens _ed1EnvironmentName (\s a -> s { _ed1EnvironmentName = a })
+
+-- | Describes the health status of the environment. AWS Elastic Beanstalk
+-- indicates the failure levels for a running environment: Red : Indicates
+-- the environment is not working. Yellow: Indicates that something is
+-- wrong, the application might not be available, but the instances appear
+-- running. Green: Indicates the environment is healthy and fully
+-- functional. Red: Indicates the environment is not responsive. Occurs when
+-- three or more consecutive failures occur for an environment. Yellow:
+-- Indicates that something is wrong. Occurs when two consecutive failures
+-- occur for an environment. Green: Indicates the environment is healthy and
+-- fully functional. Grey: Default health for a new environment. The
+-- environment is not fully launched and health checks have not started or
+-- health checks are suspended during an UpdateEnvironment or
+-- RestartEnvironement request. Default: Grey.
+ed1Health :: Lens' EnvironmentDescription (Maybe Text)
+ed1Health = lens _ed1Health (\s a -> s { _ed1Health = a })
+
+-- | The description of the AWS resources used by this environment.
+ed1Resources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
+ed1Resources = lens _ed1Resources (\s a -> s { _ed1Resources = a })
+
+-- | The name of the SolutionStack deployed with this environment.
+ed1SolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
+ed1SolutionStackName =
+    lens _ed1SolutionStackName (\s a -> s { _ed1SolutionStackName = a })
+
+-- | The current operational status of the environment: Launching: Environment
+-- is in the process of initial deployment. Updating: Environment is in the
+-- process of updating its configuration settings or application version.
+-- Ready: Environment is available to have an action performed on it, such
+-- as update or terminate. Terminating: Environment is in the shut-down
+-- process. Terminated: Environment is not running.
+ed1Status :: Lens' EnvironmentDescription (Maybe Text)
+ed1Status = lens _ed1Status (\s a -> s { _ed1Status = a })
+
+-- | The name of the configuration template used to originally launch this
+-- environment.
+ed1TemplateName :: Lens' EnvironmentDescription (Maybe Text)
+ed1TemplateName = lens _ed1TemplateName (\s a -> s { _ed1TemplateName = a })
+
+-- | Describes the current tier of this environment.
+ed1Tier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
+ed1Tier = lens _ed1Tier (\s a -> s { _ed1Tier = a })
+
+-- | The application version deployed in this environment.
+ed1VersionLabel :: Lens' EnvironmentDescription (Maybe Text)
+ed1VersionLabel = lens _ed1VersionLabel (\s a -> s { _ed1VersionLabel = a })
+
+instance FromXML EnvironmentDescription where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnvironmentDescription"
+
+instance ToQuery EnvironmentDescription
+
+data Listener = Listener
+    { _lPort     :: Maybe Int
+    , _lProtocol :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'Listener' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lPort' @::@ 'Maybe' 'Int'
+--
+-- * 'lProtocol' @::@ 'Maybe' 'Text'
+--
+listener :: Listener
+listener = Listener
+    { _lProtocol = Nothing
+    , _lPort     = Nothing
+    }
+
+-- | The port that is used by the Listener.
+lPort :: Lens' Listener (Maybe Int)
+lPort = lens _lPort (\s a -> s { _lPort = a })
+
+-- | The protocol that is used by the Listener.
+lProtocol :: Lens' Listener (Maybe Text)
+lProtocol = lens _lProtocol (\s a -> s { _lProtocol = a })
+
+instance FromXML Listener where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "Listener"
+
+instance ToQuery Listener
+
+data EnvironmentHealth
+    = Green  -- ^ Green
+    | Grey   -- ^ Grey
+    | Red    -- ^ Red
+    | Yellow -- ^ Yellow
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable EnvironmentHealth
+
+instance FromText EnvironmentHealth where
+    parser = match "Green"  Green
+         <|> match "Grey"   Grey
+         <|> match "Red"    Red
+         <|> match "Yellow" Yellow
+
+instance ToText EnvironmentHealth where
+    toText = \case
+        Green  -> "Green"
+        Grey   -> "Grey"
+        Red    -> "Red"
+        Yellow -> "Yellow"
+
+instance FromXML EnvironmentHealth where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnvironmentHealth"
+
+instance ToQuery EnvironmentHealth
+
+newtype Instance = Instance
+    { _iId :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
+
+-- | 'Instance' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'iId' @::@ 'Maybe' 'Text'
+--
+instance' :: Instance
+instance' = Instance
+    { _iId = Nothing
+    }
+
+-- | The ID of the Amazon EC2 instance.
+iId :: Lens' Instance (Maybe Text)
+iId = lens _iId (\s a -> s { _iId = a })
+
+instance FromXML Instance where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "Instance"
+
+instance ToQuery Instance
+
+data SolutionStackDescription = SolutionStackDescription
+    { _ssdPermittedFileTypes :: [Text]
+    , _ssdSolutionStackName  :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'SolutionStackDescription' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ssdPermittedFileTypes' @::@ ['Text']
+--
+-- * 'ssdSolutionStackName' @::@ 'Maybe' 'Text'
+--
+solutionStackDescription :: SolutionStackDescription
+solutionStackDescription = SolutionStackDescription
+    { _ssdSolutionStackName  = Nothing
+    , _ssdPermittedFileTypes = mempty
+    }
+
+-- | The permitted file types allowed for a solution stack.
+ssdPermittedFileTypes :: Lens' SolutionStackDescription [Text]
+ssdPermittedFileTypes =
+    lens _ssdPermittedFileTypes (\s a -> s { _ssdPermittedFileTypes = a })
+
+-- | The name of the solution stack.
+ssdSolutionStackName :: Lens' SolutionStackDescription (Maybe Text)
+ssdSolutionStackName =
+    lens _ssdSolutionStackName (\s a -> s { _ssdSolutionStackName = a })
+
+instance FromXML SolutionStackDescription where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SolutionStackDescription"
+
+instance ToQuery SolutionStackDescription

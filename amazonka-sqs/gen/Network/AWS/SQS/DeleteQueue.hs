@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SQS.DeleteQueue
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,12 +31,7 @@
 -- least 60 seconds before creating a queue with the same name. We reserve the
 -- right to delete queues that have had no activity for more than 30 days. For
 -- more information, see How Amazon SQS Queues Work in the Amazon SQS
--- Developer Guide. The following example Query request deletes the specified
--- queue. http://sqs.us-east-1.amazonaws.com/123456789012/testQueue/
--- ?Action=DeleteQueue &Version=2009-02-01 &SignatureMethod=HmacSHA256
--- &Expires=2009-04-18T22%3A52%3A43PST &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
--- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
--- 6fde8d1e-52cd-4581-8cd9-c512f4c64223.
+-- Developer Guide.
 module Network.AWS.SQS.DeleteQueue
     (
     -- * Request
@@ -50,20 +47,20 @@ module Network.AWS.SQS.DeleteQueue
     , deleteQueueResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype DeleteQueue = DeleteQueue
     { _dqQueueUrl :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteQueue' request.
+-- | 'DeleteQueue' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @QueueUrl ::@ @Text@
+-- * 'dqQueueUrl' @::@ 'Text'
 --
 deleteQueue :: Text -- ^ 'dqQueueUrl'
             -> DeleteQueue
@@ -75,16 +72,15 @@ deleteQueue p1 = DeleteQueue
 dqQueueUrl :: Lens' DeleteQueue Text
 dqQueueUrl = lens _dqQueueUrl (\s a -> s { _dqQueueUrl = a })
 
-instance ToQuery DeleteQueue where
-    toQuery = genericQuery def
+instance ToQuery DeleteQueue
+
+instance ToPath DeleteQueue where
+    toPath = const "/"
 
 data DeleteQueueResponse = DeleteQueueResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteQueueResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteQueueResponse' constructor.
 deleteQueueResponse :: DeleteQueueResponse
 deleteQueueResponse = DeleteQueueResponse
 
@@ -92,5 +88,5 @@ instance AWSRequest DeleteQueue where
     type Sv DeleteQueue = SQS
     type Rs DeleteQueue = DeleteQueueResponse
 
-    request = post "DeleteQueue"
-    response _ = nullaryResponse DeleteQueueResponse
+    request  = post "DeleteQueue"
+    response = nullaryResponse DeleteQueueResponse

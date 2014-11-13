@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SimpleDB.ListDomains
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,33 +45,33 @@ module Network.AWS.SimpleDB.ListDomains
     , ldrNextToken
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ListDomains = ListDomains
-    { _ldMaxNumberOfDomains :: Maybe Integer
-    , _ldNextToken :: Maybe Text
+    { _ldMaxNumberOfDomains :: Maybe Int
+    , _ldNextToken          :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListDomains' request.
+-- | 'ListDomains' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @MaxNumberOfDomains ::@ @Maybe Integer@
+-- * 'ldMaxNumberOfDomains' @::@ 'Maybe' 'Int'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'ldNextToken' @::@ 'Maybe' 'Text'
 --
 listDomains :: ListDomains
 listDomains = ListDomains
     { _ldMaxNumberOfDomains = Nothing
-    , _ldNextToken = Nothing
+    , _ldNextToken          = Nothing
     }
 
 -- | The maximum number of domain names you want returned. The range is 1 to
 -- 100. The default setting is 100.
-ldMaxNumberOfDomains :: Lens' ListDomains (Maybe Integer)
+ldMaxNumberOfDomains :: Lens' ListDomains (Maybe Int)
 ldMaxNumberOfDomains =
     lens _ldMaxNumberOfDomains (\s a -> s { _ldMaxNumberOfDomains = a })
 
@@ -78,29 +80,28 @@ ldMaxNumberOfDomains =
 ldNextToken :: Lens' ListDomains (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 
-instance ToQuery ListDomains where
-    toQuery = genericQuery def
+instance ToQuery ListDomains
+
+instance ToPath ListDomains where
+    toPath = const "/"
 
 data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainNames :: [Text]
-    , _ldrNextToken :: Maybe Text
+    , _ldrNextToken   :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListDomainsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListDomainsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainNames ::@ @[Text]@
+-- * 'ldrDomainNames' @::@ ['Text']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'ldrNextToken' @::@ 'Maybe' 'Text'
 --
 listDomainsResponse :: ListDomainsResponse
 listDomainsResponse = ListDomainsResponse
     { _ldrDomainNames = mempty
-    , _ldrNextToken = Nothing
+    , _ldrNextToken   = Nothing
     }
 
 -- | A list of domain names that match the expression.
@@ -112,16 +113,11 @@ ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a })
 ldrNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 
-instance FromXML ListDomainsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ListDomains where
     type Sv ListDomains = SimpleDB
     type Rs ListDomains = ListDomainsResponse
 
-    request = post "ListDomains"
-    response _ = xmlResponse
-
-instance AWSPager ListDomains where
-    next rq rs = (\x -> rq & ldNextToken ?~ x)
-        <$> (rs ^. ldrNextToken)
+    request  = post "ListDomains"
+    response = xmlResponse $ \h x -> ListDomainsResponse
+        <$> x %| "DomainNames"
+        <*> x %| "NextToken"

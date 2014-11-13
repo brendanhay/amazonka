@@ -1,11 +1,11 @@
 name:                  amazonka-cloudfront
 version:               0.0.0
-synopsis:              Amazon CloudFront SDK
+synopsis:              Amazon CloudFront SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,21 +13,18 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, for example,.
-    .
-    html,.
-    .
-    css,.
-    .
-    php, image, and media files, to end users.
-    .
-    CloudFront delivers your content through a worldwide network of edge locations.
-    .
-    When an end user requests content that you're serving with CloudFront, the user is routed to the edge location that provides the lowest latency, so content is delivered with the best possible performance.
-    .
-    If the content is already in that edge location, CloudFront delivers it immediately.
-    .
-    If the content is not currently in that edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.
+    Amazon CloudFront is a web service that speeds up distribution of your
+    static and dynamic web content, for example, .html, .css, .php, image,
+    and media files, to end users. CloudFront delivers your content through
+    a worldwide network of edge locations. When an end user requests
+    content that you're serving with CloudFront, the user is routed to the
+    edge location that provides the lowest latency, so content is delivered
+    with the best possible performance. If the content is already in that
+    edge location, CloudFront delivers it immediately. If the content is
+    not currently in that edge location, CloudFront retrieves it from an
+    Amazon S3 bucket or an HTTP server (for example, a web server) that you
+    have identified as the source for the definitive version of your
+    content.
 
 source-repository head
     type:     git
@@ -41,7 +38,6 @@ library
 
     exposed-modules:
           Network.AWS.CloudFront
-        , Network.AWS.CloudFront.Types
         , Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.CreateDistribution
         , Network.AWS.CloudFront.CreateInvalidation
@@ -60,9 +56,12 @@ library
         , Network.AWS.CloudFront.ListDistributions
         , Network.AWS.CloudFront.ListInvalidations
         , Network.AWS.CloudFront.ListStreamingDistributions
+        , Network.AWS.CloudFront.Types
         , Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.UpdateDistribution
         , Network.AWS.CloudFront.UpdateStreamingDistribution
+
+    other-modules:
 
     build-depends:
           amazonka-core

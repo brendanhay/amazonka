@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmHistory
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,8 +22,7 @@
 
 -- | Retrieves history for the specified alarm. Filter alarms by date range or
 -- item type. If an alarm name is not specified, Amazon CloudWatch returns
--- histories for all of the owner's alarms. Amazon CloudWatch retains the
--- history of an alarm for two weeks, whether or not you delete the alarm.
+-- histories for all of the owner's alarms.
 module Network.AWS.CloudWatch.DescribeAlarmHistory
     (
     -- * Request
@@ -30,11 +31,11 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     , describeAlarmHistory
     -- ** Request lenses
     , dahAlarmName
-    , dahHistoryItemType
-    , dahStartDate
     , dahEndDate
+    , dahHistoryItemType
     , dahMaxRecords
     , dahNextToken
+    , dahStartDate
 
     -- * Response
     , DescribeAlarmHistoryResponse
@@ -45,65 +46,62 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     , dahrNextToken
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeAlarmHistory = DescribeAlarmHistory
-    { _dahAlarmName :: Maybe Text
-    , _dahHistoryItemType :: Maybe HistoryItemType
-    , _dahStartDate :: Maybe ISO8601
-    , _dahEndDate :: Maybe ISO8601
-    , _dahMaxRecords :: Maybe Integer
-    , _dahNextToken :: Maybe Text
+    { _dahAlarmName       :: Maybe Text
+    , _dahEndDate         :: Maybe RFC822
+    , _dahHistoryItemType :: Maybe Text
+    , _dahMaxRecords      :: Maybe Natural
+    , _dahNextToken       :: Maybe Text
+    , _dahStartDate       :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAlarmHistory' request.
+-- | 'DescribeAlarmHistory' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AlarmName ::@ @Maybe Text@
+-- * 'dahAlarmName' @::@ 'Maybe' 'Text'
 --
--- * @HistoryItemType ::@ @Maybe HistoryItemType@
+-- * 'dahEndDate' @::@ 'Maybe' 'UTCTime'
 --
--- * @StartDate ::@ @Maybe ISO8601@
+-- * 'dahHistoryItemType' @::@ 'Maybe' 'Text'
 --
--- * @EndDate ::@ @Maybe ISO8601@
+-- * 'dahMaxRecords' @::@ 'Maybe' 'Natural'
 --
--- * @MaxRecords ::@ @Maybe Integer@
+-- * 'dahNextToken' @::@ 'Maybe' 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dahStartDate' @::@ 'Maybe' 'UTCTime'
 --
 describeAlarmHistory :: DescribeAlarmHistory
 describeAlarmHistory = DescribeAlarmHistory
-    { _dahAlarmName = Nothing
+    { _dahAlarmName       = Nothing
     , _dahHistoryItemType = Nothing
-    , _dahStartDate = Nothing
-    , _dahEndDate = Nothing
-    , _dahMaxRecords = Nothing
-    , _dahNextToken = Nothing
+    , _dahStartDate       = Nothing
+    , _dahEndDate         = Nothing
+    , _dahMaxRecords      = Nothing
+    , _dahNextToken       = Nothing
     }
 
 -- | The name of the alarm.
 dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
 dahAlarmName = lens _dahAlarmName (\s a -> s { _dahAlarmName = a })
 
+-- | The ending date to retrieve alarm history.
+dahEndDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
+dahEndDate = lens _dahEndDate (\s a -> s { _dahEndDate = a })
+    . mapping _Time
+
 -- | The type of alarm histories to retrieve.
-dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
+dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe Text)
 dahHistoryItemType =
     lens _dahHistoryItemType (\s a -> s { _dahHistoryItemType = a })
 
--- | The starting date to retrieve alarm history.
-dahStartDate :: Lens' DescribeAlarmHistory (Maybe ISO8601)
-dahStartDate = lens _dahStartDate (\s a -> s { _dahStartDate = a })
-
--- | The ending date to retrieve alarm history.
-dahEndDate :: Lens' DescribeAlarmHistory (Maybe ISO8601)
-dahEndDate = lens _dahEndDate (\s a -> s { _dahEndDate = a })
-
 -- | The maximum number of alarm history records to retrieve.
-dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Integer)
+dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
 dahMaxRecords = lens _dahMaxRecords (\s a -> s { _dahMaxRecords = a })
 
 -- | The token returned by a previous call to indicate that there is more data
@@ -111,30 +109,33 @@ dahMaxRecords = lens _dahMaxRecords (\s a -> s { _dahMaxRecords = a })
 dahNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
 dahNextToken = lens _dahNextToken (\s a -> s { _dahNextToken = a })
 
-instance ToQuery DescribeAlarmHistory where
-    toQuery = genericQuery def
+-- | The starting date to retrieve alarm history.
+dahStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
+dahStartDate = lens _dahStartDate (\s a -> s { _dahStartDate = a })
+    . mapping _Time
 
--- | The output for the DescribeAlarmHistory action.
+instance ToQuery DescribeAlarmHistory
+
+instance ToPath DescribeAlarmHistory where
+    toPath = const "/"
+
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { _dahrAlarmHistoryItems :: [AlarmHistoryItem]
-    , _dahrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _dahrNextToken         :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAlarmHistoryResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeAlarmHistoryResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AlarmHistoryItems ::@ @[AlarmHistoryItem]@
+-- * 'dahrAlarmHistoryItems' @::@ ['AlarmHistoryItem']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dahrNextToken' @::@ 'Maybe' 'Text'
 --
 describeAlarmHistoryResponse :: DescribeAlarmHistoryResponse
 describeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { _dahrAlarmHistoryItems = mempty
-    , _dahrNextToken = Nothing
+    , _dahrNextToken         = Nothing
     }
 
 -- | A list of alarm histories in JSON format.
@@ -146,16 +147,11 @@ dahrAlarmHistoryItems =
 dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrNextToken = lens _dahrNextToken (\s a -> s { _dahrNextToken = a })
 
-instance FromXML DescribeAlarmHistoryResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeAlarmHistory where
     type Sv DescribeAlarmHistory = CloudWatch
     type Rs DescribeAlarmHistory = DescribeAlarmHistoryResponse
 
-    request = post "DescribeAlarmHistory"
-    response _ = xmlResponse
-
-instance AWSPager DescribeAlarmHistory where
-    next rq rs = (\x -> rq & dahNextToken ?~ x)
-        <$> (rs ^. dahrNextToken)
+    request  = post "DescribeAlarmHistory"
+    response = xmlResponse $ \h x -> DescribeAlarmHistoryResponse
+        <$> x %| "AlarmHistoryItems"
+        <*> x %| "NextToken"

@@ -1,4 +1,7 @@
-{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE RecordWildCards     #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TypeFamilies        #-}
 
 -- Module      : Network.AWS.Response
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -12,13 +15,13 @@
 
 module Network.AWS.Response
     (
-    -- * Pagination
-      index
-    , choice
+     -- * Status predicate
+      alwaysFail
+
+    -- * Errors
+    , xmlError
 
     -- * Responses
-    , headerResponse
-    , cursorResponse
     , xmlResponse
     , jsonResponse
     , nullaryResponse
@@ -26,101 +29,113 @@ module Network.AWS.Response
     ) where
 
 import           Control.Applicative
-import           Control.Lens                 (Getting, view)
-import           Control.Monad
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Bifunctor
-import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
-import           Data.Default
-import           Data.Monoid
-import           Data.Text                    (Text)
+import           Data.Default.Class
 import           Network.AWS.Data
 import           Network.AWS.Types
-import           Network.HTTP.Client
+import           Network.HTTP.Client          hiding (Response)
 import           Network.HTTP.Types
 import qualified Text.XML                     as XML
 import           Text.XML.Cursor
 
-index :: ToText c => Getting [b] a [b] -> Getting c b c -> a -> Maybe Text
-index g f = fmap (toText . view f) . lastMay . view g
+-- index :: ToText c => Getting [b] a [b] -> Getting c b c -> a -> Maybe Text
+-- index g f = fmap (toText . view f) . lastMay . view g
 
-choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
-choice f g x = f x <|> g x
+-- choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
+-- choice f g x = f x <|> g x
 
-lastMay :: [a] -> Maybe a
-lastMay []     = Nothing
-lastMay (x:xs) = Just (go x xs)
+-- lastMay :: [a] -> Maybe a
+-- lastMay []     = Nothing
+-- lastMay (x:xs) = Just (go x xs)
+--   where
+--     go y []     = y
+--     go _ (y:ys) = go y ys
+
+alwaysFail :: Status -> Bool
+alwaysFail = const False
+
+xmlError :: FromXML (Er a)
+         => (Status -> Bool)
+         -> Service a
+         -> Status
+         -> Maybe (LBS.ByteString -> ServiceError (Er a))
+xmlError f Service{..} s
+    | f s       = Nothing
+    | otherwise = Just (either failure success . decodeXML)
   where
-    go y []     = y
-    go _ (y:ys) = go y ys
+    success = ServiceError _svcAbbrev s
+    failure = SerializerError _svcAbbrev
 
-headerResponse :: (MonadResource m, AWSServiceError e)
-               => (ResponseHeaders -> Either String a)
-               -> Either HttpException ClientResponse
-               -> m (Either e a)
-headerResponse f = receive $ \hs bdy -> do
-     liftResourceT (closeResumableSource bdy)
-     return $! serializerError `first` f hs
+xmlResponse :: (MonadResource m, AWSService (Sv a))
+            => (ResponseHeaders -> Cursor -> Either String (Rs a))
+            -> a
+            -> Either HttpException ClientResponse
+            -> m (Response a)
+xmlResponse = deserialise (bimap show fromDocument . XML.parseLBS def)
 
-cursorResponse :: (MonadResource m, AWSServiceError e)
-               => (ResponseHeaders -> Cursor -> Either String a)
-               -> Either HttpException ClientResponse
-               -> m (Either e a)
-cursorResponse f = receive $ \hs bdy -> do
-    lbs <- sinkLbs bdy
-    case XML.parseLBS def lbs of
-        Left  ex  -> return . Left . serializerError $ show ex
-        Right doc ->
-            case f hs (fromDocument doc) of
-                Left  s -> return . Left $ serviceError s
-                Right x -> return (Right x)
+jsonResponse :: (MonadResource m, AWSService (Sv a))
+             => (ResponseHeaders -> Object -> Either String (Rs a))
+             -> a
+             -> Either HttpException ClientResponse
+             -> m (Response a)
+jsonResponse = deserialise eitherDecode'
 
-xmlResponse :: (MonadResource m, AWSServiceError e, FromXML a)
-            => Either HttpException ClientResponse
-            -> m (Either e a)
-xmlResponse = receive $ \_ bdy -> do
-    lbs <- sinkLbs bdy
-    return $! serializerError `first` decodeXML lbs
+bodyResponse :: (MonadResource m, AWSService (Sv a))
+             => (ResponseHeaders -> ResponseBody -> Either String (Rs a))
+             -> a
+             -> Either HttpException ClientResponse
+             -> m (Response a)
+bodyResponse f = receive $ \a hs bdy ->
+    return (SerializerError a `first` f hs bdy)
 
-jsonResponse :: (MonadResource m, AWSServiceError e, FromJSON a)
-             => Either HttpException ClientResponse
-             -> m (Either e a)
-jsonResponse = receive $ \_ bdy -> do
-    lbs <- sinkLbs bdy
-    return $! serializerError `first` eitherDecode lbs
-
-bodyResponse :: (Monad m, AWSServiceError e)
-             => (ResponseHeaders -> a -> m (Either String b))
-             -> Either HttpException (Response a)
-             -> m (Either e b)
-bodyResponse f = receive (\hs bdy -> first serializerError `liftM` f hs bdy)
-
-nullaryResponse :: (MonadResource m, AWSServiceError e)
-                => a
+nullaryResponse :: (MonadResource m, AWSService (Sv a))
+                => Rs a
+                -> a
                 -> Either HttpException ClientResponse
-                -> m (Either e a)
-nullaryResponse x = receive (\_ bdy -> liftResourceT (bdy $$+- return (Right x)))
+                -> m (Response a)
+nullaryResponse rs = receive $ \_ _ bdy ->
+    liftResourceT (bdy $$+- return (Right rs))
 
-receive :: (Monad m, AWSServiceError e)
-        => (ResponseHeaders -> a -> m (Either e b))
-        -> Either HttpException (Response a)
-        -> m (Either e b)
-receive f = either failure success
+deserialise :: (AWSService (Sv a), MonadResource m)
+            => (LazyByteString -> Either String b)
+            -> (ResponseHeaders -> b -> Either String (Rs a))
+            -> a
+            -> Either HttpException ClientResponse
+            -> m (Response a)
+deserialise g f = receive $ \a hs bdy -> do
+    lbs <- sinkLbs bdy
+    return $! case g lbs of
+        Left  e -> Left (SerializerError a e)
+        Right o ->
+            case f hs o of
+                Left  e -> Left (SerializerError a e)
+                Right x -> Right x
+
+receive :: forall m a. (MonadResource m, AWSService (Sv a))
+        => (Abbrev -> ResponseHeaders -> ResponseBody -> m (Response a))
+        -> a
+        -> Either HttpException ClientResponse
+        -> m (Response a)
+receive f = const (either httpFailure success)
   where
-    failure = return . Left . clientError
-
-    success rs
-        | statusCode st >= 400 = failure (StatusCodeException st hs mempty)
-        | otherwise = f hs (responseBody rs)
+    success rs =
+        maybe (f (_svcAbbrev svc) hs bdy)
+              (\g -> Left . g <$> sinkLbs bdy)
+              (handle svc s)
       where
-        st = responseStatus  rs
-        hs = responseHeaders rs
+        svc = service :: Service (Sv a)
 
-sinkLbs :: MonadResource m
-        => ResumableSource (ResourceT IO) ByteString
-        -> m LBS.ByteString
+        s   = responseStatus  rs
+        bdy = responseBody    rs
+        hs  = responseHeaders rs
+
+sinkLbs :: MonadResource m => ResponseBody -> m LBS.ByteString
 sinkLbs bdy = liftResourceT (bdy $$+- Conduit.sinkLbs)
+
+httpFailure :: Monad m => HttpException -> m (Either (ServiceError e) a)
+httpFailure = return . Left . HttpError

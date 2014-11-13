@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.AuthorizeSecurityGroupIngress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,46 +32,7 @@
 -- IP address ranges permission to access a security group in your VPC, or
 -- gives one or more other security groups (called the source groups)
 -- permission to access a security group for your VPC. The security groups
--- must all be for the same VPC. Example 1 This example request grants TCP
--- port 80 access from the 192.0.2.0/24 and 198.51.100.0/24 address ranges to
--- the security group for EC2-Classic named websrv.
--- https://ec2.amazonaws.com/?Action=AuthorizeSecurityGroupIngress
--- &amp;GroupName=websrv &amp;IpPermissions.1.IpProtocol=tcp
--- &amp;IpPermissions.1.FromPort=80 &amp;IpPermissions.1.ToPort=80
--- &amp;IpPermissions.1.IpRanges.1.CidrIp=192.0.2.0/24
--- &amp;IpPermissions.1.IpRanges.2.CidrIp=198.51.100.0/24 &amp;AUTHPARAMS
--- Example 2 This example request grants TCP port 80 access from the source
--- group for EC2-Classic named OtherAccountGroup (in AWS account 123456789012)
--- to the security group for EC2-Classic named websrv.
--- https://ec2.amazonaws.com/?Action=AuthorizeSecurityGroupIngress
--- &amp;GroupName=websrv &amp;IpPermissions.1.IpProtocol=tcp
--- &amp;IpPermissions.1.FromPort=80 &amp;IpPermissions.1.ToPort=80
--- &amp;IpPermissions.1.Groups.1.GroupName=OtherAccountGroup
--- &amp;IpPermissions.1.Groups.1.UserId=123456789012 &amp;AUTHPARAMS Example 3
--- This example request grants TCP port 80 access from the source group named
--- OtherGroupInMyVPC (with the ID sg-2a2b3c4d) to the security group named
--- VpcWebServers (with the ID sg-1a2b3c4d). In EC2-VPC, you must use the
--- security group IDs in a request, not the security group names. In this
--- example, your AWS account ID is 123456789012.
--- https://ec2.amazonaws.com/?Action=AuthorizeSecurityGroupIngress
--- &amp;GroupId=sg-1a2b3c4d &amp;IpPermissions.1.IpProtocol=tcp
--- &amp;IpPermissions.1.FromPort=80 &amp;IpPermissions.1.ToPort=80
--- &amp;IpPermissions.1.Groups.1.GroupId=sg-2a2b3c4d
--- &amp;IpPermissions.1.Groups.1.UserId=123456789012 &amp;AUTHPARAMS Example 4
--- This example request grants your local system the ability to use SSH (port
--- 22) to connect to any instance in the security group named default.
--- https://ec2.amazonaws.com/ ?Action=AuthorizeSecurityGroupIngress
--- &amp;GroupName=default &amp;IpPermissions.1.IpProtocol=tcp
--- &amp;IpPermissions.1.FromPort=22 &amp;IpPermissions.1.ToPort=22
--- &amp;IpPermissions.1.IpRanges.1.CidrIp=your-local-system's-public-ip-address/32
--- &amp;AUTHPARAMS Example 5 This example request grants your local system the
--- ability to use Remote Desktop (port 3389) to connect to any instance in the
--- security group named default. https://ec2.amazonaws.com/
--- ?Action=AuthorizeSecurityGroupIngress &amp;GroupName=default
--- &amp;IpPermissions.1.IpProtocol=tcp &amp;IpPermissions.1.FromPort=3389
--- &amp;IpPermissions.1.ToPort=3389
--- &amp;IpPermissions.1.IpRanges.1.CidrIp=your-local-system's-public-ip-address/32.
--- 
+-- must all be for the same VPC.
 module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     (
     -- * Request
@@ -77,15 +40,16 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     -- ** Request constructor
     , authorizeSecurityGroupIngress
     -- ** Request lenses
-    , asgiGroupName
+    , asgiCidrIp
+    , asgiDryRun
+    , asgiFromPort
     , asgiGroupId
+    , asgiGroupName
+    , asgiIpPermissions
+    , asgiIpProtocol
     , asgiSourceSecurityGroupName
     , asgiSourceSecurityGroupOwnerId
-    , asgiIpProtocol
-    , asgiFromPort
     , asgiToPort
-    , asgiCidrIp
-    , asgiIpPermissions
 
     -- * Response
     , AuthorizeSecurityGroupIngressResponse
@@ -93,116 +57,123 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     , authorizeSecurityGroupIngressResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
-    { _asgiGroupName :: Maybe Text
-    , _asgiGroupId :: Maybe Text
-    , _asgiSourceSecurityGroupName :: Maybe Text
+    { _asgiCidrIp                     :: Maybe Text
+    , _asgiDryRun                     :: Maybe Bool
+    , _asgiFromPort                   :: Maybe Int
+    , _asgiGroupId                    :: Maybe Text
+    , _asgiGroupName                  :: Maybe Text
+    , _asgiIpPermissions              :: [IpPermission]
+    , _asgiIpProtocol                 :: Maybe Text
+    , _asgiSourceSecurityGroupName    :: Maybe Text
     , _asgiSourceSecurityGroupOwnerId :: Maybe Text
-    , _asgiIpProtocol :: Maybe Text
-    , _asgiFromPort :: Maybe Integer
-    , _asgiToPort :: Maybe Integer
-    , _asgiCidrIp :: Maybe Text
-    , _asgiIpPermissions :: [IpPermission]
-    } deriving (Eq, Ord, Show, Generic)
+    , _asgiToPort                     :: Maybe Int
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AuthorizeSecurityGroupIngress' request.
+-- | 'AuthorizeSecurityGroupIngress' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupName ::@ @Maybe Text@
+-- * 'asgiCidrIp' @::@ 'Maybe' 'Text'
 --
--- * @GroupId ::@ @Maybe Text@
+-- * 'asgiDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @SourceSecurityGroupName ::@ @Maybe Text@
+-- * 'asgiFromPort' @::@ 'Maybe' 'Int'
 --
--- * @SourceSecurityGroupOwnerId ::@ @Maybe Text@
+-- * 'asgiGroupId' @::@ 'Maybe' 'Text'
 --
--- * @IpProtocol ::@ @Maybe Text@
+-- * 'asgiGroupName' @::@ 'Maybe' 'Text'
 --
--- * @FromPort ::@ @Maybe Integer@
+-- * 'asgiIpPermissions' @::@ ['IpPermission']
 --
--- * @ToPort ::@ @Maybe Integer@
+-- * 'asgiIpProtocol' @::@ 'Maybe' 'Text'
 --
--- * @CidrIp ::@ @Maybe Text@
+-- * 'asgiSourceSecurityGroupName' @::@ 'Maybe' 'Text'
 --
--- * @IpPermissions ::@ @[IpPermission]@
+-- * 'asgiSourceSecurityGroupOwnerId' @::@ 'Maybe' 'Text'
+--
+-- * 'asgiToPort' @::@ 'Maybe' 'Int'
 --
 authorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress
 authorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
-    { _asgiGroupName = Nothing
-    , _asgiGroupId = Nothing
-    , _asgiSourceSecurityGroupName = Nothing
+    { _asgiDryRun                     = Nothing
+    , _asgiGroupName                  = Nothing
+    , _asgiGroupId                    = Nothing
+    , _asgiSourceSecurityGroupName    = Nothing
     , _asgiSourceSecurityGroupOwnerId = Nothing
-    , _asgiIpProtocol = Nothing
-    , _asgiFromPort = Nothing
-    , _asgiToPort = Nothing
-    , _asgiCidrIp = Nothing
-    , _asgiIpPermissions = mempty
+    , _asgiIpProtocol                 = Nothing
+    , _asgiFromPort                   = Nothing
+    , _asgiToPort                     = Nothing
+    , _asgiCidrIp                     = Nothing
+    , _asgiIpPermissions              = mempty
     }
 
--- | [EC2-Classic, default VPC] The name of the security group.
-asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-asgiGroupName = lens _asgiGroupName (\s a -> s { _asgiGroupName = a })
+-- | The CIDR IP address range. You can't specify this parameter when
+-- specifying a source security group.
+asgiCidrIp :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
+asgiCidrIp = lens _asgiCidrIp (\s a -> s { _asgiCidrIp = a })
+
+asgiDryRun :: Lens' AuthorizeSecurityGroupIngress (Maybe Bool)
+asgiDryRun = lens _asgiDryRun (\s a -> s { _asgiDryRun = a })
+
+-- | The start of port range for the TCP and UDP protocols, or an ICMP type
+-- number. For the ICMP type number, use -1 to specify all ICMP types.
+asgiFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
+asgiFromPort = lens _asgiFromPort (\s a -> s { _asgiFromPort = a })
 
 -- | The ID of the security group.
 asgiGroupId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiGroupId = lens _asgiGroupId (\s a -> s { _asgiGroupId = a })
 
--- | [EC2-Classic, default VPC] The name of the source security group. You can't
--- specify a source security group and a CIDR IP address range.
+-- | [EC2-Classic, default VPC] The name of the security group.
+asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
+asgiGroupName = lens _asgiGroupName (\s a -> s { _asgiGroupName = a })
+
+-- | A set of IP permissions. You can't specify a source security group and a
+-- CIDR IP address range.
+asgiIpPermissions :: Lens' AuthorizeSecurityGroupIngress [IpPermission]
+asgiIpPermissions =
+    lens _asgiIpPermissions (\s a -> s { _asgiIpPermissions = a })
+
+-- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).
+-- Use -1 to specify all.
+asgiIpProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
+asgiIpProtocol = lens _asgiIpProtocol (\s a -> s { _asgiIpProtocol = a })
+
+-- | [EC2-Classic, default VPC] The name of the source security group. You
+-- can't specify a source security group and a CIDR IP address range.
 asgiSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupName =
     lens _asgiSourceSecurityGroupName
-         (\s a -> s { _asgiSourceSecurityGroupName = a })
+        (\s a -> s { _asgiSourceSecurityGroupName = a })
 
 -- | The ID of the source security group. You can't specify a source security
 -- group and a CIDR IP address range.
 asgiSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupOwnerId =
     lens _asgiSourceSecurityGroupOwnerId
-         (\s a -> s { _asgiSourceSecurityGroupOwnerId = a })
-
--- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
--- -1 to specify all.
-asgiIpProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-asgiIpProtocol = lens _asgiIpProtocol (\s a -> s { _asgiIpProtocol = a })
-
--- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use -1 to specify all ICMP types.
-asgiFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Integer)
-asgiFromPort = lens _asgiFromPort (\s a -> s { _asgiFromPort = a })
+        (\s a -> s { _asgiSourceSecurityGroupOwnerId = a })
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use -1 to specify all ICMP codes for the
--- ICMP type.
-asgiToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Integer)
+-- number. For the ICMP code number, use -1 to specify all ICMP codes for
+-- the ICMP type.
+asgiToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
 asgiToPort = lens _asgiToPort (\s a -> s { _asgiToPort = a })
 
--- | The CIDR IP address range. You can't specify this parameter when specifying
--- a source security group.
-asgiCidrIp :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-asgiCidrIp = lens _asgiCidrIp (\s a -> s { _asgiCidrIp = a })
+instance ToQuery AuthorizeSecurityGroupIngress
 
--- | 
-asgiIpPermissions :: Lens' AuthorizeSecurityGroupIngress [IpPermission]
-asgiIpPermissions =
-    lens _asgiIpPermissions (\s a -> s { _asgiIpPermissions = a })
-
-instance ToQuery AuthorizeSecurityGroupIngress where
-    toQuery = genericQuery def
+instance ToPath AuthorizeSecurityGroupIngress where
+    toPath = const "/"
 
 data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AuthorizeSecurityGroupIngressResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AuthorizeSecurityGroupIngressResponse' constructor.
 authorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse
 authorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
 
@@ -210,5 +181,5 @@ instance AWSRequest AuthorizeSecurityGroupIngress where
     type Sv AuthorizeSecurityGroupIngress = EC2
     type Rs AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngressResponse
 
-    request = post "AuthorizeSecurityGroupIngress"
-    response _ = nullaryResponse AuthorizeSecurityGroupIngressResponse
+    request  = post "AuthorizeSecurityGroupIngress"
+    response = nullaryResponse AuthorizeSecurityGroupIngressResponse

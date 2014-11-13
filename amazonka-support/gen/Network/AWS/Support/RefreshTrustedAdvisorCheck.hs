@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Support.RefreshTrustedAdvisorCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,20 +45,19 @@ module Network.AWS.Support.RefreshTrustedAdvisorCheck
     , rtacrStatus
     ) where
 
-import Network.AWS.Support.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Support.Types
 
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
     { _rtacCheckId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RefreshTrustedAdvisorCheck' request.
+-- | 'RefreshTrustedAdvisorCheck' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CheckId ::@ @Text@
+-- * 'rtacCheckId' @::@ 'Text'
 --
 refreshTrustedAdvisorCheck :: Text -- ^ 'rtacCheckId'
                            -> RefreshTrustedAdvisorCheck
@@ -68,27 +69,26 @@ refreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
 rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
 rtacCheckId = lens _rtacCheckId (\s a -> s { _rtacCheckId = a })
 
-instance ToPath RefreshTrustedAdvisorCheck
+instance ToPath RefreshTrustedAdvisorCheck where
+    toPath = const "/"
 
-instance ToQuery RefreshTrustedAdvisorCheck
+instance ToQuery RefreshTrustedAdvisorCheck where
+    toQuery = const mempty
 
 instance ToHeaders RefreshTrustedAdvisorCheck
 
-instance ToJSON RefreshTrustedAdvisorCheck
+instance ToBody RefreshTrustedAdvisorCheck where
+    toBody = toBody . encode . _rtacCheckId
 
--- | The current refresh status of a Trusted Advisor check.
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
     { _rtacrStatus :: TrustedAdvisorCheckRefreshStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RefreshTrustedAdvisorCheckResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RefreshTrustedAdvisorCheckResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Status ::@ @TrustedAdvisorCheckRefreshStatus@
+-- * 'rtacrStatus' @::@ 'TrustedAdvisorCheckRefreshStatus'
 --
 refreshTrustedAdvisorCheckResponse :: TrustedAdvisorCheckRefreshStatus -- ^ 'rtacrStatus'
                                    -> RefreshTrustedAdvisorCheckResponse
@@ -96,16 +96,17 @@ refreshTrustedAdvisorCheckResponse p1 = RefreshTrustedAdvisorCheckResponse
     { _rtacrStatus = p1
     }
 
--- | The current refresh status for a check, including the amount of time until
--- the check is eligible for refresh.
+-- | The current refresh status for a check, including the amount of time
+-- until the check is eligible for refresh.
 rtacrStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
 rtacrStatus = lens _rtacrStatus (\s a -> s { _rtacrStatus = a })
 
-instance FromJSON RefreshTrustedAdvisorCheckResponse
+-- FromJSON
 
 instance AWSRequest RefreshTrustedAdvisorCheck where
     type Sv RefreshTrustedAdvisorCheck = Support
     type Rs RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheckResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> RefreshTrustedAdvisorCheckResponse
+        <$> o .: "status"

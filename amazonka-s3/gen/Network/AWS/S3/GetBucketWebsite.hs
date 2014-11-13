@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketWebsite
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,98 +35,97 @@ module Network.AWS.S3.GetBucketWebsite
     -- ** Response constructor
     , getBucketWebsiteResponse
     -- ** Response lenses
-    , gbwrRedirectAllRequestsTo
-    , gbwrIndexDocument
     , gbwrErrorDocument
+    , gbwrIndexDocument
+    , gbwrRedirectAllRequestsTo
     , gbwrRoutingRules
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketWebsite = GetBucketWebsite
-    { _gbwBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbwBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketWebsite' request.
+-- | 'GetBucketWebsite' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'gbwBucket' @::@ 'Text'
 --
-getBucketWebsite :: BucketName -- ^ 'gbwBucket'
+getBucketWebsite :: Text -- ^ 'gbwBucket'
                  -> GetBucketWebsite
 getBucketWebsite p1 = GetBucketWebsite
     { _gbwBucket = p1
     }
 
-gbwBucket :: Lens' GetBucketWebsite BucketName
+gbwBucket :: Lens' GetBucketWebsite Text
 gbwBucket = lens _gbwBucket (\s a -> s { _gbwBucket = a })
 
-instance ToPath GetBucketWebsite
+instance ToPath GetBucketWebsite where
+    toPath GetBucketWebsite{..} = mconcat
+        [ "/"
+        , toText _gbwBucket
+        ]
 
-instance ToQuery GetBucketWebsite
+instance ToQuery GetBucketWebsite where
+    toQuery = const "website"
 
 instance ToHeaders GetBucketWebsite
 
-instance ToBody GetBucketWebsite
-
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse
-    { _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
-    , _gbwrIndexDocument :: Maybe IndexDocument
-    , _gbwrErrorDocument :: Maybe ErrorDocument
-    , _gbwrRoutingRules :: [RoutingRule]
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbwrErrorDocument         :: Maybe ErrorDocument
+    , _gbwrIndexDocument         :: Maybe IndexDocument
+    , _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
+    , _gbwrRoutingRules          :: [RoutingRule]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketWebsiteResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetBucketWebsiteResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RedirectAllRequestsTo ::@ @Maybe RedirectAllRequestsTo@
+-- * 'gbwrErrorDocument' @::@ 'Maybe' 'ErrorDocument'
 --
--- * @IndexDocument ::@ @Maybe IndexDocument@
+-- * 'gbwrIndexDocument' @::@ 'Maybe' 'IndexDocument'
 --
--- * @ErrorDocument ::@ @Maybe ErrorDocument@
+-- * 'gbwrRedirectAllRequestsTo' @::@ 'Maybe' 'RedirectAllRequestsTo'
 --
--- * @RoutingRules ::@ @[RoutingRule]@
+-- * 'gbwrRoutingRules' @::@ ['RoutingRule']
 --
 getBucketWebsiteResponse :: GetBucketWebsiteResponse
 getBucketWebsiteResponse = GetBucketWebsiteResponse
     { _gbwrRedirectAllRequestsTo = Nothing
-    , _gbwrIndexDocument = Nothing
-    , _gbwrErrorDocument = Nothing
-    , _gbwrRoutingRules = mempty
+    , _gbwrIndexDocument         = Nothing
+    , _gbwrErrorDocument         = Nothing
+    , _gbwrRoutingRules          = mempty
     }
-
-gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
-gbwrRedirectAllRequestsTo =
-    lens _gbwrRedirectAllRequestsTo
-         (\s a -> s { _gbwrRedirectAllRequestsTo = a })
-
-gbwrIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
-gbwrIndexDocument =
-    lens _gbwrIndexDocument (\s a -> s { _gbwrIndexDocument = a })
 
 gbwrErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
 gbwrErrorDocument =
     lens _gbwrErrorDocument (\s a -> s { _gbwrErrorDocument = a })
 
-gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
-gbwrRoutingRules =
-    lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a })
+gbwrIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
+gbwrIndexDocument =
+    lens _gbwrIndexDocument (\s a -> s { _gbwrIndexDocument = a })
 
-instance FromXML GetBucketWebsiteResponse where
-    fromXMLOptions = xmlOptions
+gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
+gbwrRedirectAllRequestsTo =
+    lens _gbwrRedirectAllRequestsTo
+        (\s a -> s { _gbwrRedirectAllRequestsTo = a })
+
+gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
+gbwrRoutingRules = lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a })
 
 instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
     type Rs GetBucketWebsite = GetBucketWebsiteResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetBucketWebsiteResponse
+        <$> x %| "ErrorDocument"
+        <*> x %| "IndexDocument"
+        <*> x %| "RedirectAllRequestsTo"
+        <*> x %| "RoutingRules"

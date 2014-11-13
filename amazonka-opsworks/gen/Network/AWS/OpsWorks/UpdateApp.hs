@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateApp
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,16 +32,15 @@ module Network.AWS.OpsWorks.UpdateApp
     , updateApp
     -- ** Request lenses
     , uaAppId
-    , uaName
-    , uaDescription
-    , uaDataSources
-    , uaType
     , uaAppSource
+    , uaAttributes
+    , uaDataSources
+    , uaDescription
     , uaDomains
     , uaEnableSsl
+    , uaName
     , uaSslConfiguration
-    , uaAttributes
-    , uaEnvironment
+    , uaType
 
     -- * Response
     , UpdateAppResponse
@@ -47,93 +48,86 @@ module Network.AWS.OpsWorks.UpdateApp
     , updateAppResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data UpdateApp = UpdateApp
-    { _uaAppId :: Text
-    , _uaName :: Maybe Text
-    , _uaDescription :: Maybe Text
-    , _uaDataSources :: [DataSource]
-    , _uaType :: Maybe AppType
-    , _uaAppSource :: Maybe Source'
-    , _uaDomains :: [Text]
-    , _uaEnableSsl :: Maybe Bool
+    { _uaAppId            :: Text
+    , _uaAppSource        :: Maybe Source
+    , _uaAttributes       :: Map Text Text
+    , _uaDataSources      :: [DataSource]
+    , _uaDescription      :: Maybe Text
+    , _uaDomains          :: [Text]
+    , _uaEnableSsl        :: Maybe Bool
+    , _uaName             :: Maybe Text
     , _uaSslConfiguration :: Maybe SslConfiguration
-    , _uaAttributes :: Map AppAttributesKeys Text
-    , _uaEnvironment :: [EnvironmentVariable]
+    , _uaType             :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateApp' request.
+-- | 'UpdateApp' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AppId ::@ @Text@
+-- * 'uaAppId' @::@ 'Text'
 --
--- * @Name ::@ @Maybe Text@
+-- * 'uaAppSource' @::@ 'Maybe' 'Source'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'uaAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
--- * @DataSources ::@ @[DataSource]@
+-- * 'uaDataSources' @::@ ['DataSource']
 --
--- * @Type ::@ @Maybe AppType@
+-- * 'uaDescription' @::@ 'Maybe' 'Text'
 --
--- * @AppSource ::@ @Maybe Source'@
+-- * 'uaDomains' @::@ ['Text']
 --
--- * @Domains ::@ @[Text]@
+-- * 'uaEnableSsl' @::@ 'Maybe' 'Bool'
 --
--- * @EnableSsl ::@ @Maybe Bool@
+-- * 'uaName' @::@ 'Maybe' 'Text'
 --
--- * @SslConfiguration ::@ @Maybe SslConfiguration@
+-- * 'uaSslConfiguration' @::@ 'Maybe' 'SslConfiguration'
 --
--- * @Attributes ::@ @Map AppAttributesKeys Text@
---
--- * @Environment ::@ @[EnvironmentVariable]@
+-- * 'uaType' @::@ 'Maybe' 'Text'
 --
 updateApp :: Text -- ^ 'uaAppId'
           -> UpdateApp
 updateApp p1 = UpdateApp
-    { _uaAppId = p1
-    , _uaName = Nothing
-    , _uaDescription = Nothing
-    , _uaDataSources = mempty
-    , _uaType = Nothing
-    , _uaAppSource = Nothing
-    , _uaDomains = mempty
-    , _uaEnableSsl = Nothing
+    { _uaAppId            = p1
+    , _uaName             = Nothing
+    , _uaDescription      = Nothing
+    , _uaDataSources      = mempty
+    , _uaType             = Nothing
+    , _uaAppSource        = Nothing
+    , _uaDomains          = mempty
+    , _uaEnableSsl        = Nothing
     , _uaSslConfiguration = Nothing
-    , _uaAttributes = mempty
-    , _uaEnvironment = mempty
+    , _uaAttributes       = mempty
     }
 
 -- | The app ID.
 uaAppId :: Lens' UpdateApp Text
 uaAppId = lens _uaAppId (\s a -> s { _uaAppId = a })
 
--- | The app name.
-uaName :: Lens' UpdateApp (Maybe Text)
-uaName = lens _uaName (\s a -> s { _uaName = a })
+-- | A Source object that specifies the app repository.
+uaAppSource :: Lens' UpdateApp (Maybe Source)
+uaAppSource = lens _uaAppSource (\s a -> s { _uaAppSource = a })
 
--- | A description of the app.
-uaDescription :: Lens' UpdateApp (Maybe Text)
-uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
+-- | One or more user-defined key/value pairs to be added to the stack
+-- attributes.
+uaAttributes :: Lens' UpdateApp (HashMap Text Text)
+uaAttributes = lens _uaAttributes (\s a -> s { _uaAttributes = a })
+    . _Map
 
 -- | The app's data sources.
 uaDataSources :: Lens' UpdateApp [DataSource]
 uaDataSources = lens _uaDataSources (\s a -> s { _uaDataSources = a })
 
--- | The app type.
-uaType :: Lens' UpdateApp (Maybe AppType)
-uaType = lens _uaType (\s a -> s { _uaType = a })
+-- | A description of the app.
+uaDescription :: Lens' UpdateApp (Maybe Text)
+uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
 
--- | A Source object that specifies the app repository.
-uaAppSource :: Lens' UpdateApp (Maybe Source')
-uaAppSource = lens _uaAppSource (\s a -> s { _uaAppSource = a })
-
--- | The app's virtual host settings, with multiple domains separated by commas.
--- For example: 'www.example.com, example.com'.
+-- | The app's virtual host settings, with multiple domains separated by
+-- commas. For example: 'www.example.com, example.com'.
 uaDomains :: Lens' UpdateApp [Text]
 uaDomains = lens _uaDomains (\s a -> s { _uaDomains = a })
 
@@ -141,46 +135,42 @@ uaDomains = lens _uaDomains (\s a -> s { _uaDomains = a })
 uaEnableSsl :: Lens' UpdateApp (Maybe Bool)
 uaEnableSsl = lens _uaEnableSsl (\s a -> s { _uaEnableSsl = a })
 
+-- | The app name.
+uaName :: Lens' UpdateApp (Maybe Text)
+uaName = lens _uaName (\s a -> s { _uaName = a })
+
 -- | An SslConfiguration object with the SSL configuration.
 uaSslConfiguration :: Lens' UpdateApp (Maybe SslConfiguration)
 uaSslConfiguration =
     lens _uaSslConfiguration (\s a -> s { _uaSslConfiguration = a })
 
--- | One or more user-defined key/value pairs to be added to the stack
--- attributes.
-uaAttributes :: Lens' UpdateApp (Map AppAttributesKeys Text)
-uaAttributes = lens _uaAttributes (\s a -> s { _uaAttributes = a })
+-- | The app type.
+uaType :: Lens' UpdateApp (Maybe Text)
+uaType = lens _uaType (\s a -> s { _uaType = a })
 
--- | An array of EnvironmentVariable objects that specify environment variables
--- to be associated with the app. You can specify up to ten environment
--- variables. After you deploy the app, these variables are defined on the
--- associated app server instances. This parameter is supported only by Chef
--- 11.10 stacks. If you have specified one or more environment variables, you
--- cannot modify the stack's Chef version.
-uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
-uaEnvironment = lens _uaEnvironment (\s a -> s { _uaEnvironment = a })
+instance ToPath UpdateApp where
+    toPath = const "/"
 
-instance ToPath UpdateApp
-
-instance ToQuery UpdateApp
+instance ToQuery UpdateApp where
+    toQuery = const mempty
 
 instance ToHeaders UpdateApp
 
-instance ToJSON UpdateApp
+instance ToBody UpdateApp where
+    toBody = toBody . encode . _uaAppId
 
 data UpdateAppResponse = UpdateAppResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateAppResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateAppResponse' constructor.
 updateAppResponse :: UpdateAppResponse
 updateAppResponse = UpdateAppResponse
+
+-- FromJSON
 
 instance AWSRequest UpdateApp where
     type Sv UpdateApp = OpsWorks
     type Rs UpdateApp = UpdateAppResponse
 
-    request = get
-    response _ = nullaryResponse UpdateAppResponse
+    request  = post'
+    response = nullaryResponse UpdateAppResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DetachVpnGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,14 +26,7 @@
 -- describing the virtual private gateway (any attachments to the virtual
 -- private gateway are also described). You must wait for the attachment's
 -- state to switch to detached before you can delete the VPC or attach a
--- different VPC to the virtual private gateway. Example This example detaches
--- the specified virtual private gateway from the specified VPC.
--- https://ec2.amazonaws.com/?Action=DetachVpnGateway
--- &amp;VpnGatewayId=vgw-8db04f81 &amp;VpcId=vpc-1a2b3c4d &amp;AUTHPARAMS
--- &lt;DetachVpnGatewayResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DetachVpnGatewayResponse&gt;.
+-- different VPC to the virtual private gateway.
 module Network.AWS.EC2.DetachVpnGateway
     (
     -- * Request
@@ -39,8 +34,9 @@ module Network.AWS.EC2.DetachVpnGateway
     -- ** Request constructor
     , detachVpnGateway
     -- ** Request lenses
-    , dvg2VpnGatewayId
-    , dvg2VpcId
+    , dvg1DryRun
+    , dvg1VpcId
+    , dvg1VpnGatewayId
 
     -- * Response
     , DetachVpnGatewayResponse
@@ -48,51 +44,56 @@ module Network.AWS.EC2.DetachVpnGateway
     , detachVpnGatewayResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DetachVpnGateway = DetachVpnGateway
-    { _dvg2VpnGatewayId :: Text
-    , _dvg2VpcId :: Text
+    { _dvg1DryRun       :: Maybe Bool
+    , _dvg1VpcId        :: Text
+    , _dvg1VpnGatewayId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachVpnGateway' request.
+-- | 'DetachVpnGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpnGatewayId ::@ @Text@
+-- * 'dvg1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * @VpcId ::@ @Text@
+-- * 'dvg1VpcId' @::@ 'Text'
 --
-detachVpnGateway :: Text -- ^ 'dvg2VpnGatewayId'
-                 -> Text -- ^ 'dvg2VpcId'
+-- * 'dvg1VpnGatewayId' @::@ 'Text'
+--
+detachVpnGateway :: Text -- ^ 'dvg1VpnGatewayId'
+                 -> Text -- ^ 'dvg1VpcId'
                  -> DetachVpnGateway
 detachVpnGateway p1 p2 = DetachVpnGateway
-    { _dvg2VpnGatewayId = p1
-    , _dvg2VpcId = p2
+    { _dvg1VpnGatewayId = p1
+    , _dvg1VpcId        = p2
+    , _dvg1DryRun       = Nothing
     }
 
--- | The ID of the virtual private gateway.
-dvg2VpnGatewayId :: Lens' DetachVpnGateway Text
-dvg2VpnGatewayId =
-    lens _dvg2VpnGatewayId (\s a -> s { _dvg2VpnGatewayId = a })
+dvg1DryRun :: Lens' DetachVpnGateway (Maybe Bool)
+dvg1DryRun = lens _dvg1DryRun (\s a -> s { _dvg1DryRun = a })
 
 -- | The ID of the VPC.
-dvg2VpcId :: Lens' DetachVpnGateway Text
-dvg2VpcId = lens _dvg2VpcId (\s a -> s { _dvg2VpcId = a })
+dvg1VpcId :: Lens' DetachVpnGateway Text
+dvg1VpcId = lens _dvg1VpcId (\s a -> s { _dvg1VpcId = a })
 
-instance ToQuery DetachVpnGateway where
-    toQuery = genericQuery def
+-- | The ID of the virtual private gateway.
+dvg1VpnGatewayId :: Lens' DetachVpnGateway Text
+dvg1VpnGatewayId = lens _dvg1VpnGatewayId (\s a -> s { _dvg1VpnGatewayId = a })
+
+instance ToQuery DetachVpnGateway
+
+instance ToPath DetachVpnGateway where
+    toPath = const "/"
 
 data DetachVpnGatewayResponse = DetachVpnGatewayResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachVpnGatewayResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DetachVpnGatewayResponse' constructor.
 detachVpnGatewayResponse :: DetachVpnGatewayResponse
 detachVpnGatewayResponse = DetachVpnGatewayResponse
 
@@ -100,5 +101,5 @@ instance AWSRequest DetachVpnGateway where
     type Sv DetachVpnGateway = EC2
     type Rs DetachVpnGateway = DetachVpnGatewayResponse
 
-    request = post "DetachVpnGateway"
-    response _ = nullaryResponse DetachVpnGatewayResponse
+    request  = post "DetachVpnGateway"
+    response = nullaryResponse DetachVpnGatewayResponse

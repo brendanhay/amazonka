@@ -1,3 +1,5 @@
+{-# LANGUAGE PatternSynonyms #-}
+
 -- Module      : Network.AWS.Prelude.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -20,31 +22,51 @@ module Network.AWS.Prelude
     -- * Primitives
     , Base64
     , ByteString
+    , ClientRequest
+    , ClientResponse
     , Exception
+    , HashMap
     , HttpException
+    , LazyByteString
+    , Natural
+    , NonEmpty
     , RequestBody
     , Response
     , Text
 
     -- * Classes
-    , MonadCatch      (..)
-    , MonadResource   (..)
-    , MonadReader     (..)
-    , MonadError      (..)
-    , State
-    , FromJSON        (..)
-    , ToJSON          (..)
     , AWSError        (..)
-    , AWSServiceError (..)
-    , AWSService      (..)
-    , AWSRequest      (..)
     , AWSPager        (..)
+    , AWSRequest      (..)
+    , AWSService      (..)
+    , FromJSON        (..)
+    , IsString        (..)
+    , MonadCatch      (..)
+    , MonadError      (..)
+    , MonadReader     (..)
+    , MonadResource   (..)
+    , Semigroup
+    , State
+    , ToJSON          (..)
+    , Whole
+
+    -- * Endpoints
+    , global
+    , regional
+    , custom
 
     -- * Shared
-    , Action          (..)
-    , Endpoint       (..)
-    , Service        (..)
-    , Switch          (..)
+    , Empty           (..)
+    , Sensitive       (..)
+    , Service         (..)
+    , _Sensitive
+
+    -- * Errors
+    , ServiceError    (..)
+    , RESTError
+
+    -- * HTTP
+    , Status
 
     -- * Lenses
     , module Lens
@@ -61,21 +83,30 @@ import Control.Monad.Trans.Resource (MonadResource(..))
 import Data.Aeson                   (FromJSON(..), ToJSON(..))
 import Data.Bifunctor               as Export
 import Data.ByteString              (ByteString)
-import Data.Default                 as Export
+import Data.Default.Class           as Export
+import Data.Foldable                (Foldable)
+import Data.HashMap.Strict          (HashMap)
 import Data.Hashable                as Export
+import Data.List.NonEmpty           (NonEmpty)
 import Data.Maybe                   as Export
-import Data.Monoid                  as Export
+import Data.Monoid                  as Export hiding (All, Any, Sum)
+import Data.Semigroup               (Semigroup)
+import Data.String                  (IsString(..))
 import Data.Tagged                  as Export
 import Data.Text                    (Text)
+import Data.Traversable             (Traversable)
 import Data.Typeable                (Typeable)
 import GHC.Generics                 (Generic)
 import Network.AWS.Data             as Export hiding (Query)
+import Network.AWS.Error            (RESTError)
 import Network.AWS.Response         as Export
 import Network.AWS.Types
-import Network.HTTP.Client          (HttpException, RequestBody, Response)
+import Network.HTTP.Client          (HttpException, RequestBody)
+import Network.HTTP.Types.Status    (Status)
+import Numeric.Natural              (Natural, Whole)
 import Prelude                      as Export hiding (head, error)
 
-import Control.Lens as Lens
+import Control.Lens                 as Lens
     ( Lens'
     , Prism'
     , (<&>)
@@ -92,5 +123,8 @@ import Control.Lens as Lens
     , (%=)
     , lens
     , prism
+    , iso
+    , withIso
     , to
+    , mapping
     )

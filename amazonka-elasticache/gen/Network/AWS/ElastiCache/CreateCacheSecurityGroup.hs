@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheSecurityGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,16 +22,10 @@
 
 -- | The CreateCacheSecurityGroup operation creates a new cache security group.
 -- Use a cache security group to control access to one or more cache clusters.
--- Cache security groups are only used when you are creating a cluster outside
--- of an Amazon Virtual Private Cloud (VPC). If you are creating a cluster
--- inside of a VPC, use a cache subnet group instead. For more information,
--- see CreateCacheSubnetGroup. https://elasticache.us-east-1.amazonaws.com/
--- ?Action=CreateCacheSecurityGroup
--- &CacheSecurityGroupName=mycachesecuritygroup
--- &Description=My%20cache%20security%20group &Version=2014-03-24
--- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
--- &X-Amz-Credential= mycachesecuritygroup 123456789012 My cache security
--- group 2b1c8035-b7fa-11e0-9326-b7275b9d4a6c.
+-- Cache security groups are only used when you are creating a cache cluster
+-- outside of an Amazon Virtual Private Cloud (VPC). If you are creating a
+-- cache cluster inside of a VPC, use a cache subnet group instead. For more
+-- information, see CreateCacheSubnetGroup.
 module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     (
     -- * Request
@@ -48,80 +44,72 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     , ccsgrCacheSecurityGroup
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents the input of a CreateCacheSecurityGroup operation.
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup
     { _ccsgCacheSecurityGroupName :: Text
-    , _ccsgDescription :: Text
+    , _ccsgDescription            :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateCacheSecurityGroup' request.
+-- | 'CreateCacheSecurityGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CacheSecurityGroupName ::@ @Text@
+-- * 'ccsgCacheSecurityGroupName' @::@ 'Text'
 --
--- * @Description ::@ @Text@
+-- * 'ccsgDescription' @::@ 'Text'
 --
 createCacheSecurityGroup :: Text -- ^ 'ccsgCacheSecurityGroupName'
                          -> Text -- ^ 'ccsgDescription'
                          -> CreateCacheSecurityGroup
 createCacheSecurityGroup p1 p2 = CreateCacheSecurityGroup
     { _ccsgCacheSecurityGroupName = p1
-    , _ccsgDescription = p2
+    , _ccsgDescription            = p2
     }
 
 -- | A name for the cache security group. This value is stored as a lowercase
--- string. Constraints: Must contain no more than 255 alphanumeric characters.
--- Must not be the word "Default". Example: mysecuritygroup.
+-- string. Constraints: Must contain no more than 255 alphanumeric
+-- characters. Cannot be the word "Default". Example: mysecuritygroup.
 ccsgCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
 ccsgCacheSecurityGroupName =
     lens _ccsgCacheSecurityGroupName
-         (\s a -> s { _ccsgCacheSecurityGroupName = a })
+        (\s a -> s { _ccsgCacheSecurityGroupName = a })
 
 -- | A description for the cache security group.
 ccsgDescription :: Lens' CreateCacheSecurityGroup Text
 ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
 
-instance ToQuery CreateCacheSecurityGroup where
-    toQuery = genericQuery def
+instance ToQuery CreateCacheSecurityGroup
+
+instance ToPath CreateCacheSecurityGroup where
+    toPath = const "/"
 
 newtype CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
     { _ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateCacheSecurityGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateCacheSecurityGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CacheSecurityGroup ::@ @Maybe CacheSecurityGroup@
+-- * 'ccsgrCacheSecurityGroup' @::@ 'Maybe' 'CacheSecurityGroup'
 --
 createCacheSecurityGroupResponse :: CreateCacheSecurityGroupResponse
 createCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
     { _ccsgrCacheSecurityGroup = Nothing
     }
 
--- | Represents the output of one of the following operations:
--- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
--- RevokeCacheSecurityGroupIngress.
 ccsgrCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
 ccsgrCacheSecurityGroup =
-    lens _ccsgrCacheSecurityGroup
-         (\s a -> s { _ccsgrCacheSecurityGroup = a })
-
-instance FromXML CreateCacheSecurityGroupResponse where
-    fromXMLOptions = xmlOptions
+    lens _ccsgrCacheSecurityGroup (\s a -> s { _ccsgrCacheSecurityGroup = a })
 
 instance AWSRequest CreateCacheSecurityGroup where
     type Sv CreateCacheSecurityGroup = ElastiCache
     type Rs CreateCacheSecurityGroup = CreateCacheSecurityGroupResponse
 
-    request = post "CreateCacheSecurityGroup"
-    response _ = xmlResponse
+    request  = post "CreateCacheSecurityGroup"
+    response = xmlResponse $ \h x -> CreateCacheSecurityGroupResponse
+        <$> x %| "CacheSecurityGroup"

@@ -1,13 +1,13 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,230 +19,163 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Relational Database Service (Amazon RDS) is a web service that makes
--- it easy to set up, operate, and scale a relational database in the cloud.
--- It provides cost-efficient and resizable capacity while managing
--- time-consuming database administration tasks, freeing you up to focus on
--- your applications and business.
 module Network.AWS.RDS.Types
     (
     -- * Service
       RDS
-    -- ** Errors
-    , RDSError (..)
-    , _AuthorizationAlreadyExistsFault
-    , _AuthorizationNotFoundFault
-    , _AuthorizationQuotaExceededFault
-    , _DBInstanceAlreadyExistsFault
-    , _DBInstanceNotFoundFault
-    , _DBParameterGroupAlreadyExistsFault
-    , _DBParameterGroupNotFoundFault
-    , _DBParameterGroupQuotaExceededFault
-    , _DBSecurityGroupAlreadyExistsFault
-    , _DBSecurityGroupNotFoundFault
-    , _DBSecurityGroupNotSupportedFault
-    , _DBSecurityGroupQuotaExceededFault
-    , _DBSnapshotAlreadyExistsFault
-    , _DBSnapshotNotFoundFault
-    , _DBSubnetGroupAlreadyExistsFault
-    , _DBSubnetGroupDoesNotCoverEnoughAZs
-    , _DBSubnetGroupNotAllowedFault
-    , _DBSubnetGroupNotFoundFault
-    , _DBSubnetGroupQuotaExceededFault
-    , _DBSubnetQuotaExceededFault
-    , _DBUpgradeDependencyFailureFault
-    , _EventSubscriptionQuotaExceededFault
-    , _InstanceQuotaExceededFault
-    , _InsufficientDBInstanceCapacityFault
-    , _InvalidDBInstanceStateFault
-    , _InvalidDBParameterGroupStateFault
-    , _InvalidDBSecurityGroupStateFault
-    , _InvalidDBSnapshotStateFault
-    , _InvalidDBSubnetGroupFault
-    , _InvalidDBSubnetGroupStateFault
-    , _InvalidDBSubnetStateFault
-    , _InvalidEventSubscriptionStateFault
-    , _InvalidOptionGroupStateFault
-    , _InvalidRestoreFault
-    , _InvalidSubnet
-    , _InvalidVPCNetworkStateFault
-    , _OptionGroupAlreadyExistsFault
-    , _OptionGroupNotFoundFault
-    , _OptionGroupQuotaExceededFault
-    , _PointInTimeRestoreNotEnabledFault
-    , _ProvisionedIopsNotAvailableInAZFault
-    , _RDSClient
-    , _RDSSerializer
-    , _RDSService
-    , _ReservedDBInstanceAlreadyExistsFault
-    , _ReservedDBInstanceNotFoundFault
-    , _ReservedDBInstanceQuotaExceededFault
-    , _ReservedDBInstancesOfferingNotFoundFault
-    , _SNSInvalidTopicFault
-    , _SNSNoAuthorizationFault
-    , _SNSTopicArnNotFoundFault
-    , _SnapshotQuotaExceededFault
-    , _SourceNotFoundFault
-    , _StorageQuotaExceededFault
-    , _SubnetAlreadyInUse
-    , _SubscriptionAlreadyExistFault
-    , _SubscriptionCategoryNotFoundFault
-    , _SubscriptionNotFoundFault
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
-    -- * ApplyMethod
-    , ApplyMethod (..)
+    -- * OptionGroup
+    , OptionGroup
+    , optionGroup
+    , ogAllowsVpcAndNonVpcInstanceMemberships
+    , ogEngineName
+    , ogMajorEngineVersion
+    , ogOptionGroupDescription
+    , ogOptionGroupName
+    , ogOptions
+    , ogVpcId
+
+    -- * DBParameterGroupStatus
+    , DBParameterGroupStatus
+    , dbparameterGroupStatus
+    , dbpgsDBParameterGroupName
+    , dbpgsParameterApplyStatus
+
+    -- * Event
+    , Event
+    , event
+    , eDate
+    , eEventCategories
+    , eMessage
+    , eSourceIdentifier
+    , eSourceType
+
+    -- * DBSecurityGroup
+    , DBSecurityGroup
+    , dbsecurityGroup
+    , dbsgDBSecurityGroupDescription
+    , dbsgDBSecurityGroupName
+    , dbsgEC2SecurityGroups
+    , dbsgIPRanges
+    , dbsgOwnerId
+    , dbsgVpcId
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
+    -- * DBEngineVersion
+    , DBEngineVersion
+    , dbengineVersion
+    , dbevDBEngineDescription
+    , dbevDBEngineVersionDescription
+    , dbevDBParameterGroupFamily
+    , dbevDefaultCharacterSet
+    , dbevEngine
+    , dbevEngineVersion
+    , dbevSupportedCharacterSets
+
+    -- * DBSnapshot
+    , DBSnapshot
+    , dbsnapshot
+    , dbsAllocatedStorage
+    , dbsAvailabilityZone
+    , dbsDBInstanceIdentifier
+    , dbsDBSnapshotIdentifier
+    , dbsEngine
+    , dbsEngineVersion
+    , dbsInstanceCreateTime
+    , dbsIops
+    , dbsLicenseModel
+    , dbsMasterUsername
+    , dbsOptionGroupName
+    , dbsPercentProgress
+    , dbsPort
+    , dbsSnapshotCreateTime
+    , dbsSnapshotType
+    , dbsSourceRegion
+    , dbsStatus
+    , dbsStorageType
+    , dbsTdeCredentialArn
+    , dbsVpcId
+
+    -- * DBSecurityGroupMembership
+    , DBSecurityGroupMembership
+    , dbsecurityGroupMembership
+    , dbsgmDBSecurityGroupName
+    , dbsgmStatus
+
+    -- * EC2SecurityGroup
+    , EC2SecurityGroup
+    , ec2SecurityGroup
+    , ecsgEC2SecurityGroupId
+    , ecsgEC2SecurityGroupName
+    , ecsgEC2SecurityGroupOwnerId
+    , ecsgStatus
 
     -- * SourceType
     , SourceType (..)
 
-    -- * AvailabilityZone
-    , AvailabilityZone
-    , availabilityZone
-    , azName
-    , azProvisionedIopsCapable
+    -- * DBParameterGroup
+    , DBParameterGroup
+    , dbparameterGroup
+    , dbpgDBParameterGroupFamily
+    , dbpgDBParameterGroupName
+    , dbpgDescription
+
+    -- * ReservedDBInstancesOffering
+    , ReservedDBInstancesOffering
+    , reservedDBInstancesOffering
+    , rdbioCurrencyCode
+    , rdbioDBInstanceClass
+    , rdbioDuration
+    , rdbioFixedPrice
+    , rdbioMultiAZ
+    , rdbioOfferingType
+    , rdbioProductDescription
+    , rdbioRecurringCharges
+    , rdbioReservedDBInstancesOfferingId
+    , rdbioUsagePrice
+
+    -- * ApplyMethod
+    , ApplyMethod (..)
 
     -- * CharacterSet
     , CharacterSet
     , characterSet
-    , csCharacterSetName
     , csCharacterSetDescription
+    , csCharacterSetName
 
-    -- * DBEngineVersion
-    , DBEngineVersion
-    , dBEngineVersion
-    , dbevEngine
-    , dbevEngineVersion
-    , dbevDBParameterGroupFamily
-    , dbevDBEngineDescription
-    , dbevDBEngineVersionDescription
-    , dbevDefaultCharacterSet
-    , dbevSupportedCharacterSets
+    -- * Subnet
+    , Subnet
+    , subnet
+    , sSubnetAvailabilityZone
+    , sSubnetIdentifier
+    , sSubnetStatus
 
-    -- * DBInstance
-    , DBInstance
-    , dBInstance
-    , dbiDBInstanceIdentifier
-    , dbiDBInstanceClass
-    , dbiEngine
-    , dbiDBInstanceStatus
-    , dbiMasterUsername
-    , dbiDBName
-    , dbiEndpoint
-    , dbiAllocatedStorage
-    , dbiInstanceCreateTime
-    , dbiPreferredBackupWindow
-    , dbiBackupRetentionPeriod
-    , dbiDBSecurityGroups
-    , dbiVpcSecurityGroups
-    , dbiDBParameterGroups
-    , dbiAvailabilityZone
-    , dbiDBSubnetGroup
-    , dbiPreferredMaintenanceWindow
-    , dbiPendingModifiedValues
-    , dbiLatestRestorableTime
-    , dbiMultiAZ
-    , dbiEngineVersion
-    , dbiAutoMinorVersionUpgrade
-    , dbiReadReplicaSourceDBInstanceIdentifier
-    , dbiReadReplicaDBInstanceIdentifiers
-    , dbiLicenseModel
-    , dbiIops
-    , dbiOptionGroupMemberships
-    , dbiCharacterSetName
-    , dbiSecondaryAvailabilityZone
-    , dbiPubliclyAccessible
-    , dbiStatusInfos
-
-    -- * DBInstanceStatusInfo
-    , DBInstanceStatusInfo
-    , dBInstanceStatusInfo
-    , dbisiStatusType
-    , dbisiNormal
-    , dbisiStatus
-    , dbisiMessage
-
-    -- * DBParameterGroup
-    , DBParameterGroup
-    , dBParameterGroup
-    , dbpgDBParameterGroupName
-    , dbpgDBParameterGroupFamily
-    , dbpgDescription
-
-    -- * DBParameterGroupStatus
-    , DBParameterGroupStatus
-    , dBParameterGroupStatus
-    , dbpgsDBParameterGroupName
-    , dbpgsParameterApplyStatus
-
-    -- * DBSecurityGroup
-    , DBSecurityGroup
-    , dBSecurityGroup
-    , dbsgOwnerId
-    , dbsgDBSecurityGroupName
-    , dbsgDBSecurityGroupDescription
-    , dbsgVpcId
-    , dbsgEC2SecurityGroups
-    , dbsgIPRanges
-
-    -- * DBSecurityGroupMembership
-    , DBSecurityGroupMembership
-    , dBSecurityGroupMembership
-    , dbsgmDBSecurityGroupName
-    , dbsgmStatus
-
-    -- * DBSnapshot
-    , DBSnapshot
-    , dBSnapshot
-    , dbsDBSnapshotIdentifier
-    , dbsDBInstanceIdentifier
-    , dbsSnapshotCreateTime
-    , dbsEngine
-    , dbsAllocatedStorage
-    , dbsStatus
-    , dbsPort
-    , dbsAvailabilityZone
-    , dbsVpcId
-    , dbsInstanceCreateTime
-    , dbsMasterUsername
-    , dbsEngineVersion
-    , dbsLicenseModel
-    , dbsSnapshotType
-    , dbsIops
-    , dbsOptionGroupName
-    , dbsPercentProgress
-    , dbsSourceRegion
-
-    -- * DBSubnetGroup
-    , DBSubnetGroup
-    , dBSubnetGroup
-    , dbsgrDBSubnetGroupName
-    , dbsgrDBSubnetGroupDescription
-    , dbsgrVpcId
-    , dbsgrSubnetGroupStatus
-    , dbsgrSubnets
-
-    -- * DescribeDBLogFilesDetails
-    , DescribeDBLogFilesDetails
-    , describeDBLogFilesDetails
-    , ddblfdLogFileName
-    , ddblfdLastWritten
-    , ddblfdSize
-
-    -- * EC2SecurityGroup
-    , EC2SecurityGroup
-    , eC2SecurityGroup
-    , ecsgStatus
-    , ecsgEC2SecurityGroupName
-    , ecsgEC2SecurityGroupId
-    , ecsgEC2SecurityGroupOwnerId
-
-    -- * Endpoint'
-    , Endpoint'
-    , endpoint'
-    , eAddress
-    , ePort
+    -- * ReservedDBInstance
+    , ReservedDBInstance
+    , reservedDBInstance
+    , rdbiCurrencyCode
+    , rdbiDBInstanceClass
+    , rdbiDBInstanceCount
+    , rdbiDuration
+    , rdbiFixedPrice
+    , rdbiMultiAZ
+    , rdbiOfferingType
+    , rdbiProductDescription
+    , rdbiRecurringCharges
+    , rdbiReservedDBInstanceId
+    , rdbiReservedDBInstancesOfferingId
+    , rdbiStartTime
+    , rdbiState
+    , rdbiUsagePrice
 
     -- * EngineDefaults
     , EngineDefaults
@@ -251,154 +184,137 @@ module Network.AWS.RDS.Types
     , edMarker
     , edParameters
 
-    -- * Event
-    , Event
-    , event
-    , erSourceIdentifier
-    , erSourceType
-    , erMessage
-    , erEventCategories
-    , erDate
-
-    -- * EventCategoriesMap
-    , EventCategoriesMap
-    , eventCategoriesMap
-    , ecmSourceType
-    , ecmEventCategories
-
-    -- * EventSubscription
-    , EventSubscription
-    , eventSubscription
-    , esCustomerAwsId
-    , esCustSubscriptionId
-    , esSnsTopicArn
-    , esStatus
-    , esSubscriptionCreationTime
-    , esSourceType
-    , esSourceIdsList
-    , esEventCategoriesList
-    , esEnabled
-
-    -- * IPRange
-    , IPRange
-    , iPRange
-    , iprStatus
-    , iprCIDRIP
-
-    -- * Option
-    , Option
-    , option
-    , oOptionName
-    , oOptionDescription
-    , oPersistent
-    , oPermanent
-    , oPort
-    , oOptionSettings
-    , oDBSecurityGroupMemberships
-    , oVpcSecurityGroupMemberships
-
-    -- * OptionConfiguration
-    , OptionConfiguration
-    , optionConfiguration
-    , ocOptionName
-    , ocPort
-    , ocDBSecurityGroupMemberships
-    , ocVpcSecurityGroupMemberships
-    , ocOptionSettings
-
-    -- * OptionGroup
-    , OptionGroup
-    , optionGroup
-    , ogOptionGroupName
-    , ogOptionGroupDescription
-    , ogEngineName
-    , ogMajorEngineVersion
-    , ogOptions
-    , ogAllowsVpcAndNonVpcInstanceMemberships
-    , ogVpcId
-
-    -- * OptionGroupMembership
-    , OptionGroupMembership
-    , optionGroupMembership
-    , ogmOptionGroupName
-    , ogmStatus
+    -- * DBParameterGroupNameMessage
+    , DBParameterGroupNameMessage
+    , dbparameterGroupNameMessage
+    , dbpgnmDBParameterGroupName
 
     -- * OptionGroupOption
     , OptionGroupOption
     , optionGroupOption
-    , ogoName
+    , ogoDefaultPort
     , ogoDescription
     , ogoEngineName
     , ogoMajorEngineVersion
     , ogoMinimumRequiredMinorEngineVersion
-    , ogoPortRequired
-    , ogoDefaultPort
-    , ogoOptionsDependedOn
-    , ogoPersistent
-    , ogoPermanent
+    , ogoName
     , ogoOptionGroupOptionSettings
+    , ogoOptionsDependedOn
+    , ogoPermanent
+    , ogoPersistent
+    , ogoPortRequired
 
-    -- * OptionGroupOptionSetting
-    , OptionGroupOptionSetting
-    , optionGroupOptionSetting
-    , ogosSettingName
-    , ogosSettingDescription
-    , ogosDefaultValue
-    , ogosApplyType
-    , ogosAllowedValues
-    , ogosIsModifiable
+    -- * DBInstance
+    , DBInstance
+    , dbinstance
+    , dbiAllocatedStorage
+    , dbiAutoMinorVersionUpgrade
+    , dbiAvailabilityZone
+    , dbiBackupRetentionPeriod
+    , dbiCharacterSetName
+    , dbiDBInstanceClass
+    , dbiDBInstanceIdentifier
+    , dbiDBInstanceStatus
+    , dbiDBName
+    , dbiDBParameterGroups
+    , dbiDBSecurityGroups
+    , dbiDBSubnetGroup
+    , dbiEndpoint
+    , dbiEngine
+    , dbiEngineVersion
+    , dbiInstanceCreateTime
+    , dbiIops
+    , dbiLatestRestorableTime
+    , dbiLicenseModel
+    , dbiMasterUsername
+    , dbiMultiAZ
+    , dbiOptionGroupMemberships
+    , dbiPendingModifiedValues
+    , dbiPreferredBackupWindow
+    , dbiPreferredMaintenanceWindow
+    , dbiPubliclyAccessible
+    , dbiReadReplicaDBInstanceIdentifiers
+    , dbiReadReplicaSourceDBInstanceIdentifier
+    , dbiSecondaryAvailabilityZone
+    , dbiStatusInfos
+    , dbiStorageType
+    , dbiTdeCredentialArn
+    , dbiVpcSecurityGroups
+
+    -- * AvailabilityZone
+    , AvailabilityZone
+    , availabilityZone
+    , azName
+
+    -- * EventSubscription
+    , EventSubscription
+    , eventSubscription
+    , esCustSubscriptionId
+    , esCustomerAwsId
+    , esEnabled
+    , esEventCategoriesList
+    , esSnsTopicArn
+    , esSourceIdsList
+    , esSourceType
+    , esStatus
+    , esSubscriptionCreationTime
+
+    -- * DBSubnetGroup
+    , DBSubnetGroup
+    , dbsubnetGroup
+    , dbsg1DBSubnetGroupDescription
+    , dbsg1DBSubnetGroupName
+    , dbsg1SubnetGroupStatus
+    , dbsg1Subnets
+    , dbsg1VpcId
+
+    -- * DBInstanceStatusInfo
+    , DBInstanceStatusInfo
+    , dbinstanceStatusInfo
+    , dbisiMessage
+    , dbisiNormal
+    , dbisiStatus
+    , dbisiStatusType
 
     -- * OptionSetting
     , OptionSetting
     , optionSetting
-    , osName
-    , osValue
-    , osDefaultValue
-    , osDescription
+    , osAllowedValues
     , osApplyType
     , osDataType
-    , osAllowedValues
-    , osIsModifiable
+    , osDefaultValue
+    , osDescription
     , osIsCollection
+    , osIsModifiable
+    , osName
+    , osValue
+
+    -- * DescribeDBLogFilesDetails
+    , DescribeDBLogFilesDetails
+    , describeDBLogFilesDetails
+    , ddblfdLastWritten
+    , ddblfdLogFileName
+    , ddblfdSize
 
     -- * OrderableDBInstanceOption
     , OrderableDBInstanceOption
     , orderableDBInstanceOption
+    , odbioAvailabilityZones
+    , odbioDBInstanceClass
     , odbioEngine
     , odbioEngineVersion
-    , odbioDBInstanceClass
     , odbioLicenseModel
-    , odbioAvailabilityZones
     , odbioMultiAZCapable
     , odbioReadReplicaCapable
+    , odbioStorageType
+    , odbioSupportsIops
     , odbioVpc
 
-    -- * Parameter
-    , Parameter
-    , parameter
-    , pParameterName
-    , pParameterValue
-    , pDescription
-    , pSource
-    , pApplyType
-    , pDataType
-    , pAllowedValues
-    , pIsModifiable
-    , pMinimumEngineVersion
-    , pApplyMethod
-
-    -- * PendingModifiedValues
-    , PendingModifiedValues
-    , pendingModifiedValues
-    , pmvDBInstanceClass
-    , pmvAllocatedStorage
-    , pmvMasterUserPassword
-    , pmvPort
-    , pmvBackupRetentionPeriod
-    , pmvMultiAZ
-    , pmvEngineVersion
-    , pmvIops
-    , pmvDBInstanceIdentifier
+    -- * Filter
+    , Filter
+    , filter'
+    , fName
+    , fValues
 
     -- * RecurringCharge
     , RecurringCharge
@@ -406,1515 +322,222 @@ module Network.AWS.RDS.Types
     , rcRecurringChargeAmount
     , rcRecurringChargeFrequency
 
-    -- * ReservedDBInstance
-    , ReservedDBInstance
-    , reservedDBInstance
-    , rdbiReservedDBInstanceId
-    , rdbiReservedDBInstancesOfferingId
-    , rdbiDBInstanceClass
-    , rdbiStartTime
-    , rdbiDuration
-    , rdbiFixedPrice
-    , rdbiUsagePrice
-    , rdbiCurrencyCode
-    , rdbiDBInstanceCount
-    , rdbiProductDescription
-    , rdbiOfferingType
-    , rdbiMultiAZ
-    , rdbiState
-    , rdbiRecurringCharges
+    -- * Endpoint
+    , Endpoint
+    , endpoint
+    , eAddress
+    , ePort
 
-    -- * ReservedDBInstancesOffering
-    , ReservedDBInstancesOffering
-    , reservedDBInstancesOffering
-    , rdbioReservedDBInstancesOfferingId
-    , rdbioDBInstanceClass
-    , rdbioDuration
-    , rdbioFixedPrice
-    , rdbioUsagePrice
-    , rdbioCurrencyCode
-    , rdbioProductDescription
-    , rdbioOfferingType
-    , rdbioMultiAZ
-    , rdbioRecurringCharges
+    -- * OptionConfiguration
+    , OptionConfiguration
+    , optionConfiguration
+    , ocDBSecurityGroupMemberships
+    , ocOptionName
+    , ocOptionSettings
+    , ocPort
+    , ocVpcSecurityGroupMemberships
 
-    -- * Subnet
-    , Subnet
-    , subnet
-    , sSubnetIdentifier
-    , sSubnetAvailabilityZone
-    , sSubnetStatus
+    -- * Option
+    , Option
+    , option
+    , oDBSecurityGroupMemberships
+    , oOptionDescription
+    , oOptionName
+    , oOptionSettings
+    , oPermanent
+    , oPersistent
+    , oPort
+    , oVpcSecurityGroupMemberships
 
-    -- * Tag
-    , Tag
-    , tag
-    , tKey
-    , tValue
+    -- * IPRange
+    , IPRange
+    , iprange
+    , iprCIDRIP
+    , iprStatus
+
+    -- * OptionGroupMembership
+    , OptionGroupMembership
+    , optionGroupMembership
+    , ogmOptionGroupName
+    , ogmStatus
+
+    -- * EventCategoriesMap
+    , EventCategoriesMap
+    , eventCategoriesMap
+    , ecmEventCategories
+    , ecmSourceType
+
+    -- * PendingModifiedValues
+    , PendingModifiedValues
+    , pendingModifiedValues
+    , pmvAllocatedStorage
+    , pmvBackupRetentionPeriod
+    , pmvDBInstanceClass
+    , pmvDBInstanceIdentifier
+    , pmvEngineVersion
+    , pmvIops
+    , pmvMasterUserPassword
+    , pmvMultiAZ
+    , pmvPort
+    , pmvStorageType
 
     -- * VpcSecurityGroupMembership
     , VpcSecurityGroupMembership
     , vpcSecurityGroupMembership
-    , vsgmVpcSecurityGroupId
     , vsgmStatus
+    , vsgmVpcSecurityGroupId
+
+    -- * Parameter
+    , Parameter
+    , parameter
+    , pAllowedValues
+    , pApplyMethod
+    , pApplyType
+    , pDataType
+    , pDescription
+    , pIsModifiable
+    , pMinimumEngineVersion
+    , pParameterName
+    , pParameterValue
+    , pSource
+
+    -- * OptionGroupOptionSetting
+    , OptionGroupOptionSetting
+    , optionGroupOptionSetting
+    , ogosAllowedValues
+    , ogosApplyType
+    , ogosDefaultValue
+    , ogosIsModifiable
+    , ogosSettingDescription
+    , ogosSettingName
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
--- | Supported version (@2013-09-09@) of the
--- @Amazon Relational Database Service@ service.
+-- | Supported version (@2014-09-01@) of the Amazon Relational Database Service.
 data RDS deriving (Typeable)
 
 instance AWSService RDS where
     type Sg RDS = V4
-    type Er RDS = RDSError
+    type Er RDS = RESTError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
+        , _svcAbbrev   = "RDS"
         , _svcPrefix   = "rds"
-        , _svcVersion  = "2013-09-09"
+        , _svcVersion  = "2014-09-01"
         , _svcTarget   = Nothing
         }
 
--- | A sum type representing possible errors returned by the 'RDS' service.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data RDSError
-      -- | The specified CIDRIP or EC2 security group is already authorized
-      -- for the specified DB security group.
-    = AuthorizationAlreadyExistsFault
-      -- | Specified CIDRIP or EC2 security group is not authorized for the
-      -- specified DB security group.
-    | AuthorizationNotFoundFault
-      -- | DB security group authorization quota has been reached.
-    | AuthorizationQuotaExceededFault
-      -- | User already has a DB instance with the given identifier.
-    | DBInstanceAlreadyExistsFault
-      -- | DBInstanceIdentifier does not refer to an existing DB instance.
-    | DBInstanceNotFoundFault
-      -- | A DB parameter group with the same name exists.
-    | DBParameterGroupAlreadyExistsFault
-      -- | DBParameterGroupName does not refer to an existing DB parameter
-      -- group.
-    | DBParameterGroupNotFoundFault
-      -- | Request would result in user exceeding the allowed number of DB
-      -- parameter groups.
-    | DBParameterGroupQuotaExceededFault
-      -- | A DB security group with the name specified in
-      -- DBSecurityGroupName already exists.
-    | DBSecurityGroupAlreadyExistsFault
-      -- | DBSecurityGroupName does not refer to an existing DB security
-      -- group.
-    | DBSecurityGroupNotFoundFault
-      -- | A DB security group is not allowed for this action.
-    | DBSecurityGroupNotSupportedFault
-      -- | Request would result in user exceeding the allowed number of DB
-      -- security groups.
-    | DBSecurityGroupQuotaExceededFault
-      -- | DBSnapshotIdentifier is already used by an existing snapshot.
-    | DBSnapshotAlreadyExistsFault
-      -- | DBSnapshotIdentifier does not refer to an existing DB snapshot.
-    | DBSnapshotNotFoundFault
-      -- | DBSubnetGroupName is already used by an existing DB subnet group.
-    | DBSubnetGroupAlreadyExistsFault
-      -- | Subnets in the DB subnet group should cover at least 2
-      -- Availability Zones unless there is only 1 availablility zone.
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-      -- | Indicates that the DBSubnetGroup should not be specified while
-      -- creating read replicas that lie in the same region as the source
-      -- instance.
-    | DBSubnetGroupNotAllowedFault
-      -- | DBSubnetGroupName does not refer to an existing DB subnet group.
-    | DBSubnetGroupNotFoundFault
-      -- | Request would result in user exceeding the allowed number of DB
-      -- subnet groups.
-    | DBSubnetGroupQuotaExceededFault
-      -- | Request would result in user exceeding the allowed number of
-      -- subnets in a DB subnet groups.
-    | DBSubnetQuotaExceededFault
-      -- | The DB upgrade failed because a resource the DB depends on could
-      -- not be modified.
-    | DBUpgradeDependencyFailureFault
-      -- | You have reached the maximum number of event subscriptions.
-    | EventSubscriptionQuotaExceededFault
-      -- | Request would result in user exceeding the allowed number of DB
-      -- instances.
-    | InstanceQuotaExceededFault
-      -- | Specified DB instance class is not available in the specified
-      -- Availability Zone.
-    | InsufficientDBInstanceCapacityFault
-      -- | The specified DB instance is not in the available state.
-    | InvalidDBInstanceStateFault
-      -- | The DB parameter group cannot be deleted because it is in use.
-    | InvalidDBParameterGroupStateFault
-      -- | The state of the DB security group does not allow deletion.
-    | InvalidDBSecurityGroupStateFault
-      -- | The state of the DB snapshot does not allow deletion.
-    | InvalidDBSnapshotStateFault
-      -- | Indicates the DBSubnetGroup does not belong to the same VPC as
-      -- that of an existing cross region read replica of the same source
-      -- instance.
-    | InvalidDBSubnetGroupFault
-      -- | The DB subnet group cannot be deleted because it is in use.
-    | InvalidDBSubnetGroupStateFault
-      -- | The DB subnet is not in the available state.
-    | InvalidDBSubnetStateFault
-      -- | This error can occur if someone else is modifying a subscription.
-      -- You should retry the action.
-    | InvalidEventSubscriptionStateFault
-      -- | The option group is not in the available state.
-    | InvalidOptionGroupStateFault
-      -- | Cannot restore from vpc backup to non-vpc DB instance.
-    | InvalidRestoreFault
-      -- | The requested subnet is invalid, or multiple subnets were
-      -- requested that are not all in a common VPC.
-    | InvalidSubnet
-      -- | DB subnet group does not cover all Availability Zones after it is
-      -- created because users' change.
-    | InvalidVPCNetworkStateFault
-      -- | The option group you are trying to create already exists.
-    | OptionGroupAlreadyExistsFault
-      -- | The specified option group could not be found.
-    | OptionGroupNotFoundFault
-      -- | The quota of 20 option groups was exceeded for this AWS account.
-    | OptionGroupQuotaExceededFault
-      -- | SourceDBInstanceIdentifier refers to a DB instance with
-      -- BackupRetentionPeriod equal to 0.
-    | PointInTimeRestoreNotEnabledFault
-      -- | Provisioned IOPS not available in the specified Availability
-      -- Zone.
-    | ProvisionedIopsNotAvailableInAZFault
-    | RDSClient HttpException
-    | RDSSerializer String
-    | RDSService String
-      -- | User already has a reservation with the given identifier.
-    | ReservedDBInstanceAlreadyExistsFault
-      -- | The specified reserved DB Instance not found.
-    | ReservedDBInstanceNotFoundFault
-      -- | Request would exceed the user's DB Instance quota.
-    | ReservedDBInstanceQuotaExceededFault
-      -- | Specified offering does not exist.
-    | ReservedDBInstancesOfferingNotFoundFault
-      -- | SNS has responded that there is a problem with the SND topic
-      -- specified.
-    | SNSInvalidTopicFault
-      -- | You do not have permission to publish to the SNS topic ARN.
-    | SNSNoAuthorizationFault
-      -- | The SNS topic ARN does not exist.
-    | SNSTopicArnNotFoundFault
-      -- | Request would result in user exceeding the allowed number of DB
-      -- snapshots.
-    | SnapshotQuotaExceededFault
-      -- | The requested source could not be found.
-    | SourceNotFoundFault
-      -- | Request would result in user exceeding the allowed amount of
-      -- storage available across all DB instances.
-    | StorageQuotaExceededFault
-      -- | The DB subnet is already in use in the Availability Zone.
-    | SubnetAlreadyInUse
-      -- | The supplied subscription name already exists.
-    | SubscriptionAlreadyExistFault
-      -- | The supplied category does not exist.
-    | SubscriptionCategoryNotFoundFault
-      -- | The subscription name does not exist.
-    | SubscriptionNotFoundFault
-      deriving (Show, Typeable, Generic)
-
-instance AWSError RDSError where
-    awsError = const "RDSError"
-
-instance AWSServiceError RDSError where
-    serviceError    = RDSService
-    clientError     = RDSClient
-    serializerError = RDSSerializer
-
-instance Exception RDSError
-
--- | The specified CIDRIP or EC2 security group is already authorized for the
--- specified DB security group.
---
--- See: 'AuthorizationAlreadyExistsFault'
-_AuthorizationAlreadyExistsFault :: Prism' RDSError ()
-_AuthorizationAlreadyExistsFault = prism
-    (const AuthorizationAlreadyExistsFault)
-    (\case
-        AuthorizationAlreadyExistsFault -> Right ()
-        x -> Left x)
-
--- | Specified CIDRIP or EC2 security group is not authorized for the specified
--- DB security group.
---
--- See: 'AuthorizationNotFoundFault'
-_AuthorizationNotFoundFault :: Prism' RDSError ()
-_AuthorizationNotFoundFault = prism
-    (const AuthorizationNotFoundFault)
-    (\case
-        AuthorizationNotFoundFault -> Right ()
-        x -> Left x)
-
--- | DB security group authorization quota has been reached.
---
--- See: 'AuthorizationQuotaExceededFault'
-_AuthorizationQuotaExceededFault :: Prism' RDSError ()
-_AuthorizationQuotaExceededFault = prism
-    (const AuthorizationQuotaExceededFault)
-    (\case
-        AuthorizationQuotaExceededFault -> Right ()
-        x -> Left x)
-
--- | User already has a DB instance with the given identifier.
---
--- See: 'DBInstanceAlreadyExistsFault'
-_DBInstanceAlreadyExistsFault :: Prism' RDSError ()
-_DBInstanceAlreadyExistsFault = prism
-    (const DBInstanceAlreadyExistsFault)
-    (\case
-        DBInstanceAlreadyExistsFault -> Right ()
-        x -> Left x)
-
--- | DBInstanceIdentifier does not refer to an existing DB instance.
---
--- See: 'DBInstanceNotFoundFault'
-_DBInstanceNotFoundFault :: Prism' RDSError ()
-_DBInstanceNotFoundFault = prism
-    (const DBInstanceNotFoundFault)
-    (\case
-        DBInstanceNotFoundFault -> Right ()
-        x -> Left x)
-
--- | A DB parameter group with the same name exists.
---
--- See: 'DBParameterGroupAlreadyExistsFault'
-_DBParameterGroupAlreadyExistsFault :: Prism' RDSError ()
-_DBParameterGroupAlreadyExistsFault = prism
-    (const DBParameterGroupAlreadyExistsFault)
-    (\case
-        DBParameterGroupAlreadyExistsFault -> Right ()
-        x -> Left x)
-
--- | DBParameterGroupName does not refer to an existing DB parameter group.
---
--- See: 'DBParameterGroupNotFoundFault'
-_DBParameterGroupNotFoundFault :: Prism' RDSError ()
-_DBParameterGroupNotFoundFault = prism
-    (const DBParameterGroupNotFoundFault)
-    (\case
-        DBParameterGroupNotFoundFault -> Right ()
-        x -> Left x)
-
--- | Request would result in user exceeding the allowed number of DB parameter
--- groups.
---
--- See: 'DBParameterGroupQuotaExceededFault'
-_DBParameterGroupQuotaExceededFault :: Prism' RDSError ()
-_DBParameterGroupQuotaExceededFault = prism
-    (const DBParameterGroupQuotaExceededFault)
-    (\case
-        DBParameterGroupQuotaExceededFault -> Right ()
-        x -> Left x)
-
--- | A DB security group with the name specified in DBSecurityGroupName already
--- exists.
---
--- See: 'DBSecurityGroupAlreadyExistsFault'
-_DBSecurityGroupAlreadyExistsFault :: Prism' RDSError ()
-_DBSecurityGroupAlreadyExistsFault = prism
-    (const DBSecurityGroupAlreadyExistsFault)
-    (\case
-        DBSecurityGroupAlreadyExistsFault -> Right ()
-        x -> Left x)
-
--- | DBSecurityGroupName does not refer to an existing DB security group.
---
--- See: 'DBSecurityGroupNotFoundFault'
-_DBSecurityGroupNotFoundFault :: Prism' RDSError ()
-_DBSecurityGroupNotFoundFault = prism
-    (const DBSecurityGroupNotFoundFault)
-    (\case
-        DBSecurityGroupNotFoundFault -> Right ()
-        x -> Left x)
-
--- | A DB security group is not allowed for this action.
---
--- See: 'DBSecurityGroupNotSupportedFault'
-_DBSecurityGroupNotSupportedFault :: Prism' RDSError ()
-_DBSecurityGroupNotSupportedFault = prism
-    (const DBSecurityGroupNotSupportedFault)
-    (\case
-        DBSecurityGroupNotSupportedFault -> Right ()
-        x -> Left x)
-
--- | Request would result in user exceeding the allowed number of DB security
--- groups.
---
--- See: 'DBSecurityGroupQuotaExceededFault'
-_DBSecurityGroupQuotaExceededFault :: Prism' RDSError ()
-_DBSecurityGroupQuotaExceededFault = prism
-    (const DBSecurityGroupQuotaExceededFault)
-    (\case
-        DBSecurityGroupQuotaExceededFault -> Right ()
-        x -> Left x)
-
--- | DBSnapshotIdentifier is already used by an existing snapshot.
---
--- See: 'DBSnapshotAlreadyExistsFault'
-_DBSnapshotAlreadyExistsFault :: Prism' RDSError ()
-_DBSnapshotAlreadyExistsFault = prism
-    (const DBSnapshotAlreadyExistsFault)
-    (\case
-        DBSnapshotAlreadyExistsFault -> Right ()
-        x -> Left x)
-
--- | DBSnapshotIdentifier does not refer to an existing DB snapshot.
---
--- See: 'DBSnapshotNotFoundFault'
-_DBSnapshotNotFoundFault :: Prism' RDSError ()
-_DBSnapshotNotFoundFault = prism
-    (const DBSnapshotNotFoundFault)
-    (\case
-        DBSnapshotNotFoundFault -> Right ()
-        x -> Left x)
-
--- | DBSubnetGroupName is already used by an existing DB subnet group.
---
--- See: 'DBSubnetGroupAlreadyExistsFault'
-_DBSubnetGroupAlreadyExistsFault :: Prism' RDSError ()
-_DBSubnetGroupAlreadyExistsFault = prism
-    (const DBSubnetGroupAlreadyExistsFault)
-    (\case
-        DBSubnetGroupAlreadyExistsFault -> Right ()
-        x -> Left x)
-
--- | Subnets in the DB subnet group should cover at least 2 Availability Zones
--- unless there is only 1 availablility zone.
---
--- See: 'DBSubnetGroupDoesNotCoverEnoughAZs'
-_DBSubnetGroupDoesNotCoverEnoughAZs :: Prism' RDSError ()
-_DBSubnetGroupDoesNotCoverEnoughAZs = prism
-    (const DBSubnetGroupDoesNotCoverEnoughAZs)
-    (\case
-        DBSubnetGroupDoesNotCoverEnoughAZs -> Right ()
-        x -> Left x)
-
--- | Indicates that the DBSubnetGroup should not be specified while creating
--- read replicas that lie in the same region as the source instance.
---
--- See: 'DBSubnetGroupNotAllowedFault'
-_DBSubnetGroupNotAllowedFault :: Prism' RDSError ()
-_DBSubnetGroupNotAllowedFault = prism
-    (const DBSubnetGroupNotAllowedFault)
-    (\case
-        DBSubnetGroupNotAllowedFault -> Right ()
-        x -> Left x)
-
--- | DBSubnetGroupName does not refer to an existing DB subnet group.
---
--- See: 'DBSubnetGroupNotFoundFault'
-_DBSubnetGroupNotFoundFault :: Prism' RDSError ()
-_DBSubnetGroupNotFoundFault = prism
-    (const DBSubnetGroupNotFoundFault)
-    (\case
-        DBSubnetGroupNotFoundFault -> Right ()
-        x -> Left x)
-
--- | Request would result in user exceeding the allowed number of DB subnet
--- groups.
---
--- See: 'DBSubnetGroupQuotaExceededFault'
-_DBSubnetGroupQuotaExceededFault :: Prism' RDSError ()
-_DBSubnetGroupQuotaExceededFault = prism
-    (const DBSubnetGroupQuotaExceededFault)
-    (\case
-        DBSubnetGroupQuotaExceededFault -> Right ()
-        x -> Left x)
-
--- | Request would result in user exceeding the allowed number of subnets in a
--- DB subnet groups.
---
--- See: 'DBSubnetQuotaExceededFault'
-_DBSubnetQuotaExceededFault :: Prism' RDSError ()
-_DBSubnetQuotaExceededFault = prism
-    (const DBSubnetQuotaExceededFault)
-    (\case
-        DBSubnetQuotaExceededFault -> Right ()
-        x -> Left x)
-
--- | The DB upgrade failed because a resource the DB depends on could not be
--- modified.
---
--- See: 'DBUpgradeDependencyFailureFault'
-_DBUpgradeDependencyFailureFault :: Prism' RDSError ()
-_DBUpgradeDependencyFailureFault = prism
-    (const DBUpgradeDependencyFailureFault)
-    (\case
-        DBUpgradeDependencyFailureFault -> Right ()
-        x -> Left x)
-
--- | You have reached the maximum number of event subscriptions.
---
--- See: 'EventSubscriptionQuotaExceededFault'
-_EventSubscriptionQuotaExceededFault :: Prism' RDSError ()
-_EventSubscriptionQuotaExceededFault = prism
-    (const EventSubscriptionQuotaExceededFault)
-    (\case
-        EventSubscriptionQuotaExceededFault -> Right ()
-        x -> Left x)
-
--- | Request would result in user exceeding the allowed number of DB instances.
---
--- See: 'InstanceQuotaExceededFault'
-_InstanceQuotaExceededFault :: Prism' RDSError ()
-_InstanceQuotaExceededFault = prism
-    (const InstanceQuotaExceededFault)
-    (\case
-        InstanceQuotaExceededFault -> Right ()
-        x -> Left x)
-
--- | Specified DB instance class is not available in the specified Availability
--- Zone.
---
--- See: 'InsufficientDBInstanceCapacityFault'
-_InsufficientDBInstanceCapacityFault :: Prism' RDSError ()
-_InsufficientDBInstanceCapacityFault = prism
-    (const InsufficientDBInstanceCapacityFault)
-    (\case
-        InsufficientDBInstanceCapacityFault -> Right ()
-        x -> Left x)
-
--- | The specified DB instance is not in the available state.
---
--- See: 'InvalidDBInstanceStateFault'
-_InvalidDBInstanceStateFault :: Prism' RDSError ()
-_InvalidDBInstanceStateFault = prism
-    (const InvalidDBInstanceStateFault)
-    (\case
-        InvalidDBInstanceStateFault -> Right ()
-        x -> Left x)
-
--- | The DB parameter group cannot be deleted because it is in use.
---
--- See: 'InvalidDBParameterGroupStateFault'
-_InvalidDBParameterGroupStateFault :: Prism' RDSError ()
-_InvalidDBParameterGroupStateFault = prism
-    (const InvalidDBParameterGroupStateFault)
-    (\case
-        InvalidDBParameterGroupStateFault -> Right ()
-        x -> Left x)
-
--- | The state of the DB security group does not allow deletion.
---
--- See: 'InvalidDBSecurityGroupStateFault'
-_InvalidDBSecurityGroupStateFault :: Prism' RDSError ()
-_InvalidDBSecurityGroupStateFault = prism
-    (const InvalidDBSecurityGroupStateFault)
-    (\case
-        InvalidDBSecurityGroupStateFault -> Right ()
-        x -> Left x)
-
--- | The state of the DB snapshot does not allow deletion.
---
--- See: 'InvalidDBSnapshotStateFault'
-_InvalidDBSnapshotStateFault :: Prism' RDSError ()
-_InvalidDBSnapshotStateFault = prism
-    (const InvalidDBSnapshotStateFault)
-    (\case
-        InvalidDBSnapshotStateFault -> Right ()
-        x -> Left x)
-
--- | Indicates the DBSubnetGroup does not belong to the same VPC as that of an
--- existing cross region read replica of the same source instance.
---
--- See: 'InvalidDBSubnetGroupFault'
-_InvalidDBSubnetGroupFault :: Prism' RDSError ()
-_InvalidDBSubnetGroupFault = prism
-    (const InvalidDBSubnetGroupFault)
-    (\case
-        InvalidDBSubnetGroupFault -> Right ()
-        x -> Left x)
-
--- | The DB subnet group cannot be deleted because it is in use.
---
--- See: 'InvalidDBSubnetGroupStateFault'
-_InvalidDBSubnetGroupStateFault :: Prism' RDSError ()
-_InvalidDBSubnetGroupStateFault = prism
-    (const InvalidDBSubnetGroupStateFault)
-    (\case
-        InvalidDBSubnetGroupStateFault -> Right ()
-        x -> Left x)
-
--- | The DB subnet is not in the available state.
---
--- See: 'InvalidDBSubnetStateFault'
-_InvalidDBSubnetStateFault :: Prism' RDSError ()
-_InvalidDBSubnetStateFault = prism
-    (const InvalidDBSubnetStateFault)
-    (\case
-        InvalidDBSubnetStateFault -> Right ()
-        x -> Left x)
-
--- | This error can occur if someone else is modifying a subscription. You
--- should retry the action.
---
--- See: 'InvalidEventSubscriptionStateFault'
-_InvalidEventSubscriptionStateFault :: Prism' RDSError ()
-_InvalidEventSubscriptionStateFault = prism
-    (const InvalidEventSubscriptionStateFault)
-    (\case
-        InvalidEventSubscriptionStateFault -> Right ()
-        x -> Left x)
-
--- | The option group is not in the available state.
---
--- See: 'InvalidOptionGroupStateFault'
-_InvalidOptionGroupStateFault :: Prism' RDSError ()
-_InvalidOptionGroupStateFault = prism
-    (const InvalidOptionGroupStateFault)
-    (\case
-        InvalidOptionGroupStateFault -> Right ()
-        x -> Left x)
-
--- | Cannot restore from vpc backup to non-vpc DB instance.
---
--- See: 'InvalidRestoreFault'
-_InvalidRestoreFault :: Prism' RDSError ()
-_InvalidRestoreFault = prism
-    (const InvalidRestoreFault)
-    (\case
-        InvalidRestoreFault -> Right ()
-        x -> Left x)
-
--- | The requested subnet is invalid, or multiple subnets were requested that
--- are not all in a common VPC.
---
--- See: 'InvalidSubnet'
-_InvalidSubnet :: Prism' RDSError ()
-_InvalidSubnet = prism
-    (const InvalidSubnet)
-    (\case
-        InvalidSubnet -> Right ()
-        x -> Left x)
-
--- | DB subnet group does not cover all Availability Zones after it is created
--- because users' change.
---
--- See: 'InvalidVPCNetworkStateFault'
-_InvalidVPCNetworkStateFault :: Prism' RDSError ()
-_InvalidVPCNetworkStateFault = prism
-    (const InvalidVPCNetworkStateFault)
-    (\case
-        InvalidVPCNetworkStateFault -> Right ()
-        x -> Left x)
-
--- | The option group you are trying to create already exists.
---
--- See: 'OptionGroupAlreadyExistsFault'
-_OptionGroupAlreadyExistsFault :: Prism' RDSError ()
-_OptionGroupAlreadyExistsFault = prism
-    (const OptionGroupAlreadyExistsFault)
-    (\case
-        OptionGroupAlreadyExistsFault -> Right ()
-        x -> Left x)
-
--- | The specified option group could not be found.
---
--- See: 'OptionGroupNotFoundFault'
-_OptionGroupNotFoundFault :: Prism' RDSError ()
-_OptionGroupNotFoundFault = prism
-    (const OptionGroupNotFoundFault)
-    (\case
-        OptionGroupNotFoundFault -> Right ()
-        x -> Left x)
-
--- | The quota of 20 option groups was exceeded for this AWS account.
---
--- See: 'OptionGroupQuotaExceededFault'
-_OptionGroupQuotaExceededFault :: Prism' RDSError ()
-_OptionGroupQuotaExceededFault = prism
-    (const OptionGroupQuotaExceededFault)
-    (\case
-        OptionGroupQuotaExceededFault -> Right ()
-        x -> Left x)
-
--- | SourceDBInstanceIdentifier refers to a DB instance with
--- BackupRetentionPeriod equal to 0.
---
--- See: 'PointInTimeRestoreNotEnabledFault'
-_PointInTimeRestoreNotEnabledFault :: Prism' RDSError ()
-_PointInTimeRestoreNotEnabledFault = prism
-    (const PointInTimeRestoreNotEnabledFault)
-    (\case
-        PointInTimeRestoreNotEnabledFault -> Right ()
-        x -> Left x)
-
--- | Provisioned IOPS not available in the specified Availability Zone.
---
--- See: 'ProvisionedIopsNotAvailableInAZFault'
-_ProvisionedIopsNotAvailableInAZFault :: Prism' RDSError ()
-_ProvisionedIopsNotAvailableInAZFault = prism
-    (const ProvisionedIopsNotAvailableInAZFault)
-    (\case
-        ProvisionedIopsNotAvailableInAZFault -> Right ()
-        x -> Left x)
-
--- | See: 'RDSClient'
-_RDSClient :: Prism' RDSError HttpException
-_RDSClient = prism
-    RDSClient
-    (\case
-        RDSClient p1 -> Right p1
-        x -> Left x)
-
--- | See: 'RDSSerializer'
-_RDSSerializer :: Prism' RDSError String
-_RDSSerializer = prism
-    RDSSerializer
-    (\case
-        RDSSerializer p1 -> Right p1
-        x -> Left x)
-
--- | See: 'RDSService'
-_RDSService :: Prism' RDSError String
-_RDSService = prism
-    RDSService
-    (\case
-        RDSService p1 -> Right p1
-        x -> Left x)
-
--- | User already has a reservation with the given identifier.
---
--- See: 'ReservedDBInstanceAlreadyExistsFault'
-_ReservedDBInstanceAlreadyExistsFault :: Prism' RDSError ()
-_ReservedDBInstanceAlreadyExistsFault = prism
-    (const ReservedDBInstanceAlreadyExistsFault)
-    (\case
-        ReservedDBInstanceAlreadyExistsFault -> Right ()
-        x -> Left x)
-
--- | The specified reserved DB Instance not found.
---
--- See: 'ReservedDBInstanceNotFoundFault'
-_ReservedDBInstanceNotFoundFault :: Prism' RDSError ()
-_ReservedDBInstanceNotFoundFault = prism
-    (const ReservedDBInstanceNotFoundFault)
-    (\case
-        ReservedDBInstanceNotFoundFault -> Right ()
-        x -> Left x)
-
--- | Request would exceed the user's DB Instance quota.
---
--- See: 'ReservedDBInstanceQuotaExceededFault'
-_ReservedDBInstanceQuotaExceededFault :: Prism' RDSError ()
-_ReservedDBInstanceQuotaExceededFault = prism
-    (const ReservedDBInstanceQuotaExceededFault)
-    (\case
-        ReservedDBInstanceQuotaExceededFault -> Right ()
-        x -> Left x)
-
--- | Specified offering does not exist.
---
--- See: 'ReservedDBInstancesOfferingNotFoundFault'
-_ReservedDBInstancesOfferingNotFoundFault :: Prism' RDSError ()
-_ReservedDBInstancesOfferingNotFoundFault = prism
-    (const ReservedDBInstancesOfferingNotFoundFault)
-    (\case
-        ReservedDBInstancesOfferingNotFoundFault -> Right ()
-        x -> Left x)
-
--- | SNS has responded that there is a problem with the SND topic specified.
---
--- See: 'SNSInvalidTopicFault'
-_SNSInvalidTopicFault :: Prism' RDSError ()
-_SNSInvalidTopicFault = prism
-    (const SNSInvalidTopicFault)
-    (\case
-        SNSInvalidTopicFault -> Right ()
-        x -> Left x)
-
--- | You do not have permission to publish to the SNS topic ARN.
---
--- See: 'SNSNoAuthorizationFault'
-_SNSNoAuthorizationFault :: Prism' RDSError ()
-_SNSNoAuthorizationFault = prism
-    (const SNSNoAuthorizationFault)
-    (\case
-        SNSNoAuthorizationFault -> Right ()
-        x -> Left x)
-
--- | The SNS topic ARN does not exist.
---
--- See: 'SNSTopicArnNotFoundFault'
-_SNSTopicArnNotFoundFault :: Prism' RDSError ()
-_SNSTopicArnNotFoundFault = prism
-    (const SNSTopicArnNotFoundFault)
-    (\case
-        SNSTopicArnNotFoundFault -> Right ()
-        x -> Left x)
-
--- | Request would result in user exceeding the allowed number of DB snapshots.
---
--- See: 'SnapshotQuotaExceededFault'
-_SnapshotQuotaExceededFault :: Prism' RDSError ()
-_SnapshotQuotaExceededFault = prism
-    (const SnapshotQuotaExceededFault)
-    (\case
-        SnapshotQuotaExceededFault -> Right ()
-        x -> Left x)
-
--- | The requested source could not be found.
---
--- See: 'SourceNotFoundFault'
-_SourceNotFoundFault :: Prism' RDSError ()
-_SourceNotFoundFault = prism
-    (const SourceNotFoundFault)
-    (\case
-        SourceNotFoundFault -> Right ()
-        x -> Left x)
-
--- | Request would result in user exceeding the allowed amount of storage
--- available across all DB instances.
---
--- See: 'StorageQuotaExceededFault'
-_StorageQuotaExceededFault :: Prism' RDSError ()
-_StorageQuotaExceededFault = prism
-    (const StorageQuotaExceededFault)
-    (\case
-        StorageQuotaExceededFault -> Right ()
-        x -> Left x)
-
--- | The DB subnet is already in use in the Availability Zone.
---
--- See: 'SubnetAlreadyInUse'
-_SubnetAlreadyInUse :: Prism' RDSError ()
-_SubnetAlreadyInUse = prism
-    (const SubnetAlreadyInUse)
-    (\case
-        SubnetAlreadyInUse -> Right ()
-        x -> Left x)
-
--- | The supplied subscription name already exists.
---
--- See: 'SubscriptionAlreadyExistFault'
-_SubscriptionAlreadyExistFault :: Prism' RDSError ()
-_SubscriptionAlreadyExistFault = prism
-    (const SubscriptionAlreadyExistFault)
-    (\case
-        SubscriptionAlreadyExistFault -> Right ()
-        x -> Left x)
-
--- | The supplied category does not exist.
---
--- See: 'SubscriptionCategoryNotFoundFault'
-_SubscriptionCategoryNotFoundFault :: Prism' RDSError ()
-_SubscriptionCategoryNotFoundFault = prism
-    (const SubscriptionCategoryNotFoundFault)
-    (\case
-        SubscriptionCategoryNotFoundFault -> Right ()
-        x -> Left x)
-
--- | The subscription name does not exist.
---
--- See: 'SubscriptionNotFoundFault'
-_SubscriptionNotFoundFault :: Prism' RDSError ()
-_SubscriptionNotFoundFault = prism
-    (const SubscriptionNotFoundFault)
-    (\case
-        SubscriptionNotFoundFault -> Right ()
-        x -> Left x)
+    handle = xmlError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://rds.amazonaws.com/doc/2014-09-01/"
+    }
 
-data ApplyMethod
-    = ApplyMethodImmediate -- ^ immediate
-    | ApplyMethodPendingReboot -- ^ pending-reboot
-      deriving (Eq, Ord, Show, Generic)
+data OptionGroup = OptionGroup
+    { _ogAllowsVpcAndNonVpcInstanceMemberships :: Maybe Bool
+    , _ogEngineName                            :: Maybe Text
+    , _ogMajorEngineVersion                    :: Maybe Text
+    , _ogOptionGroupDescription                :: Maybe Text
+    , _ogOptionGroupName                       :: Maybe Text
+    , _ogOptions                               :: [Option]
+    , _ogVpcId                                 :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
-instance Hashable ApplyMethod
-
-instance FromText ApplyMethod where
-    parser = match "immediate" ApplyMethodImmediate
-         <|> match "pending-reboot" ApplyMethodPendingReboot
-
-instance ToText ApplyMethod where
-    toText ApplyMethodImmediate = "immediate"
-    toText ApplyMethodPendingReboot = "pending-reboot"
-
-instance ToByteString ApplyMethod
-
-instance FromXML ApplyMethod where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ApplyMethod"
-
-instance ToQuery ApplyMethod where
-    toQuery = genericQuery def
-
-data SourceType
-    = SourceTypeDbInstance -- ^ db-instance
-    | SourceTypeDbParameterGroup -- ^ db-parameter-group
-    | SourceTypeDbSecurityGroup -- ^ db-security-group
-    | SourceTypeDbSnapshot -- ^ db-snapshot
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable SourceType
-
-instance FromText SourceType where
-    parser = match "db-instance" SourceTypeDbInstance
-         <|> match "db-parameter-group" SourceTypeDbParameterGroup
-         <|> match "db-security-group" SourceTypeDbSecurityGroup
-         <|> match "db-snapshot" SourceTypeDbSnapshot
-
-instance ToText SourceType where
-    toText SourceTypeDbInstance = "db-instance"
-    toText SourceTypeDbParameterGroup = "db-parameter-group"
-    toText SourceTypeDbSecurityGroup = "db-security-group"
-    toText SourceTypeDbSnapshot = "db-snapshot"
-
-instance ToByteString SourceType
-
-instance FromXML SourceType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SourceType"
-
-instance ToQuery SourceType where
-    toQuery = genericQuery def
-
--- | Contains Availability Zone information. This data type is used as an
--- element in the following data type: OrderableDBInstanceOption.
-data AvailabilityZone = AvailabilityZone
-    { _azName :: Maybe Text
-    , _azProvisionedIopsCapable :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'AvailabilityZone' data type to populate a request.
+-- | 'OptionGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Maybe Text@
+-- * 'ogAllowsVpcAndNonVpcInstanceMemberships' @::@ 'Maybe' 'Bool'
 --
--- * @ProvisionedIopsCapable ::@ @Maybe Bool@
+-- * 'ogEngineName' @::@ 'Maybe' 'Text'
 --
-availabilityZone :: AvailabilityZone
-availabilityZone = AvailabilityZone
-    { _azName = Nothing
-    , _azProvisionedIopsCapable = Nothing
+-- * 'ogMajorEngineVersion' @::@ 'Maybe' 'Text'
+--
+-- * 'ogOptionGroupDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'ogOptionGroupName' @::@ 'Maybe' 'Text'
+--
+-- * 'ogOptions' @::@ ['Option']
+--
+-- * 'ogVpcId' @::@ 'Maybe' 'Text'
+--
+optionGroup :: OptionGroup
+optionGroup = OptionGroup
+    { _ogOptionGroupName                       = Nothing
+    , _ogOptionGroupDescription                = Nothing
+    , _ogEngineName                            = Nothing
+    , _ogMajorEngineVersion                    = Nothing
+    , _ogOptions                               = mempty
+    , _ogAllowsVpcAndNonVpcInstanceMemberships = Nothing
+    , _ogVpcId                                 = Nothing
     }
 
--- | The name of the availability zone.
-azName :: Lens' AvailabilityZone (Maybe Text)
-azName = lens _azName (\s a -> s { _azName = a })
+-- | Indicates whether this option group can be applied to both VPC and
+-- non-VPC instances. The value 'true' indicates the option group can be
+-- applied to both VPC and non-VPC instances.
+ogAllowsVpcAndNonVpcInstanceMemberships :: Lens' OptionGroup (Maybe Bool)
+ogAllowsVpcAndNonVpcInstanceMemberships =
+    lens _ogAllowsVpcAndNonVpcInstanceMemberships
+        (\s a -> s { _ogAllowsVpcAndNonVpcInstanceMemberships = a })
 
--- | True indicates the availability zone is capable of provisioned IOPs.
-azProvisionedIopsCapable :: Lens' AvailabilityZone (Maybe Bool)
-azProvisionedIopsCapable =
-    lens _azProvisionedIopsCapable
-         (\s a -> s { _azProvisionedIopsCapable = a })
+-- | Engine name that this option group can be applied to.
+ogEngineName :: Lens' OptionGroup (Maybe Text)
+ogEngineName = lens _ogEngineName (\s a -> s { _ogEngineName = a })
 
-instance FromXML AvailabilityZone where
+-- | Indicates the major engine version associated with this option group.
+ogMajorEngineVersion :: Lens' OptionGroup (Maybe Text)
+ogMajorEngineVersion =
+    lens _ogMajorEngineVersion (\s a -> s { _ogMajorEngineVersion = a })
+
+-- | Provides the description of the option group.
+ogOptionGroupDescription :: Lens' OptionGroup (Maybe Text)
+ogOptionGroupDescription =
+    lens _ogOptionGroupDescription
+        (\s a -> s { _ogOptionGroupDescription = a })
+
+-- | Specifies the name of the option group.
+ogOptionGroupName :: Lens' OptionGroup (Maybe Text)
+ogOptionGroupName =
+    lens _ogOptionGroupName (\s a -> s { _ogOptionGroupName = a })
+
+-- | Indicates what options are available in the option group.
+ogOptions :: Lens' OptionGroup [Option]
+ogOptions = lens _ogOptions (\s a -> s { _ogOptions = a })
+
+-- | If AllowsVpcAndNonVpcInstanceMemberships is 'false', this field is blank.
+-- If AllowsVpcAndNonVpcInstanceMemberships is 'true' and this field is
+-- blank, then this option group can be applied to both VPC and non-VPC
+-- instances. If this field contains a value, then this option group can
+-- only be applied to instances that are in the VPC indicated by this field.
+ogVpcId :: Lens' OptionGroup (Maybe Text)
+ogVpcId = lens _ogVpcId (\s a -> s { _ogVpcId = a })
+
+instance FromXML OptionGroup where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AvailabilityZone"
+    fromXMLRoot    = fromRoot "OptionGroup"
 
-instance ToQuery AvailabilityZone where
-    toQuery = genericQuery def
+instance ToQuery OptionGroup
 
--- | This data type is used as a response element in the action
--- DescribeDBEngineVersions.
-data CharacterSet = CharacterSet
-    { _csCharacterSetName :: Maybe Text
-    , _csCharacterSetDescription :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'CharacterSet' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @CharacterSetName ::@ @Maybe Text@
---
--- * @CharacterSetDescription ::@ @Maybe Text@
---
-characterSet :: CharacterSet
-characterSet = CharacterSet
-    { _csCharacterSetName = Nothing
-    , _csCharacterSetDescription = Nothing
-    }
-
--- | The name of the character set.
-csCharacterSetName :: Lens' CharacterSet (Maybe Text)
-csCharacterSetName =
-    lens _csCharacterSetName (\s a -> s { _csCharacterSetName = a })
-
--- | The description of the character set.
-csCharacterSetDescription :: Lens' CharacterSet (Maybe Text)
-csCharacterSetDescription =
-    lens _csCharacterSetDescription
-         (\s a -> s { _csCharacterSetDescription = a })
-
-instance FromXML CharacterSet where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CharacterSet"
-
-instance ToQuery CharacterSet where
-    toQuery = genericQuery def
-
--- | This data type is used as a response element in the action
--- DescribeDBEngineVersions.
-data DBEngineVersion = DBEngineVersion
-    { _dbevEngine :: Maybe Text
-    , _dbevEngineVersion :: Maybe Text
-    , _dbevDBParameterGroupFamily :: Maybe Text
-    , _dbevDBEngineDescription :: Maybe Text
-    , _dbevDBEngineVersionDescription :: Maybe Text
-    , _dbevDefaultCharacterSet :: Maybe CharacterSet
-    , _dbevSupportedCharacterSets :: [CharacterSet]
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DBEngineVersion' data type.
---
--- 'DBEngineVersion' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Engine ::@ @Maybe Text@
---
--- * @EngineVersion ::@ @Maybe Text@
---
--- * @DBParameterGroupFamily ::@ @Maybe Text@
---
--- * @DBEngineDescription ::@ @Maybe Text@
---
--- * @DBEngineVersionDescription ::@ @Maybe Text@
---
--- * @DefaultCharacterSet ::@ @Maybe CharacterSet@
---
--- * @SupportedCharacterSets ::@ @[CharacterSet]@
---
-dBEngineVersion :: DBEngineVersion
-dBEngineVersion = DBEngineVersion
-    { _dbevEngine = Nothing
-    , _dbevEngineVersion = Nothing
-    , _dbevDBParameterGroupFamily = Nothing
-    , _dbevDBEngineDescription = Nothing
-    , _dbevDBEngineVersionDescription = Nothing
-    , _dbevDefaultCharacterSet = Nothing
-    , _dbevSupportedCharacterSets = mempty
-    }
-
--- | The name of the database engine.
-dbevEngine :: Lens' DBEngineVersion (Maybe Text)
-dbevEngine = lens _dbevEngine (\s a -> s { _dbevEngine = a })
-
--- | The version number of the database engine.
-dbevEngineVersion :: Lens' DBEngineVersion (Maybe Text)
-dbevEngineVersion =
-    lens _dbevEngineVersion (\s a -> s { _dbevEngineVersion = a })
-
--- | The name of the DB parameter group family for the database engine.
-dbevDBParameterGroupFamily :: Lens' DBEngineVersion (Maybe Text)
-dbevDBParameterGroupFamily =
-    lens _dbevDBParameterGroupFamily
-         (\s a -> s { _dbevDBParameterGroupFamily = a })
-
--- | The description of the database engine.
-dbevDBEngineDescription :: Lens' DBEngineVersion (Maybe Text)
-dbevDBEngineDescription =
-    lens _dbevDBEngineDescription
-         (\s a -> s { _dbevDBEngineDescription = a })
-
--- | The description of the database engine version.
-dbevDBEngineVersionDescription :: Lens' DBEngineVersion (Maybe Text)
-dbevDBEngineVersionDescription =
-    lens _dbevDBEngineVersionDescription
-         (\s a -> s { _dbevDBEngineVersionDescription = a })
-
--- | The default character set for new instances of this engine version, if the
--- CharacterSetName parameter of the CreateDBInstance API is not specified.
-dbevDefaultCharacterSet :: Lens' DBEngineVersion (Maybe CharacterSet)
-dbevDefaultCharacterSet =
-    lens _dbevDefaultCharacterSet
-         (\s a -> s { _dbevDefaultCharacterSet = a })
-
--- | A list of the character sets supported by this engine for the
--- CharacterSetName parameter of the CreateDBInstance API.
-dbevSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
-dbevSupportedCharacterSets =
-    lens _dbevSupportedCharacterSets
-         (\s a -> s { _dbevSupportedCharacterSets = a })
-
-instance FromXML DBEngineVersion where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBEngineVersion"
-
--- | Contains the result of a successful invocation of the following actions:
--- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
--- as a response element in the DescribeDBInstances action.
-data DBInstance = DBInstance
-    { _dbiDBInstanceIdentifier :: Maybe Text
-    , _dbiDBInstanceClass :: Maybe Text
-    , _dbiEngine :: Maybe Text
-    , _dbiDBInstanceStatus :: Maybe Text
-    , _dbiMasterUsername :: Maybe Text
-    , _dbiDBName :: Maybe Text
-    , _dbiEndpoint :: Maybe Endpoint'
-    , _dbiAllocatedStorage :: Maybe Integer
-    , _dbiInstanceCreateTime :: Maybe ISO8601
-    , _dbiPreferredBackupWindow :: Maybe Text
-    , _dbiBackupRetentionPeriod :: Maybe Integer
-    , _dbiDBSecurityGroups :: [DBSecurityGroupMembership]
-    , _dbiVpcSecurityGroups :: [VpcSecurityGroupMembership]
-    , _dbiDBParameterGroups :: [DBParameterGroupStatus]
-    , _dbiAvailabilityZone :: Maybe Text
-    , _dbiDBSubnetGroup :: Maybe DBSubnetGroup
-    , _dbiPreferredMaintenanceWindow :: Maybe Text
-    , _dbiPendingModifiedValues :: Maybe PendingModifiedValues
-    , _dbiLatestRestorableTime :: Maybe ISO8601
-    , _dbiMultiAZ :: Maybe Bool
-    , _dbiEngineVersion :: Maybe Text
-    , _dbiAutoMinorVersionUpgrade :: Maybe Bool
-    , _dbiReadReplicaSourceDBInstanceIdentifier :: Maybe Text
-    , _dbiReadReplicaDBInstanceIdentifiers :: [Text]
-    , _dbiLicenseModel :: Maybe Text
-    , _dbiIops :: Maybe Integer
-    , _dbiOptionGroupMemberships :: [OptionGroupMembership]
-    , _dbiCharacterSetName :: Maybe Text
-    , _dbiSecondaryAvailabilityZone :: Maybe Text
-    , _dbiPubliclyAccessible :: Maybe Bool
-    , _dbiStatusInfos :: [DBInstanceStatusInfo]
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DBInstance' data type.
---
--- 'DBInstance' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @DBInstanceIdentifier ::@ @Maybe Text@
---
--- * @DBInstanceClass ::@ @Maybe Text@
---
--- * @Engine ::@ @Maybe Text@
---
--- * @DBInstanceStatus ::@ @Maybe Text@
---
--- * @MasterUsername ::@ @Maybe Text@
---
--- * @DBName ::@ @Maybe Text@
---
--- * @Endpoint ::@ @Maybe Endpoint'@
---
--- * @AllocatedStorage ::@ @Maybe Integer@
---
--- * @InstanceCreateTime ::@ @Maybe ISO8601@
---
--- * @PreferredBackupWindow ::@ @Maybe Text@
---
--- * @BackupRetentionPeriod ::@ @Maybe Integer@
---
--- * @DBSecurityGroups ::@ @[DBSecurityGroupMembership]@
---
--- * @VpcSecurityGroups ::@ @[VpcSecurityGroupMembership]@
---
--- * @DBParameterGroups ::@ @[DBParameterGroupStatus]@
---
--- * @AvailabilityZone ::@ @Maybe Text@
---
--- * @DBSubnetGroup ::@ @Maybe DBSubnetGroup@
---
--- * @PreferredMaintenanceWindow ::@ @Maybe Text@
---
--- * @PendingModifiedValues ::@ @Maybe PendingModifiedValues@
---
--- * @LatestRestorableTime ::@ @Maybe ISO8601@
---
--- * @MultiAZ ::@ @Maybe Bool@
---
--- * @EngineVersion ::@ @Maybe Text@
---
--- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
---
--- * @ReadReplicaSourceDBInstanceIdentifier ::@ @Maybe Text@
---
--- * @ReadReplicaDBInstanceIdentifiers ::@ @[Text]@
---
--- * @LicenseModel ::@ @Maybe Text@
---
--- * @Iops ::@ @Maybe Integer@
---
--- * @OptionGroupMemberships ::@ @[OptionGroupMembership]@
---
--- * @CharacterSetName ::@ @Maybe Text@
---
--- * @SecondaryAvailabilityZone ::@ @Maybe Text@
---
--- * @PubliclyAccessible ::@ @Maybe Bool@
---
--- * @StatusInfos ::@ @[DBInstanceStatusInfo]@
---
-dBInstance :: DBInstance
-dBInstance = DBInstance
-    { _dbiDBInstanceIdentifier = Nothing
-    , _dbiDBInstanceClass = Nothing
-    , _dbiEngine = Nothing
-    , _dbiDBInstanceStatus = Nothing
-    , _dbiMasterUsername = Nothing
-    , _dbiDBName = Nothing
-    , _dbiEndpoint = Nothing
-    , _dbiAllocatedStorage = Nothing
-    , _dbiInstanceCreateTime = Nothing
-    , _dbiPreferredBackupWindow = Nothing
-    , _dbiBackupRetentionPeriod = Nothing
-    , _dbiDBSecurityGroups = mempty
-    , _dbiVpcSecurityGroups = mempty
-    , _dbiDBParameterGroups = mempty
-    , _dbiAvailabilityZone = Nothing
-    , _dbiDBSubnetGroup = Nothing
-    , _dbiPreferredMaintenanceWindow = Nothing
-    , _dbiPendingModifiedValues = Nothing
-    , _dbiLatestRestorableTime = Nothing
-    , _dbiMultiAZ = Nothing
-    , _dbiEngineVersion = Nothing
-    , _dbiAutoMinorVersionUpgrade = Nothing
-    , _dbiReadReplicaSourceDBInstanceIdentifier = Nothing
-    , _dbiReadReplicaDBInstanceIdentifiers = mempty
-    , _dbiLicenseModel = Nothing
-    , _dbiIops = Nothing
-    , _dbiOptionGroupMemberships = mempty
-    , _dbiCharacterSetName = Nothing
-    , _dbiSecondaryAvailabilityZone = Nothing
-    , _dbiPubliclyAccessible = Nothing
-    , _dbiStatusInfos = mempty
-    }
-
--- | Contains a user-supplied database identifier. This is the unique key that
--- identifies a DB instance.
-dbiDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
-dbiDBInstanceIdentifier =
-    lens _dbiDBInstanceIdentifier
-         (\s a -> s { _dbiDBInstanceIdentifier = a })
-
--- | Contains the name of the compute and memory capacity class of the DB
--- instance.
-dbiDBInstanceClass :: Lens' DBInstance (Maybe Text)
-dbiDBInstanceClass =
-    lens _dbiDBInstanceClass (\s a -> s { _dbiDBInstanceClass = a })
-
--- | Provides the name of the database engine to be used for this DB instance.
-dbiEngine :: Lens' DBInstance (Maybe Text)
-dbiEngine = lens _dbiEngine (\s a -> s { _dbiEngine = a })
-
--- | Specifies the current state of this database.
-dbiDBInstanceStatus :: Lens' DBInstance (Maybe Text)
-dbiDBInstanceStatus =
-    lens _dbiDBInstanceStatus (\s a -> s { _dbiDBInstanceStatus = a })
-
--- | Contains the master username for the DB instance.
-dbiMasterUsername :: Lens' DBInstance (Maybe Text)
-dbiMasterUsername =
-    lens _dbiMasterUsername (\s a -> s { _dbiMasterUsername = a })
-
--- | The meaning of this parameter differs according to the database engine you
--- use. For example, this value returns only MySQL information when returning
--- values from CreateDBInstanceReadReplica since read replicas are only
--- supported for MySQL. MySQL Contains the name of the initial database of
--- this instance that was provided at create time, if one was specified when
--- the DB instance was created. This same name is returned for the life of the
--- DB instance. Type: String Oracle Contains the Oracle System ID (SID) of the
--- created DB instance. Not shown when the returned parameters do not apply to
--- an Oracle DB instance.
-dbiDBName :: Lens' DBInstance (Maybe Text)
-dbiDBName = lens _dbiDBName (\s a -> s { _dbiDBName = a })
-
--- | Specifies the connection endpoint.
-dbiEndpoint :: Lens' DBInstance (Maybe Endpoint')
-dbiEndpoint = lens _dbiEndpoint (\s a -> s { _dbiEndpoint = a })
-
--- | Specifies the allocated storage size specified in gigabytes.
-dbiAllocatedStorage :: Lens' DBInstance (Maybe Integer)
-dbiAllocatedStorage =
-    lens _dbiAllocatedStorage (\s a -> s { _dbiAllocatedStorage = a })
-
--- | Provides the date and time the DB instance was created.
-dbiInstanceCreateTime :: Lens' DBInstance (Maybe ISO8601)
-dbiInstanceCreateTime =
-    lens _dbiInstanceCreateTime (\s a -> s { _dbiInstanceCreateTime = a })
-
--- | Specifies the daily time range during which automated backups are created
--- if automated backups are enabled, as determined by the
--- BackupRetentionPeriod.
-dbiPreferredBackupWindow :: Lens' DBInstance (Maybe Text)
-dbiPreferredBackupWindow =
-    lens _dbiPreferredBackupWindow
-         (\s a -> s { _dbiPreferredBackupWindow = a })
-
--- | Specifies the number of days for which automatic DB snapshots are retained.
-dbiBackupRetentionPeriod :: Lens' DBInstance (Maybe Integer)
-dbiBackupRetentionPeriod =
-    lens _dbiBackupRetentionPeriod
-         (\s a -> s { _dbiBackupRetentionPeriod = a })
-
--- | Provides List of DB security group elements containing only
--- DBSecurityGroup.Name and DBSecurityGroup.Status subelements.
-dbiDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
-dbiDBSecurityGroups =
-    lens _dbiDBSecurityGroups (\s a -> s { _dbiDBSecurityGroups = a })
-
--- | Provides List of VPC security group elements that the DB instance belongs
--- to.
-dbiVpcSecurityGroups :: Lens' DBInstance [VpcSecurityGroupMembership]
-dbiVpcSecurityGroups =
-    lens _dbiVpcSecurityGroups (\s a -> s { _dbiVpcSecurityGroups = a })
-
--- | Provides the list of DB parameter groups applied to this DB instance.
-dbiDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
-dbiDBParameterGroups =
-    lens _dbiDBParameterGroups (\s a -> s { _dbiDBParameterGroups = a })
-
--- | Specifies the name of the Availability Zone the DB instance is located in.
-dbiAvailabilityZone :: Lens' DBInstance (Maybe Text)
-dbiAvailabilityZone =
-    lens _dbiAvailabilityZone (\s a -> s { _dbiAvailabilityZone = a })
-
--- | Specifies information on the subnet group associated with the DB instance,
--- including the name, description, and subnets in the subnet group.
-dbiDBSubnetGroup :: Lens' DBInstance (Maybe DBSubnetGroup)
-dbiDBSubnetGroup =
-    lens _dbiDBSubnetGroup (\s a -> s { _dbiDBSubnetGroup = a })
-
--- | Specifies the weekly time range (in UTC) during which system maintenance
--- can occur.
-dbiPreferredMaintenanceWindow :: Lens' DBInstance (Maybe Text)
-dbiPreferredMaintenanceWindow =
-    lens _dbiPreferredMaintenanceWindow
-         (\s a -> s { _dbiPreferredMaintenanceWindow = a })
-
--- | Specifies that changes to the DB instance are pending. This element is only
--- included when changes are pending. Specific changes are identified by
--- subelements.
-dbiPendingModifiedValues :: Lens' DBInstance (Maybe PendingModifiedValues)
-dbiPendingModifiedValues =
-    lens _dbiPendingModifiedValues
-         (\s a -> s { _dbiPendingModifiedValues = a })
-
--- | Specifies the latest time to which a database can be restored with
--- point-in-time restore.
-dbiLatestRestorableTime :: Lens' DBInstance (Maybe ISO8601)
-dbiLatestRestorableTime =
-    lens _dbiLatestRestorableTime
-         (\s a -> s { _dbiLatestRestorableTime = a })
-
--- | Specifies if the DB instance is a Multi-AZ deployment.
-dbiMultiAZ :: Lens' DBInstance (Maybe Bool)
-dbiMultiAZ = lens _dbiMultiAZ (\s a -> s { _dbiMultiAZ = a })
-
--- | Indicates the database engine version.
-dbiEngineVersion :: Lens' DBInstance (Maybe Text)
-dbiEngineVersion =
-    lens _dbiEngineVersion (\s a -> s { _dbiEngineVersion = a })
-
--- | Indicates that minor version patches are applied automatically.
-dbiAutoMinorVersionUpgrade :: Lens' DBInstance (Maybe Bool)
-dbiAutoMinorVersionUpgrade =
-    lens _dbiAutoMinorVersionUpgrade
-         (\s a -> s { _dbiAutoMinorVersionUpgrade = a })
-
--- | Contains the identifier of the source DB instance if this DB instance is a
--- read replica.
-dbiReadReplicaSourceDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
-dbiReadReplicaSourceDBInstanceIdentifier =
-    lens _dbiReadReplicaSourceDBInstanceIdentifier
-         (\s a -> s { _dbiReadReplicaSourceDBInstanceIdentifier = a })
-
--- | Contains one or more identifiers of the read replicas associated with this
--- DB instance.
-dbiReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
-dbiReadReplicaDBInstanceIdentifiers =
-    lens _dbiReadReplicaDBInstanceIdentifiers
-         (\s a -> s { _dbiReadReplicaDBInstanceIdentifiers = a })
-
--- | License model information for this DB instance.
-dbiLicenseModel :: Lens' DBInstance (Maybe Text)
-dbiLicenseModel = lens _dbiLicenseModel (\s a -> s { _dbiLicenseModel = a })
-
--- | Specifies the Provisioned IOPS (I/O operations per second) value.
-dbiIops :: Lens' DBInstance (Maybe Integer)
-dbiIops = lens _dbiIops (\s a -> s { _dbiIops = a })
-
--- | Provides the list of option group memberships for this DB instance.
-dbiOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
-dbiOptionGroupMemberships =
-    lens _dbiOptionGroupMemberships
-         (\s a -> s { _dbiOptionGroupMemberships = a })
-
--- | If present, specifies the name of the character set that this instance is
--- associated with.
-dbiCharacterSetName :: Lens' DBInstance (Maybe Text)
-dbiCharacterSetName =
-    lens _dbiCharacterSetName (\s a -> s { _dbiCharacterSetName = a })
-
--- | If present, specifies the name of the secondary Availability Zone for a DB
--- instance with multi-AZ support.
-dbiSecondaryAvailabilityZone :: Lens' DBInstance (Maybe Text)
-dbiSecondaryAvailabilityZone =
-    lens _dbiSecondaryAvailabilityZone
-         (\s a -> s { _dbiSecondaryAvailabilityZone = a })
-
--- | Specifies the accessibility options for the DB instance. A value of true
--- specifies an Internet-facing instance with a publicly resolvable DNS name,
--- which resolves to a public IP address. A value of false specifies an
--- internal instance with a DNS name that resolves to a private IP address.
--- Default: The default behavior varies depending on whether a VPC has been
--- requested or not. The following list shows the default behavior in each
--- case. Default VPC:true VPC:false If no DB subnet group has been specified
--- as part of the request and the PubliclyAccessible value has not been set,
--- the DB instance will be publicly accessible. If a specific DB subnet group
--- has been specified as part of the request and the PubliclyAccessible value
--- has not been set, the DB instance will be private.
-dbiPubliclyAccessible :: Lens' DBInstance (Maybe Bool)
-dbiPubliclyAccessible =
-    lens _dbiPubliclyAccessible (\s a -> s { _dbiPubliclyAccessible = a })
-
--- | The status of a read replica. If the instance is not a read replica, this
--- will be blank.
-dbiStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
-dbiStatusInfos = lens _dbiStatusInfos (\s a -> s { _dbiStatusInfos = a })
-
-instance FromXML DBInstance where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBInstance"
-
--- | Provides a list of status information for a DB instance.
-data DBInstanceStatusInfo = DBInstanceStatusInfo
-    { _dbisiStatusType :: Maybe Text
-    , _dbisiNormal :: Maybe Bool
-    , _dbisiStatus :: Maybe Text
-    , _dbisiMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DBInstanceStatusInfo' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @StatusType ::@ @Maybe Text@
---
--- * @Normal ::@ @Maybe Bool@
---
--- * @Status ::@ @Maybe Text@
---
--- * @Message ::@ @Maybe Text@
---
-dBInstanceStatusInfo :: DBInstanceStatusInfo
-dBInstanceStatusInfo = DBInstanceStatusInfo
-    { _dbisiStatusType = Nothing
-    , _dbisiNormal = Nothing
-    , _dbisiStatus = Nothing
-    , _dbisiMessage = Nothing
-    }
-
--- | This value is currently "read replication.".
-dbisiStatusType :: Lens' DBInstanceStatusInfo (Maybe Text)
-dbisiStatusType = lens _dbisiStatusType (\s a -> s { _dbisiStatusType = a })
-
--- | Boolean value that is true if the instance is operating normally, or false
--- if the instance is in an error state.
-dbisiNormal :: Lens' DBInstanceStatusInfo (Maybe Bool)
-dbisiNormal = lens _dbisiNormal (\s a -> s { _dbisiNormal = a })
-
--- | Status of the DB instance. For a StatusType of read replica, the values can
--- be replicating, error, stopped, or terminated.
-dbisiStatus :: Lens' DBInstanceStatusInfo (Maybe Text)
-dbisiStatus = lens _dbisiStatus (\s a -> s { _dbisiStatus = a })
-
--- | Details of the error if there is an error for the instance. If the instance
--- is not in an error state, this value is blank.
-dbisiMessage :: Lens' DBInstanceStatusInfo (Maybe Text)
-dbisiMessage = lens _dbisiMessage (\s a -> s { _dbisiMessage = a })
-
-instance FromXML DBInstanceStatusInfo where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBInstanceStatusInfo"
-
-instance ToQuery DBInstanceStatusInfo where
-    toQuery = genericQuery def
-
--- | Contains the result of a successful invocation of the
--- CreateDBParameterGroup action. This data type is used as a request
--- parameter in the DeleteDBParameterGroup action, and as a response element
--- in the DescribeDBParameterGroups action.
-data DBParameterGroup = DBParameterGroup
-    { _dbpgDBParameterGroupName :: Maybe Text
-    , _dbpgDBParameterGroupFamily :: Maybe Text
-    , _dbpgDescription :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DBParameterGroup' data type.
---
--- 'DBParameterGroup' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @DBParameterGroupName ::@ @Maybe Text@
---
--- * @DBParameterGroupFamily ::@ @Maybe Text@
---
--- * @Description ::@ @Maybe Text@
---
-dBParameterGroup :: DBParameterGroup
-dBParameterGroup = DBParameterGroup
-    { _dbpgDBParameterGroupName = Nothing
-    , _dbpgDBParameterGroupFamily = Nothing
-    , _dbpgDescription = Nothing
-    }
-
--- | Provides the name of the DB parameter group.
-dbpgDBParameterGroupName :: Lens' DBParameterGroup (Maybe Text)
-dbpgDBParameterGroupName =
-    lens _dbpgDBParameterGroupName
-         (\s a -> s { _dbpgDBParameterGroupName = a })
-
--- | Provides the name of the DB parameter group family that this DB parameter
--- group is compatible with.
-dbpgDBParameterGroupFamily :: Lens' DBParameterGroup (Maybe Text)
-dbpgDBParameterGroupFamily =
-    lens _dbpgDBParameterGroupFamily
-         (\s a -> s { _dbpgDBParameterGroupFamily = a })
-
--- | Provides the customer-specified description for this DB parameter group.
-dbpgDescription :: Lens' DBParameterGroup (Maybe Text)
-dbpgDescription = lens _dbpgDescription (\s a -> s { _dbpgDescription = a })
-
-instance FromXML DBParameterGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBParameterGroup"
-
--- | The status of the DB parameter group. This data type is used as a response
--- element in the following actions: CreateDBInstance
--- CreateDBInstanceReadReplica DeleteDBInstance ModifyDBInstance
--- RebootDBInstance RestoreDBInstanceFromDBSnapshot.
 data DBParameterGroupStatus = DBParameterGroupStatus
     { _dbpgsDBParameterGroupName :: Maybe Text
     , _dbpgsParameterApplyStatus :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DBParameterGroupStatus' data type to populate a request.
+-- | 'DBParameterGroupStatus' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBParameterGroupName ::@ @Maybe Text@
+-- * 'dbpgsDBParameterGroupName' @::@ 'Maybe' 'Text'
 --
--- * @ParameterApplyStatus ::@ @Maybe Text@
+-- * 'dbpgsParameterApplyStatus' @::@ 'Maybe' 'Text'
 --
-dBParameterGroupStatus :: DBParameterGroupStatus
-dBParameterGroupStatus = DBParameterGroupStatus
+dbparameterGroupStatus :: DBParameterGroupStatus
+dbparameterGroupStatus = DBParameterGroupStatus
     { _dbpgsDBParameterGroupName = Nothing
     , _dbpgsParameterApplyStatus = Nothing
     }
@@ -1923,83 +546,124 @@ dBParameterGroupStatus = DBParameterGroupStatus
 dbpgsDBParameterGroupName :: Lens' DBParameterGroupStatus (Maybe Text)
 dbpgsDBParameterGroupName =
     lens _dbpgsDBParameterGroupName
-         (\s a -> s { _dbpgsDBParameterGroupName = a })
+        (\s a -> s { _dbpgsDBParameterGroupName = a })
 
 -- | The status of parameter updates.
 dbpgsParameterApplyStatus :: Lens' DBParameterGroupStatus (Maybe Text)
 dbpgsParameterApplyStatus =
     lens _dbpgsParameterApplyStatus
-         (\s a -> s { _dbpgsParameterApplyStatus = a })
+        (\s a -> s { _dbpgsParameterApplyStatus = a })
 
 instance FromXML DBParameterGroupStatus where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBParameterGroup"
+    fromXMLRoot    = fromRoot "DBParameterGroupStatus"
 
-instance ToQuery DBParameterGroupStatus where
-    toQuery = genericQuery def
+instance ToQuery DBParameterGroupStatus
 
--- | Contains the result of a successful invocation of the following actions:
--- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
--- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
--- as a response element in the DescribeDBSecurityGroups action.
-data DBSecurityGroup = DBSecurityGroup
-    { _dbsgOwnerId :: Maybe Text
-    , _dbsgDBSecurityGroupName :: Maybe Text
-    , _dbsgDBSecurityGroupDescription :: Maybe Text
-    , _dbsgVpcId :: Maybe Text
-    , _dbsgEC2SecurityGroups :: [EC2SecurityGroup]
-    , _dbsgIPRanges :: [IPRange]
+data Event = Event
+    { _eDate             :: Maybe RFC822
+    , _eEventCategories  :: [Text]
+    , _eMessage          :: Maybe Text
+    , _eSourceIdentifier :: Maybe Text
+    , _eSourceType       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DBSecurityGroup' data type.
---
--- 'DBSecurityGroup' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'Event' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OwnerId ::@ @Maybe Text@
+-- * 'eDate' @::@ 'Maybe' 'UTCTime'
 --
--- * @DBSecurityGroupName ::@ @Maybe Text@
+-- * 'eEventCategories' @::@ ['Text']
 --
--- * @DBSecurityGroupDescription ::@ @Maybe Text@
+-- * 'eMessage' @::@ 'Maybe' 'Text'
 --
--- * @VpcId ::@ @Maybe Text@
+-- * 'eSourceIdentifier' @::@ 'Maybe' 'Text'
 --
--- * @EC2SecurityGroups ::@ @[EC2SecurityGroup]@
+-- * 'eSourceType' @::@ 'Maybe' 'Text'
 --
--- * @IPRanges ::@ @[IPRange]@
---
-dBSecurityGroup :: DBSecurityGroup
-dBSecurityGroup = DBSecurityGroup
-    { _dbsgOwnerId = Nothing
-    , _dbsgDBSecurityGroupName = Nothing
-    , _dbsgDBSecurityGroupDescription = Nothing
-    , _dbsgVpcId = Nothing
-    , _dbsgEC2SecurityGroups = mempty
-    , _dbsgIPRanges = mempty
+event :: Event
+event = Event
+    { _eSourceIdentifier = Nothing
+    , _eSourceType       = Nothing
+    , _eMessage          = Nothing
+    , _eEventCategories  = mempty
+    , _eDate             = Nothing
     }
 
--- | Provides the AWS ID of the owner of a specific DB security group.
-dbsgOwnerId :: Lens' DBSecurityGroup (Maybe Text)
-dbsgOwnerId = lens _dbsgOwnerId (\s a -> s { _dbsgOwnerId = a })
+-- | Specifies the date and time of the event.
+eDate :: Lens' Event (Maybe UTCTime)
+eDate = lens _eDate (\s a -> s { _eDate = a })
+    . mapping _Time
 
--- | Specifies the name of the DB security group.
-dbsgDBSecurityGroupName :: Lens' DBSecurityGroup (Maybe Text)
-dbsgDBSecurityGroupName =
-    lens _dbsgDBSecurityGroupName
-         (\s a -> s { _dbsgDBSecurityGroupName = a })
+-- | Specifies the category for the event.
+eEventCategories :: Lens' Event [Text]
+eEventCategories = lens _eEventCategories (\s a -> s { _eEventCategories = a })
+
+-- | Provides the text of this event.
+eMessage :: Lens' Event (Maybe Text)
+eMessage = lens _eMessage (\s a -> s { _eMessage = a })
+
+-- | Provides the identifier for the source of the event.
+eSourceIdentifier :: Lens' Event (Maybe Text)
+eSourceIdentifier =
+    lens _eSourceIdentifier (\s a -> s { _eSourceIdentifier = a })
+
+-- | Specifies the source type for this event.
+eSourceType :: Lens' Event (Maybe Text)
+eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
+
+instance FromXML Event where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "Event"
+
+instance ToQuery Event
+
+data DBSecurityGroup = DBSecurityGroup
+    { _dbsgDBSecurityGroupDescription :: Maybe Text
+    , _dbsgDBSecurityGroupName        :: Maybe Text
+    , _dbsgEC2SecurityGroups          :: [EC2SecurityGroup]
+    , _dbsgIPRanges                   :: [IPRange]
+    , _dbsgOwnerId                    :: Maybe Text
+    , _dbsgVpcId                      :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+-- | 'DBSecurityGroup' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dbsgDBSecurityGroupDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsgDBSecurityGroupName' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsgEC2SecurityGroups' @::@ ['EC2SecurityGroup']
+--
+-- * 'dbsgIPRanges' @::@ ['IPRange']
+--
+-- * 'dbsgOwnerId' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsgVpcId' @::@ 'Maybe' 'Text'
+--
+dbsecurityGroup :: DBSecurityGroup
+dbsecurityGroup = DBSecurityGroup
+    { _dbsgOwnerId                    = Nothing
+    , _dbsgDBSecurityGroupName        = Nothing
+    , _dbsgDBSecurityGroupDescription = Nothing
+    , _dbsgVpcId                      = Nothing
+    , _dbsgEC2SecurityGroups          = mempty
+    , _dbsgIPRanges                   = mempty
+    }
 
 -- | Provides the description of the DB security group.
 dbsgDBSecurityGroupDescription :: Lens' DBSecurityGroup (Maybe Text)
 dbsgDBSecurityGroupDescription =
     lens _dbsgDBSecurityGroupDescription
-         (\s a -> s { _dbsgDBSecurityGroupDescription = a })
+        (\s a -> s { _dbsgDBSecurityGroupDescription = a })
 
--- | Provides the VpcId of the DB security group.
-dbsgVpcId :: Lens' DBSecurityGroup (Maybe Text)
-dbsgVpcId = lens _dbsgVpcId (\s a -> s { _dbsgVpcId = a })
+-- | Specifies the name of the DB security group.
+dbsgDBSecurityGroupName :: Lens' DBSecurityGroup (Maybe Text)
+dbsgDBSecurityGroupName =
+    lens _dbsgDBSecurityGroupName (\s a -> s { _dbsgDBSecurityGroupName = a })
 
 -- | Contains a list of EC2SecurityGroup elements.
 dbsgEC2SecurityGroups :: Lens' DBSecurityGroup [EC2SecurityGroup]
@@ -2010,213 +674,286 @@ dbsgEC2SecurityGroups =
 dbsgIPRanges :: Lens' DBSecurityGroup [IPRange]
 dbsgIPRanges = lens _dbsgIPRanges (\s a -> s { _dbsgIPRanges = a })
 
+-- | Provides the AWS ID of the owner of a specific DB security group.
+dbsgOwnerId :: Lens' DBSecurityGroup (Maybe Text)
+dbsgOwnerId = lens _dbsgOwnerId (\s a -> s { _dbsgOwnerId = a })
+
+-- | Provides the VpcId of the DB security group.
+dbsgVpcId :: Lens' DBSecurityGroup (Maybe Text)
+dbsgVpcId = lens _dbsgVpcId (\s a -> s { _dbsgVpcId = a })
+
 instance FromXML DBSecurityGroup where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DBSecurityGroup"
 
--- | This data type is used as a response element in the following actions:
--- ModifyDBInstance RebootDBInstance RestoreDBInstanceFromDBSnapshot
--- RestoreDBInstanceToPointInTime.
-data DBSecurityGroupMembership = DBSecurityGroupMembership
-    { _dbsgmDBSecurityGroupName :: Maybe Text
-    , _dbsgmStatus :: Maybe Text
+instance ToQuery DBSecurityGroup
+
+data Tag = Tag
+    { _tagKey   :: Maybe Text
+    , _tagValue :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DBSecurityGroupMembership' data type to populate a request.
+-- | 'Tag' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBSecurityGroupName ::@ @Maybe Text@
+-- * 'tagKey' @::@ 'Maybe' 'Text'
 --
--- * @Status ::@ @Maybe Text@
+-- * 'tagValue' @::@ 'Maybe' 'Text'
 --
-dBSecurityGroupMembership :: DBSecurityGroupMembership
-dBSecurityGroupMembership = DBSecurityGroupMembership
-    { _dbsgmDBSecurityGroupName = Nothing
-    , _dbsgmStatus = Nothing
+tag :: Tag
+tag = Tag
+    { _tagKey   = Nothing
+    , _tagValue = Nothing
     }
 
--- | The name of the DB security group.
-dbsgmDBSecurityGroupName :: Lens' DBSecurityGroupMembership (Maybe Text)
-dbsgmDBSecurityGroupName =
-    lens _dbsgmDBSecurityGroupName
-         (\s a -> s { _dbsgmDBSecurityGroupName = a })
+-- | A key is the required name of the tag. The string value can be from 1 to
+-- 128 Unicode characters in length and cannot be prefixed with "aws:" or
+-- "rds:". The string may only contain only the set of Unicode letters,
+-- digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex:
+-- "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+tagKey :: Lens' Tag (Maybe Text)
+tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
--- | The status of the DB security group.
-dbsgmStatus :: Lens' DBSecurityGroupMembership (Maybe Text)
-dbsgmStatus = lens _dbsgmStatus (\s a -> s { _dbsgmStatus = a })
+-- | A value is the optional value of the tag. The string value can be from 1
+-- to 256 Unicode characters in length and cannot be prefixed with "aws:" or
+-- "rds:". The string may only contain only the set of Unicode letters,
+-- digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex:
+-- "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
-instance FromXML DBSecurityGroupMembership where
+instance FromXML Tag where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBSecurityGroup"
+    fromXMLRoot    = fromRoot "Tag"
 
-instance ToQuery DBSecurityGroupMembership where
-    toQuery = genericQuery def
+instance ToQuery Tag
 
--- | Contains the result of a successful invocation of the following actions:
--- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
--- element in the DescribeDBSnapshots action.
-data DBSnapshot = DBSnapshot
-    { _dbsDBSnapshotIdentifier :: Maybe Text
-    , _dbsDBInstanceIdentifier :: Maybe Text
-    , _dbsSnapshotCreateTime :: Maybe ISO8601
-    , _dbsEngine :: Maybe Text
-    , _dbsAllocatedStorage :: Maybe Integer
-    , _dbsStatus :: Maybe Text
-    , _dbsPort :: Maybe Integer
-    , _dbsAvailabilityZone :: Maybe Text
-    , _dbsVpcId :: Maybe Text
-    , _dbsInstanceCreateTime :: Maybe ISO8601
-    , _dbsMasterUsername :: Maybe Text
-    , _dbsEngineVersion :: Maybe Text
-    , _dbsLicenseModel :: Maybe Text
-    , _dbsSnapshotType :: Maybe Text
-    , _dbsIops :: Maybe Integer
-    , _dbsOptionGroupName :: Maybe Text
-    , _dbsPercentProgress :: Maybe Integer
-    , _dbsSourceRegion :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+data DBEngineVersion = DBEngineVersion
+    { _dbevDBEngineDescription        :: Maybe Text
+    , _dbevDBEngineVersionDescription :: Maybe Text
+    , _dbevDBParameterGroupFamily     :: Maybe Text
+    , _dbevDefaultCharacterSet        :: Maybe CharacterSet
+    , _dbevEngine                     :: Maybe Text
+    , _dbevEngineVersion              :: Maybe Text
+    , _dbevSupportedCharacterSets     :: [CharacterSet]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DBSnapshot' data type.
---
--- 'DBSnapshot' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'DBEngineVersion' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBSnapshotIdentifier ::@ @Maybe Text@
+-- * 'dbevDBEngineDescription' @::@ 'Maybe' 'Text'
 --
--- * @DBInstanceIdentifier ::@ @Maybe Text@
+-- * 'dbevDBEngineVersionDescription' @::@ 'Maybe' 'Text'
 --
--- * @SnapshotCreateTime ::@ @Maybe ISO8601@
+-- * 'dbevDBParameterGroupFamily' @::@ 'Maybe' 'Text'
 --
--- * @Engine ::@ @Maybe Text@
+-- * 'dbevDefaultCharacterSet' @::@ 'Maybe' 'CharacterSet'
 --
--- * @AllocatedStorage ::@ @Maybe Integer@
+-- * 'dbevEngine' @::@ 'Maybe' 'Text'
 --
--- * @Status ::@ @Maybe Text@
+-- * 'dbevEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * @Port ::@ @Maybe Integer@
+-- * 'dbevSupportedCharacterSets' @::@ ['CharacterSet']
 --
--- * @AvailabilityZone ::@ @Maybe Text@
+dbengineVersion :: DBEngineVersion
+dbengineVersion = DBEngineVersion
+    { _dbevEngine                     = Nothing
+    , _dbevEngineVersion              = Nothing
+    , _dbevDBParameterGroupFamily     = Nothing
+    , _dbevDBEngineDescription        = Nothing
+    , _dbevDBEngineVersionDescription = Nothing
+    , _dbevDefaultCharacterSet        = Nothing
+    , _dbevSupportedCharacterSets     = mempty
+    }
+
+-- | The description of the database engine.
+dbevDBEngineDescription :: Lens' DBEngineVersion (Maybe Text)
+dbevDBEngineDescription =
+    lens _dbevDBEngineDescription (\s a -> s { _dbevDBEngineDescription = a })
+
+-- | The description of the database engine version.
+dbevDBEngineVersionDescription :: Lens' DBEngineVersion (Maybe Text)
+dbevDBEngineVersionDescription =
+    lens _dbevDBEngineVersionDescription
+        (\s a -> s { _dbevDBEngineVersionDescription = a })
+
+-- | The name of the DB parameter group family for the database engine.
+dbevDBParameterGroupFamily :: Lens' DBEngineVersion (Maybe Text)
+dbevDBParameterGroupFamily =
+    lens _dbevDBParameterGroupFamily
+        (\s a -> s { _dbevDBParameterGroupFamily = a })
+
+-- | The default character set for new instances of this engine version, if
+-- the CharacterSetName parameter of the CreateDBInstance API is not
+-- specified.
+dbevDefaultCharacterSet :: Lens' DBEngineVersion (Maybe CharacterSet)
+dbevDefaultCharacterSet =
+    lens _dbevDefaultCharacterSet (\s a -> s { _dbevDefaultCharacterSet = a })
+
+-- | The name of the database engine.
+dbevEngine :: Lens' DBEngineVersion (Maybe Text)
+dbevEngine = lens _dbevEngine (\s a -> s { _dbevEngine = a })
+
+-- | The version number of the database engine.
+dbevEngineVersion :: Lens' DBEngineVersion (Maybe Text)
+dbevEngineVersion =
+    lens _dbevEngineVersion (\s a -> s { _dbevEngineVersion = a })
+
+-- | A list of the character sets supported by this engine for the
+-- CharacterSetName parameter of the CreateDBInstance API.
+dbevSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
+dbevSupportedCharacterSets =
+    lens _dbevSupportedCharacterSets
+        (\s a -> s { _dbevSupportedCharacterSets = a })
+
+instance FromXML DBEngineVersion where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DBEngineVersion"
+
+instance ToQuery DBEngineVersion
+
+data DBSnapshot = DBSnapshot
+    { _dbsAllocatedStorage     :: Maybe Int
+    , _dbsAvailabilityZone     :: Maybe Text
+    , _dbsDBInstanceIdentifier :: Maybe Text
+    , _dbsDBSnapshotIdentifier :: Maybe Text
+    , _dbsEngine               :: Maybe Text
+    , _dbsEngineVersion        :: Maybe Text
+    , _dbsInstanceCreateTime   :: Maybe RFC822
+    , _dbsIops                 :: Maybe Int
+    , _dbsLicenseModel         :: Maybe Text
+    , _dbsMasterUsername       :: Maybe Text
+    , _dbsOptionGroupName      :: Maybe Text
+    , _dbsPercentProgress      :: Maybe Int
+    , _dbsPort                 :: Maybe Int
+    , _dbsSnapshotCreateTime   :: Maybe RFC822
+    , _dbsSnapshotType         :: Maybe Text
+    , _dbsSourceRegion         :: Maybe Text
+    , _dbsStatus               :: Maybe Text
+    , _dbsStorageType          :: Maybe Text
+    , _dbsTdeCredentialArn     :: Maybe Text
+    , _dbsVpcId                :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'DBSnapshot' constructor.
 --
--- * @VpcId ::@ @Maybe Text@
+-- The fields accessible through corresponding lenses are:
 --
--- * @InstanceCreateTime ::@ @Maybe ISO8601@
+-- * 'dbsAllocatedStorage' @::@ 'Maybe' 'Int'
 --
--- * @MasterUsername ::@ @Maybe Text@
+-- * 'dbsAvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * @EngineVersion ::@ @Maybe Text@
+-- * 'dbsDBInstanceIdentifier' @::@ 'Maybe' 'Text'
 --
--- * @LicenseModel ::@ @Maybe Text@
+-- * 'dbsDBSnapshotIdentifier' @::@ 'Maybe' 'Text'
 --
--- * @SnapshotType ::@ @Maybe Text@
+-- * 'dbsEngine' @::@ 'Maybe' 'Text'
 --
--- * @Iops ::@ @Maybe Integer@
+-- * 'dbsEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * @OptionGroupName ::@ @Maybe Text@
+-- * 'dbsInstanceCreateTime' @::@ 'Maybe' 'UTCTime'
 --
--- * @PercentProgress ::@ @Maybe Integer@
+-- * 'dbsIops' @::@ 'Maybe' 'Int'
 --
--- * @SourceRegion ::@ @Maybe Text@
+-- * 'dbsLicenseModel' @::@ 'Maybe' 'Text'
 --
-dBSnapshot :: DBSnapshot
-dBSnapshot = DBSnapshot
+-- * 'dbsMasterUsername' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsOptionGroupName' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsPercentProgress' @::@ 'Maybe' 'Int'
+--
+-- * 'dbsPort' @::@ 'Maybe' 'Int'
+--
+-- * 'dbsSnapshotCreateTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'dbsSnapshotType' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsSourceRegion' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsStorageType' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsTdeCredentialArn' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsVpcId' @::@ 'Maybe' 'Text'
+--
+dbsnapshot :: DBSnapshot
+dbsnapshot = DBSnapshot
     { _dbsDBSnapshotIdentifier = Nothing
     , _dbsDBInstanceIdentifier = Nothing
-    , _dbsSnapshotCreateTime = Nothing
-    , _dbsEngine = Nothing
-    , _dbsAllocatedStorage = Nothing
-    , _dbsStatus = Nothing
-    , _dbsPort = Nothing
-    , _dbsAvailabilityZone = Nothing
-    , _dbsVpcId = Nothing
-    , _dbsInstanceCreateTime = Nothing
-    , _dbsMasterUsername = Nothing
-    , _dbsEngineVersion = Nothing
-    , _dbsLicenseModel = Nothing
-    , _dbsSnapshotType = Nothing
-    , _dbsIops = Nothing
-    , _dbsOptionGroupName = Nothing
-    , _dbsPercentProgress = Nothing
-    , _dbsSourceRegion = Nothing
+    , _dbsSnapshotCreateTime   = Nothing
+    , _dbsEngine               = Nothing
+    , _dbsAllocatedStorage     = Nothing
+    , _dbsStatus               = Nothing
+    , _dbsPort                 = Nothing
+    , _dbsAvailabilityZone     = Nothing
+    , _dbsVpcId                = Nothing
+    , _dbsInstanceCreateTime   = Nothing
+    , _dbsMasterUsername       = Nothing
+    , _dbsEngineVersion        = Nothing
+    , _dbsLicenseModel         = Nothing
+    , _dbsSnapshotType         = Nothing
+    , _dbsIops                 = Nothing
+    , _dbsOptionGroupName      = Nothing
+    , _dbsPercentProgress      = Nothing
+    , _dbsSourceRegion         = Nothing
+    , _dbsStorageType          = Nothing
+    , _dbsTdeCredentialArn     = Nothing
     }
 
--- | Specifies the identifier for the DB snapshot.
-dbsDBSnapshotIdentifier :: Lens' DBSnapshot (Maybe Text)
-dbsDBSnapshotIdentifier =
-    lens _dbsDBSnapshotIdentifier
-         (\s a -> s { _dbsDBSnapshotIdentifier = a })
+-- | Specifies the allocated storage size in gigabytes (GB).
+dbsAllocatedStorage :: Lens' DBSnapshot (Maybe Int)
+dbsAllocatedStorage =
+    lens _dbsAllocatedStorage (\s a -> s { _dbsAllocatedStorage = a })
+
+-- | Specifies the name of the Availability Zone the DB instance was located
+-- in at the time of the DB snapshot.
+dbsAvailabilityZone :: Lens' DBSnapshot (Maybe Text)
+dbsAvailabilityZone =
+    lens _dbsAvailabilityZone (\s a -> s { _dbsAvailabilityZone = a })
 
 -- | Specifies the DB instance identifier of the DB instance this DB snapshot
 -- was created from.
 dbsDBInstanceIdentifier :: Lens' DBSnapshot (Maybe Text)
 dbsDBInstanceIdentifier =
-    lens _dbsDBInstanceIdentifier
-         (\s a -> s { _dbsDBInstanceIdentifier = a })
+    lens _dbsDBInstanceIdentifier (\s a -> s { _dbsDBInstanceIdentifier = a })
 
--- | Provides the time (UTC) when the snapshot was taken.
-dbsSnapshotCreateTime :: Lens' DBSnapshot (Maybe ISO8601)
-dbsSnapshotCreateTime =
-    lens _dbsSnapshotCreateTime (\s a -> s { _dbsSnapshotCreateTime = a })
+-- | Specifies the identifier for the DB snapshot.
+dbsDBSnapshotIdentifier :: Lens' DBSnapshot (Maybe Text)
+dbsDBSnapshotIdentifier =
+    lens _dbsDBSnapshotIdentifier (\s a -> s { _dbsDBSnapshotIdentifier = a })
 
 -- | Specifies the name of the database engine.
 dbsEngine :: Lens' DBSnapshot (Maybe Text)
 dbsEngine = lens _dbsEngine (\s a -> s { _dbsEngine = a })
 
--- | Specifies the allocated storage size in gigabytes (GB).
-dbsAllocatedStorage :: Lens' DBSnapshot (Maybe Integer)
-dbsAllocatedStorage =
-    lens _dbsAllocatedStorage (\s a -> s { _dbsAllocatedStorage = a })
-
--- | Specifies the status of this DB snapshot.
-dbsStatus :: Lens' DBSnapshot (Maybe Text)
-dbsStatus = lens _dbsStatus (\s a -> s { _dbsStatus = a })
-
--- | Specifies the port that the database engine was listening on at the time of
--- the snapshot.
-dbsPort :: Lens' DBSnapshot (Maybe Integer)
-dbsPort = lens _dbsPort (\s a -> s { _dbsPort = a })
-
--- | Specifies the name of the Availability Zone the DB instance was located in
--- at the time of the DB snapshot.
-dbsAvailabilityZone :: Lens' DBSnapshot (Maybe Text)
-dbsAvailabilityZone =
-    lens _dbsAvailabilityZone (\s a -> s { _dbsAvailabilityZone = a })
-
--- | Provides the Vpc Id associated with the DB snapshot.
-dbsVpcId :: Lens' DBSnapshot (Maybe Text)
-dbsVpcId = lens _dbsVpcId (\s a -> s { _dbsVpcId = a })
-
--- | Specifies the time (UTC) when the snapshot was taken.
-dbsInstanceCreateTime :: Lens' DBSnapshot (Maybe ISO8601)
-dbsInstanceCreateTime =
-    lens _dbsInstanceCreateTime (\s a -> s { _dbsInstanceCreateTime = a })
-
--- | Provides the master username for the DB snapshot.
-dbsMasterUsername :: Lens' DBSnapshot (Maybe Text)
-dbsMasterUsername =
-    lens _dbsMasterUsername (\s a -> s { _dbsMasterUsername = a })
-
 -- | Specifies the version of the database engine.
 dbsEngineVersion :: Lens' DBSnapshot (Maybe Text)
-dbsEngineVersion =
-    lens _dbsEngineVersion (\s a -> s { _dbsEngineVersion = a })
+dbsEngineVersion = lens _dbsEngineVersion (\s a -> s { _dbsEngineVersion = a })
+
+-- | Specifies the time (UTC) when the snapshot was taken.
+dbsInstanceCreateTime :: Lens' DBSnapshot (Maybe UTCTime)
+dbsInstanceCreateTime =
+    lens _dbsInstanceCreateTime (\s a -> s { _dbsInstanceCreateTime = a })
+        . mapping _Time
+
+-- | Specifies the Provisioned IOPS (I/O operations per second) value of the
+-- DB instance at the time of the snapshot.
+dbsIops :: Lens' DBSnapshot (Maybe Int)
+dbsIops = lens _dbsIops (\s a -> s { _dbsIops = a })
 
 -- | License model information for the restored DB instance.
 dbsLicenseModel :: Lens' DBSnapshot (Maybe Text)
 dbsLicenseModel = lens _dbsLicenseModel (\s a -> s { _dbsLicenseModel = a })
 
--- | Provides the type of the DB snapshot.
-dbsSnapshotType :: Lens' DBSnapshot (Maybe Text)
-dbsSnapshotType = lens _dbsSnapshotType (\s a -> s { _dbsSnapshotType = a })
-
--- | Specifies the Provisioned IOPS (I/O operations per second) value of the DB
--- instance at the time of the snapshot.
-dbsIops :: Lens' DBSnapshot (Maybe Integer)
-dbsIops = lens _dbsIops (\s a -> s { _dbsIops = a })
+-- | Provides the master username for the DB snapshot.
+dbsMasterUsername :: Lens' DBSnapshot (Maybe Text)
+dbsMasterUsername =
+    lens _dbsMasterUsername (\s a -> s { _dbsMasterUsername = a })
 
 -- | Provides the option group name for the DB snapshot.
 dbsOptionGroupName :: Lens' DBSnapshot (Maybe Text)
@@ -2224,253 +961,581 @@ dbsOptionGroupName =
     lens _dbsOptionGroupName (\s a -> s { _dbsOptionGroupName = a })
 
 -- | The percentage of the estimated data that has been transferred.
-dbsPercentProgress :: Lens' DBSnapshot (Maybe Integer)
+dbsPercentProgress :: Lens' DBSnapshot (Maybe Int)
 dbsPercentProgress =
     lens _dbsPercentProgress (\s a -> s { _dbsPercentProgress = a })
+
+-- | Specifies the port that the database engine was listening on at the time
+-- of the snapshot.
+dbsPort :: Lens' DBSnapshot (Maybe Int)
+dbsPort = lens _dbsPort (\s a -> s { _dbsPort = a })
+
+-- | Provides the time (UTC) when the snapshot was taken.
+dbsSnapshotCreateTime :: Lens' DBSnapshot (Maybe UTCTime)
+dbsSnapshotCreateTime =
+    lens _dbsSnapshotCreateTime (\s a -> s { _dbsSnapshotCreateTime = a })
+        . mapping _Time
+
+-- | Provides the type of the DB snapshot.
+dbsSnapshotType :: Lens' DBSnapshot (Maybe Text)
+dbsSnapshotType = lens _dbsSnapshotType (\s a -> s { _dbsSnapshotType = a })
 
 -- | The region that the DB snapshot was created in or copied from.
 dbsSourceRegion :: Lens' DBSnapshot (Maybe Text)
 dbsSourceRegion = lens _dbsSourceRegion (\s a -> s { _dbsSourceRegion = a })
 
+-- | Specifies the status of this DB snapshot.
+dbsStatus :: Lens' DBSnapshot (Maybe Text)
+dbsStatus = lens _dbsStatus (\s a -> s { _dbsStatus = a })
+
+-- | Specifies storage type associated with DB Snapshot.
+dbsStorageType :: Lens' DBSnapshot (Maybe Text)
+dbsStorageType = lens _dbsStorageType (\s a -> s { _dbsStorageType = a })
+
+-- | The ARN from the Key Store with which to associate the instance for TDE
+-- encryption.
+dbsTdeCredentialArn :: Lens' DBSnapshot (Maybe Text)
+dbsTdeCredentialArn =
+    lens _dbsTdeCredentialArn (\s a -> s { _dbsTdeCredentialArn = a })
+
+-- | Provides the Vpc Id associated with the DB snapshot.
+dbsVpcId :: Lens' DBSnapshot (Maybe Text)
+dbsVpcId = lens _dbsVpcId (\s a -> s { _dbsVpcId = a })
+
 instance FromXML DBSnapshot where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DBSnapshot"
 
--- | Specifies information on the subnet group associated with the DB instance,
--- including the name, description, and subnets in the subnet group.
-data DBSubnetGroup = DBSubnetGroup
-    { _dbsgrDBSubnetGroupName :: Maybe Text
-    , _dbsgrDBSubnetGroupDescription :: Maybe Text
-    , _dbsgrVpcId :: Maybe Text
-    , _dbsgrSubnetGroupStatus :: Maybe Text
-    , _dbsgrSubnets :: [Subnet]
+instance ToQuery DBSnapshot
+
+data DBSecurityGroupMembership = DBSecurityGroupMembership
+    { _dbsgmDBSecurityGroupName :: Maybe Text
+    , _dbsgmStatus              :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DBSubnetGroup' data type to populate a request.
+-- | 'DBSecurityGroupMembership' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBSubnetGroupName ::@ @Maybe Text@
+-- * 'dbsgmDBSecurityGroupName' @::@ 'Maybe' 'Text'
 --
--- * @DBSubnetGroupDescription ::@ @Maybe Text@
+-- * 'dbsgmStatus' @::@ 'Maybe' 'Text'
 --
--- * @VpcId ::@ @Maybe Text@
---
--- * @SubnetGroupStatus ::@ @Maybe Text@
---
--- * @Subnets ::@ @[Subnet]@
---
-dBSubnetGroup :: DBSubnetGroup
-dBSubnetGroup = DBSubnetGroup
-    { _dbsgrDBSubnetGroupName = Nothing
-    , _dbsgrDBSubnetGroupDescription = Nothing
-    , _dbsgrVpcId = Nothing
-    , _dbsgrSubnetGroupStatus = Nothing
-    , _dbsgrSubnets = mempty
+dbsecurityGroupMembership :: DBSecurityGroupMembership
+dbsecurityGroupMembership = DBSecurityGroupMembership
+    { _dbsgmDBSecurityGroupName = Nothing
+    , _dbsgmStatus              = Nothing
     }
 
--- | Specifies the name of the DB subnet group.
-dbsgrDBSubnetGroupName :: Lens' DBSubnetGroup (Maybe Text)
-dbsgrDBSubnetGroupName =
-    lens _dbsgrDBSubnetGroupName (\s a -> s { _dbsgrDBSubnetGroupName = a })
+-- | The name of the DB security group.
+dbsgmDBSecurityGroupName :: Lens' DBSecurityGroupMembership (Maybe Text)
+dbsgmDBSecurityGroupName =
+    lens _dbsgmDBSecurityGroupName
+        (\s a -> s { _dbsgmDBSecurityGroupName = a })
 
--- | Provides the description of the DB subnet group.
-dbsgrDBSubnetGroupDescription :: Lens' DBSubnetGroup (Maybe Text)
-dbsgrDBSubnetGroupDescription =
-    lens _dbsgrDBSubnetGroupDescription
-         (\s a -> s { _dbsgrDBSubnetGroupDescription = a })
+-- | The status of the DB security group.
+dbsgmStatus :: Lens' DBSecurityGroupMembership (Maybe Text)
+dbsgmStatus = lens _dbsgmStatus (\s a -> s { _dbsgmStatus = a })
 
--- | Provides the VpcId of the DB subnet group.
-dbsgrVpcId :: Lens' DBSubnetGroup (Maybe Text)
-dbsgrVpcId = lens _dbsgrVpcId (\s a -> s { _dbsgrVpcId = a })
-
--- | Provides the status of the DB subnet group.
-dbsgrSubnetGroupStatus :: Lens' DBSubnetGroup (Maybe Text)
-dbsgrSubnetGroupStatus =
-    lens _dbsgrSubnetGroupStatus (\s a -> s { _dbsgrSubnetGroupStatus = a })
-
--- | Contains a list of Subnet elements.
-dbsgrSubnets :: Lens' DBSubnetGroup [Subnet]
-dbsgrSubnets = lens _dbsgrSubnets (\s a -> s { _dbsgrSubnets = a })
-
-instance FromXML DBSubnetGroup where
+instance FromXML DBSecurityGroupMembership where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBSubnetGroup"
+    fromXMLRoot    = fromRoot "DBSecurityGroupMembership"
 
-instance ToQuery DBSubnetGroup where
-    toQuery = genericQuery def
+instance ToQuery DBSecurityGroupMembership
 
--- | This data type is used as a response element to DescribeDBLogFiles.
-data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails
-    { _ddblfdLogFileName :: Maybe Text
-    , _ddblfdLastWritten :: Maybe Integer
-    , _ddblfdSize :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DescribeDBLogFilesDetails' data type.
---
--- 'DescribeDBLogFilesDetails' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @LogFileName ::@ @Maybe Text@
---
--- * @LastWritten ::@ @Maybe Integer@
---
--- * @Size ::@ @Maybe Integer@
---
-describeDBLogFilesDetails :: DescribeDBLogFilesDetails
-describeDBLogFilesDetails = DescribeDBLogFilesDetails
-    { _ddblfdLogFileName = Nothing
-    , _ddblfdLastWritten = Nothing
-    , _ddblfdSize = Nothing
-    }
-
--- | The name of the log file for the specified DB instance.
-ddblfdLogFileName :: Lens' DescribeDBLogFilesDetails (Maybe Text)
-ddblfdLogFileName =
-    lens _ddblfdLogFileName (\s a -> s { _ddblfdLogFileName = a })
-
--- | A POSIX timestamp when the last log entry was written.
-ddblfdLastWritten :: Lens' DescribeDBLogFilesDetails (Maybe Integer)
-ddblfdLastWritten =
-    lens _ddblfdLastWritten (\s a -> s { _ddblfdLastWritten = a })
-
--- | The size, in bytes, of the log file for the specified DB instance.
-ddblfdSize :: Lens' DescribeDBLogFilesDetails (Maybe Integer)
-ddblfdSize = lens _ddblfdSize (\s a -> s { _ddblfdSize = a })
-
-instance FromXML DescribeDBLogFilesDetails where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBLogFilesDetails"
-
--- | This data type is used as a response element in the following actions:
--- AuthorizeDBSecurityGroupIngress DescribeDBSecurityGroups
--- RevokeDBSecurityGroupIngress.
 data EC2SecurityGroup = EC2SecurityGroup
-    { _ecsgStatus :: Maybe Text
-    , _ecsgEC2SecurityGroupName :: Maybe Text
-    , _ecsgEC2SecurityGroupId :: Maybe Text
+    { _ecsgEC2SecurityGroupId      :: Maybe Text
+    , _ecsgEC2SecurityGroupName    :: Maybe Text
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
+    , _ecsgStatus                  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'EC2SecurityGroup' data type to populate a request.
+-- | 'EC2SecurityGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Status ::@ @Maybe Text@
+-- * 'ecsgEC2SecurityGroupId' @::@ 'Maybe' 'Text'
 --
--- * @EC2SecurityGroupName ::@ @Maybe Text@
+-- * 'ecsgEC2SecurityGroupName' @::@ 'Maybe' 'Text'
 --
--- * @EC2SecurityGroupId ::@ @Maybe Text@
+-- * 'ecsgEC2SecurityGroupOwnerId' @::@ 'Maybe' 'Text'
 --
--- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
+-- * 'ecsgStatus' @::@ 'Maybe' 'Text'
 --
-eC2SecurityGroup :: EC2SecurityGroup
-eC2SecurityGroup = EC2SecurityGroup
-    { _ecsgStatus = Nothing
-    , _ecsgEC2SecurityGroupName = Nothing
-    , _ecsgEC2SecurityGroupId = Nothing
+ec2SecurityGroup :: EC2SecurityGroup
+ec2SecurityGroup = EC2SecurityGroup
+    { _ecsgStatus                  = Nothing
+    , _ecsgEC2SecurityGroupName    = Nothing
+    , _ecsgEC2SecurityGroupId      = Nothing
     , _ecsgEC2SecurityGroupOwnerId = Nothing
     }
-
--- | Provides the status of the EC2 security group. Status can be "authorizing",
--- "authorized", "revoking", and "revoked".
-ecsgStatus :: Lens' EC2SecurityGroup (Maybe Text)
-ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
-
--- | Specifies the name of the EC2 security group.
-ecsgEC2SecurityGroupName :: Lens' EC2SecurityGroup (Maybe Text)
-ecsgEC2SecurityGroupName =
-    lens _ecsgEC2SecurityGroupName
-         (\s a -> s { _ecsgEC2SecurityGroupName = a })
 
 -- | Specifies the id of the EC2 security group.
 ecsgEC2SecurityGroupId :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgEC2SecurityGroupId =
     lens _ecsgEC2SecurityGroupId (\s a -> s { _ecsgEC2SecurityGroupId = a })
 
+-- | Specifies the name of the EC2 security group.
+ecsgEC2SecurityGroupName :: Lens' EC2SecurityGroup (Maybe Text)
+ecsgEC2SecurityGroupName =
+    lens _ecsgEC2SecurityGroupName
+        (\s a -> s { _ecsgEC2SecurityGroupName = a })
+
 -- | Specifies the AWS ID of the owner of the EC2 security group specified in
 -- the EC2SecurityGroupName field.
 ecsgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgEC2SecurityGroupOwnerId =
     lens _ecsgEC2SecurityGroupOwnerId
-         (\s a -> s { _ecsgEC2SecurityGroupOwnerId = a })
+        (\s a -> s { _ecsgEC2SecurityGroupOwnerId = a })
+
+-- | Provides the status of the EC2 security group. Status can be
+-- "authorizing", "authorized", "revoking", and "revoked".
+ecsgStatus :: Lens' EC2SecurityGroup (Maybe Text)
+ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 
 instance FromXML EC2SecurityGroup where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EC2SecurityGroup"
 
-instance ToQuery EC2SecurityGroup where
-    toQuery = genericQuery def
+instance ToQuery EC2SecurityGroup
 
--- | Specifies the connection endpoint.
-data Endpoint' = Endpoint'
-    { _eAddress :: Maybe Text
-    , _ePort :: Maybe Integer
+data SourceType
+    = DbInstance       -- ^ db-instance
+    | DbParameterGroup -- ^ db-parameter-group
+    | DbSecurityGroup  -- ^ db-security-group
+    | DbSnapshot       -- ^ db-snapshot
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable SourceType
+
+instance FromText SourceType where
+    parser = match "db-instance"        DbInstance
+         <|> match "db-parameter-group" DbParameterGroup
+         <|> match "db-security-group"  DbSecurityGroup
+         <|> match "db-snapshot"        DbSnapshot
+
+instance ToText SourceType where
+    toText = \case
+        DbInstance       -> "db-instance"
+        DbParameterGroup -> "db-parameter-group"
+        DbSecurityGroup  -> "db-security-group"
+        DbSnapshot       -> "db-snapshot"
+
+instance FromXML SourceType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SourceType"
+
+instance ToQuery SourceType
+
+data DBParameterGroup = DBParameterGroup
+    { _dbpgDBParameterGroupFamily :: Maybe Text
+    , _dbpgDBParameterGroupName   :: Maybe Text
+    , _dbpgDescription            :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Endpoint'' data type to populate a request.
+-- | 'DBParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Address ::@ @Maybe Text@
+-- * 'dbpgDBParameterGroupFamily' @::@ 'Maybe' 'Text'
 --
--- * @Port ::@ @Maybe Integer@
+-- * 'dbpgDBParameterGroupName' @::@ 'Maybe' 'Text'
 --
-endpoint' :: Endpoint'
-endpoint' = Endpoint'
-    { _eAddress = Nothing
-    , _ePort = Nothing
+-- * 'dbpgDescription' @::@ 'Maybe' 'Text'
+--
+dbparameterGroup :: DBParameterGroup
+dbparameterGroup = DBParameterGroup
+    { _dbpgDBParameterGroupName   = Nothing
+    , _dbpgDBParameterGroupFamily = Nothing
+    , _dbpgDescription            = Nothing
     }
 
--- | Specifies the DNS address of the DB instance.
-eAddress :: Lens' Endpoint' (Maybe Text)
-eAddress = lens _eAddress (\s a -> s { _eAddress = a })
+-- | Provides the name of the DB parameter group family that this DB parameter
+-- group is compatible with.
+dbpgDBParameterGroupFamily :: Lens' DBParameterGroup (Maybe Text)
+dbpgDBParameterGroupFamily =
+    lens _dbpgDBParameterGroupFamily
+        (\s a -> s { _dbpgDBParameterGroupFamily = a })
 
--- | Specifies the port that the database engine is listening on.
-ePort :: Lens' Endpoint' (Maybe Integer)
-ePort = lens _ePort (\s a -> s { _ePort = a })
+-- | Provides the name of the DB parameter group.
+dbpgDBParameterGroupName :: Lens' DBParameterGroup (Maybe Text)
+dbpgDBParameterGroupName =
+    lens _dbpgDBParameterGroupName
+        (\s a -> s { _dbpgDBParameterGroupName = a })
 
-instance FromXML Endpoint' where
+-- | Provides the customer-specified description for this DB parameter group.
+dbpgDescription :: Lens' DBParameterGroup (Maybe Text)
+dbpgDescription = lens _dbpgDescription (\s a -> s { _dbpgDescription = a })
+
+instance FromXML DBParameterGroup where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Endpoint'"
+    fromXMLRoot    = fromRoot "DBParameterGroup"
 
-instance ToQuery Endpoint' where
-    toQuery = genericQuery def
+instance ToQuery DBParameterGroup
 
--- | Contains the result of a successful invocation of the
--- DescribeEngineDefaultParameters action.
-data EngineDefaults = EngineDefaults
-    { _edDBParameterGroupFamily :: Maybe Text
-    , _edMarker :: Maybe Text
-    , _edParameters :: [Parameter]
-    } deriving (Eq, Ord, Show, Generic)
+data ReservedDBInstancesOffering = ReservedDBInstancesOffering
+    { _rdbioCurrencyCode                  :: Maybe Text
+    , _rdbioDBInstanceClass               :: Maybe Text
+    , _rdbioDuration                      :: Maybe Int
+    , _rdbioFixedPrice                    :: Maybe Double
+    , _rdbioMultiAZ                       :: Maybe Bool
+    , _rdbioOfferingType                  :: Maybe Text
+    , _rdbioProductDescription            :: Maybe Text
+    , _rdbioRecurringCharges              :: [RecurringCharge]
+    , _rdbioReservedDBInstancesOfferingId :: Maybe Text
+    , _rdbioUsagePrice                    :: Maybe Double
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'EngineDefaults' data type.
---
--- 'EngineDefaults' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'ReservedDBInstancesOffering' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBParameterGroupFamily ::@ @Maybe Text@
+-- * 'rdbioCurrencyCode' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'rdbioDBInstanceClass' @::@ 'Maybe' 'Text'
 --
--- * @Parameters ::@ @[Parameter]@
+-- * 'rdbioDuration' @::@ 'Maybe' 'Int'
+--
+-- * 'rdbioFixedPrice' @::@ 'Maybe' 'Double'
+--
+-- * 'rdbioMultiAZ' @::@ 'Maybe' 'Bool'
+--
+-- * 'rdbioOfferingType' @::@ 'Maybe' 'Text'
+--
+-- * 'rdbioProductDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'rdbioRecurringCharges' @::@ ['RecurringCharge']
+--
+-- * 'rdbioReservedDBInstancesOfferingId' @::@ 'Maybe' 'Text'
+--
+-- * 'rdbioUsagePrice' @::@ 'Maybe' 'Double'
+--
+reservedDBInstancesOffering :: ReservedDBInstancesOffering
+reservedDBInstancesOffering = ReservedDBInstancesOffering
+    { _rdbioReservedDBInstancesOfferingId = Nothing
+    , _rdbioDBInstanceClass               = Nothing
+    , _rdbioDuration                      = Nothing
+    , _rdbioFixedPrice                    = Nothing
+    , _rdbioUsagePrice                    = Nothing
+    , _rdbioCurrencyCode                  = Nothing
+    , _rdbioProductDescription            = Nothing
+    , _rdbioOfferingType                  = Nothing
+    , _rdbioMultiAZ                       = Nothing
+    , _rdbioRecurringCharges              = mempty
+    }
+
+-- | The currency code for the reserved DB instance offering.
+rdbioCurrencyCode :: Lens' ReservedDBInstancesOffering (Maybe Text)
+rdbioCurrencyCode =
+    lens _rdbioCurrencyCode (\s a -> s { _rdbioCurrencyCode = a })
+
+-- | The DB instance class for the reserved DB instance.
+rdbioDBInstanceClass :: Lens' ReservedDBInstancesOffering (Maybe Text)
+rdbioDBInstanceClass =
+    lens _rdbioDBInstanceClass (\s a -> s { _rdbioDBInstanceClass = a })
+
+-- | The duration of the offering in seconds.
+rdbioDuration :: Lens' ReservedDBInstancesOffering (Maybe Int)
+rdbioDuration = lens _rdbioDuration (\s a -> s { _rdbioDuration = a })
+
+-- | The fixed price charged for this offering.
+rdbioFixedPrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
+rdbioFixedPrice = lens _rdbioFixedPrice (\s a -> s { _rdbioFixedPrice = a })
+
+-- | Indicates if the offering applies to Multi-AZ deployments.
+rdbioMultiAZ :: Lens' ReservedDBInstancesOffering (Maybe Bool)
+rdbioMultiAZ = lens _rdbioMultiAZ (\s a -> s { _rdbioMultiAZ = a })
+
+-- | The offering type.
+rdbioOfferingType :: Lens' ReservedDBInstancesOffering (Maybe Text)
+rdbioOfferingType =
+    lens _rdbioOfferingType (\s a -> s { _rdbioOfferingType = a })
+
+-- | The database engine used by the offering.
+rdbioProductDescription :: Lens' ReservedDBInstancesOffering (Maybe Text)
+rdbioProductDescription =
+    lens _rdbioProductDescription (\s a -> s { _rdbioProductDescription = a })
+
+-- | The recurring price charged to run this reserved DB instance.
+rdbioRecurringCharges :: Lens' ReservedDBInstancesOffering [RecurringCharge]
+rdbioRecurringCharges =
+    lens _rdbioRecurringCharges (\s a -> s { _rdbioRecurringCharges = a })
+
+-- | The offering identifier.
+rdbioReservedDBInstancesOfferingId :: Lens' ReservedDBInstancesOffering (Maybe Text)
+rdbioReservedDBInstancesOfferingId =
+    lens _rdbioReservedDBInstancesOfferingId
+        (\s a -> s { _rdbioReservedDBInstancesOfferingId = a })
+
+-- | The hourly price charged for this offering.
+rdbioUsagePrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
+rdbioUsagePrice = lens _rdbioUsagePrice (\s a -> s { _rdbioUsagePrice = a })
+
+instance FromXML ReservedDBInstancesOffering where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReservedDBInstancesOffering"
+
+instance ToQuery ReservedDBInstancesOffering
+
+data ApplyMethod
+    = Immediate     -- ^ immediate
+    | PendingReboot -- ^ pending-reboot
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable ApplyMethod
+
+instance FromText ApplyMethod where
+    parser = match "immediate"      Immediate
+         <|> match "pending-reboot" PendingReboot
+
+instance ToText ApplyMethod where
+    toText = \case
+        Immediate     -> "immediate"
+        PendingReboot -> "pending-reboot"
+
+instance FromXML ApplyMethod where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ApplyMethod"
+
+instance ToQuery ApplyMethod
+
+data CharacterSet = CharacterSet
+    { _csCharacterSetDescription :: Maybe Text
+    , _csCharacterSetName        :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'CharacterSet' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'csCharacterSetDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'csCharacterSetName' @::@ 'Maybe' 'Text'
+--
+characterSet :: CharacterSet
+characterSet = CharacterSet
+    { _csCharacterSetName        = Nothing
+    , _csCharacterSetDescription = Nothing
+    }
+
+-- | The description of the character set.
+csCharacterSetDescription :: Lens' CharacterSet (Maybe Text)
+csCharacterSetDescription =
+    lens _csCharacterSetDescription
+        (\s a -> s { _csCharacterSetDescription = a })
+
+-- | The name of the character set.
+csCharacterSetName :: Lens' CharacterSet (Maybe Text)
+csCharacterSetName =
+    lens _csCharacterSetName (\s a -> s { _csCharacterSetName = a })
+
+instance FromXML CharacterSet where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CharacterSet"
+
+instance ToQuery CharacterSet
+
+data Subnet = Subnet
+    { _sSubnetAvailabilityZone :: Maybe AvailabilityZone
+    , _sSubnetIdentifier       :: Maybe Text
+    , _sSubnetStatus           :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+-- | 'Subnet' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sSubnetAvailabilityZone' @::@ 'Maybe' 'AvailabilityZone'
+--
+-- * 'sSubnetIdentifier' @::@ 'Maybe' 'Text'
+--
+-- * 'sSubnetStatus' @::@ 'Maybe' 'Text'
+--
+subnet :: Subnet
+subnet = Subnet
+    { _sSubnetIdentifier       = Nothing
+    , _sSubnetAvailabilityZone = Nothing
+    , _sSubnetStatus           = Nothing
+    }
+
+sSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
+sSubnetAvailabilityZone =
+    lens _sSubnetAvailabilityZone (\s a -> s { _sSubnetAvailabilityZone = a })
+
+-- | Specifies the identifier of the subnet.
+sSubnetIdentifier :: Lens' Subnet (Maybe Text)
+sSubnetIdentifier =
+    lens _sSubnetIdentifier (\s a -> s { _sSubnetIdentifier = a })
+
+-- | Specifies the status of the subnet.
+sSubnetStatus :: Lens' Subnet (Maybe Text)
+sSubnetStatus = lens _sSubnetStatus (\s a -> s { _sSubnetStatus = a })
+
+instance FromXML Subnet where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "Subnet"
+
+instance ToQuery Subnet
+
+data ReservedDBInstance = ReservedDBInstance
+    { _rdbiCurrencyCode                  :: Maybe Text
+    , _rdbiDBInstanceClass               :: Maybe Text
+    , _rdbiDBInstanceCount               :: Maybe Int
+    , _rdbiDuration                      :: Maybe Int
+    , _rdbiFixedPrice                    :: Maybe Double
+    , _rdbiMultiAZ                       :: Maybe Bool
+    , _rdbiOfferingType                  :: Maybe Text
+    , _rdbiProductDescription            :: Maybe Text
+    , _rdbiRecurringCharges              :: [RecurringCharge]
+    , _rdbiReservedDBInstanceId          :: Maybe Text
+    , _rdbiReservedDBInstancesOfferingId :: Maybe Text
+    , _rdbiStartTime                     :: Maybe RFC822
+    , _rdbiState                         :: Maybe Text
+    , _rdbiUsagePrice                    :: Maybe Double
+    } deriving (Eq, Show, Generic)
+
+-- | 'ReservedDBInstance' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rdbiCurrencyCode' @::@ 'Maybe' 'Text'
+--
+-- * 'rdbiDBInstanceClass' @::@ 'Maybe' 'Text'
+--
+-- * 'rdbiDBInstanceCount' @::@ 'Maybe' 'Int'
+--
+-- * 'rdbiDuration' @::@ 'Maybe' 'Int'
+--
+-- * 'rdbiFixedPrice' @::@ 'Maybe' 'Double'
+--
+-- * 'rdbiMultiAZ' @::@ 'Maybe' 'Bool'
+--
+-- * 'rdbiOfferingType' @::@ 'Maybe' 'Text'
+--
+-- * 'rdbiProductDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'rdbiRecurringCharges' @::@ ['RecurringCharge']
+--
+-- * 'rdbiReservedDBInstanceId' @::@ 'Maybe' 'Text'
+--
+-- * 'rdbiReservedDBInstancesOfferingId' @::@ 'Maybe' 'Text'
+--
+-- * 'rdbiStartTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'rdbiState' @::@ 'Maybe' 'Text'
+--
+-- * 'rdbiUsagePrice' @::@ 'Maybe' 'Double'
+--
+reservedDBInstance :: ReservedDBInstance
+reservedDBInstance = ReservedDBInstance
+    { _rdbiReservedDBInstanceId          = Nothing
+    , _rdbiReservedDBInstancesOfferingId = Nothing
+    , _rdbiDBInstanceClass               = Nothing
+    , _rdbiStartTime                     = Nothing
+    , _rdbiDuration                      = Nothing
+    , _rdbiFixedPrice                    = Nothing
+    , _rdbiUsagePrice                    = Nothing
+    , _rdbiCurrencyCode                  = Nothing
+    , _rdbiDBInstanceCount               = Nothing
+    , _rdbiProductDescription            = Nothing
+    , _rdbiOfferingType                  = Nothing
+    , _rdbiMultiAZ                       = Nothing
+    , _rdbiState                         = Nothing
+    , _rdbiRecurringCharges              = mempty
+    }
+
+-- | The currency code for the reserved DB instance.
+rdbiCurrencyCode :: Lens' ReservedDBInstance (Maybe Text)
+rdbiCurrencyCode = lens _rdbiCurrencyCode (\s a -> s { _rdbiCurrencyCode = a })
+
+-- | The DB instance class for the reserved DB instance.
+rdbiDBInstanceClass :: Lens' ReservedDBInstance (Maybe Text)
+rdbiDBInstanceClass =
+    lens _rdbiDBInstanceClass (\s a -> s { _rdbiDBInstanceClass = a })
+
+-- | The number of reserved DB instances.
+rdbiDBInstanceCount :: Lens' ReservedDBInstance (Maybe Int)
+rdbiDBInstanceCount =
+    lens _rdbiDBInstanceCount (\s a -> s { _rdbiDBInstanceCount = a })
+
+-- | The duration of the reservation in seconds.
+rdbiDuration :: Lens' ReservedDBInstance (Maybe Int)
+rdbiDuration = lens _rdbiDuration (\s a -> s { _rdbiDuration = a })
+
+-- | The fixed price charged for this reserved DB instance.
+rdbiFixedPrice :: Lens' ReservedDBInstance (Maybe Double)
+rdbiFixedPrice = lens _rdbiFixedPrice (\s a -> s { _rdbiFixedPrice = a })
+
+-- | Indicates if the reservation applies to Multi-AZ deployments.
+rdbiMultiAZ :: Lens' ReservedDBInstance (Maybe Bool)
+rdbiMultiAZ = lens _rdbiMultiAZ (\s a -> s { _rdbiMultiAZ = a })
+
+-- | The offering type of this reserved DB instance.
+rdbiOfferingType :: Lens' ReservedDBInstance (Maybe Text)
+rdbiOfferingType = lens _rdbiOfferingType (\s a -> s { _rdbiOfferingType = a })
+
+-- | The description of the reserved DB instance.
+rdbiProductDescription :: Lens' ReservedDBInstance (Maybe Text)
+rdbiProductDescription =
+    lens _rdbiProductDescription (\s a -> s { _rdbiProductDescription = a })
+
+-- | The recurring price charged to run this reserved DB instance.
+rdbiRecurringCharges :: Lens' ReservedDBInstance [RecurringCharge]
+rdbiRecurringCharges =
+    lens _rdbiRecurringCharges (\s a -> s { _rdbiRecurringCharges = a })
+
+-- | The unique identifier for the reservation.
+rdbiReservedDBInstanceId :: Lens' ReservedDBInstance (Maybe Text)
+rdbiReservedDBInstanceId =
+    lens _rdbiReservedDBInstanceId
+        (\s a -> s { _rdbiReservedDBInstanceId = a })
+
+-- | The offering identifier.
+rdbiReservedDBInstancesOfferingId :: Lens' ReservedDBInstance (Maybe Text)
+rdbiReservedDBInstancesOfferingId =
+    lens _rdbiReservedDBInstancesOfferingId
+        (\s a -> s { _rdbiReservedDBInstancesOfferingId = a })
+
+-- | The time the reservation started.
+rdbiStartTime :: Lens' ReservedDBInstance (Maybe UTCTime)
+rdbiStartTime = lens _rdbiStartTime (\s a -> s { _rdbiStartTime = a })
+    . mapping _Time
+
+-- | The state of the reserved DB instance.
+rdbiState :: Lens' ReservedDBInstance (Maybe Text)
+rdbiState = lens _rdbiState (\s a -> s { _rdbiState = a })
+
+-- | The hourly price charged for this reserved DB instance.
+rdbiUsagePrice :: Lens' ReservedDBInstance (Maybe Double)
+rdbiUsagePrice = lens _rdbiUsagePrice (\s a -> s { _rdbiUsagePrice = a })
+
+instance FromXML ReservedDBInstance where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReservedDBInstance"
+
+instance ToQuery ReservedDBInstance
+
+data EngineDefaults = EngineDefaults
+    { _edDBParameterGroupFamily :: Maybe Text
+    , _edMarker                 :: Maybe Text
+    , _edParameters             :: [Parameter]
+    } deriving (Eq, Show, Generic)
+
+-- | 'EngineDefaults' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'edDBParameterGroupFamily' @::@ 'Maybe' 'Text'
+--
+-- * 'edMarker' @::@ 'Maybe' 'Text'
+--
+-- * 'edParameters' @::@ ['Parameter']
 --
 engineDefaults :: EngineDefaults
 engineDefaults = EngineDefaults
     { _edDBParameterGroupFamily = Nothing
-    , _edMarker = Nothing
-    , _edParameters = mempty
+    , _edMarker                 = Nothing
+    , _edParameters             = mempty
     }
 
 -- | Specifies the name of the DB parameter group family which the engine
@@ -2478,11 +1543,11 @@ engineDefaults = EngineDefaults
 edDBParameterGroupFamily :: Lens' EngineDefaults (Maybe Text)
 edDBParameterGroupFamily =
     lens _edDBParameterGroupFamily
-         (\s a -> s { _edDBParameterGroupFamily = a })
+        (\s a -> s { _edDBParameterGroupFamily = a })
 
--- | An optional pagination token provided by a previous EngineDefaults request.
--- If this parameter is specified, the response includes only records beyond
--- the marker, up to the value specified by MaxRecords .
+-- | An optional pagination token provided by a previous EngineDefaults
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by MaxRecords .
 edMarker :: Lens' EngineDefaults (Maybe Text)
 edMarker = lens _edMarker (\s a -> s { _edMarker = a })
 
@@ -2494,590 +1559,93 @@ instance FromXML EngineDefaults where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EngineDefaults"
 
--- | This data type is used as a response element in the DescribeEvents action.
-data Event = Event
-    { _erSourceIdentifier :: Maybe Text
-    , _erSourceType :: Maybe SourceType
-    , _erMessage :: Maybe Text
-    , _erEventCategories :: [Text]
-    , _erDate :: Maybe ISO8601
-    } deriving (Eq, Ord, Show, Generic)
+instance ToQuery EngineDefaults
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Event' data type.
---
--- 'Event' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage
+    { _dbpgnmDBParameterGroupName :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
+
+-- | 'DBParameterGroupNameMessage' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SourceIdentifier ::@ @Maybe Text@
+-- * 'dbpgnmDBParameterGroupName' @::@ 'Maybe' 'Text'
 --
--- * @SourceType ::@ @Maybe SourceType@
---
--- * @Message ::@ @Maybe Text@
---
--- * @EventCategories ::@ @[Text]@
---
--- * @Date ::@ @Maybe ISO8601@
---
-event :: Event
-event = Event
-    { _erSourceIdentifier = Nothing
-    , _erSourceType = Nothing
-    , _erMessage = Nothing
-    , _erEventCategories = mempty
-    , _erDate = Nothing
+dbparameterGroupNameMessage :: DBParameterGroupNameMessage
+dbparameterGroupNameMessage = DBParameterGroupNameMessage
+    { _dbpgnmDBParameterGroupName = Nothing
     }
 
--- | Provides the identifier for the source of the event.
-erSourceIdentifier :: Lens' Event (Maybe Text)
-erSourceIdentifier =
-    lens _erSourceIdentifier (\s a -> s { _erSourceIdentifier = a })
+-- | The name of the DB parameter group.
+dbpgnmDBParameterGroupName :: Lens' DBParameterGroupNameMessage (Maybe Text)
+dbpgnmDBParameterGroupName =
+    lens _dbpgnmDBParameterGroupName
+        (\s a -> s { _dbpgnmDBParameterGroupName = a })
 
--- | Specifies the source type for this event.
-erSourceType :: Lens' Event (Maybe SourceType)
-erSourceType = lens _erSourceType (\s a -> s { _erSourceType = a })
-
--- | Provides the text of this event.
-erMessage :: Lens' Event (Maybe Text)
-erMessage = lens _erMessage (\s a -> s { _erMessage = a })
-
--- | Specifies the category for the event.
-erEventCategories :: Lens' Event [Text]
-erEventCategories =
-    lens _erEventCategories (\s a -> s { _erEventCategories = a })
-
--- | Specifies the date and time of the event.
-erDate :: Lens' Event (Maybe ISO8601)
-erDate = lens _erDate (\s a -> s { _erDate = a })
-
-instance FromXML Event where
+instance FromXML DBParameterGroupNameMessage where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Event"
+    fromXMLRoot    = fromRoot "DBParameterGroupNameMessage"
 
--- | Contains the results of a successful invocation of the
--- DescribeEventCategories action.
-data EventCategoriesMap = EventCategoriesMap
-    { _ecmSourceType :: Maybe Text
-    , _ecmEventCategories :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+instance ToQuery DBParameterGroupNameMessage
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'EventCategoriesMap' data type.
---
--- 'EventCategoriesMap' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @SourceType ::@ @Maybe Text@
---
--- * @EventCategories ::@ @[Text]@
---
-eventCategoriesMap :: EventCategoriesMap
-eventCategoriesMap = EventCategoriesMap
-    { _ecmSourceType = Nothing
-    , _ecmEventCategories = mempty
-    }
-
--- | The source type that the returned categories belong to.
-ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
-ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
-
--- | The event categories for the specified source type.
-ecmEventCategories :: Lens' EventCategoriesMap [Text]
-ecmEventCategories =
-    lens _ecmEventCategories (\s a -> s { _ecmEventCategories = a })
-
-instance FromXML EventCategoriesMap where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EventCategoriesMap"
-
--- | Contains the results of a successful invocation of the
--- DescribeEventSubscriptions action.
-data EventSubscription = EventSubscription
-    { _esCustomerAwsId :: Maybe Text
-    , _esCustSubscriptionId :: Maybe Text
-    , _esSnsTopicArn :: Maybe Text
-    , _esStatus :: Maybe Text
-    , _esSubscriptionCreationTime :: Maybe Text
-    , _esSourceType :: Maybe Text
-    , _esSourceIdsList :: [Text]
-    , _esEventCategoriesList :: [Text]
-    , _esEnabled :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'EventSubscription' data type.
---
--- 'EventSubscription' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @CustomerAwsId ::@ @Maybe Text@
---
--- * @CustSubscriptionId ::@ @Maybe Text@
---
--- * @SnsTopicArn ::@ @Maybe Text@
---
--- * @Status ::@ @Maybe Text@
---
--- * @SubscriptionCreationTime ::@ @Maybe Text@
---
--- * @SourceType ::@ @Maybe Text@
---
--- * @SourceIdsList ::@ @[Text]@
---
--- * @EventCategoriesList ::@ @[Text]@
---
--- * @Enabled ::@ @Maybe Bool@
---
-eventSubscription :: EventSubscription
-eventSubscription = EventSubscription
-    { _esCustomerAwsId = Nothing
-    , _esCustSubscriptionId = Nothing
-    , _esSnsTopicArn = Nothing
-    , _esStatus = Nothing
-    , _esSubscriptionCreationTime = Nothing
-    , _esSourceType = Nothing
-    , _esSourceIdsList = mempty
-    , _esEventCategoriesList = mempty
-    , _esEnabled = Nothing
-    }
-
--- | The AWS customer account associated with the RDS event notification
--- subscription.
-esCustomerAwsId :: Lens' EventSubscription (Maybe Text)
-esCustomerAwsId = lens _esCustomerAwsId (\s a -> s { _esCustomerAwsId = a })
-
--- | The RDS event notification subscription Id.
-esCustSubscriptionId :: Lens' EventSubscription (Maybe Text)
-esCustSubscriptionId =
-    lens _esCustSubscriptionId (\s a -> s { _esCustSubscriptionId = a })
-
--- | The topic ARN of the RDS event notification subscription.
-esSnsTopicArn :: Lens' EventSubscription (Maybe Text)
-esSnsTopicArn = lens _esSnsTopicArn (\s a -> s { _esSnsTopicArn = a })
-
--- | The status of the RDS event notification subscription. Constraints: Can be
--- one of the following: creating | modifying | deleting | active |
--- no-permission | topic-not-exist The status "no-permission" indicates that
--- RDS no longer has permission to post to the SNS topic. The status
--- "topic-not-exist" indicates that the topic was deleted after the
--- subscription was created.
-esStatus :: Lens' EventSubscription (Maybe Text)
-esStatus = lens _esStatus (\s a -> s { _esStatus = a })
-
--- | The time the RDS event notification subscription was created.
-esSubscriptionCreationTime :: Lens' EventSubscription (Maybe Text)
-esSubscriptionCreationTime =
-    lens _esSubscriptionCreationTime
-         (\s a -> s { _esSubscriptionCreationTime = a })
-
--- | The source type for the RDS event notification subscription.
-esSourceType :: Lens' EventSubscription (Maybe Text)
-esSourceType = lens _esSourceType (\s a -> s { _esSourceType = a })
-
--- | A list of source Ids for the RDS event notification subscription.
-esSourceIdsList :: Lens' EventSubscription [Text]
-esSourceIdsList = lens _esSourceIdsList (\s a -> s { _esSourceIdsList = a })
-
--- | A list of event categories for the RDS event notification subscription.
-esEventCategoriesList :: Lens' EventSubscription [Text]
-esEventCategoriesList =
-    lens _esEventCategoriesList (\s a -> s { _esEventCategoriesList = a })
-
--- | A Boolean value indicating if the subscription is enabled. True indicates
--- the subscription is enabled.
-esEnabled :: Lens' EventSubscription (Maybe Bool)
-esEnabled = lens _esEnabled (\s a -> s { _esEnabled = a })
-
-instance FromXML EventSubscription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EventSubscription"
-
--- | This data type is used as a response element in the
--- DescribeDBSecurityGroups action.
-data IPRange = IPRange
-    { _iprStatus :: Maybe Text
-    , _iprCIDRIP :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'IPRange' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Status ::@ @Maybe Text@
---
--- * @CIDRIP ::@ @Maybe Text@
---
-iPRange :: IPRange
-iPRange = IPRange
-    { _iprStatus = Nothing
-    , _iprCIDRIP = Nothing
-    }
-
--- | Specifies the status of the IP range. Status can be "authorizing",
--- "authorized", "revoking", and "revoked".
-iprStatus :: Lens' IPRange (Maybe Text)
-iprStatus = lens _iprStatus (\s a -> s { _iprStatus = a })
-
--- | Specifies the IP range.
-iprCIDRIP :: Lens' IPRange (Maybe Text)
-iprCIDRIP = lens _iprCIDRIP (\s a -> s { _iprCIDRIP = a })
-
-instance FromXML IPRange where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IPRange"
-
-instance ToQuery IPRange where
-    toQuery = genericQuery def
-
--- | Option details.
-data Option = Option
-    { _oOptionName :: Maybe Text
-    , _oOptionDescription :: Maybe Text
-    , _oPersistent :: Maybe Bool
-    , _oPermanent :: Maybe Bool
-    , _oPort :: Maybe Integer
-    , _oOptionSettings :: [OptionSetting]
-    , _oDBSecurityGroupMemberships :: [DBSecurityGroupMembership]
-    , _oVpcSecurityGroupMemberships :: [VpcSecurityGroupMembership]
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Option' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @OptionName ::@ @Maybe Text@
---
--- * @OptionDescription ::@ @Maybe Text@
---
--- * @Persistent ::@ @Maybe Bool@
---
--- * @Permanent ::@ @Maybe Bool@
---
--- * @Port ::@ @Maybe Integer@
---
--- * @OptionSettings ::@ @[OptionSetting]@
---
--- * @DBSecurityGroupMemberships ::@ @[DBSecurityGroupMembership]@
---
--- * @VpcSecurityGroupMemberships ::@ @[VpcSecurityGroupMembership]@
---
-option :: Option
-option = Option
-    { _oOptionName = Nothing
-    , _oOptionDescription = Nothing
-    , _oPersistent = Nothing
-    , _oPermanent = Nothing
-    , _oPort = Nothing
-    , _oOptionSettings = mempty
-    , _oDBSecurityGroupMemberships = mempty
-    , _oVpcSecurityGroupMemberships = mempty
-    }
-
--- | The name of the option.
-oOptionName :: Lens' Option (Maybe Text)
-oOptionName = lens _oOptionName (\s a -> s { _oOptionName = a })
-
--- | The description of the option.
-oOptionDescription :: Lens' Option (Maybe Text)
-oOptionDescription =
-    lens _oOptionDescription (\s a -> s { _oOptionDescription = a })
-
--- | Indicate if this option is persistent.
-oPersistent :: Lens' Option (Maybe Bool)
-oPersistent = lens _oPersistent (\s a -> s { _oPersistent = a })
-
--- | Indicate if this option is permanent.
-oPermanent :: Lens' Option (Maybe Bool)
-oPermanent = lens _oPermanent (\s a -> s { _oPermanent = a })
-
--- | If required, the port configured for this option to use.
-oPort :: Lens' Option (Maybe Integer)
-oPort = lens _oPort (\s a -> s { _oPort = a })
-
--- | The option settings for this option.
-oOptionSettings :: Lens' Option [OptionSetting]
-oOptionSettings = lens _oOptionSettings (\s a -> s { _oOptionSettings = a })
-
--- | If the option requires access to a port, then this DB security group allows
--- access to the port.
-oDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
-oDBSecurityGroupMemberships =
-    lens _oDBSecurityGroupMemberships
-         (\s a -> s { _oDBSecurityGroupMemberships = a })
-
--- | If the option requires access to a port, then this VPC security group
--- allows access to the port.
-oVpcSecurityGroupMemberships :: Lens' Option [VpcSecurityGroupMembership]
-oVpcSecurityGroupMemberships =
-    lens _oVpcSecurityGroupMemberships
-         (\s a -> s { _oVpcSecurityGroupMemberships = a })
-
-instance FromXML Option where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Option"
-
-instance ToQuery Option where
-    toQuery = genericQuery def
-
--- | A list of all available options.
-data OptionConfiguration = OptionConfiguration
-    { _ocOptionName :: Text
-    , _ocPort :: Maybe Integer
-    , _ocDBSecurityGroupMemberships :: [Text]
-    , _ocVpcSecurityGroupMemberships :: [Text]
-    , _ocOptionSettings :: [OptionSetting]
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'OptionConfiguration' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @OptionName ::@ @Text@
---
--- * @Port ::@ @Maybe Integer@
---
--- * @DBSecurityGroupMemberships ::@ @[Text]@
---
--- * @VpcSecurityGroupMemberships ::@ @[Text]@
---
--- * @OptionSettings ::@ @[OptionSetting]@
---
-optionConfiguration :: Text -- ^ 'ocOptionName'
-                    -> OptionConfiguration
-optionConfiguration p1 = OptionConfiguration
-    { _ocOptionName = p1
-    , _ocPort = Nothing
-    , _ocDBSecurityGroupMemberships = mempty
-    , _ocVpcSecurityGroupMemberships = mempty
-    , _ocOptionSettings = mempty
-    }
-
--- | The configuration of options to include in a group.
-ocOptionName :: Lens' OptionConfiguration Text
-ocOptionName = lens _ocOptionName (\s a -> s { _ocOptionName = a })
-
--- | The optional port for the option.
-ocPort :: Lens' OptionConfiguration (Maybe Integer)
-ocPort = lens _ocPort (\s a -> s { _ocPort = a })
-
--- | A list of DBSecurityGroupMemebrship name strings used for this option.
-ocDBSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
-ocDBSecurityGroupMemberships =
-    lens _ocDBSecurityGroupMemberships
-         (\s a -> s { _ocDBSecurityGroupMemberships = a })
-
--- | A list of VpcSecurityGroupMemebrship name strings used for this option.
-ocVpcSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
-ocVpcSecurityGroupMemberships =
-    lens _ocVpcSecurityGroupMemberships
-         (\s a -> s { _ocVpcSecurityGroupMemberships = a })
-
--- | The option settings to include in an option group.
-ocOptionSettings :: Lens' OptionConfiguration [OptionSetting]
-ocOptionSettings =
-    lens _ocOptionSettings (\s a -> s { _ocOptionSettings = a })
-
-instance ToQuery OptionConfiguration where
-    toQuery = genericQuery def
-
--- | 
-data OptionGroup = OptionGroup
-    { _ogOptionGroupName :: Maybe Text
-    , _ogOptionGroupDescription :: Maybe Text
-    , _ogEngineName :: Maybe Text
-    , _ogMajorEngineVersion :: Maybe Text
-    , _ogOptions :: [Option]
-    , _ogAllowsVpcAndNonVpcInstanceMemberships :: Maybe Bool
-    , _ogVpcId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'OptionGroup' data type.
---
--- 'OptionGroup' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @OptionGroupName ::@ @Maybe Text@
---
--- * @OptionGroupDescription ::@ @Maybe Text@
---
--- * @EngineName ::@ @Maybe Text@
---
--- * @MajorEngineVersion ::@ @Maybe Text@
---
--- * @Options ::@ @[Option]@
---
--- * @AllowsVpcAndNonVpcInstanceMemberships ::@ @Maybe Bool@
---
--- * @VpcId ::@ @Maybe Text@
---
-optionGroup :: OptionGroup
-optionGroup = OptionGroup
-    { _ogOptionGroupName = Nothing
-    , _ogOptionGroupDescription = Nothing
-    , _ogEngineName = Nothing
-    , _ogMajorEngineVersion = Nothing
-    , _ogOptions = mempty
-    , _ogAllowsVpcAndNonVpcInstanceMemberships = Nothing
-    , _ogVpcId = Nothing
-    }
-
--- | Specifies the name of the option group.
-ogOptionGroupName :: Lens' OptionGroup (Maybe Text)
-ogOptionGroupName =
-    lens _ogOptionGroupName (\s a -> s { _ogOptionGroupName = a })
-
--- | Provides the description of the option group.
-ogOptionGroupDescription :: Lens' OptionGroup (Maybe Text)
-ogOptionGroupDescription =
-    lens _ogOptionGroupDescription
-         (\s a -> s { _ogOptionGroupDescription = a })
-
--- | Engine name that this option group can be applied to.
-ogEngineName :: Lens' OptionGroup (Maybe Text)
-ogEngineName = lens _ogEngineName (\s a -> s { _ogEngineName = a })
-
--- | Indicates the major engine version associated with this option group.
-ogMajorEngineVersion :: Lens' OptionGroup (Maybe Text)
-ogMajorEngineVersion =
-    lens _ogMajorEngineVersion (\s a -> s { _ogMajorEngineVersion = a })
-
--- | Indicates what options are available in the option group.
-ogOptions :: Lens' OptionGroup [Option]
-ogOptions = lens _ogOptions (\s a -> s { _ogOptions = a })
-
--- | Indicates whether this option group can be applied to both VPC and non-VPC
--- instances. The value 'true' indicates the option group can be applied to
--- both VPC and non-VPC instances.
-ogAllowsVpcAndNonVpcInstanceMemberships :: Lens' OptionGroup (Maybe Bool)
-ogAllowsVpcAndNonVpcInstanceMemberships =
-    lens _ogAllowsVpcAndNonVpcInstanceMemberships
-         (\s a -> s { _ogAllowsVpcAndNonVpcInstanceMemberships = a })
-
--- | If AllowsVpcAndNonVpcInstanceMemberships is 'false', this field is blank.
--- If AllowsVpcAndNonVpcInstanceMemberships is 'true' and this field is blank,
--- then this option group can be applied to both VPC and non-VPC instances. If
--- this field contains a value, then this option group can only be applied to
--- instances that are in the VPC indicated by this field.
-ogVpcId :: Lens' OptionGroup (Maybe Text)
-ogVpcId = lens _ogVpcId (\s a -> s { _ogVpcId = a })
-
-instance FromXML OptionGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OptionGroup"
-
--- | Provides information on the option groups the DB instance is a member of.
-data OptionGroupMembership = OptionGroupMembership
-    { _ogmOptionGroupName :: Maybe Text
-    , _ogmStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'OptionGroupMembership' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @OptionGroupName ::@ @Maybe Text@
---
--- * @Status ::@ @Maybe Text@
---
-optionGroupMembership :: OptionGroupMembership
-optionGroupMembership = OptionGroupMembership
-    { _ogmOptionGroupName = Nothing
-    , _ogmStatus = Nothing
-    }
-
--- | The name of the option group that the instance belongs to.
-ogmOptionGroupName :: Lens' OptionGroupMembership (Maybe Text)
-ogmOptionGroupName =
-    lens _ogmOptionGroupName (\s a -> s { _ogmOptionGroupName = a })
-
--- | The status of the DB instance's option group membership (e.g. in-sync,
--- pending, pending-maintenance, applying).
-ogmStatus :: Lens' OptionGroupMembership (Maybe Text)
-ogmStatus = lens _ogmStatus (\s a -> s { _ogmStatus = a })
-
-instance FromXML OptionGroupMembership where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OptionGroupMembership"
-
-instance ToQuery OptionGroupMembership where
-    toQuery = genericQuery def
-
--- | Available option.
 data OptionGroupOption = OptionGroupOption
-    { _ogoName :: Maybe Text
-    , _ogoDescription :: Maybe Text
-    , _ogoEngineName :: Maybe Text
-    , _ogoMajorEngineVersion :: Maybe Text
+    { _ogoDefaultPort                       :: Maybe Int
+    , _ogoDescription                       :: Maybe Text
+    , _ogoEngineName                        :: Maybe Text
+    , _ogoMajorEngineVersion                :: Maybe Text
     , _ogoMinimumRequiredMinorEngineVersion :: Maybe Text
-    , _ogoPortRequired :: Maybe Bool
-    , _ogoDefaultPort :: Maybe Integer
-    , _ogoOptionsDependedOn :: [Text]
-    , _ogoPersistent :: Maybe Bool
-    , _ogoPermanent :: Maybe Bool
-    , _ogoOptionGroupOptionSettings :: [OptionGroupOptionSetting]
-    } deriving (Eq, Ord, Show, Generic)
+    , _ogoName                              :: Maybe Text
+    , _ogoOptionGroupOptionSettings         :: [OptionGroupOptionSetting]
+    , _ogoOptionsDependedOn                 :: [Text]
+    , _ogoPermanent                         :: Maybe Bool
+    , _ogoPersistent                        :: Maybe Bool
+    , _ogoPortRequired                      :: Maybe Bool
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'OptionGroupOption' data type.
---
--- 'OptionGroupOption' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'OptionGroupOption' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Maybe Text@
+-- * 'ogoDefaultPort' @::@ 'Maybe' 'Int'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'ogoDescription' @::@ 'Maybe' 'Text'
 --
--- * @EngineName ::@ @Maybe Text@
+-- * 'ogoEngineName' @::@ 'Maybe' 'Text'
 --
--- * @MajorEngineVersion ::@ @Maybe Text@
+-- * 'ogoMajorEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * @MinimumRequiredMinorEngineVersion ::@ @Maybe Text@
+-- * 'ogoMinimumRequiredMinorEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * @PortRequired ::@ @Maybe Bool@
+-- * 'ogoName' @::@ 'Maybe' 'Text'
 --
--- * @DefaultPort ::@ @Maybe Integer@
+-- * 'ogoOptionGroupOptionSettings' @::@ ['OptionGroupOptionSetting']
 --
--- * @OptionsDependedOn ::@ @[Text]@
+-- * 'ogoOptionsDependedOn' @::@ ['Text']
 --
--- * @Persistent ::@ @Maybe Bool@
+-- * 'ogoPermanent' @::@ 'Maybe' 'Bool'
 --
--- * @Permanent ::@ @Maybe Bool@
+-- * 'ogoPersistent' @::@ 'Maybe' 'Bool'
 --
--- * @OptionGroupOptionSettings ::@ @[OptionGroupOptionSetting]@
+-- * 'ogoPortRequired' @::@ 'Maybe' 'Bool'
 --
 optionGroupOption :: OptionGroupOption
 optionGroupOption = OptionGroupOption
-    { _ogoName = Nothing
-    , _ogoDescription = Nothing
-    , _ogoEngineName = Nothing
-    , _ogoMajorEngineVersion = Nothing
+    { _ogoName                              = Nothing
+    , _ogoDescription                       = Nothing
+    , _ogoEngineName                        = Nothing
+    , _ogoMajorEngineVersion                = Nothing
     , _ogoMinimumRequiredMinorEngineVersion = Nothing
-    , _ogoPortRequired = Nothing
-    , _ogoDefaultPort = Nothing
-    , _ogoOptionsDependedOn = mempty
-    , _ogoPersistent = Nothing
-    , _ogoPermanent = Nothing
-    , _ogoOptionGroupOptionSettings = mempty
+    , _ogoPortRequired                      = Nothing
+    , _ogoDefaultPort                       = Nothing
+    , _ogoOptionsDependedOn                 = mempty
+    , _ogoPersistent                        = Nothing
+    , _ogoPermanent                         = Nothing
+    , _ogoOptionGroupOptionSettings         = mempty
     }
 
--- | The name of the option.
-ogoName :: Lens' OptionGroupOption (Maybe Text)
-ogoName = lens _ogoName (\s a -> s { _ogoName = a })
+-- | If the option requires a port, specifies the default port for the option.
+ogoDefaultPort :: Lens' OptionGroupOption (Maybe Int)
+ogoDefaultPort = lens _ogoDefaultPort (\s a -> s { _ogoDefaultPort = a })
 
 -- | The description of the option.
 ogoDescription :: Lens' OptionGroupOption (Maybe Text)
@@ -3096,187 +1664,689 @@ ogoMajorEngineVersion =
 ogoMinimumRequiredMinorEngineVersion :: Lens' OptionGroupOption (Maybe Text)
 ogoMinimumRequiredMinorEngineVersion =
     lens _ogoMinimumRequiredMinorEngineVersion
-         (\s a -> s { _ogoMinimumRequiredMinorEngineVersion = a })
+        (\s a -> s { _ogoMinimumRequiredMinorEngineVersion = a })
 
--- | Specifies whether the option requires a port.
-ogoPortRequired :: Lens' OptionGroupOption (Maybe Bool)
-ogoPortRequired = lens _ogoPortRequired (\s a -> s { _ogoPortRequired = a })
-
--- | If the option requires a port, specifies the default port for the option.
-ogoDefaultPort :: Lens' OptionGroupOption (Maybe Integer)
-ogoDefaultPort = lens _ogoDefaultPort (\s a -> s { _ogoDefaultPort = a })
-
--- | List of all options that are prerequisites for this option.
-ogoOptionsDependedOn :: Lens' OptionGroupOption [Text]
-ogoOptionsDependedOn =
-    lens _ogoOptionsDependedOn (\s a -> s { _ogoOptionsDependedOn = a })
-
--- | A persistent option cannot be removed from the option group once the option
--- group is used, but this option can be removed from the db instance while
--- modifying the related data and assigning another option group without this
--- option.
-ogoPersistent :: Lens' OptionGroupOption (Maybe Bool)
-ogoPersistent = lens _ogoPersistent (\s a -> s { _ogoPersistent = a })
-
--- | A permanent option cannot be removed from the option group once the option
--- group is used, and it cannot be removed from the db instance after
--- assigning an option group with this permanent option.
-ogoPermanent :: Lens' OptionGroupOption (Maybe Bool)
-ogoPermanent = lens _ogoPermanent (\s a -> s { _ogoPermanent = a })
+-- | The name of the option.
+ogoName :: Lens' OptionGroupOption (Maybe Text)
+ogoName = lens _ogoName (\s a -> s { _ogoName = a })
 
 -- | Specifies the option settings that are available (and the default value)
 -- for each option in an option group.
 ogoOptionGroupOptionSettings :: Lens' OptionGroupOption [OptionGroupOptionSetting]
 ogoOptionGroupOptionSettings =
     lens _ogoOptionGroupOptionSettings
-         (\s a -> s { _ogoOptionGroupOptionSettings = a })
+        (\s a -> s { _ogoOptionGroupOptionSettings = a })
+
+-- | List of all options that are prerequisites for this option.
+ogoOptionsDependedOn :: Lens' OptionGroupOption [Text]
+ogoOptionsDependedOn =
+    lens _ogoOptionsDependedOn (\s a -> s { _ogoOptionsDependedOn = a })
+
+-- | A permanent option cannot be removed from the option group once the
+-- option group is used, and it cannot be removed from the db instance after
+-- assigning an option group with this permanent option.
+ogoPermanent :: Lens' OptionGroupOption (Maybe Bool)
+ogoPermanent = lens _ogoPermanent (\s a -> s { _ogoPermanent = a })
+
+-- | A persistent option cannot be removed from the option group once the
+-- option group is used, but this option can be removed from the db instance
+-- while modifying the related data and assigning another option group
+-- without this option.
+ogoPersistent :: Lens' OptionGroupOption (Maybe Bool)
+ogoPersistent = lens _ogoPersistent (\s a -> s { _ogoPersistent = a })
+
+-- | Specifies whether the option requires a port.
+ogoPortRequired :: Lens' OptionGroupOption (Maybe Bool)
+ogoPortRequired = lens _ogoPortRequired (\s a -> s { _ogoPortRequired = a })
 
 instance FromXML OptionGroupOption where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "OptionGroupOption"
 
--- | option group option settings are used to display settings available for
--- each option with their default values and other information. These values
--- are used with the DescribeOptionGroupOptions action.
-data OptionGroupOptionSetting = OptionGroupOptionSetting
-    { _ogosSettingName :: Maybe Text
-    , _ogosSettingDescription :: Maybe Text
-    , _ogosDefaultValue :: Maybe Text
-    , _ogosApplyType :: Maybe Text
-    , _ogosAllowedValues :: Maybe Text
-    , _ogosIsModifiable :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+instance ToQuery OptionGroupOption
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'OptionGroupOptionSetting' data type to populate a request.
+data DBInstance = DBInstance
+    { _dbiAllocatedStorage                      :: Maybe Int
+    , _dbiAutoMinorVersionUpgrade               :: Maybe Bool
+    , _dbiAvailabilityZone                      :: Maybe Text
+    , _dbiBackupRetentionPeriod                 :: Maybe Int
+    , _dbiCharacterSetName                      :: Maybe Text
+    , _dbiDBInstanceClass                       :: Maybe Text
+    , _dbiDBInstanceIdentifier                  :: Maybe Text
+    , _dbiDBInstanceStatus                      :: Maybe Text
+    , _dbiDBName                                :: Maybe Text
+    , _dbiDBParameterGroups                     :: [DBParameterGroupStatus]
+    , _dbiDBSecurityGroups                      :: [DBSecurityGroupMembership]
+    , _dbiDBSubnetGroup                         :: Maybe DBSubnetGroup
+    , _dbiEndpoint                              :: Maybe Endpoint
+    , _dbiEngine                                :: Maybe Text
+    , _dbiEngineVersion                         :: Maybe Text
+    , _dbiInstanceCreateTime                    :: Maybe RFC822
+    , _dbiIops                                  :: Maybe Int
+    , _dbiLatestRestorableTime                  :: Maybe RFC822
+    , _dbiLicenseModel                          :: Maybe Text
+    , _dbiMasterUsername                        :: Maybe Text
+    , _dbiMultiAZ                               :: Maybe Bool
+    , _dbiOptionGroupMemberships                :: [OptionGroupMembership]
+    , _dbiPendingModifiedValues                 :: Maybe PendingModifiedValues
+    , _dbiPreferredBackupWindow                 :: Maybe Text
+    , _dbiPreferredMaintenanceWindow            :: Maybe Text
+    , _dbiPubliclyAccessible                    :: Maybe Bool
+    , _dbiReadReplicaDBInstanceIdentifiers      :: [Text]
+    , _dbiReadReplicaSourceDBInstanceIdentifier :: Maybe Text
+    , _dbiSecondaryAvailabilityZone             :: Maybe Text
+    , _dbiStatusInfos                           :: [DBInstanceStatusInfo]
+    , _dbiStorageType                           :: Maybe Text
+    , _dbiTdeCredentialArn                      :: Maybe Text
+    , _dbiVpcSecurityGroups                     :: [VpcSecurityGroupMembership]
+    } deriving (Eq, Show, Generic)
+
+-- | 'DBInstance' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SettingName ::@ @Maybe Text@
+-- * 'dbiAllocatedStorage' @::@ 'Maybe' 'Int'
 --
--- * @SettingDescription ::@ @Maybe Text@
+-- * 'dbiAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
 --
--- * @DefaultValue ::@ @Maybe Text@
+-- * 'dbiAvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * @ApplyType ::@ @Maybe Text@
+-- * 'dbiBackupRetentionPeriod' @::@ 'Maybe' 'Int'
 --
--- * @AllowedValues ::@ @Maybe Text@
+-- * 'dbiCharacterSetName' @::@ 'Maybe' 'Text'
 --
--- * @IsModifiable ::@ @Maybe Bool@
+-- * 'dbiDBInstanceClass' @::@ 'Maybe' 'Text'
 --
-optionGroupOptionSetting :: OptionGroupOptionSetting
-optionGroupOptionSetting = OptionGroupOptionSetting
-    { _ogosSettingName = Nothing
-    , _ogosSettingDescription = Nothing
-    , _ogosDefaultValue = Nothing
-    , _ogosApplyType = Nothing
-    , _ogosAllowedValues = Nothing
-    , _ogosIsModifiable = Nothing
+-- * 'dbiDBInstanceIdentifier' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiDBInstanceStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiDBName' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiDBParameterGroups' @::@ ['DBParameterGroupStatus']
+--
+-- * 'dbiDBSecurityGroups' @::@ ['DBSecurityGroupMembership']
+--
+-- * 'dbiDBSubnetGroup' @::@ 'Maybe' 'DBSubnetGroup'
+--
+-- * 'dbiEndpoint' @::@ 'Maybe' 'Endpoint'
+--
+-- * 'dbiEngine' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiEngineVersion' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiInstanceCreateTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'dbiIops' @::@ 'Maybe' 'Int'
+--
+-- * 'dbiLatestRestorableTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'dbiLicenseModel' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiMasterUsername' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiMultiAZ' @::@ 'Maybe' 'Bool'
+--
+-- * 'dbiOptionGroupMemberships' @::@ ['OptionGroupMembership']
+--
+-- * 'dbiPendingModifiedValues' @::@ 'Maybe' 'PendingModifiedValues'
+--
+-- * 'dbiPreferredBackupWindow' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiPubliclyAccessible' @::@ 'Maybe' 'Bool'
+--
+-- * 'dbiReadReplicaDBInstanceIdentifiers' @::@ ['Text']
+--
+-- * 'dbiReadReplicaSourceDBInstanceIdentifier' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiSecondaryAvailabilityZone' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiStatusInfos' @::@ ['DBInstanceStatusInfo']
+--
+-- * 'dbiStorageType' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiTdeCredentialArn' @::@ 'Maybe' 'Text'
+--
+-- * 'dbiVpcSecurityGroups' @::@ ['VpcSecurityGroupMembership']
+--
+dbinstance :: DBInstance
+dbinstance = DBInstance
+    { _dbiDBInstanceIdentifier                  = Nothing
+    , _dbiDBInstanceClass                       = Nothing
+    , _dbiEngine                                = Nothing
+    , _dbiDBInstanceStatus                      = Nothing
+    , _dbiMasterUsername                        = Nothing
+    , _dbiDBName                                = Nothing
+    , _dbiEndpoint                              = Nothing
+    , _dbiAllocatedStorage                      = Nothing
+    , _dbiInstanceCreateTime                    = Nothing
+    , _dbiPreferredBackupWindow                 = Nothing
+    , _dbiBackupRetentionPeriod                 = Nothing
+    , _dbiDBSecurityGroups                      = mempty
+    , _dbiVpcSecurityGroups                     = mempty
+    , _dbiDBParameterGroups                     = mempty
+    , _dbiAvailabilityZone                      = Nothing
+    , _dbiDBSubnetGroup                         = Nothing
+    , _dbiPreferredMaintenanceWindow            = Nothing
+    , _dbiPendingModifiedValues                 = Nothing
+    , _dbiLatestRestorableTime                  = Nothing
+    , _dbiMultiAZ                               = Nothing
+    , _dbiEngineVersion                         = Nothing
+    , _dbiAutoMinorVersionUpgrade               = Nothing
+    , _dbiReadReplicaSourceDBInstanceIdentifier = Nothing
+    , _dbiReadReplicaDBInstanceIdentifiers      = mempty
+    , _dbiLicenseModel                          = Nothing
+    , _dbiIops                                  = Nothing
+    , _dbiOptionGroupMemberships                = mempty
+    , _dbiCharacterSetName                      = Nothing
+    , _dbiSecondaryAvailabilityZone             = Nothing
+    , _dbiPubliclyAccessible                    = Nothing
+    , _dbiStatusInfos                           = mempty
+    , _dbiStorageType                           = Nothing
+    , _dbiTdeCredentialArn                      = Nothing
     }
 
--- | The name of the option group option.
-ogosSettingName :: Lens' OptionGroupOptionSetting (Maybe Text)
-ogosSettingName = lens _ogosSettingName (\s a -> s { _ogosSettingName = a })
+-- | Specifies the allocated storage size specified in gigabytes.
+dbiAllocatedStorage :: Lens' DBInstance (Maybe Int)
+dbiAllocatedStorage =
+    lens _dbiAllocatedStorage (\s a -> s { _dbiAllocatedStorage = a })
 
--- | The description of the option group option.
-ogosSettingDescription :: Lens' OptionGroupOptionSetting (Maybe Text)
-ogosSettingDescription =
-    lens _ogosSettingDescription (\s a -> s { _ogosSettingDescription = a })
+-- | Indicates that minor version patches are applied automatically.
+dbiAutoMinorVersionUpgrade :: Lens' DBInstance (Maybe Bool)
+dbiAutoMinorVersionUpgrade =
+    lens _dbiAutoMinorVersionUpgrade
+        (\s a -> s { _dbiAutoMinorVersionUpgrade = a })
 
--- | The default value for the option group option.
-ogosDefaultValue :: Lens' OptionGroupOptionSetting (Maybe Text)
-ogosDefaultValue =
-    lens _ogosDefaultValue (\s a -> s { _ogosDefaultValue = a })
+-- | Specifies the name of the Availability Zone the DB instance is located
+-- in.
+dbiAvailabilityZone :: Lens' DBInstance (Maybe Text)
+dbiAvailabilityZone =
+    lens _dbiAvailabilityZone (\s a -> s { _dbiAvailabilityZone = a })
 
--- | The DB engine specific parameter type for the option group option.
-ogosApplyType :: Lens' OptionGroupOptionSetting (Maybe Text)
-ogosApplyType = lens _ogosApplyType (\s a -> s { _ogosApplyType = a })
+-- | Specifies the number of days for which automatic DB snapshots are
+-- retained.
+dbiBackupRetentionPeriod :: Lens' DBInstance (Maybe Int)
+dbiBackupRetentionPeriod =
+    lens _dbiBackupRetentionPeriod
+        (\s a -> s { _dbiBackupRetentionPeriod = a })
 
--- | Indicates the acceptable values for the option group option.
-ogosAllowedValues :: Lens' OptionGroupOptionSetting (Maybe Text)
-ogosAllowedValues =
-    lens _ogosAllowedValues (\s a -> s { _ogosAllowedValues = a })
+-- | If present, specifies the name of the character set that this instance is
+-- associated with.
+dbiCharacterSetName :: Lens' DBInstance (Maybe Text)
+dbiCharacterSetName =
+    lens _dbiCharacterSetName (\s a -> s { _dbiCharacterSetName = a })
 
--- | Boolean value where true indicates that this option group option can be
--- changed from the default value.
-ogosIsModifiable :: Lens' OptionGroupOptionSetting (Maybe Bool)
-ogosIsModifiable =
-    lens _ogosIsModifiable (\s a -> s { _ogosIsModifiable = a })
+-- | Contains the name of the compute and memory capacity class of the DB
+-- instance.
+dbiDBInstanceClass :: Lens' DBInstance (Maybe Text)
+dbiDBInstanceClass =
+    lens _dbiDBInstanceClass (\s a -> s { _dbiDBInstanceClass = a })
 
-instance FromXML OptionGroupOptionSetting where
+-- | Contains a user-supplied database identifier. This is the unique key that
+-- identifies a DB instance.
+dbiDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
+dbiDBInstanceIdentifier =
+    lens _dbiDBInstanceIdentifier (\s a -> s { _dbiDBInstanceIdentifier = a })
+
+-- | Specifies the current state of this database.
+dbiDBInstanceStatus :: Lens' DBInstance (Maybe Text)
+dbiDBInstanceStatus =
+    lens _dbiDBInstanceStatus (\s a -> s { _dbiDBInstanceStatus = a })
+
+-- | The meaning of this parameter differs according to the database engine
+-- you use. For example, this value returns only MySQL information when
+-- returning values from CreateDBInstanceReadReplica since read replicas are
+-- only supported for MySQL. MySQL Contains the name of the initial database
+-- of this instance that was provided at create time, if one was specified
+-- when the DB instance was created. This same name is returned for the life
+-- of the DB instance. Type: String Oracle Contains the Oracle System ID
+-- (SID) of the created DB instance. Not shown when the returned parameters
+-- do not apply to an Oracle DB instance.
+dbiDBName :: Lens' DBInstance (Maybe Text)
+dbiDBName = lens _dbiDBName (\s a -> s { _dbiDBName = a })
+
+-- | Provides the list of DB parameter groups applied to this DB instance.
+dbiDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
+dbiDBParameterGroups =
+    lens _dbiDBParameterGroups (\s a -> s { _dbiDBParameterGroups = a })
+
+-- | Provides List of DB security group elements containing only
+-- DBSecurityGroup.Name and DBSecurityGroup.Status subelements.
+dbiDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
+dbiDBSecurityGroups =
+    lens _dbiDBSecurityGroups (\s a -> s { _dbiDBSecurityGroups = a })
+
+-- | Specifies information on the subnet group associated with the DB
+-- instance, including the name, description, and subnets in the subnet
+-- group.
+dbiDBSubnetGroup :: Lens' DBInstance (Maybe DBSubnetGroup)
+dbiDBSubnetGroup = lens _dbiDBSubnetGroup (\s a -> s { _dbiDBSubnetGroup = a })
+
+-- | Specifies the connection endpoint.
+dbiEndpoint :: Lens' DBInstance (Maybe Endpoint)
+dbiEndpoint = lens _dbiEndpoint (\s a -> s { _dbiEndpoint = a })
+
+-- | Provides the name of the database engine to be used for this DB instance.
+dbiEngine :: Lens' DBInstance (Maybe Text)
+dbiEngine = lens _dbiEngine (\s a -> s { _dbiEngine = a })
+
+-- | Indicates the database engine version.
+dbiEngineVersion :: Lens' DBInstance (Maybe Text)
+dbiEngineVersion = lens _dbiEngineVersion (\s a -> s { _dbiEngineVersion = a })
+
+-- | Provides the date and time the DB instance was created.
+dbiInstanceCreateTime :: Lens' DBInstance (Maybe UTCTime)
+dbiInstanceCreateTime =
+    lens _dbiInstanceCreateTime (\s a -> s { _dbiInstanceCreateTime = a })
+        . mapping _Time
+
+-- | Specifies the Provisioned IOPS (I/O operations per second) value.
+dbiIops :: Lens' DBInstance (Maybe Int)
+dbiIops = lens _dbiIops (\s a -> s { _dbiIops = a })
+
+-- | Specifies the latest time to which a database can be restored with
+-- point-in-time restore.
+dbiLatestRestorableTime :: Lens' DBInstance (Maybe UTCTime)
+dbiLatestRestorableTime =
+    lens _dbiLatestRestorableTime (\s a -> s { _dbiLatestRestorableTime = a })
+        . mapping _Time
+
+-- | License model information for this DB instance.
+dbiLicenseModel :: Lens' DBInstance (Maybe Text)
+dbiLicenseModel = lens _dbiLicenseModel (\s a -> s { _dbiLicenseModel = a })
+
+-- | Contains the master username for the DB instance.
+dbiMasterUsername :: Lens' DBInstance (Maybe Text)
+dbiMasterUsername =
+    lens _dbiMasterUsername (\s a -> s { _dbiMasterUsername = a })
+
+-- | Specifies if the DB instance is a Multi-AZ deployment.
+dbiMultiAZ :: Lens' DBInstance (Maybe Bool)
+dbiMultiAZ = lens _dbiMultiAZ (\s a -> s { _dbiMultiAZ = a })
+
+-- | Provides the list of option group memberships for this DB instance.
+dbiOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
+dbiOptionGroupMemberships =
+    lens _dbiOptionGroupMemberships
+        (\s a -> s { _dbiOptionGroupMemberships = a })
+
+-- | Specifies that changes to the DB instance are pending. This element is
+-- only included when changes are pending. Specific changes are identified
+-- by subelements.
+dbiPendingModifiedValues :: Lens' DBInstance (Maybe PendingModifiedValues)
+dbiPendingModifiedValues =
+    lens _dbiPendingModifiedValues
+        (\s a -> s { _dbiPendingModifiedValues = a })
+
+-- | Specifies the daily time range during which automated backups are created
+-- if automated backups are enabled, as determined by the
+-- BackupRetentionPeriod.
+dbiPreferredBackupWindow :: Lens' DBInstance (Maybe Text)
+dbiPreferredBackupWindow =
+    lens _dbiPreferredBackupWindow
+        (\s a -> s { _dbiPreferredBackupWindow = a })
+
+-- | Specifies the weekly time range (in UTC) during which system maintenance
+-- can occur.
+dbiPreferredMaintenanceWindow :: Lens' DBInstance (Maybe Text)
+dbiPreferredMaintenanceWindow =
+    lens _dbiPreferredMaintenanceWindow
+        (\s a -> s { _dbiPreferredMaintenanceWindow = a })
+
+-- | Specifies the accessibility options for the DB instance. A value of true
+-- specifies an Internet-facing instance with a publicly resolvable DNS
+-- name, which resolves to a public IP address. A value of false specifies
+-- an internal instance with a DNS name that resolves to a private IP
+-- address. Default: The default behavior varies depending on whether a VPC
+-- has been requested or not. The following list shows the default behavior
+-- in each case. Default VPC:true VPC:false If no DB subnet group has been
+-- specified as part of the request and the PubliclyAccessible value has not
+-- been set, the DB instance will be publicly accessible. If a specific DB
+-- subnet group has been specified as part of the request and the
+-- PubliclyAccessible value has not been set, the DB instance will be
+-- private.
+dbiPubliclyAccessible :: Lens' DBInstance (Maybe Bool)
+dbiPubliclyAccessible =
+    lens _dbiPubliclyAccessible (\s a -> s { _dbiPubliclyAccessible = a })
+
+-- | Contains one or more identifiers of the read replicas associated with
+-- this DB instance.
+dbiReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
+dbiReadReplicaDBInstanceIdentifiers =
+    lens _dbiReadReplicaDBInstanceIdentifiers
+        (\s a -> s { _dbiReadReplicaDBInstanceIdentifiers = a })
+
+-- | Contains the identifier of the source DB instance if this DB instance is
+-- a read replica.
+dbiReadReplicaSourceDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
+dbiReadReplicaSourceDBInstanceIdentifier =
+    lens _dbiReadReplicaSourceDBInstanceIdentifier
+        (\s a -> s { _dbiReadReplicaSourceDBInstanceIdentifier = a })
+
+-- | If present, specifies the name of the secondary Availability Zone for a
+-- DB instance with multi-AZ support.
+dbiSecondaryAvailabilityZone :: Lens' DBInstance (Maybe Text)
+dbiSecondaryAvailabilityZone =
+    lens _dbiSecondaryAvailabilityZone
+        (\s a -> s { _dbiSecondaryAvailabilityZone = a })
+
+-- | The status of a read replica. If the instance is not a read replica, this
+-- will be blank.
+dbiStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
+dbiStatusInfos = lens _dbiStatusInfos (\s a -> s { _dbiStatusInfos = a })
+
+-- | Specifies storage type associated with DB Instance.
+dbiStorageType :: Lens' DBInstance (Maybe Text)
+dbiStorageType = lens _dbiStorageType (\s a -> s { _dbiStorageType = a })
+
+-- | The ARN from the Key Store with which the instance is associated for TDE
+-- encryption.
+dbiTdeCredentialArn :: Lens' DBInstance (Maybe Text)
+dbiTdeCredentialArn =
+    lens _dbiTdeCredentialArn (\s a -> s { _dbiTdeCredentialArn = a })
+
+-- | Provides List of VPC security group elements that the DB instance belongs
+-- to.
+dbiVpcSecurityGroups :: Lens' DBInstance [VpcSecurityGroupMembership]
+dbiVpcSecurityGroups =
+    lens _dbiVpcSecurityGroups (\s a -> s { _dbiVpcSecurityGroups = a })
+
+instance FromXML DBInstance where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OptionGroupOptionSetting"
+    fromXMLRoot    = fromRoot "DBInstance"
 
-instance ToQuery OptionGroupOptionSetting where
-    toQuery = genericQuery def
+instance ToQuery DBInstance
 
--- | Option settings are the actual settings being applied or configured for
--- that option. It is used when you modify an option group or describe option
--- groups. For example, the NATIVE_NETWORK_ENCRYPTION option has a setting
--- called SQLNET.ENCRYPTION_SERVER that can have several different values.
-data OptionSetting = OptionSetting
-    { _osName :: Maybe Text
-    , _osValue :: Maybe Text
-    , _osDefaultValue :: Maybe Text
-    , _osDescription :: Maybe Text
-    , _osApplyType :: Maybe Text
-    , _osDataType :: Maybe Text
-    , _osAllowedValues :: Maybe Text
-    , _osIsModifiable :: Maybe Bool
-    , _osIsCollection :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+newtype AvailabilityZone = AvailabilityZone
+    { _azName :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'OptionSetting' data type to populate a request.
+-- | 'AvailabilityZone' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Maybe Text@
+-- * 'azName' @::@ 'Maybe' 'Text'
 --
--- * @Value ::@ @Maybe Text@
+availabilityZone :: AvailabilityZone
+availabilityZone = AvailabilityZone
+    { _azName = Nothing
+    }
+
+-- | The name of the availability zone.
+azName :: Lens' AvailabilityZone (Maybe Text)
+azName = lens _azName (\s a -> s { _azName = a })
+
+instance FromXML AvailabilityZone where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AvailabilityZone"
+
+instance ToQuery AvailabilityZone
+
+data EventSubscription = EventSubscription
+    { _esCustSubscriptionId       :: Maybe Text
+    , _esCustomerAwsId            :: Maybe Text
+    , _esEnabled                  :: Maybe Bool
+    , _esEventCategoriesList      :: [Text]
+    , _esSnsTopicArn              :: Maybe Text
+    , _esSourceIdsList            :: [Text]
+    , _esSourceType               :: Maybe Text
+    , _esStatus                   :: Maybe Text
+    , _esSubscriptionCreationTime :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'EventSubscription' constructor.
 --
--- * @DefaultValue ::@ @Maybe Text@
+-- The fields accessible through corresponding lenses are:
 --
--- * @Description ::@ @Maybe Text@
+-- * 'esCustSubscriptionId' @::@ 'Maybe' 'Text'
 --
--- * @ApplyType ::@ @Maybe Text@
+-- * 'esCustomerAwsId' @::@ 'Maybe' 'Text'
 --
--- * @DataType ::@ @Maybe Text@
+-- * 'esEnabled' @::@ 'Maybe' 'Bool'
 --
--- * @AllowedValues ::@ @Maybe Text@
+-- * 'esEventCategoriesList' @::@ ['Text']
 --
--- * @IsModifiable ::@ @Maybe Bool@
+-- * 'esSnsTopicArn' @::@ 'Maybe' 'Text'
 --
--- * @IsCollection ::@ @Maybe Bool@
+-- * 'esSourceIdsList' @::@ ['Text']
+--
+-- * 'esSourceType' @::@ 'Maybe' 'Text'
+--
+-- * 'esStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'esSubscriptionCreationTime' @::@ 'Maybe' 'Text'
+--
+eventSubscription :: EventSubscription
+eventSubscription = EventSubscription
+    { _esCustomerAwsId            = Nothing
+    , _esCustSubscriptionId       = Nothing
+    , _esSnsTopicArn              = Nothing
+    , _esStatus                   = Nothing
+    , _esSubscriptionCreationTime = Nothing
+    , _esSourceType               = Nothing
+    , _esSourceIdsList            = mempty
+    , _esEventCategoriesList      = mempty
+    , _esEnabled                  = Nothing
+    }
+
+-- | The RDS event notification subscription Id.
+esCustSubscriptionId :: Lens' EventSubscription (Maybe Text)
+esCustSubscriptionId =
+    lens _esCustSubscriptionId (\s a -> s { _esCustSubscriptionId = a })
+
+-- | The AWS customer account associated with the RDS event notification
+-- subscription.
+esCustomerAwsId :: Lens' EventSubscription (Maybe Text)
+esCustomerAwsId = lens _esCustomerAwsId (\s a -> s { _esCustomerAwsId = a })
+
+-- | A Boolean value indicating if the subscription is enabled. True indicates
+-- the subscription is enabled.
+esEnabled :: Lens' EventSubscription (Maybe Bool)
+esEnabled = lens _esEnabled (\s a -> s { _esEnabled = a })
+
+-- | A list of event categories for the RDS event notification subscription.
+esEventCategoriesList :: Lens' EventSubscription [Text]
+esEventCategoriesList =
+    lens _esEventCategoriesList (\s a -> s { _esEventCategoriesList = a })
+
+-- | The topic ARN of the RDS event notification subscription.
+esSnsTopicArn :: Lens' EventSubscription (Maybe Text)
+esSnsTopicArn = lens _esSnsTopicArn (\s a -> s { _esSnsTopicArn = a })
+
+-- | A list of source IDs for the RDS event notification subscription.
+esSourceIdsList :: Lens' EventSubscription [Text]
+esSourceIdsList = lens _esSourceIdsList (\s a -> s { _esSourceIdsList = a })
+
+-- | The source type for the RDS event notification subscription.
+esSourceType :: Lens' EventSubscription (Maybe Text)
+esSourceType = lens _esSourceType (\s a -> s { _esSourceType = a })
+
+-- | The status of the RDS event notification subscription. Constraints: Can
+-- be one of the following: creating | modifying | deleting | active |
+-- no-permission | topic-not-exist The status "no-permission" indicates that
+-- RDS no longer has permission to post to the SNS topic. The status
+-- "topic-not-exist" indicates that the topic was deleted after the
+-- subscription was created.
+esStatus :: Lens' EventSubscription (Maybe Text)
+esStatus = lens _esStatus (\s a -> s { _esStatus = a })
+
+-- | The time the RDS event notification subscription was created.
+esSubscriptionCreationTime :: Lens' EventSubscription (Maybe Text)
+esSubscriptionCreationTime =
+    lens _esSubscriptionCreationTime
+        (\s a -> s { _esSubscriptionCreationTime = a })
+
+instance FromXML EventSubscription where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EventSubscription"
+
+instance ToQuery EventSubscription
+
+data DBSubnetGroup = DBSubnetGroup
+    { _dbsg1DBSubnetGroupDescription :: Maybe Text
+    , _dbsg1DBSubnetGroupName        :: Maybe Text
+    , _dbsg1SubnetGroupStatus        :: Maybe Text
+    , _dbsg1Subnets                  :: [Subnet]
+    , _dbsg1VpcId                    :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+-- | 'DBSubnetGroup' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dbsg1DBSubnetGroupDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsg1DBSubnetGroupName' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsg1SubnetGroupStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'dbsg1Subnets' @::@ ['Subnet']
+--
+-- * 'dbsg1VpcId' @::@ 'Maybe' 'Text'
+--
+dbsubnetGroup :: DBSubnetGroup
+dbsubnetGroup = DBSubnetGroup
+    { _dbsg1DBSubnetGroupName        = Nothing
+    , _dbsg1DBSubnetGroupDescription = Nothing
+    , _dbsg1VpcId                    = Nothing
+    , _dbsg1SubnetGroupStatus        = Nothing
+    , _dbsg1Subnets                  = mempty
+    }
+
+-- | Provides the description of the DB subnet group.
+dbsg1DBSubnetGroupDescription :: Lens' DBSubnetGroup (Maybe Text)
+dbsg1DBSubnetGroupDescription =
+    lens _dbsg1DBSubnetGroupDescription
+        (\s a -> s { _dbsg1DBSubnetGroupDescription = a })
+
+-- | Specifies the name of the DB subnet group.
+dbsg1DBSubnetGroupName :: Lens' DBSubnetGroup (Maybe Text)
+dbsg1DBSubnetGroupName =
+    lens _dbsg1DBSubnetGroupName (\s a -> s { _dbsg1DBSubnetGroupName = a })
+
+-- | Provides the status of the DB subnet group.
+dbsg1SubnetGroupStatus :: Lens' DBSubnetGroup (Maybe Text)
+dbsg1SubnetGroupStatus =
+    lens _dbsg1SubnetGroupStatus (\s a -> s { _dbsg1SubnetGroupStatus = a })
+
+-- | Contains a list of Subnet elements.
+dbsg1Subnets :: Lens' DBSubnetGroup [Subnet]
+dbsg1Subnets = lens _dbsg1Subnets (\s a -> s { _dbsg1Subnets = a })
+
+-- | Provides the VpcId of the DB subnet group.
+dbsg1VpcId :: Lens' DBSubnetGroup (Maybe Text)
+dbsg1VpcId = lens _dbsg1VpcId (\s a -> s { _dbsg1VpcId = a })
+
+instance FromXML DBSubnetGroup where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DBSubnetGroup"
+
+instance ToQuery DBSubnetGroup
+
+data DBInstanceStatusInfo = DBInstanceStatusInfo
+    { _dbisiMessage    :: Maybe Text
+    , _dbisiNormal     :: Maybe Bool
+    , _dbisiStatus     :: Maybe Text
+    , _dbisiStatusType :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'DBInstanceStatusInfo' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dbisiMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'dbisiNormal' @::@ 'Maybe' 'Bool'
+--
+-- * 'dbisiStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'dbisiStatusType' @::@ 'Maybe' 'Text'
+--
+dbinstanceStatusInfo :: DBInstanceStatusInfo
+dbinstanceStatusInfo = DBInstanceStatusInfo
+    { _dbisiStatusType = Nothing
+    , _dbisiNormal     = Nothing
+    , _dbisiStatus     = Nothing
+    , _dbisiMessage    = Nothing
+    }
+
+-- | Details of the error if there is an error for the instance. If the
+-- instance is not in an error state, this value is blank.
+dbisiMessage :: Lens' DBInstanceStatusInfo (Maybe Text)
+dbisiMessage = lens _dbisiMessage (\s a -> s { _dbisiMessage = a })
+
+-- | Boolean value that is true if the instance is operating normally, or
+-- false if the instance is in an error state.
+dbisiNormal :: Lens' DBInstanceStatusInfo (Maybe Bool)
+dbisiNormal = lens _dbisiNormal (\s a -> s { _dbisiNormal = a })
+
+-- | Status of the DB instance. For a StatusType of read replica, the values
+-- can be replicating, error, stopped, or terminated.
+dbisiStatus :: Lens' DBInstanceStatusInfo (Maybe Text)
+dbisiStatus = lens _dbisiStatus (\s a -> s { _dbisiStatus = a })
+
+-- | This value is currently "read replication.".
+dbisiStatusType :: Lens' DBInstanceStatusInfo (Maybe Text)
+dbisiStatusType = lens _dbisiStatusType (\s a -> s { _dbisiStatusType = a })
+
+instance FromXML DBInstanceStatusInfo where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DBInstanceStatusInfo"
+
+instance ToQuery DBInstanceStatusInfo
+
+data OptionSetting = OptionSetting
+    { _osAllowedValues :: Maybe Text
+    , _osApplyType     :: Maybe Text
+    , _osDataType      :: Maybe Text
+    , _osDefaultValue  :: Maybe Text
+    , _osDescription   :: Maybe Text
+    , _osIsCollection  :: Maybe Bool
+    , _osIsModifiable  :: Maybe Bool
+    , _osName          :: Maybe Text
+    , _osValue         :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'OptionSetting' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'osAllowedValues' @::@ 'Maybe' 'Text'
+--
+-- * 'osApplyType' @::@ 'Maybe' 'Text'
+--
+-- * 'osDataType' @::@ 'Maybe' 'Text'
+--
+-- * 'osDefaultValue' @::@ 'Maybe' 'Text'
+--
+-- * 'osDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'osIsCollection' @::@ 'Maybe' 'Bool'
+--
+-- * 'osIsModifiable' @::@ 'Maybe' 'Bool'
+--
+-- * 'osName' @::@ 'Maybe' 'Text'
+--
+-- * 'osValue' @::@ 'Maybe' 'Text'
 --
 optionSetting :: OptionSetting
 optionSetting = OptionSetting
-    { _osName = Nothing
-    , _osValue = Nothing
-    , _osDefaultValue = Nothing
-    , _osDescription = Nothing
-    , _osApplyType = Nothing
-    , _osDataType = Nothing
+    { _osName          = Nothing
+    , _osValue         = Nothing
+    , _osDefaultValue  = Nothing
+    , _osDescription   = Nothing
+    , _osApplyType     = Nothing
+    , _osDataType      = Nothing
     , _osAllowedValues = Nothing
-    , _osIsModifiable = Nothing
-    , _osIsCollection = Nothing
+    , _osIsModifiable  = Nothing
+    , _osIsCollection  = Nothing
     }
 
--- | The name of the option that has settings that you can set.
-osName :: Lens' OptionSetting (Maybe Text)
-osName = lens _osName (\s a -> s { _osName = a })
-
--- | The current value of the option setting.
-osValue :: Lens' OptionSetting (Maybe Text)
-osValue = lens _osValue (\s a -> s { _osValue = a })
-
--- | The default value of the option setting.
-osDefaultValue :: Lens' OptionSetting (Maybe Text)
-osDefaultValue = lens _osDefaultValue (\s a -> s { _osDefaultValue = a })
-
--- | The description of the option setting.
-osDescription :: Lens' OptionSetting (Maybe Text)
-osDescription = lens _osDescription (\s a -> s { _osDescription = a })
+-- | The allowed values of the option setting.
+osAllowedValues :: Lens' OptionSetting (Maybe Text)
+osAllowedValues = lens _osAllowedValues (\s a -> s { _osAllowedValues = a })
 
 -- | The DB engine specific parameter type.
 osApplyType :: Lens' OptionSetting (Maybe Text)
@@ -3286,75 +2356,140 @@ osApplyType = lens _osApplyType (\s a -> s { _osApplyType = a })
 osDataType :: Lens' OptionSetting (Maybe Text)
 osDataType = lens _osDataType (\s a -> s { _osDataType = a })
 
--- | The allowed values of the option setting.
-osAllowedValues :: Lens' OptionSetting (Maybe Text)
-osAllowedValues = lens _osAllowedValues (\s a -> s { _osAllowedValues = a })
+-- | The default value of the option setting.
+osDefaultValue :: Lens' OptionSetting (Maybe Text)
+osDefaultValue = lens _osDefaultValue (\s a -> s { _osDefaultValue = a })
+
+-- | The description of the option setting.
+osDescription :: Lens' OptionSetting (Maybe Text)
+osDescription = lens _osDescription (\s a -> s { _osDescription = a })
+
+-- | Indicates if the option setting is part of a collection.
+osIsCollection :: Lens' OptionSetting (Maybe Bool)
+osIsCollection = lens _osIsCollection (\s a -> s { _osIsCollection = a })
 
 -- | A Boolean value that, when true, indicates the option setting can be
 -- modified from the default.
 osIsModifiable :: Lens' OptionSetting (Maybe Bool)
 osIsModifiable = lens _osIsModifiable (\s a -> s { _osIsModifiable = a })
 
--- | Indicates if the option setting is part of a collection.
-osIsCollection :: Lens' OptionSetting (Maybe Bool)
-osIsCollection = lens _osIsCollection (\s a -> s { _osIsCollection = a })
+-- | The name of the option that has settings that you can set.
+osName :: Lens' OptionSetting (Maybe Text)
+osName = lens _osName (\s a -> s { _osName = a })
+
+-- | The current value of the option setting.
+osValue :: Lens' OptionSetting (Maybe Text)
+osValue = lens _osValue (\s a -> s { _osValue = a })
 
 instance FromXML OptionSetting where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "OptionSetting"
 
-instance ToQuery OptionSetting where
-    toQuery = genericQuery def
+instance ToQuery OptionSetting
 
--- | Contains a list of available options for a DB instance This data type is
--- used as a response element in the DescribeOrderableDBInstanceOptions
--- action.
-data OrderableDBInstanceOption = OrderableDBInstanceOption
-    { _odbioEngine :: Maybe Text
-    , _odbioEngineVersion :: Maybe Text
-    , _odbioDBInstanceClass :: Maybe Text
-    , _odbioLicenseModel :: Maybe Text
-    , _odbioAvailabilityZones :: [AvailabilityZone]
-    , _odbioMultiAZCapable :: Maybe Bool
-    , _odbioReadReplicaCapable :: Maybe Bool
-    , _odbioVpc :: Maybe Bool
+data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails
+    { _ddblfdLastWritten :: Maybe Integer
+    , _ddblfdLogFileName :: Maybe Text
+    , _ddblfdSize        :: Maybe Integer
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'OrderableDBInstanceOption' data type.
---
--- 'OrderableDBInstanceOption' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'DescribeDBLogFilesDetails' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Engine ::@ @Maybe Text@
+-- * 'ddblfdLastWritten' @::@ 'Maybe' 'Integer'
 --
--- * @EngineVersion ::@ @Maybe Text@
+-- * 'ddblfdLogFileName' @::@ 'Maybe' 'Text'
 --
--- * @DBInstanceClass ::@ @Maybe Text@
+-- * 'ddblfdSize' @::@ 'Maybe' 'Integer'
 --
--- * @LicenseModel ::@ @Maybe Text@
+describeDBLogFilesDetails :: DescribeDBLogFilesDetails
+describeDBLogFilesDetails = DescribeDBLogFilesDetails
+    { _ddblfdLogFileName = Nothing
+    , _ddblfdLastWritten = Nothing
+    , _ddblfdSize        = Nothing
+    }
+
+-- | A POSIX timestamp when the last log entry was written.
+ddblfdLastWritten :: Lens' DescribeDBLogFilesDetails (Maybe Integer)
+ddblfdLastWritten =
+    lens _ddblfdLastWritten (\s a -> s { _ddblfdLastWritten = a })
+
+-- | The name of the log file for the specified DB instance.
+ddblfdLogFileName :: Lens' DescribeDBLogFilesDetails (Maybe Text)
+ddblfdLogFileName =
+    lens _ddblfdLogFileName (\s a -> s { _ddblfdLogFileName = a })
+
+-- | The size, in bytes, of the log file for the specified DB instance.
+ddblfdSize :: Lens' DescribeDBLogFilesDetails (Maybe Integer)
+ddblfdSize = lens _ddblfdSize (\s a -> s { _ddblfdSize = a })
+
+instance FromXML DescribeDBLogFilesDetails where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDBLogFilesDetails"
+
+instance ToQuery DescribeDBLogFilesDetails
+
+data OrderableDBInstanceOption = OrderableDBInstanceOption
+    { _odbioAvailabilityZones  :: [AvailabilityZone]
+    , _odbioDBInstanceClass    :: Maybe Text
+    , _odbioEngine             :: Maybe Text
+    , _odbioEngineVersion      :: Maybe Text
+    , _odbioLicenseModel       :: Maybe Text
+    , _odbioMultiAZCapable     :: Maybe Bool
+    , _odbioReadReplicaCapable :: Maybe Bool
+    , _odbioStorageType        :: Maybe Text
+    , _odbioSupportsIops       :: Maybe Bool
+    , _odbioVpc                :: Maybe Bool
+    } deriving (Eq, Show, Generic)
+
+-- | 'OrderableDBInstanceOption' constructor.
 --
--- * @AvailabilityZones ::@ @[AvailabilityZone]@
+-- The fields accessible through corresponding lenses are:
 --
--- * @MultiAZCapable ::@ @Maybe Bool@
+-- * 'odbioAvailabilityZones' @::@ ['AvailabilityZone']
 --
--- * @ReadReplicaCapable ::@ @Maybe Bool@
+-- * 'odbioDBInstanceClass' @::@ 'Maybe' 'Text'
 --
--- * @Vpc ::@ @Maybe Bool@
+-- * 'odbioEngine' @::@ 'Maybe' 'Text'
+--
+-- * 'odbioEngineVersion' @::@ 'Maybe' 'Text'
+--
+-- * 'odbioLicenseModel' @::@ 'Maybe' 'Text'
+--
+-- * 'odbioMultiAZCapable' @::@ 'Maybe' 'Bool'
+--
+-- * 'odbioReadReplicaCapable' @::@ 'Maybe' 'Bool'
+--
+-- * 'odbioStorageType' @::@ 'Maybe' 'Text'
+--
+-- * 'odbioSupportsIops' @::@ 'Maybe' 'Bool'
+--
+-- * 'odbioVpc' @::@ 'Maybe' 'Bool'
 --
 orderableDBInstanceOption :: OrderableDBInstanceOption
 orderableDBInstanceOption = OrderableDBInstanceOption
-    { _odbioEngine = Nothing
-    , _odbioEngineVersion = Nothing
-    , _odbioDBInstanceClass = Nothing
-    , _odbioLicenseModel = Nothing
-    , _odbioAvailabilityZones = mempty
-    , _odbioMultiAZCapable = Nothing
+    { _odbioEngine             = Nothing
+    , _odbioEngineVersion      = Nothing
+    , _odbioDBInstanceClass    = Nothing
+    , _odbioLicenseModel       = Nothing
+    , _odbioAvailabilityZones  = mempty
+    , _odbioMultiAZCapable     = Nothing
     , _odbioReadReplicaCapable = Nothing
-    , _odbioVpc = Nothing
+    , _odbioVpc                = Nothing
+    , _odbioStorageType        = Nothing
+    , _odbioSupportsIops       = Nothing
     }
+
+-- | A list of availability zones for the orderable DB instance.
+odbioAvailabilityZones :: Lens' OrderableDBInstanceOption [AvailabilityZone]
+odbioAvailabilityZones =
+    lens _odbioAvailabilityZones (\s a -> s { _odbioAvailabilityZones = a })
+
+-- | The DB instance Class for the orderable DB instance.
+odbioDBInstanceClass :: Lens' OrderableDBInstanceOption (Maybe Text)
+odbioDBInstanceClass =
+    lens _odbioDBInstanceClass (\s a -> s { _odbioDBInstanceClass = a })
 
 -- | The engine type of the orderable DB instance.
 odbioEngine :: Lens' OrderableDBInstanceOption (Maybe Text)
@@ -3365,20 +2500,10 @@ odbioEngineVersion :: Lens' OrderableDBInstanceOption (Maybe Text)
 odbioEngineVersion =
     lens _odbioEngineVersion (\s a -> s { _odbioEngineVersion = a })
 
--- | The DB instance Class for the orderable DB instance.
-odbioDBInstanceClass :: Lens' OrderableDBInstanceOption (Maybe Text)
-odbioDBInstanceClass =
-    lens _odbioDBInstanceClass (\s a -> s { _odbioDBInstanceClass = a })
-
 -- | The license model for the orderable DB instance.
 odbioLicenseModel :: Lens' OrderableDBInstanceOption (Maybe Text)
 odbioLicenseModel =
     lens _odbioLicenseModel (\s a -> s { _odbioLicenseModel = a })
-
--- | A list of availability zones for the orderable DB instance.
-odbioAvailabilityZones :: Lens' OrderableDBInstanceOption [AvailabilityZone]
-odbioAvailabilityZones =
-    lens _odbioAvailabilityZones (\s a -> s { _odbioAvailabilityZones = a })
 
 -- | Indicates whether this orderable DB instance is multi-AZ capable.
 odbioMultiAZCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
@@ -3388,8 +2513,16 @@ odbioMultiAZCapable =
 -- | Indicates whether this orderable DB instance can have a read replica.
 odbioReadReplicaCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odbioReadReplicaCapable =
-    lens _odbioReadReplicaCapable
-         (\s a -> s { _odbioReadReplicaCapable = a })
+    lens _odbioReadReplicaCapable (\s a -> s { _odbioReadReplicaCapable = a })
+
+-- | The storage type for this orderable DB instance.
+odbioStorageType :: Lens' OrderableDBInstanceOption (Maybe Text)
+odbioStorageType = lens _odbioStorageType (\s a -> s { _odbioStorageType = a })
+
+-- | Indicates whether this orderable DB instance supports provisioned IOPS.
+odbioSupportsIops :: Lens' OrderableDBInstanceOption (Maybe Bool)
+odbioSupportsIops =
+    lens _odbioSupportsIops (\s a -> s { _odbioSupportsIops = a })
 
 -- | Indicates whether this is a VPC orderable DB instance.
 odbioVpc :: Lens' OrderableDBInstanceOption (Maybe Bool)
@@ -3399,77 +2532,566 @@ instance FromXML OrderableDBInstanceOption where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "OrderableDBInstanceOption"
 
--- | This data type is used as a request parameter in the ModifyDBParameterGroup
--- and ResetDBParameterGroup actions. This data type is used as a response
--- element in the DescribeEngineDefaultParameters and DescribeDBParameters
--- actions.
-data Parameter = Parameter
-    { _pParameterName :: Maybe Text
-    , _pParameterValue :: Maybe Text
-    , _pDescription :: Maybe Text
-    , _pSource :: Maybe Text
-    , _pApplyType :: Maybe Text
-    , _pDataType :: Maybe Text
-    , _pAllowedValues :: Maybe Text
-    , _pIsModifiable :: Maybe Bool
-    , _pMinimumEngineVersion :: Maybe Text
-    , _pApplyMethod :: Maybe ApplyMethod
+instance ToQuery OrderableDBInstanceOption
+
+data Filter = Filter
+    { _fName   :: Text
+    , _fValues :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Parameter' data type to populate a request.
+-- | 'Filter' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ParameterName ::@ @Maybe Text@
+-- * 'fName' @::@ 'Text'
 --
--- * @ParameterValue ::@ @Maybe Text@
+-- * 'fValues' @::@ ['Text']
 --
--- * @Description ::@ @Maybe Text@
+filter' :: Text -- ^ 'fName'
+        -> Filter
+filter' p1 = Filter
+    { _fName   = p1
+    , _fValues = mempty
+    }
+
+-- | This parameter is not currently supported.
+fName :: Lens' Filter Text
+fName = lens _fName (\s a -> s { _fName = a })
+
+-- | This parameter is not currently supported.
+fValues :: Lens' Filter [Text]
+fValues = lens _fValues (\s a -> s { _fValues = a })
+
+instance FromXML Filter where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "Filter"
+
+instance ToQuery Filter
+
+data RecurringCharge = RecurringCharge
+    { _rcRecurringChargeAmount    :: Maybe Double
+    , _rcRecurringChargeFrequency :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'RecurringCharge' constructor.
 --
--- * @Source ::@ @Maybe Text@
+-- The fields accessible through corresponding lenses are:
 --
--- * @ApplyType ::@ @Maybe Text@
+-- * 'rcRecurringChargeAmount' @::@ 'Maybe' 'Double'
 --
--- * @DataType ::@ @Maybe Text@
+-- * 'rcRecurringChargeFrequency' @::@ 'Maybe' 'Text'
 --
--- * @AllowedValues ::@ @Maybe Text@
+recurringCharge :: RecurringCharge
+recurringCharge = RecurringCharge
+    { _rcRecurringChargeAmount    = Nothing
+    , _rcRecurringChargeFrequency = Nothing
+    }
+
+-- | The amount of the recurring charge.
+rcRecurringChargeAmount :: Lens' RecurringCharge (Maybe Double)
+rcRecurringChargeAmount =
+    lens _rcRecurringChargeAmount (\s a -> s { _rcRecurringChargeAmount = a })
+
+-- | The frequency of the recurring charge.
+rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
+rcRecurringChargeFrequency =
+    lens _rcRecurringChargeFrequency
+        (\s a -> s { _rcRecurringChargeFrequency = a })
+
+instance FromXML RecurringCharge where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RecurringCharge"
+
+instance ToQuery RecurringCharge
+
+data Endpoint = Endpoint
+    { _eAddress :: Maybe Text
+    , _ePort    :: Maybe Int
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'Endpoint' constructor.
 --
--- * @IsModifiable ::@ @Maybe Bool@
+-- The fields accessible through corresponding lenses are:
 --
--- * @MinimumEngineVersion ::@ @Maybe Text@
+-- * 'eAddress' @::@ 'Maybe' 'Text'
 --
--- * @ApplyMethod ::@ @Maybe ApplyMethod@
+-- * 'ePort' @::@ 'Maybe' 'Int'
+--
+endpoint :: Endpoint
+endpoint = Endpoint
+    { _eAddress = Nothing
+    , _ePort    = Nothing
+    }
+
+-- | Specifies the DNS address of the DB instance.
+eAddress :: Lens' Endpoint (Maybe Text)
+eAddress = lens _eAddress (\s a -> s { _eAddress = a })
+
+-- | Specifies the port that the database engine is listening on.
+ePort :: Lens' Endpoint (Maybe Int)
+ePort = lens _ePort (\s a -> s { _ePort = a })
+
+instance FromXML Endpoint where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "Endpoint"
+
+instance ToQuery Endpoint
+
+data OptionConfiguration = OptionConfiguration
+    { _ocDBSecurityGroupMemberships  :: [Text]
+    , _ocOptionName                  :: Text
+    , _ocOptionSettings              :: [OptionSetting]
+    , _ocPort                        :: Maybe Int
+    , _ocVpcSecurityGroupMemberships :: [Text]
+    } deriving (Eq, Show, Generic)
+
+-- | 'OptionConfiguration' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ocDBSecurityGroupMemberships' @::@ ['Text']
+--
+-- * 'ocOptionName' @::@ 'Text'
+--
+-- * 'ocOptionSettings' @::@ ['OptionSetting']
+--
+-- * 'ocPort' @::@ 'Maybe' 'Int'
+--
+-- * 'ocVpcSecurityGroupMemberships' @::@ ['Text']
+--
+optionConfiguration :: Text -- ^ 'ocOptionName'
+                    -> OptionConfiguration
+optionConfiguration p1 = OptionConfiguration
+    { _ocOptionName                  = p1
+    , _ocPort                        = Nothing
+    , _ocDBSecurityGroupMemberships  = mempty
+    , _ocVpcSecurityGroupMemberships = mempty
+    , _ocOptionSettings              = mempty
+    }
+
+-- | A list of DBSecurityGroupMemebrship name strings used for this option.
+ocDBSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
+ocDBSecurityGroupMemberships =
+    lens _ocDBSecurityGroupMemberships
+        (\s a -> s { _ocDBSecurityGroupMemberships = a })
+
+-- | The configuration of options to include in a group.
+ocOptionName :: Lens' OptionConfiguration Text
+ocOptionName = lens _ocOptionName (\s a -> s { _ocOptionName = a })
+
+-- | The option settings to include in an option group.
+ocOptionSettings :: Lens' OptionConfiguration [OptionSetting]
+ocOptionSettings = lens _ocOptionSettings (\s a -> s { _ocOptionSettings = a })
+
+-- | The optional port for the option.
+ocPort :: Lens' OptionConfiguration (Maybe Int)
+ocPort = lens _ocPort (\s a -> s { _ocPort = a })
+
+-- | A list of VpcSecurityGroupMemebrship name strings used for this option.
+ocVpcSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
+ocVpcSecurityGroupMemberships =
+    lens _ocVpcSecurityGroupMemberships
+        (\s a -> s { _ocVpcSecurityGroupMemberships = a })
+
+instance FromXML OptionConfiguration where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "OptionConfiguration"
+
+instance ToQuery OptionConfiguration
+
+data Option = Option
+    { _oDBSecurityGroupMemberships  :: [DBSecurityGroupMembership]
+    , _oOptionDescription           :: Maybe Text
+    , _oOptionName                  :: Maybe Text
+    , _oOptionSettings              :: [OptionSetting]
+    , _oPermanent                   :: Maybe Bool
+    , _oPersistent                  :: Maybe Bool
+    , _oPort                        :: Maybe Int
+    , _oVpcSecurityGroupMemberships :: [VpcSecurityGroupMembership]
+    } deriving (Eq, Show, Generic)
+
+-- | 'Option' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'oDBSecurityGroupMemberships' @::@ ['DBSecurityGroupMembership']
+--
+-- * 'oOptionDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'oOptionName' @::@ 'Maybe' 'Text'
+--
+-- * 'oOptionSettings' @::@ ['OptionSetting']
+--
+-- * 'oPermanent' @::@ 'Maybe' 'Bool'
+--
+-- * 'oPersistent' @::@ 'Maybe' 'Bool'
+--
+-- * 'oPort' @::@ 'Maybe' 'Int'
+--
+-- * 'oVpcSecurityGroupMemberships' @::@ ['VpcSecurityGroupMembership']
+--
+option :: Option
+option = Option
+    { _oOptionName                  = Nothing
+    , _oOptionDescription           = Nothing
+    , _oPersistent                  = Nothing
+    , _oPermanent                   = Nothing
+    , _oPort                        = Nothing
+    , _oOptionSettings              = mempty
+    , _oDBSecurityGroupMemberships  = mempty
+    , _oVpcSecurityGroupMemberships = mempty
+    }
+
+-- | If the option requires access to a port, then this DB security group
+-- allows access to the port.
+oDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
+oDBSecurityGroupMemberships =
+    lens _oDBSecurityGroupMemberships
+        (\s a -> s { _oDBSecurityGroupMemberships = a })
+
+-- | The description of the option.
+oOptionDescription :: Lens' Option (Maybe Text)
+oOptionDescription =
+    lens _oOptionDescription (\s a -> s { _oOptionDescription = a })
+
+-- | The name of the option.
+oOptionName :: Lens' Option (Maybe Text)
+oOptionName = lens _oOptionName (\s a -> s { _oOptionName = a })
+
+-- | The option settings for this option.
+oOptionSettings :: Lens' Option [OptionSetting]
+oOptionSettings = lens _oOptionSettings (\s a -> s { _oOptionSettings = a })
+
+-- | Indicate if this option is permanent.
+oPermanent :: Lens' Option (Maybe Bool)
+oPermanent = lens _oPermanent (\s a -> s { _oPermanent = a })
+
+-- | Indicate if this option is persistent.
+oPersistent :: Lens' Option (Maybe Bool)
+oPersistent = lens _oPersistent (\s a -> s { _oPersistent = a })
+
+-- | If required, the port configured for this option to use.
+oPort :: Lens' Option (Maybe Int)
+oPort = lens _oPort (\s a -> s { _oPort = a })
+
+-- | If the option requires access to a port, then this VPC security group
+-- allows access to the port.
+oVpcSecurityGroupMemberships :: Lens' Option [VpcSecurityGroupMembership]
+oVpcSecurityGroupMemberships =
+    lens _oVpcSecurityGroupMemberships
+        (\s a -> s { _oVpcSecurityGroupMemberships = a })
+
+instance FromXML Option where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "Option"
+
+instance ToQuery Option
+
+data IPRange = IPRange
+    { _iprCIDRIP :: Maybe Text
+    , _iprStatus :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'IPRange' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'iprCIDRIP' @::@ 'Maybe' 'Text'
+--
+-- * 'iprStatus' @::@ 'Maybe' 'Text'
+--
+iprange :: IPRange
+iprange = IPRange
+    { _iprStatus = Nothing
+    , _iprCIDRIP = Nothing
+    }
+
+-- | Specifies the IP range.
+iprCIDRIP :: Lens' IPRange (Maybe Text)
+iprCIDRIP = lens _iprCIDRIP (\s a -> s { _iprCIDRIP = a })
+
+-- | Specifies the status of the IP range. Status can be "authorizing",
+-- "authorized", "revoking", and "revoked".
+iprStatus :: Lens' IPRange (Maybe Text)
+iprStatus = lens _iprStatus (\s a -> s { _iprStatus = a })
+
+instance FromXML IPRange where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "IPRange"
+
+instance ToQuery IPRange
+
+data OptionGroupMembership = OptionGroupMembership
+    { _ogmOptionGroupName :: Maybe Text
+    , _ogmStatus          :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'OptionGroupMembership' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ogmOptionGroupName' @::@ 'Maybe' 'Text'
+--
+-- * 'ogmStatus' @::@ 'Maybe' 'Text'
+--
+optionGroupMembership :: OptionGroupMembership
+optionGroupMembership = OptionGroupMembership
+    { _ogmOptionGroupName = Nothing
+    , _ogmStatus          = Nothing
+    }
+
+-- | The name of the option group that the instance belongs to.
+ogmOptionGroupName :: Lens' OptionGroupMembership (Maybe Text)
+ogmOptionGroupName =
+    lens _ogmOptionGroupName (\s a -> s { _ogmOptionGroupName = a })
+
+-- | The status of the DB instance's option group membership (e.g. in-sync,
+-- pending, pending-maintenance, applying).
+ogmStatus :: Lens' OptionGroupMembership (Maybe Text)
+ogmStatus = lens _ogmStatus (\s a -> s { _ogmStatus = a })
+
+instance FromXML OptionGroupMembership where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "OptionGroupMembership"
+
+instance ToQuery OptionGroupMembership
+
+data EventCategoriesMap = EventCategoriesMap
+    { _ecmEventCategories :: [Text]
+    , _ecmSourceType      :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'EventCategoriesMap' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ecmEventCategories' @::@ ['Text']
+--
+-- * 'ecmSourceType' @::@ 'Maybe' 'Text'
+--
+eventCategoriesMap :: EventCategoriesMap
+eventCategoriesMap = EventCategoriesMap
+    { _ecmSourceType      = Nothing
+    , _ecmEventCategories = mempty
+    }
+
+-- | The event categories for the specified source type.
+ecmEventCategories :: Lens' EventCategoriesMap [Text]
+ecmEventCategories =
+    lens _ecmEventCategories (\s a -> s { _ecmEventCategories = a })
+
+-- | The source type that the returned categories belong to.
+ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
+ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
+
+instance FromXML EventCategoriesMap where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EventCategoriesMap"
+
+instance ToQuery EventCategoriesMap
+
+data PendingModifiedValues = PendingModifiedValues
+    { _pmvAllocatedStorage      :: Maybe Int
+    , _pmvBackupRetentionPeriod :: Maybe Int
+    , _pmvDBInstanceClass       :: Maybe Text
+    , _pmvDBInstanceIdentifier  :: Maybe Text
+    , _pmvEngineVersion         :: Maybe Text
+    , _pmvIops                  :: Maybe Int
+    , _pmvMasterUserPassword    :: Maybe Text
+    , _pmvMultiAZ               :: Maybe Bool
+    , _pmvPort                  :: Maybe Int
+    , _pmvStorageType           :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'PendingModifiedValues' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pmvAllocatedStorage' @::@ 'Maybe' 'Int'
+--
+-- * 'pmvBackupRetentionPeriod' @::@ 'Maybe' 'Int'
+--
+-- * 'pmvDBInstanceClass' @::@ 'Maybe' 'Text'
+--
+-- * 'pmvDBInstanceIdentifier' @::@ 'Maybe' 'Text'
+--
+-- * 'pmvEngineVersion' @::@ 'Maybe' 'Text'
+--
+-- * 'pmvIops' @::@ 'Maybe' 'Int'
+--
+-- * 'pmvMasterUserPassword' @::@ 'Maybe' 'Text'
+--
+-- * 'pmvMultiAZ' @::@ 'Maybe' 'Bool'
+--
+-- * 'pmvPort' @::@ 'Maybe' 'Int'
+--
+-- * 'pmvStorageType' @::@ 'Maybe' 'Text'
+--
+pendingModifiedValues :: PendingModifiedValues
+pendingModifiedValues = PendingModifiedValues
+    { _pmvDBInstanceClass       = Nothing
+    , _pmvAllocatedStorage      = Nothing
+    , _pmvMasterUserPassword    = Nothing
+    , _pmvPort                  = Nothing
+    , _pmvBackupRetentionPeriod = Nothing
+    , _pmvMultiAZ               = Nothing
+    , _pmvEngineVersion         = Nothing
+    , _pmvIops                  = Nothing
+    , _pmvDBInstanceIdentifier  = Nothing
+    , _pmvStorageType           = Nothing
+    }
+
+-- | Contains the new AllocatedStorage size for the DB instance that will be
+-- applied or is in progress.
+pmvAllocatedStorage :: Lens' PendingModifiedValues (Maybe Int)
+pmvAllocatedStorage =
+    lens _pmvAllocatedStorage (\s a -> s { _pmvAllocatedStorage = a })
+
+-- | Specifies the pending number of days for which automated backups are
+-- retained.
+pmvBackupRetentionPeriod :: Lens' PendingModifiedValues (Maybe Int)
+pmvBackupRetentionPeriod =
+    lens _pmvBackupRetentionPeriod
+        (\s a -> s { _pmvBackupRetentionPeriod = a })
+
+-- | Contains the new DBInstanceClass for the DB instance that will be applied
+-- or is in progress.
+pmvDBInstanceClass :: Lens' PendingModifiedValues (Maybe Text)
+pmvDBInstanceClass =
+    lens _pmvDBInstanceClass (\s a -> s { _pmvDBInstanceClass = a })
+
+-- | Contains the new DBInstanceIdentifier for the DB instance that will be
+-- applied or is in progress.
+pmvDBInstanceIdentifier :: Lens' PendingModifiedValues (Maybe Text)
+pmvDBInstanceIdentifier =
+    lens _pmvDBInstanceIdentifier (\s a -> s { _pmvDBInstanceIdentifier = a })
+
+-- | Indicates the database engine version.
+pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
+pmvEngineVersion = lens _pmvEngineVersion (\s a -> s { _pmvEngineVersion = a })
+
+-- | Specifies the new Provisioned IOPS value for the DB instance that will be
+-- applied or is being applied.
+pmvIops :: Lens' PendingModifiedValues (Maybe Int)
+pmvIops = lens _pmvIops (\s a -> s { _pmvIops = a })
+
+-- | Contains the pending or in-progress change of the master credentials for
+-- the DB instance.
+pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
+pmvMasterUserPassword =
+    lens _pmvMasterUserPassword (\s a -> s { _pmvMasterUserPassword = a })
+
+-- | Indicates that the Single-AZ DB instance is to change to a Multi-AZ
+-- deployment.
+pmvMultiAZ :: Lens' PendingModifiedValues (Maybe Bool)
+pmvMultiAZ = lens _pmvMultiAZ (\s a -> s { _pmvMultiAZ = a })
+
+-- | Specifies the pending port for the DB instance.
+pmvPort :: Lens' PendingModifiedValues (Maybe Int)
+pmvPort = lens _pmvPort (\s a -> s { _pmvPort = a })
+
+-- | Specifies storage type to be associated with the DB instance.
+pmvStorageType :: Lens' PendingModifiedValues (Maybe Text)
+pmvStorageType = lens _pmvStorageType (\s a -> s { _pmvStorageType = a })
+
+instance FromXML PendingModifiedValues where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PendingModifiedValues"
+
+instance ToQuery PendingModifiedValues
+
+data VpcSecurityGroupMembership = VpcSecurityGroupMembership
+    { _vsgmStatus             :: Maybe Text
+    , _vsgmVpcSecurityGroupId :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'VpcSecurityGroupMembership' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'vsgmStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'vsgmVpcSecurityGroupId' @::@ 'Maybe' 'Text'
+--
+vpcSecurityGroupMembership :: VpcSecurityGroupMembership
+vpcSecurityGroupMembership = VpcSecurityGroupMembership
+    { _vsgmVpcSecurityGroupId = Nothing
+    , _vsgmStatus             = Nothing
+    }
+
+-- | The status of the VPC security group.
+vsgmStatus :: Lens' VpcSecurityGroupMembership (Maybe Text)
+vsgmStatus = lens _vsgmStatus (\s a -> s { _vsgmStatus = a })
+
+-- | The name of the VPC security group.
+vsgmVpcSecurityGroupId :: Lens' VpcSecurityGroupMembership (Maybe Text)
+vsgmVpcSecurityGroupId =
+    lens _vsgmVpcSecurityGroupId (\s a -> s { _vsgmVpcSecurityGroupId = a })
+
+instance FromXML VpcSecurityGroupMembership where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "VpcSecurityGroupMembership"
+
+instance ToQuery VpcSecurityGroupMembership
+
+data Parameter = Parameter
+    { _pAllowedValues        :: Maybe Text
+    , _pApplyMethod          :: Maybe Text
+    , _pApplyType            :: Maybe Text
+    , _pDataType             :: Maybe Text
+    , _pDescription          :: Maybe Text
+    , _pIsModifiable         :: Maybe Bool
+    , _pMinimumEngineVersion :: Maybe Text
+    , _pParameterName        :: Maybe Text
+    , _pParameterValue       :: Maybe Text
+    , _pSource               :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'Parameter' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pAllowedValues' @::@ 'Maybe' 'Text'
+--
+-- * 'pApplyMethod' @::@ 'Maybe' 'Text'
+--
+-- * 'pApplyType' @::@ 'Maybe' 'Text'
+--
+-- * 'pDataType' @::@ 'Maybe' 'Text'
+--
+-- * 'pDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'pIsModifiable' @::@ 'Maybe' 'Bool'
+--
+-- * 'pMinimumEngineVersion' @::@ 'Maybe' 'Text'
+--
+-- * 'pParameterName' @::@ 'Maybe' 'Text'
+--
+-- * 'pParameterValue' @::@ 'Maybe' 'Text'
+--
+-- * 'pSource' @::@ 'Maybe' 'Text'
 --
 parameter :: Parameter
 parameter = Parameter
-    { _pParameterName = Nothing
-    , _pParameterValue = Nothing
-    , _pDescription = Nothing
-    , _pSource = Nothing
-    , _pApplyType = Nothing
-    , _pDataType = Nothing
-    , _pAllowedValues = Nothing
-    , _pIsModifiable = Nothing
+    { _pParameterName        = Nothing
+    , _pParameterValue       = Nothing
+    , _pDescription          = Nothing
+    , _pSource               = Nothing
+    , _pApplyType            = Nothing
+    , _pDataType             = Nothing
+    , _pAllowedValues        = Nothing
+    , _pIsModifiable         = Nothing
     , _pMinimumEngineVersion = Nothing
-    , _pApplyMethod = Nothing
+    , _pApplyMethod          = Nothing
     }
 
--- | Specifies the name of the parameter.
-pParameterName :: Lens' Parameter (Maybe Text)
-pParameterName = lens _pParameterName (\s a -> s { _pParameterName = a })
+-- | Specifies the valid range of values for the parameter.
+pAllowedValues :: Lens' Parameter (Maybe Text)
+pAllowedValues = lens _pAllowedValues (\s a -> s { _pAllowedValues = a })
 
--- | Specifies the value of the parameter.
-pParameterValue :: Lens' Parameter (Maybe Text)
-pParameterValue = lens _pParameterValue (\s a -> s { _pParameterValue = a })
-
--- | Provides a description of the parameter.
-pDescription :: Lens' Parameter (Maybe Text)
-pDescription = lens _pDescription (\s a -> s { _pDescription = a })
-
--- | Indicates the source of the parameter value.
-pSource :: Lens' Parameter (Maybe Text)
-pSource = lens _pSource (\s a -> s { _pSource = a })
+-- | Indicates when to apply parameter updates.
+pApplyMethod :: Lens' Parameter (Maybe Text)
+pApplyMethod = lens _pApplyMethod (\s a -> s { _pApplyMethod = a })
 
 -- | Specifies the engine specific parameters type.
 pApplyType :: Lens' Parameter (Maybe Text)
@@ -3479,13 +3101,13 @@ pApplyType = lens _pApplyType (\s a -> s { _pApplyType = a })
 pDataType :: Lens' Parameter (Maybe Text)
 pDataType = lens _pDataType (\s a -> s { _pDataType = a })
 
--- | Specifies the valid range of values for the parameter.
-pAllowedValues :: Lens' Parameter (Maybe Text)
-pAllowedValues = lens _pAllowedValues (\s a -> s { _pAllowedValues = a })
+-- | Provides a description of the parameter.
+pDescription :: Lens' Parameter (Maybe Text)
+pDescription = lens _pDescription (\s a -> s { _pDescription = a })
 
--- | Indicates whether (true) or not (false) the parameter can be modified. Some
--- parameters have security or operational implications that prevent them from
--- being changed.
+-- | Indicates whether (true) or not (false) the parameter can be modified.
+-- Some parameters have security or operational implications that prevent
+-- them from being changed.
 pIsModifiable :: Lens' Parameter (Maybe Bool)
 pIsModifiable = lens _pIsModifiable (\s a -> s { _pIsModifiable = a })
 
@@ -3494,548 +3116,88 @@ pMinimumEngineVersion :: Lens' Parameter (Maybe Text)
 pMinimumEngineVersion =
     lens _pMinimumEngineVersion (\s a -> s { _pMinimumEngineVersion = a })
 
--- | Indicates when to apply parameter updates.
-pApplyMethod :: Lens' Parameter (Maybe ApplyMethod)
-pApplyMethod = lens _pApplyMethod (\s a -> s { _pApplyMethod = a })
+-- | Specifies the name of the parameter.
+pParameterName :: Lens' Parameter (Maybe Text)
+pParameterName = lens _pParameterName (\s a -> s { _pParameterName = a })
+
+-- | Specifies the value of the parameter.
+pParameterValue :: Lens' Parameter (Maybe Text)
+pParameterValue = lens _pParameterValue (\s a -> s { _pParameterValue = a })
+
+-- | Indicates the source of the parameter value.
+pSource :: Lens' Parameter (Maybe Text)
+pSource = lens _pSource (\s a -> s { _pSource = a })
 
 instance FromXML Parameter where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Parameter"
 
-instance ToQuery Parameter where
-    toQuery = genericQuery def
+instance ToQuery Parameter
 
--- | Specifies that changes to the DB instance are pending. This element is only
--- included when changes are pending. Specific changes are identified by
--- subelements.
-data PendingModifiedValues = PendingModifiedValues
-    { _pmvDBInstanceClass :: Maybe Text
-    , _pmvAllocatedStorage :: Maybe Integer
-    , _pmvMasterUserPassword :: Maybe Text
-    , _pmvPort :: Maybe Integer
-    , _pmvBackupRetentionPeriod :: Maybe Integer
-    , _pmvMultiAZ :: Maybe Bool
-    , _pmvEngineVersion :: Maybe Text
-    , _pmvIops :: Maybe Integer
-    , _pmvDBInstanceIdentifier :: Maybe Text
+data OptionGroupOptionSetting = OptionGroupOptionSetting
+    { _ogosAllowedValues      :: Maybe Text
+    , _ogosApplyType          :: Maybe Text
+    , _ogosDefaultValue       :: Maybe Text
+    , _ogosIsModifiable       :: Maybe Bool
+    , _ogosSettingDescription :: Maybe Text
+    , _ogosSettingName        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'PendingModifiedValues' data type to populate a request.
+-- | 'OptionGroupOptionSetting' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBInstanceClass ::@ @Maybe Text@
+-- * 'ogosAllowedValues' @::@ 'Maybe' 'Text'
 --
--- * @AllocatedStorage ::@ @Maybe Integer@
+-- * 'ogosApplyType' @::@ 'Maybe' 'Text'
 --
--- * @MasterUserPassword ::@ @Maybe Text@
+-- * 'ogosDefaultValue' @::@ 'Maybe' 'Text'
 --
--- * @Port ::@ @Maybe Integer@
+-- * 'ogosIsModifiable' @::@ 'Maybe' 'Bool'
 --
--- * @BackupRetentionPeriod ::@ @Maybe Integer@
+-- * 'ogosSettingDescription' @::@ 'Maybe' 'Text'
 --
--- * @MultiAZ ::@ @Maybe Bool@
+-- * 'ogosSettingName' @::@ 'Maybe' 'Text'
 --
--- * @EngineVersion ::@ @Maybe Text@
---
--- * @Iops ::@ @Maybe Integer@
---
--- * @DBInstanceIdentifier ::@ @Maybe Text@
---
-pendingModifiedValues :: PendingModifiedValues
-pendingModifiedValues = PendingModifiedValues
-    { _pmvDBInstanceClass = Nothing
-    , _pmvAllocatedStorage = Nothing
-    , _pmvMasterUserPassword = Nothing
-    , _pmvPort = Nothing
-    , _pmvBackupRetentionPeriod = Nothing
-    , _pmvMultiAZ = Nothing
-    , _pmvEngineVersion = Nothing
-    , _pmvIops = Nothing
-    , _pmvDBInstanceIdentifier = Nothing
+optionGroupOptionSetting :: OptionGroupOptionSetting
+optionGroupOptionSetting = OptionGroupOptionSetting
+    { _ogosSettingName        = Nothing
+    , _ogosSettingDescription = Nothing
+    , _ogosDefaultValue       = Nothing
+    , _ogosApplyType          = Nothing
+    , _ogosAllowedValues      = Nothing
+    , _ogosIsModifiable       = Nothing
     }
 
--- | Contains the new DBInstanceClass for the DB instance that will be applied
--- or is in progress.
-pmvDBInstanceClass :: Lens' PendingModifiedValues (Maybe Text)
-pmvDBInstanceClass =
-    lens _pmvDBInstanceClass (\s a -> s { _pmvDBInstanceClass = a })
+-- | Indicates the acceptable values for the option group option.
+ogosAllowedValues :: Lens' OptionGroupOptionSetting (Maybe Text)
+ogosAllowedValues =
+    lens _ogosAllowedValues (\s a -> s { _ogosAllowedValues = a })
 
--- | Contains the new AllocatedStorage size for the DB instance that will be
--- applied or is in progress.
-pmvAllocatedStorage :: Lens' PendingModifiedValues (Maybe Integer)
-pmvAllocatedStorage =
-    lens _pmvAllocatedStorage (\s a -> s { _pmvAllocatedStorage = a })
+-- | The DB engine specific parameter type for the option group option.
+ogosApplyType :: Lens' OptionGroupOptionSetting (Maybe Text)
+ogosApplyType = lens _ogosApplyType (\s a -> s { _ogosApplyType = a })
 
--- | Contains the pending or in-progress change of the master credentials for
--- the DB instance.
-pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
-pmvMasterUserPassword =
-    lens _pmvMasterUserPassword (\s a -> s { _pmvMasterUserPassword = a })
+-- | The default value for the option group option.
+ogosDefaultValue :: Lens' OptionGroupOptionSetting (Maybe Text)
+ogosDefaultValue = lens _ogosDefaultValue (\s a -> s { _ogosDefaultValue = a })
 
--- | Specifies the pending port for the DB instance.
-pmvPort :: Lens' PendingModifiedValues (Maybe Integer)
-pmvPort = lens _pmvPort (\s a -> s { _pmvPort = a })
+-- | Boolean value where true indicates that this option group option can be
+-- changed from the default value.
+ogosIsModifiable :: Lens' OptionGroupOptionSetting (Maybe Bool)
+ogosIsModifiable = lens _ogosIsModifiable (\s a -> s { _ogosIsModifiable = a })
 
--- | Specifies the pending number of days for which automated backups are
--- retained.
-pmvBackupRetentionPeriod :: Lens' PendingModifiedValues (Maybe Integer)
-pmvBackupRetentionPeriod =
-    lens _pmvBackupRetentionPeriod
-         (\s a -> s { _pmvBackupRetentionPeriod = a })
+-- | The description of the option group option.
+ogosSettingDescription :: Lens' OptionGroupOptionSetting (Maybe Text)
+ogosSettingDescription =
+    lens _ogosSettingDescription (\s a -> s { _ogosSettingDescription = a })
 
--- | Indicates that the Single-AZ DB instance is to change to a Multi-AZ
--- deployment.
-pmvMultiAZ :: Lens' PendingModifiedValues (Maybe Bool)
-pmvMultiAZ = lens _pmvMultiAZ (\s a -> s { _pmvMultiAZ = a })
+-- | The name of the option group option.
+ogosSettingName :: Lens' OptionGroupOptionSetting (Maybe Text)
+ogosSettingName = lens _ogosSettingName (\s a -> s { _ogosSettingName = a })
 
--- | Indicates the database engine version.
-pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
-pmvEngineVersion =
-    lens _pmvEngineVersion (\s a -> s { _pmvEngineVersion = a })
-
--- | Specifies the new Provisioned IOPS value for the DB instance that will be
--- applied or is being applied.
-pmvIops :: Lens' PendingModifiedValues (Maybe Integer)
-pmvIops = lens _pmvIops (\s a -> s { _pmvIops = a })
-
--- | Contains the new DBInstanceIdentifier for the DB instance that will be
--- applied or is in progress.
-pmvDBInstanceIdentifier :: Lens' PendingModifiedValues (Maybe Text)
-pmvDBInstanceIdentifier =
-    lens _pmvDBInstanceIdentifier
-         (\s a -> s { _pmvDBInstanceIdentifier = a })
-
-instance FromXML PendingModifiedValues where
+instance FromXML OptionGroupOptionSetting where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PendingModifiedValues"
+    fromXMLRoot    = fromRoot "OptionGroupOptionSetting"
 
-instance ToQuery PendingModifiedValues where
-    toQuery = genericQuery def
-
--- | This data type is used as a response element in the
--- DescribeReservedDBInstances and DescribeReservedDBInstancesOfferings
--- actions.
-data RecurringCharge = RecurringCharge
-    { _rcRecurringChargeAmount :: Maybe Double
-    , _rcRecurringChargeFrequency :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'RecurringCharge' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @RecurringChargeAmount ::@ @Maybe Double@
---
--- * @RecurringChargeFrequency ::@ @Maybe Text@
---
-recurringCharge :: RecurringCharge
-recurringCharge = RecurringCharge
-    { _rcRecurringChargeAmount = Nothing
-    , _rcRecurringChargeFrequency = Nothing
-    }
-
--- | The amount of the recurring charge.
-rcRecurringChargeAmount :: Lens' RecurringCharge (Maybe Double)
-rcRecurringChargeAmount =
-    lens _rcRecurringChargeAmount
-         (\s a -> s { _rcRecurringChargeAmount = a })
-
--- | The frequency of the recurring charge.
-rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
-rcRecurringChargeFrequency =
-    lens _rcRecurringChargeFrequency
-         (\s a -> s { _rcRecurringChargeFrequency = a })
-
-instance FromXML RecurringCharge where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RecurringCharge"
-
-instance ToQuery RecurringCharge where
-    toQuery = genericQuery def
-
--- | This data type is used as a response element in the
--- DescribeReservedDBInstances and PurchaseReservedDBInstancesOffering
--- actions.
-data ReservedDBInstance = ReservedDBInstance
-    { _rdbiReservedDBInstanceId :: Maybe Text
-    , _rdbiReservedDBInstancesOfferingId :: Maybe Text
-    , _rdbiDBInstanceClass :: Maybe Text
-    , _rdbiStartTime :: Maybe ISO8601
-    , _rdbiDuration :: Maybe Integer
-    , _rdbiFixedPrice :: Maybe Double
-    , _rdbiUsagePrice :: Maybe Double
-    , _rdbiCurrencyCode :: Maybe Text
-    , _rdbiDBInstanceCount :: Maybe Integer
-    , _rdbiProductDescription :: Maybe Text
-    , _rdbiOfferingType :: Maybe Text
-    , _rdbiMultiAZ :: Maybe Bool
-    , _rdbiState :: Maybe Text
-    , _rdbiRecurringCharges :: [RecurringCharge]
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedDBInstance' data type.
---
--- 'ReservedDBInstance' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @ReservedDBInstanceId ::@ @Maybe Text@
---
--- * @ReservedDBInstancesOfferingId ::@ @Maybe Text@
---
--- * @DBInstanceClass ::@ @Maybe Text@
---
--- * @StartTime ::@ @Maybe ISO8601@
---
--- * @Duration ::@ @Maybe Integer@
---
--- * @FixedPrice ::@ @Maybe Double@
---
--- * @UsagePrice ::@ @Maybe Double@
---
--- * @CurrencyCode ::@ @Maybe Text@
---
--- * @DBInstanceCount ::@ @Maybe Integer@
---
--- * @ProductDescription ::@ @Maybe Text@
---
--- * @OfferingType ::@ @Maybe Text@
---
--- * @MultiAZ ::@ @Maybe Bool@
---
--- * @State ::@ @Maybe Text@
---
--- * @RecurringCharges ::@ @[RecurringCharge]@
---
-reservedDBInstance :: ReservedDBInstance
-reservedDBInstance = ReservedDBInstance
-    { _rdbiReservedDBInstanceId = Nothing
-    , _rdbiReservedDBInstancesOfferingId = Nothing
-    , _rdbiDBInstanceClass = Nothing
-    , _rdbiStartTime = Nothing
-    , _rdbiDuration = Nothing
-    , _rdbiFixedPrice = Nothing
-    , _rdbiUsagePrice = Nothing
-    , _rdbiCurrencyCode = Nothing
-    , _rdbiDBInstanceCount = Nothing
-    , _rdbiProductDescription = Nothing
-    , _rdbiOfferingType = Nothing
-    , _rdbiMultiAZ = Nothing
-    , _rdbiState = Nothing
-    , _rdbiRecurringCharges = mempty
-    }
-
--- | The unique identifier for the reservation.
-rdbiReservedDBInstanceId :: Lens' ReservedDBInstance (Maybe Text)
-rdbiReservedDBInstanceId =
-    lens _rdbiReservedDBInstanceId
-         (\s a -> s { _rdbiReservedDBInstanceId = a })
-
--- | The offering identifier.
-rdbiReservedDBInstancesOfferingId :: Lens' ReservedDBInstance (Maybe Text)
-rdbiReservedDBInstancesOfferingId =
-    lens _rdbiReservedDBInstancesOfferingId
-         (\s a -> s { _rdbiReservedDBInstancesOfferingId = a })
-
--- | The DB instance class for the reserved DB instance.
-rdbiDBInstanceClass :: Lens' ReservedDBInstance (Maybe Text)
-rdbiDBInstanceClass =
-    lens _rdbiDBInstanceClass (\s a -> s { _rdbiDBInstanceClass = a })
-
--- | The time the reservation started.
-rdbiStartTime :: Lens' ReservedDBInstance (Maybe ISO8601)
-rdbiStartTime = lens _rdbiStartTime (\s a -> s { _rdbiStartTime = a })
-
--- | The duration of the reservation in seconds.
-rdbiDuration :: Lens' ReservedDBInstance (Maybe Integer)
-rdbiDuration = lens _rdbiDuration (\s a -> s { _rdbiDuration = a })
-
--- | The fixed price charged for this reserved DB instance.
-rdbiFixedPrice :: Lens' ReservedDBInstance (Maybe Double)
-rdbiFixedPrice = lens _rdbiFixedPrice (\s a -> s { _rdbiFixedPrice = a })
-
--- | The hourly price charged for this reserved DB instance.
-rdbiUsagePrice :: Lens' ReservedDBInstance (Maybe Double)
-rdbiUsagePrice = lens _rdbiUsagePrice (\s a -> s { _rdbiUsagePrice = a })
-
--- | The currency code for the reserved DB instance.
-rdbiCurrencyCode :: Lens' ReservedDBInstance (Maybe Text)
-rdbiCurrencyCode =
-    lens _rdbiCurrencyCode (\s a -> s { _rdbiCurrencyCode = a })
-
--- | The number of reserved DB instances.
-rdbiDBInstanceCount :: Lens' ReservedDBInstance (Maybe Integer)
-rdbiDBInstanceCount =
-    lens _rdbiDBInstanceCount (\s a -> s { _rdbiDBInstanceCount = a })
-
--- | The description of the reserved DB instance.
-rdbiProductDescription :: Lens' ReservedDBInstance (Maybe Text)
-rdbiProductDescription =
-    lens _rdbiProductDescription (\s a -> s { _rdbiProductDescription = a })
-
--- | The offering type of this reserved DB instance.
-rdbiOfferingType :: Lens' ReservedDBInstance (Maybe Text)
-rdbiOfferingType =
-    lens _rdbiOfferingType (\s a -> s { _rdbiOfferingType = a })
-
--- | Indicates if the reservation applies to Multi-AZ deployments.
-rdbiMultiAZ :: Lens' ReservedDBInstance (Maybe Bool)
-rdbiMultiAZ = lens _rdbiMultiAZ (\s a -> s { _rdbiMultiAZ = a })
-
--- | The state of the reserved DB instance.
-rdbiState :: Lens' ReservedDBInstance (Maybe Text)
-rdbiState = lens _rdbiState (\s a -> s { _rdbiState = a })
-
--- | The recurring price charged to run this reserved DB instance.
-rdbiRecurringCharges :: Lens' ReservedDBInstance [RecurringCharge]
-rdbiRecurringCharges =
-    lens _rdbiRecurringCharges (\s a -> s { _rdbiRecurringCharges = a })
-
-instance FromXML ReservedDBInstance where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedDBInstance"
-
--- | This data type is used as a response element in the
--- DescribeReservedDBInstancesOfferings action.
-data ReservedDBInstancesOffering = ReservedDBInstancesOffering
-    { _rdbioReservedDBInstancesOfferingId :: Maybe Text
-    , _rdbioDBInstanceClass :: Maybe Text
-    , _rdbioDuration :: Maybe Integer
-    , _rdbioFixedPrice :: Maybe Double
-    , _rdbioUsagePrice :: Maybe Double
-    , _rdbioCurrencyCode :: Maybe Text
-    , _rdbioProductDescription :: Maybe Text
-    , _rdbioOfferingType :: Maybe Text
-    , _rdbioMultiAZ :: Maybe Bool
-    , _rdbioRecurringCharges :: [RecurringCharge]
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedDBInstancesOffering' data type.
---
--- 'ReservedDBInstancesOffering' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @ReservedDBInstancesOfferingId ::@ @Maybe Text@
---
--- * @DBInstanceClass ::@ @Maybe Text@
---
--- * @Duration ::@ @Maybe Integer@
---
--- * @FixedPrice ::@ @Maybe Double@
---
--- * @UsagePrice ::@ @Maybe Double@
---
--- * @CurrencyCode ::@ @Maybe Text@
---
--- * @ProductDescription ::@ @Maybe Text@
---
--- * @OfferingType ::@ @Maybe Text@
---
--- * @MultiAZ ::@ @Maybe Bool@
---
--- * @RecurringCharges ::@ @[RecurringCharge]@
---
-reservedDBInstancesOffering :: ReservedDBInstancesOffering
-reservedDBInstancesOffering = ReservedDBInstancesOffering
-    { _rdbioReservedDBInstancesOfferingId = Nothing
-    , _rdbioDBInstanceClass = Nothing
-    , _rdbioDuration = Nothing
-    , _rdbioFixedPrice = Nothing
-    , _rdbioUsagePrice = Nothing
-    , _rdbioCurrencyCode = Nothing
-    , _rdbioProductDescription = Nothing
-    , _rdbioOfferingType = Nothing
-    , _rdbioMultiAZ = Nothing
-    , _rdbioRecurringCharges = mempty
-    }
-
--- | The offering identifier.
-rdbioReservedDBInstancesOfferingId :: Lens' ReservedDBInstancesOffering (Maybe Text)
-rdbioReservedDBInstancesOfferingId =
-    lens _rdbioReservedDBInstancesOfferingId
-         (\s a -> s { _rdbioReservedDBInstancesOfferingId = a })
-
--- | The DB instance class for the reserved DB instance.
-rdbioDBInstanceClass :: Lens' ReservedDBInstancesOffering (Maybe Text)
-rdbioDBInstanceClass =
-    lens _rdbioDBInstanceClass (\s a -> s { _rdbioDBInstanceClass = a })
-
--- | The duration of the offering in seconds.
-rdbioDuration :: Lens' ReservedDBInstancesOffering (Maybe Integer)
-rdbioDuration = lens _rdbioDuration (\s a -> s { _rdbioDuration = a })
-
--- | The fixed price charged for this offering.
-rdbioFixedPrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
-rdbioFixedPrice = lens _rdbioFixedPrice (\s a -> s { _rdbioFixedPrice = a })
-
--- | The hourly price charged for this offering.
-rdbioUsagePrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
-rdbioUsagePrice = lens _rdbioUsagePrice (\s a -> s { _rdbioUsagePrice = a })
-
--- | The currency code for the reserved DB instance offering.
-rdbioCurrencyCode :: Lens' ReservedDBInstancesOffering (Maybe Text)
-rdbioCurrencyCode =
-    lens _rdbioCurrencyCode (\s a -> s { _rdbioCurrencyCode = a })
-
--- | The database engine used by the offering.
-rdbioProductDescription :: Lens' ReservedDBInstancesOffering (Maybe Text)
-rdbioProductDescription =
-    lens _rdbioProductDescription
-         (\s a -> s { _rdbioProductDescription = a })
-
--- | The offering type.
-rdbioOfferingType :: Lens' ReservedDBInstancesOffering (Maybe Text)
-rdbioOfferingType =
-    lens _rdbioOfferingType (\s a -> s { _rdbioOfferingType = a })
-
--- | Indicates if the offering applies to Multi-AZ deployments.
-rdbioMultiAZ :: Lens' ReservedDBInstancesOffering (Maybe Bool)
-rdbioMultiAZ = lens _rdbioMultiAZ (\s a -> s { _rdbioMultiAZ = a })
-
--- | The recurring price charged to run this reserved DB instance.
-rdbioRecurringCharges :: Lens' ReservedDBInstancesOffering [RecurringCharge]
-rdbioRecurringCharges =
-    lens _rdbioRecurringCharges (\s a -> s { _rdbioRecurringCharges = a })
-
-instance FromXML ReservedDBInstancesOffering where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedDBInstancesOffering"
-
--- | This data type is used as a response element in the DescribeDBSubnetGroups
--- action.
-data Subnet = Subnet
-    { _sSubnetIdentifier :: Maybe Text
-    , _sSubnetAvailabilityZone :: Maybe AvailabilityZone
-    , _sSubnetStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Subnet' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @SubnetIdentifier ::@ @Maybe Text@
---
--- * @SubnetAvailabilityZone ::@ @Maybe AvailabilityZone@
---
--- * @SubnetStatus ::@ @Maybe Text@
---
-subnet :: Subnet
-subnet = Subnet
-    { _sSubnetIdentifier = Nothing
-    , _sSubnetAvailabilityZone = Nothing
-    , _sSubnetStatus = Nothing
-    }
-
--- | Specifies the identifier of the subnet.
-sSubnetIdentifier :: Lens' Subnet (Maybe Text)
-sSubnetIdentifier =
-    lens _sSubnetIdentifier (\s a -> s { _sSubnetIdentifier = a })
-
--- | Contains Availability Zone information. This data type is used as an
--- element in the following data type: OrderableDBInstanceOption.
-sSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
-sSubnetAvailabilityZone =
-    lens _sSubnetAvailabilityZone
-         (\s a -> s { _sSubnetAvailabilityZone = a })
-
--- | Specifies the status of the subnet.
-sSubnetStatus :: Lens' Subnet (Maybe Text)
-sSubnetStatus = lens _sSubnetStatus (\s a -> s { _sSubnetStatus = a })
-
-instance FromXML Subnet where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Subnet"
-
-instance ToQuery Subnet where
-    toQuery = genericQuery def
-
--- | Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
-data Tag = Tag
-    { _tKey :: Maybe Text
-    , _tValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Tag' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @Key ::@ @Maybe Text@
---
--- * @Value ::@ @Maybe Text@
---
-tag :: Tag
-tag = Tag
-    { _tKey = Nothing
-    , _tValue = Nothing
-    }
-
--- | A key is the required name of the tag. The string value can be from 1 to
--- 128 Unicode characters in length and cannot be prefixed with "aws:" or
--- "rds:". The string may only contain only the set of Unicode letters,
--- digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex:
--- "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-tKey :: Lens' Tag (Maybe Text)
-tKey = lens _tKey (\s a -> s { _tKey = a })
-
--- | A value is the optional value of the tag. The string value can be from 1 to
--- 256 Unicode characters in length and cannot be prefixed with "aws:" or
--- "rds:". The string may only contain only the set of Unicode letters,
--- digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex:
--- "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-tValue :: Lens' Tag (Maybe Text)
-tValue = lens _tValue (\s a -> s { _tValue = a })
-
-instance FromXML Tag where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Tag"
-
-instance ToQuery Tag where
-    toQuery = genericQuery def
-
--- | This data type is used as a response element for queries on VPC security
--- group membership.
-data VpcSecurityGroupMembership = VpcSecurityGroupMembership
-    { _vsgmVpcSecurityGroupId :: Maybe Text
-    , _vsgmStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'VpcSecurityGroupMembership' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @VpcSecurityGroupId ::@ @Maybe Text@
---
--- * @Status ::@ @Maybe Text@
---
-vpcSecurityGroupMembership :: VpcSecurityGroupMembership
-vpcSecurityGroupMembership = VpcSecurityGroupMembership
-    { _vsgmVpcSecurityGroupId = Nothing
-    , _vsgmStatus = Nothing
-    }
-
--- | The name of the VPC security group.
-vsgmVpcSecurityGroupId :: Lens' VpcSecurityGroupMembership (Maybe Text)
-vsgmVpcSecurityGroupId =
-    lens _vsgmVpcSecurityGroupId (\s a -> s { _vsgmVpcSecurityGroupId = a })
-
--- | The status of the VPC security group.
-vsgmStatus :: Lens' VpcSecurityGroupMembership (Maybe Text)
-vsgmStatus = lens _vsgmStatus (\s a -> s { _vsgmStatus = a })
-
-instance FromXML VpcSecurityGroupMembership where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpcSecurityGroupMembership"
-
-instance ToQuery VpcSecurityGroupMembership where
-    toQuery = genericQuery def
+instance ToQuery OptionGroupOptionSetting

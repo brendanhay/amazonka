@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Support.DescribeSeverityLevels
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,20 +40,19 @@ module Network.AWS.Support.DescribeSeverityLevels
     , dslrSeverityLevels
     ) where
 
-import Network.AWS.Support.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Support.Types
 
 newtype DescribeSeverityLevels = DescribeSeverityLevels
     { _dslLanguage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSeverityLevels' request.
+-- | 'DescribeSeverityLevels' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Language ::@ @Maybe Text@
+-- * 'dslLanguage' @::@ 'Maybe' 'Text'
 --
 describeSeverityLevels :: DescribeSeverityLevels
 describeSeverityLevels = DescribeSeverityLevels
@@ -64,28 +65,32 @@ describeSeverityLevels = DescribeSeverityLevels
 dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
 dslLanguage = lens _dslLanguage (\s a -> s { _dslLanguage = a })
 
-instance ToPath DescribeSeverityLevels
+instance ToPath DescribeSeverityLevels where
+    toPath = const "/"
 
-instance ToQuery DescribeSeverityLevels
+instance ToQuery DescribeSeverityLevels where
+    toQuery = const mempty
 
 instance ToHeaders DescribeSeverityLevels
 
-instance ToJSON DescribeSeverityLevels
+instance ToBody DescribeSeverityLevels where
+    toBody = toBody . encode . _dslLanguage
 
--- | The list of severity levels returned by the DescribeSeverityLevels
--- operation.
 newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
     { _dslrSeverityLevels :: [SeverityLevel]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSeverityLevelsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeSeverityLevelsResponse where
+    type Item DescribeSeverityLevelsResponse = SeverityLevel
+
+    fromList = DescribeSeverityLevelsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dslrSeverityLevels
+
+-- | 'DescribeSeverityLevelsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SeverityLevels ::@ @[SeverityLevel]@
+-- * 'dslrSeverityLevels' @::@ ['SeverityLevel']
 --
 describeSeverityLevelsResponse :: DescribeSeverityLevelsResponse
 describeSeverityLevelsResponse = DescribeSeverityLevelsResponse
@@ -98,11 +103,12 @@ dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrSeverityLevels =
     lens _dslrSeverityLevels (\s a -> s { _dslrSeverityLevels = a })
 
-instance FromJSON DescribeSeverityLevelsResponse
+-- FromJSON
 
 instance AWSRequest DescribeSeverityLevels where
     type Sv DescribeSeverityLevels = Support
     type Rs DescribeSeverityLevels = DescribeSeverityLevelsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeSeverityLevelsResponse
+        <$> o .: "severityLevels"

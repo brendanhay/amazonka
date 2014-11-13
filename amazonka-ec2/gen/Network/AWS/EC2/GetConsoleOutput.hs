@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.GetConsoleOutput
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,29 +32,7 @@
 -- physical monitor attached to a machine. This output is buffered because the
 -- instance produces it and then posts it to a store where the instance's
 -- owner can retrieve it. For Windows instances, the instance console output
--- displays the last three system event log errors. Example This example
--- retrieves the console output for the specified instance.
--- https://ec2.amazonaws.com/?Action=GetConsoleOutput
--- &amp;InstanceId=i-10a64379 &amp;AUTHPARAMS &lt;GetConsoleOutputResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;instanceId&gt;i-28a64341&lt;/instanceId&gt;
--- &lt;timestamp&gt;2010-10-14T01:12:41.000Z&lt;/timestamp&gt;
--- &lt;output&gt;TGludXggdmVyc2lvbiAyLjYuMTYteGVuVSAoYnVpbGRlckBwYXRjaGJhdC5hbWF6b25zYSkgKGdj
--- 
--- YyB2ZXJzaW9uIDQuMC4xIDIwMDUwNzI3IChSZWQgSGF0IDQuMC4xLTUpKSAjMSBTTVAgVGh1IE9j
--- 
--- dCAyNiAwODo0MToyNiBTQVNUIDIwMDYKQklPUy1wcm92aWRlZCBwaHlzaWNhbCBSQU0gbWFwOgpY
--- 
--- ZW46IDAwMDAwMDAwMDAwMDAwMDAgLSAwMDAwMDAwMDZhNDAwMDAwICh1c2FibGUpCjk4ME1CIEhJ
--- 
--- R0hNRU0gYXZhaWxhYmxlLgo3MjdNQiBMT1dNRU0gYXZhaWxhYmxlLgpOWCAoRXhlY3V0ZSBEaXNh
--- 
--- YmxlKSBwcm90ZWN0aW9uOiBhY3RpdmUKSVJRIGxvY2t1cCBkZXRlY3Rpb24gZGlzYWJsZWQKQnVp
--- 
--- bHQgMSB6b25lbGlzdHMKS2VybmVsIGNvbW1hbmQgbGluZTogcm9vdD0vZGV2L3NkYTEgcm8gNApF
--- bmFibGluZyBmYXN0IEZQVSBzYXZlIGFuZCByZXN0b3JlLi4uIGRvbmUuCg==&lt;/output&gt;
--- &lt;/GetConsoleOutputResponse&gt;.
+-- displays the last three system event log errors.
 module Network.AWS.EC2.GetConsoleOutput
     (
     -- * Request
@@ -60,6 +40,7 @@ module Network.AWS.EC2.GetConsoleOutput
     -- ** Request constructor
     , getConsoleOutput
     -- ** Request lenses
+    , gcoDryRun
     , gcoInstanceId
 
     -- * Response
@@ -68,82 +49,89 @@ module Network.AWS.EC2.GetConsoleOutput
     , getConsoleOutputResponse
     -- ** Response lenses
     , gcorInstanceId
-    , gcorTimestamp
     , gcorOutput
+    , gcorTimestamp
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype GetConsoleOutput = GetConsoleOutput
-    { _gcoInstanceId :: Text
+data GetConsoleOutput = GetConsoleOutput
+    { _gcoDryRun     :: Maybe Bool
+    , _gcoInstanceId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetConsoleOutput' request.
+-- | 'GetConsoleOutput' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @Text@
+-- * 'gcoDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'gcoInstanceId' @::@ 'Text'
 --
 getConsoleOutput :: Text -- ^ 'gcoInstanceId'
                  -> GetConsoleOutput
 getConsoleOutput p1 = GetConsoleOutput
     { _gcoInstanceId = p1
+    , _gcoDryRun     = Nothing
     }
+
+gcoDryRun :: Lens' GetConsoleOutput (Maybe Bool)
+gcoDryRun = lens _gcoDryRun (\s a -> s { _gcoDryRun = a })
 
 -- | The ID of the instance.
 gcoInstanceId :: Lens' GetConsoleOutput Text
 gcoInstanceId = lens _gcoInstanceId (\s a -> s { _gcoInstanceId = a })
 
-instance ToQuery GetConsoleOutput where
-    toQuery = genericQuery def
+instance ToQuery GetConsoleOutput
+
+instance ToPath GetConsoleOutput where
+    toPath = const "/"
 
 data GetConsoleOutputResponse = GetConsoleOutputResponse
     { _gcorInstanceId :: Maybe Text
-    , _gcorTimestamp :: Maybe ISO8601
-    , _gcorOutput :: Maybe Text
+    , _gcorOutput     :: Maybe Text
+    , _gcorTimestamp  :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetConsoleOutputResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetConsoleOutputResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @Maybe Text@
+-- * 'gcorInstanceId' @::@ 'Maybe' 'Text'
 --
--- * @Timestamp ::@ @Maybe ISO8601@
+-- * 'gcorOutput' @::@ 'Maybe' 'Text'
 --
--- * @Output ::@ @Maybe Text@
+-- * 'gcorTimestamp' @::@ 'Maybe' 'UTCTime'
 --
 getConsoleOutputResponse :: GetConsoleOutputResponse
 getConsoleOutputResponse = GetConsoleOutputResponse
     { _gcorInstanceId = Nothing
-    , _gcorTimestamp = Nothing
-    , _gcorOutput = Nothing
+    , _gcorTimestamp  = Nothing
+    , _gcorOutput     = Nothing
     }
 
 -- | The ID of the instance.
 gcorInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorInstanceId = lens _gcorInstanceId (\s a -> s { _gcorInstanceId = a })
 
--- | The time the output was last updated.
-gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe ISO8601)
-gcorTimestamp = lens _gcorTimestamp (\s a -> s { _gcorTimestamp = a })
-
 -- | The console output, Base64 encoded.
 gcorOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorOutput = lens _gcorOutput (\s a -> s { _gcorOutput = a })
 
-instance FromXML GetConsoleOutputResponse where
-    fromXMLOptions = xmlOptions
+-- | The time the output was last updated.
+gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
+gcorTimestamp = lens _gcorTimestamp (\s a -> s { _gcorTimestamp = a })
+    . mapping _Time
 
 instance AWSRequest GetConsoleOutput where
     type Sv GetConsoleOutput = EC2
     type Rs GetConsoleOutput = GetConsoleOutputResponse
 
-    request = post "GetConsoleOutput"
-    response _ = xmlResponse
+    request  = post "GetConsoleOutput"
+    response = xmlResponse $ \h x -> GetConsoleOutputResponse
+        <$> x %| "instanceId"
+        <*> x %| "output"
+        <*> x %| "timestamp"

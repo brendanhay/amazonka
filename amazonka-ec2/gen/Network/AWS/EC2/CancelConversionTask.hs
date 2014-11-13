@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CancelConversionTask
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,11 +26,7 @@
 -- complete or is in the process of transferring the final disk image, the
 -- command fails and returns an exception. For more information, see Using the
 -- Command Line Tools to Import Your Virtual Machine to Amazon EC2 in the
--- Amazon Elastic Compute Cloud User Guide. Example This example request
--- cancels the conversion task with the ID import-i-fh95npoc.
--- https://ec2.amazonaws.com/?Action=CancelConversionTask
--- &amp;ConversionTaskId=import-i-fh95npoc &amp;AUTHPARAMS
--- 59dbff89-35bd-4eac-99ed-be587EXAMPLE true.
+-- Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.CancelConversionTask
     (
     -- * Request
@@ -37,6 +35,7 @@ module Network.AWS.EC2.CancelConversionTask
     , cancelConversionTask
     -- ** Request lenses
     , cctConversionTaskId
+    , cctDryRun
     , cctReasonMessage
 
     -- * Response
@@ -45,29 +44,33 @@ module Network.AWS.EC2.CancelConversionTask
     , cancelConversionTaskResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data CancelConversionTask = CancelConversionTask
     { _cctConversionTaskId :: Text
-    , _cctReasonMessage :: Maybe Text
+    , _cctDryRun           :: Maybe Bool
+    , _cctReasonMessage    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelConversionTask' request.
+-- | 'CancelConversionTask' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ConversionTaskId ::@ @Text@
+-- * 'cctConversionTaskId' @::@ 'Text'
 --
--- * @ReasonMessage ::@ @Maybe Text@
+-- * 'cctDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'cctReasonMessage' @::@ 'Maybe' 'Text'
 --
 cancelConversionTask :: Text -- ^ 'cctConversionTaskId'
                      -> CancelConversionTask
 cancelConversionTask p1 = CancelConversionTask
     { _cctConversionTaskId = p1
-    , _cctReasonMessage = Nothing
+    , _cctDryRun           = Nothing
+    , _cctReasonMessage    = Nothing
     }
 
 -- | The ID of the conversion task.
@@ -75,21 +78,21 @@ cctConversionTaskId :: Lens' CancelConversionTask Text
 cctConversionTaskId =
     lens _cctConversionTaskId (\s a -> s { _cctConversionTaskId = a })
 
--- | 
-cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
-cctReasonMessage =
-    lens _cctReasonMessage (\s a -> s { _cctReasonMessage = a })
+cctDryRun :: Lens' CancelConversionTask (Maybe Bool)
+cctDryRun = lens _cctDryRun (\s a -> s { _cctDryRun = a })
 
-instance ToQuery CancelConversionTask where
-    toQuery = genericQuery def
+cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
+cctReasonMessage = lens _cctReasonMessage (\s a -> s { _cctReasonMessage = a })
+
+instance ToQuery CancelConversionTask
+
+instance ToPath CancelConversionTask where
+    toPath = const "/"
 
 data CancelConversionTaskResponse = CancelConversionTaskResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelConversionTaskResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CancelConversionTaskResponse' constructor.
 cancelConversionTaskResponse :: CancelConversionTaskResponse
 cancelConversionTaskResponse = CancelConversionTaskResponse
 
@@ -97,5 +100,5 @@ instance AWSRequest CancelConversionTask where
     type Sv CancelConversionTask = EC2
     type Rs CancelConversionTask = CancelConversionTaskResponse
 
-    request = post "CancelConversionTask"
-    response _ = nullaryResponse CancelConversionTaskResponse
+    request  = post "CancelConversionTask"
+    response = nullaryResponse CancelConversionTaskResponse

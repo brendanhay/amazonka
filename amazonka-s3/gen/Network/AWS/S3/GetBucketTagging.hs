@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketTagging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,67 +38,69 @@ module Network.AWS.S3.GetBucketTagging
     , gbtrTagSet
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketTagging = GetBucketTagging
-    { _gbtBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    { _gbtBucket :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketTagging' request.
+-- | 'GetBucketTagging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'gbtBucket' @::@ 'Text'
 --
-getBucketTagging :: BucketName -- ^ 'gbtBucket'
+getBucketTagging :: Text -- ^ 'gbtBucket'
                  -> GetBucketTagging
 getBucketTagging p1 = GetBucketTagging
     { _gbtBucket = p1
     }
 
-gbtBucket :: Lens' GetBucketTagging BucketName
+gbtBucket :: Lens' GetBucketTagging Text
 gbtBucket = lens _gbtBucket (\s a -> s { _gbtBucket = a })
 
-instance ToPath GetBucketTagging
+instance ToPath GetBucketTagging where
+    toPath GetBucketTagging{..} = mconcat
+        [ "/"
+        , toText _gbtBucket
+        ]
 
-instance ToQuery GetBucketTagging
+instance ToQuery GetBucketTagging where
+    toQuery = const "tagging"
 
 instance ToHeaders GetBucketTagging
 
-instance ToBody GetBucketTagging
-
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse
     { _gbtrTagSet :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetBucketTaggingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList GetBucketTaggingResponse where
+    type Item GetBucketTaggingResponse = Tag
+
+    fromList = GetBucketTaggingResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gbtrTagSet
+
+-- | 'GetBucketTaggingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TagSet ::@ @[Tag]@
+-- * 'gbtrTagSet' @::@ ['Tag']
 --
-getBucketTaggingResponse :: [Tag] -- ^ 'gbtrTagSet'
-                         -> GetBucketTaggingResponse
-getBucketTaggingResponse p1 = GetBucketTaggingResponse
-    { _gbtrTagSet = p1
+getBucketTaggingResponse :: GetBucketTaggingResponse
+getBucketTaggingResponse = GetBucketTaggingResponse
+    { _gbtrTagSet = mempty
     }
 
 gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
 gbtrTagSet = lens _gbtrTagSet (\s a -> s { _gbtrTagSet = a })
 
-instance FromXML GetBucketTaggingResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
     type Rs GetBucketTagging = GetBucketTaggingResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetBucketTaggingResponse
+        <$> x %| "TagSet"

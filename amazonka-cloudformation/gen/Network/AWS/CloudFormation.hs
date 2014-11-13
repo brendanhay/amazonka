@@ -30,9 +30,11 @@ module Network.AWS.CloudFormation
     , module Network.AWS.CloudFormation.EstimateTemplateCost
     , module Network.AWS.CloudFormation.GetStackPolicy
     , module Network.AWS.CloudFormation.GetTemplate
+    , module Network.AWS.CloudFormation.GetTemplateSummary
     , module Network.AWS.CloudFormation.ListStackResources
     , module Network.AWS.CloudFormation.ListStacks
     , module Network.AWS.CloudFormation.SetStackPolicy
+    , module Network.AWS.CloudFormation.SignalResource
     , module Network.AWS.CloudFormation.Types
     , module Network.AWS.CloudFormation.UpdateStack
     , module Network.AWS.CloudFormation.ValidateTemplate
@@ -48,9 +50,11 @@ import Network.AWS.CloudFormation.DescribeStacks
 import Network.AWS.CloudFormation.EstimateTemplateCost
 import Network.AWS.CloudFormation.GetStackPolicy
 import Network.AWS.CloudFormation.GetTemplate
+import Network.AWS.CloudFormation.GetTemplateSummary
 import Network.AWS.CloudFormation.ListStackResources
 import Network.AWS.CloudFormation.ListStacks
 import Network.AWS.CloudFormation.SetStackPolicy
+import Network.AWS.CloudFormation.SignalResource
 import Network.AWS.CloudFormation.Types
 import Network.AWS.CloudFormation.UpdateStack
 import Network.AWS.CloudFormation.ValidateTemplate

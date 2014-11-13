@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.CreateDBSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,14 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new DB subnet group. DB subnet groups must contain at least one
--- subnet in at least two AZs in the region. https://rds.amazonaws.com/
--- ?Action=CreateDBSubnetGroup &DBSubnetGroupName=mydbsubnetgroup
--- &DBSubnetGroupDescription=My%20new%20DBSubnetGroup &Version=2013-05-15
--- &SignatureVersion=2 &SignatureMethod=HmacSHA256
--- &Timestamp=2011-02-15T18%3A14%3A49.482Z &AWSAccessKeyId= &Signature=
--- 990524496922 Complete My new DBSubnetGroup mydbsubnetgroup Active
--- subnet-7c5b4115 us-east-1c Active subnet-7b5b4112 us-east-1b Active
--- subnet-3ea6bd57 us-east-1d ed662948-a57b-11df-9e38-7ffab86c801f.
+-- subnet in at least two AZs in the region.
 module Network.AWS.RDS.CreateDBSubnetGroup
     (
     -- * Request
@@ -34,8 +29,8 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- ** Request constructor
     , createDBSubnetGroup
     -- ** Request lenses
-    , cdbsg1DBSubnetGroupName
     , cdbsg1DBSubnetGroupDescription
+    , cdbsg1DBSubnetGroupName
     , cdbsg1SubnetIds
     , cdbsg1Tags
 
@@ -44,102 +39,91 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- ** Response constructor
     , createDBSubnetGroupResponse
     -- ** Response lenses
-    , cdbsgrrDBSubnetGroup
+    , cdbsgrDBSubnetGroup
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data CreateDBSubnetGroup = CreateDBSubnetGroup
-    { _cdbsg1DBSubnetGroupName :: Text
-    , _cdbsg1DBSubnetGroupDescription :: Text
-    , _cdbsg1SubnetIds :: [Text]
-    , _cdbsg1Tags :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    { _cdbsg1DBSubnetGroupDescription :: Text
+    , _cdbsg1DBSubnetGroupName        :: Text
+    , _cdbsg1SubnetIds                :: [Text]
+    , _cdbsg1Tags                     :: [Tag]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDBSubnetGroup' request.
+-- | 'CreateDBSubnetGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBSubnetGroupName ::@ @Text@
+-- * 'cdbsg1DBSubnetGroupDescription' @::@ 'Text'
 --
--- * @DBSubnetGroupDescription ::@ @Text@
+-- * 'cdbsg1DBSubnetGroupName' @::@ 'Text'
 --
--- * @SubnetIds ::@ @[Text]@
+-- * 'cdbsg1SubnetIds' @::@ ['Text']
 --
--- * @Tags ::@ @[Tag]@
+-- * 'cdbsg1Tags' @::@ ['Tag']
 --
 createDBSubnetGroup :: Text -- ^ 'cdbsg1DBSubnetGroupName'
                     -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
-                    -> [Text] -- ^ 'cdbsg1SubnetIds'
                     -> CreateDBSubnetGroup
-createDBSubnetGroup p1 p2 p3 = CreateDBSubnetGroup
-    { _cdbsg1DBSubnetGroupName = p1
+createDBSubnetGroup p1 p2 = CreateDBSubnetGroup
+    { _cdbsg1DBSubnetGroupName        = p1
     , _cdbsg1DBSubnetGroupDescription = p2
-    , _cdbsg1SubnetIds = p3
-    , _cdbsg1Tags = mempty
+    , _cdbsg1SubnetIds                = mempty
+    , _cdbsg1Tags                     = mempty
     }
-
--- | The name for the DB subnet group. This value is stored as a lowercase
--- string. Constraints: Must contain no more than 255 alphanumeric characters
--- or hyphens. Must not be "Default". Example: mySubnetgroup.
-cdbsg1DBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
-cdbsg1DBSubnetGroupName =
-    lens _cdbsg1DBSubnetGroupName
-         (\s a -> s { _cdbsg1DBSubnetGroupName = a })
 
 -- | The description for the DB subnet group.
 cdbsg1DBSubnetGroupDescription :: Lens' CreateDBSubnetGroup Text
 cdbsg1DBSubnetGroupDescription =
     lens _cdbsg1DBSubnetGroupDescription
-         (\s a -> s { _cdbsg1DBSubnetGroupDescription = a })
+        (\s a -> s { _cdbsg1DBSubnetGroupDescription = a })
+
+-- | The name for the DB subnet group. This value is stored as a lowercase
+-- string. Constraints: Must contain no more than 255 alphanumeric
+-- characters or hyphens. Must not be "Default". Example: mySubnetgroup.
+cdbsg1DBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
+cdbsg1DBSubnetGroupName =
+    lens _cdbsg1DBSubnetGroupName (\s a -> s { _cdbsg1DBSubnetGroupName = a })
 
 -- | The EC2 Subnet IDs for the DB subnet group.
 cdbsg1SubnetIds :: Lens' CreateDBSubnetGroup [Text]
 cdbsg1SubnetIds = lens _cdbsg1SubnetIds (\s a -> s { _cdbsg1SubnetIds = a })
 
--- | A list of tags.
 cdbsg1Tags :: Lens' CreateDBSubnetGroup [Tag]
 cdbsg1Tags = lens _cdbsg1Tags (\s a -> s { _cdbsg1Tags = a })
 
-instance ToQuery CreateDBSubnetGroup where
-    toQuery = genericQuery def
+instance ToQuery CreateDBSubnetGroup
+
+instance ToPath CreateDBSubnetGroup where
+    toPath = const "/"
 
 newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
-    { _cdbsgrrDBSubnetGroup :: Maybe DBSubnetGroup
-    } deriving (Eq, Ord, Show, Generic)
+    { _cdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDBSubnetGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateDBSubnetGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DBSubnetGroup ::@ @Maybe DBSubnetGroup@
+-- * 'cdbsgrDBSubnetGroup' @::@ 'Maybe' 'DBSubnetGroup'
 --
 createDBSubnetGroupResponse :: CreateDBSubnetGroupResponse
 createDBSubnetGroupResponse = CreateDBSubnetGroupResponse
-    { _cdbsgrrDBSubnetGroup = Nothing
+    { _cdbsgrDBSubnetGroup = Nothing
     }
 
--- | Contains the result of a successful invocation of the following actions:
--- CreateDBSubnetGroup ModifyDBSubnetGroup DescribeDBSubnetGroups
--- DeleteDBSubnetGroup This data type is used as a response element in the
--- DescribeDBSubnetGroups action.
-cdbsgrrDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
-cdbsgrrDBSubnetGroup =
-    lens _cdbsgrrDBSubnetGroup (\s a -> s { _cdbsgrrDBSubnetGroup = a })
-
-instance FromXML CreateDBSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
+cdbsgrDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
+cdbsgrDBSubnetGroup =
+    lens _cdbsgrDBSubnetGroup (\s a -> s { _cdbsgrDBSubnetGroup = a })
 
 instance AWSRequest CreateDBSubnetGroup where
     type Sv CreateDBSubnetGroup = RDS
     type Rs CreateDBSubnetGroup = CreateDBSubnetGroupResponse
 
-    request = post "CreateDBSubnetGroup"
-    response _ = xmlResponse
+    request  = post "CreateDBSubnetGroup"
+    response = xmlResponse $ \h x -> CreateDBSubnetGroupResponse
+        <$> x %| "DBSubnetGroup"

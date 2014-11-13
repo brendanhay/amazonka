@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.CreateInternetGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,15 +23,16 @@
 -- | Creates an Internet gateway for use with a VPC. After creating the Internet
 -- gateway, you attach it to a VPC using AttachInternetGateway. For more
 -- information about your VPC and Internet gateway, see the Amazon Virtual
--- Private Cloud User Guide. Example This example creates an Internet gateway.
--- https://ec2.amazonaws.com/?Action=CreateInternetGateway &amp;AUTHPARAMS
--- 59dbff89-35bd-4eac-99ed-be587EXAMPLE igw-eaad4883.
+-- Private Cloud User Guide.
 module Network.AWS.EC2.CreateInternetGateway
     (
     -- * Request
       CreateInternetGateway
     -- ** Request constructor
     , createInternetGateway
+    -- ** Request lenses
+    , cigDryRun
+
     -- * Response
     , CreateInternetGatewayResponse
     -- ** Response constructor
@@ -38,33 +41,43 @@ module Network.AWS.EC2.CreateInternetGateway
     , cigrInternetGateway
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-data CreateInternetGateway = CreateInternetGateway
-    deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateInternetGateway' request.
-createInternetGateway :: CreateInternetGateway
-createInternetGateway = CreateInternetGateway
-
-instance ToQuery CreateInternetGateway where
-    toQuery = genericQuery def
-
-newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
-    { _cigrInternetGateway :: Maybe InternetGateway
+newtype CreateInternetGateway = CreateInternetGateway
+    { _cigDryRun :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateInternetGatewayResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateInternetGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InternetGateway ::@ @Maybe InternetGateway@
+-- * 'cigDryRun' @::@ 'Maybe' 'Bool'
+--
+createInternetGateway :: CreateInternetGateway
+createInternetGateway = CreateInternetGateway
+    { _cigDryRun = Nothing
+    }
+
+cigDryRun :: Lens' CreateInternetGateway (Maybe Bool)
+cigDryRun = lens _cigDryRun (\s a -> s { _cigDryRun = a })
+
+instance ToQuery CreateInternetGateway
+
+instance ToPath CreateInternetGateway where
+    toPath = const "/"
+
+newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
+    { _cigrInternetGateway :: Maybe InternetGateway
+    } deriving (Eq, Show, Generic)
+
+-- | 'CreateInternetGatewayResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cigrInternetGateway' @::@ 'Maybe' 'InternetGateway'
 --
 createInternetGatewayResponse :: CreateInternetGatewayResponse
 createInternetGatewayResponse = CreateInternetGatewayResponse
@@ -76,12 +89,10 @@ cigrInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGatewa
 cigrInternetGateway =
     lens _cigrInternetGateway (\s a -> s { _cigrInternetGateway = a })
 
-instance FromXML CreateInternetGatewayResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateInternetGateway where
     type Sv CreateInternetGateway = EC2
     type Rs CreateInternetGateway = CreateInternetGatewayResponse
 
-    request = post "CreateInternetGateway"
-    response _ = xmlResponse
+    request  = post "CreateInternetGateway"
+    response = xmlResponse $ \h x -> CreateInternetGatewayResponse
+        <$> x %| "internetGateway"

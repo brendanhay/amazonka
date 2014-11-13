@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ModifyReservedInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,16 +23,8 @@
 -- | Modifies the Availability Zone, instance count, instance type, or network
 -- platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved
 -- Instances to be modified must be identical, except for Availability Zone,
--- network platform, and instance type. Example
--- https://ec2.amazonaws.com/?Action=ModifyReservedInstances
--- &amp;ClientToken=myClientToken
--- &amp;ReservedInstancesConfigurationSetItemType.0.AvailabilityZone=us-east-1a
--- &amp;ReservedInstancesConfigurationSetItemType.0.InstanceCount=1
--- &amp;ReservedInstancesConfigurationSetItemType.0.Platform=EC2-VPC
--- &amp;ReservedInstancesConfigurationSetItemType.0.InstanceType=m1.small
--- &amp;ReservedInstancesId.0=d16f7a91-4d0f-4f19-9d7f-a74d26b1ccfa
--- &amp;AUTHPARAMS bef729b6-0731-4489-8881-2258746ae163
--- rimod-3aae219d-3d63-47a9-a7e9-e764example.
+-- network platform, and instance type. For more information, see Modifying
+-- Reserved Instances in the Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.ModifyReservedInstances
     (
     -- * Request
@@ -50,34 +44,32 @@ module Network.AWS.EC2.ModifyReservedInstances
     , mrirReservedInstancesModificationId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ModifyReservedInstances = ModifyReservedInstances
-    { _mriClientToken :: Maybe Text
+    { _mriClientToken          :: Maybe Text
     , _mriReservedInstancesIds :: [Text]
     , _mriTargetConfigurations :: [ReservedInstancesConfiguration]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyReservedInstances' request.
+-- | 'ModifyReservedInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ClientToken ::@ @Maybe Text@
+-- * 'mriClientToken' @::@ 'Maybe' 'Text'
 --
--- * @ReservedInstancesIds ::@ @[Text]@
+-- * 'mriReservedInstancesIds' @::@ ['Text']
 --
--- * @TargetConfigurations ::@ @[ReservedInstancesConfiguration]@
+-- * 'mriTargetConfigurations' @::@ ['ReservedInstancesConfiguration']
 --
-modifyReservedInstances :: [Text] -- ^ 'mriReservedInstancesIds'
-                        -> [ReservedInstancesConfiguration] -- ^ 'mriTargetConfigurations'
-                        -> ModifyReservedInstances
-modifyReservedInstances p2 p3 = ModifyReservedInstances
-    { _mriClientToken = Nothing
-    , _mriReservedInstancesIds = p2
-    , _mriTargetConfigurations = p3
+modifyReservedInstances :: ModifyReservedInstances
+modifyReservedInstances = ModifyReservedInstances
+    { _mriClientToken          = Nothing
+    , _mriReservedInstancesIds = mempty
+    , _mriTargetConfigurations = mempty
     }
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your
@@ -88,30 +80,27 @@ mriClientToken = lens _mriClientToken (\s a -> s { _mriClientToken = a })
 -- | The IDs of the Reserved Instances to modify.
 mriReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
 mriReservedInstancesIds =
-    lens _mriReservedInstancesIds
-         (\s a -> s { _mriReservedInstancesIds = a })
+    lens _mriReservedInstancesIds (\s a -> s { _mriReservedInstancesIds = a })
 
 -- | The configuration settings for the Reserved Instances to modify.
 mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
 mriTargetConfigurations =
-    lens _mriTargetConfigurations
-         (\s a -> s { _mriTargetConfigurations = a })
+    lens _mriTargetConfigurations (\s a -> s { _mriTargetConfigurations = a })
 
-instance ToQuery ModifyReservedInstances where
-    toQuery = genericQuery def
+instance ToQuery ModifyReservedInstances
+
+instance ToPath ModifyReservedInstances where
+    toPath = const "/"
 
 newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrirReservedInstancesModificationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyReservedInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ModifyReservedInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesModificationId ::@ @Maybe Text@
+-- * 'mrirReservedInstancesModificationId' @::@ 'Maybe' 'Text'
 --
 modifyReservedInstancesResponse :: ModifyReservedInstancesResponse
 modifyReservedInstancesResponse = ModifyReservedInstancesResponse
@@ -122,14 +111,12 @@ modifyReservedInstancesResponse = ModifyReservedInstancesResponse
 mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
 mrirReservedInstancesModificationId =
     lens _mrirReservedInstancesModificationId
-         (\s a -> s { _mrirReservedInstancesModificationId = a })
-
-instance FromXML ModifyReservedInstancesResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _mrirReservedInstancesModificationId = a })
 
 instance AWSRequest ModifyReservedInstances where
     type Sv ModifyReservedInstances = EC2
     type Rs ModifyReservedInstances = ModifyReservedInstancesResponse
 
-    request = post "ModifyReservedInstances"
-    response _ = xmlResponse
+    request  = post "ModifyReservedInstances"
+    response = xmlResponse $ \h x -> ModifyReservedInstancesResponse
+        <$> x %| "reservedInstancesModificationId"

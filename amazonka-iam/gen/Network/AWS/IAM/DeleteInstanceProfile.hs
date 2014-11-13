@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.DeleteInstanceProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,9 +26,6 @@
 -- or instance profile that is associated with a running instance will break
 -- any applications running on the instance. For more information about
 -- instance profiles, go to About Instance Profiles.
--- https://iam.amazonaws.com/ ?Action=DeleteInstanceProfile
--- &InstanceProfileName=Webserver &Version=2010-05-08 &AUTHPARAMS
--- 90c18667-99f3-11e1-a4c3-27EXAMPLE804.
 module Network.AWS.IAM.DeleteInstanceProfile
     (
     -- * Request
@@ -42,20 +41,20 @@ module Network.AWS.IAM.DeleteInstanceProfile
     , deleteInstanceProfileResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype DeleteInstanceProfile = DeleteInstanceProfile
     { _dipInstanceProfileName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteInstanceProfile' request.
+-- | 'DeleteInstanceProfile' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceProfileName ::@ @Text@
+-- * 'dipInstanceProfileName' @::@ 'Text'
 --
 deleteInstanceProfile :: Text -- ^ 'dipInstanceProfileName'
                       -> DeleteInstanceProfile
@@ -63,21 +62,20 @@ deleteInstanceProfile p1 = DeleteInstanceProfile
     { _dipInstanceProfileName = p1
     }
 
--- | Name of the instance profile to delete.
+-- | The name of the instance profile to delete.
 dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
 dipInstanceProfileName =
     lens _dipInstanceProfileName (\s a -> s { _dipInstanceProfileName = a })
 
-instance ToQuery DeleteInstanceProfile where
-    toQuery = genericQuery def
+instance ToQuery DeleteInstanceProfile
+
+instance ToPath DeleteInstanceProfile where
+    toPath = const "/"
 
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteInstanceProfileResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteInstanceProfileResponse' constructor.
 deleteInstanceProfileResponse :: DeleteInstanceProfileResponse
 deleteInstanceProfileResponse = DeleteInstanceProfileResponse
 
@@ -85,5 +83,5 @@ instance AWSRequest DeleteInstanceProfile where
     type Sv DeleteInstanceProfile = IAM
     type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse
 
-    request = post "DeleteInstanceProfile"
-    response _ = nullaryResponse DeleteInstanceProfileResponse
+    request  = post "DeleteInstanceProfile"
+    response = nullaryResponse DeleteInstanceProfileResponse

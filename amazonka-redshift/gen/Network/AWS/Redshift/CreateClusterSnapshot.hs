@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,15 +23,6 @@
 -- | Creates a manual snapshot of the specified cluster. The cluster must be in
 -- the available state. For more information about working with snapshots, go
 -- to Amazon Redshift Snapshots in the Amazon Redshift Management Guide.
--- https://redshift.us-east-1.amazonaws.com/ ?Action=CreateClusterSnapshot
--- &ClusterIdentifier=examplecluster &SnapshotIdentifier=snapshot-1234
--- &Version=2012-12-01 &x-amz-algorithm=AWS4-HMAC-SHA256
--- &x-amz-credential=AKIAIOSFODNN7EXAMPLE/20130123/us-east-1/redshift/aws4_request
--- &x-amz-date=20130123T010824Z
--- &x-amz-signedheaders=content-type;host;x-amz-date 5439 my-snapshot-123
--- creating manual 1.0 2013-01-23T01:08:29.142Z 2 dev 2013-01-22T19:23:59.368Z
--- us-east-1c dw1.xlarge examplecluster adminuser
--- 65baef14-64f9-11e2-bea9-49e0ce183f07.
 module Network.AWS.Redshift.CreateClusterSnapshot
     (
     -- * Request
@@ -37,90 +30,85 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     -- ** Request constructor
     , createClusterSnapshot
     -- ** Request lenses
-    , ccs1SnapshotIdentifier
-    , ccs1ClusterIdentifier
+    , ccsClusterIdentifier
+    , ccsSnapshotIdentifier
 
     -- * Response
     , CreateClusterSnapshotResponse
     -- ** Response constructor
     , createClusterSnapshotResponse
     -- ** Response lenses
-    , ccsrrSnapshot
+    , ccsr1Snapshot
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data CreateClusterSnapshot = CreateClusterSnapshot
-    { _ccs1SnapshotIdentifier :: Text
-    , _ccs1ClusterIdentifier :: Text
+    { _ccsClusterIdentifier  :: Text
+    , _ccsSnapshotIdentifier :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateClusterSnapshot' request.
+-- | 'CreateClusterSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SnapshotIdentifier ::@ @Text@
+-- * 'ccsClusterIdentifier' @::@ 'Text'
 --
--- * @ClusterIdentifier ::@ @Text@
+-- * 'ccsSnapshotIdentifier' @::@ 'Text'
 --
-createClusterSnapshot :: Text -- ^ 'ccs1SnapshotIdentifier'
-                      -> Text -- ^ 'ccs1ClusterIdentifier'
+createClusterSnapshot :: Text -- ^ 'ccsSnapshotIdentifier'
+                      -> Text -- ^ 'ccsClusterIdentifier'
                       -> CreateClusterSnapshot
 createClusterSnapshot p1 p2 = CreateClusterSnapshot
-    { _ccs1SnapshotIdentifier = p1
-    , _ccs1ClusterIdentifier = p2
+    { _ccsSnapshotIdentifier = p1
+    , _ccsClusterIdentifier  = p2
     }
+
+-- | The cluster identifier for which you want a snapshot.
+ccsClusterIdentifier :: Lens' CreateClusterSnapshot Text
+ccsClusterIdentifier =
+    lens _ccsClusterIdentifier (\s a -> s { _ccsClusterIdentifier = a })
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the AWS account.
 -- Constraints: Cannot be null, empty, or blank Must contain from 1 to 255
--- alphanumeric characters or hyphens First character must be a letter Cannot
--- end with a hyphen or contain two consecutive hyphens Example:
+-- alphanumeric characters or hyphens First character must be a letter
+-- Cannot end with a hyphen or contain two consecutive hyphens Example:
 -- my-snapshot-id.
-ccs1SnapshotIdentifier :: Lens' CreateClusterSnapshot Text
-ccs1SnapshotIdentifier =
-    lens _ccs1SnapshotIdentifier (\s a -> s { _ccs1SnapshotIdentifier = a })
+ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
+ccsSnapshotIdentifier =
+    lens _ccsSnapshotIdentifier (\s a -> s { _ccsSnapshotIdentifier = a })
 
--- | The cluster identifier for which you want a snapshot.
-ccs1ClusterIdentifier :: Lens' CreateClusterSnapshot Text
-ccs1ClusterIdentifier =
-    lens _ccs1ClusterIdentifier (\s a -> s { _ccs1ClusterIdentifier = a })
+instance ToQuery CreateClusterSnapshot
 
-instance ToQuery CreateClusterSnapshot where
-    toQuery = genericQuery def
+instance ToPath CreateClusterSnapshot where
+    toPath = const "/"
 
 newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
-    { _ccsrrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Ord, Show, Generic)
+    { _ccsr1Snapshot :: Maybe Snapshot
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateClusterSnapshotResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateClusterSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Snapshot ::@ @Maybe Snapshot@
+-- * 'ccsr1Snapshot' @::@ 'Maybe' 'Snapshot'
 --
 createClusterSnapshotResponse :: CreateClusterSnapshotResponse
 createClusterSnapshotResponse = CreateClusterSnapshotResponse
-    { _ccsrrSnapshot = Nothing
+    { _ccsr1Snapshot = Nothing
     }
 
--- | Describes a snapshot.
-ccsrrSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
-ccsrrSnapshot = lens _ccsrrSnapshot (\s a -> s { _ccsrrSnapshot = a })
-
-instance FromXML CreateClusterSnapshotResponse where
-    fromXMLOptions = xmlOptions
+ccsr1Snapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
+ccsr1Snapshot = lens _ccsr1Snapshot (\s a -> s { _ccsr1Snapshot = a })
 
 instance AWSRequest CreateClusterSnapshot where
     type Sv CreateClusterSnapshot = Redshift
     type Rs CreateClusterSnapshot = CreateClusterSnapshotResponse
 
-    request = post "CreateClusterSnapshot"
-    response _ = xmlResponse
+    request  = post "CreateClusterSnapshot"
+    response = xmlResponse $ \h x -> CreateClusterSnapshotResponse
+        <$> x %| "Snapshot"

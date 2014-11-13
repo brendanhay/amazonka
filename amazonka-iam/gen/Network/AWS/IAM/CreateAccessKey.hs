@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.CreateAccessKey
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,7 +24,7 @@
 -- the specified user. The default status for new keys is Active. If you do
 -- not specify a user name, IAM determines the user name implicitly based on
 -- the AWS access key ID signing the request. Because this action works for
--- access keys under the AWS account, you can use this API to manage root
+-- access keys under the AWS account, you can use this action to manage root
 -- credentials even if the AWS account has no associated users. For
 -- information about limits on the number of keys you can create, see
 -- Limitations on IAM Entities in the Using IAM guide. To ensure the security
@@ -30,10 +32,6 @@
 -- and user creation. You must save the key (for example, in a text file) if
 -- you want to be able to access it again. If a secret key is lost, you can
 -- delete the access keys for the associated user and then create new keys.
--- https://iam.amazonaws.com/ ?Action=CreateAccessKey &UserName=Bob
--- &Version=2010-05-08 &AUTHPARAMS Bob AKIAIOSFODNN7EXAMPLE Active
--- wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 module Network.AWS.IAM.CreateAccessKey
     (
     -- * Request
@@ -51,20 +49,20 @@ module Network.AWS.IAM.CreateAccessKey
     , cakrAccessKey
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype CreateAccessKey = CreateAccessKey
     { _cakUserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateAccessKey' request.
+-- | 'CreateAccessKey' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Maybe Text@
+-- * 'cakUserName' @::@ 'Maybe' 'Text'
 --
 createAccessKey :: CreateAccessKey
 createAccessKey = CreateAccessKey
@@ -75,23 +73,20 @@ createAccessKey = CreateAccessKey
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
 cakUserName = lens _cakUserName (\s a -> s { _cakUserName = a })
 
-instance ToQuery CreateAccessKey where
-    toQuery = genericQuery def
+instance ToQuery CreateAccessKey
 
--- | Contains the result of a successful invocation of the CreateAccessKey
--- action.
+instance ToPath CreateAccessKey where
+    toPath = const "/"
+
 newtype CreateAccessKeyResponse = CreateAccessKeyResponse
     { _cakrAccessKey :: AccessKey
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateAccessKeyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateAccessKeyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AccessKey ::@ @AccessKey@
+-- * 'cakrAccessKey' @::@ 'AccessKey'
 --
 createAccessKeyResponse :: AccessKey -- ^ 'cakrAccessKey'
                         -> CreateAccessKeyResponse
@@ -103,12 +98,10 @@ createAccessKeyResponse p1 = CreateAccessKeyResponse
 cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
 cakrAccessKey = lens _cakrAccessKey (\s a -> s { _cakrAccessKey = a })
 
-instance FromXML CreateAccessKeyResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest CreateAccessKey where
     type Sv CreateAccessKey = IAM
     type Rs CreateAccessKey = CreateAccessKeyResponse
 
-    request = post "CreateAccessKey"
-    response _ = xmlResponse
+    request  = post "CreateAccessKey"
+    response = xmlResponse $ \h x -> CreateAccessKeyResponse
+        <$> x %| "AccessKey"

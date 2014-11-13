@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,9 +30,9 @@ module Network.AWS.S3.PutBucketLogging
     -- ** Request constructor
     , putBucketLogging
     -- ** Request lenses
-    , pbl1Bucket
-    , pbl1BucketLoggingStatus
-    , pbl1ContentMD5
+    , pblBucket
+    , pblBucketLoggingStatus
+    , pblContentMD5
 
     -- * Response
     , PutBucketLoggingResponse
@@ -38,67 +40,67 @@ module Network.AWS.S3.PutBucketLogging
     , putBucketLoggingResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutBucketLogging = PutBucketLogging
-    { _pbl1Bucket :: BucketName
-    , _pbl1BucketLoggingStatus :: BucketLoggingStatus
-    , _pbl1ContentMD5 :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _pblBucket              :: Text
+    , _pblBucketLoggingStatus :: BucketLoggingStatus
+    , _pblContentMD5          :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketLogging' request.
+-- | 'PutBucketLogging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'pblBucket' @::@ 'Text'
 --
--- * @BucketLoggingStatus ::@ @BucketLoggingStatus@
+-- * 'pblBucketLoggingStatus' @::@ 'BucketLoggingStatus'
 --
--- * @ContentMD5 ::@ @Maybe Text@
+-- * 'pblContentMD5' @::@ 'Maybe' 'Text'
 --
-putBucketLogging :: BucketName -- ^ 'pbl1Bucket'
-                 -> BucketLoggingStatus -- ^ 'pbl1BucketLoggingStatus'
+putBucketLogging :: Text -- ^ 'pblBucket'
+                 -> BucketLoggingStatus -- ^ 'pblBucketLoggingStatus'
                  -> PutBucketLogging
 putBucketLogging p1 p2 = PutBucketLogging
-    { _pbl1Bucket = p1
-    , _pbl1BucketLoggingStatus = p2
-    , _pbl1ContentMD5 = Nothing
+    { _pblBucket              = p1
+    , _pblBucketLoggingStatus = p2
+    , _pblContentMD5          = Nothing
     }
 
-pbl1Bucket :: Lens' PutBucketLogging BucketName
-pbl1Bucket = lens _pbl1Bucket (\s a -> s { _pbl1Bucket = a })
+pblBucket :: Lens' PutBucketLogging Text
+pblBucket = lens _pblBucket (\s a -> s { _pblBucket = a })
 
-pbl1BucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
-pbl1BucketLoggingStatus =
-    lens _pbl1BucketLoggingStatus
-         (\s a -> s { _pbl1BucketLoggingStatus = a })
+pblBucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
+pblBucketLoggingStatus =
+    lens _pblBucketLoggingStatus (\s a -> s { _pblBucketLoggingStatus = a })
 
-pbl1ContentMD5 :: Lens' PutBucketLogging (Maybe Text)
-pbl1ContentMD5 = lens _pbl1ContentMD5 (\s a -> s { _pbl1ContentMD5 = a })
+pblContentMD5 :: Lens' PutBucketLogging (Maybe Text)
+pblContentMD5 = lens _pblContentMD5 (\s a -> s { _pblContentMD5 = a })
 
-instance ToPath PutBucketLogging
+instance ToPath PutBucketLogging where
+    toPath PutBucketLogging{..} = mconcat
+        [ "/"
+        , toText _pblBucket
+        ]
 
-instance ToQuery PutBucketLogging
+instance ToQuery PutBucketLogging where
+    toQuery = const "logging"
 
 instance ToHeaders PutBucketLogging where
-    toHeaders PutBucketLogging{..} = concat
-        [ "Content-MD5" =: _pbl1ContentMD5
+    toHeaders PutBucketLogging{..} = mconcat
+        [ "Content-MD5" =: _pblContentMD5
         ]
 
 instance ToBody PutBucketLogging where
-    toBody = toBody . encodeXML . _pbl1BucketLoggingStatus
+    toBody = toBody . encodeXML . _pblBucketLoggingStatus
 
 data PutBucketLoggingResponse = PutBucketLoggingResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketLoggingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutBucketLoggingResponse' constructor.
 putBucketLoggingResponse :: PutBucketLoggingResponse
 putBucketLoggingResponse = PutBucketLoggingResponse
 
@@ -106,5 +108,5 @@ instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
     type Rs PutBucketLogging = PutBucketLoggingResponse
 
-    request = get
-    response _ = nullaryResponse PutBucketLoggingResponse
+    request  = put
+    response = nullaryResponse PutBucketLoggingResponse

@@ -1,3 +1,0 @@
-{% include "record.ede" with scope %}
-{% include "constructor-operation.ede" with scope %}
-{% include "record-lenses.ede" with scope %}

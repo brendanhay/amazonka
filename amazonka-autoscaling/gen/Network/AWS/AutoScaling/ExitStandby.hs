@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.ExitStandby
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,13 +23,6 @@
 -- | Move an instance out of Standby mode. To learn more about how to put
 -- instances that are in a Standby mode back into service, see Auto Scaling
 -- InService State.
--- https://autoscaling.amazonaws.com/?InstanceIds.member.1=i-5b73d709&AutoScalingGroupName=my-asg&Version=2011-01-01&Action=ExitStandby&SignatureVersion=2&SignatureMet
--- hod=HmacSHA256&Timestamp=2014-06-13T22%3A43%3A53.182Z&AUTHPARAMS
--- dca4efcf-eea6-4844-8064-cab1fecd1aa2 30 PreInService
--- 2014-06-13T22:43:53.523Z At 2014-06-13T22:43:53Z instance i-5b73d709 was
--- moved out of standby in response to a user request, increasing the capacity
--- from 3 to 4. my-asg {"Availability Zone":"us-east-1a"} Moving EC2 instance
--- out of Standby: i-5b73d709 321a11c8-f34c-11e3-a434-7f10009d5849.
 module Network.AWS.AutoScaling.ExitStandby
     (
     -- * Request
@@ -35,87 +30,88 @@ module Network.AWS.AutoScaling.ExitStandby
     -- ** Request constructor
     , exitStandby
     -- ** Request lenses
-    , es1InstanceIds
     , es1AutoScalingGroupName
+    , es1InstanceIds
 
     -- * Response
     , ExitStandbyResponse
     -- ** Response constructor
     , exitStandbyResponse
     -- ** Response lenses
-    , esrrActivities
+    , esrActivities
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ExitStandby = ExitStandby
-    { _es1InstanceIds :: [Text]
-    , _es1AutoScalingGroupName :: Text
+    { _es1AutoScalingGroupName :: Text
+    , _es1InstanceIds          :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ExitStandby' request.
+-- | 'ExitStandby' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceIds ::@ @[Text]@
+-- * 'es1AutoScalingGroupName' @::@ 'Text'
 --
--- * @AutoScalingGroupName ::@ @Text@
+-- * 'es1InstanceIds' @::@ ['Text']
 --
 exitStandby :: Text -- ^ 'es1AutoScalingGroupName'
             -> ExitStandby
-exitStandby p2 = ExitStandby
-    { _es1InstanceIds = mempty
-    , _es1AutoScalingGroupName = p2
+exitStandby p1 = ExitStandby
+    { _es1AutoScalingGroupName = p1
+    , _es1InstanceIds          = mempty
     }
-
--- | A list of instances to move out of Standby mode. You must specify at least
--- one instance ID.
-es1InstanceIds :: Lens' ExitStandby [Text]
-es1InstanceIds = lens _es1InstanceIds (\s a -> s { _es1InstanceIds = a })
 
 -- | The name of the Auto Scaling group from which to move instances out of
 -- Standby mode.
 es1AutoScalingGroupName :: Lens' ExitStandby Text
 es1AutoScalingGroupName =
-    lens _es1AutoScalingGroupName
-         (\s a -> s { _es1AutoScalingGroupName = a })
+    lens _es1AutoScalingGroupName (\s a -> s { _es1AutoScalingGroupName = a })
 
-instance ToQuery ExitStandby where
-    toQuery = genericQuery def
+-- | A list of instances to move out of Standby mode. You must specify at
+-- least one instance ID.
+es1InstanceIds :: Lens' ExitStandby [Text]
+es1InstanceIds = lens _es1InstanceIds (\s a -> s { _es1InstanceIds = a })
 
--- | The output of the ExitStandby action.
+instance ToQuery ExitStandby
+
+instance ToPath ExitStandby where
+    toPath = const "/"
+
 newtype ExitStandbyResponse = ExitStandbyResponse
-    { _esrrActivities :: [Activity]
-    } deriving (Eq, Ord, Show, Generic)
+    { _esrActivities :: [Activity]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ExitStandbyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList ExitStandbyResponse where
+    type Item ExitStandbyResponse = Activity
+
+    fromList = ExitStandbyResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _esrActivities
+
+-- | 'ExitStandbyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Activities ::@ @[Activity]@
+-- * 'esrActivities' @::@ ['Activity']
 --
 exitStandbyResponse :: ExitStandbyResponse
 exitStandbyResponse = ExitStandbyResponse
-    { _esrrActivities = mempty
+    { _esrActivities = mempty
     }
 
--- | A list describing the activities related to moving instances out of Standby
--- mode.
-esrrActivities :: Lens' ExitStandbyResponse [Activity]
-esrrActivities = lens _esrrActivities (\s a -> s { _esrrActivities = a })
-
-instance FromXML ExitStandbyResponse where
-    fromXMLOptions = xmlOptions
+-- | A list describing the activities related to moving instances out of
+-- Standby mode.
+esrActivities :: Lens' ExitStandbyResponse [Activity]
+esrActivities = lens _esrActivities (\s a -> s { _esrActivities = a })
 
 instance AWSRequest ExitStandby where
     type Sv ExitStandby = AutoScaling
     type Rs ExitStandby = ExitStandbyResponse
 
-    request = post "ExitStandby"
-    response _ = xmlResponse
+    request  = post "ExitStandby"
+    response = xmlResponse $ \h x -> ExitStandbyResponse
+        <$> x %| "Activities"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DirectConnect.AllocatePublicVirtualInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,61 +35,58 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     , allocatePublicVirtualInterface
     -- ** Request lenses
     , apvi1ConnectionId
-    , apvi1OwnerAccount
     , apvi1NewPublicVirtualInterfaceAllocation
+    , apvi1OwnerAccount
 
     -- * Response
     , AllocatePublicVirtualInterfaceResponse
     -- ** Response constructor
     , allocatePublicVirtualInterfaceResponse
     -- ** Response lenses
-    , apvirrOwnerAccount
-    , apvirrVirtualInterfaceId
-    , apvirrLocation
-    , apvirrConnectionId
-    , apvirrVirtualInterfaceType
-    , apvirrVirtualInterfaceName
-    , apvirrVlan
-    , apvirrAsn
-    , apvirrAuthKey
-    , apvirrAmazonAddress
-    , apvirrCustomerAddress
-    , apvirrVirtualInterfaceState
-    , apvirrCustomerRouterConfig
-    , apvirrVirtualGatewayId
-    , apvirrRouteFilterPrefixes
+    , apvir1AmazonAddress
+    , apvir1Asn
+    , apvir1AuthKey
+    , apvir1ConnectionId
+    , apvir1CustomerAddress
+    , apvir1CustomerRouterConfig
+    , apvir1Location
+    , apvir1OwnerAccount
+    , apvir1RouteFilterPrefixes
+    , apvir1VirtualGatewayId
+    , apvir1VirtualInterfaceId
+    , apvir1VirtualInterfaceName
+    , apvir1VirtualInterfaceState
+    , apvir1VirtualInterfaceType
+    , apvir1Vlan
     ) where
 
-import Network.AWS.DirectConnect.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DirectConnect.Types
 
--- | Container for the parameters to the AllocatePublicVirtualInterface
--- operation.
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface
-    { _apvi1ConnectionId :: Text
-    , _apvi1OwnerAccount :: Text
+    { _apvi1ConnectionId                        :: Text
     , _apvi1NewPublicVirtualInterfaceAllocation :: NewPublicVirtualInterfaceAllocation
-    } deriving (Eq, Ord, Show, Generic)
+    , _apvi1OwnerAccount                        :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AllocatePublicVirtualInterface' request.
+-- | 'AllocatePublicVirtualInterface' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ConnectionId ::@ @Text@
+-- * 'apvi1ConnectionId' @::@ 'Text'
 --
--- * @OwnerAccount ::@ @Text@
+-- * 'apvi1NewPublicVirtualInterfaceAllocation' @::@ 'NewPublicVirtualInterfaceAllocation'
 --
--- * @NewPublicVirtualInterfaceAllocation ::@ @NewPublicVirtualInterfaceAllocation@
+-- * 'apvi1OwnerAccount' @::@ 'Text'
 --
 allocatePublicVirtualInterface :: Text -- ^ 'apvi1ConnectionId'
                                -> Text -- ^ 'apvi1OwnerAccount'
                                -> NewPublicVirtualInterfaceAllocation -- ^ 'apvi1NewPublicVirtualInterfaceAllocation'
                                -> AllocatePublicVirtualInterface
 allocatePublicVirtualInterface p1 p2 p3 = AllocatePublicVirtualInterface
-    { _apvi1ConnectionId = p1
-    , _apvi1OwnerAccount = p2
+    { _apvi1ConnectionId                        = p1
+    , _apvi1OwnerAccount                        = p2
     , _apvi1NewPublicVirtualInterfaceAllocation = p3
     }
 
@@ -97,204 +96,184 @@ apvi1ConnectionId :: Lens' AllocatePublicVirtualInterface Text
 apvi1ConnectionId =
     lens _apvi1ConnectionId (\s a -> s { _apvi1ConnectionId = a })
 
+-- | Detailed information for the public virtual interface to be provisioned.
+-- Default: None.
+apvi1NewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
+apvi1NewPublicVirtualInterfaceAllocation =
+    lens _apvi1NewPublicVirtualInterfaceAllocation
+        (\s a -> s { _apvi1NewPublicVirtualInterfaceAllocation = a })
+
 -- | The AWS account that will own the new public virtual interface. Default:
 -- None.
 apvi1OwnerAccount :: Lens' AllocatePublicVirtualInterface Text
 apvi1OwnerAccount =
     lens _apvi1OwnerAccount (\s a -> s { _apvi1OwnerAccount = a })
 
--- | Detailed information for the public virtual interface to be provisioned.
--- Default: None.
-apvi1NewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
-apvi1NewPublicVirtualInterfaceAllocation =
-    lens _apvi1NewPublicVirtualInterfaceAllocation
-         (\s a -> s { _apvi1NewPublicVirtualInterfaceAllocation = a })
+instance ToPath AllocatePublicVirtualInterface where
+    toPath = const "/"
 
-instance ToPath AllocatePublicVirtualInterface
-
-instance ToQuery AllocatePublicVirtualInterface
+instance ToQuery AllocatePublicVirtualInterface where
+    toQuery = const mempty
 
 instance ToHeaders AllocatePublicVirtualInterface
 
-instance ToJSON AllocatePublicVirtualInterface
+instance ToBody AllocatePublicVirtualInterface where
+    toBody = toBody . encode . _apvi1ConnectionId
 
--- | A virtual interface (VLAN) transmits the traffic between the AWS Direct
--- Connect location and the customer.
 data AllocatePublicVirtualInterfaceResponse = AllocatePublicVirtualInterfaceResponse
-    { _apvirrOwnerAccount :: Maybe Text
-    , _apvirrVirtualInterfaceId :: Maybe Text
-    , _apvirrLocation :: Maybe Text
-    , _apvirrConnectionId :: Maybe Text
-    , _apvirrVirtualInterfaceType :: Maybe Text
-    , _apvirrVirtualInterfaceName :: Maybe Text
-    , _apvirrVlan :: Maybe Integer
-    , _apvirrAsn :: Maybe Integer
-    , _apvirrAuthKey :: Maybe Text
-    , _apvirrAmazonAddress :: Maybe Text
-    , _apvirrCustomerAddress :: Maybe Text
-    , _apvirrVirtualInterfaceState :: Maybe VirtualInterfaceState
-    , _apvirrCustomerRouterConfig :: Maybe Text
-    , _apvirrVirtualGatewayId :: Maybe Text
-    , _apvirrRouteFilterPrefixes :: [RouteFilterPrefix]
-    } deriving (Eq, Ord, Show, Generic)
+    { _apvir1AmazonAddress         :: Maybe Text
+    , _apvir1Asn                   :: Maybe Int
+    , _apvir1AuthKey               :: Maybe Text
+    , _apvir1ConnectionId          :: Maybe Text
+    , _apvir1CustomerAddress       :: Maybe Text
+    , _apvir1CustomerRouterConfig  :: Maybe Text
+    , _apvir1Location              :: Maybe Text
+    , _apvir1OwnerAccount          :: Maybe Text
+    , _apvir1RouteFilterPrefixes   :: [RouteFilterPrefix]
+    , _apvir1VirtualGatewayId      :: Maybe Text
+    , _apvir1VirtualInterfaceId    :: Maybe Text
+    , _apvir1VirtualInterfaceName  :: Maybe Text
+    , _apvir1VirtualInterfaceState :: Maybe Text
+    , _apvir1VirtualInterfaceType  :: Maybe Text
+    , _apvir1Vlan                  :: Maybe Int
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AllocatePublicVirtualInterfaceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AllocatePublicVirtualInterfaceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OwnerAccount ::@ @Maybe Text@
+-- * 'apvir1AmazonAddress' @::@ 'Maybe' 'Text'
 --
--- * @VirtualInterfaceId ::@ @Maybe Text@
+-- * 'apvir1Asn' @::@ 'Maybe' 'Int'
 --
--- * @Location ::@ @Maybe Text@
+-- * 'apvir1AuthKey' @::@ 'Maybe' 'Text'
 --
--- * @ConnectionId ::@ @Maybe Text@
+-- * 'apvir1ConnectionId' @::@ 'Maybe' 'Text'
 --
--- * @VirtualInterfaceType ::@ @Maybe Text@
+-- * 'apvir1CustomerAddress' @::@ 'Maybe' 'Text'
 --
--- * @VirtualInterfaceName ::@ @Maybe Text@
+-- * 'apvir1CustomerRouterConfig' @::@ 'Maybe' 'Text'
 --
--- * @Vlan ::@ @Maybe Integer@
+-- * 'apvir1Location' @::@ 'Maybe' 'Text'
 --
--- * @Asn ::@ @Maybe Integer@
+-- * 'apvir1OwnerAccount' @::@ 'Maybe' 'Text'
 --
--- * @AuthKey ::@ @Maybe Text@
+-- * 'apvir1RouteFilterPrefixes' @::@ ['RouteFilterPrefix']
 --
--- * @AmazonAddress ::@ @Maybe Text@
+-- * 'apvir1VirtualGatewayId' @::@ 'Maybe' 'Text'
 --
--- * @CustomerAddress ::@ @Maybe Text@
+-- * 'apvir1VirtualInterfaceId' @::@ 'Maybe' 'Text'
 --
--- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
+-- * 'apvir1VirtualInterfaceName' @::@ 'Maybe' 'Text'
 --
--- * @CustomerRouterConfig ::@ @Maybe Text@
+-- * 'apvir1VirtualInterfaceState' @::@ 'Maybe' 'Text'
 --
--- * @VirtualGatewayId ::@ @Maybe Text@
+-- * 'apvir1VirtualInterfaceType' @::@ 'Maybe' 'Text'
 --
--- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
+-- * 'apvir1Vlan' @::@ 'Maybe' 'Int'
 --
 allocatePublicVirtualInterfaceResponse :: AllocatePublicVirtualInterfaceResponse
 allocatePublicVirtualInterfaceResponse = AllocatePublicVirtualInterfaceResponse
-    { _apvirrOwnerAccount = Nothing
-    , _apvirrVirtualInterfaceId = Nothing
-    , _apvirrLocation = Nothing
-    , _apvirrConnectionId = Nothing
-    , _apvirrVirtualInterfaceType = Nothing
-    , _apvirrVirtualInterfaceName = Nothing
-    , _apvirrVlan = Nothing
-    , _apvirrAsn = Nothing
-    , _apvirrAuthKey = Nothing
-    , _apvirrAmazonAddress = Nothing
-    , _apvirrCustomerAddress = Nothing
-    , _apvirrVirtualInterfaceState = Nothing
-    , _apvirrCustomerRouterConfig = Nothing
-    , _apvirrVirtualGatewayId = Nothing
-    , _apvirrRouteFilterPrefixes = mempty
+    { _apvir1OwnerAccount          = Nothing
+    , _apvir1VirtualInterfaceId    = Nothing
+    , _apvir1Location              = Nothing
+    , _apvir1ConnectionId          = Nothing
+    , _apvir1VirtualInterfaceType  = Nothing
+    , _apvir1VirtualInterfaceName  = Nothing
+    , _apvir1Vlan                  = Nothing
+    , _apvir1Asn                   = Nothing
+    , _apvir1AuthKey               = Nothing
+    , _apvir1AmazonAddress         = Nothing
+    , _apvir1CustomerAddress       = Nothing
+    , _apvir1VirtualInterfaceState = Nothing
+    , _apvir1CustomerRouterConfig  = Nothing
+    , _apvir1VirtualGatewayId      = Nothing
+    , _apvir1RouteFilterPrefixes   = mempty
     }
 
-apvirrOwnerAccount :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-apvirrOwnerAccount =
-    lens _apvirrOwnerAccount (\s a -> s { _apvirrOwnerAccount = a })
+apvir1AmazonAddress :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1AmazonAddress =
+    lens _apvir1AmazonAddress (\s a -> s { _apvir1AmazonAddress = a })
 
--- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-apvirrVirtualInterfaceId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-apvirrVirtualInterfaceId =
-    lens _apvirrVirtualInterfaceId
-         (\s a -> s { _apvirrVirtualInterfaceId = a })
+apvir1Asn :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Int)
+apvir1Asn = lens _apvir1Asn (\s a -> s { _apvir1Asn = a })
 
--- | Where the connection is located. Example: EqSV5 Default: None.
-apvirrLocation :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-apvirrLocation = lens _apvirrLocation (\s a -> s { _apvirrLocation = a })
+apvir1AuthKey :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1AuthKey = lens _apvir1AuthKey (\s a -> s { _apvir1AuthKey = a })
 
--- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-apvirrConnectionId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-apvirrConnectionId =
-    lens _apvirrConnectionId (\s a -> s { _apvirrConnectionId = a })
+apvir1ConnectionId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1ConnectionId =
+    lens _apvir1ConnectionId (\s a -> s { _apvir1ConnectionId = a })
 
--- | The type of virtual interface. Example: private (Amazon VPC) or public
--- (Amazon S3, Amazon DynamoDB, and so on.).
-apvirrVirtualInterfaceType :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-apvirrVirtualInterfaceType =
-    lens _apvirrVirtualInterfaceType
-         (\s a -> s { _apvirrVirtualInterfaceType = a })
-
--- | The name of the virtual interface assigned by the customer. Example: "My
--- VPC".
-apvirrVirtualInterfaceName :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-apvirrVirtualInterfaceName =
-    lens _apvirrVirtualInterfaceName
-         (\s a -> s { _apvirrVirtualInterfaceName = a })
-
--- | The VLAN ID. Example: 101.
-apvirrVlan :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Integer)
-apvirrVlan = lens _apvirrVlan (\s a -> s { _apvirrVlan = a })
-
--- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
--- configuration. Example: 65000.
-apvirrAsn :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Integer)
-apvirrAsn = lens _apvirrAsn (\s a -> s { _apvirrAsn = a })
-
--- | Authentication key for BGP configuration. Example: asdf34example.
-apvirrAuthKey :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-apvirrAuthKey = lens _apvirrAuthKey (\s a -> s { _apvirrAuthKey = a })
-
--- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
-apvirrAmazonAddress :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-apvirrAmazonAddress =
-    lens _apvirrAmazonAddress (\s a -> s { _apvirrAmazonAddress = a })
-
--- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
-apvirrCustomerAddress :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-apvirrCustomerAddress =
-    lens _apvirrCustomerAddress (\s a -> s { _apvirrCustomerAddress = a })
-
--- | State of the virtual interface. Confirming: The creation of the virtual
--- interface is pending confirmation from the virtual interface owner. If the
--- owner of the virtual interface is different from the owner of the
--- connection on which it is provisioned, then the virtual interface will
--- remain in this state until it is confirmed by the virtual interface owner.
--- Verifying: This state only applies to public virtual interfaces. Each
--- public virtual interface needs validation before the virtual interface can
--- be created. Pending: A virtual interface is in this state from the time
--- that it is created until the virtual interface is ready to forward traffic.
--- Available: A virtual interface that is able to forward traffic. Deleting: A
--- virtual interface is in this state immediately after calling
--- DeleteVirtualInterface until it can no longer forward traffic. Deleted: A
--- virtual interface that cannot forward traffic. Rejected: The virtual
--- interface owner has declined creation of the virtual interface. If a
--- virtual interface in the 'Confirming' state is deleted by the virtual
--- interface owner, the virtual interface will enter the 'Rejected' state.
-apvirrVirtualInterfaceState :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-apvirrVirtualInterfaceState =
-    lens _apvirrVirtualInterfaceState
-         (\s a -> s { _apvirrVirtualInterfaceState = a })
+apvir1CustomerAddress :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1CustomerAddress =
+    lens _apvir1CustomerAddress (\s a -> s { _apvir1CustomerAddress = a })
 
 -- | Information for generating the customer router configuration.
-apvirrCustomerRouterConfig :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-apvirrCustomerRouterConfig =
-    lens _apvirrCustomerRouterConfig
-         (\s a -> s { _apvirrCustomerRouterConfig = a })
+apvir1CustomerRouterConfig :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1CustomerRouterConfig =
+    lens _apvir1CustomerRouterConfig
+        (\s a -> s { _apvir1CustomerRouterConfig = a })
 
--- | The ID of the virtual private gateway to a VPC. This only applies to
--- private virtual interfaces. Example: vgw-123er56.
-apvirrVirtualGatewayId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-apvirrVirtualGatewayId =
-    lens _apvirrVirtualGatewayId (\s a -> s { _apvirrVirtualGatewayId = a })
+apvir1Location :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1Location = lens _apvir1Location (\s a -> s { _apvir1Location = a })
 
--- | A list of routes to be advertised to the AWS network in this region (public
--- virtual interface) or your VPC (private virtual interface).
-apvirrRouteFilterPrefixes :: Lens' AllocatePublicVirtualInterfaceResponse [RouteFilterPrefix]
-apvirrRouteFilterPrefixes =
-    lens _apvirrRouteFilterPrefixes
-         (\s a -> s { _apvirrRouteFilterPrefixes = a })
+apvir1OwnerAccount :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1OwnerAccount =
+    lens _apvir1OwnerAccount (\s a -> s { _apvir1OwnerAccount = a })
 
-instance FromJSON AllocatePublicVirtualInterfaceResponse
+apvir1RouteFilterPrefixes :: Lens' AllocatePublicVirtualInterfaceResponse [RouteFilterPrefix]
+apvir1RouteFilterPrefixes =
+    lens _apvir1RouteFilterPrefixes
+        (\s a -> s { _apvir1RouteFilterPrefixes = a })
+
+apvir1VirtualGatewayId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1VirtualGatewayId =
+    lens _apvir1VirtualGatewayId (\s a -> s { _apvir1VirtualGatewayId = a })
+
+apvir1VirtualInterfaceId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1VirtualInterfaceId =
+    lens _apvir1VirtualInterfaceId
+        (\s a -> s { _apvir1VirtualInterfaceId = a })
+
+apvir1VirtualInterfaceName :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1VirtualInterfaceName =
+    lens _apvir1VirtualInterfaceName
+        (\s a -> s { _apvir1VirtualInterfaceName = a })
+
+apvir1VirtualInterfaceState :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1VirtualInterfaceState =
+    lens _apvir1VirtualInterfaceState
+        (\s a -> s { _apvir1VirtualInterfaceState = a })
+
+apvir1VirtualInterfaceType :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1VirtualInterfaceType =
+    lens _apvir1VirtualInterfaceType
+        (\s a -> s { _apvir1VirtualInterfaceType = a })
+
+apvir1Vlan :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Int)
+apvir1Vlan = lens _apvir1Vlan (\s a -> s { _apvir1Vlan = a })
+
+-- FromJSON
 
 instance AWSRequest AllocatePublicVirtualInterface where
     type Sv AllocatePublicVirtualInterface = DirectConnect
     type Rs AllocatePublicVirtualInterface = AllocatePublicVirtualInterfaceResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> AllocatePublicVirtualInterfaceResponse
+        <$> o .: "amazonAddress"
+        <*> o .: "asn"
+        <*> o .: "authKey"
+        <*> o .: "connectionId"
+        <*> o .: "customerAddress"
+        <*> o .: "customerRouterConfig"
+        <*> o .: "location"
+        <*> o .: "ownerAccount"
+        <*> o .: "routeFilterPrefixes"
+        <*> o .: "virtualGatewayId"
+        <*> o .: "virtualInterfaceId"
+        <*> o .: "virtualInterfaceName"
+        <*> o .: "virtualInterfaceState"
+        <*> o .: "virtualInterfaceType"
+        <*> o .: "vlan"

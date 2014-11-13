@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.DescribeTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,10 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes the tags associated with one or more load balancers.
--- https://elasticloadbalancing.amazonaws.com//?Action=DescribeTags
--- &LoadBalancerNames.member.1=my-test-loadbalancer &Version=2012-06-01
--- &AUTHPARAMS my-test-project project test environment my-test-loadbalancer
--- 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 module Network.AWS.ELB.DescribeTags
     (
     -- * Request
@@ -40,49 +38,53 @@ module Network.AWS.ELB.DescribeTags
     , dtrTagDescriptions
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the DescribeTags action.
 newtype DescribeTags = DescribeTags
     { _dtLoadBalancerNames :: List1 Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTags' request.
+-- | 'DescribeTags' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerNames ::@ @List1 Text@
+-- * 'dtLoadBalancerNames' @::@ 'NonEmpty' 'Text'
 --
-describeTags :: List1 Text -- ^ 'dtLoadBalancerNames'
+describeTags :: NonEmpty Text -- ^ 'dtLoadBalancerNames'
              -> DescribeTags
 describeTags p1 = DescribeTags
-    { _dtLoadBalancerNames = p1
+    { _dtLoadBalancerNames = withIso _List1 (const id) p1
     }
 
 -- | The names of the load balancers.
-dtLoadBalancerNames :: Lens' DescribeTags (List1 Text)
+dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
 dtLoadBalancerNames =
     lens _dtLoadBalancerNames (\s a -> s { _dtLoadBalancerNames = a })
+        . _List1
 
-instance ToQuery DescribeTags where
-    toQuery = genericQuery def
+instance ToQuery DescribeTags
 
--- | The output for the DescribeTags action.
+instance ToPath DescribeTags where
+    toPath = const "/"
+
 newtype DescribeTagsResponse = DescribeTagsResponse
     { _dtrTagDescriptions :: [TagDescription]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTagsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeTagsResponse where
+    type Item DescribeTagsResponse = TagDescription
+
+    fromList = DescribeTagsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dtrTagDescriptions
+
+-- | 'DescribeTagsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TagDescriptions ::@ @[TagDescription]@
+-- * 'dtrTagDescriptions' @::@ ['TagDescription']
 --
 describeTagsResponse :: DescribeTagsResponse
 describeTagsResponse = DescribeTagsResponse
@@ -94,12 +96,10 @@ dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrTagDescriptions =
     lens _dtrTagDescriptions (\s a -> s { _dtrTagDescriptions = a })
 
-instance FromXML DescribeTagsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = ELB
     type Rs DescribeTags = DescribeTagsResponse
 
-    request = post "DescribeTags"
-    response _ = xmlResponse
+    request  = post "DescribeTags"
+    response = xmlResponse $ \h x -> DescribeTagsResponse
+        <$> x %| "TagDescriptions"

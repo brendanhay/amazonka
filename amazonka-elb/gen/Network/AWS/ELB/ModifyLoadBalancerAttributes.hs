@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.ModifyLoadBalancerAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,29 +26,7 @@
 -- modify the load balancer attribute ConnectionSettings by specifying an idle
 -- connection timeout value for your load balancer. For more information, see
 -- the following: Cross-Zone Load Balancing Connection Draining Access Logs
--- Idle Connection Timeout Enable Cross-Zone Load Balancing
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
--- &LoadBalancerAttributes.CrossZoneLoadBalancing.Enabled=true
--- &Version=2012-06-01 &Action=ModifyLoadBalancerAttributes &AUTHPARAMS
--- my-test-loadbalancer true 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE Enable
--- Access Log
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
--- &LoadBalancerAttributes.AccessLog.Enabled=true
--- &LoadBalancerAttributes.AccessLog.S3BucketName=my-loadbalancer-logs
--- &LoadBalancerAttributes.AccessLog.S3BucketPrefix=my-bucket-prefix/prod
--- &LoadBalancerAttributes.AccessLog.EmitInterval=60 &Version=2012-06-01
--- &Action=ModifyLoadBalancerAttributes &AUTHPARAMS my-test-loadbalancer true
--- my-loadbalancer-logs my-bucket-prefix/prod 60
--- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE Enable Connection Draining
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
--- &LoadBalancerAttributes.ConnectionDraining.Enabled=true
--- &LoadBalancerAttributes.ConnectionDraining.Timeout=60 &Version=2012-06-01
--- &Action=ModifyLoadBalancerAttributes &AUTHPARAMS my-test-loadbalancer true
--- 60 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE Configure Connection Settings
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
--- &LoadBalancerAttributes.ConnectionSettings.IdleTimeout=30
--- &Version=2012-06-01 &Action=ModifyLoadBalancerAttributes &AUTHPARAMS
--- my-test-loadbalancer 30 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
+-- Idle Connection Timeout.
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
     -- * Request
@@ -54,99 +34,94 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- ** Request constructor
     , modifyLoadBalancerAttributes
     -- ** Request lenses
-    , mlbaLoadBalancerName
     , mlbaLoadBalancerAttributes
+    , mlbaLoadBalancerName
 
     -- * Response
     , ModifyLoadBalancerAttributesResponse
     -- ** Response constructor
     , modifyLoadBalancerAttributesResponse
     -- ** Response lenses
-    , mlbarLoadBalancerName
     , mlbarLoadBalancerAttributes
+    , mlbarLoadBalancerName
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the ModifyLoadBalancerAttributes action.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
-    { _mlbaLoadBalancerName :: Text
-    , _mlbaLoadBalancerAttributes :: LoadBalancerAttributes
-    } deriving (Eq, Ord, Show, Generic)
+    { _mlbaLoadBalancerAttributes :: LoadBalancerAttributes
+    , _mlbaLoadBalancerName       :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyLoadBalancerAttributes' request.
+-- | 'ModifyLoadBalancerAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'mlbaLoadBalancerAttributes' @::@ 'LoadBalancerAttributes'
 --
--- * @LoadBalancerAttributes ::@ @LoadBalancerAttributes@
+-- * 'mlbaLoadBalancerName' @::@ 'Text'
 --
 modifyLoadBalancerAttributes :: Text -- ^ 'mlbaLoadBalancerName'
                              -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
                              -> ModifyLoadBalancerAttributes
 modifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributes
-    { _mlbaLoadBalancerName = p1
+    { _mlbaLoadBalancerName       = p1
     , _mlbaLoadBalancerAttributes = p2
     }
+
+-- | Attributes of the load balancer.
+mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
+mlbaLoadBalancerAttributes =
+    lens _mlbaLoadBalancerAttributes
+        (\s a -> s { _mlbaLoadBalancerAttributes = a })
 
 -- | The name of the load balancer.
 mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
 mlbaLoadBalancerName =
     lens _mlbaLoadBalancerName (\s a -> s { _mlbaLoadBalancerName = a })
 
--- | Attributes of the load balancer.
-mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
-mlbaLoadBalancerAttributes =
-    lens _mlbaLoadBalancerAttributes
-         (\s a -> s { _mlbaLoadBalancerAttributes = a })
+instance ToQuery ModifyLoadBalancerAttributes
 
-instance ToQuery ModifyLoadBalancerAttributes where
-    toQuery = genericQuery def
+instance ToPath ModifyLoadBalancerAttributes where
+    toPath = const "/"
 
--- | The output for the ModifyLoadBalancerAttributes action.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
-    { _mlbarLoadBalancerName :: Maybe Text
-    , _mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
-    } deriving (Eq, Ord, Show, Generic)
+    { _mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
+    , _mlbarLoadBalancerName       :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyLoadBalancerAttributesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ModifyLoadBalancerAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Maybe Text@
+-- * 'mlbarLoadBalancerAttributes' @::@ 'Maybe' 'LoadBalancerAttributes'
 --
--- * @LoadBalancerAttributes ::@ @Maybe LoadBalancerAttributes@
+-- * 'mlbarLoadBalancerName' @::@ 'Maybe' 'Text'
 --
 modifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesResponse
 modifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
-    { _mlbarLoadBalancerName = Nothing
+    { _mlbarLoadBalancerName       = Nothing
     , _mlbarLoadBalancerAttributes = Nothing
     }
+
+mlbarLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
+mlbarLoadBalancerAttributes =
+    lens _mlbarLoadBalancerAttributes
+        (\s a -> s { _mlbarLoadBalancerAttributes = a })
 
 -- | The name of the load balancer.
 mlbarLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarLoadBalancerName =
     lens _mlbarLoadBalancerName (\s a -> s { _mlbarLoadBalancerName = a })
 
--- | The LoadBalancerAttributes data type.
-mlbarLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
-mlbarLoadBalancerAttributes =
-    lens _mlbarLoadBalancerAttributes
-         (\s a -> s { _mlbarLoadBalancerAttributes = a })
-
-instance FromXML ModifyLoadBalancerAttributesResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ModifyLoadBalancerAttributes where
     type Sv ModifyLoadBalancerAttributes = ELB
     type Rs ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributesResponse
 
-    request = post "ModifyLoadBalancerAttributes"
-    response _ = xmlResponse
+    request  = post "ModifyLoadBalancerAttributes"
+    response = xmlResponse $ \h x -> ModifyLoadBalancerAttributesResponse
+        <$> x %| "LoadBalancerAttributes"
+        <*> x %| "LoadBalancerName"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudTrail.DescribeTrails
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,79 +29,87 @@ module Network.AWS.CloudTrail.DescribeTrails
     -- ** Request constructor
     , describeTrails
     -- ** Request lenses
-    , dt1TrailNameList
+    , dtTrailNameList
 
     -- * Response
     , DescribeTrailsResponse
     -- ** Response constructor
     , describeTrailsResponse
     -- ** Response lenses
-    , dtrrTrailList
+    , dtrTrailList
     ) where
 
-import Network.AWS.CloudTrail.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudTrail.Types
 
--- | Returns information about the trail.
 newtype DescribeTrails = DescribeTrails
-    { _dt1TrailNameList :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dtTrailNameList :: [Text]
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTrails' request.
+instance GHC.Exts.IsList DescribeTrails where
+    type Item DescribeTrails = Text
+
+    fromList = DescribeTrails . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dtTrailNameList
+
+-- | 'DescribeTrails' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TrailNameList ::@ @[Text]@
+-- * 'dtTrailNameList' @::@ ['Text']
 --
 describeTrails :: DescribeTrails
 describeTrails = DescribeTrails
-    { _dt1TrailNameList = mempty
+    { _dtTrailNameList = mempty
     }
 
 -- | The trail returned.
-dt1TrailNameList :: Lens' DescribeTrails [Text]
-dt1TrailNameList =
-    lens _dt1TrailNameList (\s a -> s { _dt1TrailNameList = a })
+dtTrailNameList :: Lens' DescribeTrails [Text]
+dtTrailNameList = lens _dtTrailNameList (\s a -> s { _dtTrailNameList = a })
 
-instance ToPath DescribeTrails
+instance ToPath DescribeTrails where
+    toPath = const "/"
 
-instance ToQuery DescribeTrails
+instance ToQuery DescribeTrails where
+    toQuery = const mempty
 
 instance ToHeaders DescribeTrails
 
-instance ToJSON DescribeTrails
+instance ToBody DescribeTrails where
+    toBody = toBody . encode . _dtTrailNameList
 
--- | Returns the objects or data listed below if successful. Otherwise, returns
--- an error.
 newtype DescribeTrailsResponse = DescribeTrailsResponse
-    { _dtrrTrailList :: [Trail]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dtrTrailList :: [Trail]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTrailsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeTrailsResponse where
+    type Item DescribeTrailsResponse = Trail
+
+    fromList = DescribeTrailsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dtrTrailList
+
+-- | 'DescribeTrailsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TrailList ::@ @[Trail]@
+-- * 'dtrTrailList' @::@ ['Trail']
 --
 describeTrailsResponse :: DescribeTrailsResponse
 describeTrailsResponse = DescribeTrailsResponse
-    { _dtrrTrailList = mempty
+    { _dtrTrailList = mempty
     }
 
 -- | The list of trails.
-dtrrTrailList :: Lens' DescribeTrailsResponse [Trail]
-dtrrTrailList = lens _dtrrTrailList (\s a -> s { _dtrrTrailList = a })
+dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
+dtrTrailList = lens _dtrTrailList (\s a -> s { _dtrTrailList = a })
 
-instance FromJSON DescribeTrailsResponse
+-- FromJSON
 
 instance AWSRequest DescribeTrails where
     type Sv DescribeTrails = CloudTrail
     type Rs DescribeTrails = DescribeTrailsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeTrailsResponse
+        <$> o .: "trailList"

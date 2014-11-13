@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.ListAccessKeys
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,13 +26,8 @@
 -- results using the MaxItems and Marker parameters. If the UserName field is
 -- not specified, the UserName is determined implicitly based on the AWS
 -- access key ID used to sign the request. Because this action works for
--- access keys under the AWS account, this API can be used to manage root
--- credentials even if the AWS account has no associated users. To ensure the
--- security of your AWS account, the secret access key is accessible only
--- during key and user creation. https://iam.amazonaws.com/
--- ?Action=ListAccessKeys &UserName=Bob &Version=2010-05-08 &AUTHPARAMS Bob
--- Bob AKIAIOSFODNN7EXAMPLE Active Bob AKIAI44QH8DHBEXAMPLE Inactive false
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- access keys under the AWS account, you can use this action to manage root
+-- credentials even if the AWS account has no associated users.
 module Network.AWS.IAM.ListAccessKeys
     (
     -- * Request
@@ -38,9 +35,9 @@ module Network.AWS.IAM.ListAccessKeys
     -- ** Request constructor
     , listAccessKeys
     -- ** Request lenses
-    , lakUserName
     , lakMarker
     , lakMaxItems
+    , lakUserName
 
     -- * Response
     , ListAccessKeysResponse
@@ -52,37 +49,33 @@ module Network.AWS.IAM.ListAccessKeys
     , lakrMarker
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ListAccessKeys = ListAccessKeys
-    { _lakUserName :: Maybe Text
-    , _lakMarker :: Maybe Text
-    , _lakMaxItems :: Maybe Integer
+    { _lakMarker   :: Maybe Text
+    , _lakMaxItems :: Maybe Natural
+    , _lakUserName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListAccessKeys' request.
+-- | 'ListAccessKeys' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Maybe Text@
+-- * 'lakMarker' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lakMaxItems' @::@ 'Maybe' 'Natural'
 --
--- * @MaxItems ::@ @Maybe Integer@
+-- * 'lakUserName' @::@ 'Maybe' 'Text'
 --
 listAccessKeys :: ListAccessKeys
 listAccessKeys = ListAccessKeys
     { _lakUserName = Nothing
-    , _lakMarker = Nothing
+    , _lakMarker   = Nothing
     , _lakMaxItems = Nothing
     }
-
--- | Name of the user.
-lakUserName :: Lens' ListAccessKeys (Maybe Text)
-lakUserName = lens _lakUserName (\s a -> s { _lakUserName = a })
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
@@ -95,40 +88,39 @@ lakMarker = lens _lakMarker (\s a -> s { _lakMarker = a })
 -- number of keys you want in the response. If there are additional keys
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
-lakMaxItems :: Lens' ListAccessKeys (Maybe Integer)
+lakMaxItems :: Lens' ListAccessKeys (Maybe Natural)
 lakMaxItems = lens _lakMaxItems (\s a -> s { _lakMaxItems = a })
 
-instance ToQuery ListAccessKeys where
-    toQuery = genericQuery def
+-- | The name of the user.
+lakUserName :: Lens' ListAccessKeys (Maybe Text)
+lakUserName = lens _lakUserName (\s a -> s { _lakUserName = a })
 
--- | Contains the result of a successful invocation of the ListAccessKeys
--- action.
+instance ToQuery ListAccessKeys
+
+instance ToPath ListAccessKeys where
+    toPath = const "/"
+
 data ListAccessKeysResponse = ListAccessKeysResponse
     { _lakrAccessKeyMetadata :: [AccessKeyMetadata]
-    , _lakrIsTruncated :: Bool
-    , _lakrMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _lakrIsTruncated       :: Maybe Bool
+    , _lakrMarker            :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListAccessKeysResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListAccessKeysResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AccessKeyMetadata ::@ @[AccessKeyMetadata]@
+-- * 'lakrAccessKeyMetadata' @::@ ['AccessKeyMetadata']
 --
--- * @IsTruncated ::@ @Bool@
+-- * 'lakrIsTruncated' @::@ 'Maybe' 'Bool'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'lakrMarker' @::@ 'Maybe' 'Text'
 --
-listAccessKeysResponse :: [AccessKeyMetadata] -- ^ 'lakrAccessKeyMetadata'
-                       -> Bool -- ^ 'lakrIsTruncated'
-                       -> ListAccessKeysResponse
-listAccessKeysResponse p1 p2 = ListAccessKeysResponse
-    { _lakrAccessKeyMetadata = p1
-    , _lakrIsTruncated = p2
-    , _lakrMarker = Nothing
+listAccessKeysResponse :: ListAccessKeysResponse
+listAccessKeysResponse = ListAccessKeysResponse
+    { _lakrAccessKeyMetadata = mempty
+    , _lakrIsTruncated       = Nothing
+    , _lakrMarker            = Nothing
     }
 
 -- | A list of access key metadata.
@@ -136,10 +128,10 @@ lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrAccessKeyMetadata =
     lens _lakrAccessKeyMetadata (\s a -> s { _lakrAccessKeyMetadata = a })
 
--- | A flag that indicates whether there are more keys to list. If your results
--- were truncated, you can make a subsequent pagination request using the
--- Marker request parameter to retrieve more keys in the list.
-lakrIsTruncated :: Lens' ListAccessKeysResponse Bool
+-- | A flag that indicates whether there are more keys to list. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the Marker request parameter to retrieve more keys in the list.
+lakrIsTruncated :: Lens' ListAccessKeysResponse (Maybe Bool)
 lakrIsTruncated = lens _lakrIsTruncated (\s a -> s { _lakrIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
@@ -147,18 +139,12 @@ lakrIsTruncated = lens _lakrIsTruncated (\s a -> s { _lakrIsTruncated = a })
 lakrMarker :: Lens' ListAccessKeysResponse (Maybe Text)
 lakrMarker = lens _lakrMarker (\s a -> s { _lakrMarker = a })
 
-instance FromXML ListAccessKeysResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ListAccessKeys where
     type Sv ListAccessKeys = IAM
     type Rs ListAccessKeys = ListAccessKeysResponse
 
-    request = post "ListAccessKeys"
-    response _ = xmlResponse
-
-instance AWSPager ListAccessKeys where
-    next rq rs
-        | not (rs ^. lakrIsTruncated) = Nothing
-        | otherwise = Just $
-            rq & lakMarker .~ rs ^. lakrMarker
+    request  = post "ListAccessKeys"
+    response = xmlResponse $ \h x -> ListAccessKeysResponse
+        <$> x %| "AccessKeyMetadata"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"

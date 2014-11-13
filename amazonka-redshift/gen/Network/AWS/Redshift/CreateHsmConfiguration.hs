@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.CreateHsmConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,8 +35,8 @@ module Network.AWS.Redshift.CreateHsmConfiguration
     -- ** Request constructor
     , createHsmConfiguration
     -- ** Request lenses
-    , chcHsmConfigurationIdentifier
     , chcDescription
+    , chcHsmConfigurationIdentifier
     , chcHsmIpAddress
     , chcHsmPartitionName
     , chcHsmPartitionPassword
@@ -48,36 +50,35 @@ module Network.AWS.Redshift.CreateHsmConfiguration
     , chcrHsmConfiguration
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data CreateHsmConfiguration = CreateHsmConfiguration
-    { _chcHsmConfigurationIdentifier :: Text
-    , _chcDescription :: Text
-    , _chcHsmIpAddress :: Text
-    , _chcHsmPartitionName :: Text
-    , _chcHsmPartitionPassword :: Text
+    { _chcDescription                :: Text
+    , _chcHsmConfigurationIdentifier :: Text
+    , _chcHsmIpAddress               :: Text
+    , _chcHsmPartitionName           :: Text
+    , _chcHsmPartitionPassword       :: Text
     , _chcHsmServerPublicCertificate :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateHsmConfiguration' request.
+-- | 'CreateHsmConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HsmConfigurationIdentifier ::@ @Text@
+-- * 'chcDescription' @::@ 'Text'
 --
--- * @Description ::@ @Text@
+-- * 'chcHsmConfigurationIdentifier' @::@ 'Text'
 --
--- * @HsmIpAddress ::@ @Text@
+-- * 'chcHsmIpAddress' @::@ 'Text'
 --
--- * @HsmPartitionName ::@ @Text@
+-- * 'chcHsmPartitionName' @::@ 'Text'
 --
--- * @HsmPartitionPassword ::@ @Text@
+-- * 'chcHsmPartitionPassword' @::@ 'Text'
 --
--- * @HsmServerPublicCertificate ::@ @Text@
+-- * 'chcHsmServerPublicCertificate' @::@ 'Text'
 --
 createHsmConfiguration :: Text -- ^ 'chcHsmConfigurationIdentifier'
                        -> Text -- ^ 'chcDescription'
@@ -88,24 +89,26 @@ createHsmConfiguration :: Text -- ^ 'chcHsmConfigurationIdentifier'
                        -> CreateHsmConfiguration
 createHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfiguration
     { _chcHsmConfigurationIdentifier = p1
-    , _chcDescription = p2
-    , _chcHsmIpAddress = p3
-    , _chcHsmPartitionName = p4
-    , _chcHsmPartitionPassword = p5
+    , _chcDescription                = p2
+    , _chcHsmIpAddress               = p3
+    , _chcHsmPartitionName           = p4
+    , _chcHsmPartitionPassword       = p5
     , _chcHsmServerPublicCertificate = p6
     }
-
--- | The identifier to be assigned to the new Amazon Redshift HSM configuration.
-chcHsmConfigurationIdentifier :: Lens' CreateHsmConfiguration Text
-chcHsmConfigurationIdentifier =
-    lens _chcHsmConfigurationIdentifier
-         (\s a -> s { _chcHsmConfigurationIdentifier = a })
 
 -- | A text description of the HSM configuration to be created.
 chcDescription :: Lens' CreateHsmConfiguration Text
 chcDescription = lens _chcDescription (\s a -> s { _chcDescription = a })
 
--- | The IP address that the Amazon Redshift cluster must use to access the HSM.
+-- | The identifier to be assigned to the new Amazon Redshift HSM
+-- configuration.
+chcHsmConfigurationIdentifier :: Lens' CreateHsmConfiguration Text
+chcHsmConfigurationIdentifier =
+    lens _chcHsmConfigurationIdentifier
+        (\s a -> s { _chcHsmConfigurationIdentifier = a })
+
+-- | The IP address that the Amazon Redshift cluster must use to access the
+-- HSM.
 chcHsmIpAddress :: Lens' CreateHsmConfiguration Text
 chcHsmIpAddress = lens _chcHsmIpAddress (\s a -> s { _chcHsmIpAddress = a })
 
@@ -118,50 +121,43 @@ chcHsmPartitionName =
 -- | The password required to access the HSM partition.
 chcHsmPartitionPassword :: Lens' CreateHsmConfiguration Text
 chcHsmPartitionPassword =
-    lens _chcHsmPartitionPassword
-         (\s a -> s { _chcHsmPartitionPassword = a })
+    lens _chcHsmPartitionPassword (\s a -> s { _chcHsmPartitionPassword = a })
 
 -- | The HSMs public certificate file. When using Cloud HSM, the file name is
 -- server.pem.
 chcHsmServerPublicCertificate :: Lens' CreateHsmConfiguration Text
 chcHsmServerPublicCertificate =
     lens _chcHsmServerPublicCertificate
-         (\s a -> s { _chcHsmServerPublicCertificate = a })
+        (\s a -> s { _chcHsmServerPublicCertificate = a })
 
-instance ToQuery CreateHsmConfiguration where
-    toQuery = genericQuery def
+instance ToQuery CreateHsmConfiguration
+
+instance ToPath CreateHsmConfiguration where
+    toPath = const "/"
 
 newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateHsmConfigurationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateHsmConfigurationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HsmConfiguration ::@ @Maybe HsmConfiguration@
+-- * 'chcrHsmConfiguration' @::@ 'Maybe' 'HsmConfiguration'
 --
 createHsmConfigurationResponse :: CreateHsmConfigurationResponse
 createHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration = Nothing
     }
 
--- | Returns information about an HSM configuration, which is an object that
--- describes to Amazon Redshift clusters the information they require to
--- connect to an HSM where they can store database encryption keys.
 chcrHsmConfiguration :: Lens' CreateHsmConfigurationResponse (Maybe HsmConfiguration)
 chcrHsmConfiguration =
     lens _chcrHsmConfiguration (\s a -> s { _chcrHsmConfiguration = a })
-
-instance FromXML CreateHsmConfigurationResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest CreateHsmConfiguration where
     type Sv CreateHsmConfiguration = Redshift
     type Rs CreateHsmConfiguration = CreateHsmConfigurationResponse
 
-    request = post "CreateHsmConfiguration"
-    response _ = xmlResponse
+    request  = post "CreateHsmConfiguration"
+    response = xmlResponse $ \h x -> CreateHsmConfigurationResponse
+        <$> x %| "HsmConfiguration"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeDomains
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,9 +24,9 @@
 -- limited to specific domains. Shows all domains by default. To get the
 -- number of searchable documents in a domain, use the console or submit a
 -- matchall request to your domain's search endpoint:
--- q=matchall&amp;q.parser=structured&amp;size=0. For more information, see
--- Getting Information about a Search Domain in the Amazon CloudSearch
--- Developer Guide.
+-- q=matchall&amp;amp;q.parser=structured&amp;amp;size=0. For more
+-- information, see Getting Information about a Search Domain in the Amazon
+-- CloudSearch Developer Guide.
 module Network.AWS.CloudSearch.DescribeDomains
     (
     -- * Request
@@ -32,78 +34,80 @@ module Network.AWS.CloudSearch.DescribeDomains
     -- ** Request constructor
     , describeDomains
     -- ** Request lenses
-    , dd1DomainNames
+    , ddDomainNames
 
     -- * Response
     , DescribeDomainsResponse
     -- ** Response constructor
     , describeDomainsResponse
     -- ** Response lenses
-    , ddrrDomainStatusList
+    , ddrDomainStatusList
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DescribeDomains operation. By default
--- shows the status of all domains. To restrict the response to particular
--- domains, specify the names of the domains you want to describe.
 newtype DescribeDomains = DescribeDomains
-    { _dd1DomainNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    { _ddDomainNames :: [Text]
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeDomains' request.
+instance GHC.Exts.IsList DescribeDomains where
+    type Item DescribeDomains = Text
+
+    fromList = DescribeDomains . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ddDomainNames
+
+-- | 'DescribeDomains' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainNames ::@ @[Text]@
+-- * 'ddDomainNames' @::@ ['Text']
 --
 describeDomains :: DescribeDomains
 describeDomains = DescribeDomains
-    { _dd1DomainNames = mempty
+    { _ddDomainNames = mempty
     }
 
 -- | The names of the domains you want to include in the response.
-dd1DomainNames :: Lens' DescribeDomains [Text]
-dd1DomainNames = lens _dd1DomainNames (\s a -> s { _dd1DomainNames = a })
+ddDomainNames :: Lens' DescribeDomains [Text]
+ddDomainNames = lens _ddDomainNames (\s a -> s { _ddDomainNames = a })
 
-instance ToQuery DescribeDomains where
-    toQuery = genericQuery def
+instance ToQuery DescribeDomains
 
--- | The result of a DescribeDomains request. Contains the status of the domains
--- specified in the request or all domains owned by the account.
+instance ToPath DescribeDomains where
+    toPath = const "/"
+
 newtype DescribeDomainsResponse = DescribeDomainsResponse
-    { _ddrrDomainStatusList :: [DomainStatus]
-    } deriving (Eq, Ord, Show, Generic)
+    { _ddrDomainStatusList :: [DomainStatus]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeDomainsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeDomainsResponse where
+    type Item DescribeDomainsResponse = DomainStatus
+
+    fromList = DescribeDomainsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ddrDomainStatusList
+
+-- | 'DescribeDomainsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainStatusList ::@ @[DomainStatus]@
+-- * 'ddrDomainStatusList' @::@ ['DomainStatus']
 --
-describeDomainsResponse :: [DomainStatus] -- ^ 'ddrrDomainStatusList'
-                        -> DescribeDomainsResponse
-describeDomainsResponse p1 = DescribeDomainsResponse
-    { _ddrrDomainStatusList = p1
+describeDomainsResponse :: DescribeDomainsResponse
+describeDomainsResponse = DescribeDomainsResponse
+    { _ddrDomainStatusList = mempty
     }
 
--- | A list that contains the status of each requested domain.
-ddrrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-ddrrDomainStatusList =
-    lens _ddrrDomainStatusList (\s a -> s { _ddrrDomainStatusList = a })
-
-instance FromXML DescribeDomainsResponse where
-    fromXMLOptions = xmlOptions
+ddrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
+ddrDomainStatusList =
+    lens _ddrDomainStatusList (\s a -> s { _ddrDomainStatusList = a })
 
 instance AWSRequest DescribeDomains where
     type Sv DescribeDomains = CloudSearch
     type Rs DescribeDomains = DescribeDomainsResponse
 
-    request = post "DescribeDomains"
-    response _ = xmlResponse
+    request  = post "DescribeDomains"
+    response = xmlResponse $ \h x -> DescribeDomainsResponse
+        <$> x %| "DomainStatusList"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.SetLoadBasedAutoScaling
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,14 +22,10 @@
 
 -- | Specify the load-based auto scaling configuration for a specified layer.
 -- For more information, see Managing Load with Time-based and Load-based
--- Instances. To use load-based auto scaling, you must create a set of
--- load-based auto scaling instances. Load-based auto scaling operates only on
--- the instances from that set, so you must ensure that you have created
--- enough instances to handle the maximum anticipated load. Required
--- Permissions: To use this action, an IAM user must have a Manage permissions
--- level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see Managing User
--- Permissions.
+-- Instances. Required Permissions: To use this action, an IAM user must have
+-- a Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see Managing User Permissions.
 module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     (
     -- * Request
@@ -35,10 +33,10 @@ module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     -- ** Request constructor
     , setLoadBasedAutoScaling
     -- ** Request lenses
-    , slbasLayerId
-    , slbasEnable
-    , slbasUpScaling
     , slbasDownScaling
+    , slbasEnable
+    , slbasLayerId
+    , slbasUpScaling
 
     -- * Response
     , SetLoadBasedAutoScalingResponse
@@ -46,81 +44,81 @@ module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     , setLoadBasedAutoScalingResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
-    { _slbasLayerId :: Text
-    , _slbasEnable :: Maybe Bool
-    , _slbasUpScaling :: Maybe AutoScalingThresholds
-    , _slbasDownScaling :: Maybe AutoScalingThresholds
-    } deriving (Eq, Ord, Show, Generic)
+    { _slbasDownScaling :: Maybe AutoScalingThresholds
+    , _slbasEnable      :: Maybe Bool
+    , _slbasLayerId     :: Text
+    , _slbasUpScaling   :: Maybe AutoScalingThresholds
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetLoadBasedAutoScaling' request.
+-- | 'SetLoadBasedAutoScaling' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LayerId ::@ @Text@
+-- * 'slbasDownScaling' @::@ 'Maybe' 'AutoScalingThresholds'
 --
--- * @Enable ::@ @Maybe Bool@
+-- * 'slbasEnable' @::@ 'Maybe' 'Bool'
 --
--- * @UpScaling ::@ @Maybe AutoScalingThresholds@
+-- * 'slbasLayerId' @::@ 'Text'
 --
--- * @DownScaling ::@ @Maybe AutoScalingThresholds@
+-- * 'slbasUpScaling' @::@ 'Maybe' 'AutoScalingThresholds'
 --
 setLoadBasedAutoScaling :: Text -- ^ 'slbasLayerId'
                         -> SetLoadBasedAutoScaling
 setLoadBasedAutoScaling p1 = SetLoadBasedAutoScaling
-    { _slbasLayerId = p1
-    , _slbasEnable = Nothing
-    , _slbasUpScaling = Nothing
+    { _slbasLayerId     = p1
+    , _slbasEnable      = Nothing
+    , _slbasUpScaling   = Nothing
     , _slbasDownScaling = Nothing
     }
-
--- | The layer ID.
-slbasLayerId :: Lens' SetLoadBasedAutoScaling Text
-slbasLayerId = lens _slbasLayerId (\s a -> s { _slbasLayerId = a })
-
--- | Enables load-based auto scaling for the layer.
-slbasEnable :: Lens' SetLoadBasedAutoScaling (Maybe Bool)
-slbasEnable = lens _slbasEnable (\s a -> s { _slbasEnable = a })
-
--- | An AutoScalingThresholds object with the upscaling threshold configuration.
--- If the load exceeds these thresholds for a specified amount of time, AWS
--- OpsWorks starts a specified number of instances.
-slbasUpScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
-slbasUpScaling = lens _slbasUpScaling (\s a -> s { _slbasUpScaling = a })
 
 -- | An AutoScalingThresholds object with the downscaling threshold
 -- configuration. If the load falls below these thresholds for a specified
 -- amount of time, AWS OpsWorks stops a specified number of instances.
 slbasDownScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
-slbasDownScaling =
-    lens _slbasDownScaling (\s a -> s { _slbasDownScaling = a })
+slbasDownScaling = lens _slbasDownScaling (\s a -> s { _slbasDownScaling = a })
 
-instance ToPath SetLoadBasedAutoScaling
+-- | Enables load-based auto scaling for the layer.
+slbasEnable :: Lens' SetLoadBasedAutoScaling (Maybe Bool)
+slbasEnable = lens _slbasEnable (\s a -> s { _slbasEnable = a })
 
-instance ToQuery SetLoadBasedAutoScaling
+-- | The layer ID.
+slbasLayerId :: Lens' SetLoadBasedAutoScaling Text
+slbasLayerId = lens _slbasLayerId (\s a -> s { _slbasLayerId = a })
+
+-- | An AutoScalingThresholds object with the upscaling threshold
+-- configuration. If the load exceeds these thresholds for a specified
+-- amount of time, AWS OpsWorks starts a specified number of instances.
+slbasUpScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
+slbasUpScaling = lens _slbasUpScaling (\s a -> s { _slbasUpScaling = a })
+
+instance ToPath SetLoadBasedAutoScaling where
+    toPath = const "/"
+
+instance ToQuery SetLoadBasedAutoScaling where
+    toQuery = const mempty
 
 instance ToHeaders SetLoadBasedAutoScaling
 
-instance ToJSON SetLoadBasedAutoScaling
+instance ToBody SetLoadBasedAutoScaling where
+    toBody = toBody . encode . _slbasLayerId
 
 data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetLoadBasedAutoScalingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SetLoadBasedAutoScalingResponse' constructor.
 setLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse
 setLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
+
+-- FromJSON
 
 instance AWSRequest SetLoadBasedAutoScaling where
     type Sv SetLoadBasedAutoScaling = OpsWorks
     type Rs SetLoadBasedAutoScaling = SetLoadBasedAutoScalingResponse
 
-    request = get
-    response _ = nullaryResponse SetLoadBasedAutoScalingResponse
+    request  = post'
+    response = nullaryResponse SetLoadBasedAutoScalingResponse

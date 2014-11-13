@@ -1,11 +1,11 @@
 name:                  amazonka-sqs
 version:               0.0.0
-synopsis:              Amazon Simple Queue Service SDK
+synopsis:              Amazon Simple Queue Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,13 +13,14 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Simple Queue Service (SQS) is a fast, reliable, scalable, fully managed message queuing service.
-    .
-    SQS makes it simple and cost-effective to decouple the components of a cloud application.
-    .
-    You can use SQS to transmit any volume of data, at any level of throughput, without losing messages or requiring other services to be always available.
-    .
-    With SQS, you can offload the administrative burden of operating and scaling a highly available messaging cluster, while paying a low price for only what you use.
+    Amazon Simple Queue Service (SQS) is a fast, reliable, scalable, fully
+    managed message queuing service. SQS makes it simple and cost-effective
+    to decouple the components of a cloud application. You can use SQS to
+    transmit any volume of data, at any level of throughput, without losing
+    messages or requiring other services to be always available. With SQS,
+    you can offload the administrative burden of operating and scaling a
+    highly available messaging cluster, while paying a low price for only
+    what you use.
 
 source-repository head
     type:     git
@@ -33,7 +34,6 @@ library
 
     exposed-modules:
           Network.AWS.SQS
-        , Network.AWS.SQS.Types
         , Network.AWS.SQS.AddPermission
         , Network.AWS.SQS.ChangeMessageVisibility
         , Network.AWS.SQS.ChangeMessageVisibilityBatch
@@ -50,6 +50,9 @@ library
         , Network.AWS.SQS.SendMessage
         , Network.AWS.SQS.SendMessageBatch
         , Network.AWS.SQS.SetQueueAttributes
+        , Network.AWS.SQS.Types
+
+    other-modules:
 
     build-depends:
           amazonka-core

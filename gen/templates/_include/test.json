@@ -1,0 +1,15 @@
+{
+    "Changes": [
+        {
+            "Action": "CREATE",
+            "ResourceRecordSet": {
+                "Name": "prod-nginz-https",
+                "Type": "A",
+                "AliasTarget": {
+                    "HostedZoneId": "Z32O12XQLNTSW2",
+                    "DNSName": "prod-nginz-1m6p0b100-https-115159805.eu-west-1.elb.amazonaws.com"
+                }
+            }
+        }
+    ]
+}

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,13 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified cluster subnet group.
--- https://redshift.us-east-1.amazonaws.com/ ?Action=DeleteClusterSubnetGroup
--- &ClusterSubnetGroupName=my-subnet-group-2 &Version=2012-12-01
--- &x-amz-algorithm=AWS4-HMAC-SHA256
--- &x-amz-credential=AKIAIOSFODNN7EXAMPLE/20130130/us-east-1/redshift/aws4_request
--- &x-amz-date=20130130T154635Z
--- &x-amz-signedheaders=content-type;host;x-amz-date
--- 3a63806b-6af4-11e2-b27b-4d850b1c672d.
 module Network.AWS.Redshift.DeleteClusterSubnetGroup
     (
     -- * Request
@@ -33,7 +28,7 @@ module Network.AWS.Redshift.DeleteClusterSubnetGroup
     -- ** Request constructor
     , deleteClusterSubnetGroup
     -- ** Request lenses
-    , dcsg1ClusterSubnetGroupName
+    , dcsgClusterSubnetGroupName
 
     -- * Response
     , DeleteClusterSubnetGroupResponse
@@ -41,43 +36,42 @@ module Network.AWS.Redshift.DeleteClusterSubnetGroup
     , deleteClusterSubnetGroupResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
-    { _dcsg1ClusterSubnetGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dcsgClusterSubnetGroupName :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteClusterSubnetGroup' request.
+-- | 'DeleteClusterSubnetGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ClusterSubnetGroupName ::@ @Text@
+-- * 'dcsgClusterSubnetGroupName' @::@ 'Text'
 --
-deleteClusterSubnetGroup :: Text -- ^ 'dcsg1ClusterSubnetGroupName'
+deleteClusterSubnetGroup :: Text -- ^ 'dcsgClusterSubnetGroupName'
                          -> DeleteClusterSubnetGroup
 deleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup
-    { _dcsg1ClusterSubnetGroupName = p1
+    { _dcsgClusterSubnetGroupName = p1
     }
 
 -- | The name of the cluster subnet group name to be deleted.
-dcsg1ClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
-dcsg1ClusterSubnetGroupName =
-    lens _dcsg1ClusterSubnetGroupName
-         (\s a -> s { _dcsg1ClusterSubnetGroupName = a })
+dcsgClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
+dcsgClusterSubnetGroupName =
+    lens _dcsgClusterSubnetGroupName
+        (\s a -> s { _dcsgClusterSubnetGroupName = a })
 
-instance ToQuery DeleteClusterSubnetGroup where
-    toQuery = genericQuery def
+instance ToQuery DeleteClusterSubnetGroup
+
+instance ToPath DeleteClusterSubnetGroup where
+    toPath = const "/"
 
 data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteClusterSubnetGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteClusterSubnetGroupResponse' constructor.
 deleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse
 deleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
 
@@ -85,5 +79,5 @@ instance AWSRequest DeleteClusterSubnetGroup where
     type Sv DeleteClusterSubnetGroup = Redshift
     type Rs DeleteClusterSubnetGroup = DeleteClusterSubnetGroupResponse
 
-    request = post "DeleteClusterSubnetGroup"
-    response _ = nullaryResponse DeleteClusterSubnetGroupResponse
+    request  = post "DeleteClusterSubnetGroup"
+    response = nullaryResponse DeleteClusterSubnetGroupResponse

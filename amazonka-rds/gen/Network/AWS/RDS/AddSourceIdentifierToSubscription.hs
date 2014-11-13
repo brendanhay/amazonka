@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.AddSourceIdentifierToSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,15 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds a source identifier to an existing RDS event notification
--- subscription. https://rds.us-east-1.amazonaws.com/
--- ?Action=AddSourceIdentifierToSubscription
--- ?SubscriptionName=EventSubscription01 &SourceIdentifier=dbinstance01
--- &Version=2013-01-10 &SignatureVersion=4 &SignatureMethod=HmacSHA256
--- &Timestamp=20130128T011410Z &AWSAccessKeyId= &Signature= true 012345678901
--- db-instance modifying dbinstance01 2013-01-28 00:29:23.736 creation
--- deletion EventSubscription01
--- arn:aws:sns:us-east-1:012345678901:EventSubscription01
--- 05d0fd8a-68e8-11e2-8e4d-31f087d822e1.
+-- subscription.
 module Network.AWS.RDS.AddSourceIdentifierToSubscription
     (
     -- * Request
@@ -35,8 +29,8 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     -- ** Request constructor
     , addSourceIdentifierToSubscription
     -- ** Request lenses
-    , asitsSubscriptionName
     , asitsSourceIdentifier
+    , asitsSubscriptionName
 
     -- * Response
     , AddSourceIdentifierToSubscriptionResponse
@@ -46,24 +40,23 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     , asitsrEventSubscription
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
-    { _asitsSubscriptionName :: Text
-    , _asitsSourceIdentifier :: Text
+    { _asitsSourceIdentifier :: Text
+    , _asitsSubscriptionName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddSourceIdentifierToSubscription' request.
+-- | 'AddSourceIdentifierToSubscription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SubscriptionName ::@ @Text@
+-- * 'asitsSourceIdentifier' @::@ 'Text'
 --
--- * @SourceIdentifier ::@ @Text@
+-- * 'asitsSubscriptionName' @::@ 'Text'
 --
 addSourceIdentifierToSubscription :: Text -- ^ 'asitsSubscriptionName'
                                   -> Text -- ^ 'asitsSourceIdentifier'
@@ -73,58 +66,53 @@ addSourceIdentifierToSubscription p1 p2 = AddSourceIdentifierToSubscription
     , _asitsSourceIdentifier = p2
     }
 
+-- | The identifier of the event source to be added. An identifier must begin
+-- with a letter and must contain only ASCII letters, digits, and hyphens;
+-- it cannot end with a hyphen or contain two consecutive hyphens.
+-- Constraints: If the source type is a DB instance, then a
+-- DBInstanceIdentifier must be supplied. If the source type is a DB
+-- security group, a DBSecurityGroupName must be supplied. If the source
+-- type is a DB parameter group, a DBParameterGroupName must be supplied. If
+-- the source type is a DB snapshot, a DBSnapshotIdentifier must be
+-- supplied.
+asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
+asitsSourceIdentifier =
+    lens _asitsSourceIdentifier (\s a -> s { _asitsSourceIdentifier = a })
+
 -- | The name of the RDS event notification subscription you want to add a
 -- source identifier to.
 asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
 asitsSubscriptionName =
     lens _asitsSubscriptionName (\s a -> s { _asitsSubscriptionName = a })
 
--- | The identifier of the event source to be added. An identifier must begin
--- with a letter and must contain only ASCII letters, digits, and hyphens; it
--- cannot end with a hyphen or contain two consecutive hyphens. Constraints:
--- If the source type is a DB instance, then a DBInstanceIdentifier must be
--- supplied. If the source type is a DB security group, a DBSecurityGroupName
--- must be supplied. If the source type is a DB parameter group, a
--- DBParameterGroupName must be supplied. If the source type is a DB snapshot,
--- a DBSnapshotIdentifier must be supplied.
-asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
-asitsSourceIdentifier =
-    lens _asitsSourceIdentifier (\s a -> s { _asitsSourceIdentifier = a })
+instance ToQuery AddSourceIdentifierToSubscription
 
-instance ToQuery AddSourceIdentifierToSubscription where
-    toQuery = genericQuery def
+instance ToPath AddSourceIdentifierToSubscription where
+    toPath = const "/"
 
 newtype AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
     { _asitsrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddSourceIdentifierToSubscriptionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AddSourceIdentifierToSubscriptionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EventSubscription ::@ @Maybe EventSubscription@
+-- * 'asitsrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
 addSourceIdentifierToSubscriptionResponse :: AddSourceIdentifierToSubscriptionResponse
 addSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
     { _asitsrEventSubscription = Nothing
     }
 
--- | Contains the results of a successful invocation of the
--- DescribeEventSubscriptions action.
 asitsrEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
 asitsrEventSubscription =
-    lens _asitsrEventSubscription
-         (\s a -> s { _asitsrEventSubscription = a })
-
-instance FromXML AddSourceIdentifierToSubscriptionResponse where
-    fromXMLOptions = xmlOptions
+    lens _asitsrEventSubscription (\s a -> s { _asitsrEventSubscription = a })
 
 instance AWSRequest AddSourceIdentifierToSubscription where
     type Sv AddSourceIdentifierToSubscription = RDS
     type Rs AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscriptionResponse
 
-    request = post "AddSourceIdentifierToSubscription"
-    response _ = xmlResponse
+    request  = post "AddSourceIdentifierToSubscription"
+    response = xmlResponse $ \h x -> AddSourceIdentifierToSubscriptionResponse
+        <$> x %| "EventSubscription"

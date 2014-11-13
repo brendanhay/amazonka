@@ -1,13 +1,13 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,115 +19,79 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS Storage Gateway is a service that connects an on-premises software
--- appliance with cloud-based storage to provide seamless and secure
--- integration between your on-premises IT environment and AWS's storage
--- infrastructure.
 module Network.AWS.StorageGateway.Types
     (
     -- * Service
       StorageGateway
-    -- ** Errors
-    , StorageGatewayError (..)
-    , _InternalServerError
-    , _InvalidGatewayRequestException
-    , _StorageGatewayClient
-    , _StorageGatewaySerializer
-    , _StorageGatewayService
-
-    -- * ErrorCode
-    , ErrorCode (..)
-
-    -- * CachediSCSIVolumeInformation
-    , CachediSCSIVolumeInformation
-    , cachediSCSIVolumeInformation
-    , cscsiviVolumeARN
-    , cscsiviVolumeId
-    , cscsiviVolumeType
-    , cscsiviVolumeStatus
-    , cscsiviVolumeSizeInBytes
-    , cscsiviVolumeProgress
-    , cscsiviSourceSnapshotId
-    , cscsiviVolumeiSCSIAttributes
+    -- ** Error
+    , StorageGatewayError
 
     -- * ChapInfo
     , ChapInfo
     , chapInfo
-    , ciTargetARN
-    , ciSecretToAuthenticateInitiator
     , ciInitiatorName
+    , ciSecretToAuthenticateInitiator
     , ciSecretToAuthenticateTarget
+    , ciTargetARN
+
+    -- * VolumeiSCSIAttributes
+    , VolumeiSCSIAttributes
+    , volumeiSCSIAttributes
+    , vscsiaChapEnabled
+    , vscsiaLunNumber
+    , vscsiaNetworkInterfaceId
+    , vscsiaNetworkInterfacePort
+    , vscsiaTargetARN
 
     -- * DeviceiSCSIAttributes
     , DeviceiSCSIAttributes
     , deviceiSCSIAttributes
-    , dscsiaTargetARN
+    , dscsiaChapEnabled
     , dscsiaNetworkInterfaceId
     , dscsiaNetworkInterfacePort
-    , dscsiaChapEnabled
-
-    -- * DiskInformation
-    , DiskInformation
-    , diskInformation
-    , diDiskId
-    , diDiskPath
-    , diDiskNode
-    , diDiskSizeInBytes
-    , diDiskAllocationType
-    , diDiskAllocationResource
+    , dscsiaTargetARN
 
     -- * Error'
     , Error'
-    , error'
-    , sgeErrorCode
-    , sgeErrorDetails
+    , error
+    , eErrorCode
+    , eErrorDetails
 
-    -- * GatewayInformation
-    , GatewayInformation
-    , gatewayInformation
-    , giGatewayARN
-    , giGatewayType
-
-    -- * NetworkInterface
-    , NetworkInterface
-    , networkInterface
-    , niIpv4Address
-    , niMacAddress
-    , niIpv6Address
-
-    -- * StorediSCSIVolumeInformation
-    , StorediSCSIVolumeInformation
-    , storediSCSIVolumeInformation
-    , sscsiviVolumeARN
-    , sscsiviVolumeId
-    , sscsiviVolumeType
-    , sscsiviVolumeStatus
-    , sscsiviVolumeSizeInBytes
-    , sscsiviVolumeProgress
-    , sscsiviVolumeDiskId
-    , sscsiviSourceSnapshotId
-    , sscsiviPreservedExistingData
-    , sscsiviVolumeiSCSIAttributes
+    -- * Disk
+    , Disk
+    , disk
+    , dDiskAllocationResource
+    , dDiskAllocationType
+    , dDiskId
+    , dDiskNode
+    , dDiskPath
+    , dDiskSizeInBytes
 
     -- * Tape
     , Tape
     , tape
+    , tProgress
     , tTapeARN
     , tTapeBarcode
     , tTapeSizeInBytes
     , tTapeStatus
     , tVTLDevice
-    , tProgress
 
-    -- * TapeArchive
-    , TapeArchive
-    , tapeArchive
-    , taTapeARN
-    , taTapeBarcode
-    , taTapeSizeInBytes
-    , taCompletionTime
-    , taRetrievedTo
-    , taTapeStatus
+    -- * NetworkInterface
+    , NetworkInterface
+    , networkInterface
+    , niIpv4Address
+    , niIpv6Address
+    , niMacAddress
+
+    -- * VTLDevice
+    , VTLDevice
+    , vtldevice
+    , vtldDeviceiSCSIAttributes
+    , vtldVTLDeviceARN
+    , vtldVTLDeviceProductIdentifier
+    , vtldVTLDeviceType
+    , vtldVTLDeviceVendor
 
     -- * TapeRecoveryPointInfo
     , TapeRecoveryPointInfo
@@ -135,42 +99,73 @@ module Network.AWS.StorageGateway.Types
     , trpiTapeARN
     , trpiTapeRecoveryPointTime
     , trpiTapeSizeInBytes
-
-    -- * VTLDevice
-    , VTLDevice
-    , vTLDevice
-    , vtldVTLDeviceARN
-    , vtldDeviceiSCSIAttributes
-
-    -- * VolumeInformation
-    , VolumeInformation
-    , volumeInformation
-    , viVolumeARN
-    , viVolumeType
+    , trpiTapeStatus
 
     -- * VolumeRecoveryPointInfo
     , VolumeRecoveryPointInfo
     , volumeRecoveryPointInfo
     , vrpiVolumeARN
+    , vrpiVolumeRecoveryPointTime
     , vrpiVolumeSizeInBytes
     , vrpiVolumeUsageInBytes
-    , vrpiVolumeRecoveryPointTime
 
-    -- * VolumeiSCSIAttributes
-    , VolumeiSCSIAttributes
-    , volumeiSCSIAttributes
-    , vscsiaTargetARN
-    , vscsiaNetworkInterfaceId
-    , vscsiaNetworkInterfacePort
-    , vscsiaLunNumber
-    , vscsiaChapEnabled
+    -- * TapeArchive
+    , TapeArchive
+    , tapeArchive
+    , taCompletionTime
+    , taRetrievedTo
+    , taTapeARN
+    , taTapeBarcode
+    , taTapeSizeInBytes
+    , taTapeStatus
+
+    -- * ErrorCode
+    , ErrorCode (..)
+
+    -- * StorediSCSIVolume
+    , StorediSCSIVolume
+    , storediSCSIVolume
+    , sscsivPreservedExistingData
+    , sscsivSourceSnapshotId
+    , sscsivVolumeARN
+    , sscsivVolumeDiskId
+    , sscsivVolumeId
+    , sscsivVolumeProgress
+    , sscsivVolumeSizeInBytes
+    , sscsivVolumeStatus
+    , sscsivVolumeType
+    , sscsivVolumeiSCSIAttributes
+
+    -- * CachediSCSIVolume
+    , CachediSCSIVolume
+    , cachediSCSIVolume
+    , cscsivSourceSnapshotId
+    , cscsivVolumeARN
+    , cscsivVolumeId
+    , cscsivVolumeProgress
+    , cscsivVolumeSizeInBytes
+    , cscsivVolumeStatus
+    , cscsivVolumeType
+    , cscsivVolumeiSCSIAttributes
+
+    -- * VolumeInfo
+    , VolumeInfo
+    , volumeInfo
+    , viVolumeARN
+    , viVolumeType
+
+    -- * GatewayInfo
+    , GatewayInfo
+    , gatewayInfo
+    , giGatewayARN
+    , giGatewayOperationalState
+    , giGatewayType
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
--- | Supported version (@2013-06-30@) of the
--- @AWS Storage Gateway@ service.
+-- | Supported version (@2013-06-30@) of the Amazon Storage Gateway.
 data StorageGateway deriving (Typeable)
 
 instance AWSService StorageGateway where
@@ -178,703 +173,335 @@ instance AWSService StorageGateway where
     type Er StorageGateway = StorageGatewayError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
+        , _svcAbbrev   = "StorageGateway"
         , _svcPrefix   = "storagegateway"
         , _svcVersion  = "2013-06-30"
         , _svcTarget   = Nothing
         }
 
--- | A sum type representing possible errors returned by the 'StorageGateway' service.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data StorageGatewayError
-      -- | An internal server error has occured during the request. See the
-      -- error and message fields for more information.
-    = InternalServerError
-        { _iseMessage :: Maybe Text
-        , _iseError :: Maybe Error'
-        }
-      -- | An exception occured because an invalid gateway request was
-      -- issued to the service. See the error and message fields for more
-      -- information.
-    | InvalidGatewayRequestException
-        { _igreMessage :: Maybe Text
-        , _igreError :: Maybe Error'
-        }
-    | StorageGatewayClient HttpException
-    | StorageGatewaySerializer String
-    | StorageGatewayService String
-      deriving (Show, Typeable, Generic)
+    handle = xmlError alwaysFail
 
-instance AWSError StorageGatewayError where
-    awsError = const "StorageGatewayError"
-
-instance AWSServiceError StorageGatewayError where
-    serviceError    = StorageGatewayService
-    clientError     = StorageGatewayClient
-    serializerError = StorageGatewaySerializer
-
-instance Exception StorageGatewayError
-
--- | An internal server error has occured during the request. See the error and
--- message fields for more information.
---
--- See: 'InternalServerError'
-_InternalServerError :: Prism' StorageGatewayError (Maybe Text, Maybe Error')
-_InternalServerError = prism
-    (\(p1, p2) -> InternalServerError p1 p2)
-    (\case
-        InternalServerError p1 p2 -> Right (p1, p2)
-        x -> Left x)
-
--- | An exception occured because an invalid gateway request was issued to the
--- service. See the error and message fields for more information.
---
--- See: 'InvalidGatewayRequestException'
-_InvalidGatewayRequestException :: Prism' StorageGatewayError (Maybe Text, Maybe Error')
-_InvalidGatewayRequestException = prism
-    (\(p1, p2) -> InvalidGatewayRequestException p1 p2)
-    (\case
-        InvalidGatewayRequestException p1 p2 -> Right (p1, p2)
-        x -> Left x)
-
--- | See: 'StorageGatewayClient'
-_StorageGatewayClient :: Prism' StorageGatewayError HttpException
-_StorageGatewayClient = prism
-    StorageGatewayClient
-    (\case
-        StorageGatewayClient p1 -> Right p1
-        x -> Left x)
-
--- | See: 'StorageGatewaySerializer'
-_StorageGatewaySerializer :: Prism' StorageGatewayError String
-_StorageGatewaySerializer = prism
-    StorageGatewaySerializer
-    (\case
-        StorageGatewaySerializer p1 -> Right p1
-        x -> Left x)
-
--- | See: 'StorageGatewayService'
-_StorageGatewayService :: Prism' StorageGatewayError String
-_StorageGatewayService = prism
-    StorageGatewayService
-    (\case
-        StorageGatewayService p1 -> Right p1
-        x -> Left x)
-
-data ErrorCode
-    = ErrorCodeActivationKeyExpired -- ^ ActivationKeyExpired
-    | ErrorCodeActivationKeyInvalid -- ^ ActivationKeyInvalid
-    | ErrorCodeActivationKeyNotFound -- ^ ActivationKeyNotFound
-    | ErrorCodeAuthenticationFailure -- ^ AuthenticationFailure
-    | ErrorCodeBandwidthThrottleScheduleNotFound -- ^ BandwidthThrottleScheduleNotFound
-    | ErrorCodeBlocked -- ^ Blocked
-    | ErrorCodeCannotExportSnapshot -- ^ CannotExportSnapshot
-    | ErrorCodeChapCredentialNotFound -- ^ ChapCredentialNotFound
-    | ErrorCodeDiskAlreadyAllocated -- ^ DiskAlreadyAllocated
-    | ErrorCodeDiskDoesNotExist -- ^ DiskDoesNotExist
-    | ErrorCodeDiskSizeGreaterThanVolumeMaxSize -- ^ DiskSizeGreaterThanVolumeMaxSize
-    | ErrorCodeDiskSizeLessThanVolumeSize -- ^ DiskSizeLessThanVolumeSize
-    | ErrorCodeDiskSizeNotGigAligned -- ^ DiskSizeNotGigAligned
-    | ErrorCodeDuplicateCertificateInfo -- ^ DuplicateCertificateInfo
-    | ErrorCodeDuplicateSchedule -- ^ DuplicateSchedule
-    | ErrorCodeEndpointNotFound -- ^ EndpointNotFound
-    | ErrorCodeGatewayInternalError -- ^ GatewayInternalError
-    | ErrorCodeGatewayNotConnected -- ^ GatewayNotConnected
-    | ErrorCodeGatewayNotFound -- ^ GatewayNotFound
-    | ErrorCodeGatewayProxyNetworkConnectionBusy -- ^ GatewayProxyNetworkConnectionBusy
-    | ErrorCodeIAMNotSupported -- ^ IAMNotSupported
-    | ErrorCodeInitiatorInvalid -- ^ InitiatorInvalid
-    | ErrorCodeInitiatorNotFound -- ^ InitiatorNotFound
-    | ErrorCodeInternalError -- ^ InternalError
-    | ErrorCodeInvalidEndpoint -- ^ InvalidEndpoint
-    | ErrorCodeInvalidGateway -- ^ InvalidGateway
-    | ErrorCodeInvalidParameters -- ^ InvalidParameters
-    | ErrorCodeInvalidSchedule -- ^ InvalidSchedule
-    | ErrorCodeLocalStorageLimitExceeded -- ^ LocalStorageLimitExceeded
-    | ErrorCodeLunAlreadyAllocated  -- ^ LunAlreadyAllocated 
-    | ErrorCodeLunInvalid -- ^ LunInvalid
-    | ErrorCodeMaximumContentLengthExceeded -- ^ MaximumContentLengthExceeded
-    | ErrorCodeMaximumTapeCartridgeCountExceeded -- ^ MaximumTapeCartridgeCountExceeded
-    | ErrorCodeMaximumVolumeCountExceeded -- ^ MaximumVolumeCountExceeded
-    | ErrorCodeNetworkConfigurationChanged -- ^ NetworkConfigurationChanged
-    | ErrorCodeNoDisksAvailable -- ^ NoDisksAvailable
-    | ErrorCodeNotImplemented -- ^ NotImplemented
-    | ErrorCodeNotSupported -- ^ NotSupported
-    | ErrorCodeOperationAborted -- ^ OperationAborted
-    | ErrorCodeOutdatedGateway -- ^ OutdatedGateway
-    | ErrorCodeParametersNotImplemented -- ^ ParametersNotImplemented
-    | ErrorCodeRegionInvalid -- ^ RegionInvalid
-    | ErrorCodeRequestTimeout -- ^ RequestTimeout
-    | ErrorCodeServiceUnavailable -- ^ ServiceUnavailable
-    | ErrorCodeSnapshotDeleted -- ^ SnapshotDeleted
-    | ErrorCodeSnapshotIdInvalid -- ^ SnapshotIdInvalid
-    | ErrorCodeSnapshotInProgress -- ^ SnapshotInProgress
-    | ErrorCodeSnapshotNotFound -- ^ SnapshotNotFound
-    | ErrorCodeSnapshotScheduleNotFound -- ^ SnapshotScheduleNotFound
-    | ErrorCodeStagingAreaFull -- ^ StagingAreaFull
-    | ErrorCodeStorageFailure -- ^ StorageFailure
-    | ErrorCodeTapeCartridgeNotFound -- ^ TapeCartridgeNotFound
-    | ErrorCodeTargetAlreadyExists -- ^ TargetAlreadyExists
-    | ErrorCodeTargetInvalid -- ^ TargetInvalid
-    | ErrorCodeTargetNotFound -- ^ TargetNotFound
-    | ErrorCodeUnauthorizedOperation -- ^ UnauthorizedOperation
-    | ErrorCodeVolumeAlreadyExists -- ^ VolumeAlreadyExists
-    | ErrorCodeVolumeIdInvalid -- ^ VolumeIdInvalid
-    | ErrorCodeVolumeInUse -- ^ VolumeInUse
-    | ErrorCodeVolumeNotFound -- ^ VolumeNotFound
-    | ErrorCodeVolumeNotReady -- ^ VolumeNotReady
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable ErrorCode
-
-instance FromText ErrorCode where
-    parser = match "ActivationKeyExpired" ErrorCodeActivationKeyExpired
-         <|> match "ActivationKeyInvalid" ErrorCodeActivationKeyInvalid
-         <|> match "ActivationKeyNotFound" ErrorCodeActivationKeyNotFound
-         <|> match "AuthenticationFailure" ErrorCodeAuthenticationFailure
-         <|> match "BandwidthThrottleScheduleNotFound" ErrorCodeBandwidthThrottleScheduleNotFound
-         <|> match "Blocked" ErrorCodeBlocked
-         <|> match "CannotExportSnapshot" ErrorCodeCannotExportSnapshot
-         <|> match "ChapCredentialNotFound" ErrorCodeChapCredentialNotFound
-         <|> match "DiskAlreadyAllocated" ErrorCodeDiskAlreadyAllocated
-         <|> match "DiskDoesNotExist" ErrorCodeDiskDoesNotExist
-         <|> match "DiskSizeGreaterThanVolumeMaxSize" ErrorCodeDiskSizeGreaterThanVolumeMaxSize
-         <|> match "DiskSizeLessThanVolumeSize" ErrorCodeDiskSizeLessThanVolumeSize
-         <|> match "DiskSizeNotGigAligned" ErrorCodeDiskSizeNotGigAligned
-         <|> match "DuplicateCertificateInfo" ErrorCodeDuplicateCertificateInfo
-         <|> match "DuplicateSchedule" ErrorCodeDuplicateSchedule
-         <|> match "EndpointNotFound" ErrorCodeEndpointNotFound
-         <|> match "GatewayInternalError" ErrorCodeGatewayInternalError
-         <|> match "GatewayNotConnected" ErrorCodeGatewayNotConnected
-         <|> match "GatewayNotFound" ErrorCodeGatewayNotFound
-         <|> match "GatewayProxyNetworkConnectionBusy" ErrorCodeGatewayProxyNetworkConnectionBusy
-         <|> match "IAMNotSupported" ErrorCodeIAMNotSupported
-         <|> match "InitiatorInvalid" ErrorCodeInitiatorInvalid
-         <|> match "InitiatorNotFound" ErrorCodeInitiatorNotFound
-         <|> match "InternalError" ErrorCodeInternalError
-         <|> match "InvalidEndpoint" ErrorCodeInvalidEndpoint
-         <|> match "InvalidGateway" ErrorCodeInvalidGateway
-         <|> match "InvalidParameters" ErrorCodeInvalidParameters
-         <|> match "InvalidSchedule" ErrorCodeInvalidSchedule
-         <|> match "LocalStorageLimitExceeded" ErrorCodeLocalStorageLimitExceeded
-         <|> match "LunAlreadyAllocated " ErrorCodeLunAlreadyAllocated 
-         <|> match "LunInvalid" ErrorCodeLunInvalid
-         <|> match "MaximumContentLengthExceeded" ErrorCodeMaximumContentLengthExceeded
-         <|> match "MaximumTapeCartridgeCountExceeded" ErrorCodeMaximumTapeCartridgeCountExceeded
-         <|> match "MaximumVolumeCountExceeded" ErrorCodeMaximumVolumeCountExceeded
-         <|> match "NetworkConfigurationChanged" ErrorCodeNetworkConfigurationChanged
-         <|> match "NoDisksAvailable" ErrorCodeNoDisksAvailable
-         <|> match "NotImplemented" ErrorCodeNotImplemented
-         <|> match "NotSupported" ErrorCodeNotSupported
-         <|> match "OperationAborted" ErrorCodeOperationAborted
-         <|> match "OutdatedGateway" ErrorCodeOutdatedGateway
-         <|> match "ParametersNotImplemented" ErrorCodeParametersNotImplemented
-         <|> match "RegionInvalid" ErrorCodeRegionInvalid
-         <|> match "RequestTimeout" ErrorCodeRequestTimeout
-         <|> match "ServiceUnavailable" ErrorCodeServiceUnavailable
-         <|> match "SnapshotDeleted" ErrorCodeSnapshotDeleted
-         <|> match "SnapshotIdInvalid" ErrorCodeSnapshotIdInvalid
-         <|> match "SnapshotInProgress" ErrorCodeSnapshotInProgress
-         <|> match "SnapshotNotFound" ErrorCodeSnapshotNotFound
-         <|> match "SnapshotScheduleNotFound" ErrorCodeSnapshotScheduleNotFound
-         <|> match "StagingAreaFull" ErrorCodeStagingAreaFull
-         <|> match "StorageFailure" ErrorCodeStorageFailure
-         <|> match "TapeCartridgeNotFound" ErrorCodeTapeCartridgeNotFound
-         <|> match "TargetAlreadyExists" ErrorCodeTargetAlreadyExists
-         <|> match "TargetInvalid" ErrorCodeTargetInvalid
-         <|> match "TargetNotFound" ErrorCodeTargetNotFound
-         <|> match "UnauthorizedOperation" ErrorCodeUnauthorizedOperation
-         <|> match "VolumeAlreadyExists" ErrorCodeVolumeAlreadyExists
-         <|> match "VolumeIdInvalid" ErrorCodeVolumeIdInvalid
-         <|> match "VolumeInUse" ErrorCodeVolumeInUse
-         <|> match "VolumeNotFound" ErrorCodeVolumeNotFound
-         <|> match "VolumeNotReady" ErrorCodeVolumeNotReady
-
-instance ToText ErrorCode where
-    toText ErrorCodeActivationKeyExpired = "ActivationKeyExpired"
-    toText ErrorCodeActivationKeyInvalid = "ActivationKeyInvalid"
-    toText ErrorCodeActivationKeyNotFound = "ActivationKeyNotFound"
-    toText ErrorCodeAuthenticationFailure = "AuthenticationFailure"
-    toText ErrorCodeBandwidthThrottleScheduleNotFound = "BandwidthThrottleScheduleNotFound"
-    toText ErrorCodeBlocked = "Blocked"
-    toText ErrorCodeCannotExportSnapshot = "CannotExportSnapshot"
-    toText ErrorCodeChapCredentialNotFound = "ChapCredentialNotFound"
-    toText ErrorCodeDiskAlreadyAllocated = "DiskAlreadyAllocated"
-    toText ErrorCodeDiskDoesNotExist = "DiskDoesNotExist"
-    toText ErrorCodeDiskSizeGreaterThanVolumeMaxSize = "DiskSizeGreaterThanVolumeMaxSize"
-    toText ErrorCodeDiskSizeLessThanVolumeSize = "DiskSizeLessThanVolumeSize"
-    toText ErrorCodeDiskSizeNotGigAligned = "DiskSizeNotGigAligned"
-    toText ErrorCodeDuplicateCertificateInfo = "DuplicateCertificateInfo"
-    toText ErrorCodeDuplicateSchedule = "DuplicateSchedule"
-    toText ErrorCodeEndpointNotFound = "EndpointNotFound"
-    toText ErrorCodeGatewayInternalError = "GatewayInternalError"
-    toText ErrorCodeGatewayNotConnected = "GatewayNotConnected"
-    toText ErrorCodeGatewayNotFound = "GatewayNotFound"
-    toText ErrorCodeGatewayProxyNetworkConnectionBusy = "GatewayProxyNetworkConnectionBusy"
-    toText ErrorCodeIAMNotSupported = "IAMNotSupported"
-    toText ErrorCodeInitiatorInvalid = "InitiatorInvalid"
-    toText ErrorCodeInitiatorNotFound = "InitiatorNotFound"
-    toText ErrorCodeInternalError = "InternalError"
-    toText ErrorCodeInvalidEndpoint = "InvalidEndpoint"
-    toText ErrorCodeInvalidGateway = "InvalidGateway"
-    toText ErrorCodeInvalidParameters = "InvalidParameters"
-    toText ErrorCodeInvalidSchedule = "InvalidSchedule"
-    toText ErrorCodeLocalStorageLimitExceeded = "LocalStorageLimitExceeded"
-    toText ErrorCodeLunAlreadyAllocated  = "LunAlreadyAllocated "
-    toText ErrorCodeLunInvalid = "LunInvalid"
-    toText ErrorCodeMaximumContentLengthExceeded = "MaximumContentLengthExceeded"
-    toText ErrorCodeMaximumTapeCartridgeCountExceeded = "MaximumTapeCartridgeCountExceeded"
-    toText ErrorCodeMaximumVolumeCountExceeded = "MaximumVolumeCountExceeded"
-    toText ErrorCodeNetworkConfigurationChanged = "NetworkConfigurationChanged"
-    toText ErrorCodeNoDisksAvailable = "NoDisksAvailable"
-    toText ErrorCodeNotImplemented = "NotImplemented"
-    toText ErrorCodeNotSupported = "NotSupported"
-    toText ErrorCodeOperationAborted = "OperationAborted"
-    toText ErrorCodeOutdatedGateway = "OutdatedGateway"
-    toText ErrorCodeParametersNotImplemented = "ParametersNotImplemented"
-    toText ErrorCodeRegionInvalid = "RegionInvalid"
-    toText ErrorCodeRequestTimeout = "RequestTimeout"
-    toText ErrorCodeServiceUnavailable = "ServiceUnavailable"
-    toText ErrorCodeSnapshotDeleted = "SnapshotDeleted"
-    toText ErrorCodeSnapshotIdInvalid = "SnapshotIdInvalid"
-    toText ErrorCodeSnapshotInProgress = "SnapshotInProgress"
-    toText ErrorCodeSnapshotNotFound = "SnapshotNotFound"
-    toText ErrorCodeSnapshotScheduleNotFound = "SnapshotScheduleNotFound"
-    toText ErrorCodeStagingAreaFull = "StagingAreaFull"
-    toText ErrorCodeStorageFailure = "StorageFailure"
-    toText ErrorCodeTapeCartridgeNotFound = "TapeCartridgeNotFound"
-    toText ErrorCodeTargetAlreadyExists = "TargetAlreadyExists"
-    toText ErrorCodeTargetInvalid = "TargetInvalid"
-    toText ErrorCodeTargetNotFound = "TargetNotFound"
-    toText ErrorCodeUnauthorizedOperation = "UnauthorizedOperation"
-    toText ErrorCodeVolumeAlreadyExists = "VolumeAlreadyExists"
-    toText ErrorCodeVolumeIdInvalid = "VolumeIdInvalid"
-    toText ErrorCodeVolumeInUse = "VolumeInUse"
-    toText ErrorCodeVolumeNotFound = "VolumeNotFound"
-    toText ErrorCodeVolumeNotReady = "VolumeNotReady"
-
-instance ToByteString ErrorCode where
-    toBS ErrorCodeActivationKeyExpired = "ActivationKeyExpired"
-    toBS ErrorCodeActivationKeyInvalid = "ActivationKeyInvalid"
-    toBS ErrorCodeActivationKeyNotFound = "ActivationKeyNotFound"
-    toBS ErrorCodeAuthenticationFailure = "AuthenticationFailure"
-    toBS ErrorCodeBandwidthThrottleScheduleNotFound = "BandwidthThrottleScheduleNotFound"
-    toBS ErrorCodeBlocked = "Blocked"
-    toBS ErrorCodeCannotExportSnapshot = "CannotExportSnapshot"
-    toBS ErrorCodeChapCredentialNotFound = "ChapCredentialNotFound"
-    toBS ErrorCodeDiskAlreadyAllocated = "DiskAlreadyAllocated"
-    toBS ErrorCodeDiskDoesNotExist = "DiskDoesNotExist"
-    toBS ErrorCodeDiskSizeGreaterThanVolumeMaxSize = "DiskSizeGreaterThanVolumeMaxSize"
-    toBS ErrorCodeDiskSizeLessThanVolumeSize = "DiskSizeLessThanVolumeSize"
-    toBS ErrorCodeDiskSizeNotGigAligned = "DiskSizeNotGigAligned"
-    toBS ErrorCodeDuplicateCertificateInfo = "DuplicateCertificateInfo"
-    toBS ErrorCodeDuplicateSchedule = "DuplicateSchedule"
-    toBS ErrorCodeEndpointNotFound = "EndpointNotFound"
-    toBS ErrorCodeGatewayInternalError = "GatewayInternalError"
-    toBS ErrorCodeGatewayNotConnected = "GatewayNotConnected"
-    toBS ErrorCodeGatewayNotFound = "GatewayNotFound"
-    toBS ErrorCodeGatewayProxyNetworkConnectionBusy = "GatewayProxyNetworkConnectionBusy"
-    toBS ErrorCodeIAMNotSupported = "IAMNotSupported"
-    toBS ErrorCodeInitiatorInvalid = "InitiatorInvalid"
-    toBS ErrorCodeInitiatorNotFound = "InitiatorNotFound"
-    toBS ErrorCodeInternalError = "InternalError"
-    toBS ErrorCodeInvalidEndpoint = "InvalidEndpoint"
-    toBS ErrorCodeInvalidGateway = "InvalidGateway"
-    toBS ErrorCodeInvalidParameters = "InvalidParameters"
-    toBS ErrorCodeInvalidSchedule = "InvalidSchedule"
-    toBS ErrorCodeLocalStorageLimitExceeded = "LocalStorageLimitExceeded"
-    toBS ErrorCodeLunAlreadyAllocated  = "LunAlreadyAllocated "
-    toBS ErrorCodeLunInvalid = "LunInvalid"
-    toBS ErrorCodeMaximumContentLengthExceeded = "MaximumContentLengthExceeded"
-    toBS ErrorCodeMaximumTapeCartridgeCountExceeded = "MaximumTapeCartridgeCountExceeded"
-    toBS ErrorCodeMaximumVolumeCountExceeded = "MaximumVolumeCountExceeded"
-    toBS ErrorCodeNetworkConfigurationChanged = "NetworkConfigurationChanged"
-    toBS ErrorCodeNoDisksAvailable = "NoDisksAvailable"
-    toBS ErrorCodeNotImplemented = "NotImplemented"
-    toBS ErrorCodeNotSupported = "NotSupported"
-    toBS ErrorCodeOperationAborted = "OperationAborted"
-    toBS ErrorCodeOutdatedGateway = "OutdatedGateway"
-    toBS ErrorCodeParametersNotImplemented = "ParametersNotImplemented"
-    toBS ErrorCodeRegionInvalid = "RegionInvalid"
-    toBS ErrorCodeRequestTimeout = "RequestTimeout"
-    toBS ErrorCodeServiceUnavailable = "ServiceUnavailable"
-    toBS ErrorCodeSnapshotDeleted = "SnapshotDeleted"
-    toBS ErrorCodeSnapshotIdInvalid = "SnapshotIdInvalid"
-    toBS ErrorCodeSnapshotInProgress = "SnapshotInProgress"
-    toBS ErrorCodeSnapshotNotFound = "SnapshotNotFound"
-    toBS ErrorCodeSnapshotScheduleNotFound = "SnapshotScheduleNotFound"
-    toBS ErrorCodeStagingAreaFull = "StagingAreaFull"
-    toBS ErrorCodeStorageFailure = "StorageFailure"
-    toBS ErrorCodeTapeCartridgeNotFound = "TapeCartridgeNotFound"
-    toBS ErrorCodeTargetAlreadyExists = "TargetAlreadyExists"
-    toBS ErrorCodeTargetInvalid = "TargetInvalid"
-    toBS ErrorCodeTargetNotFound = "TargetNotFound"
-    toBS ErrorCodeUnauthorizedOperation = "UnauthorizedOperation"
-    toBS ErrorCodeVolumeAlreadyExists = "VolumeAlreadyExists"
-    toBS ErrorCodeVolumeIdInvalid = "VolumeIdInvalid"
-    toBS ErrorCodeVolumeInUse = "VolumeInUse"
-    toBS ErrorCodeVolumeNotFound = "VolumeNotFound"
-    toBS ErrorCodeVolumeNotReady = "VolumeNotReady"
-
-instance ToHeader ErrorCode where
-    toHeader k = toHeader k . toBS
-
-instance ToQuery ErrorCode where
-    toQuery = toQuery . toBS
-
-instance FromJSON ErrorCode
-
-instance ToJSON ErrorCode
-
-data CachediSCSIVolumeInformation = CachediSCSIVolumeInformation
-    { _cscsiviVolumeARN :: Maybe Text
-    , _cscsiviVolumeId :: Maybe Text
-    , _cscsiviVolumeType :: Maybe Text
-    , _cscsiviVolumeStatus :: Maybe Text
-    , _cscsiviVolumeSizeInBytes :: Maybe Integer
-    , _cscsiviVolumeProgress :: Maybe Double
-    , _cscsiviSourceSnapshotId :: Maybe Text
-    , _cscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'CachediSCSIVolumeInformation' data type.
---
--- 'CachediSCSIVolumeInformation' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @VolumeARN ::@ @Maybe Text@
---
--- * @VolumeId ::@ @Maybe Text@
---
--- * @VolumeType ::@ @Maybe Text@
---
--- * @VolumeStatus ::@ @Maybe Text@
---
--- * @VolumeSizeInBytes ::@ @Maybe Integer@
---
--- * @VolumeProgress ::@ @Maybe Double@
---
--- * @SourceSnapshotId ::@ @Maybe Text@
---
--- * @VolumeiSCSIAttributes ::@ @Maybe VolumeiSCSIAttributes@
---
-cachediSCSIVolumeInformation :: CachediSCSIVolumeInformation
-cachediSCSIVolumeInformation = CachediSCSIVolumeInformation
-    { _cscsiviVolumeARN = Nothing
-    , _cscsiviVolumeId = Nothing
-    , _cscsiviVolumeType = Nothing
-    , _cscsiviVolumeStatus = Nothing
-    , _cscsiviVolumeSizeInBytes = Nothing
-    , _cscsiviVolumeProgress = Nothing
-    , _cscsiviSourceSnapshotId = Nothing
-    , _cscsiviVolumeiSCSIAttributes = Nothing
-    }
-
-cscsiviVolumeARN :: Lens' CachediSCSIVolumeInformation (Maybe Text)
-cscsiviVolumeARN =
-    lens _cscsiviVolumeARN (\s a -> s { _cscsiviVolumeARN = a })
-
-cscsiviVolumeId :: Lens' CachediSCSIVolumeInformation (Maybe Text)
-cscsiviVolumeId = lens _cscsiviVolumeId (\s a -> s { _cscsiviVolumeId = a })
-
-cscsiviVolumeType :: Lens' CachediSCSIVolumeInformation (Maybe Text)
-cscsiviVolumeType =
-    lens _cscsiviVolumeType (\s a -> s { _cscsiviVolumeType = a })
-
-cscsiviVolumeStatus :: Lens' CachediSCSIVolumeInformation (Maybe Text)
-cscsiviVolumeStatus =
-    lens _cscsiviVolumeStatus (\s a -> s { _cscsiviVolumeStatus = a })
-
-cscsiviVolumeSizeInBytes :: Lens' CachediSCSIVolumeInformation (Maybe Integer)
-cscsiviVolumeSizeInBytes =
-    lens _cscsiviVolumeSizeInBytes
-         (\s a -> s { _cscsiviVolumeSizeInBytes = a })
-
-cscsiviVolumeProgress :: Lens' CachediSCSIVolumeInformation (Maybe Double)
-cscsiviVolumeProgress =
-    lens _cscsiviVolumeProgress (\s a -> s { _cscsiviVolumeProgress = a })
-
-cscsiviSourceSnapshotId :: Lens' CachediSCSIVolumeInformation (Maybe Text)
-cscsiviSourceSnapshotId =
-    lens _cscsiviSourceSnapshotId
-         (\s a -> s { _cscsiviSourceSnapshotId = a })
-
--- | Lists iSCSI information about a volume.
-cscsiviVolumeiSCSIAttributes :: Lens' CachediSCSIVolumeInformation (Maybe VolumeiSCSIAttributes)
-cscsiviVolumeiSCSIAttributes =
-    lens _cscsiviVolumeiSCSIAttributes
-         (\s a -> s { _cscsiviVolumeiSCSIAttributes = a })
-
-instance FromJSON CachediSCSIVolumeInformation
-
--- | Describes Challenge-Handshake Authentication Protocol (CHAP) information
--- that supports authentication between your gateway and iSCSI initiators.
 data ChapInfo = ChapInfo
-    { _ciTargetARN :: Maybe Text
+    { _ciInitiatorName                 :: Maybe Text
     , _ciSecretToAuthenticateInitiator :: Maybe Text
-    , _ciInitiatorName :: Maybe Text
-    , _ciSecretToAuthenticateTarget :: Maybe Text
+    , _ciSecretToAuthenticateTarget    :: Maybe Text
+    , _ciTargetARN                     :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ChapInfo' data type.
---
--- 'ChapInfo' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'ChapInfo' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TargetARN ::@ @Maybe Text@
+-- * 'ciInitiatorName' @::@ 'Maybe' 'Text'
 --
--- * @SecretToAuthenticateInitiator ::@ @Maybe Text@
+-- * 'ciSecretToAuthenticateInitiator' @::@ 'Maybe' 'Text'
 --
--- * @InitiatorName ::@ @Maybe Text@
+-- * 'ciSecretToAuthenticateTarget' @::@ 'Maybe' 'Text'
 --
--- * @SecretToAuthenticateTarget ::@ @Maybe Text@
+-- * 'ciTargetARN' @::@ 'Maybe' 'Text'
 --
 chapInfo :: ChapInfo
 chapInfo = ChapInfo
-    { _ciTargetARN = Nothing
+    { _ciTargetARN                     = Nothing
     , _ciSecretToAuthenticateInitiator = Nothing
-    , _ciInitiatorName = Nothing
-    , _ciSecretToAuthenticateTarget = Nothing
+    , _ciInitiatorName                 = Nothing
+    , _ciSecretToAuthenticateTarget    = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to 500
--- lowercase letters, numbers, periods (.), and hyphens (-).
-ciTargetARN :: Lens' ChapInfo (Maybe Text)
-ciTargetARN = lens _ciTargetARN (\s a -> s { _ciTargetARN = a })
+-- | The iSCSI initiator that connects to the target.
+ciInitiatorName :: Lens' ChapInfo (Maybe Text)
+ciInitiatorName = lens _ciInitiatorName (\s a -> s { _ciInitiatorName = a })
 
 -- | The secret key that the initiator (e.g. Windows client) must provide to
 -- participate in mutual CHAP with the target.
 ciSecretToAuthenticateInitiator :: Lens' ChapInfo (Maybe Text)
 ciSecretToAuthenticateInitiator =
     lens _ciSecretToAuthenticateInitiator
-         (\s a -> s { _ciSecretToAuthenticateInitiator = a })
-
--- | The iSCSI initiator that connects to the target.
-ciInitiatorName :: Lens' ChapInfo (Maybe Text)
-ciInitiatorName = lens _ciInitiatorName (\s a -> s { _ciInitiatorName = a })
+        (\s a -> s { _ciSecretToAuthenticateInitiator = a })
 
 -- | The secret key that the target must provide to participate in mutual CHAP
 -- with the initiator (e.g. Windows client).
 ciSecretToAuthenticateTarget :: Lens' ChapInfo (Maybe Text)
 ciSecretToAuthenticateTarget =
     lens _ciSecretToAuthenticateTarget
-         (\s a -> s { _ciSecretToAuthenticateTarget = a })
+        (\s a -> s { _ciSecretToAuthenticateTarget = a })
 
-instance FromJSON ChapInfo
+-- | The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to 500
+-- lowercase letters, numbers, periods (.), and hyphens (-).
+ciTargetARN :: Lens' ChapInfo (Maybe Text)
+ciTargetARN = lens _ciTargetARN (\s a -> s { _ciTargetARN = a })
 
-data DeviceiSCSIAttributes = DeviceiSCSIAttributes
-    { _dscsiaTargetARN :: Maybe Text
-    , _dscsiaNetworkInterfaceId :: Maybe Text
-    , _dscsiaNetworkInterfacePort :: Maybe Integer
-    , _dscsiaChapEnabled :: Maybe Bool
+data VolumeiSCSIAttributes = VolumeiSCSIAttributes
+    { _vscsiaChapEnabled          :: Maybe Bool
+    , _vscsiaLunNumber            :: Maybe Natural
+    , _vscsiaNetworkInterfaceId   :: Maybe Text
+    , _vscsiaNetworkInterfacePort :: Maybe Int
+    , _vscsiaTargetARN            :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DeviceiSCSIAttributes' data type to populate a request.
+-- | 'VolumeiSCSIAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TargetARN ::@ @Maybe Text@
+-- * 'vscsiaChapEnabled' @::@ 'Maybe' 'Bool'
 --
--- * @NetworkInterfaceId ::@ @Maybe Text@
+-- * 'vscsiaLunNumber' @::@ 'Maybe' 'Natural'
 --
--- * @NetworkInterfacePort ::@ @Maybe Integer@
+-- * 'vscsiaNetworkInterfaceId' @::@ 'Maybe' 'Text'
 --
--- * @ChapEnabled ::@ @Maybe Bool@
+-- * 'vscsiaNetworkInterfacePort' @::@ 'Maybe' 'Int'
+--
+-- * 'vscsiaTargetARN' @::@ 'Maybe' 'Text'
+--
+volumeiSCSIAttributes :: VolumeiSCSIAttributes
+volumeiSCSIAttributes = VolumeiSCSIAttributes
+    { _vscsiaTargetARN            = Nothing
+    , _vscsiaNetworkInterfaceId   = Nothing
+    , _vscsiaNetworkInterfacePort = Nothing
+    , _vscsiaLunNumber            = Nothing
+    , _vscsiaChapEnabled          = Nothing
+    }
+
+-- | Indicates whether mutual CHAP is enabled for the iSCSI target.
+vscsiaChapEnabled :: Lens' VolumeiSCSIAttributes (Maybe Bool)
+vscsiaChapEnabled =
+    lens _vscsiaChapEnabled (\s a -> s { _vscsiaChapEnabled = a })
+
+-- | The logical disk number.
+vscsiaLunNumber :: Lens' VolumeiSCSIAttributes (Maybe Natural)
+vscsiaLunNumber = lens _vscsiaLunNumber (\s a -> s { _vscsiaLunNumber = a })
+
+-- | The network interface identifier.
+vscsiaNetworkInterfaceId :: Lens' VolumeiSCSIAttributes (Maybe Text)
+vscsiaNetworkInterfaceId =
+    lens _vscsiaNetworkInterfaceId
+        (\s a -> s { _vscsiaNetworkInterfaceId = a })
+
+-- | The port used to communicate with iSCSI targets.
+vscsiaNetworkInterfacePort :: Lens' VolumeiSCSIAttributes (Maybe Int)
+vscsiaNetworkInterfacePort =
+    lens _vscsiaNetworkInterfacePort
+        (\s a -> s { _vscsiaNetworkInterfacePort = a })
+
+-- | The Amazon Resource Name (ARN) of the volume target.
+vscsiaTargetARN :: Lens' VolumeiSCSIAttributes (Maybe Text)
+vscsiaTargetARN = lens _vscsiaTargetARN (\s a -> s { _vscsiaTargetARN = a })
+
+data DeviceiSCSIAttributes = DeviceiSCSIAttributes
+    { _dscsiaChapEnabled          :: Maybe Bool
+    , _dscsiaNetworkInterfaceId   :: Maybe Text
+    , _dscsiaNetworkInterfacePort :: Maybe Int
+    , _dscsiaTargetARN            :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'DeviceiSCSIAttributes' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dscsiaChapEnabled' @::@ 'Maybe' 'Bool'
+--
+-- * 'dscsiaNetworkInterfaceId' @::@ 'Maybe' 'Text'
+--
+-- * 'dscsiaNetworkInterfacePort' @::@ 'Maybe' 'Int'
+--
+-- * 'dscsiaTargetARN' @::@ 'Maybe' 'Text'
 --
 deviceiSCSIAttributes :: DeviceiSCSIAttributes
 deviceiSCSIAttributes = DeviceiSCSIAttributes
-    { _dscsiaTargetARN = Nothing
-    , _dscsiaNetworkInterfaceId = Nothing
+    { _dscsiaTargetARN            = Nothing
+    , _dscsiaNetworkInterfaceId   = Nothing
     , _dscsiaNetworkInterfacePort = Nothing
-    , _dscsiaChapEnabled = Nothing
+    , _dscsiaChapEnabled          = Nothing
     }
 
-dscsiaTargetARN :: Lens' DeviceiSCSIAttributes (Maybe Text)
-dscsiaTargetARN = lens _dscsiaTargetARN (\s a -> s { _dscsiaTargetARN = a })
-
-dscsiaNetworkInterfaceId :: Lens' DeviceiSCSIAttributes (Maybe Text)
-dscsiaNetworkInterfaceId =
-    lens _dscsiaNetworkInterfaceId
-         (\s a -> s { _dscsiaNetworkInterfaceId = a })
-
-dscsiaNetworkInterfacePort :: Lens' DeviceiSCSIAttributes (Maybe Integer)
-dscsiaNetworkInterfacePort =
-    lens _dscsiaNetworkInterfacePort
-         (\s a -> s { _dscsiaNetworkInterfacePort = a })
-
+-- | Indicates whether mutual CHAP is enabled for the iSCSI target.
 dscsiaChapEnabled :: Lens' DeviceiSCSIAttributes (Maybe Bool)
 dscsiaChapEnabled =
     lens _dscsiaChapEnabled (\s a -> s { _dscsiaChapEnabled = a })
 
-instance FromJSON DeviceiSCSIAttributes
+-- | The network interface identifier of the VTL device.
+dscsiaNetworkInterfaceId :: Lens' DeviceiSCSIAttributes (Maybe Text)
+dscsiaNetworkInterfaceId =
+    lens _dscsiaNetworkInterfaceId
+        (\s a -> s { _dscsiaNetworkInterfaceId = a })
 
-instance ToJSON DeviceiSCSIAttributes
+-- | The port used to communicate with iSCSI VTL device targets.
+dscsiaNetworkInterfacePort :: Lens' DeviceiSCSIAttributes (Maybe Int)
+dscsiaNetworkInterfacePort =
+    lens _dscsiaNetworkInterfacePort
+        (\s a -> s { _dscsiaNetworkInterfacePort = a })
 
-data DiskInformation = DiskInformation
-    { _diDiskId :: Maybe Text
-    , _diDiskPath :: Maybe Text
-    , _diDiskNode :: Maybe Text
-    , _diDiskSizeInBytes :: Maybe Integer
-    , _diDiskAllocationType :: Maybe Text
-    , _diDiskAllocationResource :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+-- | Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI
+-- qualified name(iqn) of a tape drive or media changer target.
+dscsiaTargetARN :: Lens' DeviceiSCSIAttributes (Maybe Text)
+dscsiaTargetARN = lens _dscsiaTargetARN (\s a -> s { _dscsiaTargetARN = a })
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DiskInformation' data type.
---
--- 'DiskInformation' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @DiskId ::@ @Maybe Text@
---
--- * @DiskPath ::@ @Maybe Text@
---
--- * @DiskNode ::@ @Maybe Text@
---
--- * @DiskSizeInBytes ::@ @Maybe Integer@
---
--- * @DiskAllocationType ::@ @Maybe Text@
---
--- * @DiskAllocationResource ::@ @Maybe Text@
---
-diskInformation :: DiskInformation
-diskInformation = DiskInformation
-    { _diDiskId = Nothing
-    , _diDiskPath = Nothing
-    , _diDiskNode = Nothing
-    , _diDiskSizeInBytes = Nothing
-    , _diDiskAllocationType = Nothing
-    , _diDiskAllocationResource = Nothing
-    }
-
-diDiskId :: Lens' DiskInformation (Maybe Text)
-diDiskId = lens _diDiskId (\s a -> s { _diDiskId = a })
-
-diDiskPath :: Lens' DiskInformation (Maybe Text)
-diDiskPath = lens _diDiskPath (\s a -> s { _diDiskPath = a })
-
-diDiskNode :: Lens' DiskInformation (Maybe Text)
-diDiskNode = lens _diDiskNode (\s a -> s { _diDiskNode = a })
-
-diDiskSizeInBytes :: Lens' DiskInformation (Maybe Integer)
-diDiskSizeInBytes =
-    lens _diDiskSizeInBytes (\s a -> s { _diDiskSizeInBytes = a })
-
-diDiskAllocationType :: Lens' DiskInformation (Maybe Text)
-diDiskAllocationType =
-    lens _diDiskAllocationType (\s a -> s { _diDiskAllocationType = a })
-
-diDiskAllocationResource :: Lens' DiskInformation (Maybe Text)
-diDiskAllocationResource =
-    lens _diDiskAllocationResource
-         (\s a -> s { _diDiskAllocationResource = a })
-
-instance FromJSON DiskInformation
-
--- | A StorageGatewayError that provides more detail about the cause of the
--- error.
 data Error' = Error'
-    { _sgeErrorCode :: Maybe ErrorCode
-    , _sgeErrorDetails :: Map Text Text
+    { _eErrorCode    :: Maybe Text
+    , _eErrorDetails :: Map Text Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Error'' data type to populate a request.
+-- | 'Error'' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ErrorCode ::@ @Maybe ErrorCode@
+-- * 'eErrorCode' @::@ 'Maybe' 'Text'
 --
--- * @ErrorDetails ::@ @Map Text Text@
+-- * 'eErrorDetails' @::@ 'HashMap' 'Text' 'Text'
 --
-error' :: Error'
-error' = Error'
-    { _sgeErrorCode = Nothing
-    , _sgeErrorDetails = mempty
+error :: Error'
+error = Error'
+    { _eErrorCode    = Nothing
+    , _eErrorDetails = mempty
     }
 
 -- | Additional information about the error.
-sgeErrorCode :: Lens' Error' (Maybe ErrorCode)
-sgeErrorCode = lens _sgeErrorCode (\s a -> s { _sgeErrorCode = a })
+eErrorCode :: Lens' Error' (Maybe Text)
+eErrorCode = lens _eErrorCode (\s a -> s { _eErrorCode = a })
 
--- | Human-readable text that provides detail about the error that occured.
-sgeErrorDetails :: Lens' Error' (Map Text Text)
-sgeErrorDetails = lens _sgeErrorDetails (\s a -> s { _sgeErrorDetails = a })
+-- | Human-readable text that provides detail about the error that occurred.
+eErrorDetails :: Lens' Error' (HashMap Text Text)
+eErrorDetails = lens _eErrorDetails (\s a -> s { _eErrorDetails = a })
+    . _Map
 
-instance FromJSON Error'
-
-instance ToJSON Error'
-
-data GatewayInformation = GatewayInformation
-    { _giGatewayARN :: Maybe Text
-    , _giGatewayType :: Maybe Text
+data Disk = Disk
+    { _dDiskAllocationResource :: Maybe Text
+    , _dDiskAllocationType     :: Maybe Text
+    , _dDiskId                 :: Maybe Text
+    , _dDiskNode               :: Maybe Text
+    , _dDiskPath               :: Maybe Text
+    , _dDiskSizeInBytes        :: Maybe Integer
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'GatewayInformation' data type.
---
--- 'GatewayInformation' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'Disk' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Maybe Text@
+-- * 'dDiskAllocationResource' @::@ 'Maybe' 'Text'
 --
--- * @GatewayType ::@ @Maybe Text@
+-- * 'dDiskAllocationType' @::@ 'Maybe' 'Text'
 --
-gatewayInformation :: GatewayInformation
-gatewayInformation = GatewayInformation
-    { _giGatewayARN = Nothing
-    , _giGatewayType = Nothing
+-- * 'dDiskId' @::@ 'Maybe' 'Text'
+--
+-- * 'dDiskNode' @::@ 'Maybe' 'Text'
+--
+-- * 'dDiskPath' @::@ 'Maybe' 'Text'
+--
+-- * 'dDiskSizeInBytes' @::@ 'Maybe' 'Integer'
+--
+disk :: Disk
+disk = Disk
+    { _dDiskId                 = Nothing
+    , _dDiskPath               = Nothing
+    , _dDiskNode               = Nothing
+    , _dDiskSizeInBytes        = Nothing
+    , _dDiskAllocationType     = Nothing
+    , _dDiskAllocationResource = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
-giGatewayARN :: Lens' GatewayInformation (Maybe Text)
-giGatewayARN = lens _giGatewayARN (\s a -> s { _giGatewayARN = a })
+dDiskAllocationResource :: Lens' Disk (Maybe Text)
+dDiskAllocationResource =
+    lens _dDiskAllocationResource (\s a -> s { _dDiskAllocationResource = a })
 
-giGatewayType :: Lens' GatewayInformation (Maybe Text)
-giGatewayType = lens _giGatewayType (\s a -> s { _giGatewayType = a })
+dDiskAllocationType :: Lens' Disk (Maybe Text)
+dDiskAllocationType =
+    lens _dDiskAllocationType (\s a -> s { _dDiskAllocationType = a })
 
-instance FromJSON GatewayInformation
+dDiskId :: Lens' Disk (Maybe Text)
+dDiskId = lens _dDiskId (\s a -> s { _dDiskId = a })
 
--- | Describes a gateway's network interface.
-data NetworkInterface = NetworkInterface
-    { _niIpv4Address :: Maybe Text
-    , _niMacAddress :: Maybe Text
-    , _niIpv6Address :: Maybe Text
+dDiskNode :: Lens' Disk (Maybe Text)
+dDiskNode = lens _dDiskNode (\s a -> s { _dDiskNode = a })
+
+dDiskPath :: Lens' Disk (Maybe Text)
+dDiskPath = lens _dDiskPath (\s a -> s { _dDiskPath = a })
+
+dDiskSizeInBytes :: Lens' Disk (Maybe Integer)
+dDiskSizeInBytes = lens _dDiskSizeInBytes (\s a -> s { _dDiskSizeInBytes = a })
+
+data Tape = Tape
+    { _tProgress        :: Maybe Double
+    , _tTapeARN         :: Maybe Text
+    , _tTapeBarcode     :: Maybe Text
+    , _tTapeSizeInBytes :: Maybe Natural
+    , _tTapeStatus      :: Maybe Text
+    , _tVTLDevice       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'NetworkInterface' data type.
---
--- 'NetworkInterface' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'Tape' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Ipv4Address ::@ @Maybe Text@
+-- * 'tProgress' @::@ 'Maybe' 'Double'
 --
--- * @MacAddress ::@ @Maybe Text@
+-- * 'tTapeARN' @::@ 'Maybe' 'Text'
 --
--- * @Ipv6Address ::@ @Maybe Text@
+-- * 'tTapeBarcode' @::@ 'Maybe' 'Text'
+--
+-- * 'tTapeSizeInBytes' @::@ 'Maybe' 'Natural'
+--
+-- * 'tTapeStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'tVTLDevice' @::@ 'Maybe' 'Text'
+--
+tape :: Tape
+tape = Tape
+    { _tTapeARN         = Nothing
+    , _tTapeBarcode     = Nothing
+    , _tTapeSizeInBytes = Nothing
+    , _tTapeStatus      = Nothing
+    , _tVTLDevice       = Nothing
+    , _tProgress        = Nothing
+    }
+
+-- | For archiving virtual tapes, indicates how much data remains to be
+-- uploaded before archiving is complete. Range: 0 (not started) to 100
+-- (complete).
+tProgress :: Lens' Tape (Maybe Double)
+tProgress = lens _tProgress (\s a -> s { _tProgress = a })
+
+-- | The Amazon Resource Name (ARN) of the virtual tape.
+tTapeARN :: Lens' Tape (Maybe Text)
+tTapeARN = lens _tTapeARN (\s a -> s { _tTapeARN = a })
+
+-- | The barcode that identifies a specific virtual tape.
+tTapeBarcode :: Lens' Tape (Maybe Text)
+tTapeBarcode = lens _tTapeBarcode (\s a -> s { _tTapeBarcode = a })
+
+-- | The size, in bytes, of the virtual tape.
+tTapeSizeInBytes :: Lens' Tape (Maybe Natural)
+tTapeSizeInBytes = lens _tTapeSizeInBytes (\s a -> s { _tTapeSizeInBytes = a })
+
+-- | The current state of the virtual tape.
+tTapeStatus :: Lens' Tape (Maybe Text)
+tTapeStatus = lens _tTapeStatus (\s a -> s { _tTapeStatus = a })
+
+-- | The virtual tape library (VTL) device that the virtual tape is associated
+-- with.
+tVTLDevice :: Lens' Tape (Maybe Text)
+tVTLDevice = lens _tVTLDevice (\s a -> s { _tVTLDevice = a })
+
+data NetworkInterface = NetworkInterface
+    { _niIpv4Address :: Maybe Text
+    , _niIpv6Address :: Maybe Text
+    , _niMacAddress  :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'NetworkInterface' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'niIpv4Address' @::@ 'Maybe' 'Text'
+--
+-- * 'niIpv6Address' @::@ 'Maybe' 'Text'
+--
+-- * 'niMacAddress' @::@ 'Maybe' 'Text'
 --
 networkInterface :: NetworkInterface
 networkInterface = NetworkInterface
     { _niIpv4Address = Nothing
-    , _niMacAddress = Nothing
+    , _niMacAddress  = Nothing
     , _niIpv6Address = Nothing
     }
 
@@ -882,381 +509,152 @@ networkInterface = NetworkInterface
 niIpv4Address :: Lens' NetworkInterface (Maybe Text)
 niIpv4Address = lens _niIpv4Address (\s a -> s { _niIpv4Address = a })
 
--- | The Media Access Control (MAC) address of the interface. This is currently
--- unsupported and will not be returned in output.
-niMacAddress :: Lens' NetworkInterface (Maybe Text)
-niMacAddress = lens _niMacAddress (\s a -> s { _niMacAddress = a })
-
--- | The Internet Protocol version 6 (IPv6) address of the interface. Currently
--- not supported.
+-- | The Internet Protocol version 6 (IPv6) address of the interface.
+-- Currently not supported.
 niIpv6Address :: Lens' NetworkInterface (Maybe Text)
 niIpv6Address = lens _niIpv6Address (\s a -> s { _niIpv6Address = a })
 
-instance FromJSON NetworkInterface
-
-data StorediSCSIVolumeInformation = StorediSCSIVolumeInformation
-    { _sscsiviVolumeARN :: Maybe Text
-    , _sscsiviVolumeId :: Maybe Text
-    , _sscsiviVolumeType :: Maybe Text
-    , _sscsiviVolumeStatus :: Maybe Text
-    , _sscsiviVolumeSizeInBytes :: Maybe Integer
-    , _sscsiviVolumeProgress :: Maybe Double
-    , _sscsiviVolumeDiskId :: Maybe Text
-    , _sscsiviSourceSnapshotId :: Maybe Text
-    , _sscsiviPreservedExistingData :: Maybe Bool
-    , _sscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'StorediSCSIVolumeInformation' data type.
---
--- 'StorediSCSIVolumeInformation' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @VolumeARN ::@ @Maybe Text@
---
--- * @VolumeId ::@ @Maybe Text@
---
--- * @VolumeType ::@ @Maybe Text@
---
--- * @VolumeStatus ::@ @Maybe Text@
---
--- * @VolumeSizeInBytes ::@ @Maybe Integer@
---
--- * @VolumeProgress ::@ @Maybe Double@
---
--- * @VolumeDiskId ::@ @Maybe Text@
---
--- * @SourceSnapshotId ::@ @Maybe Text@
---
--- * @PreservedExistingData ::@ @Maybe Bool@
---
--- * @VolumeiSCSIAttributes ::@ @Maybe VolumeiSCSIAttributes@
---
-storediSCSIVolumeInformation :: StorediSCSIVolumeInformation
-storediSCSIVolumeInformation = StorediSCSIVolumeInformation
-    { _sscsiviVolumeARN = Nothing
-    , _sscsiviVolumeId = Nothing
-    , _sscsiviVolumeType = Nothing
-    , _sscsiviVolumeStatus = Nothing
-    , _sscsiviVolumeSizeInBytes = Nothing
-    , _sscsiviVolumeProgress = Nothing
-    , _sscsiviVolumeDiskId = Nothing
-    , _sscsiviSourceSnapshotId = Nothing
-    , _sscsiviPreservedExistingData = Nothing
-    , _sscsiviVolumeiSCSIAttributes = Nothing
-    }
-
-sscsiviVolumeARN :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviVolumeARN =
-    lens _sscsiviVolumeARN (\s a -> s { _sscsiviVolumeARN = a })
-
-sscsiviVolumeId :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviVolumeId = lens _sscsiviVolumeId (\s a -> s { _sscsiviVolumeId = a })
-
-sscsiviVolumeType :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviVolumeType =
-    lens _sscsiviVolumeType (\s a -> s { _sscsiviVolumeType = a })
-
-sscsiviVolumeStatus :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviVolumeStatus =
-    lens _sscsiviVolumeStatus (\s a -> s { _sscsiviVolumeStatus = a })
-
-sscsiviVolumeSizeInBytes :: Lens' StorediSCSIVolumeInformation (Maybe Integer)
-sscsiviVolumeSizeInBytes =
-    lens _sscsiviVolumeSizeInBytes
-         (\s a -> s { _sscsiviVolumeSizeInBytes = a })
-
-sscsiviVolumeProgress :: Lens' StorediSCSIVolumeInformation (Maybe Double)
-sscsiviVolumeProgress =
-    lens _sscsiviVolumeProgress (\s a -> s { _sscsiviVolumeProgress = a })
-
-sscsiviVolumeDiskId :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviVolumeDiskId =
-    lens _sscsiviVolumeDiskId (\s a -> s { _sscsiviVolumeDiskId = a })
-
-sscsiviSourceSnapshotId :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviSourceSnapshotId =
-    lens _sscsiviSourceSnapshotId
-         (\s a -> s { _sscsiviSourceSnapshotId = a })
-
-sscsiviPreservedExistingData :: Lens' StorediSCSIVolumeInformation (Maybe Bool)
-sscsiviPreservedExistingData =
-    lens _sscsiviPreservedExistingData
-         (\s a -> s { _sscsiviPreservedExistingData = a })
-
--- | Lists iSCSI information about a volume.
-sscsiviVolumeiSCSIAttributes :: Lens' StorediSCSIVolumeInformation (Maybe VolumeiSCSIAttributes)
-sscsiviVolumeiSCSIAttributes =
-    lens _sscsiviVolumeiSCSIAttributes
-         (\s a -> s { _sscsiviVolumeiSCSIAttributes = a })
-
-instance FromJSON StorediSCSIVolumeInformation
-
-data Tape = Tape
-    { _tTapeARN :: Maybe Text
-    , _tTapeBarcode :: Maybe Text
-    , _tTapeSizeInBytes :: Maybe Integer
-    , _tTapeStatus :: Maybe Text
-    , _tVTLDevice :: Maybe Text
-    , _tProgress :: Maybe Double
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Tape' data type.
---
--- 'Tape' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @TapeARN ::@ @Maybe Text@
---
--- * @TapeBarcode ::@ @Maybe Text@
---
--- * @TapeSizeInBytes ::@ @Maybe Integer@
---
--- * @TapeStatus ::@ @Maybe Text@
---
--- * @VTLDevice ::@ @Maybe Text@
---
--- * @Progress ::@ @Maybe Double@
---
-tape :: Tape
-tape = Tape
-    { _tTapeARN = Nothing
-    , _tTapeBarcode = Nothing
-    , _tTapeSizeInBytes = Nothing
-    , _tTapeStatus = Nothing
-    , _tVTLDevice = Nothing
-    , _tProgress = Nothing
-    }
-
-tTapeARN :: Lens' Tape (Maybe Text)
-tTapeARN = lens _tTapeARN (\s a -> s { _tTapeARN = a })
-
-tTapeBarcode :: Lens' Tape (Maybe Text)
-tTapeBarcode = lens _tTapeBarcode (\s a -> s { _tTapeBarcode = a })
-
-tTapeSizeInBytes :: Lens' Tape (Maybe Integer)
-tTapeSizeInBytes =
-    lens _tTapeSizeInBytes (\s a -> s { _tTapeSizeInBytes = a })
-
-tTapeStatus :: Lens' Tape (Maybe Text)
-tTapeStatus = lens _tTapeStatus (\s a -> s { _tTapeStatus = a })
-
-tVTLDevice :: Lens' Tape (Maybe Text)
-tVTLDevice = lens _tVTLDevice (\s a -> s { _tVTLDevice = a })
-
-tProgress :: Lens' Tape (Maybe Double)
-tProgress = lens _tProgress (\s a -> s { _tProgress = a })
-
-instance FromJSON Tape
-
-data TapeArchive = TapeArchive
-    { _taTapeARN :: Maybe Text
-    , _taTapeBarcode :: Maybe Text
-    , _taTapeSizeInBytes :: Maybe Integer
-    , _taCompletionTime :: Maybe ISO8601
-    , _taRetrievedTo :: Maybe Text
-    , _taTapeStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'TapeArchive' data type.
---
--- 'TapeArchive' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @TapeARN ::@ @Maybe Text@
---
--- * @TapeBarcode ::@ @Maybe Text@
---
--- * @TapeSizeInBytes ::@ @Maybe Integer@
---
--- * @CompletionTime ::@ @Maybe ISO8601@
---
--- * @RetrievedTo ::@ @Maybe Text@
---
--- * @TapeStatus ::@ @Maybe Text@
---
-tapeArchive :: TapeArchive
-tapeArchive = TapeArchive
-    { _taTapeARN = Nothing
-    , _taTapeBarcode = Nothing
-    , _taTapeSizeInBytes = Nothing
-    , _taCompletionTime = Nothing
-    , _taRetrievedTo = Nothing
-    , _taTapeStatus = Nothing
-    }
-
-taTapeARN :: Lens' TapeArchive (Maybe Text)
-taTapeARN = lens _taTapeARN (\s a -> s { _taTapeARN = a })
-
-taTapeBarcode :: Lens' TapeArchive (Maybe Text)
-taTapeBarcode = lens _taTapeBarcode (\s a -> s { _taTapeBarcode = a })
-
-taTapeSizeInBytes :: Lens' TapeArchive (Maybe Integer)
-taTapeSizeInBytes =
-    lens _taTapeSizeInBytes (\s a -> s { _taTapeSizeInBytes = a })
-
-taCompletionTime :: Lens' TapeArchive (Maybe ISO8601)
-taCompletionTime =
-    lens _taCompletionTime (\s a -> s { _taCompletionTime = a })
-
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
-taRetrievedTo :: Lens' TapeArchive (Maybe Text)
-taRetrievedTo = lens _taRetrievedTo (\s a -> s { _taRetrievedTo = a })
-
-taTapeStatus :: Lens' TapeArchive (Maybe Text)
-taTapeStatus = lens _taTapeStatus (\s a -> s { _taTapeStatus = a })
-
-instance FromJSON TapeArchive
-
-data TapeRecoveryPointInfo = TapeRecoveryPointInfo
-    { _trpiTapeARN :: Maybe Text
-    , _trpiTapeRecoveryPointTime :: Maybe ISO8601
-    , _trpiTapeSizeInBytes :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'TapeRecoveryPointInfo' data type.
---
--- 'TapeRecoveryPointInfo' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
---
--- The fields accessible through corresponding lenses are:
---
--- * @TapeARN ::@ @Maybe Text@
---
--- * @TapeRecoveryPointTime ::@ @Maybe ISO8601@
---
--- * @TapeSizeInBytes ::@ @Maybe Integer@
---
-tapeRecoveryPointInfo :: TapeRecoveryPointInfo
-tapeRecoveryPointInfo = TapeRecoveryPointInfo
-    { _trpiTapeARN = Nothing
-    , _trpiTapeRecoveryPointTime = Nothing
-    , _trpiTapeSizeInBytes = Nothing
-    }
-
-trpiTapeARN :: Lens' TapeRecoveryPointInfo (Maybe Text)
-trpiTapeARN = lens _trpiTapeARN (\s a -> s { _trpiTapeARN = a })
-
-trpiTapeRecoveryPointTime :: Lens' TapeRecoveryPointInfo (Maybe ISO8601)
-trpiTapeRecoveryPointTime =
-    lens _trpiTapeRecoveryPointTime
-         (\s a -> s { _trpiTapeRecoveryPointTime = a })
-
-trpiTapeSizeInBytes :: Lens' TapeRecoveryPointInfo (Maybe Integer)
-trpiTapeSizeInBytes =
-    lens _trpiTapeSizeInBytes (\s a -> s { _trpiTapeSizeInBytes = a })
-
-instance FromJSON TapeRecoveryPointInfo
+-- | The Media Access Control (MAC) address of the interface.
+niMacAddress :: Lens' NetworkInterface (Maybe Text)
+niMacAddress = lens _niMacAddress (\s a -> s { _niMacAddress = a })
 
 data VTLDevice = VTLDevice
-    { _vtldVTLDeviceARN :: Maybe Text
-    , _vtldDeviceiSCSIAttributes :: Maybe DeviceiSCSIAttributes
-    } deriving (Eq, Ord, Show, Generic)
+    { _vtldDeviceiSCSIAttributes      :: Maybe DeviceiSCSIAttributes
+    , _vtldVTLDeviceARN               :: Maybe Text
+    , _vtldVTLDeviceProductIdentifier :: Maybe Text
+    , _vtldVTLDeviceType              :: Maybe Text
+    , _vtldVTLDeviceVendor            :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'VTLDevice' data type.
---
--- 'VTLDevice' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'VTLDevice' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VTLDeviceARN ::@ @Maybe Text@
+-- * 'vtldDeviceiSCSIAttributes' @::@ 'Maybe' 'DeviceiSCSIAttributes'
 --
--- * @DeviceiSCSIAttributes ::@ @Maybe DeviceiSCSIAttributes@
+-- * 'vtldVTLDeviceARN' @::@ 'Maybe' 'Text'
 --
-vTLDevice :: VTLDevice
-vTLDevice = VTLDevice
-    { _vtldVTLDeviceARN = Nothing
-    , _vtldDeviceiSCSIAttributes = Nothing
+-- * 'vtldVTLDeviceProductIdentifier' @::@ 'Maybe' 'Text'
+--
+-- * 'vtldVTLDeviceType' @::@ 'Maybe' 'Text'
+--
+-- * 'vtldVTLDeviceVendor' @::@ 'Maybe' 'Text'
+--
+vtldevice :: VTLDevice
+vtldevice = VTLDevice
+    { _vtldVTLDeviceARN               = Nothing
+    , _vtldVTLDeviceType              = Nothing
+    , _vtldVTLDeviceVendor            = Nothing
+    , _vtldVTLDeviceProductIdentifier = Nothing
+    , _vtldDeviceiSCSIAttributes      = Nothing
     }
 
-vtldVTLDeviceARN :: Lens' VTLDevice (Maybe Text)
-vtldVTLDeviceARN =
-    lens _vtldVTLDeviceARN (\s a -> s { _vtldVTLDeviceARN = a })
-
+-- | A list of iSCSI information about a VTL device.
 vtldDeviceiSCSIAttributes :: Lens' VTLDevice (Maybe DeviceiSCSIAttributes)
 vtldDeviceiSCSIAttributes =
     lens _vtldDeviceiSCSIAttributes
-         (\s a -> s { _vtldDeviceiSCSIAttributes = a })
+        (\s a -> s { _vtldDeviceiSCSIAttributes = a })
 
-instance FromJSON VTLDevice
+-- | Specifies the unique Amazon Resource Name (ARN) of the device (tape drive
+-- or media changer).
+vtldVTLDeviceARN :: Lens' VTLDevice (Maybe Text)
+vtldVTLDeviceARN = lens _vtldVTLDeviceARN (\s a -> s { _vtldVTLDeviceARN = a })
 
-data VolumeInformation = VolumeInformation
-    { _viVolumeARN :: Maybe Text
-    , _viVolumeType :: Maybe Text
+vtldVTLDeviceProductIdentifier :: Lens' VTLDevice (Maybe Text)
+vtldVTLDeviceProductIdentifier =
+    lens _vtldVTLDeviceProductIdentifier
+        (\s a -> s { _vtldVTLDeviceProductIdentifier = a })
+
+vtldVTLDeviceType :: Lens' VTLDevice (Maybe Text)
+vtldVTLDeviceType =
+    lens _vtldVTLDeviceType (\s a -> s { _vtldVTLDeviceType = a })
+
+vtldVTLDeviceVendor :: Lens' VTLDevice (Maybe Text)
+vtldVTLDeviceVendor =
+    lens _vtldVTLDeviceVendor (\s a -> s { _vtldVTLDeviceVendor = a })
+
+data TapeRecoveryPointInfo = TapeRecoveryPointInfo
+    { _trpiTapeARN               :: Maybe Text
+    , _trpiTapeRecoveryPointTime :: Maybe RFC822
+    , _trpiTapeSizeInBytes       :: Maybe Natural
+    , _trpiTapeStatus            :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'VolumeInformation' data type.
---
--- 'VolumeInformation' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'TapeRecoveryPointInfo' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeARN ::@ @Maybe Text@
+-- * 'trpiTapeARN' @::@ 'Maybe' 'Text'
 --
--- * @VolumeType ::@ @Maybe Text@
+-- * 'trpiTapeRecoveryPointTime' @::@ 'Maybe' 'UTCTime'
 --
-volumeInformation :: VolumeInformation
-volumeInformation = VolumeInformation
-    { _viVolumeARN = Nothing
-    , _viVolumeType = Nothing
+-- * 'trpiTapeSizeInBytes' @::@ 'Maybe' 'Natural'
+--
+-- * 'trpiTapeStatus' @::@ 'Maybe' 'Text'
+--
+tapeRecoveryPointInfo :: TapeRecoveryPointInfo
+tapeRecoveryPointInfo = TapeRecoveryPointInfo
+    { _trpiTapeARN               = Nothing
+    , _trpiTapeRecoveryPointTime = Nothing
+    , _trpiTapeSizeInBytes       = Nothing
+    , _trpiTapeStatus            = Nothing
     }
 
-viVolumeARN :: Lens' VolumeInformation (Maybe Text)
-viVolumeARN = lens _viVolumeARN (\s a -> s { _viVolumeARN = a })
+-- | The Amazon Resource Name (ARN) of the virtual tape.
+trpiTapeARN :: Lens' TapeRecoveryPointInfo (Maybe Text)
+trpiTapeARN = lens _trpiTapeARN (\s a -> s { _trpiTapeARN = a })
 
-viVolumeType :: Lens' VolumeInformation (Maybe Text)
-viVolumeType = lens _viVolumeType (\s a -> s { _viVolumeType = a })
+-- | The time when the point-in-time view of the virtual tape was replicated
+-- for later recovery. The string format of the tape recovery point time is
+-- in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+trpiTapeRecoveryPointTime :: Lens' TapeRecoveryPointInfo (Maybe UTCTime)
+trpiTapeRecoveryPointTime =
+    lens _trpiTapeRecoveryPointTime
+        (\s a -> s { _trpiTapeRecoveryPointTime = a })
+            . mapping _Time
 
-instance FromJSON VolumeInformation
+-- | The size, in bytes, of the virtual tapes to recover.
+trpiTapeSizeInBytes :: Lens' TapeRecoveryPointInfo (Maybe Natural)
+trpiTapeSizeInBytes =
+    lens _trpiTapeSizeInBytes (\s a -> s { _trpiTapeSizeInBytes = a })
+
+trpiTapeStatus :: Lens' TapeRecoveryPointInfo (Maybe Text)
+trpiTapeStatus = lens _trpiTapeStatus (\s a -> s { _trpiTapeStatus = a })
 
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
-    { _vrpiVolumeARN :: Maybe Text
-    , _vrpiVolumeSizeInBytes :: Maybe Integer
-    , _vrpiVolumeUsageInBytes :: Maybe Integer
+    { _vrpiVolumeARN               :: Maybe Text
     , _vrpiVolumeRecoveryPointTime :: Maybe Text
+    , _vrpiVolumeSizeInBytes       :: Maybe Integer
+    , _vrpiVolumeUsageInBytes      :: Maybe Integer
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'VolumeRecoveryPointInfo' data type.
---
--- 'VolumeRecoveryPointInfo' is exclusively used in responses and this constructor
--- is provided for convenience and testing purposes.
+-- | 'VolumeRecoveryPointInfo' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeARN ::@ @Maybe Text@
+-- * 'vrpiVolumeARN' @::@ 'Maybe' 'Text'
 --
--- * @VolumeSizeInBytes ::@ @Maybe Integer@
+-- * 'vrpiVolumeRecoveryPointTime' @::@ 'Maybe' 'Text'
 --
--- * @VolumeUsageInBytes ::@ @Maybe Integer@
+-- * 'vrpiVolumeSizeInBytes' @::@ 'Maybe' 'Integer'
 --
--- * @VolumeRecoveryPointTime ::@ @Maybe Text@
+-- * 'vrpiVolumeUsageInBytes' @::@ 'Maybe' 'Integer'
 --
 volumeRecoveryPointInfo :: VolumeRecoveryPointInfo
 volumeRecoveryPointInfo = VolumeRecoveryPointInfo
-    { _vrpiVolumeARN = Nothing
-    , _vrpiVolumeSizeInBytes = Nothing
-    , _vrpiVolumeUsageInBytes = Nothing
+    { _vrpiVolumeARN               = Nothing
+    , _vrpiVolumeSizeInBytes       = Nothing
+    , _vrpiVolumeUsageInBytes      = Nothing
     , _vrpiVolumeRecoveryPointTime = Nothing
     }
 
 vrpiVolumeARN :: Lens' VolumeRecoveryPointInfo (Maybe Text)
 vrpiVolumeARN = lens _vrpiVolumeARN (\s a -> s { _vrpiVolumeARN = a })
+
+vrpiVolumeRecoveryPointTime :: Lens' VolumeRecoveryPointInfo (Maybe Text)
+vrpiVolumeRecoveryPointTime =
+    lens _vrpiVolumeRecoveryPointTime
+        (\s a -> s { _vrpiVolumeRecoveryPointTime = a })
 
 vrpiVolumeSizeInBytes :: Lens' VolumeRecoveryPointInfo (Maybe Integer)
 vrpiVolumeSizeInBytes =
@@ -1266,71 +664,482 @@ vrpiVolumeUsageInBytes :: Lens' VolumeRecoveryPointInfo (Maybe Integer)
 vrpiVolumeUsageInBytes =
     lens _vrpiVolumeUsageInBytes (\s a -> s { _vrpiVolumeUsageInBytes = a })
 
-vrpiVolumeRecoveryPointTime :: Lens' VolumeRecoveryPointInfo (Maybe Text)
-vrpiVolumeRecoveryPointTime =
-    lens _vrpiVolumeRecoveryPointTime
-         (\s a -> s { _vrpiVolumeRecoveryPointTime = a })
-
-instance FromJSON VolumeRecoveryPointInfo
-
--- | Lists iSCSI information about a volume.
-data VolumeiSCSIAttributes = VolumeiSCSIAttributes
-    { _vscsiaTargetARN :: Maybe Text
-    , _vscsiaNetworkInterfaceId :: Maybe Text
-    , _vscsiaNetworkInterfacePort :: Maybe Integer
-    , _vscsiaLunNumber :: Maybe Integer
-    , _vscsiaChapEnabled :: Maybe Bool
+data TapeArchive = TapeArchive
+    { _taCompletionTime  :: Maybe RFC822
+    , _taRetrievedTo     :: Maybe Text
+    , _taTapeARN         :: Maybe Text
+    , _taTapeBarcode     :: Maybe Text
+    , _taTapeSizeInBytes :: Maybe Natural
+    , _taTapeStatus      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'VolumeiSCSIAttributes' data type to populate a request.
+-- | 'TapeArchive' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TargetARN ::@ @Maybe Text@
+-- * 'taCompletionTime' @::@ 'Maybe' 'UTCTime'
 --
--- * @NetworkInterfaceId ::@ @Maybe Text@
+-- * 'taRetrievedTo' @::@ 'Maybe' 'Text'
 --
--- * @NetworkInterfacePort ::@ @Maybe Integer@
+-- * 'taTapeARN' @::@ 'Maybe' 'Text'
 --
--- * @LunNumber ::@ @Maybe Integer@
+-- * 'taTapeBarcode' @::@ 'Maybe' 'Text'
 --
--- * @ChapEnabled ::@ @Maybe Bool@
+-- * 'taTapeSizeInBytes' @::@ 'Maybe' 'Natural'
 --
-volumeiSCSIAttributes :: VolumeiSCSIAttributes
-volumeiSCSIAttributes = VolumeiSCSIAttributes
-    { _vscsiaTargetARN = Nothing
-    , _vscsiaNetworkInterfaceId = Nothing
-    , _vscsiaNetworkInterfacePort = Nothing
-    , _vscsiaLunNumber = Nothing
-    , _vscsiaChapEnabled = Nothing
+-- * 'taTapeStatus' @::@ 'Maybe' 'Text'
+--
+tapeArchive :: TapeArchive
+tapeArchive = TapeArchive
+    { _taTapeARN         = Nothing
+    , _taTapeBarcode     = Nothing
+    , _taTapeSizeInBytes = Nothing
+    , _taCompletionTime  = Nothing
+    , _taRetrievedTo     = Nothing
+    , _taTapeStatus      = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the volume target.
-vscsiaTargetARN :: Lens' VolumeiSCSIAttributes (Maybe Text)
-vscsiaTargetARN = lens _vscsiaTargetARN (\s a -> s { _vscsiaTargetARN = a })
+-- | The time that the archiving of the virtual tape was completed. The string
+-- format of the completion time is in the ISO8601 extended
+-- YYYY-MM-DD'T'HH:MM:SS'Z' format.
+taCompletionTime :: Lens' TapeArchive (Maybe UTCTime)
+taCompletionTime = lens _taCompletionTime (\s a -> s { _taCompletionTime = a })
+    . mapping _Time
 
--- | The network interface identifier.
-vscsiaNetworkInterfaceId :: Lens' VolumeiSCSIAttributes (Maybe Text)
-vscsiaNetworkInterfaceId =
-    lens _vscsiaNetworkInterfaceId
-         (\s a -> s { _vscsiaNetworkInterfaceId = a })
+-- | The Amazon Resource Name (ARN) of the gateway-VTL that the virtual tape
+-- is being retrieved to. The virtual tape is retrieved from the virtual
+-- tape shelf (VTS).
+taRetrievedTo :: Lens' TapeArchive (Maybe Text)
+taRetrievedTo = lens _taRetrievedTo (\s a -> s { _taRetrievedTo = a })
 
--- | The port used to communicate with iSCSI targets.
-vscsiaNetworkInterfacePort :: Lens' VolumeiSCSIAttributes (Maybe Integer)
-vscsiaNetworkInterfacePort =
-    lens _vscsiaNetworkInterfacePort
-         (\s a -> s { _vscsiaNetworkInterfacePort = a })
+-- | The Amazon Resource Name (ARN) of an archived virtual tape.
+taTapeARN :: Lens' TapeArchive (Maybe Text)
+taTapeARN = lens _taTapeARN (\s a -> s { _taTapeARN = a })
 
--- | The logical disk number.
-vscsiaLunNumber :: Lens' VolumeiSCSIAttributes (Maybe Integer)
-vscsiaLunNumber = lens _vscsiaLunNumber (\s a -> s { _vscsiaLunNumber = a })
+-- | The barcode that identifies the archived virtual tape.
+taTapeBarcode :: Lens' TapeArchive (Maybe Text)
+taTapeBarcode = lens _taTapeBarcode (\s a -> s { _taTapeBarcode = a })
 
--- | Indicates whether mutual CHAP is enabled for the iSCSI target.
-vscsiaChapEnabled :: Lens' VolumeiSCSIAttributes (Maybe Bool)
-vscsiaChapEnabled =
-    lens _vscsiaChapEnabled (\s a -> s { _vscsiaChapEnabled = a })
+-- | The size, in bytes, of the archived virtual tape.
+taTapeSizeInBytes :: Lens' TapeArchive (Maybe Natural)
+taTapeSizeInBytes =
+    lens _taTapeSizeInBytes (\s a -> s { _taTapeSizeInBytes = a })
 
-instance FromJSON VolumeiSCSIAttributes
+-- | The current state of the archived virtual tape.
+taTapeStatus :: Lens' TapeArchive (Maybe Text)
+taTapeStatus = lens _taTapeStatus (\s a -> s { _taTapeStatus = a })
 
-instance ToJSON VolumeiSCSIAttributes
+data ErrorCode
+    = ActivationKeyExpired              -- ^ ActivationKeyExpired
+    | ActivationKeyInvalid              -- ^ ActivationKeyInvalid
+    | ActivationKeyNotFound             -- ^ ActivationKeyNotFound
+    | AuthenticationFailure             -- ^ AuthenticationFailure
+    | BandwidthThrottleScheduleNotFound -- ^ BandwidthThrottleScheduleNotFound
+    | Blocked                           -- ^ Blocked
+    | CannotExportSnapshot              -- ^ CannotExportSnapshot
+    | ChapCredentialNotFound            -- ^ ChapCredentialNotFound
+    | DiskAlreadyAllocated              -- ^ DiskAlreadyAllocated
+    | DiskDoesNotExist                  -- ^ DiskDoesNotExist
+    | DiskSizeGreaterThanVolumeMaxSize  -- ^ DiskSizeGreaterThanVolumeMaxSize
+    | DiskSizeLessThanVolumeSize        -- ^ DiskSizeLessThanVolumeSize
+    | DiskSizeNotGigAligned             -- ^ DiskSizeNotGigAligned
+    | DuplicateCertificateInfo          -- ^ DuplicateCertificateInfo
+    | DuplicateSchedule                 -- ^ DuplicateSchedule
+    | EndpointNotFound                  -- ^ EndpointNotFound
+    | GatewayInternalError              -- ^ GatewayInternalError
+    | GatewayNotConnected               -- ^ GatewayNotConnected
+    | GatewayNotFound                   -- ^ GatewayNotFound
+    | GatewayProxyNetworkConnectionBusy -- ^ GatewayProxyNetworkConnectionBusy
+    | IAMNotSupported                   -- ^ IAMNotSupported
+    | InitiatorInvalid                  -- ^ InitiatorInvalid
+    | InitiatorNotFound                 -- ^ InitiatorNotFound
+    | InternalError                     -- ^ InternalError
+    | InvalidEndpoint                   -- ^ InvalidEndpoint
+    | InvalidGateway                    -- ^ InvalidGateway
+    | InvalidParameters                 -- ^ InvalidParameters
+    | InvalidSchedule                   -- ^ InvalidSchedule
+    | LocalStorageLimitExceeded         -- ^ LocalStorageLimitExceeded
+    | LunAlreadyAllocated               -- ^ LunAlreadyAllocated 
+    | LunInvalid                        -- ^ LunInvalid
+    | MaximumContentLengthExceeded      -- ^ MaximumContentLengthExceeded
+    | MaximumTapeCartridgeCountExceeded -- ^ MaximumTapeCartridgeCountExceeded
+    | MaximumVolumeCountExceeded        -- ^ MaximumVolumeCountExceeded
+    | NetworkConfigurationChanged       -- ^ NetworkConfigurationChanged
+    | NoDisksAvailable                  -- ^ NoDisksAvailable
+    | NotImplemented                    -- ^ NotImplemented
+    | NotSupported                      -- ^ NotSupported
+    | OperationAborted                  -- ^ OperationAborted
+    | OutdatedGateway                   -- ^ OutdatedGateway
+    | ParametersNotImplemented          -- ^ ParametersNotImplemented
+    | RegionInvalid                     -- ^ RegionInvalid
+    | RequestTimeout                    -- ^ RequestTimeout
+    | ServiceUnavailable                -- ^ ServiceUnavailable
+    | SnapshotDeleted                   -- ^ SnapshotDeleted
+    | SnapshotIdInvalid                 -- ^ SnapshotIdInvalid
+    | SnapshotInProgress                -- ^ SnapshotInProgress
+    | SnapshotNotFound                  -- ^ SnapshotNotFound
+    | SnapshotScheduleNotFound          -- ^ SnapshotScheduleNotFound
+    | StagingAreaFull                   -- ^ StagingAreaFull
+    | StorageFailure                    -- ^ StorageFailure
+    | TapeCartridgeNotFound             -- ^ TapeCartridgeNotFound
+    | TargetAlreadyExists               -- ^ TargetAlreadyExists
+    | TargetInvalid                     -- ^ TargetInvalid
+    | TargetNotFound                    -- ^ TargetNotFound
+    | UnauthorizedOperation             -- ^ UnauthorizedOperation
+    | VolumeAlreadyExists               -- ^ VolumeAlreadyExists
+    | VolumeIdInvalid                   -- ^ VolumeIdInvalid
+    | VolumeInUse                       -- ^ VolumeInUse
+    | VolumeNotFound                    -- ^ VolumeNotFound
+    | VolumeNotReady                    -- ^ VolumeNotReady
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable ErrorCode
+
+instance FromText ErrorCode where
+    parser = match "ActivationKeyExpired"              ActivationKeyExpired
+         <|> match "ActivationKeyInvalid"              ActivationKeyInvalid
+         <|> match "ActivationKeyNotFound"             ActivationKeyNotFound
+         <|> match "AuthenticationFailure"             AuthenticationFailure
+         <|> match "BandwidthThrottleScheduleNotFound" BandwidthThrottleScheduleNotFound
+         <|> match "Blocked"                           Blocked
+         <|> match "CannotExportSnapshot"              CannotExportSnapshot
+         <|> match "ChapCredentialNotFound"            ChapCredentialNotFound
+         <|> match "DiskAlreadyAllocated"              DiskAlreadyAllocated
+         <|> match "DiskDoesNotExist"                  DiskDoesNotExist
+         <|> match "DiskSizeGreaterThanVolumeMaxSize"  DiskSizeGreaterThanVolumeMaxSize
+         <|> match "DiskSizeLessThanVolumeSize"        DiskSizeLessThanVolumeSize
+         <|> match "DiskSizeNotGigAligned"             DiskSizeNotGigAligned
+         <|> match "DuplicateCertificateInfo"          DuplicateCertificateInfo
+         <|> match "DuplicateSchedule"                 DuplicateSchedule
+         <|> match "EndpointNotFound"                  EndpointNotFound
+         <|> match "GatewayInternalError"              GatewayInternalError
+         <|> match "GatewayNotConnected"               GatewayNotConnected
+         <|> match "GatewayNotFound"                   GatewayNotFound
+         <|> match "GatewayProxyNetworkConnectionBusy" GatewayProxyNetworkConnectionBusy
+         <|> match "IAMNotSupported"                   IAMNotSupported
+         <|> match "InitiatorInvalid"                  InitiatorInvalid
+         <|> match "InitiatorNotFound"                 InitiatorNotFound
+         <|> match "InternalError"                     InternalError
+         <|> match "InvalidEndpoint"                   InvalidEndpoint
+         <|> match "InvalidGateway"                    InvalidGateway
+         <|> match "InvalidParameters"                 InvalidParameters
+         <|> match "InvalidSchedule"                   InvalidSchedule
+         <|> match "LocalStorageLimitExceeded"         LocalStorageLimitExceeded
+         <|> match "LunAlreadyAllocated "              LunAlreadyAllocated
+         <|> match "LunInvalid"                        LunInvalid
+         <|> match "MaximumContentLengthExceeded"      MaximumContentLengthExceeded
+         <|> match "MaximumTapeCartridgeCountExceeded" MaximumTapeCartridgeCountExceeded
+         <|> match "MaximumVolumeCountExceeded"        MaximumVolumeCountExceeded
+         <|> match "NetworkConfigurationChanged"       NetworkConfigurationChanged
+         <|> match "NoDisksAvailable"                  NoDisksAvailable
+         <|> match "NotImplemented"                    NotImplemented
+         <|> match "NotSupported"                      NotSupported
+         <|> match "OperationAborted"                  OperationAborted
+         <|> match "OutdatedGateway"                   OutdatedGateway
+         <|> match "ParametersNotImplemented"          ParametersNotImplemented
+         <|> match "RegionInvalid"                     RegionInvalid
+         <|> match "RequestTimeout"                    RequestTimeout
+         <|> match "ServiceUnavailable"                ServiceUnavailable
+         <|> match "SnapshotDeleted"                   SnapshotDeleted
+         <|> match "SnapshotIdInvalid"                 SnapshotIdInvalid
+         <|> match "SnapshotInProgress"                SnapshotInProgress
+         <|> match "SnapshotNotFound"                  SnapshotNotFound
+         <|> match "SnapshotScheduleNotFound"          SnapshotScheduleNotFound
+         <|> match "StagingAreaFull"                   StagingAreaFull
+         <|> match "StorageFailure"                    StorageFailure
+         <|> match "TapeCartridgeNotFound"             TapeCartridgeNotFound
+         <|> match "TargetAlreadyExists"               TargetAlreadyExists
+         <|> match "TargetInvalid"                     TargetInvalid
+         <|> match "TargetNotFound"                    TargetNotFound
+         <|> match "UnauthorizedOperation"             UnauthorizedOperation
+         <|> match "VolumeAlreadyExists"               VolumeAlreadyExists
+         <|> match "VolumeIdInvalid"                   VolumeIdInvalid
+         <|> match "VolumeInUse"                       VolumeInUse
+         <|> match "VolumeNotFound"                    VolumeNotFound
+         <|> match "VolumeNotReady"                    VolumeNotReady
+
+instance ToText ErrorCode where
+    toText = \case
+        ActivationKeyExpired              -> "ActivationKeyExpired"
+        ActivationKeyInvalid              -> "ActivationKeyInvalid"
+        ActivationKeyNotFound             -> "ActivationKeyNotFound"
+        AuthenticationFailure             -> "AuthenticationFailure"
+        BandwidthThrottleScheduleNotFound -> "BandwidthThrottleScheduleNotFound"
+        Blocked                           -> "Blocked"
+        CannotExportSnapshot              -> "CannotExportSnapshot"
+        ChapCredentialNotFound            -> "ChapCredentialNotFound"
+        DiskAlreadyAllocated              -> "DiskAlreadyAllocated"
+        DiskDoesNotExist                  -> "DiskDoesNotExist"
+        DiskSizeGreaterThanVolumeMaxSize  -> "DiskSizeGreaterThanVolumeMaxSize"
+        DiskSizeLessThanVolumeSize        -> "DiskSizeLessThanVolumeSize"
+        DiskSizeNotGigAligned             -> "DiskSizeNotGigAligned"
+        DuplicateCertificateInfo          -> "DuplicateCertificateInfo"
+        DuplicateSchedule                 -> "DuplicateSchedule"
+        EndpointNotFound                  -> "EndpointNotFound"
+        GatewayInternalError              -> "GatewayInternalError"
+        GatewayNotConnected               -> "GatewayNotConnected"
+        GatewayNotFound                   -> "GatewayNotFound"
+        GatewayProxyNetworkConnectionBusy -> "GatewayProxyNetworkConnectionBusy"
+        IAMNotSupported                   -> "IAMNotSupported"
+        InitiatorInvalid                  -> "InitiatorInvalid"
+        InitiatorNotFound                 -> "InitiatorNotFound"
+        InternalError                     -> "InternalError"
+        InvalidEndpoint                   -> "InvalidEndpoint"
+        InvalidGateway                    -> "InvalidGateway"
+        InvalidParameters                 -> "InvalidParameters"
+        InvalidSchedule                   -> "InvalidSchedule"
+        LocalStorageLimitExceeded         -> "LocalStorageLimitExceeded"
+        LunAlreadyAllocated               -> "LunAlreadyAllocated "
+        LunInvalid                        -> "LunInvalid"
+        MaximumContentLengthExceeded      -> "MaximumContentLengthExceeded"
+        MaximumTapeCartridgeCountExceeded -> "MaximumTapeCartridgeCountExceeded"
+        MaximumVolumeCountExceeded        -> "MaximumVolumeCountExceeded"
+        NetworkConfigurationChanged       -> "NetworkConfigurationChanged"
+        NoDisksAvailable                  -> "NoDisksAvailable"
+        NotImplemented                    -> "NotImplemented"
+        NotSupported                      -> "NotSupported"
+        OperationAborted                  -> "OperationAborted"
+        OutdatedGateway                   -> "OutdatedGateway"
+        ParametersNotImplemented          -> "ParametersNotImplemented"
+        RegionInvalid                     -> "RegionInvalid"
+        RequestTimeout                    -> "RequestTimeout"
+        ServiceUnavailable                -> "ServiceUnavailable"
+        SnapshotDeleted                   -> "SnapshotDeleted"
+        SnapshotIdInvalid                 -> "SnapshotIdInvalid"
+        SnapshotInProgress                -> "SnapshotInProgress"
+        SnapshotNotFound                  -> "SnapshotNotFound"
+        SnapshotScheduleNotFound          -> "SnapshotScheduleNotFound"
+        StagingAreaFull                   -> "StagingAreaFull"
+        StorageFailure                    -> "StorageFailure"
+        TapeCartridgeNotFound             -> "TapeCartridgeNotFound"
+        TargetAlreadyExists               -> "TargetAlreadyExists"
+        TargetInvalid                     -> "TargetInvalid"
+        TargetNotFound                    -> "TargetNotFound"
+        UnauthorizedOperation             -> "UnauthorizedOperation"
+        VolumeAlreadyExists               -> "VolumeAlreadyExists"
+        VolumeIdInvalid                   -> "VolumeIdInvalid"
+        VolumeInUse                       -> "VolumeInUse"
+        VolumeNotFound                    -> "VolumeNotFound"
+        VolumeNotReady                    -> "VolumeNotReady"
+
+data StorediSCSIVolume = StorediSCSIVolume
+    { _sscsivPreservedExistingData :: Maybe Bool
+    , _sscsivSourceSnapshotId      :: Maybe Text
+    , _sscsivVolumeARN             :: Maybe Text
+    , _sscsivVolumeDiskId          :: Maybe Text
+    , _sscsivVolumeId              :: Maybe Text
+    , _sscsivVolumeProgress        :: Maybe Double
+    , _sscsivVolumeSizeInBytes     :: Maybe Integer
+    , _sscsivVolumeStatus          :: Maybe Text
+    , _sscsivVolumeType            :: Maybe Text
+    , _sscsivVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
+    } deriving (Eq, Show, Generic)
+
+-- | 'StorediSCSIVolume' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sscsivPreservedExistingData' @::@ 'Maybe' 'Bool'
+--
+-- * 'sscsivSourceSnapshotId' @::@ 'Maybe' 'Text'
+--
+-- * 'sscsivVolumeARN' @::@ 'Maybe' 'Text'
+--
+-- * 'sscsivVolumeDiskId' @::@ 'Maybe' 'Text'
+--
+-- * 'sscsivVolumeId' @::@ 'Maybe' 'Text'
+--
+-- * 'sscsivVolumeProgress' @::@ 'Maybe' 'Double'
+--
+-- * 'sscsivVolumeSizeInBytes' @::@ 'Maybe' 'Integer'
+--
+-- * 'sscsivVolumeStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'sscsivVolumeType' @::@ 'Maybe' 'Text'
+--
+-- * 'sscsivVolumeiSCSIAttributes' @::@ 'Maybe' 'VolumeiSCSIAttributes'
+--
+storediSCSIVolume :: StorediSCSIVolume
+storediSCSIVolume = StorediSCSIVolume
+    { _sscsivVolumeARN             = Nothing
+    , _sscsivVolumeId              = Nothing
+    , _sscsivVolumeType            = Nothing
+    , _sscsivVolumeStatus          = Nothing
+    , _sscsivVolumeSizeInBytes     = Nothing
+    , _sscsivVolumeProgress        = Nothing
+    , _sscsivVolumeDiskId          = Nothing
+    , _sscsivSourceSnapshotId      = Nothing
+    , _sscsivPreservedExistingData = Nothing
+    , _sscsivVolumeiSCSIAttributes = Nothing
+    }
+
+sscsivPreservedExistingData :: Lens' StorediSCSIVolume (Maybe Bool)
+sscsivPreservedExistingData =
+    lens _sscsivPreservedExistingData
+        (\s a -> s { _sscsivPreservedExistingData = a })
+
+sscsivSourceSnapshotId :: Lens' StorediSCSIVolume (Maybe Text)
+sscsivSourceSnapshotId =
+    lens _sscsivSourceSnapshotId (\s a -> s { _sscsivSourceSnapshotId = a })
+
+sscsivVolumeARN :: Lens' StorediSCSIVolume (Maybe Text)
+sscsivVolumeARN = lens _sscsivVolumeARN (\s a -> s { _sscsivVolumeARN = a })
+
+sscsivVolumeDiskId :: Lens' StorediSCSIVolume (Maybe Text)
+sscsivVolumeDiskId =
+    lens _sscsivVolumeDiskId (\s a -> s { _sscsivVolumeDiskId = a })
+
+sscsivVolumeId :: Lens' StorediSCSIVolume (Maybe Text)
+sscsivVolumeId = lens _sscsivVolumeId (\s a -> s { _sscsivVolumeId = a })
+
+sscsivVolumeProgress :: Lens' StorediSCSIVolume (Maybe Double)
+sscsivVolumeProgress =
+    lens _sscsivVolumeProgress (\s a -> s { _sscsivVolumeProgress = a })
+
+sscsivVolumeSizeInBytes :: Lens' StorediSCSIVolume (Maybe Integer)
+sscsivVolumeSizeInBytes =
+    lens _sscsivVolumeSizeInBytes (\s a -> s { _sscsivVolumeSizeInBytes = a })
+
+sscsivVolumeStatus :: Lens' StorediSCSIVolume (Maybe Text)
+sscsivVolumeStatus =
+    lens _sscsivVolumeStatus (\s a -> s { _sscsivVolumeStatus = a })
+
+sscsivVolumeType :: Lens' StorediSCSIVolume (Maybe Text)
+sscsivVolumeType = lens _sscsivVolumeType (\s a -> s { _sscsivVolumeType = a })
+
+sscsivVolumeiSCSIAttributes :: Lens' StorediSCSIVolume (Maybe VolumeiSCSIAttributes)
+sscsivVolumeiSCSIAttributes =
+    lens _sscsivVolumeiSCSIAttributes
+        (\s a -> s { _sscsivVolumeiSCSIAttributes = a })
+
+data CachediSCSIVolume = CachediSCSIVolume
+    { _cscsivSourceSnapshotId      :: Maybe Text
+    , _cscsivVolumeARN             :: Maybe Text
+    , _cscsivVolumeId              :: Maybe Text
+    , _cscsivVolumeProgress        :: Maybe Double
+    , _cscsivVolumeSizeInBytes     :: Maybe Integer
+    , _cscsivVolumeStatus          :: Maybe Text
+    , _cscsivVolumeType            :: Maybe Text
+    , _cscsivVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
+    } deriving (Eq, Show, Generic)
+
+-- | 'CachediSCSIVolume' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cscsivSourceSnapshotId' @::@ 'Maybe' 'Text'
+--
+-- * 'cscsivVolumeARN' @::@ 'Maybe' 'Text'
+--
+-- * 'cscsivVolumeId' @::@ 'Maybe' 'Text'
+--
+-- * 'cscsivVolumeProgress' @::@ 'Maybe' 'Double'
+--
+-- * 'cscsivVolumeSizeInBytes' @::@ 'Maybe' 'Integer'
+--
+-- * 'cscsivVolumeStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'cscsivVolumeType' @::@ 'Maybe' 'Text'
+--
+-- * 'cscsivVolumeiSCSIAttributes' @::@ 'Maybe' 'VolumeiSCSIAttributes'
+--
+cachediSCSIVolume :: CachediSCSIVolume
+cachediSCSIVolume = CachediSCSIVolume
+    { _cscsivVolumeARN             = Nothing
+    , _cscsivVolumeId              = Nothing
+    , _cscsivVolumeType            = Nothing
+    , _cscsivVolumeStatus          = Nothing
+    , _cscsivVolumeSizeInBytes     = Nothing
+    , _cscsivVolumeProgress        = Nothing
+    , _cscsivSourceSnapshotId      = Nothing
+    , _cscsivVolumeiSCSIAttributes = Nothing
+    }
+
+cscsivSourceSnapshotId :: Lens' CachediSCSIVolume (Maybe Text)
+cscsivSourceSnapshotId =
+    lens _cscsivSourceSnapshotId (\s a -> s { _cscsivSourceSnapshotId = a })
+
+cscsivVolumeARN :: Lens' CachediSCSIVolume (Maybe Text)
+cscsivVolumeARN = lens _cscsivVolumeARN (\s a -> s { _cscsivVolumeARN = a })
+
+cscsivVolumeId :: Lens' CachediSCSIVolume (Maybe Text)
+cscsivVolumeId = lens _cscsivVolumeId (\s a -> s { _cscsivVolumeId = a })
+
+cscsivVolumeProgress :: Lens' CachediSCSIVolume (Maybe Double)
+cscsivVolumeProgress =
+    lens _cscsivVolumeProgress (\s a -> s { _cscsivVolumeProgress = a })
+
+cscsivVolumeSizeInBytes :: Lens' CachediSCSIVolume (Maybe Integer)
+cscsivVolumeSizeInBytes =
+    lens _cscsivVolumeSizeInBytes (\s a -> s { _cscsivVolumeSizeInBytes = a })
+
+cscsivVolumeStatus :: Lens' CachediSCSIVolume (Maybe Text)
+cscsivVolumeStatus =
+    lens _cscsivVolumeStatus (\s a -> s { _cscsivVolumeStatus = a })
+
+cscsivVolumeType :: Lens' CachediSCSIVolume (Maybe Text)
+cscsivVolumeType = lens _cscsivVolumeType (\s a -> s { _cscsivVolumeType = a })
+
+cscsivVolumeiSCSIAttributes :: Lens' CachediSCSIVolume (Maybe VolumeiSCSIAttributes)
+cscsivVolumeiSCSIAttributes =
+    lens _cscsivVolumeiSCSIAttributes
+        (\s a -> s { _cscsivVolumeiSCSIAttributes = a })
+
+data VolumeInfo = VolumeInfo
+    { _viVolumeARN  :: Maybe Text
+    , _viVolumeType :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'VolumeInfo' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'viVolumeARN' @::@ 'Maybe' 'Text'
+--
+-- * 'viVolumeType' @::@ 'Maybe' 'Text'
+--
+volumeInfo :: VolumeInfo
+volumeInfo = VolumeInfo
+    { _viVolumeARN  = Nothing
+    , _viVolumeType = Nothing
+    }
+
+viVolumeARN :: Lens' VolumeInfo (Maybe Text)
+viVolumeARN = lens _viVolumeARN (\s a -> s { _viVolumeARN = a })
+
+viVolumeType :: Lens' VolumeInfo (Maybe Text)
+viVolumeType = lens _viVolumeType (\s a -> s { _viVolumeType = a })
+
+data GatewayInfo = GatewayInfo
+    { _giGatewayARN              :: Maybe Text
+    , _giGatewayOperationalState :: Maybe Text
+    , _giGatewayType             :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'GatewayInfo' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'giGatewayARN' @::@ 'Maybe' 'Text'
+--
+-- * 'giGatewayOperationalState' @::@ 'Maybe' 'Text'
+--
+-- * 'giGatewayType' @::@ 'Maybe' 'Text'
+--
+gatewayInfo :: GatewayInfo
+gatewayInfo = GatewayInfo
+    { _giGatewayARN              = Nothing
+    , _giGatewayType             = Nothing
+    , _giGatewayOperationalState = Nothing
+    }
+
+giGatewayARN :: Lens' GatewayInfo (Maybe Text)
+giGatewayARN = lens _giGatewayARN (\s a -> s { _giGatewayARN = a })
+
+giGatewayOperationalState :: Lens' GatewayInfo (Maybe Text)
+giGatewayOperationalState =
+    lens _giGatewayOperationalState
+        (\s a -> s { _giGatewayOperationalState = a })
+
+giGatewayType :: Lens' GatewayInfo (Maybe Text)
+giGatewayType = lens _giGatewayType (\s a -> s { _giGatewayType = a })

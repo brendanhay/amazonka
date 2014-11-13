@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.StartInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,17 +33,7 @@
 -- instance does not preserve data stored in RAM. Performing this operation on
 -- an instance that uses an instance store as its root device returns an
 -- error. For more information, see Stopping Instances in the Amazon Elastic
--- Compute Cloud User Guide. Example This example starts the specified
--- instance. https://ec2.amazonaws.com/?Action=StartInstances
--- &amp;InstanceId.1=i-10a64379 &amp;AUTHPARAMS &lt;StartInstancesResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;instancesSet&gt; &lt;item&gt;
--- &lt;instanceId&gt;i-10a64379&lt;/instanceId&gt; &lt;currentState&gt;
--- &lt;code&gt;0&lt;/code&gt; &lt;name&gt;pending&lt;/name&gt;
--- &lt;/currentState&gt; &lt;previousState&gt; &lt;code&gt;80&lt;/code&gt;
--- &lt;name&gt;stopped&lt;/name&gt; &lt;/previousState&gt; &lt;/item&gt;
--- &lt;/instancesSet&gt; &lt;/StartInstancesResponse&gt;.
+-- Compute Cloud User Guide.
 module Network.AWS.EC2.StartInstances
     (
     -- * Request
@@ -49,83 +41,93 @@ module Network.AWS.EC2.StartInstances
     -- ** Request constructor
     , startInstances
     -- ** Request lenses
-    , siInstanceIds
-    , siAdditionalInfo
+    , si1AdditionalInfo
+    , si1DryRun
+    , si1InstanceIds
 
     -- * Response
     , StartInstancesResponse
     -- ** Response constructor
     , startInstancesResponse
     -- ** Response lenses
-    , sirrStartingInstances
+    , sirStartingInstances
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data StartInstances = StartInstances
-    { _siInstanceIds :: [Text]
-    , _siAdditionalInfo :: Maybe Text
+    { _si1AdditionalInfo :: Maybe Text
+    , _si1DryRun         :: Maybe Bool
+    , _si1InstanceIds    :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartInstances' request.
+-- | 'StartInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceIds ::@ @[Text]@
+-- * 'si1AdditionalInfo' @::@ 'Maybe' 'Text'
 --
--- * @AdditionalInfo ::@ @Maybe Text@
+-- * 'si1DryRun' @::@ 'Maybe' 'Bool'
 --
-startInstances :: [Text] -- ^ 'siInstanceIds'
-               -> StartInstances
-startInstances p1 = StartInstances
-    { _siInstanceIds = p1
-    , _siAdditionalInfo = Nothing
+-- * 'si1InstanceIds' @::@ ['Text']
+--
+startInstances :: StartInstances
+startInstances = StartInstances
+    { _si1InstanceIds    = mempty
+    , _si1AdditionalInfo = Nothing
+    , _si1DryRun         = Nothing
     }
 
--- | One or more instance IDs.
-siInstanceIds :: Lens' StartInstances [Text]
-siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a })
-
 -- | Reserved.
-siAdditionalInfo :: Lens' StartInstances (Maybe Text)
-siAdditionalInfo =
-    lens _siAdditionalInfo (\s a -> s { _siAdditionalInfo = a })
+si1AdditionalInfo :: Lens' StartInstances (Maybe Text)
+si1AdditionalInfo =
+    lens _si1AdditionalInfo (\s a -> s { _si1AdditionalInfo = a })
 
-instance ToQuery StartInstances where
-    toQuery = genericQuery def
+si1DryRun :: Lens' StartInstances (Maybe Bool)
+si1DryRun = lens _si1DryRun (\s a -> s { _si1DryRun = a })
+
+-- | One or more instance IDs.
+si1InstanceIds :: Lens' StartInstances [Text]
+si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a })
+
+instance ToQuery StartInstances
+
+instance ToPath StartInstances where
+    toPath = const "/"
 
 newtype StartInstancesResponse = StartInstancesResponse
-    { _sirrStartingInstances :: [InstanceStateChange]
-    } deriving (Eq, Ord, Show, Generic)
+    { _sirStartingInstances :: [InstanceStateChange]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList StartInstancesResponse where
+    type Item StartInstancesResponse = InstanceStateChange
+
+    fromList = StartInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _sirStartingInstances
+
+-- | 'StartInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StartingInstances ::@ @[InstanceStateChange]@
+-- * 'sirStartingInstances' @::@ ['InstanceStateChange']
 --
 startInstancesResponse :: StartInstancesResponse
 startInstancesResponse = StartInstancesResponse
-    { _sirrStartingInstances = mempty
+    { _sirStartingInstances = mempty
     }
 
 -- | Information about one or more started instances.
-sirrStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
-sirrStartingInstances =
-    lens _sirrStartingInstances (\s a -> s { _sirrStartingInstances = a })
-
-instance FromXML StartInstancesResponse where
-    fromXMLOptions = xmlOptions
+sirStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
+sirStartingInstances =
+    lens _sirStartingInstances (\s a -> s { _sirStartingInstances = a })
 
 instance AWSRequest StartInstances where
     type Sv StartInstances = EC2
     type Rs StartInstances = StartInstancesResponse
 
-    request = post "StartInstances"
-    response _ = xmlResponse
+    request  = post "StartInstances"
+    response = xmlResponse $ \h x -> StartInstancesResponse
+        <$> x %| "instancesSet"

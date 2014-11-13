@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElastiCache.CopySnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,24 +39,23 @@ module Network.AWS.ElastiCache.CopySnapshot
     , csrSnapshot
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents the input of a CopySnapshotMessage operation.
 data CopySnapshot = CopySnapshot
     { _csSourceSnapshotName :: Text
     , _csTargetSnapshotName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CopySnapshot' request.
+-- | 'CopySnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SourceSnapshotName ::@ @Text@
+-- * 'csSourceSnapshotName' @::@ 'Text'
 --
--- * @TargetSnapshotName ::@ @Text@
+-- * 'csTargetSnapshotName' @::@ 'Text'
 --
 copySnapshot :: Text -- ^ 'csSourceSnapshotName'
              -> Text -- ^ 'csTargetSnapshotName'
@@ -74,38 +75,33 @@ csTargetSnapshotName :: Lens' CopySnapshot Text
 csTargetSnapshotName =
     lens _csTargetSnapshotName (\s a -> s { _csTargetSnapshotName = a })
 
-instance ToQuery CopySnapshot where
-    toQuery = genericQuery def
+instance ToQuery CopySnapshot
+
+instance ToPath CopySnapshot where
+    toPath = const "/"
 
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CopySnapshotResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CopySnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Snapshot ::@ @Maybe Snapshot@
+-- * 'csrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
 copySnapshotResponse :: CopySnapshotResponse
 copySnapshotResponse = CopySnapshotResponse
     { _csrSnapshot = Nothing
     }
 
--- | Represents a copy of an entire cache cluster as of the time when the
--- snapshot was taken.
 csrSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 csrSnapshot = lens _csrSnapshot (\s a -> s { _csrSnapshot = a })
-
-instance FromXML CopySnapshotResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest CopySnapshot where
     type Sv CopySnapshot = ElastiCache
     type Rs CopySnapshot = CopySnapshotResponse
 
-    request = post "CopySnapshot"
-    response _ = xmlResponse
+    request  = post "CopySnapshot"
+    response = xmlResponse $ \h x -> CopySnapshotResponse
+        <$> x %| "Snapshot"

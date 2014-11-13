@@ -1,11 +1,11 @@
 name:                  amazonka-rds
 version:               0.0.0
-synopsis:              Amazon Relational Database Service SDK
+synopsis:              Amazon Relational Database Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,9 +13,11 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Relational Database Service (Amazon RDS) is a web service that makes it easy to set up, operate, and scale a relational database in the cloud.
-    .
-    It provides cost-efficient and resizable capacity while managing time-consuming database administration tasks, freeing you up to focus on your applications and business.
+    Amazon Relational Database Service (Amazon RDS) is a web service that
+    makes it easy to set up, operate, and scale a relational database in
+    the cloud. It provides cost-efficient and resizable capacity while
+    managing time-consuming database administration tasks, freeing you up
+    to focus on your applications and business.
 
 source-repository head
     type:     git
@@ -29,12 +31,12 @@ library
 
     exposed-modules:
           Network.AWS.RDS
-        , Network.AWS.RDS.Types
-        , Network.AWS.RDS.DownloadDBLogFilePortion
         , Network.AWS.RDS.AddSourceIdentifierToSubscription
         , Network.AWS.RDS.AddTagsToResource
         , Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
+        , Network.AWS.RDS.CopyDBParameterGroup
         , Network.AWS.RDS.CopyDBSnapshot
+        , Network.AWS.RDS.CopyOptionGroup
         , Network.AWS.RDS.CreateDBInstance
         , Network.AWS.RDS.CreateDBInstanceReadReplica
         , Network.AWS.RDS.CreateDBParameterGroup
@@ -67,6 +69,7 @@ library
         , Network.AWS.RDS.DescribeOrderableDBInstanceOptions
         , Network.AWS.RDS.DescribeReservedDBInstances
         , Network.AWS.RDS.DescribeReservedDBInstancesOfferings
+        , Network.AWS.RDS.DownloadDBLogFilePortion
         , Network.AWS.RDS.ListTagsForResource
         , Network.AWS.RDS.ModifyDBInstance
         , Network.AWS.RDS.ModifyDBParameterGroup
@@ -82,6 +85,9 @@ library
         , Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
         , Network.AWS.RDS.RestoreDBInstanceToPointInTime
         , Network.AWS.RDS.RevokeDBSecurityGroupIngress
+        , Network.AWS.RDS.Types
+
+    other-modules:
 
     build-depends:
           amazonka-core

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutLogEvents
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,21 +30,7 @@
 -- hours in the future. None of the log events in the batch can be older than
 -- 14 days or the retention period of the log group. The log events in the
 -- batch must be in chronological ordered by their timestamp. The maximum
--- number of log events in a batch is 1,000. Upload a batch of log events into
--- a log stream The following is an example of a PutLogEvents request and
--- response. POST / HTTP/1.1 Host: logs.. X-Amz-Date: Authorization:
--- AWS4-HMAC-SHA256 Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Accept: application/json Content-Type:
--- application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]>
--- X-Amz-Target: Logs_20140328.PutLogEvents { "logGroupName":
--- "exampleLogGroupName", "logStreamName": "exampleLogStreamName",
--- "logEvents": [ { "timestamp": 1396035378988, "message": "Example Event 1"
--- }, { "timestamp": 1396035378988, "message": "Example Event 2" }, {
--- "timestamp": 1396035378989, "message": "Example Event 3" } ] } HTTP/1.1 200
--- OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
--- Content-Length: Date: ]]> { "nextSequenceToken":
--- "49536701251539826331025683274032969384950891766572122113" }.
+-- number of log events in a batch is 1,000.
 module Network.AWS.CloudWatchLogs.PutLogEvents
     (
     -- * Request
@@ -50,9 +38,9 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     -- ** Request constructor
     , putLogEvents
     -- ** Request lenses
+    , pleLogEvents
     , pleLogGroupName
     , pleLogStreamName
-    , pleLogEvents
     , pleSequenceToken
 
     -- * Response
@@ -63,96 +51,91 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     , plerNextSequenceToken
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudWatchLogs.Types
 
 data PutLogEvents = PutLogEvents
-    { _pleLogGroupName :: Text
+    { _pleLogEvents     :: List1 InputLogEvent
+    , _pleLogGroupName  :: Text
     , _pleLogStreamName :: Text
-    , _pleLogEvents :: List1 InputLogEvent
     , _pleSequenceToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutLogEvents' request.
+-- | 'PutLogEvents' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogGroupName ::@ @Text@
+-- * 'pleLogEvents' @::@ 'NonEmpty' 'InputLogEvent'
 --
--- * @LogStreamName ::@ @Text@
+-- * 'pleLogGroupName' @::@ 'Text'
 --
--- * @LogEvents ::@ @List1 InputLogEvent@
+-- * 'pleLogStreamName' @::@ 'Text'
 --
--- * @SequenceToken ::@ @Maybe Text@
+-- * 'pleSequenceToken' @::@ 'Maybe' 'Text'
 --
 putLogEvents :: Text -- ^ 'pleLogGroupName'
              -> Text -- ^ 'pleLogStreamName'
-             -> List1 InputLogEvent -- ^ 'pleLogEvents'
+             -> NonEmpty InputLogEvent -- ^ 'pleLogEvents'
              -> PutLogEvents
 putLogEvents p1 p2 p3 = PutLogEvents
-    { _pleLogGroupName = p1
+    { _pleLogGroupName  = p1
     , _pleLogStreamName = p2
-    , _pleLogEvents = p3
+    , _pleLogEvents     = withIso _List1 (const id) p3
     , _pleSequenceToken = Nothing
     }
+
+pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
+pleLogEvents = lens _pleLogEvents (\s a -> s { _pleLogEvents = a })
+    . _List1
 
 pleLogGroupName :: Lens' PutLogEvents Text
 pleLogGroupName = lens _pleLogGroupName (\s a -> s { _pleLogGroupName = a })
 
 pleLogStreamName :: Lens' PutLogEvents Text
-pleLogStreamName =
-    lens _pleLogStreamName (\s a -> s { _pleLogStreamName = a })
-
--- | A list of events belonging to a log stream.
-pleLogEvents :: Lens' PutLogEvents (List1 InputLogEvent)
-pleLogEvents = lens _pleLogEvents (\s a -> s { _pleLogEvents = a })
+pleLogStreamName = lens _pleLogStreamName (\s a -> s { _pleLogStreamName = a })
 
 -- | A string token that must be obtained from the response of the previous
 -- PutLogEvents request.
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
-pleSequenceToken =
-    lens _pleSequenceToken (\s a -> s { _pleSequenceToken = a })
+pleSequenceToken = lens _pleSequenceToken (\s a -> s { _pleSequenceToken = a })
 
-instance ToPath PutLogEvents
+instance ToPath PutLogEvents where
+    toPath = const "/"
 
-instance ToQuery PutLogEvents
+instance ToQuery PutLogEvents where
+    toQuery = const mempty
 
 instance ToHeaders PutLogEvents
 
-instance ToJSON PutLogEvents
+instance ToBody PutLogEvents where
+    toBody = toBody . encode . _pleLogGroupName
 
 newtype PutLogEventsResponse = PutLogEventsResponse
     { _plerNextSequenceToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutLogEventsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutLogEventsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NextSequenceToken ::@ @Maybe Text@
+-- * 'plerNextSequenceToken' @::@ 'Maybe' 'Text'
 --
 putLogEventsResponse :: PutLogEventsResponse
 putLogEventsResponse = PutLogEventsResponse
     { _plerNextSequenceToken = Nothing
     }
 
--- | A string token used for making PutLogEvents requests. A sequenceToken can
--- only be used once, and PutLogEvents requests must include the sequenceToken
--- obtained from the response of the previous request.
 plerNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plerNextSequenceToken =
     lens _plerNextSequenceToken (\s a -> s { _plerNextSequenceToken = a })
 
-instance FromJSON PutLogEventsResponse
+-- FromJSON
 
 instance AWSRequest PutLogEvents where
     type Sv PutLogEvents = CloudWatchLogs
     type Rs PutLogEvents = PutLogEventsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> PutLogEventsResponse
+        <$> o .: "nextSequenceToken"

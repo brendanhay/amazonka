@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudTrail.StopLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,7 +31,7 @@ module Network.AWS.CloudTrail.StopLogging
     -- ** Request constructor
     , stopLogging
     -- ** Request lenses
-    , sl1Name
+    , slName
 
     -- * Response
     , StopLoggingResponse
@@ -37,57 +39,54 @@ module Network.AWS.CloudTrail.StopLogging
     , stopLoggingResponse
     ) where
 
-import Network.AWS.CloudTrail.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudTrail.Types
 
--- | Passes the request to CloudTrail to stop logging AWS API calls for the
--- specified account.
 newtype StopLogging = StopLogging
-    { _sl1Name :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _slName :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StopLogging' request.
+-- | 'StopLogging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Text@
+-- * 'slName' @::@ 'Text'
 --
-stopLogging :: Text -- ^ 'sl1Name'
+stopLogging :: Text -- ^ 'slName'
             -> StopLogging
 stopLogging p1 = StopLogging
-    { _sl1Name = p1
+    { _slName = p1
     }
 
--- | Communicates to CloudTrail the name of the trail for which to stop logging
--- AWS API calls.
-sl1Name :: Lens' StopLogging Text
-sl1Name = lens _sl1Name (\s a -> s { _sl1Name = a })
+-- | Communicates to CloudTrail the name of the trail for which to stop
+-- logging AWS API calls.
+slName :: Lens' StopLogging Text
+slName = lens _slName (\s a -> s { _slName = a })
 
-instance ToPath StopLogging
+instance ToPath StopLogging where
+    toPath = const "/"
 
-instance ToQuery StopLogging
+instance ToQuery StopLogging where
+    toQuery = const mempty
 
 instance ToHeaders StopLogging
 
-instance ToJSON StopLogging
+instance ToBody StopLogging where
+    toBody = toBody . encode . _slName
 
--- | Returns the objects or data listed below if successful. Otherwise, returns
--- an error.
 data StopLoggingResponse = StopLoggingResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StopLoggingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'StopLoggingResponse' constructor.
 stopLoggingResponse :: StopLoggingResponse
 stopLoggingResponse = StopLoggingResponse
+
+-- FromJSON
 
 instance AWSRequest StopLogging where
     type Sv StopLogging = CloudTrail
     type Rs StopLogging = StopLoggingResponse
 
-    request = get
-    response _ = nullaryResponse StopLoggingResponse
+    request  = post'
+    response = nullaryResponse StopLoggingResponse

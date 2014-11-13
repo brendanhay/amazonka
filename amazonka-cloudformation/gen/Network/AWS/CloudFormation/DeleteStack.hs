@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFormation.DeleteStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,10 +23,6 @@
 -- | Deletes a specified stack. Once the call completes successfully, stack
 -- deletion starts. Deleted stacks do not show up in the DescribeStacks API if
 -- the deletion has been completed successfully.
--- https://cloudformation.us-east-1.amazonaws.com/ ?Action=DeleteStack
--- &StackName=MyStack &Version=2010-05-15 &SignatureVersion=2
--- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
--- &Signature=[Signature].
 module Network.AWS.CloudFormation.DeleteStack
     (
     -- * Request
@@ -40,21 +38,20 @@ module Network.AWS.CloudFormation.DeleteStack
     , deleteStackResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for DeleteStack action.
 newtype DeleteStack = DeleteStack
     { _dsStackName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteStack' request.
+-- | 'DeleteStack' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackName ::@ @Text@
+-- * 'dsStackName' @::@ 'Text'
 --
 deleteStack :: Text -- ^ 'dsStackName'
             -> DeleteStack
@@ -66,16 +63,15 @@ deleteStack p1 = DeleteStack
 dsStackName :: Lens' DeleteStack Text
 dsStackName = lens _dsStackName (\s a -> s { _dsStackName = a })
 
-instance ToQuery DeleteStack where
-    toQuery = genericQuery def
+instance ToQuery DeleteStack
+
+instance ToPath DeleteStack where
+    toPath = const "/"
 
 data DeleteStackResponse = DeleteStackResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteStackResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteStackResponse' constructor.
 deleteStackResponse :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse
 
@@ -83,5 +79,5 @@ instance AWSRequest DeleteStack where
     type Sv DeleteStack = CloudFormation
     type Rs DeleteStack = DeleteStackResponse
 
-    request = post "DeleteStack"
-    response _ = nullaryResponse DeleteStackResponse
+    request  = post "DeleteStack"
+    response = nullaryResponse DeleteStackResponse

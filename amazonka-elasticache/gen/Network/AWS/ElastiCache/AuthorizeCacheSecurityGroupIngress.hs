@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,15 +23,7 @@
 -- | The AuthorizeCacheSecurityGroupIngress operation allows network ingress to
 -- a cache security group. Applications using ElastiCache must be running on
 -- Amazon EC2, and Amazon EC2 security groups are used as the authorization
--- mechanism. You cannot authorize ingress from an Amazon EC2 security group
--- in one region to an ElastiCache cluster in another region.
--- https://elasticache.us-east-1.amazonaws.com/
--- ?Action=AuthorizeCacheSecurityGroupIngress &EC2SecurityGroupName=default
--- &CacheSecurityGroupName=mygroup &EC2SecurityGroupOwnerId=1234-5678-1234
--- &Version=2014-03-24 &SignatureVersion=4 &SignatureMethod=HmacSHA256
--- &Timestamp=20140401T192317Z &X-Amz-Credential= authorizing default
--- 565419523791 mygroup 123456781234 My security group
--- 817fa999-3647-11e0-ae57-f96cfe56749c.
+-- mechanism.
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     (
     -- * Request
@@ -49,35 +43,34 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     , acsgirCacheSecurityGroup
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents the input of an AuthorizeCacheSecurityGroupIngress operation.
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
-    { _acsgiCacheSecurityGroupName :: Text
-    , _acsgiEC2SecurityGroupName :: Text
+    { _acsgiCacheSecurityGroupName  :: Text
+    , _acsgiEC2SecurityGroupName    :: Text
     , _acsgiEC2SecurityGroupOwnerId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AuthorizeCacheSecurityGroupIngress' request.
+-- | 'AuthorizeCacheSecurityGroupIngress' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CacheSecurityGroupName ::@ @Text@
+-- * 'acsgiCacheSecurityGroupName' @::@ 'Text'
 --
--- * @EC2SecurityGroupName ::@ @Text@
+-- * 'acsgiEC2SecurityGroupName' @::@ 'Text'
 --
--- * @EC2SecurityGroupOwnerId ::@ @Text@
+-- * 'acsgiEC2SecurityGroupOwnerId' @::@ 'Text'
 --
 authorizeCacheSecurityGroupIngress :: Text -- ^ 'acsgiCacheSecurityGroupName'
                                    -> Text -- ^ 'acsgiEC2SecurityGroupName'
                                    -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
                                    -> AuthorizeCacheSecurityGroupIngress
 authorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngress
-    { _acsgiCacheSecurityGroupName = p1
-    , _acsgiEC2SecurityGroupName = p2
+    { _acsgiCacheSecurityGroupName  = p1
+    , _acsgiEC2SecurityGroupName    = p2
     , _acsgiEC2SecurityGroupOwnerId = p3
     }
 
@@ -85,14 +78,14 @@ authorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngress
 acsgiCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiCacheSecurityGroupName =
     lens _acsgiCacheSecurityGroupName
-         (\s a -> s { _acsgiCacheSecurityGroupName = a })
+        (\s a -> s { _acsgiCacheSecurityGroupName = a })
 
 -- | The Amazon EC2 security group to be authorized for ingress to the cache
 -- security group.
 acsgiEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiEC2SecurityGroupName =
     lens _acsgiEC2SecurityGroupName
-         (\s a -> s { _acsgiEC2SecurityGroupName = a })
+        (\s a -> s { _acsgiEC2SecurityGroupName = a })
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
@@ -100,43 +93,37 @@ acsgiEC2SecurityGroupName =
 acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiEC2SecurityGroupOwnerId =
     lens _acsgiEC2SecurityGroupOwnerId
-         (\s a -> s { _acsgiEC2SecurityGroupOwnerId = a })
+        (\s a -> s { _acsgiEC2SecurityGroupOwnerId = a })
 
-instance ToQuery AuthorizeCacheSecurityGroupIngress where
-    toQuery = genericQuery def
+instance ToQuery AuthorizeCacheSecurityGroupIngress
+
+instance ToPath AuthorizeCacheSecurityGroupIngress where
+    toPath = const "/"
 
 newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AuthorizeCacheSecurityGroupIngressResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AuthorizeCacheSecurityGroupIngressResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CacheSecurityGroup ::@ @Maybe CacheSecurityGroup@
+-- * 'acsgirCacheSecurityGroup' @::@ 'Maybe' 'CacheSecurityGroup'
 --
 authorizeCacheSecurityGroupIngressResponse :: AuthorizeCacheSecurityGroupIngressResponse
 authorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup = Nothing
     }
 
--- | Represents the output of one of the following operations:
--- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
--- RevokeCacheSecurityGroupIngress.
 acsgirCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 acsgirCacheSecurityGroup =
     lens _acsgirCacheSecurityGroup
-         (\s a -> s { _acsgirCacheSecurityGroup = a })
-
-instance FromXML AuthorizeCacheSecurityGroupIngressResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _acsgirCacheSecurityGroup = a })
 
 instance AWSRequest AuthorizeCacheSecurityGroupIngress where
     type Sv AuthorizeCacheSecurityGroupIngress = ElastiCache
     type Rs AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngressResponse
 
-    request = post "AuthorizeCacheSecurityGroupIngress"
-    response _ = xmlResponse
+    request  = post "AuthorizeCacheSecurityGroupIngress"
+    response = xmlResponse $ \h x -> AuthorizeCacheSecurityGroupIngressResponse
+        <$> x %| "CacheSecurityGroup"

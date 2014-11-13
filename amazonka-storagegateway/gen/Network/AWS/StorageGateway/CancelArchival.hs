@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.CancelArchival
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- | Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after
+-- the archiving process is initiated.
 module Network.AWS.StorageGateway.CancelArchival
     (
     -- * Request
@@ -36,74 +40,76 @@ module Network.AWS.StorageGateway.CancelArchival
     , carTapeARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 data CancelArchival = CancelArchival
     { _caGatewayARN :: Text
-    , _caTapeARN :: Text
+    , _caTapeARN    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelArchival' request.
+-- | 'CancelArchival' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'caGatewayARN' @::@ 'Text'
 --
--- * @TapeARN ::@ @Text@
+-- * 'caTapeARN' @::@ 'Text'
 --
 cancelArchival :: Text -- ^ 'caGatewayARN'
                -> Text -- ^ 'caTapeARN'
                -> CancelArchival
 cancelArchival p1 p2 = CancelArchival
     { _caGatewayARN = p1
-    , _caTapeARN = p2
+    , _caTapeARN    = p2
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 caGatewayARN :: Lens' CancelArchival Text
 caGatewayARN = lens _caGatewayARN (\s a -> s { _caGatewayARN = a })
 
+-- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
+-- archiving for.
 caTapeARN :: Lens' CancelArchival Text
 caTapeARN = lens _caTapeARN (\s a -> s { _caTapeARN = a })
 
-instance ToPath CancelArchival
+instance ToPath CancelArchival where
+    toPath = const "/"
 
-instance ToQuery CancelArchival
+instance ToQuery CancelArchival where
+    toQuery = const mempty
 
 instance ToHeaders CancelArchival
 
-instance ToJSON CancelArchival
+instance ToBody CancelArchival where
+    toBody = toBody . encode . _caGatewayARN
 
 newtype CancelArchivalResponse = CancelArchivalResponse
     { _carTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelArchivalResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CancelArchivalResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TapeARN ::@ @Maybe Text@
+-- * 'carTapeARN' @::@ 'Maybe' 'Text'
 --
 cancelArchivalResponse :: CancelArchivalResponse
 cancelArchivalResponse = CancelArchivalResponse
     { _carTapeARN = Nothing
     }
 
+-- | The Amazon Resource Name (ARN) of the virtual tape for which archiving
+-- was canceled.
 carTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carTapeARN = lens _carTapeARN (\s a -> s { _carTapeARN = a })
 
-instance FromJSON CancelArchivalResponse
+-- FromJSON
 
 instance AWSRequest CancelArchival where
     type Sv CancelArchival = StorageGateway
     type Rs CancelArchival = CancelArchivalResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> CancelArchivalResponse
+        <$> o .: "TapeARN"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeSecurityGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,23 +24,7 @@
 -- with instances either in the EC2-Classic platform or in a specific VPC. For
 -- more information, see Amazon EC2 Security Groups in the Amazon Elastic
 -- Compute Cloud User Guide and Security Groups for Your VPC in the Amazon
--- Virtual Private Cloud User Guide. Example 1 This example returns
--- information about two security groups that are configured for the account.
--- https://ec2.amazonaws.com/?Action=DescribeSecurityGroups
--- &amp;GroupName.1=WebServers &amp;GroupName.2=RangedPortsBySource
--- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE 123456789012
--- sg-1a2b3c4d WebServers Web Servers tcp 80 80 0.0.0.0/0 123456789012
--- sg-2a2b3c4d RangedPortsBySource Group A tcp 6000 7000 123456789012
--- sg-3a2b3c4d Group B Example 2 This example describes all security groups
--- that grant access over TCP specifically on port 22 from instances
--- associated with app_server_group or database_group.
--- https://ec2.amazonaws.com/?Action=DescribeSecurityGroups
--- &amp;Filter.1.Name=ip-permission.protocol &amp;Filter.1.Value.1=tcp
--- &amp;Filter.2.Name=ip-permission.from-port &amp;Filter.2.Value.1=22
--- &amp;Filter.3.Name=ip-permission.to-port &amp;Filter.3.Value.1=22
--- &amp;Filter.4.Name=ip-permission.group-name
--- &amp;Filter.4.Value.1=app_server_group &amp;Filter.4.Value.2=database_group
--- &amp;AUTHPARAMS.
+-- Virtual Private Cloud User Guide.
 module Network.AWS.EC2.DescribeSecurityGroups
     (
     -- * Request
@@ -46,9 +32,10 @@ module Network.AWS.EC2.DescribeSecurityGroups
     -- ** Request constructor
     , describeSecurityGroups
     -- ** Request lenses
-    , dsg1GroupNames
-    , dsg1GroupIds
+    , dsg1DryRun
     , dsg1Filters
+    , dsg1GroupIds
+    , dsg1GroupNames
 
     -- * Response
     , DescribeSecurityGroupsResponse
@@ -58,77 +45,90 @@ module Network.AWS.EC2.DescribeSecurityGroups
     , dsgrSecurityGroups
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeSecurityGroups = DescribeSecurityGroups
-    { _dsg1GroupNames :: [Text]
-    , _dsg1GroupIds :: [Text]
-    , _dsg1Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dsg1DryRun     :: Maybe Bool
+    , _dsg1Filters    :: [Filter]
+    , _dsg1GroupIds   :: [Text]
+    , _dsg1GroupNames :: [Text]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSecurityGroups' request.
+-- | 'DescribeSecurityGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupNames ::@ @[Text]@
+-- * 'dsg1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * @GroupIds ::@ @[Text]@
+-- * 'dsg1Filters' @::@ ['Filter']
 --
--- * @Filters ::@ @[Filter]@
+-- * 'dsg1GroupIds' @::@ ['Text']
+--
+-- * 'dsg1GroupNames' @::@ ['Text']
 --
 describeSecurityGroups :: DescribeSecurityGroups
 describeSecurityGroups = DescribeSecurityGroups
-    { _dsg1GroupNames = mempty
-    , _dsg1GroupIds = mempty
-    , _dsg1Filters = mempty
+    { _dsg1DryRun     = Nothing
+    , _dsg1GroupNames = mempty
+    , _dsg1GroupIds   = mempty
+    , _dsg1Filters    = mempty
     }
 
--- | [EC2-Classic, default VPC] One or more security group names. Default:
--- Describes all your security groups.
-dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]
-dsg1GroupNames = lens _dsg1GroupNames (\s a -> s { _dsg1GroupNames = a })
-
--- | One or more security group IDs. Default: Describes all your security
--- groups.
-dsg1GroupIds :: Lens' DescribeSecurityGroups [Text]
-dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a })
+dsg1DryRun :: Lens' DescribeSecurityGroups (Maybe Bool)
+dsg1DryRun = lens _dsg1DryRun (\s a -> s { _dsg1DryRun = a })
 
 -- | One or more filters. description - The description of the security group.
 -- group-id - The ID of the security group. group-name - The name of the
 -- security group. ip-permission.cidr - A CIDR range that has been granted
 -- permission. ip-permission.from-port - The start of port range for the TCP
--- and UDP protocols, or an ICMP type number. ip-permission.group-id - The ID
--- of a security group that has been granted permission.
+-- and UDP protocols, or an ICMP type number. ip-permission.group-id - The
+-- ID of a security group that has been granted permission.
 -- ip-permission.group-name - The name of a security group that has been
 -- granted permission. ip-permission.protocol - The IP protocol for the
--- permission (tcp | udp | icmp or a protocol number). ip-permission.to-port -
--- The end of port range for the TCP and UDP protocols, or an ICMP code.
+-- permission (tcp | udp | icmp or a protocol number). ip-permission.to-port
+-- - The end of port range for the TCP and UDP protocols, or an ICMP code.
 -- ip-permission.user-id - The ID of an AWS account that has been granted
 -- permission. owner-id - The AWS account ID of the owner of the security
--- group. tag-key - The key of a tag assigned to the security group. tag-value
--- - The value of a tag assigned to the security group. vpc-id - The ID of the
--- VPC specified when the security group was created.
+-- group. tag-key - The key of a tag assigned to the security group.
+-- tag-value - The value of a tag assigned to the security group. vpc-id -
+-- The ID of the VPC specified when the security group was created.
 dsg1Filters :: Lens' DescribeSecurityGroups [Filter]
 dsg1Filters = lens _dsg1Filters (\s a -> s { _dsg1Filters = a })
 
-instance ToQuery DescribeSecurityGroups where
-    toQuery = genericQuery def
+-- | One or more security group IDs. Required for nondefault VPCs. Default:
+-- Describes all your security groups.
+dsg1GroupIds :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a })
+
+-- | [EC2-Classic, default VPC] One or more security group names. You can
+-- specify either the security group name or the security group ID. Default:
+-- Describes all your security groups.
+dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupNames = lens _dsg1GroupNames (\s a -> s { _dsg1GroupNames = a })
+
+instance ToQuery DescribeSecurityGroups
+
+instance ToPath DescribeSecurityGroups where
+    toPath = const "/"
 
 newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups :: [SecurityGroup]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSecurityGroupsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeSecurityGroupsResponse where
+    type Item DescribeSecurityGroupsResponse = SecurityGroup
+
+    fromList = DescribeSecurityGroupsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsgrSecurityGroups
+
+-- | 'DescribeSecurityGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SecurityGroups ::@ @[SecurityGroup]@
+-- * 'dsgrSecurityGroups' @::@ ['SecurityGroup']
 --
 describeSecurityGroupsResponse :: DescribeSecurityGroupsResponse
 describeSecurityGroupsResponse = DescribeSecurityGroupsResponse
@@ -140,12 +140,10 @@ dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrSecurityGroups =
     lens _dsgrSecurityGroups (\s a -> s { _dsgrSecurityGroups = a })
 
-instance FromXML DescribeSecurityGroupsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeSecurityGroups where
     type Sv DescribeSecurityGroups = EC2
     type Rs DescribeSecurityGroups = DescribeSecurityGroupsResponse
 
-    request = post "DescribeSecurityGroups"
-    response _ = xmlResponse
+    request  = post "DescribeSecurityGroups"
+    response = xmlResponse $ \h x -> DescribeSecurityGroupsResponse
+        <$> x %| "securityGroupInfo"

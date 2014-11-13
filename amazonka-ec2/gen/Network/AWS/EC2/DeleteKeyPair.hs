@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteKeyPair
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,12 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified key pair, by removing the public key from Amazon EC2.
--- Example This example request deletes the key pair named my-key-pair.
--- https://ec2.amazonaws.com/?Action=DeleteKeyPair &amp;KeyName=my-key-pair
--- &amp;AUTHPARAMS &lt;DeleteKeyPairResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteKeyPairResponse&gt;.
 module Network.AWS.EC2.DeleteKeyPair
     (
     -- * Request
@@ -32,6 +28,7 @@ module Network.AWS.EC2.DeleteKeyPair
     -- ** Request constructor
     , deleteKeyPair
     -- ** Request lenses
+    , dkpDryRun
     , dkpKeyName
 
     -- * Response
@@ -40,41 +37,47 @@ module Network.AWS.EC2.DeleteKeyPair
     , deleteKeyPairResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteKeyPair = DeleteKeyPair
-    { _dkpKeyName :: Text
+data DeleteKeyPair = DeleteKeyPair
+    { _dkpDryRun  :: Maybe Bool
+    , _dkpKeyName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteKeyPair' request.
+-- | 'DeleteKeyPair' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @KeyName ::@ @Text@
+-- * 'dkpDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'dkpKeyName' @::@ 'Text'
 --
 deleteKeyPair :: Text -- ^ 'dkpKeyName'
               -> DeleteKeyPair
 deleteKeyPair p1 = DeleteKeyPair
     { _dkpKeyName = p1
+    , _dkpDryRun  = Nothing
     }
+
+dkpDryRun :: Lens' DeleteKeyPair (Maybe Bool)
+dkpDryRun = lens _dkpDryRun (\s a -> s { _dkpDryRun = a })
 
 -- | The name of the key pair.
 dkpKeyName :: Lens' DeleteKeyPair Text
 dkpKeyName = lens _dkpKeyName (\s a -> s { _dkpKeyName = a })
 
-instance ToQuery DeleteKeyPair where
-    toQuery = genericQuery def
+instance ToQuery DeleteKeyPair
+
+instance ToPath DeleteKeyPair where
+    toPath = const "/"
 
 data DeleteKeyPairResponse = DeleteKeyPairResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteKeyPairResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteKeyPairResponse' constructor.
 deleteKeyPairResponse :: DeleteKeyPairResponse
 deleteKeyPairResponse = DeleteKeyPairResponse
 
@@ -82,5 +85,5 @@ instance AWSRequest DeleteKeyPair where
     type Sv DeleteKeyPair = EC2
     type Rs DeleteKeyPair = DeleteKeyPairResponse
 
-    request = post "DeleteKeyPair"
-    response _ = nullaryResponse DeleteKeyPairResponse
+    request  = post "DeleteKeyPair"
+    response = nullaryResponse DeleteKeyPairResponse

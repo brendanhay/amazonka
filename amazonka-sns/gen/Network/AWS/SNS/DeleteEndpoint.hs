@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SNS.DeleteEndpoint
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,18 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the endpoint from Amazon SNS. This action is idempotent. For more
--- information, see Using Amazon SNS Mobile Push Notifications. POST
--- http://sns.us-west-2.amazonaws.com/ HTTP/1.1 ... Action=DeleteEndpoint
--- &amp;SignatureMethod=HmacSHA256 &amp;AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
--- &amp;EndpointArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aendpoint%2FGCM%2Fgcmpushapp%2F5e3e9847-3183-3f18-a7e8-671c3a57d4b3
--- &amp;SignatureVersion=2 &amp;Version=2010-03-31
--- &amp;Signature=LIc6GI3JbNhmHBEDmSxzZp648XPe5CMeFny%2BTQFtomQ%3D
--- &amp;Timestamp=2013-07-01T23%3A00%3A12.456Z HTTP/1.1 200 OK ...
--- &lt;DeleteEndpointResponse
--- xmlns="http://sns.amazonaws.com/doc/2010-03-31/"&gt;
--- &lt;ResponseMetadata&gt;
--- &lt;RequestId&gt;c1d2b191-353c-5a5f-8969-fbdd3900afa8&lt;/RequestId&gt;
--- &lt;/ResponseMetadata&gt; &lt;/DeleteEndpointResponse&gt;.
+-- information, see Using Amazon SNS Mobile Push Notifications.
 module Network.AWS.SNS.DeleteEndpoint
     (
     -- * Request
@@ -46,21 +37,20 @@ module Network.AWS.SNS.DeleteEndpoint
     , deleteEndpointResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Input for DeleteEndpoint action.
 newtype DeleteEndpoint = DeleteEndpoint
     { _deEndpointArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteEndpoint' request.
+-- | 'DeleteEndpoint' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EndpointArn ::@ @Text@
+-- * 'deEndpointArn' @::@ 'Text'
 --
 deleteEndpoint :: Text -- ^ 'deEndpointArn'
                -> DeleteEndpoint
@@ -72,16 +62,15 @@ deleteEndpoint p1 = DeleteEndpoint
 deEndpointArn :: Lens' DeleteEndpoint Text
 deEndpointArn = lens _deEndpointArn (\s a -> s { _deEndpointArn = a })
 
-instance ToQuery DeleteEndpoint where
-    toQuery = genericQuery def
+instance ToQuery DeleteEndpoint
+
+instance ToPath DeleteEndpoint where
+    toPath = const "/"
 
 data DeleteEndpointResponse = DeleteEndpointResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteEndpointResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteEndpointResponse' constructor.
 deleteEndpointResponse :: DeleteEndpointResponse
 deleteEndpointResponse = DeleteEndpointResponse
 
@@ -89,5 +78,5 @@ instance AWSRequest DeleteEndpoint where
     type Sv DeleteEndpoint = SNS
     type Rs DeleteEndpoint = DeleteEndpointResponse
 
-    request = post "DeleteEndpoint"
-    response _ = nullaryResponse DeleteEndpointResponse
+    request  = post "DeleteEndpoint"
+    response = nullaryResponse DeleteEndpointResponse

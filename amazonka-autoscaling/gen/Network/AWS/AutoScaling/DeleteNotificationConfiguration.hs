@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteNotificationConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,54 +37,51 @@ module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     , deleteNotificationConfigurationResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration
     { _dncAutoScalingGroupName :: Text
-    , _dncTopicARN :: Text
+    , _dncTopicARN             :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteNotificationConfiguration' request.
+-- | 'DeleteNotificationConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AutoScalingGroupName ::@ @Text@
+-- * 'dncAutoScalingGroupName' @::@ 'Text'
 --
--- * @TopicARN ::@ @Text@
+-- * 'dncTopicARN' @::@ 'Text'
 --
 deleteNotificationConfiguration :: Text -- ^ 'dncAutoScalingGroupName'
                                 -> Text -- ^ 'dncTopicARN'
                                 -> DeleteNotificationConfiguration
 deleteNotificationConfiguration p1 p2 = DeleteNotificationConfiguration
     { _dncAutoScalingGroupName = p1
-    , _dncTopicARN = p2
+    , _dncTopicARN             = p2
     }
 
 -- | The name of the Auto Scaling group.
 dncAutoScalingGroupName :: Lens' DeleteNotificationConfiguration Text
 dncAutoScalingGroupName =
-    lens _dncAutoScalingGroupName
-         (\s a -> s { _dncAutoScalingGroupName = a })
+    lens _dncAutoScalingGroupName (\s a -> s { _dncAutoScalingGroupName = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
 dncTopicARN :: Lens' DeleteNotificationConfiguration Text
 dncTopicARN = lens _dncTopicARN (\s a -> s { _dncTopicARN = a })
 
-instance ToQuery DeleteNotificationConfiguration where
-    toQuery = genericQuery def
+instance ToQuery DeleteNotificationConfiguration
+
+instance ToPath DeleteNotificationConfiguration where
+    toPath = const "/"
 
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteNotificationConfigurationResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteNotificationConfigurationResponse' constructor.
 deleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse
 deleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
 
@@ -90,5 +89,5 @@ instance AWSRequest DeleteNotificationConfiguration where
     type Sv DeleteNotificationConfiguration = AutoScaling
     type Rs DeleteNotificationConfiguration = DeleteNotificationConfigurationResponse
 
-    request = post "DeleteNotificationConfiguration"
-    response _ = nullaryResponse DeleteNotificationConfigurationResponse
+    request  = post "DeleteNotificationConfiguration"
+    response = nullaryResponse DeleteNotificationConfigurationResponse

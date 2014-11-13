@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.GetRole
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,14 +25,7 @@
 -- information about ARNs, go to ARNs. For more information about roles, go to
 -- Working with Roles. The returned policy is URL-encoded according to RFC
 -- 3986. For more information about RFC 3986, go to
--- http://www.faqs.org/rfcs/rfc3986.html. https://iam.amazonaws.com/
--- ?Action=GetRole &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
--- /application_abc/component_xyz/
--- arn:aws:iam::123456789012:role/application_abc/component_xyz/S3Access
--- S3Access
--- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
--- 2012-05-08T23:34:01Z AROADBQP57FF2AEXAMPLE
--- df37e965-9967-11e1-a4c3-270EXAMPLE04.
+-- http://www.faqs.org/rfcs/rfc3986.html.
 module Network.AWS.IAM.GetRole
     (
     -- * Request
@@ -48,20 +43,20 @@ module Network.AWS.IAM.GetRole
     , grrRole
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype GetRole = GetRole
     { _grRoleName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetRole' request.
+-- | 'GetRole' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RoleName ::@ @Text@
+-- * 'grRoleName' @::@ 'Text'
 --
 getRole :: Text -- ^ 'grRoleName'
         -> GetRole
@@ -69,26 +64,24 @@ getRole p1 = GetRole
     { _grRoleName = p1
     }
 
--- | Name of the role to get information about.
+-- | The name of the role to get information about.
 grRoleName :: Lens' GetRole Text
 grRoleName = lens _grRoleName (\s a -> s { _grRoleName = a })
 
-instance ToQuery GetRole where
-    toQuery = genericQuery def
+instance ToQuery GetRole
 
--- | Contains the result of a successful invocation of the GetRole action.
+instance ToPath GetRole where
+    toPath = const "/"
+
 newtype GetRoleResponse = GetRoleResponse
     { _grrRole :: Role
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetRoleResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetRoleResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Role ::@ @Role@
+-- * 'grrRole' @::@ 'Role'
 --
 getRoleResponse :: Role -- ^ 'grrRole'
                 -> GetRoleResponse
@@ -100,12 +93,10 @@ getRoleResponse p1 = GetRoleResponse
 grrRole :: Lens' GetRoleResponse Role
 grrRole = lens _grrRole (\s a -> s { _grrRole = a })
 
-instance FromXML GetRoleResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetRole where
     type Sv GetRole = IAM
     type Rs GetRole = GetRoleResponse
 
-    request = post "GetRole"
-    response _ = xmlResponse
+    request  = post "GetRole"
+    response = xmlResponse $ \h x -> GetRoleResponse
+        <$> x %| "Role"

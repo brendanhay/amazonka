@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeRegions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,13 +22,6 @@
 
 -- | Describes one or more regions that are currently available to you. For a
 -- list of the regions supported by Amazon EC2, see Regions and Endpoints.
--- Example 1 This example displays information about all regions.
--- https://ec2.amazonaws.com/?Action=DescribeRegions &amp;AUTHPARAMS Example 2
--- This example displays information about the specified regions only.
--- https://ec2.amazonaws.com/?Action=DescribeRegions
--- &amp;RegionName.1=us-east-1 &amp;RegionName.2=eu-west-1 &amp;AUTHPARAMS
--- 59dbff89-35bd-4eac-99ed-be587EXAMPLE us-east-1 ec2.us-east-1.amazonaws.com
--- eu-west-1 ec2.eu-west-1amazonaws.com.
 module Network.AWS.EC2.DescribeRegions
     (
     -- * Request
@@ -34,8 +29,9 @@ module Network.AWS.EC2.DescribeRegions
     -- ** Request constructor
     , describeRegions
     -- ** Request lenses
-    , dr1RegionNames
+    , dr1DryRun
     , dr1Filters
+    , dr1RegionNames
 
     -- * Response
     , DescribeRegionsResponse
@@ -45,33 +41,36 @@ module Network.AWS.EC2.DescribeRegions
     , drrRegions
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeRegions = DescribeRegions
-    { _dr1RegionNames :: [Text]
-    , _dr1Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dr1DryRun      :: Maybe Bool
+    , _dr1Filters     :: [Filter]
+    , _dr1RegionNames :: [Text]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeRegions' request.
+-- | 'DescribeRegions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RegionNames ::@ @[Text]@
+-- * 'dr1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Filters ::@ @[Filter]@
+-- * 'dr1Filters' @::@ ['Filter']
+--
+-- * 'dr1RegionNames' @::@ ['Text']
 --
 describeRegions :: DescribeRegions
 describeRegions = DescribeRegions
-    { _dr1RegionNames = mempty
-    , _dr1Filters = mempty
+    { _dr1DryRun      = Nothing
+    , _dr1RegionNames = mempty
+    , _dr1Filters     = mempty
     }
 
--- | The names of one or more regions.
-dr1RegionNames :: Lens' DescribeRegions [Text]
-dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a })
+dr1DryRun :: Lens' DescribeRegions (Maybe Bool)
+dr1DryRun = lens _dr1DryRun (\s a -> s { _dr1DryRun = a })
 
 -- | One or more filters. endpoint - The endpoint of the region (for example,
 -- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
@@ -79,21 +78,30 @@ dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a })
 dr1Filters :: Lens' DescribeRegions [Filter]
 dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a })
 
-instance ToQuery DescribeRegions where
-    toQuery = genericQuery def
+-- | The names of one or more regions.
+dr1RegionNames :: Lens' DescribeRegions [Text]
+dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a })
+
+instance ToQuery DescribeRegions
+
+instance ToPath DescribeRegions where
+    toPath = const "/"
 
 newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions :: [Region]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeRegionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeRegionsResponse where
+    type Item DescribeRegionsResponse = Region
+
+    fromList = DescribeRegionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _drrRegions
+
+-- | 'DescribeRegionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Regions ::@ @[Region]@
+-- * 'drrRegions' @::@ ['Region']
 --
 describeRegionsResponse :: DescribeRegionsResponse
 describeRegionsResponse = DescribeRegionsResponse
@@ -104,12 +112,10 @@ describeRegionsResponse = DescribeRegionsResponse
 drrRegions :: Lens' DescribeRegionsResponse [Region]
 drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a })
 
-instance FromXML DescribeRegionsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeRegions where
     type Sv DescribeRegions = EC2
     type Rs DescribeRegions = DescribeRegionsResponse
 
-    request = post "DescribeRegions"
-    response _ = xmlResponse
+    request  = post "DescribeRegions"
+    response = xmlResponse $ \h x -> DescribeRegionsResponse
+        <$> x %| "regionInfo"

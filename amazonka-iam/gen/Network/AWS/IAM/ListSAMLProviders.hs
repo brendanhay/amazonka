@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.ListSAMLProviders
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,20 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Lists the SAML providers in the account. This operation requires Signature
--- Version 4. https://iam.amazonaws.com/ ?Action=ListSAMLProviders
--- &MaxItems=100 &PathPrefix=/application_abc/ &Version=2010-05-08 &AUTHPARAMS
--- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Database
--- 2032-05-09T16:27:11Z 2012-05-09T16:27:03Z
--- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
--- 2015-03-11T13:11:02Z 2012-05-09T16:27:11Z
--- fd74fa8d-99f3-11e1-a4c3-27EXAMPLE804.
+-- | Lists the SAML providers in the account.
 module Network.AWS.IAM.ListSAMLProviders
     (
     -- * Request
       ListSAMLProviders
     -- ** Request constructor
     , listSAMLProviders
+
     -- * Response
     , ListSAMLProvidersResponse
     -- ** Response constructor
@@ -40,35 +36,38 @@ module Network.AWS.IAM.ListSAMLProviders
     , lsamlprSAMLProviderList
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ListSAMLProviders = ListSAMLProviders
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListSAMLProviders' request.
+-- | 'ListSAMLProviders' constructor.
 listSAMLProviders :: ListSAMLProviders
 listSAMLProviders = ListSAMLProviders
 
-instance ToQuery ListSAMLProviders where
-    toQuery = genericQuery def
+instance ToQuery ListSAMLProviders
 
--- | Contains the result of a successful invocation of the ListSAMLProviders
--- action.
+instance ToPath ListSAMLProviders where
+    toPath = const "/"
+
 newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList :: [SAMLProviderListEntry]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListSAMLProvidersResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList ListSAMLProvidersResponse where
+    type Item ListSAMLProvidersResponse = SAMLProviderListEntry
+
+    fromList = ListSAMLProvidersResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _lsamlprSAMLProviderList
+
+-- | 'ListSAMLProvidersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SAMLProviderList ::@ @[SAMLProviderListEntry]@
+-- * 'lsamlprSAMLProviderList' @::@ ['SAMLProviderListEntry']
 --
 listSAMLProvidersResponse :: ListSAMLProvidersResponse
 listSAMLProvidersResponse = ListSAMLProvidersResponse
@@ -78,15 +77,12 @@ listSAMLProvidersResponse = ListSAMLProvidersResponse
 -- | The list of SAML providers for this account.
 lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprSAMLProviderList =
-    lens _lsamlprSAMLProviderList
-         (\s a -> s { _lsamlprSAMLProviderList = a })
-
-instance FromXML ListSAMLProvidersResponse where
-    fromXMLOptions = xmlOptions
+    lens _lsamlprSAMLProviderList (\s a -> s { _lsamlprSAMLProviderList = a })
 
 instance AWSRequest ListSAMLProviders where
     type Sv ListSAMLProviders = IAM
     type Rs ListSAMLProviders = ListSAMLProvidersResponse
 
-    request = post "ListSAMLProviders"
-    response _ = xmlResponse
+    request  = post "ListSAMLProviders"
+    response = xmlResponse $ \h x -> ListSAMLProvidersResponse
+        <$> x %| "SAMLProviderList"

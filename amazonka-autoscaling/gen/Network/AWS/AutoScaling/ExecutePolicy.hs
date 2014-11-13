@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.ExecutePolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,8 +29,8 @@ module Network.AWS.AutoScaling.ExecutePolicy
     , executePolicy
     -- ** Request lenses
     , epAutoScalingGroupName
-    , epPolicyName
     , epHonorCooldown
+    , epPolicyName
 
     -- * Response
     , ExecutePolicyResponse
@@ -36,33 +38,33 @@ module Network.AWS.AutoScaling.ExecutePolicy
     , executePolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ExecutePolicy = ExecutePolicy
     { _epAutoScalingGroupName :: Maybe Text
-    , _epPolicyName :: Text
-    , _epHonorCooldown :: Maybe Bool
+    , _epHonorCooldown        :: Maybe Bool
+    , _epPolicyName           :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ExecutePolicy' request.
+-- | 'ExecutePolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AutoScalingGroupName ::@ @Maybe Text@
+-- * 'epAutoScalingGroupName' @::@ 'Maybe' 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'epHonorCooldown' @::@ 'Maybe' 'Bool'
 --
--- * @HonorCooldown ::@ @Maybe Bool@
+-- * 'epPolicyName' @::@ 'Text'
 --
 executePolicy :: Text -- ^ 'epPolicyName'
               -> ExecutePolicy
-executePolicy p2 = ExecutePolicy
-    { _epAutoScalingGroupName = Nothing
-    , _epPolicyName = p2
-    , _epHonorCooldown = Nothing
+executePolicy p1 = ExecutePolicy
+    { _epPolicyName           = p1
+    , _epAutoScalingGroupName = Nothing
+    , _epHonorCooldown        = Nothing
     }
 
 -- | The name or the Amazon Resource Name (ARN) of the Auto Scaling group.
@@ -70,29 +72,28 @@ epAutoScalingGroupName :: Lens' ExecutePolicy (Maybe Text)
 epAutoScalingGroupName =
     lens _epAutoScalingGroupName (\s a -> s { _epAutoScalingGroupName = a })
 
+-- | Set to True if you want Auto Scaling to wait for the cooldown period
+-- associated with the Auto Scaling group to complete before executing the
+-- policy. Set to False if you want Auto Scaling to circumvent the cooldown
+-- period associated with the Auto Scaling group and execute the policy
+-- before the cooldown period ends. For information about cooldown period,
+-- see Cooldown Period in the Auto Scaling Developer Guide.
+epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
+epHonorCooldown = lens _epHonorCooldown (\s a -> s { _epHonorCooldown = a })
+
 -- | The name or ARN of the policy you want to run.
 epPolicyName :: Lens' ExecutePolicy Text
 epPolicyName = lens _epPolicyName (\s a -> s { _epPolicyName = a })
 
--- | Set to True if you want Auto Scaling to wait for the cooldown period
--- associated with the Auto Scaling group to complete before executing the
--- policy. Set to False if you want Auto Scaling to circumvent the cooldown
--- period associated with the Auto Scaling group and execute the policy before
--- the cooldown period ends. For information about cooldown period, see
--- Cooldown Period in the Auto Scaling Developer Guide.
-epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
-epHonorCooldown = lens _epHonorCooldown (\s a -> s { _epHonorCooldown = a })
+instance ToQuery ExecutePolicy
 
-instance ToQuery ExecutePolicy where
-    toQuery = genericQuery def
+instance ToPath ExecutePolicy where
+    toPath = const "/"
 
 data ExecutePolicyResponse = ExecutePolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ExecutePolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ExecutePolicyResponse' constructor.
 executePolicyResponse :: ExecutePolicyResponse
 executePolicyResponse = ExecutePolicyResponse
 
@@ -100,5 +101,5 @@ instance AWSRequest ExecutePolicy where
     type Sv ExecutePolicy = AutoScaling
     type Rs ExecutePolicy = ExecutePolicyResponse
 
-    request = post "ExecutePolicy"
-    response _ = nullaryResponse ExecutePolicyResponse
+    request  = post "ExecutePolicy"
+    response = nullaryResponse ExecutePolicyResponse

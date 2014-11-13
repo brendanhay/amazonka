@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CognitoIdentity.DeleteIdentityPool
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,9 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a user pool. Once a pool is deleted, users will not be able to
--- authenticate with the pool. DeleteIdentityPool The following is an example
--- of a DeleteIdentityPool request. { "IdentityPoolId":
--- "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE" }.
+-- authenticate with the pool.
 module Network.AWS.CognitoIdentity.DeleteIdentityPool
     (
     -- * Request
@@ -29,7 +29,7 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     -- ** Request constructor
     , deleteIdentityPool
     -- ** Request lenses
-    , dipIdentityPoolId
+    , dip1IdentityPoolId
 
     -- * Response
     , DeleteIdentityPoolResponse
@@ -37,54 +37,54 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     , deleteIdentityPoolResponse
     ) where
 
-import Network.AWS.CognitoIdentity.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CognitoIdentity.Types
 
--- | Input to the DeleteIdentityPool action.
 newtype DeleteIdentityPool = DeleteIdentityPool
-    { _dipIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dip1IdentityPoolId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteIdentityPool' request.
+-- | 'DeleteIdentityPool' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IdentityPoolId ::@ @Text@
+-- * 'dip1IdentityPoolId' @::@ 'Text'
 --
-deleteIdentityPool :: Text -- ^ 'dipIdentityPoolId'
+deleteIdentityPool :: Text -- ^ 'dip1IdentityPoolId'
                    -> DeleteIdentityPool
 deleteIdentityPool p1 = DeleteIdentityPool
-    { _dipIdentityPoolId = p1
+    { _dip1IdentityPoolId = p1
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-dipIdentityPoolId :: Lens' DeleteIdentityPool Text
-dipIdentityPoolId =
-    lens _dipIdentityPoolId (\s a -> s { _dipIdentityPoolId = a })
+dip1IdentityPoolId :: Lens' DeleteIdentityPool Text
+dip1IdentityPoolId =
+    lens _dip1IdentityPoolId (\s a -> s { _dip1IdentityPoolId = a })
 
-instance ToPath DeleteIdentityPool
+instance ToPath DeleteIdentityPool where
+    toPath = const "/"
 
-instance ToQuery DeleteIdentityPool
+instance ToQuery DeleteIdentityPool where
+    toQuery = const mempty
 
 instance ToHeaders DeleteIdentityPool
 
-instance ToJSON DeleteIdentityPool
+instance ToBody DeleteIdentityPool where
+    toBody = toBody . encode . _dip1IdentityPoolId
 
 data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteIdentityPoolResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteIdentityPoolResponse' constructor.
 deleteIdentityPoolResponse :: DeleteIdentityPoolResponse
 deleteIdentityPoolResponse = DeleteIdentityPoolResponse
+
+-- FromJSON
 
 instance AWSRequest DeleteIdentityPool where
     type Sv DeleteIdentityPool = CognitoIdentity
     type Rs DeleteIdentityPool = DeleteIdentityPoolResponse
 
-    request = get
-    response _ = nullaryResponse DeleteIdentityPoolResponse
+    request  = post'
+    response = nullaryResponse DeleteIdentityPoolResponse

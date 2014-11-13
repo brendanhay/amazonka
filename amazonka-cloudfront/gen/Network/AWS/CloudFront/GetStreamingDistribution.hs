@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.GetStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,98 +24,92 @@
 module Network.AWS.CloudFront.GetStreamingDistribution
     (
     -- * Request
-      GetStreamingDistribution
+      GetStreamingDistribution2014_05_31
     -- ** Request constructor
-    , getStreamingDistribution
+    , getStreamingDistribution2014_05_31
     -- ** Request lenses
     , gsdId
 
     -- * Response
-    , GetStreamingDistributionResponse
+    , GetStreamingDistribution2014_05_31Response
     -- ** Response constructor
-    , getStreamingDistributionResponse
+    , getStreamingDistribution2014_05_31Response
     -- ** Response lenses
-    , gsdrStreamingDistribution
     , gsdrETag
+    , gsdrStreamingDistribution
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to get a streaming distribution's information.
-newtype GetStreamingDistribution = GetStreamingDistribution
+newtype GetStreamingDistribution2014_05_31 = GetStreamingDistribution2014_05_31
     { _gsdId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetStreamingDistribution' request.
+-- | 'GetStreamingDistribution2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'gsdId' @::@ 'Text'
 --
-getStreamingDistribution :: Text -- ^ 'gsdId'
-                         -> GetStreamingDistribution
-getStreamingDistribution p1 = GetStreamingDistribution
+getStreamingDistribution2014_05_31 :: Text -- ^ 'gsdId'
+                                   -> GetStreamingDistribution2014_05_31
+getStreamingDistribution2014_05_31 p1 = GetStreamingDistribution2014_05_31
     { _gsdId = p1
     }
 
 -- | The streaming distribution's id.
-gsdId :: Lens' GetStreamingDistribution Text
+gsdId :: Lens' GetStreamingDistribution2014_05_31 Text
 gsdId = lens _gsdId (\s a -> s { _gsdId = a })
 
-instance ToPath GetStreamingDistribution
+instance ToPath GetStreamingDistribution2014_05_31 where
+    toPath GetStreamingDistribution2014_05_31{..} = mconcat
+        [ "/2014-05-31/streaming-distribution/"
+        , toText _gsdId
+        ]
 
-instance ToQuery GetStreamingDistribution
+instance ToQuery GetStreamingDistribution2014_05_31 where
+    toQuery = const mempty
 
-instance ToHeaders GetStreamingDistribution
+instance ToHeaders GetStreamingDistribution2014_05_31
 
-instance ToXML GetStreamingDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetStreamingDistribution"
+data GetStreamingDistribution2014_05_31Response = GetStreamingDistribution2014_05_31Response
+    { _gsdrETag                  :: Maybe Text
+    , _gsdrStreamingDistribution :: Maybe StreamingDistribution
+    } deriving (Eq, Show, Generic)
 
--- | The returned result of the corresponding request.
-data GetStreamingDistributionResponse = GetStreamingDistributionResponse
-    { _gsdrStreamingDistribution :: Maybe StreamingDistribution
-    , _gsdrETag :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetStreamingDistributionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetStreamingDistribution2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StreamingDistribution ::@ @Maybe StreamingDistribution@
+-- * 'gsdrETag' @::@ 'Maybe' 'Text'
 --
--- * @ETag ::@ @Maybe Text@
+-- * 'gsdrStreamingDistribution' @::@ 'Maybe' 'StreamingDistribution'
 --
-getStreamingDistributionResponse :: GetStreamingDistributionResponse
-getStreamingDistributionResponse = GetStreamingDistributionResponse
+getStreamingDistribution2014_05_31Response :: GetStreamingDistribution2014_05_31Response
+getStreamingDistribution2014_05_31Response = GetStreamingDistribution2014_05_31Response
     { _gsdrStreamingDistribution = Nothing
-    , _gsdrETag = Nothing
+    , _gsdrETag                  = Nothing
     }
-
--- | The streaming distribution's information.
-gsdrStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
-gsdrStreamingDistribution =
-    lens _gsdrStreamingDistribution
-         (\s a -> s { _gsdrStreamingDistribution = a })
 
 -- | The current version of the streaming distribution's information. For
 -- example: E2QWRUHAPOMQZL.
-gsdrETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
+gsdrETag :: Lens' GetStreamingDistribution2014_05_31Response (Maybe Text)
 gsdrETag = lens _gsdrETag (\s a -> s { _gsdrETag = a })
 
-instance AWSRequest GetStreamingDistribution where
-    type Sv GetStreamingDistribution = CloudFront
-    type Rs GetStreamingDistribution = GetStreamingDistributionResponse
+-- | The streaming distribution's information.
+gsdrStreamingDistribution :: Lens' GetStreamingDistribution2014_05_31Response (Maybe StreamingDistribution)
+gsdrStreamingDistribution =
+    lens _gsdrStreamingDistribution
+        (\s a -> s { _gsdrStreamingDistribution = a })
 
-    request = get
-    response _ = cursorResponse $ \hs xml ->
-        pure GetStreamingDistributionResponse
-            <*> xml %|? "StreamingDistribution"
-            <*> hs ~:? "ETag"
+instance AWSRequest GetStreamingDistribution2014_05_31 where
+    type Sv GetStreamingDistribution2014_05_31 = CloudFront
+    type Rs GetStreamingDistribution2014_05_31 = GetStreamingDistribution2014_05_31Response
+
+    request  = get
+    response = xmlResponse $ \h x -> GetStreamingDistribution2014_05_31Response
+        <$> h ~:? "ETag"
+        <*> x %| "StreamingDistribution"

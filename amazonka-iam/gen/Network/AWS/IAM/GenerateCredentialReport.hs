@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.GenerateCredentialReport
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,77 +22,72 @@
 
 -- | Generates a credential report for the AWS account. For more information
 -- about the credential report, see Getting Credential Reports in the Using
--- IAM guide. https://iam.amazonaws.com/ ?Action=GenerateCredentialReport
--- &Version=2010-05-08 &AUTHPARAMS No report exists. Starting a new report
--- generation task STARTED 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
+-- IAM guide.
 module Network.AWS.IAM.GenerateCredentialReport
     (
     -- * Request
       GenerateCredentialReport
     -- ** Request constructor
     , generateCredentialReport
+
     -- * Response
     , GenerateCredentialReportResponse
     -- ** Response constructor
     , generateCredentialReportResponse
     -- ** Response lenses
-    , gcrrState
     , gcrrDescription
+    , gcrrState
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data GenerateCredentialReport = GenerateCredentialReport
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GenerateCredentialReport' request.
+-- | 'GenerateCredentialReport' constructor.
 generateCredentialReport :: GenerateCredentialReport
 generateCredentialReport = GenerateCredentialReport
 
-instance ToQuery GenerateCredentialReport where
-    toQuery = genericQuery def
+instance ToQuery GenerateCredentialReport
 
--- | Contains the result of a successful invocation of the
--- GenerateCredentialReport action.
+instance ToPath GenerateCredentialReport where
+    toPath = const "/"
+
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse
-    { _gcrrState :: Maybe ReportStateType
-    , _gcrrDescription :: Maybe Text
+    { _gcrrDescription :: Maybe Text
+    , _gcrrState       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GenerateCredentialReportResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GenerateCredentialReportResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @State ::@ @Maybe ReportStateType@
+-- * 'gcrrDescription' @::@ 'Maybe' 'Text'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'gcrrState' @::@ 'Maybe' 'Text'
 --
 generateCredentialReportResponse :: GenerateCredentialReportResponse
 generateCredentialReportResponse = GenerateCredentialReportResponse
-    { _gcrrState = Nothing
+    { _gcrrState       = Nothing
     , _gcrrDescription = Nothing
     }
-
--- | Information about the state of a credential report.
-gcrrState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
-gcrrState = lens _gcrrState (\s a -> s { _gcrrState = a })
 
 -- | Information about the credential report.
 gcrrDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrDescription = lens _gcrrDescription (\s a -> s { _gcrrDescription = a })
 
-instance FromXML GenerateCredentialReportResponse where
-    fromXMLOptions = xmlOptions
+-- | Information about the state of a credential report.
+gcrrState :: Lens' GenerateCredentialReportResponse (Maybe Text)
+gcrrState = lens _gcrrState (\s a -> s { _gcrrState = a })
 
 instance AWSRequest GenerateCredentialReport where
     type Sv GenerateCredentialReport = IAM
     type Rs GenerateCredentialReport = GenerateCredentialReportResponse
 
-    request = post "GenerateCredentialReport"
-    response _ = xmlResponse
+    request  = post "GenerateCredentialReport"
+    response = xmlResponse $ \h x -> GenerateCredentialReportResponse
+        <$> x %| "Description"
+        <*> x %| "State"

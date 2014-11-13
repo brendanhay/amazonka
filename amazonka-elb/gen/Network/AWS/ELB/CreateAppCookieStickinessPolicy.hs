@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.CreateAppCookieStickinessPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,10 +34,6 @@
 -- Balancing cookie named AWSELB. This is the default behavior for many common
 -- web browsers. For more information, see Enabling Application-Controlled
 -- Session Stickiness in the Elastic Load Balancing Developer Guide.
--- https://elasticloadbalancing.amazonaws.com/?CookieName=MyAppCookie
--- &LoadBalancerName=MyLoadBalancer &PolicyName=MyAppStickyPolicy
--- &Version=2012-06-01 &Action=CreateAppCookieStickinessPolicy &AUTHPARAMS
--- 99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE.
 module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     (
     -- * Request
@@ -43,9 +41,9 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     -- ** Request constructor
     , createAppCookieStickinessPolicy
     -- ** Request lenses
+    , cacspCookieName
     , cacspLoadBalancerName
     , cacspPolicyName
-    , cacspCookieName
 
     -- * Response
     , CreateAppCookieStickinessPolicyResponse
@@ -53,27 +51,26 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     , createAppCookieStickinessPolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the CreateAppCookieStickinessPolicy action.
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
-    { _cacspLoadBalancerName :: Text
-    , _cacspPolicyName :: Text
-    , _cacspCookieName :: Text
+    { _cacspCookieName       :: Text
+    , _cacspLoadBalancerName :: Text
+    , _cacspPolicyName       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateAppCookieStickinessPolicy' request.
+-- | 'CreateAppCookieStickinessPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'cacspCookieName' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'cacspLoadBalancerName' @::@ 'Text'
 --
--- * @CookieName ::@ @Text@
+-- * 'cacspPolicyName' @::@ 'Text'
 --
 createAppCookieStickinessPolicy :: Text -- ^ 'cacspLoadBalancerName'
                                 -> Text -- ^ 'cacspPolicyName'
@@ -81,9 +78,13 @@ createAppCookieStickinessPolicy :: Text -- ^ 'cacspLoadBalancerName'
                                 -> CreateAppCookieStickinessPolicy
 createAppCookieStickinessPolicy p1 p2 p3 = CreateAppCookieStickinessPolicy
     { _cacspLoadBalancerName = p1
-    , _cacspPolicyName = p2
-    , _cacspCookieName = p3
+    , _cacspPolicyName       = p2
+    , _cacspCookieName       = p3
     }
+
+-- | Name of the application cookie used for stickiness.
+cacspCookieName :: Lens' CreateAppCookieStickinessPolicy Text
+cacspCookieName = lens _cacspCookieName (\s a -> s { _cacspCookieName = a })
 
 -- | The name of the load balancer.
 cacspLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy Text
@@ -95,21 +96,15 @@ cacspLoadBalancerName =
 cacspPolicyName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspPolicyName = lens _cacspPolicyName (\s a -> s { _cacspPolicyName = a })
 
--- | Name of the application cookie used for stickiness.
-cacspCookieName :: Lens' CreateAppCookieStickinessPolicy Text
-cacspCookieName = lens _cacspCookieName (\s a -> s { _cacspCookieName = a })
+instance ToQuery CreateAppCookieStickinessPolicy
 
-instance ToQuery CreateAppCookieStickinessPolicy where
-    toQuery = genericQuery def
+instance ToPath CreateAppCookieStickinessPolicy where
+    toPath = const "/"
 
--- | The output for the CreateAppCookieStickinessPolicy action.
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateAppCookieStickinessPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateAppCookieStickinessPolicyResponse' constructor.
 createAppCookieStickinessPolicyResponse :: CreateAppCookieStickinessPolicyResponse
 createAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
 
@@ -117,5 +112,5 @@ instance AWSRequest CreateAppCookieStickinessPolicy where
     type Sv CreateAppCookieStickinessPolicy = ELB
     type Rs CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicyResponse
 
-    request = post "CreateAppCookieStickinessPolicy"
-    response _ = nullaryResponse CreateAppCookieStickinessPolicyResponse
+    request  = post "CreateAppCookieStickinessPolicy"
+    response = nullaryResponse CreateAppCookieStickinessPolicyResponse

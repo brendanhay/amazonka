@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ResetImageAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,14 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Resets an attribute of an AMI to its default value. Example This example
--- resets the launchPermission attribute for the specified AMI.
--- https://ec2.amazonaws.com/?Action=ResetImageAttribute
--- &amp;ImageId=ami-61a54008 &amp;Attribute=launchPermission &amp;AUTHPARAMS
--- &lt;ResetImageAttributeResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-02-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/ResetImageAttributeResponse&gt;.
+-- | Resets an attribute of an AMI to its default value.
 module Network.AWS.EC2.ResetImageAttribute
     (
     -- * Request
@@ -33,8 +28,9 @@ module Network.AWS.EC2.ResetImageAttribute
     -- ** Request constructor
     , resetImageAttribute
     -- ** Request lenses
-    , riaImageId
-    , riaAttribute
+    , ria1Attribute
+    , ria1DryRun
+    , ria1ImageId
 
     -- * Response
     , ResetImageAttributeResponse
@@ -42,51 +38,57 @@ module Network.AWS.EC2.ResetImageAttribute
     , resetImageAttributeResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ResetImageAttribute = ResetImageAttribute
-    { _riaImageId :: Text
-    , _riaAttribute :: ResetImageAttributeName
+    { _ria1Attribute :: Text
+    , _ria1DryRun    :: Maybe Bool
+    , _ria1ImageId   :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetImageAttribute' request.
+-- | 'ResetImageAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ImageId ::@ @Text@
+-- * 'ria1Attribute' @::@ 'Text'
 --
--- * @Attribute ::@ @ResetImageAttributeName@
+-- * 'ria1DryRun' @::@ 'Maybe' 'Bool'
 --
-resetImageAttribute :: Text -- ^ 'riaImageId'
-                    -> ResetImageAttributeName -- ^ 'riaAttribute'
+-- * 'ria1ImageId' @::@ 'Text'
+--
+resetImageAttribute :: Text -- ^ 'ria1ImageId'
+                    -> Text -- ^ 'ria1Attribute'
                     -> ResetImageAttribute
 resetImageAttribute p1 p2 = ResetImageAttribute
-    { _riaImageId = p1
-    , _riaAttribute = p2
+    { _ria1ImageId   = p1
+    , _ria1Attribute = p2
+    , _ria1DryRun    = Nothing
     }
 
+-- | The attribute to reset (currently you can only reset the launch
+-- permission attribute).
+ria1Attribute :: Lens' ResetImageAttribute Text
+ria1Attribute = lens _ria1Attribute (\s a -> s { _ria1Attribute = a })
+
+ria1DryRun :: Lens' ResetImageAttribute (Maybe Bool)
+ria1DryRun = lens _ria1DryRun (\s a -> s { _ria1DryRun = a })
+
 -- | The ID of the AMI.
-riaImageId :: Lens' ResetImageAttribute Text
-riaImageId = lens _riaImageId (\s a -> s { _riaImageId = a })
+ria1ImageId :: Lens' ResetImageAttribute Text
+ria1ImageId = lens _ria1ImageId (\s a -> s { _ria1ImageId = a })
 
--- | The attribute to reset (currently you can only reset the launch permission
--- attribute).
-riaAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
-riaAttribute = lens _riaAttribute (\s a -> s { _riaAttribute = a })
+instance ToQuery ResetImageAttribute
 
-instance ToQuery ResetImageAttribute where
-    toQuery = genericQuery def
+instance ToPath ResetImageAttribute where
+    toPath = const "/"
 
 data ResetImageAttributeResponse = ResetImageAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetImageAttributeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ResetImageAttributeResponse' constructor.
 resetImageAttributeResponse :: ResetImageAttributeResponse
 resetImageAttributeResponse = ResetImageAttributeResponse
 
@@ -94,5 +96,5 @@ instance AWSRequest ResetImageAttribute where
     type Sv ResetImageAttribute = EC2
     type Rs ResetImageAttribute = ResetImageAttributeResponse
 
-    request = post "ResetImageAttribute"
-    response _ = nullaryResponse ResetImageAttributeResponse
+    request  = post "ResetImageAttribute"
+    response = nullaryResponse ResetImageAttributeResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,10 +22,6 @@
 
 -- | Returns detailed information about all of the attributes associated with
 -- the specified load balancer.
--- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
--- &Version=2012-06-01 &Action=DescribeLoadBalancerAttributes &AUTHPARAMS true
--- my-loadbalancer-logs testprefix 5 30 true true 60
--- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 module Network.AWS.ELB.DescribeLoadBalancerAttributes
     (
     -- * Request
@@ -41,21 +39,20 @@ module Network.AWS.ELB.DescribeLoadBalancerAttributes
     , dlbarLoadBalancerAttributes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the DescribeLoadBalancerAttributes action.
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
     { _dlbaLoadBalancerName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLoadBalancerAttributes' request.
+-- | 'DescribeLoadBalancerAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'dlbaLoadBalancerName' @::@ 'Text'
 --
 describeLoadBalancerAttributes :: Text -- ^ 'dlbaLoadBalancerName'
                                -> DescribeLoadBalancerAttributes
@@ -68,23 +65,20 @@ dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
 dlbaLoadBalancerName =
     lens _dlbaLoadBalancerName (\s a -> s { _dlbaLoadBalancerName = a })
 
-instance ToQuery DescribeLoadBalancerAttributes where
-    toQuery = genericQuery def
+instance ToQuery DescribeLoadBalancerAttributes
 
--- | The following element is returned in a structure named
--- DescribeLoadBalancerAttributesResult.
+instance ToPath DescribeLoadBalancerAttributes where
+    toPath = const "/"
+
 newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
     { _dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLoadBalancerAttributesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeLoadBalancerAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerAttributes ::@ @Maybe LoadBalancerAttributes@
+-- * 'dlbarLoadBalancerAttributes' @::@ 'Maybe' 'LoadBalancerAttributes'
 --
 describeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesResponse
 describeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
@@ -95,14 +89,12 @@ describeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
 dlbarLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 dlbarLoadBalancerAttributes =
     lens _dlbarLoadBalancerAttributes
-         (\s a -> s { _dlbarLoadBalancerAttributes = a })
-
-instance FromXML DescribeLoadBalancerAttributesResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _dlbarLoadBalancerAttributes = a })
 
 instance AWSRequest DescribeLoadBalancerAttributes where
     type Sv DescribeLoadBalancerAttributes = ELB
     type Rs DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributesResponse
 
-    request = post "DescribeLoadBalancerAttributes"
-    response _ = xmlResponse
+    request  = post "DescribeLoadBalancerAttributes"
+    response = xmlResponse $ \h x -> DescribeLoadBalancerAttributesResponse
+        <$> x %| "LoadBalancerAttributes"

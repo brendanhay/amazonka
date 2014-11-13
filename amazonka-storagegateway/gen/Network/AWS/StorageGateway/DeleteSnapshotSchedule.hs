@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteSnapshotSchedule
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,23 +24,7 @@
 -- your gateway volumes on a scheduled or ad-hoc basis. This API enables you
 -- to delete a snapshot schedule for a volume. For more information, see
 -- Working with Snapshots. In the DeleteSnapshotSchedule request, you identify
--- the volume by providing its Amazon Resource Name (ARN). To list or delete a
--- snapshot, you must use the Amazon EC2 API. in Amazon Elastic Compute Cloud
--- API Reference. Example Request The following example... POST / HTTP/1.1
--- Host: storagegateway.us-east-1.amazonaws.com Content-Type:
--- application/x-amz-json-1.1 Authorization: AWS4-HMAC-SHA256
--- Credential=AKIAIOSFODNN7EXAMPLE/20120425/us-east-1/storagegateway/aws4_request,
--- SignedHeaders=content-type;host;x-amz-date;x-amz-target,
--- Signature=9cd5a3584d1d67d57e61f120f35102d6b3649066abdd4bf4bbcf05bd9f2f8fe2
--- x-amz-date: 20120912T120000Z x-amz-target:
--- StorageGateway_20120630.DeleteSnapshotSchedule { "VolumeARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
--- } HTTP/1.1 200 OK x-amzn-RequestId:
--- gur28r2rqlgb8vvs0mq17hlgij1q8glle1qeu3kpgg6f0kstauu0 Date: Wed, 12 Sep 2012
--- 12:00:02 GMT Content-Type: application/x-amz-json-1.1 Content-length: 137 {
--- "VolumeARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
--- }.
+-- the volume by providing its Amazon Resource Name (ARN).
 module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     (
     -- * Request
@@ -46,74 +32,74 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     -- ** Request constructor
     , deleteSnapshotSchedule
     -- ** Request lenses
-    , dssVolumeARN
+    , dss1VolumeARN
 
     -- * Response
     , DeleteSnapshotScheduleResponse
     -- ** Response constructor
     , deleteSnapshotScheduleResponse
     -- ** Response lenses
-    , dssrVolumeARN
+    , dssr1VolumeARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule
-    { _dssVolumeARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dss1VolumeARN :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSnapshotSchedule' request.
+-- | 'DeleteSnapshotSchedule' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeARN ::@ @Text@
+-- * 'dss1VolumeARN' @::@ 'Text'
 --
-deleteSnapshotSchedule :: Text -- ^ 'dssVolumeARN'
+deleteSnapshotSchedule :: Text -- ^ 'dss1VolumeARN'
                        -> DeleteSnapshotSchedule
 deleteSnapshotSchedule p1 = DeleteSnapshotSchedule
-    { _dssVolumeARN = p1
+    { _dss1VolumeARN = p1
     }
 
-dssVolumeARN :: Lens' DeleteSnapshotSchedule Text
-dssVolumeARN = lens _dssVolumeARN (\s a -> s { _dssVolumeARN = a })
+dss1VolumeARN :: Lens' DeleteSnapshotSchedule Text
+dss1VolumeARN = lens _dss1VolumeARN (\s a -> s { _dss1VolumeARN = a })
 
-instance ToPath DeleteSnapshotSchedule
+instance ToPath DeleteSnapshotSchedule where
+    toPath = const "/"
 
-instance ToQuery DeleteSnapshotSchedule
+instance ToQuery DeleteSnapshotSchedule where
+    toQuery = const mempty
 
 instance ToHeaders DeleteSnapshotSchedule
 
-instance ToJSON DeleteSnapshotSchedule
+instance ToBody DeleteSnapshotSchedule where
+    toBody = toBody . encode . _dss1VolumeARN
 
 newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
-    { _dssrVolumeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dssr1VolumeARN :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSnapshotScheduleResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteSnapshotScheduleResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeARN ::@ @Maybe Text@
+-- * 'dssr1VolumeARN' @::@ 'Maybe' 'Text'
 --
 deleteSnapshotScheduleResponse :: DeleteSnapshotScheduleResponse
 deleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
-    { _dssrVolumeARN = Nothing
+    { _dssr1VolumeARN = Nothing
     }
 
-dssrVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
-dssrVolumeARN = lens _dssrVolumeARN (\s a -> s { _dssrVolumeARN = a })
+dssr1VolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
+dssr1VolumeARN = lens _dssr1VolumeARN (\s a -> s { _dssr1VolumeARN = a })
 
-instance FromJSON DeleteSnapshotScheduleResponse
+-- FromJSON
 
 instance AWSRequest DeleteSnapshotSchedule where
     type Sv DeleteSnapshotSchedule = StorageGateway
     type Rs DeleteSnapshotSchedule = DeleteSnapshotScheduleResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DeleteSnapshotScheduleResponse
+        <$> o .: "VolumeARN"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CognitoIdentity.UnlinkIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,73 +40,71 @@ module Network.AWS.CognitoIdentity.UnlinkIdentity
     , unlinkIdentityResponse
     ) where
 
-import Network.AWS.CognitoIdentity.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CognitoIdentity.Types
 
--- | Input to the UnlinkIdentity action.
 data UnlinkIdentity = UnlinkIdentity
-    { _uiIdentityId :: Text
-    , _uiLogins :: Map Text Text
+    { _uiIdentityId     :: Text
+    , _uiLogins         :: Map Text Text
     , _uiLoginsToRemove :: [Text]
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UnlinkIdentity' request.
+-- | 'UnlinkIdentity' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IdentityId ::@ @Text@
+-- * 'uiIdentityId' @::@ 'Text'
 --
--- * @Logins ::@ @Map Text Text@
+-- * 'uiLogins' @::@ 'HashMap' 'Text' 'Text'
 --
--- * @LoginsToRemove ::@ @[Text]@
+-- * 'uiLoginsToRemove' @::@ ['Text']
 --
 unlinkIdentity :: Text -- ^ 'uiIdentityId'
-               -> Map Text Text -- ^ 'uiLogins'
-               -> [Text] -- ^ 'uiLoginsToRemove'
                -> UnlinkIdentity
-unlinkIdentity p1 p2 p3 = UnlinkIdentity
-    { _uiIdentityId = p1
-    , _uiLogins = p2
-    , _uiLoginsToRemove = p3
+unlinkIdentity p1 = UnlinkIdentity
+    { _uiIdentityId     = p1
+    , _uiLogins         = mempty
+    , _uiLoginsToRemove = mempty
     }
 
 -- | A unique identifier in the format REGION:GUID.
 uiIdentityId :: Lens' UnlinkIdentity Text
 uiIdentityId = lens _uiIdentityId (\s a -> s { _uiIdentityId = a })
 
--- | A set of optional name/value pairs that map provider names to provider
+-- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
-uiLogins :: Lens' UnlinkIdentity (Map Text Text)
+uiLogins :: Lens' UnlinkIdentity (HashMap Text Text)
 uiLogins = lens _uiLogins (\s a -> s { _uiLogins = a })
+    . _Map
 
 -- | Provider names to unlink from this identity.
 uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
-uiLoginsToRemove =
-    lens _uiLoginsToRemove (\s a -> s { _uiLoginsToRemove = a })
+uiLoginsToRemove = lens _uiLoginsToRemove (\s a -> s { _uiLoginsToRemove = a })
 
-instance ToPath UnlinkIdentity
+instance ToPath UnlinkIdentity where
+    toPath = const "/"
 
-instance ToQuery UnlinkIdentity
+instance ToQuery UnlinkIdentity where
+    toQuery = const mempty
 
 instance ToHeaders UnlinkIdentity
 
-instance ToJSON UnlinkIdentity
+instance ToBody UnlinkIdentity where
+    toBody = toBody . encode . _uiIdentityId
 
 data UnlinkIdentityResponse = UnlinkIdentityResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UnlinkIdentityResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UnlinkIdentityResponse' constructor.
 unlinkIdentityResponse :: UnlinkIdentityResponse
 unlinkIdentityResponse = UnlinkIdentityResponse
+
+-- FromJSON
 
 instance AWSRequest UnlinkIdentity where
     type Sv UnlinkIdentity = CognitoIdentity
     type Rs UnlinkIdentity = UnlinkIdentityResponse
 
-    request = get
-    response _ = nullaryResponse UnlinkIdentityResponse
+    request  = post'
+    response = nullaryResponse UnlinkIdentityResponse

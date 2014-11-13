@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,9 +33,9 @@ module Network.AWS.OpsWorks.DeleteInstance
     -- ** Request constructor
     , deleteInstance
     -- ** Request lenses
-    , diInstanceId
     , diDeleteElasticIp
     , diDeleteVolumes
+    , diInstanceId
 
     -- * Response
     , DeleteInstanceResponse
@@ -41,38 +43,33 @@ module Network.AWS.OpsWorks.DeleteInstance
     , deleteInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DeleteInstance = DeleteInstance
-    { _diInstanceId :: Text
-    , _diDeleteElasticIp :: Maybe Bool
-    , _diDeleteVolumes :: Maybe Bool
+    { _diDeleteElasticIp :: Maybe Bool
+    , _diDeleteVolumes   :: Maybe Bool
+    , _diInstanceId      :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteInstance' request.
+-- | 'DeleteInstance' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @Text@
+-- * 'diDeleteElasticIp' @::@ 'Maybe' 'Bool'
 --
--- * @DeleteElasticIp ::@ @Maybe Bool@
+-- * 'diDeleteVolumes' @::@ 'Maybe' 'Bool'
 --
--- * @DeleteVolumes ::@ @Maybe Bool@
+-- * 'diInstanceId' @::@ 'Text'
 --
 deleteInstance :: Text -- ^ 'diInstanceId'
                -> DeleteInstance
 deleteInstance p1 = DeleteInstance
-    { _diInstanceId = p1
+    { _diInstanceId      = p1
     , _diDeleteElasticIp = Nothing
-    , _diDeleteVolumes = Nothing
+    , _diDeleteVolumes   = Nothing
     }
-
--- | The instance ID.
-diInstanceId :: Lens' DeleteInstance Text
-diInstanceId = lens _diInstanceId (\s a -> s { _diInstanceId = a })
 
 -- | Whether to delete the instance Elastic IP address.
 diDeleteElasticIp :: Lens' DeleteInstance (Maybe Bool)
@@ -83,27 +80,33 @@ diDeleteElasticIp =
 diDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
 diDeleteVolumes = lens _diDeleteVolumes (\s a -> s { _diDeleteVolumes = a })
 
-instance ToPath DeleteInstance
+-- | The instance ID.
+diInstanceId :: Lens' DeleteInstance Text
+diInstanceId = lens _diInstanceId (\s a -> s { _diInstanceId = a })
 
-instance ToQuery DeleteInstance
+instance ToPath DeleteInstance where
+    toPath = const "/"
+
+instance ToQuery DeleteInstance where
+    toQuery = const mempty
 
 instance ToHeaders DeleteInstance
 
-instance ToJSON DeleteInstance
+instance ToBody DeleteInstance where
+    toBody = toBody . encode . _diInstanceId
 
 data DeleteInstanceResponse = DeleteInstanceResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteInstanceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteInstanceResponse' constructor.
 deleteInstanceResponse :: DeleteInstanceResponse
 deleteInstanceResponse = DeleteInstanceResponse
+
+-- FromJSON
 
 instance AWSRequest DeleteInstance where
     type Sv DeleteInstance = OpsWorks
     type Rs DeleteInstance = DeleteInstanceResponse
 
-    request = get
-    response _ = nullaryResponse DeleteInstanceResponse
+    request  = post'
+    response = nullaryResponse DeleteInstanceResponse

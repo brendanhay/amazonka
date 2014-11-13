@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.GetGroupPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,10 +23,6 @@
 -- | Retrieves the specified policy document for the specified group. The
 -- returned policy is URL-encoded according to RFC 3986. For more information
 -- about RFC 3986, go to http://www.faqs.org/rfcs/rfc3986.html.
--- https://iam.amazonaws.com/ ?Action=GetGroupPolicy &GroupName=Admins
--- &PolicyName=AdminRoot &AUTHPARAMS Admins AdminRoot
--- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 module Network.AWS.IAM.GetGroupPolicy
     (
     -- * Request
@@ -41,75 +39,72 @@ module Network.AWS.IAM.GetGroupPolicy
     , getGroupPolicyResponse
     -- ** Response lenses
     , ggprGroupName
-    , ggprPolicyName
     , ggprPolicyDocument
+    , ggprPolicyName
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data GetGroupPolicy = GetGroupPolicy
-    { _ggpGroupName :: Text
+    { _ggpGroupName  :: Text
     , _ggpPolicyName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetGroupPolicy' request.
+-- | 'GetGroupPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupName ::@ @Text@
+-- * 'ggpGroupName' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'ggpPolicyName' @::@ 'Text'
 --
 getGroupPolicy :: Text -- ^ 'ggpGroupName'
                -> Text -- ^ 'ggpPolicyName'
                -> GetGroupPolicy
 getGroupPolicy p1 p2 = GetGroupPolicy
-    { _ggpGroupName = p1
+    { _ggpGroupName  = p1
     , _ggpPolicyName = p2
     }
 
--- | Name of the group the policy is associated with.
+-- | The name of the group the policy is associated with.
 ggpGroupName :: Lens' GetGroupPolicy Text
 ggpGroupName = lens _ggpGroupName (\s a -> s { _ggpGroupName = a })
 
--- | Name of the policy document to get.
+-- | The name of the policy document to get.
 ggpPolicyName :: Lens' GetGroupPolicy Text
 ggpPolicyName = lens _ggpPolicyName (\s a -> s { _ggpPolicyName = a })
 
-instance ToQuery GetGroupPolicy where
-    toQuery = genericQuery def
+instance ToQuery GetGroupPolicy
 
--- | Contains the result of a successful invocation of the GetGroupPolicy
--- action.
+instance ToPath GetGroupPolicy where
+    toPath = const "/"
+
 data GetGroupPolicyResponse = GetGroupPolicyResponse
-    { _ggprGroupName :: Text
-    , _ggprPolicyName :: Text
+    { _ggprGroupName      :: Text
     , _ggprPolicyDocument :: Text
+    , _ggprPolicyName     :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetGroupPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetGroupPolicyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupName ::@ @Text@
+-- * 'ggprGroupName' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'ggprPolicyDocument' @::@ 'Text'
 --
--- * @PolicyDocument ::@ @Text@
+-- * 'ggprPolicyName' @::@ 'Text'
 --
 getGroupPolicyResponse :: Text -- ^ 'ggprGroupName'
                        -> Text -- ^ 'ggprPolicyName'
                        -> Text -- ^ 'ggprPolicyDocument'
                        -> GetGroupPolicyResponse
 getGroupPolicyResponse p1 p2 p3 = GetGroupPolicyResponse
-    { _ggprGroupName = p1
-    , _ggprPolicyName = p2
+    { _ggprGroupName      = p1
+    , _ggprPolicyName     = p2
     , _ggprPolicyDocument = p3
     }
 
@@ -117,21 +112,21 @@ getGroupPolicyResponse p1 p2 p3 = GetGroupPolicyResponse
 ggprGroupName :: Lens' GetGroupPolicyResponse Text
 ggprGroupName = lens _ggprGroupName (\s a -> s { _ggprGroupName = a })
 
--- | The name of the policy.
-ggprPolicyName :: Lens' GetGroupPolicyResponse Text
-ggprPolicyName = lens _ggprPolicyName (\s a -> s { _ggprPolicyName = a })
-
 -- | The policy document.
 ggprPolicyDocument :: Lens' GetGroupPolicyResponse Text
 ggprPolicyDocument =
     lens _ggprPolicyDocument (\s a -> s { _ggprPolicyDocument = a })
 
-instance FromXML GetGroupPolicyResponse where
-    fromXMLOptions = xmlOptions
+-- | The name of the policy.
+ggprPolicyName :: Lens' GetGroupPolicyResponse Text
+ggprPolicyName = lens _ggprPolicyName (\s a -> s { _ggprPolicyName = a })
 
 instance AWSRequest GetGroupPolicy where
     type Sv GetGroupPolicy = IAM
     type Rs GetGroupPolicy = GetGroupPolicyResponse
 
-    request = post "GetGroupPolicy"
-    response _ = xmlResponse
+    request  = post "GetGroupPolicy"
+    response = xmlResponse $ \h x -> GetGroupPolicyResponse
+        <$> x %| "GroupName"
+        <*> x %| "PolicyDocument"
+        <*> x %| "PolicyName"

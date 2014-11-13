@@ -1,11 +1,11 @@
 name:                  amazonka-redshift
 version:               0.0.0
-synopsis:              Amazon Redshift SDK
+synopsis:              Amazon Redshift SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,11 +13,12 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse service that makes it simple and cost-effective to efficiently analyze all your data using your existing business intelligence tools.
-    .
-    You can start small for just $0.
-    .
-    25 per hour with no commitments or upfront costs and scale to a petabyte or more for $1,000 per terabyte per year, less than a tenth of most other data warehousing solutions.
+    Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse
+    service that makes it simple and cost-effective to efficiently analyze
+    all your data using your existing business intelligence tools. You can
+    start small for just $0.25 per hour with no commitments or upfront
+    costs and scale to a petabyte or more for $1,000 per terabyte per year,
+    less than a tenth of most other data warehousing solutions.
 
 source-repository head
     type:     git
@@ -31,7 +32,6 @@ library
 
     exposed-modules:
           Network.AWS.Redshift
-        , Network.AWS.Redshift.Types
         , Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
         , Network.AWS.Redshift.AuthorizeSnapshotAccess
         , Network.AWS.Redshift.CopyClusterSnapshot
@@ -85,6 +85,9 @@ library
         , Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
         , Network.AWS.Redshift.RevokeSnapshotAccess
         , Network.AWS.Redshift.RotateEncryptionKey
+        , Network.AWS.Redshift.Types
+
+    other-modules:
 
     build-depends:
           amazonka-core

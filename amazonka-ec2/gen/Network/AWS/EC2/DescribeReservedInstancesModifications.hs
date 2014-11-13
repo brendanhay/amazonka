@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesModifications
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,12 +23,9 @@
 -- | Describes the modifications made to your Reserved Instances. If no
 -- parameter is specified, information about all your Reserved Instances
 -- modification requests is returned. If a modification ID is specified, only
--- information about the specific modification is returned. Example 1
--- https://ec2.amazonaws.com/?Action=DescribeReservedInstancesModifications
--- &amp;AUTHPARAMS Example 2 This example filters the response to include only
--- Reserved Instances modification requests with status processing.
--- https://ec2.amazonaws.com/?Action=DescribeReservedInstancesModifications
--- &amp;Filter.1.Name=status &amp;Filter.1.Value.1=processing &amp;AUTHPARAMS.
+-- information about the specific modification is returned. For more
+-- information, see Modifying Reserved Instances in the Amazon Elastic Compute
+-- Cloud User Guide.
 module Network.AWS.EC2.DescribeReservedInstancesModifications
     (
     -- * Request
@@ -34,71 +33,62 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- ** Request constructor
     , describeReservedInstancesModifications
     -- ** Request lenses
-    , drimReservedInstancesModificationIds
-    , drimNextToken
     , drimFilters
+    , drimNextToken
+    , drimReservedInstancesModificationIds
 
     -- * Response
     , DescribeReservedInstancesModificationsResponse
     -- ** Response constructor
     , describeReservedInstancesModificationsResponse
     -- ** Response lenses
-    , drimrReservedInstancesModifications
     , drimrNextToken
+    , drimrReservedInstancesModifications
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications
-    { _drimReservedInstancesModificationIds :: [Text]
-    , _drimNextToken :: Maybe Text
-    , _drimFilters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    { _drimFilters                          :: [Filter]
+    , _drimNextToken                        :: Maybe Text
+    , _drimReservedInstancesModificationIds :: [Text]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeReservedInstancesModifications' request.
+-- | 'DescribeReservedInstancesModifications' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesModificationIds ::@ @[Text]@
+-- * 'drimFilters' @::@ ['Filter']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'drimNextToken' @::@ 'Maybe' 'Text'
 --
--- * @Filters ::@ @[Filter]@
+-- * 'drimReservedInstancesModificationIds' @::@ ['Text']
 --
 describeReservedInstancesModifications :: DescribeReservedInstancesModifications
 describeReservedInstancesModifications = DescribeReservedInstancesModifications
     { _drimReservedInstancesModificationIds = mempty
-    , _drimNextToken = Nothing
-    , _drimFilters = mempty
+    , _drimNextToken                        = Nothing
+    , _drimFilters                          = mempty
     }
 
--- | IDs for the submitted modification request.
-drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
-drimReservedInstancesModificationIds =
-    lens _drimReservedInstancesModificationIds
-         (\s a -> s { _drimReservedInstancesModificationIds = a })
-
--- | The token for the next page of data.
-drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
-drimNextToken = lens _drimNextToken (\s a -> s { _drimNextToken = a })
-
 -- | One or more filters. client-token - The idempotency token for the
--- modification request. create-date - The time when the modification request
--- was created. effective-date - The time when the modification becomes
--- effective. modification-result.reserved-instances-id - The ID for the
--- Reserved Instances created as part of the modification request. This ID is
--- only available when the status of the modification is fulfilled.
+-- modification request. create-date - The time when the modification
+-- request was created. effective-date - The time when the modification
+-- becomes effective. modification-result.reserved-instances-id - The ID for
+-- the Reserved Instances created as part of the modification request. This
+-- ID is only available when the status of the modification is fulfilled.
 -- modification-result.target-configuration.availability-zone - The
 -- Availability Zone for the new Reserved Instances.
--- modification-result.target-configuration.instance-count - The number of new
--- Reserved Instances. modification-result.target-configuration.instance-type
--- - The instance type of the new Reserved Instances.
--- modification-result.target-configuration.platform - The network platform of
--- the new Reserved Instances (EC2-Classic | EC2-VPC). reserved-instances-id -
--- The ID of the Reserved Instances modified.
+-- modification-result.target-configuration.instance-count - The number of
+-- new Reserved Instances.
+-- modification-result.target-configuration.instance-type - The instance
+-- type of the new Reserved Instances.
+-- modification-result.target-configuration.platform - The network platform
+-- of the new Reserved Instances (EC2-Classic | EC2-VPC).
+-- reserved-instances-id - The ID of the Reserved Instances modified.
 -- reserved-instances-modification-id - The ID of the modification request.
 -- status - The status of the Reserved Instances modification request
 -- (processing | fulfilled | failed). status-message - The reason for the
@@ -107,51 +97,55 @@ drimNextToken = lens _drimNextToken (\s a -> s { _drimNextToken = a })
 drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
 drimFilters = lens _drimFilters (\s a -> s { _drimFilters = a })
 
-instance ToQuery DescribeReservedInstancesModifications where
-    toQuery = genericQuery def
+-- | The token for the next page of data.
+drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
+drimNextToken = lens _drimNextToken (\s a -> s { _drimNextToken = a })
+
+-- | IDs for the submitted modification request.
+drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
+drimReservedInstancesModificationIds =
+    lens _drimReservedInstancesModificationIds
+        (\s a -> s { _drimReservedInstancesModificationIds = a })
+
+instance ToQuery DescribeReservedInstancesModifications
+
+instance ToPath DescribeReservedInstancesModifications where
+    toPath = const "/"
 
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
-    { _drimrReservedInstancesModifications :: [ReservedInstancesModification]
-    , _drimrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _drimrNextToken                      :: Maybe Text
+    , _drimrReservedInstancesModifications :: [ReservedInstancesModification]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeReservedInstancesModificationsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeReservedInstancesModificationsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesModifications ::@ @[ReservedInstancesModification]@
+-- * 'drimrNextToken' @::@ 'Maybe' 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'drimrReservedInstancesModifications' @::@ ['ReservedInstancesModification']
 --
 describeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse
 describeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrReservedInstancesModifications = mempty
-    , _drimrNextToken = Nothing
+    , _drimrNextToken                      = Nothing
     }
-
--- | The Reserved Instance modification information.
-drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
-drimrReservedInstancesModifications =
-    lens _drimrReservedInstancesModifications
-         (\s a -> s { _drimrReservedInstancesModifications = a })
 
 -- | The token for the next page of data.
 drimrNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
 drimrNextToken = lens _drimrNextToken (\s a -> s { _drimrNextToken = a })
 
-instance FromXML DescribeReservedInstancesModificationsResponse where
-    fromXMLOptions = xmlOptions
+-- | The Reserved Instance modification information.
+drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
+drimrReservedInstancesModifications =
+    lens _drimrReservedInstancesModifications
+        (\s a -> s { _drimrReservedInstancesModifications = a })
 
 instance AWSRequest DescribeReservedInstancesModifications where
     type Sv DescribeReservedInstancesModifications = EC2
     type Rs DescribeReservedInstancesModifications = DescribeReservedInstancesModificationsResponse
 
-    request = post "DescribeReservedInstancesModifications"
-    response _ = xmlResponse
-
-instance AWSPager DescribeReservedInstancesModifications where
-    next rq rs = (\x -> rq & drimNextToken ?~ x)
-        <$> (rs ^. drimrNextToken)
+    request  = post "DescribeReservedInstancesModifications"
+    response = xmlResponse $ \h x -> DescribeReservedInstancesModificationsResponse
+        <$> x %| "nextToken"
+        <*> x %| "reservedInstancesModificationsSet"

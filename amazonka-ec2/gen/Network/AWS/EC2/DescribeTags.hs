@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,42 +22,7 @@
 
 -- | Describes one or more of the tags for your EC2 resources. For more
 -- information about tags, see Tagging Your Resources in the Amazon Elastic
--- Compute Cloud User Guide. Example This example describes all the tags in
--- your account. https://ec2.amazonaws.com/?Action=DescribeTags
--- &amp;AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE ami-1a2b3c4d image
--- webserver ami-1a2b3c4d image stack Production i-5f4e3d2a instance webserver
--- i-5f4e3d2a instance stack Production i-12345678 instance database_server
--- i-12345678 instance stack Test Example This example describes only the tags
--- for the AMI with ID ami-1a2b3c4d.
--- https://ec2.amazonaws.com/?Action=DescribeTags
--- &amp;Filter.1.Name=resource-id &amp;Filter.1.Value.1=ami-1a2b3c4d
--- &amp;AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE ami-1a2b3c4d image
--- webserver ami-1a2b3c4d image stack Production Example This example
--- describes the tags for all your instances.
--- https://ec2.amazonaws.com/?Action=DescribeTags
--- &amp;Filter.1.Name=resource-type &amp;Filter.1.Value.1=instance
--- &amp;AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE i-5f4e3d2a instance
--- webserver i-5f4e3d2a instance stack Production i-12345678 instance
--- database_server i-12345678 instance stack Test Example This example
--- describes the tags for all your instances tagged with the key webserver.
--- Note that you can use wildcards with filters, so you could specify the
--- value as ?ebserver to find tags with the key webserver or Webserver.
--- https://ec2.amazonaws.com/?Action=DescribeTags &amp;Filter.1.Name=key
--- &amp;Filter.1.Value.1=webserver &amp;AUTHPARAMS
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE i-5f4e3d2a instance webserver Example
--- This example describes the tags for all your instances tagged with either
--- stack=Test or stack=Production.
--- https://ec2.amazonaws.com/?Action=DescribeTags
--- &amp;Filter.1.Name=resource-type &amp;Filter.1.Value.1=instance
--- &amp;Filter.2.Name=key &amp;Filter.2.Value.1=stack &amp;Filter.3.Name=value
--- &amp;Filter.3.Value.1=Test &amp;Filter.3.Value.2=Production &amp;AUTHPARAMS
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE i-5f4e3d2a instance stack Production
--- i-12345678 instance stack Test Example This example describes the tags for
--- all your instances tagged with Purpose=[empty string].
--- https://ec2.amazonaws.com/?Action=DescribeTags
--- &amp;Filter.1.Name=resource-type &amp;Filter.1.Value.1=instance
--- &amp;Filter.2.Name=key &amp;Filter.2.Value.1=Purpose
--- &amp;Filter.3.Name=value &amp;Filter.3.Value.1= &amp;AUTHPARAMS.
+-- Compute Cloud User Guide.
 module Network.AWS.EC2.DescribeTags
     (
     -- * Request
@@ -63,111 +30,114 @@ module Network.AWS.EC2.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dt1Filters
-    , dt1MaxResults
-    , dt1NextToken
+    , dtDryRun
+    , dtFilters
+    , dtMaxResults
+    , dtNextToken
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response constructor
     , describeTagsResponse
     -- ** Response lenses
-    , dtrTags
     , dtrNextToken
+    , dtrTags
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeTags = DescribeTags
-    { _dt1Filters :: [Filter]
-    , _dt1MaxResults :: Maybe Integer
-    , _dt1NextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dtDryRun     :: Maybe Bool
+    , _dtFilters    :: [Filter]
+    , _dtMaxResults :: Maybe Int
+    , _dtNextToken  :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTags' request.
+-- | 'DescribeTags' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Filters ::@ @[Filter]@
+-- * 'dtDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @MaxResults ::@ @Maybe Integer@
+-- * 'dtFilters' @::@ ['Filter']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dtMaxResults' @::@ 'Maybe' 'Int'
+--
+-- * 'dtNextToken' @::@ 'Maybe' 'Text'
 --
 describeTags :: DescribeTags
 describeTags = DescribeTags
-    { _dt1Filters = mempty
-    , _dt1MaxResults = Nothing
-    , _dt1NextToken = Nothing
+    { _dtDryRun     = Nothing
+    , _dtFilters    = mempty
+    , _dtMaxResults = Nothing
+    , _dtNextToken  = Nothing
     }
 
+dtDryRun :: Lens' DescribeTags (Maybe Bool)
+dtDryRun = lens _dtDryRun (\s a -> s { _dtDryRun = a })
+
 -- | One or more filters. key - The tag key. resource-id - The resource ID.
--- resource-type - The resource type (customer-gateway | dhcp-options | image
--- | instance | internet-gateway | network-acl | network-interface |
+-- resource-type - The resource type (customer-gateway | dhcp-options |
+-- image | instance | internet-gateway | network-acl | network-interface |
 -- reserved-instances | route-table | security-group | snapshot |
 -- spot-instances-request | subnet | volume | vpc | vpn-connection |
 -- vpn-gateway). value - The tag value.
-dt1Filters :: Lens' DescribeTags [Filter]
-dt1Filters = lens _dt1Filters (\s a -> s { _dt1Filters = a })
+dtFilters :: Lens' DescribeTags [Filter]
+dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a })
 
--- | The maximum number of items to return for this call. The call also returns
--- a token that you can specify in a subsequent call to get the next set of
--- results. If the value is greater than 1000, we return only 1000 items.
-dt1MaxResults :: Lens' DescribeTags (Maybe Integer)
-dt1MaxResults = lens _dt1MaxResults (\s a -> s { _dt1MaxResults = a })
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the next
+-- set of results. If the value is greater than 1000, we return only 1000
+-- items.
+dtMaxResults :: Lens' DescribeTags (Maybe Int)
+dtMaxResults = lens _dtMaxResults (\s a -> s { _dtMaxResults = a })
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.).
-dt1NextToken :: Lens' DescribeTags (Maybe Text)
-dt1NextToken = lens _dt1NextToken (\s a -> s { _dt1NextToken = a })
+dtNextToken :: Lens' DescribeTags (Maybe Text)
+dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 
-instance ToQuery DescribeTags where
-    toQuery = genericQuery def
+instance ToQuery DescribeTags
+
+instance ToPath DescribeTags where
+    toPath = const "/"
 
 data DescribeTagsResponse = DescribeTagsResponse
-    { _dtrTags :: [TagDescription]
-    , _dtrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dtrNextToken :: Maybe Text
+    , _dtrTags      :: [TagDescription]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTagsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeTagsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Tags ::@ @[TagDescription]@
+-- * 'dtrNextToken' @::@ 'Maybe' 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dtrTags' @::@ ['TagDescription']
 --
 describeTagsResponse :: DescribeTagsResponse
 describeTagsResponse = DescribeTagsResponse
-    { _dtrTags = mempty
+    { _dtrTags      = mempty
     , _dtrNextToken = Nothing
     }
-
--- | A list of tags.
-dtrTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 
-instance FromXML DescribeTagsResponse where
-    fromXMLOptions = xmlOptions
+-- | A list of tags.
+dtrTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
 
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = EC2
     type Rs DescribeTags = DescribeTagsResponse
 
-    request = post "DescribeTags"
-    response _ = xmlResponse
-
-instance AWSPager DescribeTags where
-    next rq rs = (\x -> rq & dt1NextToken ?~ x)
-        <$> (rs ^. dtrNextToken)
+    request  = post "DescribeTags"
+    response = xmlResponse $ \h x -> DescribeTagsResponse
+        <$> x %| "nextToken"
+        <*> x %| "tagSet"

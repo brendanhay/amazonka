@@ -1,11 +1,11 @@
 name:                  amazonka-sns
 version:               0.0.0
-synopsis:              Amazon Simple Notification Service SDK
+synopsis:              Amazon Simple Notification Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,15 +13,17 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Simple Notification Service (Amazon SNS) is a fast, flexible, fully managed push messaging service.
-    .
-    Amazon SNS makes it simple and cost-effective to push notifications to Apple, Google, Fire OS, and Windows devices, as well as Android devices in China with Baidu Cloud Push.
-    .
-    You can also use SNS to push notifications to internet connected smart devices, as well as other distributed services.
-    .
-    Besides pushing cloud notifications directly to mobile devices, Amazon SNS can also deliver notifications by SMS text message or email, to Amazon Simple Queue Service (SQS) queues, or to any HTTP endpoint.
-    .
-    To prevent messages from being lost, all messages published to Amazon SNS are stored redundantly across multiple availability zones.
+    Amazon Simple Notification Service (Amazon SNS) is a fast, flexible,
+    fully managed push messaging service. Amazon SNS makes it simple and
+    cost-effective to push notifications to Apple, Google, Fire OS, and
+    Windows devices, as well as Android devices in China with Baidu Cloud
+    Push. You can also use SNS to push notifications to internet connected
+    smart devices, as well as other distributed services. Besides pushing
+    cloud notifications directly to mobile devices, Amazon SNS can also
+    deliver notifications by SMS text message or email, to Amazon Simple
+    Queue Service (SQS) queues, or to any HTTP endpoint. To prevent
+    messages from being lost, all messages published to Amazon SNS are
+    stored redundantly across multiple availability zones.
 
 source-repository head
     type:     git
@@ -35,7 +37,6 @@ library
 
     exposed-modules:
           Network.AWS.SNS
-        , Network.AWS.SNS.Types
         , Network.AWS.SNS.AddPermission
         , Network.AWS.SNS.ConfirmSubscription
         , Network.AWS.SNS.CreatePlatformApplication
@@ -60,7 +61,10 @@ library
         , Network.AWS.SNS.SetSubscriptionAttributes
         , Network.AWS.SNS.SetTopicAttributes
         , Network.AWS.SNS.Subscribe
+        , Network.AWS.SNS.Types
         , Network.AWS.SNS.Unsubscribe
+
+    other-modules:
 
     build-depends:
           amazonka-core

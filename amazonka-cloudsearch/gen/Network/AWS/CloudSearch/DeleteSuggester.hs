@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteSuggester
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,92 +29,79 @@ module Network.AWS.CloudSearch.DeleteSuggester
     -- ** Request constructor
     , deleteSuggester
     -- ** Request lenses
-    , ds2DomainName
-    , ds2SuggesterName
+    , ds3DomainName
+    , ds3SuggesterName
 
     -- * Response
     , DeleteSuggesterResponse
     -- ** Response constructor
     , deleteSuggesterResponse
     -- ** Response lenses
-    , dsrrSuggester
+    , dsr1Suggester
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Container for the parameters to the DeleteSuggester operation. Specifies
--- the name of the domain you want to update and name of the suggester you
--- want to delete.
 data DeleteSuggester = DeleteSuggester
-    { _ds2DomainName :: Text
-    , _ds2SuggesterName :: Text
+    { _ds3DomainName    :: Text
+    , _ds3SuggesterName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSuggester' request.
+-- | 'DeleteSuggester' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'ds3DomainName' @::@ 'Text'
 --
--- * @SuggesterName ::@ @Text@
+-- * 'ds3SuggesterName' @::@ 'Text'
 --
-deleteSuggester :: Text -- ^ 'ds2DomainName'
-                -> Text -- ^ 'ds2SuggesterName'
+deleteSuggester :: Text -- ^ 'ds3DomainName'
+                -> Text -- ^ 'ds3SuggesterName'
                 -> DeleteSuggester
 deleteSuggester p1 p2 = DeleteSuggester
-    { _ds2DomainName = p1
-    , _ds2SuggesterName = p2
+    { _ds3DomainName    = p1
+    , _ds3SuggesterName = p2
     }
 
--- | A string that represents the name of a domain. Domain names are unique
--- across the domains owned by an account within an AWS region. Domain names
--- start with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
-ds2DomainName :: Lens' DeleteSuggester Text
-ds2DomainName = lens _ds2DomainName (\s a -> s { _ds2DomainName = a })
+ds3DomainName :: Lens' DeleteSuggester Text
+ds3DomainName = lens _ds3DomainName (\s a -> s { _ds3DomainName = a })
 
 -- | Specifies the name of the suggester you want to delete.
-ds2SuggesterName :: Lens' DeleteSuggester Text
-ds2SuggesterName =
-    lens _ds2SuggesterName (\s a -> s { _ds2SuggesterName = a })
+ds3SuggesterName :: Lens' DeleteSuggester Text
+ds3SuggesterName = lens _ds3SuggesterName (\s a -> s { _ds3SuggesterName = a })
 
-instance ToQuery DeleteSuggester where
-    toQuery = genericQuery def
+instance ToQuery DeleteSuggester
 
--- | The result of a DeleteSuggester request. Contains the status of the deleted
--- suggester.
+instance ToPath DeleteSuggester where
+    toPath = const "/"
+
 newtype DeleteSuggesterResponse = DeleteSuggesterResponse
-    { _dsrrSuggester :: SuggesterStatus
-    } deriving (Eq, Ord, Show, Generic)
+    { _dsr1Suggester :: SuggesterStatus
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSuggesterResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteSuggesterResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Suggester ::@ @SuggesterStatus@
+-- * 'dsr1Suggester' @::@ 'SuggesterStatus'
 --
-deleteSuggesterResponse :: SuggesterStatus -- ^ 'dsrrSuggester'
+deleteSuggesterResponse :: SuggesterStatus -- ^ 'dsr1Suggester'
                         -> DeleteSuggesterResponse
 deleteSuggesterResponse p1 = DeleteSuggesterResponse
-    { _dsrrSuggester = p1
+    { _dsr1Suggester = p1
     }
 
 -- | The status of the suggester being deleted.
-dsrrSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
-dsrrSuggester = lens _dsrrSuggester (\s a -> s { _dsrrSuggester = a })
-
-instance FromXML DeleteSuggesterResponse where
-    fromXMLOptions = xmlOptions
+dsr1Suggester :: Lens' DeleteSuggesterResponse SuggesterStatus
+dsr1Suggester = lens _dsr1Suggester (\s a -> s { _dsr1Suggester = a })
 
 instance AWSRequest DeleteSuggester where
     type Sv DeleteSuggester = CloudSearch
     type Rs DeleteSuggester = DeleteSuggesterResponse
 
-    request = post "DeleteSuggester"
-    response _ = xmlResponse
+    request  = post "DeleteSuggester"
+    response = xmlResponse $ \h x -> DeleteSuggesterResponse
+        <$> x %| "Suggester"

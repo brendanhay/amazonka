@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,20 +24,6 @@
 -- the Elastic Load Balancing service. The policy types that are returned from
 -- this action can be used in a CreateLoadBalancerPolicy action to instantiate
 -- specific policy configurations that will be applied to a load balancer.
--- Partial description of all the policy types defined by Elastic Load
--- Balancing for your account
--- https://elasticloadbalancing.amazonaws.com/?Version=2012-06-01
--- &Action=DescribeLoadBalancerPolicyTypes &AUTHPARAMS
--- SSLNegotiationPolicyType BackendServerAuthenticationPolicyType
--- PublicKeyPolicyType AppCookieStickinessPolicyType
--- LBCookieStickinessPolicyType ProxyProtocolPolicyType
--- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE Description of ProxyProtocolPolicyType
--- https://elasticloadbalancing.amazonaws.com/?PolicyTypeNames.member.1=ProxyProtocolPolicyType
--- &Version=2012-06-01 &Action=DescribeLoadBalancerPolicyTypes &AUTHPARAMS
--- ProxyProtocol Boolean ONE ProxyProtocolPolicyType Policy that controls
--- whether to include the IP address and port of the originating request for
--- TCP messages. This policy operates on TCP/SSL listeners only
--- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
     -- * Request
@@ -53,69 +41,77 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     , dlbptrPolicyTypeDescriptions
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
     { _dlbptPolicyTypeNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLoadBalancerPolicyTypes' request.
+instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypes where
+    type Item DescribeLoadBalancerPolicyTypes = Text
+
+    fromList = DescribeLoadBalancerPolicyTypes . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlbptPolicyTypeNames
+
+-- | 'DescribeLoadBalancerPolicyTypes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PolicyTypeNames ::@ @[Text]@
+-- * 'dlbptPolicyTypeNames' @::@ ['Text']
 --
 describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
 describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
     { _dlbptPolicyTypeNames = mempty
     }
 
--- | Specifies the name of the policy types. If no names are specified, returns
--- the description of all the policy types defined by Elastic Load Balancing
--- service.
+-- | Specifies the name of the policy types. If no names are specified,
+-- returns the description of all the policy types defined by Elastic Load
+-- Balancing service.
 dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
 dlbptPolicyTypeNames =
     lens _dlbptPolicyTypeNames (\s a -> s { _dlbptPolicyTypeNames = a })
 
-instance ToQuery DescribeLoadBalancerPolicyTypes where
-    toQuery = genericQuery def
+instance ToQuery DescribeLoadBalancerPolicyTypes
 
--- | The output for the DescribeLoadBalancerPolicyTypes action.
+instance ToPath DescribeLoadBalancerPolicyTypes where
+    toPath = const "/"
+
 newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
     { _dlbptrPolicyTypeDescriptions :: [PolicyTypeDescription]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLoadBalancerPolicyTypesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypesResponse where
+    type Item DescribeLoadBalancerPolicyTypesResponse = PolicyTypeDescription
+
+    fromList = DescribeLoadBalancerPolicyTypesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlbptrPolicyTypeDescriptions
+
+-- | 'DescribeLoadBalancerPolicyTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PolicyTypeDescriptions ::@ @[PolicyTypeDescription]@
+-- * 'dlbptrPolicyTypeDescriptions' @::@ ['PolicyTypeDescription']
 --
 describeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesResponse
 describeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
     { _dlbptrPolicyTypeDescriptions = mempty
     }
 
--- | List of policy type description structures of the specified policy type. If
--- no policy type names are specified, returns the description of all the
+-- | List of policy type description structures of the specified policy type.
+-- If no policy type names are specified, returns the description of all the
 -- policy types defined by Elastic Load Balancing service.
 dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
 dlbptrPolicyTypeDescriptions =
     lens _dlbptrPolicyTypeDescriptions
-         (\s a -> s { _dlbptrPolicyTypeDescriptions = a })
-
-instance FromXML DescribeLoadBalancerPolicyTypesResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _dlbptrPolicyTypeDescriptions = a })
 
 instance AWSRequest DescribeLoadBalancerPolicyTypes where
     type Sv DescribeLoadBalancerPolicyTypes = ELB
     type Rs DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypesResponse
 
-    request = post "DescribeLoadBalancerPolicyTypes"
-    response _ = xmlResponse
+    request  = post "DescribeLoadBalancerPolicyTypes"
+    response = xmlResponse $ \h x -> DescribeLoadBalancerPolicyTypesResponse
+        <$> x %| "PolicyTypeDescriptions"

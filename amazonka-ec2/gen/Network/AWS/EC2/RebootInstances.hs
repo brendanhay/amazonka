@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.RebootInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,14 +26,7 @@
 -- terminated instances are ignored. If a Linux/Unix instance does not cleanly
 -- shut down within four minutes, Amazon EC2 performs a hard reboot. For more
 -- information about troubleshooting, see Getting Console Output and Rebooting
--- Instances in the Amazon Elastic Compute Cloud User Guide. Example This
--- example reboots two instances.
--- https://ec2.amazonaws.com/?Action=RebootInstances
--- &amp;InstanceId.1=i-1a2b3c4d &amp;InstanceId.2=i-4d3acf62 &amp;AUTHPARAMS
--- &lt;RebootInstancesResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/RebootInstancesResponse&gt;.
+-- Instances in the Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.RebootInstances
     (
     -- * Request
@@ -39,7 +34,8 @@ module Network.AWS.EC2.RebootInstances
     -- ** Request constructor
     , rebootInstances
     -- ** Request lenses
-    , ri1InstanceIds
+    , ri2DryRun
+    , ri2InstanceIds
 
     -- * Response
     , RebootInstancesResponse
@@ -47,41 +43,46 @@ module Network.AWS.EC2.RebootInstances
     , rebootInstancesResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype RebootInstances = RebootInstances
-    { _ri1InstanceIds :: [Text]
+data RebootInstances = RebootInstances
+    { _ri2DryRun      :: Maybe Bool
+    , _ri2InstanceIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RebootInstances' request.
+-- | 'RebootInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceIds ::@ @[Text]@
+-- * 'ri2DryRun' @::@ 'Maybe' 'Bool'
 --
-rebootInstances :: [Text] -- ^ 'ri1InstanceIds'
-                -> RebootInstances
-rebootInstances p1 = RebootInstances
-    { _ri1InstanceIds = p1
+-- * 'ri2InstanceIds' @::@ ['Text']
+--
+rebootInstances :: RebootInstances
+rebootInstances = RebootInstances
+    { _ri2DryRun      = Nothing
+    , _ri2InstanceIds = mempty
     }
 
--- | One or more instance IDs.
-ri1InstanceIds :: Lens' RebootInstances [Text]
-ri1InstanceIds = lens _ri1InstanceIds (\s a -> s { _ri1InstanceIds = a })
+ri2DryRun :: Lens' RebootInstances (Maybe Bool)
+ri2DryRun = lens _ri2DryRun (\s a -> s { _ri2DryRun = a })
 
-instance ToQuery RebootInstances where
-    toQuery = genericQuery def
+-- | One or more instance IDs.
+ri2InstanceIds :: Lens' RebootInstances [Text]
+ri2InstanceIds = lens _ri2InstanceIds (\s a -> s { _ri2InstanceIds = a })
+
+instance ToQuery RebootInstances
+
+instance ToPath RebootInstances where
+    toPath = const "/"
 
 data RebootInstancesResponse = RebootInstancesResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RebootInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RebootInstancesResponse' constructor.
 rebootInstancesResponse :: RebootInstancesResponse
 rebootInstancesResponse = RebootInstancesResponse
 
@@ -89,5 +90,5 @@ instance AWSRequest RebootInstances where
     type Sv RebootInstances = EC2
     type Rs RebootInstances = RebootInstancesResponse
 
-    request = post "RebootInstances"
-    response _ = nullaryResponse RebootInstancesResponse
+    request  = post "RebootInstances"
+    response = nullaryResponse RebootInstancesResponse

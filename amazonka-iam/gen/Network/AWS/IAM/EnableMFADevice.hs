@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.EnableMFADevice
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,10 +22,7 @@
 
 -- | Enables the specified MFA device and associates it with the specified user
 -- name. When enabled, the MFA device is required for every subsequent login
--- by the user name associated with the device. https://iam.amazonaws.com/
--- ?Action=EnableMFADevice &UserName=Bob &SerialNumber=R1234
--- &AuthenticationCode1=234567 &AuthenticationCode2=987654 &AUTHPARAMS
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- by the user name associated with the device.
 module Network.AWS.IAM.EnableMFADevice
     (
     -- * Request
@@ -31,10 +30,10 @@ module Network.AWS.IAM.EnableMFADevice
     -- ** Request constructor
     , enableMFADevice
     -- ** Request lenses
-    , emfadUserName
-    , emfadSerialNumber
     , emfadAuthenticationCode1
     , emfadAuthenticationCode2
+    , emfadSerialNumber
+    , emfadUserName
 
     -- * Response
     , EnableMFADeviceResponse
@@ -42,29 +41,29 @@ module Network.AWS.IAM.EnableMFADevice
     , enableMFADeviceResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data EnableMFADevice = EnableMFADevice
-    { _emfadUserName :: Text
-    , _emfadSerialNumber :: Text
-    , _emfadAuthenticationCode1 :: Text
+    { _emfadAuthenticationCode1 :: Text
     , _emfadAuthenticationCode2 :: Text
+    , _emfadSerialNumber        :: Text
+    , _emfadUserName            :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableMFADevice' request.
+-- | 'EnableMFADevice' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Text@
+-- * 'emfadAuthenticationCode1' @::@ 'Text'
 --
--- * @SerialNumber ::@ @Text@
+-- * 'emfadAuthenticationCode2' @::@ 'Text'
 --
--- * @AuthenticationCode1 ::@ @Text@
+-- * 'emfadSerialNumber' @::@ 'Text'
 --
--- * @AuthenticationCode2 ::@ @Text@
+-- * 'emfadUserName' @::@ 'Text'
 --
 enableMFADevice :: Text -- ^ 'emfadUserName'
                 -> Text -- ^ 'emfadSerialNumber'
@@ -72,44 +71,43 @@ enableMFADevice :: Text -- ^ 'emfadUserName'
                 -> Text -- ^ 'emfadAuthenticationCode2'
                 -> EnableMFADevice
 enableMFADevice p1 p2 p3 p4 = EnableMFADevice
-    { _emfadUserName = p1
-    , _emfadSerialNumber = p2
+    { _emfadUserName            = p1
+    , _emfadSerialNumber        = p2
     , _emfadAuthenticationCode1 = p3
     , _emfadAuthenticationCode2 = p4
     }
-
--- | Name of the user for whom you want to enable the MFA device.
-emfadUserName :: Lens' EnableMFADevice Text
-emfadUserName = lens _emfadUserName (\s a -> s { _emfadUserName = a })
-
--- | The serial number that uniquely identifies the MFA device. For virtual MFA
--- devices, the serial number is the device ARN.
-emfadSerialNumber :: Lens' EnableMFADevice Text
-emfadSerialNumber =
-    lens _emfadSerialNumber (\s a -> s { _emfadSerialNumber = a })
 
 -- | An authentication code emitted by the device.
 emfadAuthenticationCode1 :: Lens' EnableMFADevice Text
 emfadAuthenticationCode1 =
     lens _emfadAuthenticationCode1
-         (\s a -> s { _emfadAuthenticationCode1 = a })
+        (\s a -> s { _emfadAuthenticationCode1 = a })
 
 -- | A subsequent authentication code emitted by the device.
 emfadAuthenticationCode2 :: Lens' EnableMFADevice Text
 emfadAuthenticationCode2 =
     lens _emfadAuthenticationCode2
-         (\s a -> s { _emfadAuthenticationCode2 = a })
+        (\s a -> s { _emfadAuthenticationCode2 = a })
 
-instance ToQuery EnableMFADevice where
-    toQuery = genericQuery def
+-- | The serial number that uniquely identifies the MFA device. For virtual
+-- MFA devices, the serial number is the device ARN.
+emfadSerialNumber :: Lens' EnableMFADevice Text
+emfadSerialNumber =
+    lens _emfadSerialNumber (\s a -> s { _emfadSerialNumber = a })
+
+-- | The name of the user for whom you want to enable the MFA device.
+emfadUserName :: Lens' EnableMFADevice Text
+emfadUserName = lens _emfadUserName (\s a -> s { _emfadUserName = a })
+
+instance ToQuery EnableMFADevice
+
+instance ToPath EnableMFADevice where
+    toPath = const "/"
 
 data EnableMFADeviceResponse = EnableMFADeviceResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableMFADeviceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'EnableMFADeviceResponse' constructor.
 enableMFADeviceResponse :: EnableMFADeviceResponse
 enableMFADeviceResponse = EnableMFADeviceResponse
 
@@ -117,5 +115,5 @@ instance AWSRequest EnableMFADevice where
     type Sv EnableMFADevice = IAM
     type Rs EnableMFADevice = EnableMFADeviceResponse
 
-    request = post "EnableMFADevice"
-    response _ = nullaryResponse EnableMFADeviceResponse
+    request  = post "EnableMFADevice"
+    response = nullaryResponse EnableMFADeviceResponse

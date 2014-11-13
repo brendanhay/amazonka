@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElastiCache.ModifyCacheParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,14 +23,6 @@
 -- | The ModifyCacheParameterGroup operation modifies the parameters of a cache
 -- parameter group. You can modify up to 20 parameters in a single request by
 -- submitting a list parameter name and value pairs.
--- https://elasticache.us-east-1.amazonaws.com/
--- ?Action=ModifyCacheParameterGroup
--- ?ParameterNameValues.member.1.ParameterName=chunk_size_growth_factor
--- &ParameterNameValues.member.1.ParameterValue=1.02
--- &CacheParameterGroupName=mycacheparametergroup &Version=2014-03-24
--- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
--- &X-Amz-Credential= mycacheparametergroup
--- fcedeef2-b7ff-11e0-9326-b7275b9d4a6c.
 module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     (
     -- * Request
@@ -47,64 +41,58 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     , mcpgrCacheParameterGroupName
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | Represents the input of a ModifyCacheParameterGroup operation.
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName :: Text
-    , _mcpgParameterNameValues :: [ParameterNameValue]
-    } deriving (Eq, Ord, Show, Generic)
+    , _mcpgParameterNameValues     :: [ParameterNameValue]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyCacheParameterGroup' request.
+-- | 'ModifyCacheParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CacheParameterGroupName ::@ @Text@
+-- * 'mcpgCacheParameterGroupName' @::@ 'Text'
 --
--- * @ParameterNameValues ::@ @[ParameterNameValue]@
+-- * 'mcpgParameterNameValues' @::@ ['ParameterNameValue']
 --
 modifyCacheParameterGroup :: Text -- ^ 'mcpgCacheParameterGroupName'
-                          -> [ParameterNameValue] -- ^ 'mcpgParameterNameValues'
                           -> ModifyCacheParameterGroup
-modifyCacheParameterGroup p1 p2 = ModifyCacheParameterGroup
+modifyCacheParameterGroup p1 = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName = p1
-    , _mcpgParameterNameValues = p2
+    , _mcpgParameterNameValues     = mempty
     }
 
 -- | The name of the cache parameter group to modify.
 mcpgCacheParameterGroupName :: Lens' ModifyCacheParameterGroup Text
 mcpgCacheParameterGroupName =
     lens _mcpgCacheParameterGroupName
-         (\s a -> s { _mcpgCacheParameterGroupName = a })
+        (\s a -> s { _mcpgCacheParameterGroupName = a })
 
 -- | An array of parameter names and values for the parameter update. You must
 -- supply at least one parameter name and value; subsequent arguments are
 -- optional. A maximum of 20 parameters may be modified per request.
 mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
 mcpgParameterNameValues =
-    lens _mcpgParameterNameValues
-         (\s a -> s { _mcpgParameterNameValues = a })
+    lens _mcpgParameterNameValues (\s a -> s { _mcpgParameterNameValues = a })
 
-instance ToQuery ModifyCacheParameterGroup where
-    toQuery = genericQuery def
+instance ToQuery ModifyCacheParameterGroup
 
--- | Represents the output of one of the following operations:
--- ModifyCacheParameterGroup ResetCacheParameterGroup.
+instance ToPath ModifyCacheParameterGroup where
+    toPath = const "/"
+
 newtype ModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
     { _mcpgrCacheParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyCacheParameterGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ModifyCacheParameterGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CacheParameterGroupName ::@ @Maybe Text@
+-- * 'mcpgrCacheParameterGroupName' @::@ 'Maybe' 'Text'
 --
 modifyCacheParameterGroupResponse :: ModifyCacheParameterGroupResponse
 modifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
@@ -115,14 +103,12 @@ modifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
 mcpgrCacheParameterGroupName :: Lens' ModifyCacheParameterGroupResponse (Maybe Text)
 mcpgrCacheParameterGroupName =
     lens _mcpgrCacheParameterGroupName
-         (\s a -> s { _mcpgrCacheParameterGroupName = a })
-
-instance FromXML ModifyCacheParameterGroupResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _mcpgrCacheParameterGroupName = a })
 
 instance AWSRequest ModifyCacheParameterGroup where
     type Sv ModifyCacheParameterGroup = ElastiCache
     type Rs ModifyCacheParameterGroup = ModifyCacheParameterGroupResponse
 
-    request = post "ModifyCacheParameterGroup"
-    response _ = xmlResponse
+    request  = post "ModifyCacheParameterGroup"
+    response = xmlResponse $ \h x -> ModifyCacheParameterGroupResponse
+        <$> x %| "CacheParameterGroupName"

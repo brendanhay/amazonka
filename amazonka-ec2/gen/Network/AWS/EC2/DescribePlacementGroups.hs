@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribePlacementGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,16 +22,7 @@
 
 -- | Describes one or more of your placement groups. For more information about
 -- placement groups and cluster instances, see Cluster Instances in the Amazon
--- Elastic Compute Cloud User Guide. Example This example describes the
--- placement group named XYZ-cluster.
--- https://ec2.amazonaws.com/?Action=DescribePlacementGroups
--- &amp;GroupName.1=XYZ-cluster &amp;AUTHPARAMS
--- d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE XYZ-cluster cluster available Example
--- This example filters the response to include only placement groups that
--- include the string Project in the name.
--- https://ec2.amazonaws.com/?Action=DescribePlacementGroups
--- &amp;Filter.1.Name=group-name &amp;Filter.1.Value=*Project* &amp;AUTHPARAMS
--- d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE Project-cluster cluster available.
+-- Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.DescribePlacementGroups
     (
     -- * Request
@@ -37,8 +30,9 @@ module Network.AWS.EC2.DescribePlacementGroups
     -- ** Request constructor
     , describePlacementGroups
     -- ** Request lenses
-    , dpg1GroupNames
+    , dpg1DryRun
     , dpg1Filters
+    , dpg1GroupNames
 
     -- * Response
     , DescribePlacementGroupsResponse
@@ -48,56 +42,68 @@ module Network.AWS.EC2.DescribePlacementGroups
     , dpgrPlacementGroups
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribePlacementGroups = DescribePlacementGroups
-    { _dpg1GroupNames :: [Text]
-    , _dpg1Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dpg1DryRun     :: Maybe Bool
+    , _dpg1Filters    :: [Filter]
+    , _dpg1GroupNames :: [Text]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribePlacementGroups' request.
+-- | 'DescribePlacementGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupNames ::@ @[Text]@
+-- * 'dpg1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Filters ::@ @[Filter]@
+-- * 'dpg1Filters' @::@ ['Filter']
+--
+-- * 'dpg1GroupNames' @::@ ['Text']
 --
 describePlacementGroups :: DescribePlacementGroups
 describePlacementGroups = DescribePlacementGroups
-    { _dpg1GroupNames = mempty
-    , _dpg1Filters = mempty
+    { _dpg1DryRun     = Nothing
+    , _dpg1GroupNames = mempty
+    , _dpg1Filters    = mempty
     }
+
+dpg1DryRun :: Lens' DescribePlacementGroups (Maybe Bool)
+dpg1DryRun = lens _dpg1DryRun (\s a -> s { _dpg1DryRun = a })
+
+-- | One or more filters. group-name - The name of the placement group. state
+-- - The state of the placement group (pending | available | deleting |
+-- deleted). strategy - The strategy of the placement group (cluster).
+dpg1Filters :: Lens' DescribePlacementGroups [Filter]
+dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a })
 
 -- | One or more placement group names. Default: Describes all your placement
 -- groups, or only those otherwise specified.
 dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
 dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a })
 
--- | One or more filters. group-name - The name of the placement group. state -
--- The state of the placement group (pending | available | deleting |
--- deleted). strategy - The strategy of the placement group (cluster).
-dpg1Filters :: Lens' DescribePlacementGroups [Filter]
-dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a })
+instance ToQuery DescribePlacementGroups
 
-instance ToQuery DescribePlacementGroups where
-    toQuery = genericQuery def
+instance ToPath DescribePlacementGroups where
+    toPath = const "/"
 
 newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups :: [PlacementGroup]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribePlacementGroupsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribePlacementGroupsResponse where
+    type Item DescribePlacementGroupsResponse = PlacementGroup
+
+    fromList = DescribePlacementGroupsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dpgrPlacementGroups
+
+-- | 'DescribePlacementGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PlacementGroups ::@ @[PlacementGroup]@
+-- * 'dpgrPlacementGroups' @::@ ['PlacementGroup']
 --
 describePlacementGroupsResponse :: DescribePlacementGroupsResponse
 describePlacementGroupsResponse = DescribePlacementGroupsResponse
@@ -109,12 +115,10 @@ dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrPlacementGroups =
     lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })
 
-instance FromXML DescribePlacementGroupsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribePlacementGroups where
     type Sv DescribePlacementGroups = EC2
     type Rs DescribePlacementGroups = DescribePlacementGroupsResponse
 
-    request = post "DescribePlacementGroups"
-    response _ = xmlResponse
+    request  = post "DescribePlacementGroups"
+    response = xmlResponse $ \h x -> DescribePlacementGroupsResponse
+        <$> x %| "placementGroupSet"

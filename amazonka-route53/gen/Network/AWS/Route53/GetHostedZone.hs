@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53.GetHostedZone
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,28 +38,27 @@ module Network.AWS.Route53.GetHostedZone
     -- ** Response constructor
     , getHostedZoneResponse
     -- ** Response lenses
-    , ghzrHostedZone
     , ghzrDelegationSet
+    , ghzrHostedZone
+    , ghzrVPCs
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
--- | The input for a GetHostedZone request.
 newtype GetHostedZone = GetHostedZone
-    { _ghzId :: ResourceId
-    } deriving (Eq, Ord, Show, Generic)
+    { _ghzId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetHostedZone' request.
+-- | 'GetHostedZone' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @ResourceId@
+-- * 'ghzId' @::@ 'Text'
 --
-getHostedZone :: ResourceId -- ^ 'ghzId'
+getHostedZone :: Text -- ^ 'ghzId'
               -> GetHostedZone
 getHostedZone p1 = GetHostedZone
     { _ghzId = p1
@@ -65,61 +66,68 @@ getHostedZone p1 = GetHostedZone
 
 -- | The ID of the hosted zone for which you want to get a list of the name
 -- servers in the delegation set.
-ghzId :: Lens' GetHostedZone ResourceId
+ghzId :: Lens' GetHostedZone Text
 ghzId = lens _ghzId (\s a -> s { _ghzId = a })
 
-instance ToPath GetHostedZone
+instance ToPath GetHostedZone where
+    toPath GetHostedZone{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _ghzId
+        ]
 
-instance ToQuery GetHostedZone
+instance ToQuery GetHostedZone where
+    toQuery = const mempty
 
 instance ToHeaders GetHostedZone
 
-instance ToXML GetHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHostedZone"
-
--- | A complex type containing information about the specified hosted zone.
 data GetHostedZoneResponse = GetHostedZoneResponse
-    { _ghzrHostedZone :: HostedZone
-    , _ghzrDelegationSet :: DelegationSet
-    } deriving (Eq, Ord, Show, Generic)
+    { _ghzrDelegationSet :: Maybe DelegationSet
+    , _ghzrHostedZone    :: HostedZone
+    , _ghzrVPCs          :: List1 VPC
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetHostedZoneResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetHostedZoneResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HostedZone ::@ @HostedZone@
+-- * 'ghzrDelegationSet' @::@ 'Maybe' 'DelegationSet'
 --
--- * @DelegationSet ::@ @DelegationSet@
+-- * 'ghzrHostedZone' @::@ 'HostedZone'
+--
+-- * 'ghzrVPCs' @::@ 'NonEmpty' 'VPC'
 --
 getHostedZoneResponse :: HostedZone -- ^ 'ghzrHostedZone'
-                      -> DelegationSet -- ^ 'ghzrDelegationSet'
+                      -> NonEmpty VPC -- ^ 'ghzrVPCs'
                       -> GetHostedZoneResponse
 getHostedZoneResponse p1 p2 = GetHostedZoneResponse
-    { _ghzrHostedZone = p1
-    , _ghzrDelegationSet = p2
+    { _ghzrHostedZone    = p1
+    , _ghzrVPCs          = withIso _List1 (const id) p2
+    , _ghzrDelegationSet = Nothing
     }
+
+-- | A complex type that contains information about the name servers for the
+-- specified hosted zone.
+ghzrDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
+ghzrDelegationSet =
+    lens _ghzrDelegationSet (\s a -> s { _ghzrDelegationSet = a })
 
 -- | A complex type that contains the information about the specified hosted
 -- zone.
 ghzrHostedZone :: Lens' GetHostedZoneResponse HostedZone
 ghzrHostedZone = lens _ghzrHostedZone (\s a -> s { _ghzrHostedZone = a })
 
--- | A complex type that contains information about the name servers for the
+-- | A complex type that contains information about VPCs associated with the
 -- specified hosted zone.
-ghzrDelegationSet :: Lens' GetHostedZoneResponse DelegationSet
-ghzrDelegationSet =
-    lens _ghzrDelegationSet (\s a -> s { _ghzrDelegationSet = a })
-
-instance FromXML GetHostedZoneResponse where
-    fromXMLOptions = xmlOptions
+ghzrVPCs :: Lens' GetHostedZoneResponse (NonEmpty VPC)
+ghzrVPCs = lens _ghzrVPCs (\s a -> s { _ghzrVPCs = a })
+    . _List1
 
 instance AWSRequest GetHostedZone where
     type Sv GetHostedZone = Route53
     type Rs GetHostedZone = GetHostedZoneResponse
 
-    request = get
-    response _ = xmlResponse
+    request  = get
+    response = xmlResponse $ \h x -> GetHostedZoneResponse
+        <$> x %| "DelegationSet"
+        <*> x %| "HostedZone"
+        <*> x %| "VPCs"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.RemoveRoleFromInstanceProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,10 +26,7 @@
 -- profile that is associated with a running instance will break any
 -- applications running on the instance. For more information about roles, go
 -- to Working with Roles. For more information about instance profiles, go to
--- About Instance Profiles. https://iam.amazonaws.com/
--- ?Action=RemoveRoleFromInstanceProfile &InstanceProfileName=Webserver
--- &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
--- 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
+-- About Instance Profiles.
 module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     (
     -- * Request
@@ -44,52 +43,51 @@ module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     , removeRoleFromInstanceProfileResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName :: Text
-    , _rrfipRoleName :: Text
+    , _rrfipRoleName            :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemoveRoleFromInstanceProfile' request.
+-- | 'RemoveRoleFromInstanceProfile' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceProfileName ::@ @Text@
+-- * 'rrfipInstanceProfileName' @::@ 'Text'
 --
--- * @RoleName ::@ @Text@
+-- * 'rrfipRoleName' @::@ 'Text'
 --
 removeRoleFromInstanceProfile :: Text -- ^ 'rrfipInstanceProfileName'
                               -> Text -- ^ 'rrfipRoleName'
                               -> RemoveRoleFromInstanceProfile
 removeRoleFromInstanceProfile p1 p2 = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName = p1
-    , _rrfipRoleName = p2
+    , _rrfipRoleName            = p2
     }
 
--- | Name of the instance profile to update.
+-- | The name of the instance profile to update.
 rrfipInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipInstanceProfileName =
     lens _rrfipInstanceProfileName
-         (\s a -> s { _rrfipInstanceProfileName = a })
+        (\s a -> s { _rrfipInstanceProfileName = a })
 
--- | Name of the role to remove.
+-- | The name of the role to remove.
 rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipRoleName = lens _rrfipRoleName (\s a -> s { _rrfipRoleName = a })
 
-instance ToQuery RemoveRoleFromInstanceProfile where
-    toQuery = genericQuery def
+instance ToQuery RemoveRoleFromInstanceProfile
+
+instance ToPath RemoveRoleFromInstanceProfile where
+    toPath = const "/"
 
 data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemoveRoleFromInstanceProfileResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RemoveRoleFromInstanceProfileResponse' constructor.
 removeRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse
 removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
 
@@ -97,5 +95,5 @@ instance AWSRequest RemoveRoleFromInstanceProfile where
     type Sv RemoveRoleFromInstanceProfile = IAM
     type Rs RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfileResponse
 
-    request = post "RemoveRoleFromInstanceProfile"
-    response _ = nullaryResponse RemoveRoleFromInstanceProfileResponse
+    request  = post "RemoveRoleFromInstanceProfile"
+    response = nullaryResponse RemoveRoleFromInstanceProfileResponse

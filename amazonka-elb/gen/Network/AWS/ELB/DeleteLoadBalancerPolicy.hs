@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,8 +29,8 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     -- ** Request constructor
     , deleteLoadBalancerPolicy
     -- ** Request lenses
-    , dlbpLoadBalancerName
-    , dlbpPolicyName
+    , dlbp1LoadBalancerName
+    , dlbp1PolicyName
 
     -- * Response
     , DeleteLoadBalancerPolicyResponse
@@ -36,53 +38,50 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     , deleteLoadBalancerPolicyResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the DeleteLoadBalancerPolicy action.
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
-    { _dlbpLoadBalancerName :: Text
-    , _dlbpPolicyName :: Text
+    { _dlbp1LoadBalancerName :: Text
+    , _dlbp1PolicyName       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLoadBalancerPolicy' request.
+-- | 'DeleteLoadBalancerPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'dlbp1LoadBalancerName' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'dlbp1PolicyName' @::@ 'Text'
 --
-deleteLoadBalancerPolicy :: Text -- ^ 'dlbpLoadBalancerName'
-                         -> Text -- ^ 'dlbpPolicyName'
+deleteLoadBalancerPolicy :: Text -- ^ 'dlbp1LoadBalancerName'
+                         -> Text -- ^ 'dlbp1PolicyName'
                          -> DeleteLoadBalancerPolicy
 deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
-    { _dlbpLoadBalancerName = p1
-    , _dlbpPolicyName = p2
+    { _dlbp1LoadBalancerName = p1
+    , _dlbp1PolicyName       = p2
     }
 
 -- | The mnemonic name associated with the load balancer.
-dlbpLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
-dlbpLoadBalancerName =
-    lens _dlbpLoadBalancerName (\s a -> s { _dlbpLoadBalancerName = a })
+dlbp1LoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
+dlbp1LoadBalancerName =
+    lens _dlbp1LoadBalancerName (\s a -> s { _dlbp1LoadBalancerName = a })
 
 -- | The mnemonic name for the policy being deleted.
-dlbpPolicyName :: Lens' DeleteLoadBalancerPolicy Text
-dlbpPolicyName = lens _dlbpPolicyName (\s a -> s { _dlbpPolicyName = a })
+dlbp1PolicyName :: Lens' DeleteLoadBalancerPolicy Text
+dlbp1PolicyName = lens _dlbp1PolicyName (\s a -> s { _dlbp1PolicyName = a })
 
-instance ToQuery DeleteLoadBalancerPolicy where
-    toQuery = genericQuery def
+instance ToQuery DeleteLoadBalancerPolicy
 
--- | The output for the DeleteLoadBalancerPolicy action.
+instance ToPath DeleteLoadBalancerPolicy where
+    toPath = const "/"
+
 data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLoadBalancerPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteLoadBalancerPolicyResponse' constructor.
 deleteLoadBalancerPolicyResponse :: DeleteLoadBalancerPolicyResponse
 deleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
 
@@ -90,5 +89,5 @@ instance AWSRequest DeleteLoadBalancerPolicy where
     type Sv DeleteLoadBalancerPolicy = ELB
     type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse
 
-    request = post "DeleteLoadBalancerPolicy"
-    response _ = nullaryResponse DeleteLoadBalancerPolicyResponse
+    request  = post "DeleteLoadBalancerPolicy"
+    response = nullaryResponse DeleteLoadBalancerPolicyResponse

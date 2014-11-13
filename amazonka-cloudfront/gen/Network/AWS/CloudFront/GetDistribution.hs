@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.GetDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,96 +24,90 @@
 module Network.AWS.CloudFront.GetDistribution
     (
     -- * Request
-      GetDistribution
+      GetDistribution2014_05_31
     -- ** Request constructor
-    , getDistribution
+    , getDistribution2014_05_31
     -- ** Request lenses
     , gdId
 
     -- * Response
-    , GetDistributionResponse
+    , GetDistribution2014_05_31Response
     -- ** Response constructor
-    , getDistributionResponse
+    , getDistribution2014_05_31Response
     -- ** Response lenses
     , gdrDistribution
     , gdrETag
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to get a distribution's information.
-newtype GetDistribution = GetDistribution
+newtype GetDistribution2014_05_31 = GetDistribution2014_05_31
     { _gdId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetDistribution' request.
+-- | 'GetDistribution2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * 'gdId' @::@ 'Text'
 --
-getDistribution :: Text -- ^ 'gdId'
-                -> GetDistribution
-getDistribution p1 = GetDistribution
+getDistribution2014_05_31 :: Text -- ^ 'gdId'
+                          -> GetDistribution2014_05_31
+getDistribution2014_05_31 p1 = GetDistribution2014_05_31
     { _gdId = p1
     }
 
 -- | The distribution's id.
-gdId :: Lens' GetDistribution Text
+gdId :: Lens' GetDistribution2014_05_31 Text
 gdId = lens _gdId (\s a -> s { _gdId = a })
 
-instance ToPath GetDistribution
+instance ToPath GetDistribution2014_05_31 where
+    toPath GetDistribution2014_05_31{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _gdId
+        ]
 
-instance ToQuery GetDistribution
+instance ToQuery GetDistribution2014_05_31 where
+    toQuery = const mempty
 
-instance ToHeaders GetDistribution
+instance ToHeaders GetDistribution2014_05_31
 
-instance ToXML GetDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetDistribution"
-
--- | The returned result of the corresponding request.
-data GetDistributionResponse = GetDistributionResponse
+data GetDistribution2014_05_31Response = GetDistribution2014_05_31Response
     { _gdrDistribution :: Maybe Distribution
-    , _gdrETag :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _gdrETag         :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetDistributionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetDistribution2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Distribution ::@ @Maybe Distribution@
+-- * 'gdrDistribution' @::@ 'Maybe' 'Distribution'
 --
--- * @ETag ::@ @Maybe Text@
+-- * 'gdrETag' @::@ 'Maybe' 'Text'
 --
-getDistributionResponse :: GetDistributionResponse
-getDistributionResponse = GetDistributionResponse
+getDistribution2014_05_31Response :: GetDistribution2014_05_31Response
+getDistribution2014_05_31Response = GetDistribution2014_05_31Response
     { _gdrDistribution = Nothing
-    , _gdrETag = Nothing
+    , _gdrETag         = Nothing
     }
 
 -- | The distribution's information.
-gdrDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
+gdrDistribution :: Lens' GetDistribution2014_05_31Response (Maybe Distribution)
 gdrDistribution = lens _gdrDistribution (\s a -> s { _gdrDistribution = a })
 
 -- | The current version of the distribution's information. For example:
 -- E2QWRUHAPOMQZL.
-gdrETag :: Lens' GetDistributionResponse (Maybe Text)
+gdrETag :: Lens' GetDistribution2014_05_31Response (Maybe Text)
 gdrETag = lens _gdrETag (\s a -> s { _gdrETag = a })
 
-instance AWSRequest GetDistribution where
-    type Sv GetDistribution = CloudFront
-    type Rs GetDistribution = GetDistributionResponse
+instance AWSRequest GetDistribution2014_05_31 where
+    type Sv GetDistribution2014_05_31 = CloudFront
+    type Rs GetDistribution2014_05_31 = GetDistribution2014_05_31Response
 
-    request = get
-    response _ = cursorResponse $ \hs xml ->
-        pure GetDistributionResponse
-            <*> xml %|? "Distribution"
-            <*> hs ~:? "ETag"
+    request  = get
+    response = xmlResponse $ \h x -> GetDistribution2014_05_31Response
+        <$> x %| "Distribution"
+        <*> h ~:? "ETag"

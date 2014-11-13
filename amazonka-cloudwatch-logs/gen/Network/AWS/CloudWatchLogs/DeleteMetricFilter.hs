@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteMetricFilter
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,17 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a metric filter associated with the specified log group. Delete a
--- metric filter The following is an example of a DeleteMetricFilter request
--- and response. POST / HTTP/1.1 Host: logs.. X-Amz-Date: Authorization:
--- AWS4-HMAC-SHA256 Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Accept: application/json Content-Type:
--- application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]>
--- X-Amz-Target: Logs_20140328.DeleteMetricFilter { "logGroupName":
--- "exampleLogGroupName", "filterName": "exampleMetricFilterName" } HTTP/1.1
--- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
--- Content-Length: Date: ]]>.
+-- | Deletes a metric filter associated with the specified log group.
 module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     (
     -- * Request
@@ -36,8 +28,8 @@ module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     -- ** Request constructor
     , deleteMetricFilter
     -- ** Request lenses
-    , dmfLogGroupName
-    , dmfFilterName
+    , dmf1FilterName
+    , dmf1LogGroupName
 
     -- * Response
     , DeleteMetricFilterResponse
@@ -45,60 +37,60 @@ module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     , deleteMetricFilterResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudWatchLogs.Types
 
 data DeleteMetricFilter = DeleteMetricFilter
-    { _dmfLogGroupName :: Text
-    , _dmfFilterName :: Text
+    { _dmf1FilterName   :: Text
+    , _dmf1LogGroupName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteMetricFilter' request.
+-- | 'DeleteMetricFilter' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LogGroupName ::@ @Text@
+-- * 'dmf1FilterName' @::@ 'Text'
 --
--- * @FilterName ::@ @Text@
+-- * 'dmf1LogGroupName' @::@ 'Text'
 --
-deleteMetricFilter :: Text -- ^ 'dmfLogGroupName'
-                   -> Text -- ^ 'dmfFilterName'
+deleteMetricFilter :: Text -- ^ 'dmf1LogGroupName'
+                   -> Text -- ^ 'dmf1FilterName'
                    -> DeleteMetricFilter
 deleteMetricFilter p1 p2 = DeleteMetricFilter
-    { _dmfLogGroupName = p1
-    , _dmfFilterName = p2
+    { _dmf1LogGroupName = p1
+    , _dmf1FilterName   = p2
     }
 
-dmfLogGroupName :: Lens' DeleteMetricFilter Text
-dmfLogGroupName = lens _dmfLogGroupName (\s a -> s { _dmfLogGroupName = a })
+dmf1FilterName :: Lens' DeleteMetricFilter Text
+dmf1FilterName = lens _dmf1FilterName (\s a -> s { _dmf1FilterName = a })
 
--- | The name of the metric filter.
-dmfFilterName :: Lens' DeleteMetricFilter Text
-dmfFilterName = lens _dmfFilterName (\s a -> s { _dmfFilterName = a })
+dmf1LogGroupName :: Lens' DeleteMetricFilter Text
+dmf1LogGroupName = lens _dmf1LogGroupName (\s a -> s { _dmf1LogGroupName = a })
 
-instance ToPath DeleteMetricFilter
+instance ToPath DeleteMetricFilter where
+    toPath = const "/"
 
-instance ToQuery DeleteMetricFilter
+instance ToQuery DeleteMetricFilter where
+    toQuery = const mempty
 
 instance ToHeaders DeleteMetricFilter
 
-instance ToJSON DeleteMetricFilter
+instance ToBody DeleteMetricFilter where
+    toBody = toBody . encode . _dmf1LogGroupName
 
 data DeleteMetricFilterResponse = DeleteMetricFilterResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteMetricFilterResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteMetricFilterResponse' constructor.
 deleteMetricFilterResponse :: DeleteMetricFilterResponse
 deleteMetricFilterResponse = DeleteMetricFilterResponse
+
+-- FromJSON
 
 instance AWSRequest DeleteMetricFilter where
     type Sv DeleteMetricFilter = CloudWatchLogs
     type Rs DeleteMetricFilter = DeleteMetricFilterResponse
 
-    request = get
-    response _ = nullaryResponse DeleteMetricFilterResponse
+    request  = post'
+    response = nullaryResponse DeleteMetricFilterResponse

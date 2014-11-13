@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmsForMetric
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,11 +29,11 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     -- ** Request constructor
     , describeAlarmsForMetric
     -- ** Request lenses
+    , dafmDimensions
     , dafmMetricName
     , dafmNamespace
-    , dafmStatistic
-    , dafmDimensions
     , dafmPeriod
+    , dafmStatistic
     , dafmUnit
 
     -- * Response
@@ -42,47 +44,51 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     , dafmrMetricAlarms
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric
-    { _dafmMetricName :: Text
-    , _dafmNamespace :: Text
-    , _dafmStatistic :: Maybe Statistic
-    , _dafmDimensions :: [Dimension]
-    , _dafmPeriod :: Maybe Integer
-    , _dafmUnit :: Maybe StandardUnit
-    } deriving (Eq, Ord, Show, Generic)
+    { _dafmDimensions :: [Dimension]
+    , _dafmMetricName :: Text
+    , _dafmNamespace  :: Text
+    , _dafmPeriod     :: Maybe Natural
+    , _dafmStatistic  :: Maybe Text
+    , _dafmUnit       :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAlarmsForMetric' request.
+-- | 'DescribeAlarmsForMetric' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @MetricName ::@ @Text@
+-- * 'dafmDimensions' @::@ ['Dimension']
 --
--- * @Namespace ::@ @Text@
+-- * 'dafmMetricName' @::@ 'Text'
 --
--- * @Statistic ::@ @Maybe Statistic@
+-- * 'dafmNamespace' @::@ 'Text'
 --
--- * @Dimensions ::@ @[Dimension]@
+-- * 'dafmPeriod' @::@ 'Maybe' 'Natural'
 --
--- * @Period ::@ @Maybe Integer@
+-- * 'dafmStatistic' @::@ 'Maybe' 'Text'
 --
--- * @Unit ::@ @Maybe StandardUnit@
+-- * 'dafmUnit' @::@ 'Maybe' 'Text'
 --
 describeAlarmsForMetric :: Text -- ^ 'dafmMetricName'
                         -> Text -- ^ 'dafmNamespace'
                         -> DescribeAlarmsForMetric
 describeAlarmsForMetric p1 p2 = DescribeAlarmsForMetric
     { _dafmMetricName = p1
-    , _dafmNamespace = p2
-    , _dafmStatistic = Nothing
+    , _dafmNamespace  = p2
+    , _dafmStatistic  = Nothing
     , _dafmDimensions = mempty
-    , _dafmPeriod = Nothing
-    , _dafmUnit = Nothing
+    , _dafmPeriod     = Nothing
+    , _dafmUnit       = Nothing
     }
+
+-- | The list of dimensions associated with the metric.
+dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
+dafmDimensions = lens _dafmDimensions (\s a -> s { _dafmDimensions = a })
 
 -- | The name of the metric.
 dafmMetricName :: Lens' DescribeAlarmsForMetric Text
@@ -92,38 +98,38 @@ dafmMetricName = lens _dafmMetricName (\s a -> s { _dafmMetricName = a })
 dafmNamespace :: Lens' DescribeAlarmsForMetric Text
 dafmNamespace = lens _dafmNamespace (\s a -> s { _dafmNamespace = a })
 
--- | The statistic for the metric.
-dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
-dafmStatistic = lens _dafmStatistic (\s a -> s { _dafmStatistic = a })
-
--- | The list of dimensions associated with the metric.
-dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
-dafmDimensions = lens _dafmDimensions (\s a -> s { _dafmDimensions = a })
-
 -- | The period in seconds over which the statistic is applied.
-dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Integer)
+dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
 dafmPeriod = lens _dafmPeriod (\s a -> s { _dafmPeriod = a })
 
+-- | The statistic for the metric.
+dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Text)
+dafmStatistic = lens _dafmStatistic (\s a -> s { _dafmStatistic = a })
+
 -- | The unit for the metric.
-dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
+dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe Text)
 dafmUnit = lens _dafmUnit (\s a -> s { _dafmUnit = a })
 
-instance ToQuery DescribeAlarmsForMetric where
-    toQuery = genericQuery def
+instance ToQuery DescribeAlarmsForMetric
 
--- | The output for the DescribeAlarmsForMetric action.
+instance ToPath DescribeAlarmsForMetric where
+    toPath = const "/"
+
 newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { _dafmrMetricAlarms :: [MetricAlarm]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAlarmsForMetricResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeAlarmsForMetricResponse where
+    type Item DescribeAlarmsForMetricResponse = MetricAlarm
+
+    fromList = DescribeAlarmsForMetricResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dafmrMetricAlarms
+
+-- | 'DescribeAlarmsForMetricResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @MetricAlarms ::@ @[MetricAlarm]@
+-- * 'dafmrMetricAlarms' @::@ ['MetricAlarm']
 --
 describeAlarmsForMetricResponse :: DescribeAlarmsForMetricResponse
 describeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
@@ -135,12 +141,10 @@ dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrMetricAlarms =
     lens _dafmrMetricAlarms (\s a -> s { _dafmrMetricAlarms = a })
 
-instance FromXML DescribeAlarmsForMetricResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DescribeAlarmsForMetric where
     type Sv DescribeAlarmsForMetric = CloudWatch
     type Rs DescribeAlarmsForMetric = DescribeAlarmsForMetricResponse
 
-    request = post "DescribeAlarmsForMetric"
-    response _ = xmlResponse
+    request  = post "DescribeAlarmsForMetric"
+    response = xmlResponse $ \h x -> DescribeAlarmsForMetricResponse
+        <$> x %| "MetricAlarms"

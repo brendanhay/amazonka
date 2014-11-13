@@ -1,11 +1,11 @@
 name:                  amazonka-elb
 version:               0.0.0
-synopsis:              Elastic Load Balancing SDK
+synopsis:              Amazon Elastic Load Balancing SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,9 +13,11 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Elastic Load Balancing automatically distributes incoming application traffic across multiple Amazon EC2 instances.
-    .
-    It enables you to achieve greater levels of fault tolerance in your applications, seamlessly providing the required amount of load balancing capacity needed to distribute application traffic.
+    Elastic Load Balancing automatically distributes incoming application
+    traffic across multiple Amazon EC2 instances. It enables you to achieve
+    greater levels of fault tolerance in your applications, seamlessly
+    providing the required amount of load balancing capacity needed to
+    distribute application traffic.
 
 source-repository head
     type:     git
@@ -29,7 +31,6 @@ library
 
     exposed-modules:
           Network.AWS.ELB
-        , Network.AWS.ELB.Types
         , Network.AWS.ELB.AddTags
         , Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
         , Network.AWS.ELB.AttachLoadBalancerToSubnets
@@ -58,6 +59,9 @@ library
         , Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
         , Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
         , Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
+        , Network.AWS.ELB.Types
+
+    other-modules:
 
     build-depends:
           amazonka-core

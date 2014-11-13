@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeMyUserProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,6 +30,7 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
       DescribeMyUserProfile
     -- ** Request constructor
     , describeMyUserProfile
+
     -- * Response
     , DescribeMyUserProfileResponse
     -- ** Response constructor
@@ -36,39 +39,36 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
     , dmuprUserProfile
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DescribeMyUserProfile = DescribeMyUserProfile
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeMyUserProfile' request.
+-- | 'DescribeMyUserProfile' constructor.
 describeMyUserProfile :: DescribeMyUserProfile
 describeMyUserProfile = DescribeMyUserProfile
 
-instance ToPath DescribeMyUserProfile
+instance ToPath DescribeMyUserProfile where
+    toPath = const "/"
 
-instance ToQuery DescribeMyUserProfile
+instance ToQuery DescribeMyUserProfile where
+    toQuery = const mempty
 
 instance ToHeaders DescribeMyUserProfile
 
-instance ToJSON DescribeMyUserProfile
+instance ToBody DescribeMyUserProfile
 
--- | Contains the response to a DescribeMyUserProfile request.
 newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
     { _dmuprUserProfile :: Maybe SelfUserProfile
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeMyUserProfileResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeMyUserProfileResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserProfile ::@ @Maybe SelfUserProfile@
+-- * 'dmuprUserProfile' @::@ 'Maybe' 'SelfUserProfile'
 --
 describeMyUserProfileResponse :: DescribeMyUserProfileResponse
 describeMyUserProfileResponse = DescribeMyUserProfileResponse
@@ -77,14 +77,14 @@ describeMyUserProfileResponse = DescribeMyUserProfileResponse
 
 -- | A UserProfile object that describes the user's SSH information.
 dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
-dmuprUserProfile =
-    lens _dmuprUserProfile (\s a -> s { _dmuprUserProfile = a })
+dmuprUserProfile = lens _dmuprUserProfile (\s a -> s { _dmuprUserProfile = a })
 
-instance FromJSON DescribeMyUserProfileResponse
+-- FromJSON
 
 instance AWSRequest DescribeMyUserProfile where
     type Sv DescribeMyUserProfile = OpsWorks
     type Rs DescribeMyUserProfile = DescribeMyUserProfileResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeMyUserProfileResponse
+        <$> o .: "UserProfile"

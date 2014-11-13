@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Kinesis.DeleteStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,15 +32,7 @@
 -- shards in that stream are also deleted, and any tags are dissociated from
 -- the stream. You can use the DescribeStream operation to check the state of
 -- the stream, which is returned in StreamStatus. DeleteStream has a limit of
--- 5 transactions per second per account. To delete a stream The following
--- example deletes the specified stream. POST / HTTP/1.1 Host: kinesis..
--- x-amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
--- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
--- Signature= User-Agent: Content-Type: application/x-amz-json-1.1
--- Content-Length: Connection: Keep-Alive]]> X-Amz-Target:
--- Kinesis_20131202.DeleteStream { "StreamName":"exampleStreamName" } HTTP/1.1
--- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
--- Content-Length: Date: ]]>.
+-- 5 transactions per second per account.
 module Network.AWS.Kinesis.DeleteStream
     (
     -- * Request
@@ -54,21 +48,19 @@ module Network.AWS.Kinesis.DeleteStream
     , deleteStreamResponse
     ) where
 
-import Network.AWS.Kinesis.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Kinesis.Types
 
--- | Represents the input for DeleteStream.
 newtype DeleteStream = DeleteStream
     { _dsStreamName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteStream' request.
+-- | 'DeleteStream' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StreamName ::@ @Text@
+-- * 'dsStreamName' @::@ 'Text'
 --
 deleteStream :: Text -- ^ 'dsStreamName'
              -> DeleteStream
@@ -80,27 +72,29 @@ deleteStream p1 = DeleteStream
 dsStreamName :: Lens' DeleteStream Text
 dsStreamName = lens _dsStreamName (\s a -> s { _dsStreamName = a })
 
-instance ToPath DeleteStream
+instance ToPath DeleteStream where
+    toPath = const "/"
 
-instance ToQuery DeleteStream
+instance ToQuery DeleteStream where
+    toQuery = const mempty
 
 instance ToHeaders DeleteStream
 
-instance ToJSON DeleteStream
+instance ToBody DeleteStream where
+    toBody = toBody . encode . _dsStreamName
 
 data DeleteStreamResponse = DeleteStreamResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteStreamResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteStreamResponse' constructor.
 deleteStreamResponse :: DeleteStreamResponse
 deleteStreamResponse = DeleteStreamResponse
+
+-- FromJSON
 
 instance AWSRequest DeleteStream where
     type Sv DeleteStream = Kinesis
     type Rs DeleteStream = DeleteStreamResponse
 
-    request = get
-    response _ = nullaryResponse DeleteStreamResponse
+    request  = post'
+    response = nullaryResponse DeleteStreamResponse

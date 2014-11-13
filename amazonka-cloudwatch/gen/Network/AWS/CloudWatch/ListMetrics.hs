@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatch.ListMetrics
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,11 +22,7 @@
 
 -- | Returns a list of valid metrics stored for the AWS account owner. Returned
 -- metrics can be used with GetMetricStatistics to obtain statistical data for
--- a given metric. Up to 500 results are returned for any one call. To
--- retrieve further results, use returned NextToken values with subsequent
--- ListMetrics operations. If you create a metric with the PutMetricData
--- action, allow up to fifteen minutes for the metric to appear in calls to
--- the ListMetrics action.
+-- a given metric.
 module Network.AWS.CloudWatch.ListMetrics
     (
     -- * Request
@@ -32,9 +30,9 @@ module Network.AWS.CloudWatch.ListMetrics
     -- ** Request constructor
     , listMetrics
     -- ** Request lenses
-    , lmNamespace
-    , lmMetricName
     , lmDimensions
+    , lmMetricName
+    , lmNamespace
     , lmNextToken
 
     -- * Response
@@ -46,78 +44,76 @@ module Network.AWS.CloudWatch.ListMetrics
     , lmrNextToken
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ListMetrics = ListMetrics
-    { _lmNamespace :: Maybe Text
+    { _lmDimensions :: [DimensionFilter]
     , _lmMetricName :: Maybe Text
-    , _lmDimensions :: [DimensionFilter]
-    , _lmNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _lmNamespace  :: Maybe Text
+    , _lmNextToken  :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListMetrics' request.
+-- | 'ListMetrics' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Namespace ::@ @Maybe Text@
+-- * 'lmDimensions' @::@ ['DimensionFilter']
 --
--- * @MetricName ::@ @Maybe Text@
+-- * 'lmMetricName' @::@ 'Maybe' 'Text'
 --
--- * @Dimensions ::@ @[DimensionFilter]@
+-- * 'lmNamespace' @::@ 'Maybe' 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'lmNextToken' @::@ 'Maybe' 'Text'
 --
 listMetrics :: ListMetrics
 listMetrics = ListMetrics
-    { _lmNamespace = Nothing
+    { _lmNamespace  = Nothing
     , _lmMetricName = Nothing
     , _lmDimensions = mempty
-    , _lmNextToken = Nothing
+    , _lmNextToken  = Nothing
     }
 
--- | The namespace to filter against.
-lmNamespace :: Lens' ListMetrics (Maybe Text)
-lmNamespace = lens _lmNamespace (\s a -> s { _lmNamespace = a })
+-- | A list of dimensions to filter against.
+lmDimensions :: Lens' ListMetrics [DimensionFilter]
+lmDimensions = lens _lmDimensions (\s a -> s { _lmDimensions = a })
 
 -- | The name of the metric to filter against.
 lmMetricName :: Lens' ListMetrics (Maybe Text)
 lmMetricName = lens _lmMetricName (\s a -> s { _lmMetricName = a })
 
--- | A list of dimensions to filter against.
-lmDimensions :: Lens' ListMetrics [DimensionFilter]
-lmDimensions = lens _lmDimensions (\s a -> s { _lmDimensions = a })
+-- | The namespace to filter against.
+lmNamespace :: Lens' ListMetrics (Maybe Text)
+lmNamespace = lens _lmNamespace (\s a -> s { _lmNamespace = a })
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
 lmNextToken :: Lens' ListMetrics (Maybe Text)
 lmNextToken = lens _lmNextToken (\s a -> s { _lmNextToken = a })
 
-instance ToQuery ListMetrics where
-    toQuery = genericQuery def
+instance ToQuery ListMetrics
 
--- | The output for the ListMetrics action.
+instance ToPath ListMetrics where
+    toPath = const "/"
+
 data ListMetricsResponse = ListMetricsResponse
-    { _lmrMetrics :: [Metric]
+    { _lmrMetrics   :: [Metric]
     , _lmrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListMetricsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListMetricsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Metrics ::@ @[Metric]@
+-- * 'lmrMetrics' @::@ ['Metric']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'lmrNextToken' @::@ 'Maybe' 'Text'
 --
 listMetricsResponse :: ListMetricsResponse
 listMetricsResponse = ListMetricsResponse
-    { _lmrMetrics = mempty
+    { _lmrMetrics   = mempty
     , _lmrNextToken = Nothing
     }
 
@@ -129,16 +125,11 @@ lmrMetrics = lens _lmrMetrics (\s a -> s { _lmrMetrics = a })
 lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmrNextToken = lens _lmrNextToken (\s a -> s { _lmrNextToken = a })
 
-instance FromXML ListMetricsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest ListMetrics where
     type Sv ListMetrics = CloudWatch
     type Rs ListMetrics = ListMetricsResponse
 
-    request = post "ListMetrics"
-    response _ = xmlResponse
-
-instance AWSPager ListMetrics where
-    next rq rs = (\x -> rq & lmNextToken ?~ x)
-        <$> (rs ^. lmrNextToken)
+    request  = post "ListMetrics"
+    response = xmlResponse $ \h x -> ListMetricsResponse
+        <$> x %| "Metrics"
+        <*> x %| "NextToken"

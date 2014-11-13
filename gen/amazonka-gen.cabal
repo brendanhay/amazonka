@@ -3,10 +3,10 @@ version:               0.1.0
 synopsis:              Pending
 description:           Pending
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -22,24 +22,26 @@ executable amazonka-gen
 
     build-depends:
           aeson
-        , jason
+        , aeson-pretty
         , attoparsec
         , base                 == 4.7.*
         , bifunctors
         , bytestring
         , case-insensitive
-        , containers
-        , data-default
         , directory
-        , ede                  >= 0.1.5
+        , ede                  == 0.2.3.1
         , errors
         , filepath
-        , http-types
-        , lens
+        , hashable
+        , jason
+        , lens                 == 4.5.*
         , mtl
-        , optparse-applicative == 0.10.*
-        , semigroups
+        , optparse-applicative == 0.11.*
+        , parsec
+        , semver
+        , template-haskell
         , text
+        , text-manipulate
         , transformers
         , unordered-containers
         , vector

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.AttachLoadBalancerToSubnets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,10 +25,6 @@
 -- balancers evenly distribute requests across all of the registered subnets.
 -- For more information, see Deploy Elastic Load Balancing in Amazon VPC in
 -- the Elastic Load Balancing Developer Guide.
--- https://elasticloadbalancing.amazonaws.com/?Subnets.member.1=subnet-3561b05e
--- &LoadBalancerName=my-test-vpc-loadbalancer &Version=2012-06-01
--- &Action=AttachLoadBalancerToSubnets &AUTHPARAMS subnet-119f0078
--- subnet-3561b05e 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (
     -- * Request
@@ -45,35 +43,33 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     , albtsrSubnets
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the AttachLoadBalancerToSubnets action.
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
     { _albtsLoadBalancerName :: Text
-    , _albtsSubnets :: [Text]
+    , _albtsSubnets          :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AttachLoadBalancerToSubnets' request.
+-- | 'AttachLoadBalancerToSubnets' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'albtsLoadBalancerName' @::@ 'Text'
 --
--- * @Subnets ::@ @[Text]@
+-- * 'albtsSubnets' @::@ ['Text']
 --
 attachLoadBalancerToSubnets :: Text -- ^ 'albtsLoadBalancerName'
-                            -> [Text] -- ^ 'albtsSubnets'
                             -> AttachLoadBalancerToSubnets
-attachLoadBalancerToSubnets p1 p2 = AttachLoadBalancerToSubnets
+attachLoadBalancerToSubnets p1 = AttachLoadBalancerToSubnets
     { _albtsLoadBalancerName = p1
-    , _albtsSubnets = p2
+    , _albtsSubnets          = mempty
     }
 
--- | The name associated with the load balancer. The name must be unique within
--- the set of load balancers associated with your AWS account.
+-- | The name associated with the load balancer. The name must be unique
+-- within the set of load balancers associated with your AWS account.
 albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
 albtsLoadBalancerName =
     lens _albtsLoadBalancerName (\s a -> s { _albtsLoadBalancerName = a })
@@ -83,22 +79,26 @@ albtsLoadBalancerName =
 albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
 albtsSubnets = lens _albtsSubnets (\s a -> s { _albtsSubnets = a })
 
-instance ToQuery AttachLoadBalancerToSubnets where
-    toQuery = genericQuery def
+instance ToQuery AttachLoadBalancerToSubnets
 
--- | The output for the AttachLoadBalancerToSubnets action.
+instance ToPath AttachLoadBalancerToSubnets where
+    toPath = const "/"
+
 newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { _albtsrSubnets :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AttachLoadBalancerToSubnetsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList AttachLoadBalancerToSubnetsResponse where
+    type Item AttachLoadBalancerToSubnetsResponse = Text
+
+    fromList = AttachLoadBalancerToSubnetsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _albtsrSubnets
+
+-- | 'AttachLoadBalancerToSubnetsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Subnets ::@ @[Text]@
+-- * 'albtsrSubnets' @::@ ['Text']
 --
 attachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsResponse
 attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
@@ -109,12 +109,10 @@ attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
 albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrSubnets = lens _albtsrSubnets (\s a -> s { _albtsrSubnets = a })
 
-instance FromXML AttachLoadBalancerToSubnetsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest AttachLoadBalancerToSubnets where
     type Sv AttachLoadBalancerToSubnets = ELB
     type Rs AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnetsResponse
 
-    request = post "AttachLoadBalancerToSubnets"
-    response _ = xmlResponse
+    request  = post "AttachLoadBalancerToSubnets"
+    response = xmlResponse $ \h x -> AttachLoadBalancerToSubnetsResponse
+        <$> x %| "Subnets"

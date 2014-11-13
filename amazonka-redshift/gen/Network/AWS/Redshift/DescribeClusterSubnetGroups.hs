@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterSubnetGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,14 +23,7 @@
 -- | Returns one or more cluster subnet group objects, which contain metadata
 -- about your cluster subnet groups. By default, this operation returns
 -- information about all cluster subnet groups that are defined in you AWS
--- account. https://redshift.us-east-1.amazonaws.com/
--- ?Action=DescribeClusterSubnetGroups &Version=2012-12-01
--- &x-amz-algorithm=AWS4-HMAC-SHA256
--- &x-amz-credential=AKIAIOSFODNN7EXAMPLE/20130130/us-east-1/redshift/aws4_request
--- &x-amz-date=20130130T153938Z
--- &x-amz-signedheaders=content-type;host;x-amz-date vpc-5d917a30 my subnet
--- group my-subnet-group Complete Active subnet-71c5091c us-east-1a Active
--- subnet-78de1215 us-east-1a 42024b68-6af3-11e2-a726-6368a468fa67.
+-- account.
 module Network.AWS.Redshift.DescribeClusterSubnetGroups
     (
     -- * Request
@@ -36,121 +31,114 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- ** Request constructor
     , describeClusterSubnetGroups
     -- ** Request lenses
-    , dcsg3ClusterSubnetGroupName
-    , dcsg3MaxRecords
-    , dcsg3Marker
+    , dcsg1ClusterSubnetGroupName
+    , dcsg1Marker
+    , dcsg1MaxRecords
 
     -- * Response
     , DescribeClusterSubnetGroupsResponse
     -- ** Response constructor
     , describeClusterSubnetGroupsResponse
     -- ** Response lenses
-    , dcsgrrMarker
-    , dcsgrrClusterSubnetGroups
+    , dcsgrClusterSubnetGroups
+    , dcsgrMarker
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
-    { _dcsg3ClusterSubnetGroupName :: Maybe Text
-    , _dcsg3MaxRecords :: Maybe Integer
-    , _dcsg3Marker :: Maybe Text
+    { _dcsg1ClusterSubnetGroupName :: Maybe Text
+    , _dcsg1Marker                 :: Maybe Text
+    , _dcsg1MaxRecords             :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeClusterSubnetGroups' request.
+-- | 'DescribeClusterSubnetGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ClusterSubnetGroupName ::@ @Maybe Text@
+-- * 'dcsg1ClusterSubnetGroupName' @::@ 'Maybe' 'Text'
 --
--- * @MaxRecords ::@ @Maybe Integer@
+-- * 'dcsg1Marker' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'dcsg1MaxRecords' @::@ 'Maybe' 'Int'
 --
 describeClusterSubnetGroups :: DescribeClusterSubnetGroups
 describeClusterSubnetGroups = DescribeClusterSubnetGroups
-    { _dcsg3ClusterSubnetGroupName = Nothing
-    , _dcsg3MaxRecords = Nothing
-    , _dcsg3Marker = Nothing
+    { _dcsg1ClusterSubnetGroupName = Nothing
+    , _dcsg1MaxRecords             = Nothing
+    , _dcsg1Marker                 = Nothing
     }
 
 -- | The name of the cluster subnet group for which information is requested.
-dcsg3ClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
-dcsg3ClusterSubnetGroupName =
-    lens _dcsg3ClusterSubnetGroupName
-         (\s a -> s { _dcsg3ClusterSubnetGroupName = a })
+dcsg1ClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
+dcsg1ClusterSubnetGroupName =
+    lens _dcsg1ClusterSubnetGroupName
+        (\s a -> s { _dcsg1ClusterSubnetGroupName = a })
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSubnetGroups
+-- request exceed the value specified in MaxRecords, AWS returns a value in
+-- the Marker field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the Marker
+-- parameter and retrying the request.
+dcsg1Marker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
+dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
--- retrieve the next set of records by retrying the command with the returned
--- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcsg3MaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Integer)
-dcsg3MaxRecords = lens _dcsg3MaxRecords (\s a -> s { _dcsg3MaxRecords = a })
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
+dcsg1MaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Int)
+dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 
--- | An optional parameter that specifies the starting point to return a set of
--- response records. When the results of a DescribeClusterSubnetGroups request
--- exceed the value specified in MaxRecords, AWS returns a value in the Marker
--- field of the response. You can retrieve the next set of response records by
--- providing the returned marker value in the Marker parameter and retrying
--- the request.
-dcsg3Marker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
-dcsg3Marker = lens _dcsg3Marker (\s a -> s { _dcsg3Marker = a })
+instance ToQuery DescribeClusterSubnetGroups
 
-instance ToQuery DescribeClusterSubnetGroups where
-    toQuery = genericQuery def
+instance ToPath DescribeClusterSubnetGroups where
+    toPath = const "/"
 
--- | Contains the output from the DescribeClusterSubnetGroups action.
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
-    { _dcsgrrMarker :: Maybe Text
-    , _dcsgrrClusterSubnetGroups :: [ClusterSubnetGroup]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dcsgrClusterSubnetGroups :: [ClusterSubnetGroup]
+    , _dcsgrMarker              :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeClusterSubnetGroupsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeClusterSubnetGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'dcsgrClusterSubnetGroups' @::@ ['ClusterSubnetGroup']
 --
--- * @ClusterSubnetGroups ::@ @[ClusterSubnetGroup]@
+-- * 'dcsgrMarker' @::@ 'Maybe' 'Text'
 --
 describeClusterSubnetGroupsResponse :: DescribeClusterSubnetGroupsResponse
 describeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
-    { _dcsgrrMarker = Nothing
-    , _dcsgrrClusterSubnetGroups = mempty
+    { _dcsgrMarker              = Nothing
+    , _dcsgrClusterSubnetGroups = mempty
     }
 
--- | A value that indicates the starting point for the next set of response
--- records in a subsequent request. If a value is returned in a response, you
--- can retrieve the next set of records by providing this returned marker
--- value in the Marker parameter and retrying the command. If the Marker field
--- is empty, all response records have been retrieved for the request.
-dcsgrrMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
-dcsgrrMarker = lens _dcsgrrMarker (\s a -> s { _dcsgrrMarker = a })
-
 -- | A list of ClusterSubnetGroup instances.
-dcsgrrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
-dcsgrrClusterSubnetGroups =
-    lens _dcsgrrClusterSubnetGroups
-         (\s a -> s { _dcsgrrClusterSubnetGroups = a })
+dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
+dcsgrClusterSubnetGroups =
+    lens _dcsgrClusterSubnetGroups
+        (\s a -> s { _dcsgrClusterSubnetGroups = a })
 
-instance FromXML DescribeClusterSubnetGroupsResponse where
-    fromXMLOptions = xmlOptions
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the Marker parameter and retrying the command. If the
+-- Marker field is empty, all response records have been retrieved for the
+-- request.
+dcsgrMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
+dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 
 instance AWSRequest DescribeClusterSubnetGroups where
     type Sv DescribeClusterSubnetGroups = Redshift
     type Rs DescribeClusterSubnetGroups = DescribeClusterSubnetGroupsResponse
 
-    request = post "DescribeClusterSubnetGroups"
-    response _ = xmlResponse
-
-instance AWSPager DescribeClusterSubnetGroups where
-    next rq rs = (\x -> rq & dcsg3Marker ?~ x)
-        <$> (rs ^. dcsgrrMarker)
+    request  = post "DescribeClusterSubnetGroups"
+    response = xmlResponse $ \h x -> DescribeClusterSubnetGroupsResponse
+        <$> x %| "ClusterSubnetGroups"
+        <*> x %| "Marker"

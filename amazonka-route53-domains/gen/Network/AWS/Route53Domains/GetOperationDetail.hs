@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Route53Domains.GetOperationDetail
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,23 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation returns the current status of an operation that is not
--- completed. GetOperationDetail Example POST / HTTP/1.1
--- host:route53domains.us-east-1.amazonaws.com x-amz-date:20140711T205230Z
--- authorization:AWS4-HMAC-SHA256
--- Credential=AKIAIOSFODNN7EXAMPLE/20140711/us-east-1/route53domains/aws4_request,
--- 
--- SignedHeaders=content-length;content-type;host;user-agent;x-amz-date;x-amz-target,
--- Signature=[calculated-signature]
--- x-amz-target:Route53Domains_v20140515.GetOperationDetail
--- user-agent:aws-sdk-java/1.8.3 Linux/2.6.18-164.el5PAE Java_HotSpot (TM
--- )_Server_VM/24.60-b09/1.7.0_60 content-type:application/x-amz-json-1.1
--- content-length:[number of characters in the JSON string] {
--- "OperationId":"43884ce5-e30a-4801-858f-7aa86356c127" } HTTP/1.1 200
--- Content-Length:[number of characters in the JSON string] {
--- "DomainName":"happierdomain.ca",
--- "OperationId":"43884ce5-e30a-4801-858f-7aa86356c127",
--- "Status":"WORKFLOW_IN_PROGRESS", "SubmittedDate" : 1402630939.057, "Type" :
--- "REGISTER_DOMAIN" }.
+-- completed.
 module Network.AWS.Route53Domains.GetOperationDetail
     (
     -- * Request
@@ -50,29 +36,27 @@ module Network.AWS.Route53Domains.GetOperationDetail
     -- ** Response constructor
     , getOperationDetailResponse
     -- ** Response lenses
+    , godrDomainName
+    , godrMessage
     , godrOperationId
     , godrStatus
-    , godrMessage
-    , godrDomainName
-    , godrType
     , godrSubmittedDate
+    , godrType
     ) where
 
-import Network.AWS.Route53Domains.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Route53Domains.Types
 
--- | The GetOperationDetail request includes the following element.
 newtype GetOperationDetail = GetOperationDetail
     { _godOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetOperationDetail' request.
+-- | 'GetOperationDetail' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OperationId ::@ @Text@
+-- * 'godOperationId' @::@ 'Text'
 --
 getOperationDetail :: Text -- ^ 'godOperationId'
                    -> GetOperationDetail
@@ -86,83 +70,91 @@ getOperationDetail p1 = GetOperationDetail
 godOperationId :: Lens' GetOperationDetail Text
 godOperationId = lens _godOperationId (\s a -> s { _godOperationId = a })
 
-instance ToPath GetOperationDetail
+instance ToPath GetOperationDetail where
+    toPath = const "/"
 
-instance ToQuery GetOperationDetail
+instance ToQuery GetOperationDetail where
+    toQuery = const mempty
 
 instance ToHeaders GetOperationDetail
 
-instance ToJSON GetOperationDetail
+instance ToBody GetOperationDetail where
+    toBody = toBody . encode . _godOperationId
 
--- | The GetOperationDetail response includes the following elements.
 data GetOperationDetailResponse = GetOperationDetailResponse
-    { _godrOperationId :: Maybe Text
-    , _godrStatus :: Maybe OperationStatus
-    , _godrMessage :: Maybe Text
-    , _godrDomainName :: Maybe Text
-    , _godrType :: Maybe OperationType
-    , _godrSubmittedDate :: Maybe ISO8601
+    { _godrDomainName    :: Maybe Text
+    , _godrMessage       :: Maybe Text
+    , _godrOperationId   :: Maybe Text
+    , _godrStatus        :: Maybe Text
+    , _godrSubmittedDate :: Maybe RFC822
+    , _godrType          :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetOperationDetailResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetOperationDetailResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OperationId ::@ @Maybe Text@
+-- * 'godrDomainName' @::@ 'Maybe' 'Text'
 --
--- * @Status ::@ @Maybe OperationStatus@
+-- * 'godrMessage' @::@ 'Maybe' 'Text'
 --
--- * @Message ::@ @Maybe Text@
+-- * 'godrOperationId' @::@ 'Maybe' 'Text'
 --
--- * @DomainName ::@ @Maybe Text@
+-- * 'godrStatus' @::@ 'Maybe' 'Text'
 --
--- * @Type ::@ @Maybe OperationType@
+-- * 'godrSubmittedDate' @::@ 'Maybe' 'UTCTime'
 --
--- * @SubmittedDate ::@ @Maybe ISO8601@
+-- * 'godrType' @::@ 'Maybe' 'Text'
 --
 getOperationDetailResponse :: GetOperationDetailResponse
 getOperationDetailResponse = GetOperationDetailResponse
-    { _godrOperationId = Nothing
-    , _godrStatus = Nothing
-    , _godrMessage = Nothing
-    , _godrDomainName = Nothing
-    , _godrType = Nothing
+    { _godrOperationId   = Nothing
+    , _godrStatus        = Nothing
+    , _godrMessage       = Nothing
+    , _godrDomainName    = Nothing
+    , _godrType          = Nothing
     , _godrSubmittedDate = Nothing
     }
-
--- | The identifier for the operation. Type: String.
-godrOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
-godrOperationId = lens _godrOperationId (\s a -> s { _godrOperationId = a })
-
--- | The current status of the requested operation in the system. Type: String.
-godrStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
-godrStatus = lens _godrStatus (\s a -> s { _godrStatus = a })
-
--- | Detailed information on the status including possible errors. Type: String.
-godrMessage :: Lens' GetOperationDetailResponse (Maybe Text)
-godrMessage = lens _godrMessage (\s a -> s { _godrMessage = a })
 
 -- | The name of a domain. Type: String.
 godrDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
 godrDomainName = lens _godrDomainName (\s a -> s { _godrDomainName = a })
 
--- | The type of operation that was requested. Type: String.
-godrType :: Lens' GetOperationDetailResponse (Maybe OperationType)
-godrType = lens _godrType (\s a -> s { _godrType = a })
+-- | Detailed information on the status including possible errors. Type:
+-- String.
+godrMessage :: Lens' GetOperationDetailResponse (Maybe Text)
+godrMessage = lens _godrMessage (\s a -> s { _godrMessage = a })
+
+-- | The identifier for the operation. Type: String.
+godrOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
+godrOperationId = lens _godrOperationId (\s a -> s { _godrOperationId = a })
+
+-- | The current status of the requested operation in the system. Type:
+-- String.
+godrStatus :: Lens' GetOperationDetailResponse (Maybe Text)
+godrStatus = lens _godrStatus (\s a -> s { _godrStatus = a })
 
 -- | The date when the request was submitted.
-godrSubmittedDate :: Lens' GetOperationDetailResponse (Maybe ISO8601)
+godrSubmittedDate :: Lens' GetOperationDetailResponse (Maybe UTCTime)
 godrSubmittedDate =
     lens _godrSubmittedDate (\s a -> s { _godrSubmittedDate = a })
+        . mapping _Time
 
-instance FromJSON GetOperationDetailResponse
+-- | The type of operation that was requested. Type: String.
+godrType :: Lens' GetOperationDetailResponse (Maybe Text)
+godrType = lens _godrType (\s a -> s { _godrType = a })
+
+-- FromJSON
 
 instance AWSRequest GetOperationDetail where
     type Sv GetOperationDetail = Route53Domains
     type Rs GetOperationDetail = GetOperationDetailResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> GetOperationDetailResponse
+        <$> o .: "DomainName"
+        <*> o .: "Message"
+        <*> o .: "OperationId"
+        <*> o .: "Status"
+        <*> o .: "SubmittedDate"
+        <*> o .: "Type"

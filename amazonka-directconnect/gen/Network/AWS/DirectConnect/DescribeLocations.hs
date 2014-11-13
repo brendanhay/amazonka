@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeLocations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,6 +29,7 @@ module Network.AWS.DirectConnect.DescribeLocations
       DescribeLocations
     -- ** Request constructor
     , describeLocations
+
     -- * Response
     , DescribeLocationsResponse
     -- ** Response constructor
@@ -35,38 +38,42 @@ module Network.AWS.DirectConnect.DescribeLocations
     , dlrLocations
     ) where
 
-import Network.AWS.DirectConnect.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DirectConnect.Types
 
 data DescribeLocations = DescribeLocations
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLocations' request.
+-- | 'DescribeLocations' constructor.
 describeLocations :: DescribeLocations
 describeLocations = DescribeLocations
 
-instance ToPath DescribeLocations
+instance ToPath DescribeLocations where
+    toPath = const "/"
 
-instance ToQuery DescribeLocations
+instance ToQuery DescribeLocations where
+    toQuery = const mempty
 
 instance ToHeaders DescribeLocations
 
-instance ToJSON DescribeLocations
+instance ToBody DescribeLocations
 
 newtype DescribeLocationsResponse = DescribeLocationsResponse
     { _dlrLocations :: [Location]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLocationsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeLocationsResponse where
+    type Item DescribeLocationsResponse = Location
+
+    fromList = DescribeLocationsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlrLocations
+
+-- | 'DescribeLocationsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Locations ::@ @[Location]@
+-- * 'dlrLocations' @::@ ['Location']
 --
 describeLocationsResponse :: DescribeLocationsResponse
 describeLocationsResponse = DescribeLocationsResponse
@@ -76,11 +83,12 @@ describeLocationsResponse = DescribeLocationsResponse
 dlrLocations :: Lens' DescribeLocationsResponse [Location]
 dlrLocations = lens _dlrLocations (\s a -> s { _dlrLocations = a })
 
-instance FromJSON DescribeLocationsResponse
+-- FromJSON
 
 instance AWSRequest DescribeLocations where
     type Sv DescribeLocations = DirectConnect
     type Rs DescribeLocations = DescribeLocationsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeLocationsResponse
+        <$> o .: "locations"

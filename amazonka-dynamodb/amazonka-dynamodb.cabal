@@ -1,11 +1,11 @@
 name:                  amazonka-dynamodb
 version:               0.0.0
-synopsis:              Amazon DynamoDB SDK
+synopsis:              Amazon DynamoDB SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,11 +13,14 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
-    .
-    You can use Amazon DynamoDB to create a database table that can store and retrieve any amount of data, and serve any level of request traffic.
-    .
-    Amazon DynamoDB automatically spreads the data and traffic for the table over a sufficient number of servers to handle the request capacity specified by the customer and the amount of data stored, while maintaining consistent and fast performance.
+    Amazon DynamoDB is a fully managed NoSQL database service that provides
+    fast and predictable performance with seamless scalability. You can use
+    Amazon DynamoDB to create a database table that can store and retrieve
+    any amount of data, and serve any level of request traffic. Amazon
+    DynamoDB automatically spreads the data and traffic for the table over
+    a sufficient number of servers to handle the request capacity specified
+    by the customer and the amount of data stored, while maintaining
+    consistent and fast performance.
 
 source-repository head
     type:     git
@@ -31,7 +34,6 @@ library
 
     exposed-modules:
           Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB.Types
         , Network.AWS.DynamoDB.BatchGetItem
         , Network.AWS.DynamoDB.BatchWriteItem
         , Network.AWS.DynamoDB.CreateTable
@@ -43,8 +45,11 @@ library
         , Network.AWS.DynamoDB.PutItem
         , Network.AWS.DynamoDB.Query
         , Network.AWS.DynamoDB.Scan
+        , Network.AWS.DynamoDB.Types
         , Network.AWS.DynamoDB.UpdateItem
         , Network.AWS.DynamoDB.UpdateTable
+
+    other-modules:
 
     build-depends:
           amazonka-core

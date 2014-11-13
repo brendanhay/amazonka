@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SimpleDB.CreateDomain
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,10 +23,8 @@
 -- | The CreateDomain operation creates a new domain. The domain name should be
 -- unique among the domains associated with the Access Key ID provided in the
 -- request. The CreateDomain operation may take 10 or more seconds to
--- complete. CreateDomain is an idempotent operation; running it multiple
--- times using the same domain name will not result in an error response. The
--- client can create up to 100 domains per account. If the client requires
--- additional domains, go to
+-- complete. The client can create up to 100 domains per account. If the
+-- client requires additional domains, go to
 -- http://aws.amazon.com/contact-us/simpledb-limit-request/.
 module Network.AWS.SimpleDB.CreateDomain
     (
@@ -41,20 +41,20 @@ module Network.AWS.SimpleDB.CreateDomain
     , createDomainResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDomain' request.
+-- | 'CreateDomain' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @Text@
+-- * 'cdDomainName' @::@ 'Text'
 --
 createDomain :: Text -- ^ 'cdDomainName'
              -> CreateDomain
@@ -68,16 +68,15 @@ createDomain p1 = CreateDomain
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
 
-instance ToQuery CreateDomain where
-    toQuery = genericQuery def
+instance ToQuery CreateDomain
+
+instance ToPath CreateDomain where
+    toPath = const "/"
 
 data CreateDomainResponse = CreateDomainResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDomainResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateDomainResponse' constructor.
 createDomainResponse :: CreateDomainResponse
 createDomainResponse = CreateDomainResponse
 
@@ -85,5 +84,5 @@ instance AWSRequest CreateDomain where
     type Sv CreateDomain = SimpleDB
     type Rs CreateDomain = CreateDomainResponse
 
-    request = post "CreateDomain"
-    response _ = nullaryResponse CreateDomainResponse
+    request  = post "CreateDomain"
+    response = nullaryResponse CreateDomainResponse

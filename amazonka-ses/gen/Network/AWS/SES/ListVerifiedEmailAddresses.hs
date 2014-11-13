@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.SES.ListVerifiedEmailAddresses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,22 +23,14 @@
 -- | Returns a list containing all of the email addresses that have been
 -- verified. The ListVerifiedEmailAddresses action is deprecated as of the May
 -- 15, 2012 release of Domain Verification. The ListIdentities action is now
--- preferred. This action is throttled at one request per second. POST /
--- HTTP/1.1 Date: Thu, 18 Aug 2011 22:05:09 GMT Host:
--- email.us-east-1.amazonaws.com Content-Type:
--- application/x-www-form-urlencoded X-Amzn-Authorization: AWS3
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE,
--- Signature=II0+vvDKGMv71vToBwzR6vZ1hxe/VUE8tWEFUNTUqgE=,
--- Algorithm=HmacSHA256, SignedHeaders=Date;Host Content-Length: 108
--- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=ListVerifiedEmailAddresses
--- &Timestamp=2011-08-18T22%3A05%3A09.000Z% example@amazon.com
--- 3dd50e97-c865-11e0-b235-099eb63d928d.
+-- preferred. This action is throttled at one request per second.
 module Network.AWS.SES.ListVerifiedEmailAddresses
     (
     -- * Request
       ListVerifiedEmailAddresses
     -- ** Request constructor
     , listVerifiedEmailAddresses
+
     -- * Response
     , ListVerifiedEmailAddressesResponse
     -- ** Response constructor
@@ -45,34 +39,38 @@ module Network.AWS.SES.ListVerifiedEmailAddresses
     , lvearVerifiedEmailAddresses
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListVerifiedEmailAddresses' request.
+-- | 'ListVerifiedEmailAddresses' constructor.
 listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
 listVerifiedEmailAddresses = ListVerifiedEmailAddresses
 
-instance ToQuery ListVerifiedEmailAddresses where
-    toQuery = genericQuery def
+instance ToQuery ListVerifiedEmailAddresses
 
--- | Represents a list of all the email addresses verified for the current user.
+instance ToPath ListVerifiedEmailAddresses where
+    toPath = const "/"
+
 newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListVerifiedEmailAddressesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList ListVerifiedEmailAddressesResponse where
+    type Item ListVerifiedEmailAddressesResponse = Text
+
+    fromList = ListVerifiedEmailAddressesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _lvearVerifiedEmailAddresses
+
+-- | 'ListVerifiedEmailAddressesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VerifiedEmailAddresses ::@ @[Text]@
+-- * 'lvearVerifiedEmailAddresses' @::@ ['Text']
 --
 listVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse
 listVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
@@ -83,14 +81,12 @@ listVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
 lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearVerifiedEmailAddresses =
     lens _lvearVerifiedEmailAddresses
-         (\s a -> s { _lvearVerifiedEmailAddresses = a })
-
-instance FromXML ListVerifiedEmailAddressesResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _lvearVerifiedEmailAddresses = a })
 
 instance AWSRequest ListVerifiedEmailAddresses where
     type Sv ListVerifiedEmailAddresses = SES
     type Rs ListVerifiedEmailAddresses = ListVerifiedEmailAddressesResponse
 
-    request = post "ListVerifiedEmailAddresses"
-    response _ = xmlResponse
+    request  = post "ListVerifiedEmailAddresses"
+    response = xmlResponse $ \h x -> ListVerifiedEmailAddressesResponse
+        <$> x %| "VerifiedEmailAddresses"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.RemoveTagsFromResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,54 +38,50 @@ module Network.AWS.RDS.RemoveTagsFromResource
     , removeTagsFromResourceResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data RemoveTagsFromResource = RemoveTagsFromResource
     { _rtfrResourceName :: Text
-    , _rtfrTagKeys :: [Text]
+    , _rtfrTagKeys      :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemoveTagsFromResource' request.
+-- | 'RemoveTagsFromResource' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ResourceName ::@ @Text@
+-- * 'rtfrResourceName' @::@ 'Text'
 --
--- * @TagKeys ::@ @[Text]@
+-- * 'rtfrTagKeys' @::@ ['Text']
 --
 removeTagsFromResource :: Text -- ^ 'rtfrResourceName'
-                       -> [Text] -- ^ 'rtfrTagKeys'
                        -> RemoveTagsFromResource
-removeTagsFromResource p1 p2 = RemoveTagsFromResource
+removeTagsFromResource p1 = RemoveTagsFromResource
     { _rtfrResourceName = p1
-    , _rtfrTagKeys = p2
+    , _rtfrTagKeys      = mempty
     }
 
 -- | The Amazon RDS resource the tags will be removed from. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see
 -- Constructing an RDS Amazon Resource Name (ARN).
 rtfrResourceName :: Lens' RemoveTagsFromResource Text
-rtfrResourceName =
-    lens _rtfrResourceName (\s a -> s { _rtfrResourceName = a })
+rtfrResourceName = lens _rtfrResourceName (\s a -> s { _rtfrResourceName = a })
 
 -- | The tag key (name) of the tag to be removed.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeys = lens _rtfrTagKeys (\s a -> s { _rtfrTagKeys = a })
 
-instance ToQuery RemoveTagsFromResource where
-    toQuery = genericQuery def
+instance ToQuery RemoveTagsFromResource
+
+instance ToPath RemoveTagsFromResource where
+    toPath = const "/"
 
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemoveTagsFromResourceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RemoveTagsFromResourceResponse' constructor.
 removeTagsFromResourceResponse :: RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse = RemoveTagsFromResourceResponse
 
@@ -91,5 +89,5 @@ instance AWSRequest RemoveTagsFromResource where
     type Sv RemoveTagsFromResource = RDS
     type Rs RemoveTagsFromResource = RemoveTagsFromResourceResponse
 
-    request = post "RemoveTagsFromResource"
-    response _ = nullaryResponse RemoveTagsFromResourceResponse
+    request  = post "RemoveTagsFromResource"
+    response = nullaryResponse RemoveTagsFromResourceResponse

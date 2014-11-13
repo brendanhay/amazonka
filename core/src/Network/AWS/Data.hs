@@ -13,48 +13,48 @@
 module Network.AWS.Data
     (
     -- * ByteString
-      module Network.AWS.Internal.Data.ByteString
+      module Network.AWS.Data.Internal.ByteString
 
     -- * Text
-    , module Network.AWS.Internal.Data.Text
+    , module Network.AWS.Data.Internal.Text
 
     -- * Time
-    , module Network.AWS.Internal.Data.Time
+    , module Network.AWS.Data.Internal.Time
 
     -- * HTTP
     -- ** Body
-    , module Network.AWS.Internal.Data.Body
+    , module Network.AWS.Data.Internal.Body
 
     -- ** Headers
-    , module Network.AWS.Internal.Data.Header
+    , module Network.AWS.Data.Internal.Header
 
     -- ** Path
-    , module Network.AWS.Internal.Data.Path
+    , module Network.AWS.Data.Internal.Path
 
     -- ** Query
-    , module Network.AWS.Internal.Data.Query
+    , module Network.AWS.Data.Internal.Query
 
     -- ** URI
-    , module Network.AWS.Internal.Data.URI
+    , module Network.AWS.Data.Internal.URI
 
     -- * XML
-    , module Network.AWS.Internal.Data.XML
+    , module Network.AWS.Data.Internal.XML
 
     -- * Collections
     -- ** Non-empty List
-    , module Network.AWS.Data.List1
+    , module Network.AWS.Data.Internal.List1
     -- ** Unordered Map
-    , module Network.AWS.Data.Map
+    , module Network.AWS.Data.Internal.Map
     ) where
 
-import Network.AWS.Data.List1               (List1, list1)
-import Network.AWS.Data.Map                 (Map(..), nullMap)
-import Network.AWS.Internal.Data.Body
-import Network.AWS.Internal.Data.ByteString
-import Network.AWS.Internal.Data.Header
-import Network.AWS.Internal.Data.Path
-import Network.AWS.Internal.Data.Query
-import Network.AWS.Internal.Data.Text
-import Network.AWS.Internal.Data.Time
-import Network.AWS.Internal.Data.URI
-import Network.AWS.Internal.Data.XML
+import Network.AWS.Data.Internal.List1               (List1, _List1, list1)
+import Network.AWS.Data.Internal.Map
+import Network.AWS.Data.Internal.Body
+import Network.AWS.Data.Internal.ByteString
+import Network.AWS.Data.Internal.Header
+import Network.AWS.Data.Internal.Path
+import Network.AWS.Data.Internal.Query
+import Network.AWS.Data.Internal.Text
+import Network.AWS.Data.Internal.Time
+import Network.AWS.Data.Internal.URI
+import Network.AWS.Data.Internal.XML

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Support.DescribeCommunications
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,57 +35,66 @@ module Network.AWS.Support.DescribeCommunications
     -- ** Request constructor
     , describeCommunications
     -- ** Request lenses
-    , dc1CaseId
-    , dc1BeforeTime
     , dc1AfterTime
-    , dc1NextToken
+    , dc1BeforeTime
+    , dc1CaseId
     , dc1MaxResults
+    , dc1NextToken
 
     -- * Response
     , DescribeCommunicationsResponse
     -- ** Response constructor
     , describeCommunicationsResponse
     -- ** Response lenses
-    , dcrrCommunications
-    , dcrrNextToken
+    , dcrCommunications
+    , dcrNextToken
     ) where
 
-import Network.AWS.Support.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Support.Types
 
 data DescribeCommunications = DescribeCommunications
-    { _dc1CaseId :: Text
+    { _dc1AfterTime  :: Maybe Text
     , _dc1BeforeTime :: Maybe Text
-    , _dc1AfterTime :: Maybe Text
-    , _dc1NextToken :: Maybe Text
-    , _dc1MaxResults :: Maybe Integer
+    , _dc1CaseId     :: Text
+    , _dc1MaxResults :: Maybe Natural
+    , _dc1NextToken  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeCommunications' request.
+-- | 'DescribeCommunications' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CaseId ::@ @Text@
+-- * 'dc1AfterTime' @::@ 'Maybe' 'Text'
 --
--- * @BeforeTime ::@ @Maybe Text@
+-- * 'dc1BeforeTime' @::@ 'Maybe' 'Text'
 --
--- * @AfterTime ::@ @Maybe Text@
+-- * 'dc1CaseId' @::@ 'Text'
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dc1MaxResults' @::@ 'Maybe' 'Natural'
 --
--- * @MaxResults ::@ @Maybe Integer@
+-- * 'dc1NextToken' @::@ 'Maybe' 'Text'
 --
 describeCommunications :: Text -- ^ 'dc1CaseId'
                        -> DescribeCommunications
 describeCommunications p1 = DescribeCommunications
-    { _dc1CaseId = p1
+    { _dc1CaseId     = p1
     , _dc1BeforeTime = Nothing
-    , _dc1AfterTime = Nothing
-    , _dc1NextToken = Nothing
+    , _dc1AfterTime  = Nothing
+    , _dc1NextToken  = Nothing
     , _dc1MaxResults = Nothing
     }
+
+-- | The start date for a filtered date search on support case communications.
+-- Case communications are available for 12 months after creation.
+dc1AfterTime :: Lens' DescribeCommunications (Maybe Text)
+dc1AfterTime = lens _dc1AfterTime (\s a -> s { _dc1AfterTime = a })
+
+-- | The end date for a filtered date search on support case communications.
+-- Case communications are available for 12 months after creation.
+dc1BeforeTime :: Lens' DescribeCommunications (Maybe Text)
+dc1BeforeTime = lens _dc1BeforeTime (\s a -> s { _dc1BeforeTime = a })
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
@@ -91,73 +102,60 @@ describeCommunications p1 = DescribeCommunications
 dc1CaseId :: Lens' DescribeCommunications Text
 dc1CaseId = lens _dc1CaseId (\s a -> s { _dc1CaseId = a })
 
--- | The end date for a filtered date search on support case communications.
--- Case communications are available for 12 months after creation.
-dc1BeforeTime :: Lens' DescribeCommunications (Maybe Text)
-dc1BeforeTime = lens _dc1BeforeTime (\s a -> s { _dc1BeforeTime = a })
-
--- | The start date for a filtered date search on support case communications.
--- Case communications are available for 12 months after creation.
-dc1AfterTime :: Lens' DescribeCommunications (Maybe Text)
-dc1AfterTime = lens _dc1AfterTime (\s a -> s { _dc1AfterTime = a })
+-- | The maximum number of results to return before paginating.
+dc1MaxResults :: Lens' DescribeCommunications (Maybe Natural)
+dc1MaxResults = lens _dc1MaxResults (\s a -> s { _dc1MaxResults = a })
 
 -- | A resumption point for pagination.
 dc1NextToken :: Lens' DescribeCommunications (Maybe Text)
 dc1NextToken = lens _dc1NextToken (\s a -> s { _dc1NextToken = a })
 
--- | The maximum number of results to return before paginating.
-dc1MaxResults :: Lens' DescribeCommunications (Maybe Integer)
-dc1MaxResults = lens _dc1MaxResults (\s a -> s { _dc1MaxResults = a })
+instance ToPath DescribeCommunications where
+    toPath = const "/"
 
-instance ToPath DescribeCommunications
-
-instance ToQuery DescribeCommunications
+instance ToQuery DescribeCommunications where
+    toQuery = const mempty
 
 instance ToHeaders DescribeCommunications
 
-instance ToJSON DescribeCommunications
+instance ToBody DescribeCommunications where
+    toBody = toBody . encode . _dc1CaseId
 
--- | The communications returned by the DescribeCommunications operation.
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse
-    { _dcrrCommunications :: [Communication]
-    , _dcrrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dcrCommunications :: [Communication]
+    , _dcrNextToken      :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeCommunicationsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeCommunicationsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Communications ::@ @[Communication]@
+-- * 'dcrCommunications' @::@ ['Communication']
 --
--- * @NextToken ::@ @Maybe Text@
+-- * 'dcrNextToken' @::@ 'Maybe' 'Text'
 --
 describeCommunicationsResponse :: DescribeCommunicationsResponse
 describeCommunicationsResponse = DescribeCommunicationsResponse
-    { _dcrrCommunications = mempty
-    , _dcrrNextToken = Nothing
+    { _dcrCommunications = mempty
+    , _dcrNextToken      = Nothing
     }
 
 -- | The communications for the case.
-dcrrCommunications :: Lens' DescribeCommunicationsResponse [Communication]
-dcrrCommunications =
-    lens _dcrrCommunications (\s a -> s { _dcrrCommunications = a })
+dcrCommunications :: Lens' DescribeCommunicationsResponse [Communication]
+dcrCommunications =
+    lens _dcrCommunications (\s a -> s { _dcrCommunications = a })
 
 -- | A resumption point for pagination.
-dcrrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
-dcrrNextToken = lens _dcrrNextToken (\s a -> s { _dcrrNextToken = a })
+dcrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
+dcrNextToken = lens _dcrNextToken (\s a -> s { _dcrNextToken = a })
 
-instance FromJSON DescribeCommunicationsResponse
+-- FromJSON
 
 instance AWSRequest DescribeCommunications where
     type Sv DescribeCommunications = Support
     type Rs DescribeCommunications = DescribeCommunicationsResponse
 
-    request = get
-    response _ = jsonResponse
-
-instance AWSPager DescribeCommunications where
-    next rq rs = (\x -> rq & dc1NextToken ?~ x)
-        <$> (rs ^. dcrrNextToken)
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeCommunicationsResponse
+        <$> o .: "communications"
+        <*> o .: "nextToken"

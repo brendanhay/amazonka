@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerListeners
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,31 +37,29 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     , deleteLoadBalancerListenersResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the DeleteLoadBalancerListeners action.
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
-    { _dlblLoadBalancerName :: Text
-    , _dlblLoadBalancerPorts :: [Integer]
+    { _dlblLoadBalancerName  :: Text
+    , _dlblLoadBalancerPorts :: [Int]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLoadBalancerListeners' request.
+-- | 'DeleteLoadBalancerListeners' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'dlblLoadBalancerName' @::@ 'Text'
 --
--- * @LoadBalancerPorts ::@ @[Integer]@
+-- * 'dlblLoadBalancerPorts' @::@ ['Int']
 --
 deleteLoadBalancerListeners :: Text -- ^ 'dlblLoadBalancerName'
-                            -> [Integer] -- ^ 'dlblLoadBalancerPorts'
                             -> DeleteLoadBalancerListeners
-deleteLoadBalancerListeners p1 p2 = DeleteLoadBalancerListeners
-    { _dlblLoadBalancerName = p1
-    , _dlblLoadBalancerPorts = p2
+deleteLoadBalancerListeners p1 = DeleteLoadBalancerListeners
+    { _dlblLoadBalancerName  = p1
+    , _dlblLoadBalancerPorts = mempty
     }
 
 -- | The mnemonic name associated with the load balancer.
@@ -68,21 +68,19 @@ dlblLoadBalancerName =
     lens _dlblLoadBalancerName (\s a -> s { _dlblLoadBalancerName = a })
 
 -- | The client port number(s) of the load balancer listener(s) to be removed.
-dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Integer]
+dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
 dlblLoadBalancerPorts =
     lens _dlblLoadBalancerPorts (\s a -> s { _dlblLoadBalancerPorts = a })
 
-instance ToQuery DeleteLoadBalancerListeners where
-    toQuery = genericQuery def
+instance ToQuery DeleteLoadBalancerListeners
 
--- | The output for the DeleteLoadBalancerListeners action.
+instance ToPath DeleteLoadBalancerListeners where
+    toPath = const "/"
+
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLoadBalancerListenersResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteLoadBalancerListenersResponse' constructor.
 deleteLoadBalancerListenersResponse :: DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
 
@@ -90,5 +88,5 @@ instance AWSRequest DeleteLoadBalancerListeners where
     type Sv DeleteLoadBalancerListeners = ELB
     type Rs DeleteLoadBalancerListeners = DeleteLoadBalancerListenersResponse
 
-    request = post "DeleteLoadBalancerListeners"
-    response _ = nullaryResponse DeleteLoadBalancerListenersResponse
+    request  = post "DeleteLoadBalancerListeners"
+    response = nullaryResponse DeleteLoadBalancerListenersResponse

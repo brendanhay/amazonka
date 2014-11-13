@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DescribeSnapshots
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,19 +46,7 @@
 -- (if you own the snapshots), self for snapshots for which you own or have
 -- explicit permissions, or all for public snapshots. For more information
 -- about Amazon EBS snapshots, see Amazon EBS Snapshots in the Amazon Elastic
--- Compute Cloud User Guide. Example This example describes a snapshot with an
--- ID of snap-1a2b3c4d. https://ec2.amazonaws.com/?Action=DescribeSnapshots
--- &amp;SnapshotId=snap-1a2b3c4d &amp;AUTHPARAMS
--- 59dbff89-35bd-4eac-99ed-be587EXAMPLE snap-1a2b3c4d vol-1a2b3c4d pending
--- YYYY-MM-DDTHH:MM:SS.SSSZ 80% 111122223333 15 Daily Backup true Example This
--- example filters the response to include only snapshots with the pending
--- status, and that are also tagged with a value that includes the string db_.
--- https://ec2.amazonaws.com/?Action=DescribeSnapshots
--- &amp;Filter.1.Name=status &amp;Filter.1.Value.1=pending
--- &amp;Filter.2.Name=tag-value &amp;Filter.2.Value.1=*db_* &amp;AUTHPARAMS
--- 59dbff89-35bd-4eac-99ed-be587EXAMPLE snap-1a2b3c4d vol-1a2b3c4d pending
--- YYYY-MM-DDTHH:MM:SS.SSSZ 30% 111122223333 15 Daily Backup Purpose
--- demo_db_14_backup true.
+-- Compute Cloud User Guide.
 module Network.AWS.EC2.DescribeSnapshots
     (
     -- * Request
@@ -64,10 +54,11 @@ module Network.AWS.EC2.DescribeSnapshots
     -- ** Request constructor
     , describeSnapshots
     -- ** Request lenses
-    , ds2SnapshotIds
-    , ds2OwnerIds
-    , ds2RestorableByUserIds
-    , ds2Filters
+    , ds1DryRun
+    , ds1Filters
+    , ds1OwnerIds
+    , ds1RestorableByUserIds
+    , ds1SnapshotIds
 
     -- * Response
     , DescribeSnapshotsResponse
@@ -77,52 +68,44 @@ module Network.AWS.EC2.DescribeSnapshots
     , dsrSnapshots
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DescribeSnapshots = DescribeSnapshots
-    { _ds2SnapshotIds :: [Text]
-    , _ds2OwnerIds :: [Text]
-    , _ds2RestorableByUserIds :: [Text]
-    , _ds2Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    { _ds1DryRun              :: Maybe Bool
+    , _ds1Filters             :: [Filter]
+    , _ds1OwnerIds            :: [Text]
+    , _ds1RestorableByUserIds :: [Text]
+    , _ds1SnapshotIds         :: [Text]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSnapshots' request.
+-- | 'DescribeSnapshots' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SnapshotIds ::@ @[Text]@
+-- * 'ds1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * @OwnerIds ::@ @[Text]@
+-- * 'ds1Filters' @::@ ['Filter']
 --
--- * @RestorableByUserIds ::@ @[Text]@
+-- * 'ds1OwnerIds' @::@ ['Text']
 --
--- * @Filters ::@ @[Filter]@
+-- * 'ds1RestorableByUserIds' @::@ ['Text']
+--
+-- * 'ds1SnapshotIds' @::@ ['Text']
 --
 describeSnapshots :: DescribeSnapshots
 describeSnapshots = DescribeSnapshots
-    { _ds2SnapshotIds = mempty
-    , _ds2OwnerIds = mempty
-    , _ds2RestorableByUserIds = mempty
-    , _ds2Filters = mempty
+    { _ds1DryRun              = Nothing
+    , _ds1SnapshotIds         = mempty
+    , _ds1OwnerIds            = mempty
+    , _ds1RestorableByUserIds = mempty
+    , _ds1Filters             = mempty
     }
 
--- | One or more snapshot IDs. Default: Describes snapshots for which you have
--- launch permissions.
-ds2SnapshotIds :: Lens' DescribeSnapshots [Text]
-ds2SnapshotIds = lens _ds2SnapshotIds (\s a -> s { _ds2SnapshotIds = a })
-
--- | Returns the snapshots owned by the specified owner. Multiple owners can be
--- specified.
-ds2OwnerIds :: Lens' DescribeSnapshots [Text]
-ds2OwnerIds = lens _ds2OwnerIds (\s a -> s { _ds2OwnerIds = a })
-
--- | One or more AWS accounts IDs that can create volumes from the snapshot.
-ds2RestorableByUserIds :: Lens' DescribeSnapshots [Text]
-ds2RestorableByUserIds =
-    lens _ds2RestorableByUserIds (\s a -> s { _ds2RestorableByUserIds = a })
+ds1DryRun :: Lens' DescribeSnapshots (Maybe Bool)
+ds1DryRun = lens _ds1DryRun (\s a -> s { _ds1DryRun = a })
 
 -- | One or more filters. description - A description of the snapshot.
 -- owner-alias - The AWS account alias (for example, amazon) that owns the
@@ -132,49 +115,66 @@ ds2RestorableByUserIds =
 -- snapshot was initiated. status - The status of the snapshot (pending |
 -- completed | error). tag:key=value - The key/value combination of a tag
 -- assigned to the resource. tag-key - The key of a tag assigned to the
--- resource. This filter is independent of the tag-value filter. For example,
--- if you use both the filter "tag-key=Purpose" and the filter "tag-value=X",
--- you get any resources assigned both the tag key Purpose (regardless of what
--- the tag's value is), and the tag value X (regardless of what the tag's key
--- is). If you want to list only resources where Purpose is X, see the
--- tag:key=value filter. tag-value - The value of a tag assigned to the
--- resource. This filter is independent of the tag-key filter. volume-id - The
--- ID of the volume the snapshot is for. volume-size - The size of the volume,
--- in GiB.
-ds2Filters :: Lens' DescribeSnapshots [Filter]
-ds2Filters = lens _ds2Filters (\s a -> s { _ds2Filters = a })
+-- resource. This filter is independent of the tag-value filter. For
+-- example, if you use both the filter "tag-key=Purpose" and the filter
+-- "tag-value=X", you get any resources assigned both the tag key Purpose
+-- (regardless of what the tag's value is), and the tag value X (regardless
+-- of what the tag's key is). If you want to list only resources where
+-- Purpose is X, see the tag:key=value filter. tag-value - The value of a
+-- tag assigned to the resource. This filter is independent of the tag-key
+-- filter. volume-id - The ID of the volume the snapshot is for. volume-size
+-- - The size of the volume, in GiB.
+ds1Filters :: Lens' DescribeSnapshots [Filter]
+ds1Filters = lens _ds1Filters (\s a -> s { _ds1Filters = a })
 
-instance ToQuery DescribeSnapshots where
-    toQuery = genericQuery def
+-- | Returns the snapshots owned by the specified owner. Multiple owners can
+-- be specified.
+ds1OwnerIds :: Lens' DescribeSnapshots [Text]
+ds1OwnerIds = lens _ds1OwnerIds (\s a -> s { _ds1OwnerIds = a })
+
+-- | One or more AWS accounts IDs that can create volumes from the snapshot.
+ds1RestorableByUserIds :: Lens' DescribeSnapshots [Text]
+ds1RestorableByUserIds =
+    lens _ds1RestorableByUserIds (\s a -> s { _ds1RestorableByUserIds = a })
+
+-- | One or more snapshot IDs. Default: Describes snapshots for which you have
+-- launch permissions.
+ds1SnapshotIds :: Lens' DescribeSnapshots [Text]
+ds1SnapshotIds = lens _ds1SnapshotIds (\s a -> s { _ds1SnapshotIds = a })
+
+instance ToQuery DescribeSnapshots
+
+instance ToPath DescribeSnapshots where
+    toPath = const "/"
 
 newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots :: [Snapshot]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSnapshotsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeSnapshotsResponse where
+    type Item DescribeSnapshotsResponse = Snapshot
+
+    fromList = DescribeSnapshotsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsrSnapshots
+
+-- | 'DescribeSnapshotsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Snapshots ::@ @[Snapshot]@
+-- * 'dsrSnapshots' @::@ ['Snapshot']
 --
 describeSnapshotsResponse :: DescribeSnapshotsResponse
 describeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots = mempty
     }
 
--- | 
 dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
-
-instance FromXML DescribeSnapshotsResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest DescribeSnapshots where
     type Sv DescribeSnapshots = EC2
     type Rs DescribeSnapshots = DescribeSnapshotsResponse
 
-    request = post "DescribeSnapshots"
-    response _ = xmlResponse
+    request  = post "DescribeSnapshots"
+    response = xmlResponse $ \h x -> DescribeSnapshotsResponse
+        <$> x %| "snapshotSet"

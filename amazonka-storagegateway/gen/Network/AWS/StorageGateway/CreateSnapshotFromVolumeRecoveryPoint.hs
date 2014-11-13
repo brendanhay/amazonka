@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,27 +32,7 @@
 -- the specified volume, the snapshot and its description appear in the AWS
 -- Storage Gateway console. In response, AWS Storage Gateway returns you a
 -- snapshot ID. You can use this snapshot ID to check the snapshot progress or
--- later use it when you want to create a volume from a snapshot. To list or
--- delete a snapshot, you must use the Amazon EC2 API. For more information,
--- in Amazon Elastic Compute Cloud API Reference. Example Request The
--- following example sends a CreateSnapshotFromVolumeRecoveryPoint request to
--- take snapshot of the specified an example volume. POST / HTTP/1.1 Host:
--- storagegateway.us-east-1.amazonaws.com Content-Type:
--- application/x-amz-json-1.1 Authorization: AWS4-HMAC-SHA256
--- Credential=AKIAIOSFODNN7EXAMPLE/20120425/us-east-1/storagegateway/aws4_request,
--- SignedHeaders=content-type;host;x-amz-date;x-amz-target,
--- Signature=9cd5a3584d1d67d57e61f120f35102d6b3649066abdd4bf4bbcf05bd9f2f8fe2
--- x-amz-date: 20120912T120000Z x-amz-target:
--- StorageGateway_20120630.CreateSnapshotFromVolumeRecoveryPoint {
--- "VolumeARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
--- "SnapshotDescription": "snapshot description" } HTTP/1.1 200 OK
--- x-amzn-RequestId: gur28r2rqlgb8vvs0mq17hlgij1q8glle1qeu3kpgg6f0kstauu0
--- Date: Wed, 12 Sep 2012 12:00:02 GMT Content-Type:
--- application/x-amz-json-1.1 Content-length: 137 { "SnapshotId":
--- "snap-78e22663", "VolumeARN":
--- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
--- "VolumeRecoveryPointTime": "2012-06-30T10:10:10.000Z" }.
+-- later use it when you want to create a volume from a snapshot.
 module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     (
     -- * Request
@@ -58,8 +40,8 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     -- ** Request constructor
     , createSnapshotFromVolumeRecoveryPoint
     -- ** Request lenses
-    , csfvrpVolumeARN
     , csfvrpSnapshotDescription
+    , csfvrpVolumeARN
 
     -- * Response
     , CreateSnapshotFromVolumeRecoveryPointResponse
@@ -71,71 +53,70 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     , csfvrprVolumeRecoveryPointTime
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint
-    { _csfvrpVolumeARN :: Text
-    , _csfvrpSnapshotDescription :: Text
+    { _csfvrpSnapshotDescription :: Text
+    , _csfvrpVolumeARN           :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateSnapshotFromVolumeRecoveryPoint' request.
+-- | 'CreateSnapshotFromVolumeRecoveryPoint' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeARN ::@ @Text@
+-- * 'csfvrpSnapshotDescription' @::@ 'Text'
 --
--- * @SnapshotDescription ::@ @Text@
+-- * 'csfvrpVolumeARN' @::@ 'Text'
 --
 createSnapshotFromVolumeRecoveryPoint :: Text -- ^ 'csfvrpVolumeARN'
                                       -> Text -- ^ 'csfvrpSnapshotDescription'
                                       -> CreateSnapshotFromVolumeRecoveryPoint
 createSnapshotFromVolumeRecoveryPoint p1 p2 = CreateSnapshotFromVolumeRecoveryPoint
-    { _csfvrpVolumeARN = p1
+    { _csfvrpVolumeARN           = p1
     , _csfvrpSnapshotDescription = p2
     }
-
-csfvrpVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
-csfvrpVolumeARN = lens _csfvrpVolumeARN (\s a -> s { _csfvrpVolumeARN = a })
 
 csfvrpSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
 csfvrpSnapshotDescription =
     lens _csfvrpSnapshotDescription
-         (\s a -> s { _csfvrpSnapshotDescription = a })
+        (\s a -> s { _csfvrpSnapshotDescription = a })
 
-instance ToPath CreateSnapshotFromVolumeRecoveryPoint
+csfvrpVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
+csfvrpVolumeARN = lens _csfvrpVolumeARN (\s a -> s { _csfvrpVolumeARN = a })
 
-instance ToQuery CreateSnapshotFromVolumeRecoveryPoint
+instance ToPath CreateSnapshotFromVolumeRecoveryPoint where
+    toPath = const "/"
+
+instance ToQuery CreateSnapshotFromVolumeRecoveryPoint where
+    toQuery = const mempty
 
 instance ToHeaders CreateSnapshotFromVolumeRecoveryPoint
 
-instance ToJSON CreateSnapshotFromVolumeRecoveryPoint
+instance ToBody CreateSnapshotFromVolumeRecoveryPoint where
+    toBody = toBody . encode . _csfvrpVolumeARN
 
 data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse
-    { _csfvrprSnapshotId :: Maybe Text
-    , _csfvrprVolumeARN :: Maybe Text
+    { _csfvrprSnapshotId              :: Maybe Text
+    , _csfvrprVolumeARN               :: Maybe Text
     , _csfvrprVolumeRecoveryPointTime :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateSnapshotFromVolumeRecoveryPointResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateSnapshotFromVolumeRecoveryPointResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SnapshotId ::@ @Maybe Text@
+-- * 'csfvrprSnapshotId' @::@ 'Maybe' 'Text'
 --
--- * @VolumeARN ::@ @Maybe Text@
+-- * 'csfvrprVolumeARN' @::@ 'Maybe' 'Text'
 --
--- * @VolumeRecoveryPointTime ::@ @Maybe Text@
+-- * 'csfvrprVolumeRecoveryPointTime' @::@ 'Maybe' 'Text'
 --
 createSnapshotFromVolumeRecoveryPointResponse :: CreateSnapshotFromVolumeRecoveryPointResponse
 createSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse
-    { _csfvrprSnapshotId = Nothing
-    , _csfvrprVolumeARN = Nothing
+    { _csfvrprSnapshotId              = Nothing
+    , _csfvrprVolumeARN               = Nothing
     , _csfvrprVolumeRecoveryPointTime = Nothing
     }
 
@@ -144,19 +125,21 @@ csfvrprSnapshotId =
     lens _csfvrprSnapshotId (\s a -> s { _csfvrprSnapshotId = a })
 
 csfvrprVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprVolumeARN =
-    lens _csfvrprVolumeARN (\s a -> s { _csfvrprVolumeARN = a })
+csfvrprVolumeARN = lens _csfvrprVolumeARN (\s a -> s { _csfvrprVolumeARN = a })
 
 csfvrprVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrprVolumeRecoveryPointTime =
     lens _csfvrprVolumeRecoveryPointTime
-         (\s a -> s { _csfvrprVolumeRecoveryPointTime = a })
+        (\s a -> s { _csfvrprVolumeRecoveryPointTime = a })
 
-instance FromJSON CreateSnapshotFromVolumeRecoveryPointResponse
+-- FromJSON
 
 instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
     type Sv CreateSnapshotFromVolumeRecoveryPoint = StorageGateway
     type Rs CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPointResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> CreateSnapshotFromVolumeRecoveryPointResponse
+        <$> o .: "SnapshotId"
+        <*> o .: "VolumeARN"
+        <*> o .: "VolumeRecoveryPointTime"

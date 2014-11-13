@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.Support.AddCommunicationToCase
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,10 +34,10 @@ module Network.AWS.Support.AddCommunicationToCase
     -- ** Request constructor
     , addCommunicationToCase
     -- ** Request lenses
-    , actcCaseId
-    , actcCommunicationBody
-    , actcCcEmailAddresses
     , actcAttachmentSetId
+    , actcCaseId
+    , actcCcEmailAddresses
+    , actcCommunicationBody
 
     -- * Response
     , AddCommunicationToCaseResponse
@@ -45,39 +47,43 @@ module Network.AWS.Support.AddCommunicationToCase
     , actcrResult
     ) where
 
-import Network.AWS.Support.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.Support.Types
 
--- | To be written.
 data AddCommunicationToCase = AddCommunicationToCase
-    { _actcCaseId :: Maybe Text
+    { _actcAttachmentSetId   :: Maybe Text
+    , _actcCaseId            :: Maybe Text
+    , _actcCcEmailAddresses  :: [Text]
     , _actcCommunicationBody :: Text
-    , _actcCcEmailAddresses :: [Text]
-    , _actcAttachmentSetId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddCommunicationToCase' request.
+-- | 'AddCommunicationToCase' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CaseId ::@ @Maybe Text@
+-- * 'actcAttachmentSetId' @::@ 'Maybe' 'Text'
 --
--- * @CommunicationBody ::@ @Text@
+-- * 'actcCaseId' @::@ 'Maybe' 'Text'
 --
--- * @CcEmailAddresses ::@ @[Text]@
+-- * 'actcCcEmailAddresses' @::@ ['Text']
 --
--- * @AttachmentSetId ::@ @Maybe Text@
+-- * 'actcCommunicationBody' @::@ 'Text'
 --
 addCommunicationToCase :: Text -- ^ 'actcCommunicationBody'
                        -> AddCommunicationToCase
-addCommunicationToCase p2 = AddCommunicationToCase
-    { _actcCaseId = Nothing
-    , _actcCommunicationBody = p2
-    , _actcCcEmailAddresses = mempty
-    , _actcAttachmentSetId = Nothing
+addCommunicationToCase p1 = AddCommunicationToCase
+    { _actcCommunicationBody = p1
+    , _actcCaseId            = Nothing
+    , _actcCcEmailAddresses  = mempty
+    , _actcAttachmentSetId   = Nothing
     }
+
+-- | The ID of a set of one or more attachments for the communication to add
+-- to the case. Create the set by calling AddAttachmentsToSet.
+actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
+actcAttachmentSetId =
+    lens _actcAttachmentSetId (\s a -> s { _actcAttachmentSetId = a })
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
@@ -85,44 +91,37 @@ addCommunicationToCase p2 = AddCommunicationToCase
 actcCaseId :: Lens' AddCommunicationToCase (Maybe Text)
 actcCaseId = lens _actcCaseId (\s a -> s { _actcCaseId = a })
 
--- | The body of an email communication to add to the support case.
-actcCommunicationBody :: Lens' AddCommunicationToCase Text
-actcCommunicationBody =
-    lens _actcCommunicationBody (\s a -> s { _actcCommunicationBody = a })
-
 -- | The email addresses in the CC line of an email to be added to the support
 -- case.
 actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
 actcCcEmailAddresses =
     lens _actcCcEmailAddresses (\s a -> s { _actcCcEmailAddresses = a })
 
--- | The ID of a set of one or more attachments for the communication to add to
--- the case. Create the set by calling AddAttachmentsToSet.
-actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
-actcAttachmentSetId =
-    lens _actcAttachmentSetId (\s a -> s { _actcAttachmentSetId = a })
+-- | The body of an email communication to add to the support case.
+actcCommunicationBody :: Lens' AddCommunicationToCase Text
+actcCommunicationBody =
+    lens _actcCommunicationBody (\s a -> s { _actcCommunicationBody = a })
 
-instance ToPath AddCommunicationToCase
+instance ToPath AddCommunicationToCase where
+    toPath = const "/"
 
-instance ToQuery AddCommunicationToCase
+instance ToQuery AddCommunicationToCase where
+    toQuery = const mempty
 
 instance ToHeaders AddCommunicationToCase
 
-instance ToJSON AddCommunicationToCase
+instance ToBody AddCommunicationToCase where
+    toBody = toBody . encode . _actcCaseId
 
--- | The result of the AddCommunicationToCase operation.
 newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
     { _actcrResult :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddCommunicationToCaseResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AddCommunicationToCaseResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Result ::@ @Maybe Bool@
+-- * 'actcrResult' @::@ 'Maybe' 'Bool'
 --
 addCommunicationToCaseResponse :: AddCommunicationToCaseResponse
 addCommunicationToCaseResponse = AddCommunicationToCaseResponse
@@ -133,11 +132,12 @@ addCommunicationToCaseResponse = AddCommunicationToCaseResponse
 actcrResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrResult = lens _actcrResult (\s a -> s { _actcrResult = a })
 
-instance FromJSON AddCommunicationToCaseResponse
+-- FromJSON
 
 instance AWSRequest AddCommunicationToCase where
     type Sv AddCommunicationToCase = Support
     type Rs AddCommunicationToCase = AddCommunicationToCaseResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> AddCommunicationToCaseResponse
+        <$> o .: "result"

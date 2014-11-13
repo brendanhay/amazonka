@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.RejectVpcPeeringConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,15 +22,9 @@
 
 -- | Rejects a VPC peering connection request. The VPC peering connection must
 -- be in the pending-acceptance state. Use the DescribeVpcPeeringConnections
--- request to view your outstanding VPC peering connection requests. Example
--- This example rejects the specified VPC peering connection request.
--- https://ec2.amazonaws.com/?Action=RejectVpcPeeringConnection
--- &amp;vpcPeeringConnectionId=pcx-1a2b3c4d &amp;AUTHPARAMS
--- &lt;RejectVpcPeeringConnectionResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt;
--- &lt;/RejectVpcPeeringConnectionResponse&gt;.
+-- request to view your outstanding VPC peering connection requests. To delete
+-- an active VPC peering connection, or to delete a VPC peering connection
+-- request that you initiated, use DeleteVpcPeeringConnection.
 module Network.AWS.EC2.RejectVpcPeeringConnection
     (
     -- * Request
@@ -36,6 +32,7 @@ module Network.AWS.EC2.RejectVpcPeeringConnection
     -- ** Request constructor
     , rejectVpcPeeringConnection
     -- ** Request lenses
+    , rvpcDryRun
     , rvpcVpcPeeringConnectionId
 
     -- * Response
@@ -46,48 +43,54 @@ module Network.AWS.EC2.RejectVpcPeeringConnection
     , rvpcrReturn
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype RejectVpcPeeringConnection = RejectVpcPeeringConnection
-    { _rvpcVpcPeeringConnectionId :: Text
+data RejectVpcPeeringConnection = RejectVpcPeeringConnection
+    { _rvpcDryRun                 :: Maybe Bool
+    , _rvpcVpcPeeringConnectionId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RejectVpcPeeringConnection' request.
+-- | 'RejectVpcPeeringConnection' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcPeeringConnectionId ::@ @Text@
+-- * 'rvpcDryRun' @::@ 'Maybe' 'Bool'
+--
+-- * 'rvpcVpcPeeringConnectionId' @::@ 'Text'
 --
 rejectVpcPeeringConnection :: Text -- ^ 'rvpcVpcPeeringConnectionId'
                            -> RejectVpcPeeringConnection
 rejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
     { _rvpcVpcPeeringConnectionId = p1
+    , _rvpcDryRun                 = Nothing
     }
+
+rvpcDryRun :: Lens' RejectVpcPeeringConnection (Maybe Bool)
+rvpcDryRun = lens _rvpcDryRun (\s a -> s { _rvpcDryRun = a })
 
 -- | The ID of the VPC peering connection.
 rvpcVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection Text
 rvpcVpcPeeringConnectionId =
     lens _rvpcVpcPeeringConnectionId
-         (\s a -> s { _rvpcVpcPeeringConnectionId = a })
+        (\s a -> s { _rvpcVpcPeeringConnectionId = a })
 
-instance ToQuery RejectVpcPeeringConnection where
-    toQuery = genericQuery def
+instance ToQuery RejectVpcPeeringConnection
+
+instance ToPath RejectVpcPeeringConnection where
+    toPath = const "/"
 
 newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     { _rvpcrReturn :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RejectVpcPeeringConnectionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RejectVpcPeeringConnectionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Return ::@ @Maybe Bool@
+-- * 'rvpcrReturn' @::@ 'Maybe' 'Bool'
 --
 rejectVpcPeeringConnectionResponse :: RejectVpcPeeringConnectionResponse
 rejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
@@ -98,12 +101,10 @@ rejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
 rvpcrReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
 rvpcrReturn = lens _rvpcrReturn (\s a -> s { _rvpcrReturn = a })
 
-instance FromXML RejectVpcPeeringConnectionResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest RejectVpcPeeringConnection where
     type Sv RejectVpcPeeringConnection = EC2
     type Rs RejectVpcPeeringConnection = RejectVpcPeeringConnectionResponse
 
-    request = post "RejectVpcPeeringConnection"
-    response _ = xmlResponse
+    request  = post "RejectVpcPeeringConnection"
+    response = xmlResponse $ \h x -> RejectVpcPeeringConnectionResponse
+        <$> x %| "return"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateEnvironment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,16 +29,6 @@
 -- individual settings, a draft configuration is created and
 -- DescribeConfigurationSettings for this environment returns two setting
 -- descriptions with different DeploymentStatus values.
--- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
--- &EnvironmentName=SampleAppVersion &TemplateName=default
--- &OptionsToRemove.member.1.Namespace=aws%3Aautoscaling%3Atrigger
--- &OptionsToRemove.member.1.OptionName=MeasureName
--- &Operation=UpdateEnvironment &AuthParams New Version Deploying SampleApp
--- elasticbeanstalk-SampleAppVersion-246126201.us-east-1.elb.amazonaws.com
--- SampleApp.elasticbeanstalk.amazonaws.com Grey e-hc8mvnayrx
--- 2010-11-17T21:05:55.251Z 32bit Amazon Linux running Tomcat 7
--- SampleAppDescription SampleAppVersion 2010-11-17T20:17:42.339Z
--- 7705f0bc-f28e-11df-8a78-9f77047e0d0c.
 module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     (
     -- * Request
@@ -44,91 +36,95 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     -- ** Request constructor
     , updateEnvironment
     -- ** Request lenses
+    , ueDescription
     , ueEnvironmentId
     , ueEnvironmentName
-    , ueDescription
-    , ueTier
-    , ueVersionLabel
-    , ueTemplateName
     , ueOptionSettings
     , ueOptionsToRemove
+    , ueTemplateName
+    , ueTier
+    , ueVersionLabel
 
     -- * Response
     , UpdateEnvironmentResponse
     -- ** Response constructor
     , updateEnvironmentResponse
     -- ** Response lenses
-    , uerEnvironmentName
-    , uerEnvironmentId
     , uerApplicationName
-    , uerVersionLabel
-    , uerSolutionStackName
-    , uerTemplateName
-    , uerDescription
-    , uerEndpointURL
     , uerCNAME
     , uerDateCreated
     , uerDateUpdated
-    , uerStatus
+    , uerDescription
+    , uerEndpointURL
+    , uerEnvironmentId
+    , uerEnvironmentName
     , uerHealth
     , uerResources
+    , uerSolutionStackName
+    , uerStatus
+    , uerTemplateName
     , uerTier
+    , uerVersionLabel
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | This documentation target is not reported in the API reference.
 data UpdateEnvironment = UpdateEnvironment
-    { _ueEnvironmentId :: Maybe Text
+    { _ueDescription     :: Maybe Text
+    , _ueEnvironmentId   :: Maybe Text
     , _ueEnvironmentName :: Maybe Text
-    , _ueDescription :: Maybe Text
-    , _ueTier :: Maybe EnvironmentTier
-    , _ueVersionLabel :: Maybe Text
-    , _ueTemplateName :: Maybe Text
-    , _ueOptionSettings :: [ConfigurationOptionSetting]
+    , _ueOptionSettings  :: [ConfigurationOptionSetting]
     , _ueOptionsToRemove :: [OptionSpecification]
-    } deriving (Eq, Ord, Show, Generic)
+    , _ueTemplateName    :: Maybe Text
+    , _ueTier            :: Maybe EnvironmentTier
+    , _ueVersionLabel    :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateEnvironment' request.
+-- | 'UpdateEnvironment' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EnvironmentId ::@ @Maybe Text@
+-- * 'ueDescription' @::@ 'Maybe' 'Text'
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'ueEnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'ueEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * @Tier ::@ @Maybe EnvironmentTier@
+-- * 'ueOptionSettings' @::@ ['ConfigurationOptionSetting']
 --
--- * @VersionLabel ::@ @Maybe Text@
+-- * 'ueOptionsToRemove' @::@ ['OptionSpecification']
 --
--- * @TemplateName ::@ @Maybe Text@
+-- * 'ueTemplateName' @::@ 'Maybe' 'Text'
 --
--- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+-- * 'ueTier' @::@ 'Maybe' 'EnvironmentTier'
 --
--- * @OptionsToRemove ::@ @[OptionSpecification]@
+-- * 'ueVersionLabel' @::@ 'Maybe' 'Text'
 --
 updateEnvironment :: UpdateEnvironment
 updateEnvironment = UpdateEnvironment
-    { _ueEnvironmentId = Nothing
+    { _ueEnvironmentId   = Nothing
     , _ueEnvironmentName = Nothing
-    , _ueDescription = Nothing
-    , _ueTier = Nothing
-    , _ueVersionLabel = Nothing
-    , _ueTemplateName = Nothing
-    , _ueOptionSettings = mempty
+    , _ueDescription     = Nothing
+    , _ueTier            = Nothing
+    , _ueVersionLabel    = Nothing
+    , _ueTemplateName    = Nothing
+    , _ueOptionSettings  = mempty
     , _ueOptionsToRemove = mempty
     }
 
--- | The ID of the environment to update. If no environment with this ID exists,
--- AWS Elastic Beanstalk returns an InvalidParameterValue error. Condition:
--- You must specify either this or an EnvironmentName, or both. If you do not
--- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
--- error.
+-- | If this parameter is specified, AWS Elastic Beanstalk updates the
+-- description of this environment.
+ueDescription :: Lens' UpdateEnvironment (Maybe Text)
+ueDescription = lens _ueDescription (\s a -> s { _ueDescription = a })
+
+-- | The ID of the environment to update. If no environment with this ID
+-- exists, AWS Elastic Beanstalk returns an InvalidParameterValue error.
+-- Condition: You must specify either this or an EnvironmentName, or both.
+-- If you do not specify either, AWS Elastic Beanstalk returns
+-- MissingRequiredParameter error.
 ueEnvironmentId :: Lens' UpdateEnvironment (Maybe Text)
 ueEnvironmentId = lens _ueEnvironmentId (\s a -> s { _ueEnvironmentId = a })
 
@@ -141,14 +137,29 @@ ueEnvironmentName :: Lens' UpdateEnvironment (Maybe Text)
 ueEnvironmentName =
     lens _ueEnvironmentName (\s a -> s { _ueEnvironmentName = a })
 
--- | If this parameter is specified, AWS Elastic Beanstalk updates the
--- description of this environment.
-ueDescription :: Lens' UpdateEnvironment (Maybe Text)
-ueDescription = lens _ueDescription (\s a -> s { _ueDescription = a })
+-- | If specified, AWS Elastic Beanstalk updates the configuration set
+-- associated with the running environment and sets the specified
+-- configuration options to the requested value.
+ueOptionSettings :: Lens' UpdateEnvironment [ConfigurationOptionSetting]
+ueOptionSettings = lens _ueOptionSettings (\s a -> s { _ueOptionSettings = a })
+
+-- | A list of custom user-defined configuration options to remove from the
+-- configuration set for this environment.
+ueOptionsToRemove :: Lens' UpdateEnvironment [OptionSpecification]
+ueOptionsToRemove =
+    lens _ueOptionsToRemove (\s a -> s { _ueOptionsToRemove = a })
+
+-- | If this parameter is specified, AWS Elastic Beanstalk deploys this
+-- configuration template to the environment. If no such configuration
+-- template is found, AWS Elastic Beanstalk returns an InvalidParameterValue
+-- error.
+ueTemplateName :: Lens' UpdateEnvironment (Maybe Text)
+ueTemplateName = lens _ueTemplateName (\s a -> s { _ueTemplateName = a })
 
 -- | This specifies the tier to use to update the environment. Condition: You
--- can only update the tier version for an environment. If you change the name
--- of the type, AWS Elastic Beanstalk returns InvalidParameterValue error.
+-- can only update the tier version for an environment. If you change the
+-- name of the type, AWS Elastic Beanstalk returns InvalidParameterValue
+-- error.
 ueTier :: Lens' UpdateEnvironment (Maybe EnvironmentTier)
 ueTier = lens _ueTier (\s a -> s { _ueTier = a })
 
@@ -158,132 +169,100 @@ ueTier = lens _ueTier (\s a -> s { _ueTier = a })
 ueVersionLabel :: Lens' UpdateEnvironment (Maybe Text)
 ueVersionLabel = lens _ueVersionLabel (\s a -> s { _ueVersionLabel = a })
 
--- | If this parameter is specified, AWS Elastic Beanstalk deploys this
--- configuration template to the environment. If no such configuration
--- template is found, AWS Elastic Beanstalk returns an InvalidParameterValue
--- error.
-ueTemplateName :: Lens' UpdateEnvironment (Maybe Text)
-ueTemplateName = lens _ueTemplateName (\s a -> s { _ueTemplateName = a })
+instance ToQuery UpdateEnvironment
 
--- | If specified, AWS Elastic Beanstalk updates the configuration set
--- associated with the running environment and sets the specified
--- configuration options to the requested value.
-ueOptionSettings :: Lens' UpdateEnvironment [ConfigurationOptionSetting]
-ueOptionSettings =
-    lens _ueOptionSettings (\s a -> s { _ueOptionSettings = a })
+instance ToPath UpdateEnvironment where
+    toPath = const "/"
 
--- | A list of custom user-defined configuration options to remove from the
--- configuration set for this environment.
-ueOptionsToRemove :: Lens' UpdateEnvironment [OptionSpecification]
-ueOptionsToRemove =
-    lens _ueOptionsToRemove (\s a -> s { _ueOptionsToRemove = a })
-
-instance ToQuery UpdateEnvironment where
-    toQuery = genericQuery def
-
--- | Describes the properties of an environment.
 data UpdateEnvironmentResponse = UpdateEnvironmentResponse
-    { _uerEnvironmentName :: Maybe Text
-    , _uerEnvironmentId :: Maybe Text
-    , _uerApplicationName :: Maybe Text
-    , _uerVersionLabel :: Maybe Text
+    { _uerApplicationName   :: Maybe Text
+    , _uerCNAME             :: Maybe Text
+    , _uerDateCreated       :: Maybe RFC822
+    , _uerDateUpdated       :: Maybe RFC822
+    , _uerDescription       :: Maybe Text
+    , _uerEndpointURL       :: Maybe Text
+    , _uerEnvironmentId     :: Maybe Text
+    , _uerEnvironmentName   :: Maybe Text
+    , _uerHealth            :: Maybe Text
+    , _uerResources         :: Maybe EnvironmentResourcesDescription
     , _uerSolutionStackName :: Maybe Text
-    , _uerTemplateName :: Maybe Text
-    , _uerDescription :: Maybe Text
-    , _uerEndpointURL :: Maybe Text
-    , _uerCNAME :: Maybe Text
-    , _uerDateCreated :: Maybe ISO8601
-    , _uerDateUpdated :: Maybe ISO8601
-    , _uerStatus :: Maybe EnvironmentStatus
-    , _uerHealth :: Maybe EnvironmentHealth
-    , _uerResources :: Maybe EnvironmentResourcesDescription
-    , _uerTier :: Maybe EnvironmentTier
-    } deriving (Eq, Ord, Show, Generic)
+    , _uerStatus            :: Maybe Text
+    , _uerTemplateName      :: Maybe Text
+    , _uerTier              :: Maybe EnvironmentTier
+    , _uerVersionLabel      :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateEnvironmentResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateEnvironmentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EnvironmentName ::@ @Maybe Text@
+-- * 'uerApplicationName' @::@ 'Maybe' 'Text'
 --
--- * @EnvironmentId ::@ @Maybe Text@
+-- * 'uerCNAME' @::@ 'Maybe' 'Text'
 --
--- * @ApplicationName ::@ @Maybe Text@
+-- * 'uerDateCreated' @::@ 'Maybe' 'UTCTime'
 --
--- * @VersionLabel ::@ @Maybe Text@
+-- * 'uerDateUpdated' @::@ 'Maybe' 'UTCTime'
 --
--- * @SolutionStackName ::@ @Maybe Text@
+-- * 'uerDescription' @::@ 'Maybe' 'Text'
 --
--- * @TemplateName ::@ @Maybe Text@
+-- * 'uerEndpointURL' @::@ 'Maybe' 'Text'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'uerEnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * @EndpointURL ::@ @Maybe Text@
+-- * 'uerEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * @CNAME ::@ @Maybe Text@
+-- * 'uerHealth' @::@ 'Maybe' 'Text'
 --
--- * @DateCreated ::@ @Maybe ISO8601@
+-- * 'uerResources' @::@ 'Maybe' 'EnvironmentResourcesDescription'
 --
--- * @DateUpdated ::@ @Maybe ISO8601@
+-- * 'uerSolutionStackName' @::@ 'Maybe' 'Text'
 --
--- * @Status ::@ @Maybe EnvironmentStatus@
+-- * 'uerStatus' @::@ 'Maybe' 'Text'
 --
--- * @Health ::@ @Maybe EnvironmentHealth@
+-- * 'uerTemplateName' @::@ 'Maybe' 'Text'
 --
--- * @Resources ::@ @Maybe EnvironmentResourcesDescription@
+-- * 'uerTier' @::@ 'Maybe' 'EnvironmentTier'
 --
--- * @Tier ::@ @Maybe EnvironmentTier@
+-- * 'uerVersionLabel' @::@ 'Maybe' 'Text'
 --
 updateEnvironmentResponse :: UpdateEnvironmentResponse
 updateEnvironmentResponse = UpdateEnvironmentResponse
-    { _uerEnvironmentName = Nothing
-    , _uerEnvironmentId = Nothing
-    , _uerApplicationName = Nothing
-    , _uerVersionLabel = Nothing
+    { _uerEnvironmentName   = Nothing
+    , _uerEnvironmentId     = Nothing
+    , _uerApplicationName   = Nothing
+    , _uerVersionLabel      = Nothing
     , _uerSolutionStackName = Nothing
-    , _uerTemplateName = Nothing
-    , _uerDescription = Nothing
-    , _uerEndpointURL = Nothing
-    , _uerCNAME = Nothing
-    , _uerDateCreated = Nothing
-    , _uerDateUpdated = Nothing
-    , _uerStatus = Nothing
-    , _uerHealth = Nothing
-    , _uerResources = Nothing
-    , _uerTier = Nothing
+    , _uerTemplateName      = Nothing
+    , _uerDescription       = Nothing
+    , _uerEndpointURL       = Nothing
+    , _uerCNAME             = Nothing
+    , _uerDateCreated       = Nothing
+    , _uerDateUpdated       = Nothing
+    , _uerStatus            = Nothing
+    , _uerHealth            = Nothing
+    , _uerResources         = Nothing
+    , _uerTier              = Nothing
     }
-
--- | The name of this environment.
-uerEnvironmentName :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uerEnvironmentName =
-    lens _uerEnvironmentName (\s a -> s { _uerEnvironmentName = a })
-
--- | The ID of this environment.
-uerEnvironmentId :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uerEnvironmentId =
-    lens _uerEnvironmentId (\s a -> s { _uerEnvironmentId = a })
 
 -- | The name of the application associated with this environment.
 uerApplicationName :: Lens' UpdateEnvironmentResponse (Maybe Text)
 uerApplicationName =
     lens _uerApplicationName (\s a -> s { _uerApplicationName = a })
 
--- | The application version deployed in this environment.
-uerVersionLabel :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uerVersionLabel = lens _uerVersionLabel (\s a -> s { _uerVersionLabel = a })
+-- | The URL to the CNAME for this environment.
+uerCNAME :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerCNAME = lens _uerCNAME (\s a -> s { _uerCNAME = a })
 
--- | The name of the SolutionStack deployed with this environment.
-uerSolutionStackName :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uerSolutionStackName =
-    lens _uerSolutionStackName (\s a -> s { _uerSolutionStackName = a })
+-- | The creation date for this environment.
+uerDateCreated :: Lens' UpdateEnvironmentResponse (Maybe UTCTime)
+uerDateCreated = lens _uerDateCreated (\s a -> s { _uerDateCreated = a })
+    . mapping _Time
 
--- | The name of the configuration template used to originally launch this
--- environment.
-uerTemplateName :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uerTemplateName = lens _uerTemplateName (\s a -> s { _uerTemplateName = a })
+-- | The last modified date for this environment.
+uerDateUpdated :: Lens' UpdateEnvironmentResponse (Maybe UTCTime)
+uerDateUpdated = lens _uerDateUpdated (\s a -> s { _uerDateUpdated = a })
+    . mapping _Time
 
 -- | Describes this environment.
 uerDescription :: Lens' UpdateEnvironmentResponse (Maybe Text)
@@ -294,57 +273,80 @@ uerDescription = lens _uerDescription (\s a -> s { _uerDescription = a })
 uerEndpointURL :: Lens' UpdateEnvironmentResponse (Maybe Text)
 uerEndpointURL = lens _uerEndpointURL (\s a -> s { _uerEndpointURL = a })
 
--- | The URL to the CNAME for this environment.
-uerCNAME :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uerCNAME = lens _uerCNAME (\s a -> s { _uerCNAME = a })
+-- | The ID of this environment.
+uerEnvironmentId :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerEnvironmentId = lens _uerEnvironmentId (\s a -> s { _uerEnvironmentId = a })
 
--- | The creation date for this environment.
-uerDateCreated :: Lens' UpdateEnvironmentResponse (Maybe ISO8601)
-uerDateCreated = lens _uerDateCreated (\s a -> s { _uerDateCreated = a })
-
--- | The last modified date for this environment.
-uerDateUpdated :: Lens' UpdateEnvironmentResponse (Maybe ISO8601)
-uerDateUpdated = lens _uerDateUpdated (\s a -> s { _uerDateUpdated = a })
-
--- | The current operational status of the environment: Launching: Environment
--- is in the process of initial deployment. Updating: Environment is in the
--- process of updating its configuration settings or application version.
--- Ready: Environment is available to have an action performed on it, such as
--- update or terminate. Terminating: Environment is in the shut-down process.
--- Terminated: Environment is not running.
-uerStatus :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentStatus)
-uerStatus = lens _uerStatus (\s a -> s { _uerStatus = a })
+-- | The name of this environment.
+uerEnvironmentName :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerEnvironmentName =
+    lens _uerEnvironmentName (\s a -> s { _uerEnvironmentName = a })
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
--- indicates the failure levels for a running environment: Red : Indicates the
--- environment is not working. Yellow: Indicates that something is wrong, the
--- application might not be available, but the instances appear running.
--- Green: Indicates the environment is healthy and fully functional. Red:
--- Indicates the environment is not responsive. Occurs when three or more
--- consecutive failures occur for an environment. Yellow: Indicates that
--- something is wrong. Occurs when two consecutive failures occur for an
--- environment. Green: Indicates the environment is healthy and fully
--- functional. Grey: Default health for a new environment. The environment is
--- not fully launched and health checks have not started or health checks are
--- suspended during an UpdateEnvironment or RestartEnvironement request.
--- Default: Grey.
-uerHealth :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentHealth)
+-- indicates the failure levels for a running environment: Red : Indicates
+-- the environment is not working. Yellow: Indicates that something is
+-- wrong, the application might not be available, but the instances appear
+-- running. Green: Indicates the environment is healthy and fully
+-- functional. Red: Indicates the environment is not responsive. Occurs when
+-- three or more consecutive failures occur for an environment. Yellow:
+-- Indicates that something is wrong. Occurs when two consecutive failures
+-- occur for an environment. Green: Indicates the environment is healthy and
+-- fully functional. Grey: Default health for a new environment. The
+-- environment is not fully launched and health checks have not started or
+-- health checks are suspended during an UpdateEnvironment or
+-- RestartEnvironement request. Default: Grey.
+uerHealth :: Lens' UpdateEnvironmentResponse (Maybe Text)
 uerHealth = lens _uerHealth (\s a -> s { _uerHealth = a })
 
 -- | The description of the AWS resources used by this environment.
 uerResources :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
 uerResources = lens _uerResources (\s a -> s { _uerResources = a })
 
+-- | The name of the SolutionStack deployed with this environment.
+uerSolutionStackName :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerSolutionStackName =
+    lens _uerSolutionStackName (\s a -> s { _uerSolutionStackName = a })
+
+-- | The current operational status of the environment: Launching: Environment
+-- is in the process of initial deployment. Updating: Environment is in the
+-- process of updating its configuration settings or application version.
+-- Ready: Environment is available to have an action performed on it, such
+-- as update or terminate. Terminating: Environment is in the shut-down
+-- process. Terminated: Environment is not running.
+uerStatus :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerStatus = lens _uerStatus (\s a -> s { _uerStatus = a })
+
+-- | The name of the configuration template used to originally launch this
+-- environment.
+uerTemplateName :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerTemplateName = lens _uerTemplateName (\s a -> s { _uerTemplateName = a })
+
 -- | Describes the current tier of this environment.
 uerTier :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentTier)
 uerTier = lens _uerTier (\s a -> s { _uerTier = a })
 
-instance FromXML UpdateEnvironmentResponse where
-    fromXMLOptions = xmlOptions
+-- | The application version deployed in this environment.
+uerVersionLabel :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerVersionLabel = lens _uerVersionLabel (\s a -> s { _uerVersionLabel = a })
 
 instance AWSRequest UpdateEnvironment where
     type Sv UpdateEnvironment = ElasticBeanstalk
     type Rs UpdateEnvironment = UpdateEnvironmentResponse
 
-    request = post "UpdateEnvironment"
-    response _ = xmlResponse
+    request  = post "UpdateEnvironment"
+    response = xmlResponse $ \h x -> UpdateEnvironmentResponse
+        <$> x %| "ApplicationName"
+        <*> x %| "CNAME"
+        <*> x %| "DateCreated"
+        <*> x %| "DateUpdated"
+        <*> x %| "Description"
+        <*> x %| "EndpointURL"
+        <*> x %| "EnvironmentId"
+        <*> x %| "EnvironmentName"
+        <*> x %| "Health"
+        <*> x %| "Resources"
+        <*> x %| "SolutionStackName"
+        <*> x %| "Status"
+        <*> x %| "TemplateName"
+        <*> x %| "Tier"
+        <*> x %| "VersionLabel"

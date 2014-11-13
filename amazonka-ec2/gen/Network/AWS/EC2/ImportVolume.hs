@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.ImportVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,16 +25,6 @@
 -- command in the Amazon EC2 command-line interface (CLI) tools. For more
 -- information, see Using the Command Line Tools to Import Your Virtual
 -- Machine to Amazon EC2 in the Amazon Elastic Compute Cloud User Guide.
--- Example This example creates an import volume task that migrates a Windows
--- Server 2008 SP2 (32-bit) volume into the AWS us-east-1 region.
--- https://ec2.amazonaws.com/?Action=ImportVolume
--- &amp;AvailabilityZone=us-east-1c &amp;Image.Format=VMDK
--- &amp;Image.Bytes=128696320
--- &amp;Image.ImportManifestUrl=https://s3.amazonaws.com/myawsbucket/​a3a5e1b6-590d-43cc-97c1-15c7325d3f41/​Win_2008_Server_Data_Center_SP2_32-bit.​vmdkmanifest.xml?AWSAccessKeyId=​AKIAIOSFODNN7EXAMPLE&amp;​Expires=1294855591&amp;​Signature=5snej01TlTtL0uR7KExtEXAMPLE%3D
--- &amp;VolumeSize=8 &amp;AUTHPARAMS&gt; import-i-fh95npoc 2010-12-22T12:01Z 0
--- us-east-1c VDMK 128696320
--- https://s3.amazonaws.com/myawsbucket/​a3a5e1b6-590d-43cc-97c1-15c7325d3f41/​Win_2008_Server_Data_Center_SP2_32-bit.​vmdkmanifest.xml?AWSAccessKeyId=​AKIAIOSFODNN7EXAMPLE&amp;​Expires=1294855591&amp;​Signature=5snej01TlTtL0uR7KExtEXAMPLE%3D
--- ccb1b0536a4a70e86016b85229b5c6b10b14a4eb 8 vol-34d8a2ff active.
 module Network.AWS.EC2.ImportVolume
     (
     -- * Request
@@ -41,8 +33,9 @@ module Network.AWS.EC2.ImportVolume
     , importVolume
     -- ** Request lenses
     , ivAvailabilityZone
-    , ivImage
     , ivDescription
+    , ivDryRun
+    , ivImage
     , ivVolume
 
     -- * Response
@@ -53,39 +46,43 @@ module Network.AWS.EC2.ImportVolume
     , ivrConversionTask
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ImportVolume = ImportVolume
     { _ivAvailabilityZone :: Text
-    , _ivImage :: DiskImageDetail
-    , _ivDescription :: Maybe Text
-    , _ivVolume :: VolumeDetail
-    } deriving (Eq, Ord, Show, Generic)
+    , _ivDescription      :: Maybe Text
+    , _ivDryRun           :: Maybe Bool
+    , _ivImage            :: DiskImageDetail
+    , _ivVolume           :: VolumeDetail
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ImportVolume' request.
+-- | 'ImportVolume' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AvailabilityZone ::@ @Text@
+-- * 'ivAvailabilityZone' @::@ 'Text'
 --
--- * @Image ::@ @DiskImageDetail@
+-- * 'ivDescription' @::@ 'Maybe' 'Text'
 --
--- * @Description ::@ @Maybe Text@
+-- * 'ivDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @Volume ::@ @VolumeDetail@
+-- * 'ivImage' @::@ 'DiskImageDetail'
+--
+-- * 'ivVolume' @::@ 'VolumeDetail'
 --
 importVolume :: Text -- ^ 'ivAvailabilityZone'
              -> DiskImageDetail -- ^ 'ivImage'
              -> VolumeDetail -- ^ 'ivVolume'
              -> ImportVolume
-importVolume p1 p2 p4 = ImportVolume
+importVolume p1 p2 p3 = ImportVolume
     { _ivAvailabilityZone = p1
-    , _ivImage = p2
-    , _ivDescription = Nothing
-    , _ivVolume = p4
+    , _ivImage            = p2
+    , _ivVolume           = p3
+    , _ivDryRun           = Nothing
+    , _ivDescription      = Nothing
     }
 
 -- | The Availability Zone for the resulting Amazon EBS volume.
@@ -93,50 +90,47 @@ ivAvailabilityZone :: Lens' ImportVolume Text
 ivAvailabilityZone =
     lens _ivAvailabilityZone (\s a -> s { _ivAvailabilityZone = a })
 
--- | 
-ivImage :: Lens' ImportVolume DiskImageDetail
-ivImage = lens _ivImage (\s a -> s { _ivImage = a })
-
 -- | An optional description for the volume being imported.
 ivDescription :: Lens' ImportVolume (Maybe Text)
 ivDescription = lens _ivDescription (\s a -> s { _ivDescription = a })
 
--- | 
+ivDryRun :: Lens' ImportVolume (Maybe Bool)
+ivDryRun = lens _ivDryRun (\s a -> s { _ivDryRun = a })
+
+ivImage :: Lens' ImportVolume DiskImageDetail
+ivImage = lens _ivImage (\s a -> s { _ivImage = a })
+
 ivVolume :: Lens' ImportVolume VolumeDetail
 ivVolume = lens _ivVolume (\s a -> s { _ivVolume = a })
 
-instance ToQuery ImportVolume where
-    toQuery = genericQuery def
+instance ToQuery ImportVolume
+
+instance ToPath ImportVolume where
+    toPath = const "/"
 
 newtype ImportVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask :: Maybe ConversionTask
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ImportVolumeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ImportVolumeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ConversionTask ::@ @Maybe ConversionTask@
+-- * 'ivrConversionTask' @::@ 'Maybe' 'ConversionTask'
 --
 importVolumeResponse :: ImportVolumeResponse
 importVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask = Nothing
     }
 
--- | 
 ivrConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrConversionTask =
     lens _ivrConversionTask (\s a -> s { _ivrConversionTask = a })
-
-instance FromXML ImportVolumeResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest ImportVolume where
     type Sv ImportVolume = EC2
     type Rs ImportVolume = ImportVolumeResponse
 
-    request = post "ImportVolume"
-    response _ = xmlResponse
+    request  = post "ImportVolume"
+    response = xmlResponse $ \h x -> ImportVolumeResponse
+        <$> x %| "conversionTask"

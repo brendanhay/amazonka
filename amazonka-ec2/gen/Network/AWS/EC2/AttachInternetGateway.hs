@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.AttachInternetGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,15 +22,7 @@
 
 -- | Attaches an Internet gateway to a VPC, enabling connectivity between the
 -- Internet and the VPC. For more information about your VPC and Internet
--- gateway, see the Amazon Virtual Private Cloud User Guide. Example This
--- example attaches the Internet gateway with the ID igw-eaad4883 to the VPC
--- with the ID vpc-11ad4878.
--- https://ec2.amazonaws.com/?Action=AttachInternetGateway
--- &amp;InternetGatewayId=igw-eaad4883 &amp;VpcId=vpc-11ad4878 &amp;AUTHPARAMS
--- &lt;AttachInternetGatewayResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/AttachInternetGatewayResponse&gt;.
+-- gateway, see the Amazon Virtual Private Cloud User Guide.
 module Network.AWS.EC2.AttachInternetGateway
     (
     -- * Request
@@ -36,6 +30,7 @@ module Network.AWS.EC2.AttachInternetGateway
     -- ** Request constructor
     , attachInternetGateway
     -- ** Request lenses
+    , aigDryRun
     , aigInternetGatewayId
     , aigVpcId
 
@@ -45,31 +40,38 @@ module Network.AWS.EC2.AttachInternetGateway
     , attachInternetGatewayResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data AttachInternetGateway = AttachInternetGateway
-    { _aigInternetGatewayId :: Text
-    , _aigVpcId :: Text
+    { _aigDryRun            :: Maybe Bool
+    , _aigInternetGatewayId :: Text
+    , _aigVpcId             :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AttachInternetGateway' request.
+-- | 'AttachInternetGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InternetGatewayId ::@ @Text@
+-- * 'aigDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @VpcId ::@ @Text@
+-- * 'aigInternetGatewayId' @::@ 'Text'
+--
+-- * 'aigVpcId' @::@ 'Text'
 --
 attachInternetGateway :: Text -- ^ 'aigInternetGatewayId'
                       -> Text -- ^ 'aigVpcId'
                       -> AttachInternetGateway
 attachInternetGateway p1 p2 = AttachInternetGateway
     { _aigInternetGatewayId = p1
-    , _aigVpcId = p2
+    , _aigVpcId             = p2
+    , _aigDryRun            = Nothing
     }
+
+aigDryRun :: Lens' AttachInternetGateway (Maybe Bool)
+aigDryRun = lens _aigDryRun (\s a -> s { _aigDryRun = a })
 
 -- | The ID of the Internet gateway.
 aigInternetGatewayId :: Lens' AttachInternetGateway Text
@@ -80,16 +82,15 @@ aigInternetGatewayId =
 aigVpcId :: Lens' AttachInternetGateway Text
 aigVpcId = lens _aigVpcId (\s a -> s { _aigVpcId = a })
 
-instance ToQuery AttachInternetGateway where
-    toQuery = genericQuery def
+instance ToQuery AttachInternetGateway
+
+instance ToPath AttachInternetGateway where
+    toPath = const "/"
 
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AttachInternetGatewayResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'AttachInternetGatewayResponse' constructor.
 attachInternetGatewayResponse :: AttachInternetGatewayResponse
 attachInternetGatewayResponse = AttachInternetGatewayResponse
 
@@ -97,5 +98,5 @@ instance AWSRequest AttachInternetGateway where
     type Sv AttachInternetGateway = EC2
     type Rs AttachInternetGateway = AttachInternetGatewayResponse
 
-    request = post "AttachInternetGateway"
-    response _ = nullaryResponse AttachInternetGatewayResponse
+    request  = post "AttachInternetGateway"
+    response = nullaryResponse AttachInternetGatewayResponse

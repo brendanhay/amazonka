@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DataPipeline.SetStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,14 +23,7 @@
 -- | Requests that the status of an array of physical or logical pipeline
 -- objects be updated in the pipeline. This update may not occur immediately,
 -- but is eventually consistent. The status that can be set depends on the
--- type of object. POST / HTTP/1.1 Content-Type: application/x-amz-json-1.1
--- X-Amz-Target: DataPipeline.SetStatus Content-Length: 100 Host:
--- datapipeline.us-east-1.amazonaws.com X-Amz-Date: Mon, 12 Nov 2012 17:49:52
--- GMT Authorization: AuthParams {"pipelineId": "df-0634701J7KEXAMPLE",
--- "objectIds": ["o-08600941GHJWMBR9E2"], "status": "pause"} x-amzn-RequestId:
--- e83b8ab7-076a-11e2-af6f-6bc7a6be60d9 Content-Type:
--- application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 12 Nov 2012
--- 17:50:53 GMT Unexpected response: 200, OK, undefined.
+-- type of object.
 module Network.AWS.DataPipeline.SetStatus
     (
     -- * Request
@@ -36,8 +31,8 @@ module Network.AWS.DataPipeline.SetStatus
     -- ** Request constructor
     , setStatus
     -- ** Request lenses
-    , ssPipelineId
     , ssObjectIds
+    , ssPipelineId
     , ssStatus
 
     -- * Response
@@ -46,74 +41,73 @@ module Network.AWS.DataPipeline.SetStatus
     , setStatusResponse
     ) where
 
-import Network.AWS.DataPipeline.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DataPipeline.Types
 
--- | The input to the SetStatus action.
 data SetStatus = SetStatus
-    { _ssPipelineId :: Text
-    , _ssObjectIds :: [Text]
-    , _ssStatus :: Text
+    { _ssObjectIds  :: [Text]
+    , _ssPipelineId :: Text
+    , _ssStatus     :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetStatus' request.
+-- | 'SetStatus' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PipelineId ::@ @Text@
+-- * 'ssObjectIds' @::@ ['Text']
 --
--- * @ObjectIds ::@ @[Text]@
+-- * 'ssPipelineId' @::@ 'Text'
 --
--- * @Status ::@ @Text@
+-- * 'ssStatus' @::@ 'Text'
 --
 setStatus :: Text -- ^ 'ssPipelineId'
-          -> [Text] -- ^ 'ssObjectIds'
           -> Text -- ^ 'ssStatus'
           -> SetStatus
-setStatus p1 p2 p3 = SetStatus
+setStatus p1 p2 = SetStatus
     { _ssPipelineId = p1
-    , _ssObjectIds = p2
-    , _ssStatus = p3
+    , _ssStatus     = p2
+    , _ssObjectIds  = mempty
     }
-
--- | Identifies the pipeline that contains the objects.
-ssPipelineId :: Lens' SetStatus Text
-ssPipelineId = lens _ssPipelineId (\s a -> s { _ssPipelineId = a })
 
 -- | Identifies an array of objects. The corresponding objects can be either
 -- physical or components, but not a mix of both types.
 ssObjectIds :: Lens' SetStatus [Text]
 ssObjectIds = lens _ssObjectIds (\s a -> s { _ssObjectIds = a })
 
+-- | Identifies the pipeline that contains the objects.
+ssPipelineId :: Lens' SetStatus Text
+ssPipelineId = lens _ssPipelineId (\s a -> s { _ssPipelineId = a })
+
 -- | Specifies the status to be set on all the objects in objectIds. For
--- components, this can be either PAUSE or RESUME. For instances, this can be
--- either CANCEL, RERUN, or MARK_FINISHED.
+-- components, this can be either PAUSE or RESUME. For instances, this can
+-- be either CANCEL, RERUN, or MARK_FINISHED.
 ssStatus :: Lens' SetStatus Text
 ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
 
-instance ToPath SetStatus
+instance ToPath SetStatus where
+    toPath = const "/"
 
-instance ToQuery SetStatus
+instance ToQuery SetStatus where
+    toQuery = const mempty
 
 instance ToHeaders SetStatus
 
-instance ToJSON SetStatus
+instance ToBody SetStatus where
+    toBody = toBody . encode . _ssPipelineId
 
 data SetStatusResponse = SetStatusResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetStatusResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'SetStatusResponse' constructor.
 setStatusResponse :: SetStatusResponse
 setStatusResponse = SetStatusResponse
+
+-- FromJSON
 
 instance AWSRequest SetStatus where
     type Sv SetStatus = DataPipeline
     type Rs SetStatus = SetStatusResponse
 
-    request = get
-    response _ = nullaryResponse SetStatusResponse
+    request  = post'
+    response = nullaryResponse SetStatusResponse

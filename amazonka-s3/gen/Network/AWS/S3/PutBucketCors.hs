@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketCors
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,37 +38,36 @@ module Network.AWS.S3.PutBucketCors
     , putBucketCorsResponse
     ) where
 
-import Network.AWS.Request.RestS3
-import Network.AWS.S3.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutBucketCors = PutBucketCors
-    { _pbcBucket :: BucketName
+    { _pbcBucket            :: Text
     , _pbcCORSConfiguration :: Maybe CORSConfiguration
-    , _pbcContentMD5 :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _pbcContentMD5        :: Maybe Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketCors' request.
+-- | 'PutBucketCors' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * 'pbcBucket' @::@ 'Text'
 --
--- * @CORSConfiguration ::@ @Maybe CORSConfiguration@
+-- * 'pbcCORSConfiguration' @::@ 'Maybe' 'CORSConfiguration'
 --
--- * @ContentMD5 ::@ @Maybe Text@
+-- * 'pbcContentMD5' @::@ 'Maybe' 'Text'
 --
-putBucketCors :: BucketName -- ^ 'pbcBucket'
+putBucketCors :: Text -- ^ 'pbcBucket'
               -> PutBucketCors
 putBucketCors p1 = PutBucketCors
-    { _pbcBucket = p1
+    { _pbcBucket            = p1
     , _pbcCORSConfiguration = Nothing
-    , _pbcContentMD5 = Nothing
+    , _pbcContentMD5        = Nothing
     }
 
-pbcBucket :: Lens' PutBucketCors BucketName
+pbcBucket :: Lens' PutBucketCors Text
 pbcBucket = lens _pbcBucket (\s a -> s { _pbcBucket = a })
 
 pbcCORSConfiguration :: Lens' PutBucketCors (Maybe CORSConfiguration)
@@ -76,12 +77,17 @@ pbcCORSConfiguration =
 pbcContentMD5 :: Lens' PutBucketCors (Maybe Text)
 pbcContentMD5 = lens _pbcContentMD5 (\s a -> s { _pbcContentMD5 = a })
 
-instance ToPath PutBucketCors
+instance ToPath PutBucketCors where
+    toPath PutBucketCors{..} = mconcat
+        [ "/"
+        , toText _pbcBucket
+        ]
 
-instance ToQuery PutBucketCors
+instance ToQuery PutBucketCors where
+    toQuery = const "cors"
 
 instance ToHeaders PutBucketCors where
-    toHeaders PutBucketCors{..} = concat
+    toHeaders PutBucketCors{..} = mconcat
         [ "Content-MD5" =: _pbcContentMD5
         ]
 
@@ -91,10 +97,7 @@ instance ToBody PutBucketCors where
 data PutBucketCorsResponse = PutBucketCorsResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutBucketCorsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PutBucketCorsResponse' constructor.
 putBucketCorsResponse :: PutBucketCorsResponse
 putBucketCorsResponse = PutBucketCorsResponse
 
@@ -102,5 +105,5 @@ instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3
     type Rs PutBucketCors = PutBucketCorsResponse
 
-    request = get
-    response _ = nullaryResponse PutBucketCorsResponse
+    request  = put
+    response = nullaryResponse PutBucketCorsResponse

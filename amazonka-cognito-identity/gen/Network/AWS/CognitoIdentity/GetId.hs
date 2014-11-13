@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetId
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,11 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Generates (or retrieves) a Cognito ID. Supplying multiple logins will
--- create an implicit linked account. GetId The following example shows a
--- GetId request for an unauthenticated identity. { "AccountId":
--- "123456789012;", "IdentityPoolId":
--- "us-east-1:af4311ca-835e-4b49-814c-2290EXAMPLE1" } { "IdentityId":
--- "us-east-1:852d4250-9eec-4006-8f84-4e82EXAMPLE3" }.
+-- create an implicit linked account.
 module Network.AWS.CognitoIdentity.GetId
     (
     -- * Request
@@ -43,35 +41,33 @@ module Network.AWS.CognitoIdentity.GetId
     , girIdentityId
     ) where
 
-import Network.AWS.CognitoIdentity.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CognitoIdentity.Types
 
--- | Input to the GetId action.
 data GetId = GetId
-    { _giAccountId :: Text
+    { _giAccountId      :: Text
     , _giIdentityPoolId :: Text
-    , _giLogins :: Map Text Text
+    , _giLogins         :: Map Text Text
     } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetId' request.
+-- | 'GetId' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AccountId ::@ @Text@
+-- * 'giAccountId' @::@ 'Text'
 --
--- * @IdentityPoolId ::@ @Text@
+-- * 'giIdentityPoolId' @::@ 'Text'
 --
--- * @Logins ::@ @Map Text Text@
+-- * 'giLogins' @::@ 'HashMap' 'Text' 'Text'
 --
 getId :: Text -- ^ 'giAccountId'
       -> Text -- ^ 'giIdentityPoolId'
       -> GetId
 getId p1 p2 = GetId
-    { _giAccountId = p1
+    { _giAccountId      = p1
     , _giIdentityPoolId = p2
-    , _giLogins = mempty
+    , _giLogins         = mempty
     }
 
 -- | A standard AWS account ID (9+ digits).
@@ -80,35 +76,35 @@ giAccountId = lens _giAccountId (\s a -> s { _giAccountId = a })
 
 -- | An identity pool ID in the format REGION:GUID.
 giIdentityPoolId :: Lens' GetId Text
-giIdentityPoolId =
-    lens _giIdentityPoolId (\s a -> s { _giIdentityPoolId = a })
+giIdentityPoolId = lens _giIdentityPoolId (\s a -> s { _giIdentityPoolId = a })
 
--- | A set of optional name/value pairs that map provider names to provider
--- tokens.
-giLogins :: Lens' GetId (Map Text Text)
+-- | A set of optional name-value pairs that map provider names to provider
+-- tokens. The available provider names for Logins are as follows: Facebook:
+-- graph.facebook.com Google: accounts.google.com Amazon: www.amazon.com.
+giLogins :: Lens' GetId (HashMap Text Text)
 giLogins = lens _giLogins (\s a -> s { _giLogins = a })
+    . _Map
 
-instance ToPath GetId
+instance ToPath GetId where
+    toPath = const "/"
 
-instance ToQuery GetId
+instance ToQuery GetId where
+    toQuery = const mempty
 
 instance ToHeaders GetId
 
-instance ToJSON GetId
+instance ToBody GetId where
+    toBody = toBody . encode . _giAccountId
 
--- | Returned in the response to a GetId request.
 newtype GetIdResponse = GetIdResponse
     { _girIdentityId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetIdResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetIdResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @IdentityId ::@ @Maybe Text@
+-- * 'girIdentityId' @::@ 'Maybe' 'Text'
 --
 getIdResponse :: GetIdResponse
 getIdResponse = GetIdResponse
@@ -119,11 +115,12 @@ getIdResponse = GetIdResponse
 girIdentityId :: Lens' GetIdResponse (Maybe Text)
 girIdentityId = lens _girIdentityId (\s a -> s { _girIdentityId = a })
 
-instance FromJSON GetIdResponse
+-- FromJSON
 
 instance AWSRequest GetId where
     type Sv GetId = CognitoIdentity
     type Rs GetId = GetIdResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> GetIdResponse
+        <$> o .: "IdentityId"

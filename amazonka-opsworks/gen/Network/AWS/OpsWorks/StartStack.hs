@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.StartStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,7 +31,7 @@ module Network.AWS.OpsWorks.StartStack
     -- ** Request constructor
     , startStack
     -- ** Request lenses
-    , ss1StackId
+    , ss2StackId
 
     -- * Response
     , StartStackResponse
@@ -37,52 +39,53 @@ module Network.AWS.OpsWorks.StartStack
     , startStackResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 newtype StartStack = StartStack
-    { _ss1StackId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _ss2StackId :: Text
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartStack' request.
+-- | 'StartStack' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Text@
+-- * 'ss2StackId' @::@ 'Text'
 --
-startStack :: Text -- ^ 'ss1StackId'
+startStack :: Text -- ^ 'ss2StackId'
            -> StartStack
 startStack p1 = StartStack
-    { _ss1StackId = p1
+    { _ss2StackId = p1
     }
 
 -- | The stack ID.
-ss1StackId :: Lens' StartStack Text
-ss1StackId = lens _ss1StackId (\s a -> s { _ss1StackId = a })
+ss2StackId :: Lens' StartStack Text
+ss2StackId = lens _ss2StackId (\s a -> s { _ss2StackId = a })
 
-instance ToPath StartStack
+instance ToPath StartStack where
+    toPath = const "/"
 
-instance ToQuery StartStack
+instance ToQuery StartStack where
+    toQuery = const mempty
 
 instance ToHeaders StartStack
 
-instance ToJSON StartStack
+instance ToBody StartStack where
+    toBody = toBody . encode . _ss2StackId
 
 data StartStackResponse = StartStackResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartStackResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'StartStackResponse' constructor.
 startStackResponse :: StartStackResponse
 startStackResponse = StartStackResponse
+
+-- FromJSON
 
 instance AWSRequest StartStack where
     type Sv StartStack = OpsWorks
     type Rs StartStack = StartStackResponse
 
-    request = get
-    response _ = nullaryResponse StartStackResponse
+    request  = post'
+    response = nullaryResponse StartStackResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.CreateStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,112 +24,106 @@
 module Network.AWS.CloudFront.CreateStreamingDistribution
     (
     -- * Request
-      CreateStreamingDistribution
+      CreateStreamingDistribution2014_05_31
     -- ** Request constructor
-    , createStreamingDistribution
+    , createStreamingDistribution2014_05_31
     -- ** Request lenses
     , csdStreamingDistributionConfig
 
     -- * Response
-    , CreateStreamingDistributionResponse
+    , CreateStreamingDistribution2014_05_31Response
     -- ** Response constructor
-    , createStreamingDistributionResponse
+    , createStreamingDistribution2014_05_31Response
     -- ** Response lenses
-    , csdrStreamingDistribution
-    , csdrLocation
     , csdrETag
+    , csdrLocation
+    , csdrStreamingDistribution
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to create a new streaming distribution.
-newtype CreateStreamingDistribution = CreateStreamingDistribution
+newtype CreateStreamingDistribution2014_05_31 = CreateStreamingDistribution2014_05_31
     { _csdStreamingDistributionConfig :: StreamingDistributionConfig
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateStreamingDistribution' request.
+-- | 'CreateStreamingDistribution2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StreamingDistributionConfig ::@ @StreamingDistributionConfig@
+-- * 'csdStreamingDistributionConfig' @::@ 'StreamingDistributionConfig'
 --
-createStreamingDistribution :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
-                            -> CreateStreamingDistribution
-createStreamingDistribution p1 = CreateStreamingDistribution
+createStreamingDistribution2014_05_31 :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
+                                      -> CreateStreamingDistribution2014_05_31
+createStreamingDistribution2014_05_31 p1 = CreateStreamingDistribution2014_05_31
     { _csdStreamingDistributionConfig = p1
     }
 
 -- | The streaming distribution's configuration information.
-csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
+csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution2014_05_31 StreamingDistributionConfig
 csdStreamingDistributionConfig =
     lens _csdStreamingDistributionConfig
-         (\s a -> s { _csdStreamingDistributionConfig = a })
+        (\s a -> s { _csdStreamingDistributionConfig = a })
 
-instance ToPath CreateStreamingDistribution
+instance ToPath CreateStreamingDistribution2014_05_31 where
+    toPath = const "/2014-05-31/streaming-distribution"
 
-instance ToQuery CreateStreamingDistribution
+instance ToQuery CreateStreamingDistribution2014_05_31 where
+    toQuery = const mempty
 
-instance ToHeaders CreateStreamingDistribution
+instance ToHeaders CreateStreamingDistribution2014_05_31
 
-instance ToXML CreateStreamingDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateStreamingDistribution"
+instance ToBody CreateStreamingDistribution2014_05_31 where
+    toBody = toBody . encodeXML . _csdStreamingDistributionConfig
 
--- | The returned result of the corresponding request.
-data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
-    { _csdrStreamingDistribution :: Maybe StreamingDistribution
-    , _csdrLocation :: Maybe Text
-    , _csdrETag :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+data CreateStreamingDistribution2014_05_31Response = CreateStreamingDistribution2014_05_31Response
+    { _csdrETag                  :: Maybe Text
+    , _csdrLocation              :: Maybe Text
+    , _csdrStreamingDistribution :: Maybe StreamingDistribution
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateStreamingDistributionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'CreateStreamingDistribution2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StreamingDistribution ::@ @Maybe StreamingDistribution@
+-- * 'csdrETag' @::@ 'Maybe' 'Text'
 --
--- * @Location ::@ @Maybe Text@
+-- * 'csdrLocation' @::@ 'Maybe' 'Text'
 --
--- * @ETag ::@ @Maybe Text@
+-- * 'csdrStreamingDistribution' @::@ 'Maybe' 'StreamingDistribution'
 --
-createStreamingDistributionResponse :: CreateStreamingDistributionResponse
-createStreamingDistributionResponse = CreateStreamingDistributionResponse
+createStreamingDistribution2014_05_31Response :: CreateStreamingDistribution2014_05_31Response
+createStreamingDistribution2014_05_31Response = CreateStreamingDistribution2014_05_31Response
     { _csdrStreamingDistribution = Nothing
-    , _csdrLocation = Nothing
-    , _csdrETag = Nothing
+    , _csdrLocation              = Nothing
+    , _csdrETag                  = Nothing
     }
 
--- | The streaming distribution's information.
-csdrStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
-csdrStreamingDistribution =
-    lens _csdrStreamingDistribution
-         (\s a -> s { _csdrStreamingDistribution = a })
+-- | The current version of the streaming distribution created.
+csdrETag :: Lens' CreateStreamingDistribution2014_05_31Response (Maybe Text)
+csdrETag = lens _csdrETag (\s a -> s { _csdrETag = a })
 
 -- | The fully qualified URI of the new streaming distribution resource just
 -- created. For example:
 -- https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
 -- 
-csdrLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
+csdrLocation :: Lens' CreateStreamingDistribution2014_05_31Response (Maybe Text)
 csdrLocation = lens _csdrLocation (\s a -> s { _csdrLocation = a })
 
--- | The current version of the streaming distribution created.
-csdrETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdrETag = lens _csdrETag (\s a -> s { _csdrETag = a })
+-- | The streaming distribution's information.
+csdrStreamingDistribution :: Lens' CreateStreamingDistribution2014_05_31Response (Maybe StreamingDistribution)
+csdrStreamingDistribution =
+    lens _csdrStreamingDistribution
+        (\s a -> s { _csdrStreamingDistribution = a })
 
-instance AWSRequest CreateStreamingDistribution where
-    type Sv CreateStreamingDistribution = CloudFront
-    type Rs CreateStreamingDistribution = CreateStreamingDistributionResponse
+instance AWSRequest CreateStreamingDistribution2014_05_31 where
+    type Sv CreateStreamingDistribution2014_05_31 = CloudFront
+    type Rs CreateStreamingDistribution2014_05_31 = CreateStreamingDistribution2014_05_31Response
 
-    request = get
-    response _ = cursorResponse $ \hs xml ->
-        pure CreateStreamingDistributionResponse
-            <*> xml %|? "StreamingDistribution"
-            <*> hs ~:? "Location"
-            <*> hs ~:? "ETag"
+    request  = post
+    response = xmlResponse $ \h x -> CreateStreamingDistribution2014_05_31Response
+        <$> h ~:? "ETag"
+        <*> h ~:? "Location"
+        <*> x %| "StreamingDistribution"

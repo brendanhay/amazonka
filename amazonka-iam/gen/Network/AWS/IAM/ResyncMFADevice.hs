@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.ResyncMFADevice
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,10 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Synchronizes the specified MFA device with AWS servers.
--- https://iam.amazonaws.com/ ?Action=ResyncMFADevice &UserName=Bob
--- &SerialNumber=R1234 &AuthenticationCode1=234567 &AuthenticationCode2=987654
--- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- | Synchronizes the specified MFA device with AWS servers. For more
+-- information about creating and working with virtual MFA devices, go to
+-- Using a Virtual MFA Device in the Using IAM guide.
 module Network.AWS.IAM.ResyncMFADevice
     (
     -- * Request
@@ -29,10 +30,10 @@ module Network.AWS.IAM.ResyncMFADevice
     -- ** Request constructor
     , resyncMFADevice
     -- ** Request lenses
-    , rmfadUserName
-    , rmfadSerialNumber
     , rmfadAuthenticationCode1
     , rmfadAuthenticationCode2
+    , rmfadSerialNumber
+    , rmfadUserName
 
     -- * Response
     , ResyncMFADeviceResponse
@@ -40,29 +41,29 @@ module Network.AWS.IAM.ResyncMFADevice
     , resyncMFADeviceResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data ResyncMFADevice = ResyncMFADevice
-    { _rmfadUserName :: Text
-    , _rmfadSerialNumber :: Text
-    , _rmfadAuthenticationCode1 :: Text
+    { _rmfadAuthenticationCode1 :: Text
     , _rmfadAuthenticationCode2 :: Text
+    , _rmfadSerialNumber        :: Text
+    , _rmfadUserName            :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResyncMFADevice' request.
+-- | 'ResyncMFADevice' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Text@
+-- * 'rmfadAuthenticationCode1' @::@ 'Text'
 --
--- * @SerialNumber ::@ @Text@
+-- * 'rmfadAuthenticationCode2' @::@ 'Text'
 --
--- * @AuthenticationCode1 ::@ @Text@
+-- * 'rmfadSerialNumber' @::@ 'Text'
 --
--- * @AuthenticationCode2 ::@ @Text@
+-- * 'rmfadUserName' @::@ 'Text'
 --
 resyncMFADevice :: Text -- ^ 'rmfadUserName'
                 -> Text -- ^ 'rmfadSerialNumber'
@@ -70,43 +71,42 @@ resyncMFADevice :: Text -- ^ 'rmfadUserName'
                 -> Text -- ^ 'rmfadAuthenticationCode2'
                 -> ResyncMFADevice
 resyncMFADevice p1 p2 p3 p4 = ResyncMFADevice
-    { _rmfadUserName = p1
-    , _rmfadSerialNumber = p2
+    { _rmfadUserName            = p1
+    , _rmfadSerialNumber        = p2
     , _rmfadAuthenticationCode1 = p3
     , _rmfadAuthenticationCode2 = p4
     }
 
--- | Name of the user whose MFA device you want to resynchronize.
-rmfadUserName :: Lens' ResyncMFADevice Text
-rmfadUserName = lens _rmfadUserName (\s a -> s { _rmfadUserName = a })
+-- | An authentication code emitted by the device.
+rmfadAuthenticationCode1 :: Lens' ResyncMFADevice Text
+rmfadAuthenticationCode1 =
+    lens _rmfadAuthenticationCode1
+        (\s a -> s { _rmfadAuthenticationCode1 = a })
+
+-- | A subsequent authentication code emitted by the device.
+rmfadAuthenticationCode2 :: Lens' ResyncMFADevice Text
+rmfadAuthenticationCode2 =
+    lens _rmfadAuthenticationCode2
+        (\s a -> s { _rmfadAuthenticationCode2 = a })
 
 -- | Serial number that uniquely identifies the MFA device.
 rmfadSerialNumber :: Lens' ResyncMFADevice Text
 rmfadSerialNumber =
     lens _rmfadSerialNumber (\s a -> s { _rmfadSerialNumber = a })
 
--- | An authentication code emitted by the device.
-rmfadAuthenticationCode1 :: Lens' ResyncMFADevice Text
-rmfadAuthenticationCode1 =
-    lens _rmfadAuthenticationCode1
-         (\s a -> s { _rmfadAuthenticationCode1 = a })
+-- | The name of the user whose MFA device you want to resynchronize.
+rmfadUserName :: Lens' ResyncMFADevice Text
+rmfadUserName = lens _rmfadUserName (\s a -> s { _rmfadUserName = a })
 
--- | A subsequent authentication code emitted by the device.
-rmfadAuthenticationCode2 :: Lens' ResyncMFADevice Text
-rmfadAuthenticationCode2 =
-    lens _rmfadAuthenticationCode2
-         (\s a -> s { _rmfadAuthenticationCode2 = a })
+instance ToQuery ResyncMFADevice
 
-instance ToQuery ResyncMFADevice where
-    toQuery = genericQuery def
+instance ToPath ResyncMFADevice where
+    toPath = const "/"
 
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResyncMFADeviceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ResyncMFADeviceResponse' constructor.
 resyncMFADeviceResponse :: ResyncMFADeviceResponse
 resyncMFADeviceResponse = ResyncMFADeviceResponse
 
@@ -114,5 +114,5 @@ instance AWSRequest ResyncMFADevice where
     type Sv ResyncMFADevice = IAM
     type Rs ResyncMFADevice = ResyncMFADeviceResponse
 
-    request = post "ResyncMFADevice"
-    response _ = nullaryResponse ResyncMFADeviceResponse
+    request  = post "ResyncMFADevice"
+    response = nullaryResponse ResyncMFADeviceResponse

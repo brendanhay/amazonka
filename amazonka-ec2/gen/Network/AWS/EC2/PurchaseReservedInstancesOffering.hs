@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.PurchaseReservedInstancesOffering
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,24 +24,12 @@
 -- Reserved Instances, you obtain a capacity reservation for a certain
 -- instance configuration over a specified period of time. You pay a lower
 -- usage rate than with On-Demand instances for the time that you actually use
--- the capacity reservation. For more information, see Reserved Instance
--- Marketplace in the Amazon Elastic Compute Cloud User Guide. Example 1 This
--- example uses a limit price to limit the total purchase order of Reserved
--- Instances from Reserved Instance Marketplace.
--- https://ec2.amazonaws.com/?Action=PurchaseReservedInstancesOffering
--- &amp;ReservedInstancesOfferingId=4b2293b4-5813-4cc8-9ce3-1957fEXAMPLE
--- &amp;LimitPrice.Amount=200 &amp;InstanceCount=2 &amp;AUTHPARAMS
--- 59dbff89-35bd-4eac-99ed-be587EXAMPLE e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE
--- Example 2 This example illustrates a purchase of a Reserved Instances
--- offering.
--- https://ec2.amazonaws.com/?Action=PurchaseReservedInstancesOffering
--- &amp;ReservedInstancesOfferingId=4b2293b4-5813-4cc8-9ce3-1957fEXAMPLE
--- &amp;InstanceCount=2 &amp;AUTHPARAMS
--- &lt;PurchaseReservedInstancesOfferingResponse
--- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;reservedInstancesId&gt;e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE&lt;/reservedInstancesId&gt;
--- &lt;/PurchaseReservedInstancesOfferingResponse&gt;.
+-- the capacity reservation. Use DescribeReservedInstancesOfferings to get a
+-- list of Reserved Instance offerings that match your specifications. After
+-- you've purchased a Reserved Instance, you can check for your new Reserved
+-- Instance with DescribeReservedInstances. For more information, see Reserved
+-- Instances and Reserved Instance Marketplace in the Amazon Elastic Compute
+-- Cloud User Guide.
 module Network.AWS.EC2.PurchaseReservedInstancesOffering
     (
     -- * Request
@@ -47,9 +37,10 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     -- ** Request constructor
     , purchaseReservedInstancesOffering
     -- ** Request lenses
-    , prioReservedInstancesOfferingId
+    , prioDryRun
     , prioInstanceCount
     , prioLimitPrice
+    , prioReservedInstancesOfferingId
 
     -- * Response
     , PurchaseReservedInstancesOfferingResponse
@@ -59,44 +50,45 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     , priorReservedInstancesId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
-    { _prioReservedInstancesOfferingId :: Text
-    , _prioInstanceCount :: !Integer
-    , _prioLimitPrice :: Maybe ReservedInstanceLimitPrice
-    } deriving (Eq, Ord, Show, Generic)
+    { _prioDryRun                      :: Maybe Bool
+    , _prioInstanceCount               :: Int
+    , _prioLimitPrice                  :: Maybe ReservedInstanceLimitPrice
+    , _prioReservedInstancesOfferingId :: Text
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PurchaseReservedInstancesOffering' request.
+-- | 'PurchaseReservedInstancesOffering' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesOfferingId ::@ @Text@
+-- * 'prioDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @InstanceCount ::@ @Integer@
+-- * 'prioInstanceCount' @::@ 'Int'
 --
--- * @LimitPrice ::@ @Maybe ReservedInstanceLimitPrice@
+-- * 'prioLimitPrice' @::@ 'Maybe' 'ReservedInstanceLimitPrice'
+--
+-- * 'prioReservedInstancesOfferingId' @::@ 'Text'
 --
 purchaseReservedInstancesOffering :: Text -- ^ 'prioReservedInstancesOfferingId'
-                                  -> Integer -- ^ 'prioInstanceCount'
+                                  -> Int -- ^ 'prioInstanceCount'
                                   -> PurchaseReservedInstancesOffering
 purchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
     { _prioReservedInstancesOfferingId = p1
-    , _prioInstanceCount = p2
-    , _prioLimitPrice = Nothing
+    , _prioInstanceCount               = p2
+    , _prioDryRun                      = Nothing
+    , _prioLimitPrice                  = Nothing
     }
 
--- | The ID of the Reserved Instance offering to purchase.
-prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
-prioReservedInstancesOfferingId =
-    lens _prioReservedInstancesOfferingId
-         (\s a -> s { _prioReservedInstancesOfferingId = a })
+prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
+prioDryRun = lens _prioDryRun (\s a -> s { _prioDryRun = a })
 
 -- | The number of Reserved Instances to purchase.
-prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Integer
+prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Int
 prioInstanceCount =
     lens _prioInstanceCount (\s a -> s { _prioInstanceCount = a })
 
@@ -106,21 +98,26 @@ prioInstanceCount =
 prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
 prioLimitPrice = lens _prioLimitPrice (\s a -> s { _prioLimitPrice = a })
 
-instance ToQuery PurchaseReservedInstancesOffering where
-    toQuery = genericQuery def
+-- | The ID of the Reserved Instance offering to purchase.
+prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
+prioReservedInstancesOfferingId =
+    lens _prioReservedInstancesOfferingId
+        (\s a -> s { _prioReservedInstancesOfferingId = a })
+
+instance ToQuery PurchaseReservedInstancesOffering
+
+instance ToPath PurchaseReservedInstancesOffering where
+    toPath = const "/"
 
 newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
     { _priorReservedInstancesId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PurchaseReservedInstancesOfferingResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'PurchaseReservedInstancesOfferingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesId ::@ @Maybe Text@
+-- * 'priorReservedInstancesId' @::@ 'Maybe' 'Text'
 --
 purchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse
 purchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
@@ -131,14 +128,12 @@ purchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingRes
 priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priorReservedInstancesId =
     lens _priorReservedInstancesId
-         (\s a -> s { _priorReservedInstancesId = a })
-
-instance FromXML PurchaseReservedInstancesOfferingResponse where
-    fromXMLOptions = xmlOptions
+        (\s a -> s { _priorReservedInstancesId = a })
 
 instance AWSRequest PurchaseReservedInstancesOffering where
     type Sv PurchaseReservedInstancesOffering = EC2
     type Rs PurchaseReservedInstancesOffering = PurchaseReservedInstancesOfferingResponse
 
-    request = post "PurchaseReservedInstancesOffering"
-    response _ = xmlResponse
+    request  = post "PurchaseReservedInstancesOffering"
+    response = xmlResponse $ \h x -> PurchaseReservedInstancesOfferingResponse
+        <$> x %| "reservedInstancesId"

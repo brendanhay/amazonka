@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.GetServerCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,27 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves information about the specified server certificate.
--- https://iam.amazonaws.com/ ?Action=GetServerCertificate
--- &ServerCertificateName=ProdServerCert &Version=2010-05-08 &AUTHPARAMS
--- ProdServerCert /company/servercerts/
--- arn:aws:iam::123456789012:server-certificate/company/servercerts/ProdServerCert
--- 2010-05-08T01:02:03.004Z ASCACKCEVSQ6C2EXAMPLE 2012-05-08T01:02:03.004Z
--- -----BEGIN CERTIFICATE-----
--- MIICdzCCAeCgAwIBAgIGANc+Ha2wMA0GCSqGSIb3DQEBBQUAMFMxCzAJBgNVBAYT
--- AlVTMRMwEQYDVQQKEwpBbWF6b24uY29tMQwwCgYDVQQLEwNBV1MxITAfBgNVBAMT
--- GEFXUyBMaW1pdGVkLUFzc3VyYW5jZSBDQTAeFw0wOTAyMDQxNzE5MjdaFw0xMDAy
--- MDQxNzE5MjdaMFIxCzAJBgNVBAYTAlVTMRMwEQYDVQQKEwpBbWF6b24uY29tMRcw
--- FQYDVQQLEw5BV1MtRGV2ZWxvcGVyczEVMBMGA1UEAxMMNTdxNDl0c3ZwYjRtMIGf
--- MA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCpB/vsOwmT/O0td1RqzKjttSBaPjbr
--- dqwNe9BrOyB08fw2+Ch5oonZYXfGUrT6mkYXH5fQot9HvASrzAKHO596FdJA6DmL
--- ywdWe1Oggk7zFSXO1Xv+3vPrJtaYxYo3eRIp7w80PMkiOv6M0XK8ubcTouODeJbf
--- suDqcLnLDxwsvwIDAQABo1cwVTAOBgNVHQ8BAf8EBAMCBaAwFgYDVR0lAQH/BAww
--- CgYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQULGNaBphBumaKbDRK
--- CAi0mH8B3mowDQYJKoZIhvcNAQEFBQADgYEAuKxhkXaCLGcqDuweKtO/AEw9ZePH
--- wr0XqsaIK2HZboqruebXEGsojK4Ks0WzwgrEynuHJwTn760xe39rSqXWIOGrOBaX
--- wFpWHVjTFMKk+tSDG1lssLHyYWWdFFU4AnejRGORJYNaRHgVTKjHphc5jEhHm0BX
--- AEaHzTpmEXAMPLE= -----END CERTIFICATE-----
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 module Network.AWS.IAM.GetServerCertificate
     (
     -- * Request
@@ -57,20 +38,20 @@ module Network.AWS.IAM.GetServerCertificate
     , gscrServerCertificate
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype GetServerCertificate = GetServerCertificate
     { _gscServerCertificateName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetServerCertificate' request.
+-- | 'GetServerCertificate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ServerCertificateName ::@ @Text@
+-- * 'gscServerCertificateName' @::@ 'Text'
 --
 getServerCertificate :: Text -- ^ 'gscServerCertificateName'
                      -> GetServerCertificate
@@ -78,29 +59,27 @@ getServerCertificate p1 = GetServerCertificate
     { _gscServerCertificateName = p1
     }
 
--- | The name of the server certificate you want to retrieve information about.
+-- | The name of the server certificate you want to retrieve information
+-- about.
 gscServerCertificateName :: Lens' GetServerCertificate Text
 gscServerCertificateName =
     lens _gscServerCertificateName
-         (\s a -> s { _gscServerCertificateName = a })
+        (\s a -> s { _gscServerCertificateName = a })
 
-instance ToQuery GetServerCertificate where
-    toQuery = genericQuery def
+instance ToQuery GetServerCertificate
 
--- | Contains the result of a successful invocation of the GetServerCertificate
--- action.
+instance ToPath GetServerCertificate where
+    toPath = const "/"
+
 newtype GetServerCertificateResponse = GetServerCertificateResponse
     { _gscrServerCertificate :: ServerCertificate
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetServerCertificateResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetServerCertificateResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ServerCertificate ::@ @ServerCertificate@
+-- * 'gscrServerCertificate' @::@ 'ServerCertificate'
 --
 getServerCertificateResponse :: ServerCertificate -- ^ 'gscrServerCertificate'
                              -> GetServerCertificateResponse
@@ -113,12 +92,10 @@ gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
 gscrServerCertificate =
     lens _gscrServerCertificate (\s a -> s { _gscrServerCertificate = a })
 
-instance FromXML GetServerCertificateResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest GetServerCertificate where
     type Sv GetServerCertificate = IAM
     type Rs GetServerCertificate = GetServerCertificateResponse
 
-    request = post "GetServerCertificate"
-    response _ = xmlResponse
+    request  = post "GetServerCertificate"
+    response = xmlResponse $ \h x -> GetServerCertificateResponse
+        <$> x %| "ServerCertificate"

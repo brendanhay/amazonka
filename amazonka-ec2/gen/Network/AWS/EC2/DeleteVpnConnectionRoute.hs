@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteVpnConnectionRoute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,16 +23,7 @@
 -- | Deletes the specified static route associated with a VPN connection between
 -- an existing virtual private gateway and a VPN customer gateway. The static
 -- route allows traffic to be routed from the virtual private gateway to the
--- VPN customer gateway. Example This example deletes a static route to the
--- destination CIDR block 11.12.0.0/16 associated with the VPN connection with
--- the ID vpn-83ad48ea. Note that when using the Query API, the "/" is denoted
--- as "%2F". https://ec2.amazonaws.com/?Action=DeleteVpnConnectionRoute
--- &amp;DestinationCidrBlock=11.12.0.0%2F16 &amp;VpnConnectionId=vpn-83ad48ea
--- &amp;AUTHPARAMS &lt;DeleteVpnConnectionRouteResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;4f35a1b2-c2c3-4093-b51f-abb9d7311990&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt;
--- &lt;/DeleteVpnConnectionRouteResponse&gt;.
+-- VPN customer gateway.
 module Network.AWS.EC2.DeleteVpnConnectionRoute
     (
     -- * Request
@@ -38,8 +31,8 @@ module Network.AWS.EC2.DeleteVpnConnectionRoute
     -- ** Request constructor
     , deleteVpnConnectionRoute
     -- ** Request lenses
-    , dvcrVpnConnectionId
     , dvcrDestinationCidrBlock
+    , dvcrVpnConnectionId
 
     -- * Response
     , DeleteVpnConnectionRouteResponse
@@ -47,53 +40,52 @@ module Network.AWS.EC2.DeleteVpnConnectionRoute
     , deleteVpnConnectionRouteResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
-    { _dvcrVpnConnectionId :: Text
-    , _dvcrDestinationCidrBlock :: Text
+    { _dvcrDestinationCidrBlock :: Text
+    , _dvcrVpnConnectionId      :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpnConnectionRoute' request.
+-- | 'DeleteVpnConnectionRoute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpnConnectionId ::@ @Text@
+-- * 'dvcrDestinationCidrBlock' @::@ 'Text'
 --
--- * @DestinationCidrBlock ::@ @Text@
+-- * 'dvcrVpnConnectionId' @::@ 'Text'
 --
 deleteVpnConnectionRoute :: Text -- ^ 'dvcrVpnConnectionId'
                          -> Text -- ^ 'dvcrDestinationCidrBlock'
                          -> DeleteVpnConnectionRoute
 deleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
-    { _dvcrVpnConnectionId = p1
+    { _dvcrVpnConnectionId      = p1
     , _dvcrDestinationCidrBlock = p2
     }
+
+-- | The CIDR block associated with the local subnet of the customer network.
+dvcrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute Text
+dvcrDestinationCidrBlock =
+    lens _dvcrDestinationCidrBlock
+        (\s a -> s { _dvcrDestinationCidrBlock = a })
 
 -- | The ID of the VPN connection.
 dvcrVpnConnectionId :: Lens' DeleteVpnConnectionRoute Text
 dvcrVpnConnectionId =
     lens _dvcrVpnConnectionId (\s a -> s { _dvcrVpnConnectionId = a })
 
--- | The CIDR block associated with the local subnet of the customer network.
-dvcrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute Text
-dvcrDestinationCidrBlock =
-    lens _dvcrDestinationCidrBlock
-         (\s a -> s { _dvcrDestinationCidrBlock = a })
+instance ToQuery DeleteVpnConnectionRoute
 
-instance ToQuery DeleteVpnConnectionRoute where
-    toQuery = genericQuery def
+instance ToPath DeleteVpnConnectionRoute where
+    toPath = const "/"
 
 data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpnConnectionRouteResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteVpnConnectionRouteResponse' constructor.
 deleteVpnConnectionRouteResponse :: DeleteVpnConnectionRouteResponse
 deleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
 
@@ -101,5 +93,5 @@ instance AWSRequest DeleteVpnConnectionRoute where
     type Sv DeleteVpnConnectionRoute = EC2
     type Rs DeleteVpnConnectionRoute = DeleteVpnConnectionRouteResponse
 
-    request = post "DeleteVpnConnectionRoute"
-    response _ = nullaryResponse DeleteVpnConnectionRouteResponse
+    request  = post "DeleteVpnConnectionRoute"
+    response = nullaryResponse DeleteVpnConnectionRouteResponse

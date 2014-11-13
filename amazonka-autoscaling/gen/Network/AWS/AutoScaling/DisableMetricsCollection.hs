@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.AutoScaling.DisableMetricsCollection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,36 +39,35 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
     , disableMetricsCollectionResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DisableMetricsCollection = DisableMetricsCollection
     { _dmcAutoScalingGroupName :: Text
-    , _dmcMetrics :: [Text]
+    , _dmcMetrics              :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableMetricsCollection' request.
+-- | 'DisableMetricsCollection' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AutoScalingGroupName ::@ @Text@
+-- * 'dmcAutoScalingGroupName' @::@ 'Text'
 --
--- * @Metrics ::@ @[Text]@
+-- * 'dmcMetrics' @::@ ['Text']
 --
 disableMetricsCollection :: Text -- ^ 'dmcAutoScalingGroupName'
                          -> DisableMetricsCollection
 disableMetricsCollection p1 = DisableMetricsCollection
     { _dmcAutoScalingGroupName = p1
-    , _dmcMetrics = mempty
+    , _dmcMetrics              = mempty
     }
 
 -- | The name or ARN of the Auto Scaling Group.
 dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
 dmcAutoScalingGroupName =
-    lens _dmcAutoScalingGroupName
-         (\s a -> s { _dmcAutoScalingGroupName = a })
+    lens _dmcAutoScalingGroupName (\s a -> s { _dmcAutoScalingGroupName = a })
 
 -- | The list of metrics to disable. If no metrics are specified, all metrics
 -- are disabled. The following metrics are supported: GroupMinSize
@@ -76,16 +77,15 @@ dmcAutoScalingGroupName =
 dmcMetrics :: Lens' DisableMetricsCollection [Text]
 dmcMetrics = lens _dmcMetrics (\s a -> s { _dmcMetrics = a })
 
-instance ToQuery DisableMetricsCollection where
-    toQuery = genericQuery def
+instance ToQuery DisableMetricsCollection
+
+instance ToPath DisableMetricsCollection where
+    toPath = const "/"
 
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableMetricsCollectionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DisableMetricsCollectionResponse' constructor.
 disableMetricsCollectionResponse :: DisableMetricsCollectionResponse
 disableMetricsCollectionResponse = DisableMetricsCollectionResponse
 
@@ -93,5 +93,5 @@ instance AWSRequest DisableMetricsCollection where
     type Sv DisableMetricsCollection = AutoScaling
     type Rs DisableMetricsCollection = DisableMetricsCollectionResponse
 
-    request = post "DisableMetricsCollection"
-    response _ = nullaryResponse DisableMetricsCollectionResponse
+    request  = post "DisableMetricsCollection"
+    response = nullaryResponse DisableMetricsCollectionResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.RDS.ModifyOptionGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,15 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Modifies an existing option group. https://rds.amazonaws.com/
--- ?Action=ModifyOptionGroup &OptionGroupName=myoptiongroup
--- &OptionsToInclude=OEM &DBSecurityGroupMemberships=default
--- &ApplyImmediately=true myoptiongroup Test option group oracle-se1 11.2 OEM
--- Oracle Enterprise Manager 1158 default ACTIVE
--- ed662948-a57b-11df-9e38-7ffab86c801f https://rds.amazonaws.com/
--- ?Action=ModifyOptionGroup &OptionGroupName=myoptiongroup
--- &OptionsToRemove=OEM &ApplyImmediately=true myoptiongroup Test option group
--- oracle-se1 11.2 ed662948-a57b-11df-9e38-7ffab86c801f.
+-- | Modifies an existing option group.
 module Network.AWS.RDS.ModifyOptionGroup
     (
     -- * Request
@@ -34,10 +28,10 @@ module Network.AWS.RDS.ModifyOptionGroup
     -- ** Request constructor
     , modifyOptionGroup
     -- ** Request lenses
+    , mogApplyImmediately
     , mogOptionGroupName
     , mogOptionsToInclude
     , mogOptionsToRemove
-    , mogApplyImmediately
 
     -- * Response
     , ModifyOptionGroupResponse
@@ -47,51 +41,57 @@ module Network.AWS.RDS.ModifyOptionGroup
     , mogrOptionGroup
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | 
 data ModifyOptionGroup = ModifyOptionGroup
-    { _mogOptionGroupName :: Text
+    { _mogApplyImmediately :: Maybe Bool
+    , _mogOptionGroupName  :: Text
     , _mogOptionsToInclude :: [OptionConfiguration]
-    , _mogOptionsToRemove :: [Text]
-    , _mogApplyImmediately :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    , _mogOptionsToRemove  :: [Text]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyOptionGroup' request.
+-- | 'ModifyOptionGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OptionGroupName ::@ @Text@
+-- * 'mogApplyImmediately' @::@ 'Maybe' 'Bool'
 --
--- * @OptionsToInclude ::@ @[OptionConfiguration]@
+-- * 'mogOptionGroupName' @::@ 'Text'
 --
--- * @OptionsToRemove ::@ @[Text]@
+-- * 'mogOptionsToInclude' @::@ ['OptionConfiguration']
 --
--- * @ApplyImmediately ::@ @Maybe Bool@
+-- * 'mogOptionsToRemove' @::@ ['Text']
 --
 modifyOptionGroup :: Text -- ^ 'mogOptionGroupName'
                   -> ModifyOptionGroup
 modifyOptionGroup p1 = ModifyOptionGroup
-    { _mogOptionGroupName = p1
+    { _mogOptionGroupName  = p1
     , _mogOptionsToInclude = mempty
-    , _mogOptionsToRemove = mempty
+    , _mogOptionsToRemove  = mempty
     , _mogApplyImmediately = Nothing
     }
 
--- | The name of the option group to be modified. cannot be removed from an
--- option group while DB instances are associated with the option group. -->
--- Permanent options, such as the TDE option for Oracle Advanced Security TDE,
--- cannot be removed from an option group, and that option group cannot be
--- removed from a DB instance once it is associated with a DB instance.
+-- | Indicates whether the changes should be applied immediately, or during
+-- the next maintenance window for each instance associated with the option
+-- group.
+mogApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
+mogApplyImmediately =
+    lens _mogApplyImmediately (\s a -> s { _mogApplyImmediately = a })
+
+-- | The name of the option group to be modified. Permanent options, such as
+-- the TDE option for Oracle Advanced Security TDE, cannot be removed from
+-- an option group, and that option group cannot be removed from a DB
+-- instance once it is associated with a DB instance.
 mogOptionGroupName :: Lens' ModifyOptionGroup Text
 mogOptionGroupName =
     lens _mogOptionGroupName (\s a -> s { _mogOptionGroupName = a })
 
--- | Options in this list are added to the option group or, if already present,
--- the specified configuration is used to update the existing configuration.
+-- | Options in this list are added to the option group or, if already
+-- present, the specified configuration is used to update the existing
+-- configuration.
 mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
 mogOptionsToInclude =
     lens _mogOptionsToInclude (\s a -> s { _mogOptionsToInclude = a })
@@ -101,43 +101,33 @@ mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
 mogOptionsToRemove =
     lens _mogOptionsToRemove (\s a -> s { _mogOptionsToRemove = a })
 
--- | Indicates whether the changes should be applied immediately, or during the
--- next maintenance window for each instance associated with the option group.
-mogApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
-mogApplyImmediately =
-    lens _mogApplyImmediately (\s a -> s { _mogApplyImmediately = a })
+instance ToQuery ModifyOptionGroup
 
-instance ToQuery ModifyOptionGroup where
-    toQuery = genericQuery def
+instance ToPath ModifyOptionGroup where
+    toPath = const "/"
 
 newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse
     { _mogrOptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyOptionGroupResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ModifyOptionGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OptionGroup ::@ @Maybe OptionGroup@
+-- * 'mogrOptionGroup' @::@ 'Maybe' 'OptionGroup'
 --
 modifyOptionGroupResponse :: ModifyOptionGroupResponse
 modifyOptionGroupResponse = ModifyOptionGroupResponse
     { _mogrOptionGroup = Nothing
     }
 
--- | 
 mogrOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 mogrOptionGroup = lens _mogrOptionGroup (\s a -> s { _mogrOptionGroup = a })
-
-instance FromXML ModifyOptionGroupResponse where
-    fromXMLOptions = xmlOptions
 
 instance AWSRequest ModifyOptionGroup where
     type Sv ModifyOptionGroup = RDS
     type Rs ModifyOptionGroup = ModifyOptionGroupResponse
 
-    request = post "ModifyOptionGroup"
-    response _ = xmlResponse
+    request  = post "ModifyOptionGroup"
+    response = xmlResponse $ \h x -> ModifyOptionGroupResponse
+        <$> x %| "OptionGroup"

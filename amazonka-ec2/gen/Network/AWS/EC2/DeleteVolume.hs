@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,15 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified Amazon EBS volume. The volume must be in the
--- available state (not attached to an instance). The volume may remain in the
--- deleting state for several minutes. For more information, see Deleting an
--- Amazon EBS Volume in the Amazon Elastic Compute Cloud User Guide. Example
--- This example request deletes the volume with the ID vol-1a2b3c4d.
--- https://ec2.amazonaws.com/?Action=DeleteVolume &amp;VolumeId=vol-1a2b3c4d
--- &amp;AUTHPARAMS &lt;DeleteVolumeResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVolumeResponse&gt;.
+-- available state (not attached to an instance). For more information, see
+-- Deleting an Amazon EBS Volume in the Amazon Elastic Compute Cloud User
+-- Guide.
 module Network.AWS.EC2.DeleteVolume
     (
     -- * Request
@@ -35,7 +31,8 @@ module Network.AWS.EC2.DeleteVolume
     -- ** Request constructor
     , deleteVolume
     -- ** Request lenses
-    , dvVolumeId
+    , dv4DryRun
+    , dv4VolumeId
 
     -- * Response
     , DeleteVolumeResponse
@@ -43,41 +40,47 @@ module Network.AWS.EC2.DeleteVolume
     , deleteVolumeResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteVolume = DeleteVolume
-    { _dvVolumeId :: Text
+data DeleteVolume = DeleteVolume
+    { _dv4DryRun   :: Maybe Bool
+    , _dv4VolumeId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVolume' request.
+-- | 'DeleteVolume' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeId ::@ @Text@
+-- * 'dv4DryRun' @::@ 'Maybe' 'Bool'
 --
-deleteVolume :: Text -- ^ 'dvVolumeId'
+-- * 'dv4VolumeId' @::@ 'Text'
+--
+deleteVolume :: Text -- ^ 'dv4VolumeId'
              -> DeleteVolume
 deleteVolume p1 = DeleteVolume
-    { _dvVolumeId = p1
+    { _dv4VolumeId = p1
+    , _dv4DryRun   = Nothing
     }
 
--- | The ID of the volume.
-dvVolumeId :: Lens' DeleteVolume Text
-dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
+dv4DryRun :: Lens' DeleteVolume (Maybe Bool)
+dv4DryRun = lens _dv4DryRun (\s a -> s { _dv4DryRun = a })
 
-instance ToQuery DeleteVolume where
-    toQuery = genericQuery def
+-- | The ID of the volume.
+dv4VolumeId :: Lens' DeleteVolume Text
+dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
+
+instance ToQuery DeleteVolume
+
+instance ToPath DeleteVolume where
+    toPath = const "/"
 
 data DeleteVolumeResponse = DeleteVolumeResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVolumeResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteVolumeResponse' constructor.
 deleteVolumeResponse :: DeleteVolumeResponse
 deleteVolumeResponse = DeleteVolumeResponse
 
@@ -85,5 +88,5 @@ instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = EC2
     type Rs DeleteVolume = DeleteVolumeResponse
 
-    request = post "DeleteVolume"
-    response _ = nullaryResponse DeleteVolumeResponse
+    request  = post "DeleteVolume"
+    response = nullaryResponse DeleteVolumeResponse

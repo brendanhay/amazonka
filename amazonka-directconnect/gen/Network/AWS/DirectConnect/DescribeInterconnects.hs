@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeInterconnects
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,79 +30,80 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     -- ** Request constructor
     , describeInterconnects
     -- ** Request lenses
-    , di1InterconnectId
+    , diInterconnectId
 
     -- * Response
     , DescribeInterconnectsResponse
     -- ** Response constructor
     , describeInterconnectsResponse
     -- ** Response lenses
-    , dirrInterconnects
+    , dirInterconnects
     ) where
 
-import Network.AWS.DirectConnect.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DirectConnect.Types
 
--- | Container for the parameters to the DescribeInterconnects operation.
 newtype DescribeInterconnects = DescribeInterconnects
-    { _di1InterconnectId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _diInterconnectId :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeInterconnects' request.
+-- | 'DescribeInterconnects' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InterconnectId ::@ @Maybe Text@
+-- * 'diInterconnectId' @::@ 'Maybe' 'Text'
 --
 describeInterconnects :: DescribeInterconnects
 describeInterconnects = DescribeInterconnects
-    { _di1InterconnectId = Nothing
+    { _diInterconnectId = Nothing
     }
 
--- | The ID of the interconnect. Example: dxcon-abc123.
-di1InterconnectId :: Lens' DescribeInterconnects (Maybe Text)
-di1InterconnectId =
-    lens _di1InterconnectId (\s a -> s { _di1InterconnectId = a })
+diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
+diInterconnectId = lens _diInterconnectId (\s a -> s { _diInterconnectId = a })
 
-instance ToPath DescribeInterconnects
+instance ToPath DescribeInterconnects where
+    toPath = const "/"
 
-instance ToQuery DescribeInterconnects
+instance ToQuery DescribeInterconnects where
+    toQuery = const mempty
 
 instance ToHeaders DescribeInterconnects
 
-instance ToJSON DescribeInterconnects
+instance ToBody DescribeInterconnects where
+    toBody = toBody . encode . _diInterconnectId
 
--- | A structure containing a list of interconnects.
 newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
-    { _dirrInterconnects :: [Interconnect]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dirInterconnects :: [Interconnect]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeInterconnectsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeInterconnectsResponse where
+    type Item DescribeInterconnectsResponse = Interconnect
+
+    fromList = DescribeInterconnectsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dirInterconnects
+
+-- | 'DescribeInterconnectsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Interconnects ::@ @[Interconnect]@
+-- * 'dirInterconnects' @::@ ['Interconnect']
 --
 describeInterconnectsResponse :: DescribeInterconnectsResponse
 describeInterconnectsResponse = DescribeInterconnectsResponse
-    { _dirrInterconnects = mempty
+    { _dirInterconnects = mempty
     }
 
 -- | A list of interconnects.
-dirrInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
-dirrInterconnects =
-    lens _dirrInterconnects (\s a -> s { _dirrInterconnects = a })
+dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
+dirInterconnects = lens _dirInterconnects (\s a -> s { _dirInterconnects = a })
 
-instance FromJSON DescribeInterconnectsResponse
+-- FromJSON
 
 instance AWSRequest DescribeInterconnects where
     type Sv DescribeInterconnects = DirectConnect
     type Rs DescribeInterconnects = DescribeInterconnectsResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeInterconnectsResponse
+        <$> o .: "interconnects"

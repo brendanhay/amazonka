@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudTrail.DeleteTrail
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,21 +36,19 @@ module Network.AWS.CloudTrail.DeleteTrail
     , deleteTrailResponse
     ) where
 
-import Network.AWS.CloudTrail.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.CloudTrail.Types
 
--- | The request that specifies the name of a trail to delete.
 newtype DeleteTrail = DeleteTrail
     { _dtName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteTrail' request.
+-- | 'DeleteTrail' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Text@
+-- * 'dtName' @::@ 'Text'
 --
 deleteTrail :: Text -- ^ 'dtName'
             -> DeleteTrail
@@ -60,29 +60,29 @@ deleteTrail p1 = DeleteTrail
 dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\s a -> s { _dtName = a })
 
-instance ToPath DeleteTrail
+instance ToPath DeleteTrail where
+    toPath = const "/"
 
-instance ToQuery DeleteTrail
+instance ToQuery DeleteTrail where
+    toQuery = const mempty
 
 instance ToHeaders DeleteTrail
 
-instance ToJSON DeleteTrail
+instance ToBody DeleteTrail where
+    toBody = toBody . encode . _dtName
 
--- | Returns the objects or data listed below if successful. Otherwise, returns
--- an error.
 data DeleteTrailResponse = DeleteTrailResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteTrailResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteTrailResponse' constructor.
 deleteTrailResponse :: DeleteTrailResponse
 deleteTrailResponse = DeleteTrailResponse
+
+-- FromJSON
 
 instance AWSRequest DeleteTrail where
     type Sv DeleteTrail = CloudTrail
     type Rs DeleteTrail = DeleteTrailResponse
 
-    request = get
-    response _ = nullaryResponse DeleteTrailResponse
+    request  = post'
+    response = nullaryResponse DeleteTrailResponse

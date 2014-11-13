@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.GetUserPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,10 +23,6 @@
 -- | Retrieves the specified policy document for the specified user. The
 -- returned policy is URL-encoded according to RFC 3986. For more information
 -- about RFC 3986, go to http://www.faqs.org/rfcs/rfc3986.html.
--- https://iam.amazonaws.com/ ?Action=GetUserPolicy &UserName=Bob
--- &PolicyName=AllAccessPolicy &AUTHPARAMS Bob AllAccessPolicy
--- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
--- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 module Network.AWS.IAM.GetUserPolicy
     (
     -- * Request
@@ -32,105 +30,103 @@ module Network.AWS.IAM.GetUserPolicy
     -- ** Request constructor
     , getUserPolicy
     -- ** Request lenses
-    , gupUserName
     , gupPolicyName
+    , gupUserName
 
     -- * Response
     , GetUserPolicyResponse
     -- ** Response constructor
     , getUserPolicyResponse
     -- ** Response lenses
-    , guprUserName
-    , guprPolicyName
     , guprPolicyDocument
+    , guprPolicyName
+    , guprUserName
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data GetUserPolicy = GetUserPolicy
-    { _gupUserName :: Text
-    , _gupPolicyName :: Text
+    { _gupPolicyName :: Text
+    , _gupUserName   :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetUserPolicy' request.
+-- | 'GetUserPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Text@
+-- * 'gupPolicyName' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'gupUserName' @::@ 'Text'
 --
 getUserPolicy :: Text -- ^ 'gupUserName'
               -> Text -- ^ 'gupPolicyName'
               -> GetUserPolicy
 getUserPolicy p1 p2 = GetUserPolicy
-    { _gupUserName = p1
+    { _gupUserName   = p1
     , _gupPolicyName = p2
     }
 
--- | Name of the user who the policy is associated with.
-gupUserName :: Lens' GetUserPolicy Text
-gupUserName = lens _gupUserName (\s a -> s { _gupUserName = a })
-
--- | Name of the policy document to get.
+-- | The name of the policy document to get.
 gupPolicyName :: Lens' GetUserPolicy Text
 gupPolicyName = lens _gupPolicyName (\s a -> s { _gupPolicyName = a })
 
-instance ToQuery GetUserPolicy where
-    toQuery = genericQuery def
+-- | The name of the user who the policy is associated with.
+gupUserName :: Lens' GetUserPolicy Text
+gupUserName = lens _gupUserName (\s a -> s { _gupUserName = a })
 
--- | Contains the result of a successful invocation of the GetUserPolicy action.
+instance ToQuery GetUserPolicy
+
+instance ToPath GetUserPolicy where
+    toPath = const "/"
+
 data GetUserPolicyResponse = GetUserPolicyResponse
-    { _guprUserName :: Text
-    , _guprPolicyName :: Text
-    , _guprPolicyDocument :: Text
+    { _guprPolicyDocument :: Text
+    , _guprPolicyName     :: Text
+    , _guprUserName       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetUserPolicyResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'GetUserPolicyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Text@
+-- * 'guprPolicyDocument' @::@ 'Text'
 --
--- * @PolicyName ::@ @Text@
+-- * 'guprPolicyName' @::@ 'Text'
 --
--- * @PolicyDocument ::@ @Text@
+-- * 'guprUserName' @::@ 'Text'
 --
 getUserPolicyResponse :: Text -- ^ 'guprUserName'
                       -> Text -- ^ 'guprPolicyName'
                       -> Text -- ^ 'guprPolicyDocument'
                       -> GetUserPolicyResponse
 getUserPolicyResponse p1 p2 p3 = GetUserPolicyResponse
-    { _guprUserName = p1
-    , _guprPolicyName = p2
+    { _guprUserName       = p1
+    , _guprPolicyName     = p2
     , _guprPolicyDocument = p3
     }
-
--- | The user the policy is associated with.
-guprUserName :: Lens' GetUserPolicyResponse Text
-guprUserName = lens _guprUserName (\s a -> s { _guprUserName = a })
-
--- | The name of the policy.
-guprPolicyName :: Lens' GetUserPolicyResponse Text
-guprPolicyName = lens _guprPolicyName (\s a -> s { _guprPolicyName = a })
 
 -- | The policy document.
 guprPolicyDocument :: Lens' GetUserPolicyResponse Text
 guprPolicyDocument =
     lens _guprPolicyDocument (\s a -> s { _guprPolicyDocument = a })
 
-instance FromXML GetUserPolicyResponse where
-    fromXMLOptions = xmlOptions
+-- | The name of the policy.
+guprPolicyName :: Lens' GetUserPolicyResponse Text
+guprPolicyName = lens _guprPolicyName (\s a -> s { _guprPolicyName = a })
+
+-- | The user the policy is associated with.
+guprUserName :: Lens' GetUserPolicyResponse Text
+guprUserName = lens _guprUserName (\s a -> s { _guprUserName = a })
 
 instance AWSRequest GetUserPolicy where
     type Sv GetUserPolicy = IAM
     type Rs GetUserPolicy = GetUserPolicyResponse
 
-    request = post "GetUserPolicy"
-    response _ = xmlResponse
+    request  = post "GetUserPolicy"
+    response = xmlResponse $ \h x -> GetUserPolicyResponse
+        <$> x %| "PolicyDocument"
+        <*> x %| "PolicyName"
+        <*> x %| "UserName"

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudWatch.EnableAlarmActions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,41 +36,45 @@ module Network.AWS.CloudWatch.EnableAlarmActions
     , enableAlarmActionsResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 newtype EnableAlarmActions = EnableAlarmActions
     { _eaaAlarmNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableAlarmActions' request.
+instance GHC.Exts.IsList EnableAlarmActions where
+    type Item EnableAlarmActions = Text
+
+    fromList = EnableAlarmActions . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _eaaAlarmNames
+
+-- | 'EnableAlarmActions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AlarmNames ::@ @[Text]@
+-- * 'eaaAlarmNames' @::@ ['Text']
 --
-enableAlarmActions :: [Text] -- ^ 'eaaAlarmNames'
-                   -> EnableAlarmActions
-enableAlarmActions p1 = EnableAlarmActions
-    { _eaaAlarmNames = p1
+enableAlarmActions :: EnableAlarmActions
+enableAlarmActions = EnableAlarmActions
+    { _eaaAlarmNames = mempty
     }
 
 -- | The names of the alarms to enable actions for.
 eaaAlarmNames :: Lens' EnableAlarmActions [Text]
 eaaAlarmNames = lens _eaaAlarmNames (\s a -> s { _eaaAlarmNames = a })
 
-instance ToQuery EnableAlarmActions where
-    toQuery = genericQuery def
+instance ToQuery EnableAlarmActions
+
+instance ToPath EnableAlarmActions where
+    toPath = const "/"
 
 data EnableAlarmActionsResponse = EnableAlarmActionsResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableAlarmActionsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'EnableAlarmActionsResponse' constructor.
 enableAlarmActionsResponse :: EnableAlarmActionsResponse
 enableAlarmActionsResponse = EnableAlarmActionsResponse
 
@@ -76,5 +82,5 @@ instance AWSRequest EnableAlarmActions where
     type Sv EnableAlarmActions = CloudWatch
     type Rs EnableAlarmActions = EnableAlarmActionsResponse
 
-    request = post "EnableAlarmActions"
-    response _ = nullaryResponse EnableAlarmActionsResponse
+    request  = post "EnableAlarmActions"
+    response = nullaryResponse EnableAlarmActionsResponse

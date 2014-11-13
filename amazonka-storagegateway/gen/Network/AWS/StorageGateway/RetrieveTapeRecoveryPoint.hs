@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- | Retrieves the recovery point for the specified virtual tape. A recovery
+-- point is a point in time view of a virtual tape at which all the data on
+-- the tape is consistent. If your gateway crashes, virtual tapes that have
+-- recovery points can be recovered to a new gateway.
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     (
     -- * Request
@@ -25,8 +31,8 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     -- ** Request constructor
     , retrieveTapeRecoveryPoint
     -- ** Request lenses
-    , rtrpTapeARN
     , rtrpGatewayARN
+    , rtrpTapeARN
 
     -- * Response
     , RetrieveTapeRecoveryPointResponse
@@ -36,74 +42,76 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     , rtrprTapeARN
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
-    { _rtrpTapeARN :: Text
-    , _rtrpGatewayARN :: Text
+    { _rtrpGatewayARN :: Text
+    , _rtrpTapeARN    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RetrieveTapeRecoveryPoint' request.
+-- | 'RetrieveTapeRecoveryPoint' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TapeARN ::@ @Text@
+-- * 'rtrpGatewayARN' @::@ 'Text'
 --
--- * @GatewayARN ::@ @Text@
+-- * 'rtrpTapeARN' @::@ 'Text'
 --
 retrieveTapeRecoveryPoint :: Text -- ^ 'rtrpTapeARN'
                           -> Text -- ^ 'rtrpGatewayARN'
                           -> RetrieveTapeRecoveryPoint
 retrieveTapeRecoveryPoint p1 p2 = RetrieveTapeRecoveryPoint
-    { _rtrpTapeARN = p1
+    { _rtrpTapeARN    = p1
     , _rtrpGatewayARN = p2
     }
 
-rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
-rtrpTapeARN = lens _rtrpTapeARN (\s a -> s { _rtrpTapeARN = a })
-
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
 rtrpGatewayARN :: Lens' RetrieveTapeRecoveryPoint Text
 rtrpGatewayARN = lens _rtrpGatewayARN (\s a -> s { _rtrpGatewayARN = a })
 
-instance ToPath RetrieveTapeRecoveryPoint
+-- | The Amazon Resource Name (ARN) of the virtual tape for which you want to
+-- retrieve the recovery point.
+rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
+rtrpTapeARN = lens _rtrpTapeARN (\s a -> s { _rtrpTapeARN = a })
 
-instance ToQuery RetrieveTapeRecoveryPoint
+instance ToPath RetrieveTapeRecoveryPoint where
+    toPath = const "/"
+
+instance ToQuery RetrieveTapeRecoveryPoint where
+    toQuery = const mempty
 
 instance ToHeaders RetrieveTapeRecoveryPoint
 
-instance ToJSON RetrieveTapeRecoveryPoint
+instance ToBody RetrieveTapeRecoveryPoint where
+    toBody = toBody . encode . _rtrpTapeARN
 
 newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
     { _rtrprTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RetrieveTapeRecoveryPointResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'RetrieveTapeRecoveryPointResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TapeARN ::@ @Maybe Text@
+-- * 'rtrprTapeARN' @::@ 'Maybe' 'Text'
 --
 retrieveTapeRecoveryPointResponse :: RetrieveTapeRecoveryPointResponse
 retrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
     { _rtrprTapeARN = Nothing
     }
 
+-- | The Amazon Resource Name (ARN) of the virtual tape for which the recovery
+-- point was retrieved.
 rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprTapeARN = lens _rtrprTapeARN (\s a -> s { _rtrprTapeARN = a })
 
-instance FromJSON RetrieveTapeRecoveryPointResponse
+-- FromJSON
 
 instance AWSRequest RetrieveTapeRecoveryPoint where
     type Sv RetrieveTapeRecoveryPoint = StorageGateway
     type Rs RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPointResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> RetrieveTapeRecoveryPointResponse
+        <$> o .: "TapeARN"

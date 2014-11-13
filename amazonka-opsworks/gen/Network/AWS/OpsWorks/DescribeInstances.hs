@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Requests a description of a set of instances. You must specify at least one
--- of the parameters. Required Permissions: To use this action, an IAM user
--- must have a Show, Deploy, or Manage permissions level for the stack, or an
--- attached policy that explicitly grants permissions. For more information on
--- user permissions, see Managing User Permissions.
+-- | Requests a description of a set of instances. Required Permissions: To use
+-- this action, an IAM user must have a Show, Deploy, or Manage permissions
+-- level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see Managing User
+-- Permissions.
 module Network.AWS.OpsWorks.DescribeInstances
     (
     -- * Request
@@ -30,9 +32,9 @@ module Network.AWS.OpsWorks.DescribeInstances
     -- ** Request constructor
     , describeInstances
     -- ** Request lenses
-    , di1StackId
-    , di1LayerId
-    , di1InstanceIds
+    , diInstanceIds
+    , diLayerId
+    , diStackId
 
     -- * Response
     , DescribeInstancesResponse
@@ -42,71 +44,75 @@ module Network.AWS.OpsWorks.DescribeInstances
     , dirInstances
     ) where
 
-import Network.AWS.OpsWorks.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
 
 data DescribeInstances = DescribeInstances
-    { _di1StackId :: Maybe Text
-    , _di1LayerId :: Maybe Text
-    , _di1InstanceIds :: [Text]
+    { _diInstanceIds :: [Text]
+    , _diLayerId     :: Maybe Text
+    , _diStackId     :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeInstances' request.
+-- | 'DescribeInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StackId ::@ @Maybe Text@
+-- * 'diInstanceIds' @::@ ['Text']
 --
--- * @LayerId ::@ @Maybe Text@
+-- * 'diLayerId' @::@ 'Maybe' 'Text'
 --
--- * @InstanceIds ::@ @[Text]@
+-- * 'diStackId' @::@ 'Maybe' 'Text'
 --
 describeInstances :: DescribeInstances
 describeInstances = DescribeInstances
-    { _di1StackId = Nothing
-    , _di1LayerId = Nothing
-    , _di1InstanceIds = mempty
+    { _diStackId     = Nothing
+    , _diLayerId     = Nothing
+    , _diInstanceIds = mempty
     }
-
--- | A stack ID. If you use this parameter, DescribeInstances returns
--- descriptions of the instances associated with the specified stack.
-di1StackId :: Lens' DescribeInstances (Maybe Text)
-di1StackId = lens _di1StackId (\s a -> s { _di1StackId = a })
-
--- | A layer ID. If you use this parameter, DescribeInstances returns
--- descriptions of the instances associated with the specified layer.
-di1LayerId :: Lens' DescribeInstances (Maybe Text)
-di1LayerId = lens _di1LayerId (\s a -> s { _di1LayerId = a })
 
 -- | An array of instance IDs to be described. If you use this parameter,
 -- DescribeInstances returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
-di1InstanceIds :: Lens' DescribeInstances [Text]
-di1InstanceIds = lens _di1InstanceIds (\s a -> s { _di1InstanceIds = a })
+diInstanceIds :: Lens' DescribeInstances [Text]
+diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a })
 
-instance ToPath DescribeInstances
+-- | A layer ID. If you use this parameter, DescribeInstances returns
+-- descriptions of the instances associated with the specified layer.
+diLayerId :: Lens' DescribeInstances (Maybe Text)
+diLayerId = lens _diLayerId (\s a -> s { _diLayerId = a })
 
-instance ToQuery DescribeInstances
+-- | A stack ID. If you use this parameter, DescribeInstances returns
+-- descriptions of the instances associated with the specified stack.
+diStackId :: Lens' DescribeInstances (Maybe Text)
+diStackId = lens _diStackId (\s a -> s { _diStackId = a })
+
+instance ToPath DescribeInstances where
+    toPath = const "/"
+
+instance ToQuery DescribeInstances where
+    toQuery = const mempty
 
 instance ToHeaders DescribeInstances
 
-instance ToJSON DescribeInstances
+instance ToBody DescribeInstances where
+    toBody = toBody . encode . _diStackId
 
--- | Contains the response to a DescribeInstances request.
 newtype DescribeInstancesResponse = DescribeInstancesResponse
     { _dirInstances :: [Instance]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeInstancesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DescribeInstancesResponse where
+    type Item DescribeInstancesResponse = Instance
+
+    fromList = DescribeInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dirInstances
+
+-- | 'DescribeInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Instances ::@ @[Instance]@
+-- * 'dirInstances' @::@ ['Instance']
 --
 describeInstancesResponse :: DescribeInstancesResponse
 describeInstancesResponse = DescribeInstancesResponse
@@ -117,11 +123,12 @@ describeInstancesResponse = DescribeInstancesResponse
 dirInstances :: Lens' DescribeInstancesResponse [Instance]
 dirInstances = lens _dirInstances (\s a -> s { _dirInstances = a })
 
-instance FromJSON DescribeInstancesResponse
+-- FromJSON
 
 instance AWSRequest DescribeInstances where
     type Sv DescribeInstances = OpsWorks
     type Rs DescribeInstances = DescribeInstancesResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeInstancesResponse
+        <$> o .: "Instances"

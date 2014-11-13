@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,111 +31,91 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     -- ** Request constructor
     , confirmPrivateVirtualInterface
     -- ** Request lenses
-    , cpviVirtualInterfaceId
     , cpviVirtualGatewayId
+    , cpviVirtualInterfaceId
 
     -- * Response
     , ConfirmPrivateVirtualInterfaceResponse
     -- ** Response constructor
     , confirmPrivateVirtualInterfaceResponse
     -- ** Response lenses
-    , cpvirVirtualInterfaceState
+    , cpvir1VirtualInterfaceState
     ) where
 
-import Network.AWS.DirectConnect.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DirectConnect.Types
 
--- | Container for the parameters to the ConfirmPrivateVirtualInterface
--- operation.
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
-    { _cpviVirtualInterfaceId :: Text
-    , _cpviVirtualGatewayId :: Text
+    { _cpviVirtualGatewayId   :: Text
+    , _cpviVirtualInterfaceId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfirmPrivateVirtualInterface' request.
+-- | 'ConfirmPrivateVirtualInterface' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VirtualInterfaceId ::@ @Text@
+-- * 'cpviVirtualGatewayId' @::@ 'Text'
 --
--- * @VirtualGatewayId ::@ @Text@
+-- * 'cpviVirtualInterfaceId' @::@ 'Text'
 --
 confirmPrivateVirtualInterface :: Text -- ^ 'cpviVirtualInterfaceId'
                                -> Text -- ^ 'cpviVirtualGatewayId'
                                -> ConfirmPrivateVirtualInterface
 confirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
     { _cpviVirtualInterfaceId = p1
-    , _cpviVirtualGatewayId = p2
+    , _cpviVirtualGatewayId   = p2
     }
 
--- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
-cpviVirtualInterfaceId =
-    lens _cpviVirtualInterfaceId (\s a -> s { _cpviVirtualInterfaceId = a })
-
 -- | ID of the virtual private gateway that will be attached to the virtual
--- interface. A virtual private gateway can be managed via the Amazon Virtual
--- Private Cloud (VPC) console or the EC2 CreateVpnGateway action. Default:
--- None.
+-- interface. A virtual private gateway can be managed via the Amazon
+-- Virtual Private Cloud (VPC) console or the EC2 CreateVpnGateway action.
+-- Default: None.
 cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualGatewayId =
     lens _cpviVirtualGatewayId (\s a -> s { _cpviVirtualGatewayId = a })
 
-instance ToPath ConfirmPrivateVirtualInterface
+cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
+cpviVirtualInterfaceId =
+    lens _cpviVirtualInterfaceId (\s a -> s { _cpviVirtualInterfaceId = a })
 
-instance ToQuery ConfirmPrivateVirtualInterface
+instance ToPath ConfirmPrivateVirtualInterface where
+    toPath = const "/"
+
+instance ToQuery ConfirmPrivateVirtualInterface where
+    toQuery = const mempty
 
 instance ToHeaders ConfirmPrivateVirtualInterface
 
-instance ToJSON ConfirmPrivateVirtualInterface
+instance ToBody ConfirmPrivateVirtualInterface where
+    toBody = toBody . encode . _cpviVirtualInterfaceId
 
--- | The response received when ConfirmPrivateVirtualInterface is called.
 newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
-    { _cpvirVirtualInterfaceState :: Maybe VirtualInterfaceState
-    } deriving (Eq, Ord, Show, Generic)
+    { _cpvir1VirtualInterfaceState :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfirmPrivateVirtualInterfaceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ConfirmPrivateVirtualInterfaceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
+-- * 'cpvir1VirtualInterfaceState' @::@ 'Maybe' 'Text'
 --
 confirmPrivateVirtualInterfaceResponse :: ConfirmPrivateVirtualInterfaceResponse
 confirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
-    { _cpvirVirtualInterfaceState = Nothing
+    { _cpvir1VirtualInterfaceState = Nothing
     }
 
--- | State of the virtual interface. Confirming: The creation of the virtual
--- interface is pending confirmation from the virtual interface owner. If the
--- owner of the virtual interface is different from the owner of the
--- connection on which it is provisioned, then the virtual interface will
--- remain in this state until it is confirmed by the virtual interface owner.
--- Verifying: This state only applies to public virtual interfaces. Each
--- public virtual interface needs validation before the virtual interface can
--- be created. Pending: A virtual interface is in this state from the time
--- that it is created until the virtual interface is ready to forward traffic.
--- Available: A virtual interface that is able to forward traffic. Deleting: A
--- virtual interface is in this state immediately after calling
--- DeleteVirtualInterface until it can no longer forward traffic. Deleted: A
--- virtual interface that cannot forward traffic. Rejected: The virtual
--- interface owner has declined creation of the virtual interface. If a
--- virtual interface in the 'Confirming' state is deleted by the virtual
--- interface owner, the virtual interface will enter the 'Rejected' state.
-cpvirVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-cpvirVirtualInterfaceState =
-    lens _cpvirVirtualInterfaceState
-         (\s a -> s { _cpvirVirtualInterfaceState = a })
+cpvir1VirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1VirtualInterfaceState =
+    lens _cpvir1VirtualInterfaceState
+        (\s a -> s { _cpvir1VirtualInterfaceState = a })
 
-instance FromJSON ConfirmPrivateVirtualInterfaceResponse
+-- FromJSON
 
 instance AWSRequest ConfirmPrivateVirtualInterface where
     type Sv ConfirmPrivateVirtualInterface = DirectConnect
     type Rs ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterfaceResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> ConfirmPrivateVirtualInterfaceResponse
+        <$> o .: "virtualInterfaceState"

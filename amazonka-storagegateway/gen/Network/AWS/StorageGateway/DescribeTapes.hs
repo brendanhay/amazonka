@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeTapes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,6 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+-- | Returns a description of the specified Amazon Resource Name (ARN) of
+-- virtual tapes. If a TapeARN is not specified, returns a description of all
+-- virtual tapes associated with the specified gateway.
 module Network.AWS.StorageGateway.DescribeTapes
     (
     -- * Request
@@ -25,112 +30,120 @@ module Network.AWS.StorageGateway.DescribeTapes
     -- ** Request constructor
     , describeTapes
     -- ** Request lenses
-    , dt1GatewayARN
-    , dt1TapeARNs
-    , dt1Marker
-    , dt1Limit
+    , dtGatewayARN
+    , dtLimit
+    , dtMarker
+    , dtTapeARNs
 
     -- * Response
     , DescribeTapesResponse
     -- ** Response constructor
     , describeTapesResponse
     -- ** Response lenses
-    , dtrrTapes
-    , dtrrMarker
+    , dtrMarker
+    , dtrTapes
     ) where
 
-import Network.AWS.StorageGateway.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.StorageGateway.Types
 
 data DescribeTapes = DescribeTapes
-    { _dt1GatewayARN :: Text
-    , _dt1TapeARNs :: [Text]
-    , _dt1Marker :: Maybe Text
-    , _dt1Limit :: Maybe Integer
+    { _dtGatewayARN :: Text
+    , _dtLimit      :: Maybe Natural
+    , _dtMarker     :: Maybe Text
+    , _dtTapeARNs   :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTapes' request.
+-- | 'DescribeTapes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GatewayARN ::@ @Text@
+-- * 'dtGatewayARN' @::@ 'Text'
 --
--- * @TapeARNs ::@ @[Text]@
+-- * 'dtLimit' @::@ 'Maybe' 'Natural'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'dtMarker' @::@ 'Maybe' 'Text'
 --
--- * @Limit ::@ @Maybe Integer@
+-- * 'dtTapeARNs' @::@ ['Text']
 --
-describeTapes :: Text -- ^ 'dt1GatewayARN'
+describeTapes :: Text -- ^ 'dtGatewayARN'
               -> DescribeTapes
 describeTapes p1 = DescribeTapes
-    { _dt1GatewayARN = p1
-    , _dt1TapeARNs = mempty
-    , _dt1Marker = Nothing
-    , _dt1Limit = Nothing
+    { _dtGatewayARN = p1
+    , _dtTapeARNs   = mempty
+    , _dtMarker     = Nothing
+    , _dtLimit      = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
-dt1GatewayARN :: Lens' DescribeTapes Text
-dt1GatewayARN = lens _dt1GatewayARN (\s a -> s { _dt1GatewayARN = a })
+dtGatewayARN :: Lens' DescribeTapes Text
+dtGatewayARN = lens _dtGatewayARN (\s a -> s { _dtGatewayARN = a })
 
-dt1TapeARNs :: Lens' DescribeTapes [Text]
-dt1TapeARNs = lens _dt1TapeARNs (\s a -> s { _dt1TapeARNs = a })
+-- | Specifies that the number of virtual tapes described be limited to the
+-- specified number.
+dtLimit :: Lens' DescribeTapes (Maybe Natural)
+dtLimit = lens _dtLimit (\s a -> s { _dtLimit = a })
 
-dt1Marker :: Lens' DescribeTapes (Maybe Text)
-dt1Marker = lens _dt1Marker (\s a -> s { _dt1Marker = a })
+-- | A marker value, obtained in a previous call to DescribeTapes. This marker
+-- indicates which page of results to retrieve. If not specified, the first
+-- page of results is retrieved.
+dtMarker :: Lens' DescribeTapes (Maybe Text)
+dtMarker = lens _dtMarker (\s a -> s { _dtMarker = a })
 
-dt1Limit :: Lens' DescribeTapes (Maybe Integer)
-dt1Limit = lens _dt1Limit (\s a -> s { _dt1Limit = a })
+-- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
+-- the virtual tapes you want to describe. If this parameter is not
+-- specified, AWS Storage Gateway returns a description of all virtual tapes
+-- associated with the specified gateway.
+dtTapeARNs :: Lens' DescribeTapes [Text]
+dtTapeARNs = lens _dtTapeARNs (\s a -> s { _dtTapeARNs = a })
 
-instance ToPath DescribeTapes
+instance ToPath DescribeTapes where
+    toPath = const "/"
 
-instance ToQuery DescribeTapes
+instance ToQuery DescribeTapes where
+    toQuery = const mempty
 
 instance ToHeaders DescribeTapes
 
-instance ToJSON DescribeTapes
+instance ToBody DescribeTapes where
+    toBody = toBody . encode . _dtGatewayARN
 
 data DescribeTapesResponse = DescribeTapesResponse
-    { _dtrrTapes :: [Tape]
-    , _dtrrMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    { _dtrMarker :: Maybe Text
+    , _dtrTapes  :: [Tape]
+    } deriving (Eq, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTapesResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DescribeTapesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Tapes ::@ @[Tape]@
+-- * 'dtrMarker' @::@ 'Maybe' 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'dtrTapes' @::@ ['Tape']
 --
 describeTapesResponse :: DescribeTapesResponse
 describeTapesResponse = DescribeTapesResponse
-    { _dtrrTapes = mempty
-    , _dtrrMarker = Nothing
+    { _dtrTapes  = mempty
+    , _dtrMarker = Nothing
     }
 
-dtrrTapes :: Lens' DescribeTapesResponse [Tape]
-dtrrTapes = lens _dtrrTapes (\s a -> s { _dtrrTapes = a })
+-- | An opaque string which can be used as part of a subsequent DescribeTapes
+-- call to retrieve the next page of results. If a response does not contain
+-- a marker, then there are no more results to be retrieved.
+dtrMarker :: Lens' DescribeTapesResponse (Maybe Text)
+dtrMarker = lens _dtrMarker (\s a -> s { _dtrMarker = a })
 
-dtrrMarker :: Lens' DescribeTapesResponse (Maybe Text)
-dtrrMarker = lens _dtrrMarker (\s a -> s { _dtrrMarker = a })
+-- | An array of virtual tape descriptions.
+dtrTapes :: Lens' DescribeTapesResponse [Tape]
+dtrTapes = lens _dtrTapes (\s a -> s { _dtrTapes = a })
 
-instance FromJSON DescribeTapesResponse
+-- FromJSON
 
 instance AWSRequest DescribeTapes where
     type Sv DescribeTapes = StorageGateway
     type Rs DescribeTapes = DescribeTapesResponse
 
-    request = get
-    response _ = jsonResponse
-
-instance AWSPager DescribeTapes where
-    next rq rs = (\x -> rq & dt1Marker ?~ x)
-        <$> (rs ^. dtrrMarker)
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeTapesResponse
+        <$> o .: "Marker"
+        <*> o .: "Tapes"

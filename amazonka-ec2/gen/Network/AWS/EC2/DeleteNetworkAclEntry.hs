@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteNetworkAclEntry
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,14 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified ingress or egress entry (rule) from the specified
--- network ACL. Example This example deletes ingress rule number 100 from the
--- specified network ACL.
--- https://ec2.amazonaws.com/?Action=DeleteNetworkAclEntry
--- &amp;NetworkAclId=acl-2cb85d45 &amp;RuleNumber=100 &amp;AUTHPARAMS
--- &lt;DeleteNetworkAclEntryResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkAclEntryResponse&gt;.
+-- network ACL.
 module Network.AWS.EC2.DeleteNetworkAclEntry
     (
     -- * Request
@@ -34,9 +29,10 @@ module Network.AWS.EC2.DeleteNetworkAclEntry
     -- ** Request constructor
     , deleteNetworkAclEntry
     -- ** Request lenses
+    , dnaeDryRun
+    , dnaeEgress
     , dnaeNetworkAclId
     , dnaeRuleNumber
-    , dnaeEgress
 
     -- * Response
     , DeleteNetworkAclEntryResponse
@@ -44,60 +40,65 @@ module Network.AWS.EC2.DeleteNetworkAclEntry
     , deleteNetworkAclEntryResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data DeleteNetworkAclEntry = DeleteNetworkAclEntry
-    { _dnaeNetworkAclId :: Text
-    , _dnaeRuleNumber :: !Integer
-    , _dnaeEgress :: !Bool
+    { _dnaeDryRun       :: Maybe Bool
+    , _dnaeEgress       :: Bool
+    , _dnaeNetworkAclId :: Text
+    , _dnaeRuleNumber   :: Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteNetworkAclEntry' request.
+-- | 'DeleteNetworkAclEntry' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkAclId ::@ @Text@
+-- * 'dnaeDryRun' @::@ 'Maybe' 'Bool'
 --
--- * @RuleNumber ::@ @Integer@
+-- * 'dnaeEgress' @::@ 'Bool'
 --
--- * @Egress ::@ @Bool@
+-- * 'dnaeNetworkAclId' @::@ 'Text'
+--
+-- * 'dnaeRuleNumber' @::@ 'Int'
 --
 deleteNetworkAclEntry :: Text -- ^ 'dnaeNetworkAclId'
-                      -> Integer -- ^ 'dnaeRuleNumber'
+                      -> Int -- ^ 'dnaeRuleNumber'
                       -> Bool -- ^ 'dnaeEgress'
                       -> DeleteNetworkAclEntry
 deleteNetworkAclEntry p1 p2 p3 = DeleteNetworkAclEntry
     { _dnaeNetworkAclId = p1
-    , _dnaeRuleNumber = p2
-    , _dnaeEgress = p3
+    , _dnaeRuleNumber   = p2
+    , _dnaeEgress       = p3
+    , _dnaeDryRun       = Nothing
     }
 
--- | The ID of the network ACL.
-dnaeNetworkAclId :: Lens' DeleteNetworkAclEntry Text
-dnaeNetworkAclId =
-    lens _dnaeNetworkAclId (\s a -> s { _dnaeNetworkAclId = a })
-
--- | The rule number of the entry to delete.
-dnaeRuleNumber :: Lens' DeleteNetworkAclEntry Integer
-dnaeRuleNumber = lens _dnaeRuleNumber (\s a -> s { _dnaeRuleNumber = a })
+dnaeDryRun :: Lens' DeleteNetworkAclEntry (Maybe Bool)
+dnaeDryRun = lens _dnaeDryRun (\s a -> s { _dnaeDryRun = a })
 
 -- | Indicates whether the rule is an egress rule.
 dnaeEgress :: Lens' DeleteNetworkAclEntry Bool
 dnaeEgress = lens _dnaeEgress (\s a -> s { _dnaeEgress = a })
 
-instance ToQuery DeleteNetworkAclEntry where
-    toQuery = genericQuery def
+-- | The ID of the network ACL.
+dnaeNetworkAclId :: Lens' DeleteNetworkAclEntry Text
+dnaeNetworkAclId = lens _dnaeNetworkAclId (\s a -> s { _dnaeNetworkAclId = a })
+
+-- | The rule number of the entry to delete.
+dnaeRuleNumber :: Lens' DeleteNetworkAclEntry Int
+dnaeRuleNumber = lens _dnaeRuleNumber (\s a -> s { _dnaeRuleNumber = a })
+
+instance ToQuery DeleteNetworkAclEntry
+
+instance ToPath DeleteNetworkAclEntry where
+    toPath = const "/"
 
 data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteNetworkAclEntryResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteNetworkAclEntryResponse' constructor.
 deleteNetworkAclEntryResponse :: DeleteNetworkAclEntryResponse
 deleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
 
@@ -105,5 +106,5 @@ instance AWSRequest DeleteNetworkAclEntry where
     type Sv DeleteNetworkAclEntry = EC2
     type Rs DeleteNetworkAclEntry = DeleteNetworkAclEntryResponse
 
-    request = post "DeleteNetworkAclEntry"
-    response _ = nullaryResponse DeleteNetworkAclEntryResponse
+    request  = post "DeleteNetworkAclEntry"
+    response = nullaryResponse DeleteNetworkAclEntryResponse

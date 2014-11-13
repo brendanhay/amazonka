@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.ELB.DetachLoadBalancerFromSubnets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,10 +26,6 @@
 -- removed subnet will go into the OutOfService state. When a subnet is
 -- removed, the load balancer will balance the traffic among the remaining
 -- routable subnets for the load balancer.
--- https://elasticloadbalancing.amazonaws.com/?Subnets.member.1=subnet-119f0078
--- &LoadBalancerName=my-test-vpc-loadbalancer &Version=2012-06-01
--- &Action=DetachLoadBalancerFromSubnets &AUTHPARAMS subnet-159f007c
--- subnet-3561b05e 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     (
     -- * Request
@@ -46,31 +44,29 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     , dlbfsrSubnets
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
--- | The input for the DetachLoadBalancerFromSubnets action.
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
     { _dlbfsLoadBalancerName :: Text
-    , _dlbfsSubnets :: [Text]
+    , _dlbfsSubnets          :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachLoadBalancerFromSubnets' request.
+-- | 'DetachLoadBalancerFromSubnets' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LoadBalancerName ::@ @Text@
+-- * 'dlbfsLoadBalancerName' @::@ 'Text'
 --
--- * @Subnets ::@ @[Text]@
+-- * 'dlbfsSubnets' @::@ ['Text']
 --
 detachLoadBalancerFromSubnets :: Text -- ^ 'dlbfsLoadBalancerName'
-                              -> [Text] -- ^ 'dlbfsSubnets'
                               -> DetachLoadBalancerFromSubnets
-detachLoadBalancerFromSubnets p1 p2 = DetachLoadBalancerFromSubnets
+detachLoadBalancerFromSubnets p1 = DetachLoadBalancerFromSubnets
     { _dlbfsLoadBalancerName = p1
-    , _dlbfsSubnets = p2
+    , _dlbfsSubnets          = mempty
     }
 
 -- | The name associated with the load balancer to be detached.
@@ -83,22 +79,26 @@ dlbfsLoadBalancerName =
 dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
 dlbfsSubnets = lens _dlbfsSubnets (\s a -> s { _dlbfsSubnets = a })
 
-instance ToQuery DetachLoadBalancerFromSubnets where
-    toQuery = genericQuery def
+instance ToQuery DetachLoadBalancerFromSubnets
 
--- | The output for the DetachLoadBalancerFromSubnets action.
+instance ToPath DetachLoadBalancerFromSubnets where
+    toPath = const "/"
+
 newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
     { _dlbfsrSubnets :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachLoadBalancerFromSubnetsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList DetachLoadBalancerFromSubnetsResponse where
+    type Item DetachLoadBalancerFromSubnetsResponse = Text
+
+    fromList = DetachLoadBalancerFromSubnetsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlbfsrSubnets
+
+-- | 'DetachLoadBalancerFromSubnetsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Subnets ::@ @[Text]@
+-- * 'dlbfsrSubnets' @::@ ['Text']
 --
 detachLoadBalancerFromSubnetsResponse :: DetachLoadBalancerFromSubnetsResponse
 detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
@@ -109,12 +109,10 @@ detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
 dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrSubnets = lens _dlbfsrSubnets (\s a -> s { _dlbfsrSubnets = a })
 
-instance FromXML DetachLoadBalancerFromSubnetsResponse where
-    fromXMLOptions = xmlOptions
-
 instance AWSRequest DetachLoadBalancerFromSubnets where
     type Sv DetachLoadBalancerFromSubnets = ELB
     type Rs DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnetsResponse
 
-    request = post "DetachLoadBalancerFromSubnets"
-    response _ = xmlResponse
+    request  = post "DetachLoadBalancerFromSubnets"
+    response = xmlResponse $ \h x -> DetachLoadBalancerFromSubnetsResponse
+        <$> x %| "Subnets"

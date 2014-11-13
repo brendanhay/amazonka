@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.IAM.UpdateSigningCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,13 +25,10 @@
 -- signing certificate as part of a certificate rotation work flow. If the
 -- UserName field is not specified, the UserName is determined implicitly
 -- based on the AWS access key ID used to sign the request. Because this
--- action works for access keys under the AWS account, this API can be used to
--- manage root credentials even if the AWS account has no associated users.
+-- action works for access keys under the AWS account, you can use this action
+-- to manage root credentials even if the AWS account has no associated users.
 -- For information about rotating certificates, see Managing Keys and
--- Certificates in the Using IAM guide. https://iam.amazonaws.com/
--- ?Action=UpdateSigningCertificate &UserName=Bob
--- &CertificateId=TA7SMP42TDN5Z26OBPJE7EXAMPLE &Status=Inactive
--- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
+-- Certificates in the Using IAM guide.
 module Network.AWS.IAM.UpdateSigningCertificate
     (
     -- * Request
@@ -37,9 +36,9 @@ module Network.AWS.IAM.UpdateSigningCertificate
     -- ** Request constructor
     , updateSigningCertificate
     -- ** Request lenses
-    , usc1UserName
-    , usc1CertificateId
-    , usc1Status
+    , uscCertificateId
+    , uscStatus
+    , uscUserName
 
     -- * Response
     , UpdateSigningCertificateResponse
@@ -47,61 +46,59 @@ module Network.AWS.IAM.UpdateSigningCertificate
     , updateSigningCertificateResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
 data UpdateSigningCertificate = UpdateSigningCertificate
-    { _usc1UserName :: Maybe Text
-    , _usc1CertificateId :: Text
-    , _usc1Status :: StatusType
+    { _uscCertificateId :: Text
+    , _uscStatus        :: Text
+    , _uscUserName      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateSigningCertificate' request.
+-- | 'UpdateSigningCertificate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @UserName ::@ @Maybe Text@
+-- * 'uscCertificateId' @::@ 'Text'
 --
--- * @CertificateId ::@ @Text@
+-- * 'uscStatus' @::@ 'Text'
 --
--- * @Status ::@ @StatusType@
+-- * 'uscUserName' @::@ 'Maybe' 'Text'
 --
-updateSigningCertificate :: Text -- ^ 'usc1CertificateId'
-                         -> StatusType -- ^ 'usc1Status'
+updateSigningCertificate :: Text -- ^ 'uscCertificateId'
+                         -> Text -- ^ 'uscStatus'
                          -> UpdateSigningCertificate
-updateSigningCertificate p2 p3 = UpdateSigningCertificate
-    { _usc1UserName = Nothing
-    , _usc1CertificateId = p2
-    , _usc1Status = p3
+updateSigningCertificate p1 p2 = UpdateSigningCertificate
+    { _uscCertificateId = p1
+    , _uscStatus        = p2
+    , _uscUserName      = Nothing
     }
 
--- | Name of the user the signing certificate belongs to.
-usc1UserName :: Lens' UpdateSigningCertificate (Maybe Text)
-usc1UserName = lens _usc1UserName (\s a -> s { _usc1UserName = a })
-
 -- | The ID of the signing certificate you want to update.
-usc1CertificateId :: Lens' UpdateSigningCertificate Text
-usc1CertificateId =
-    lens _usc1CertificateId (\s a -> s { _usc1CertificateId = a })
+uscCertificateId :: Lens' UpdateSigningCertificate Text
+uscCertificateId = lens _uscCertificateId (\s a -> s { _uscCertificateId = a })
 
 -- | The status you want to assign to the certificate. Active means the
 -- certificate can be used for API calls to AWS, while Inactive means the
 -- certificate cannot be used.
-usc1Status :: Lens' UpdateSigningCertificate StatusType
-usc1Status = lens _usc1Status (\s a -> s { _usc1Status = a })
+uscStatus :: Lens' UpdateSigningCertificate Text
+uscStatus = lens _uscStatus (\s a -> s { _uscStatus = a })
 
-instance ToQuery UpdateSigningCertificate where
-    toQuery = genericQuery def
+-- | The name of the user the signing certificate belongs to.
+uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
+uscUserName = lens _uscUserName (\s a -> s { _uscUserName = a })
+
+instance ToQuery UpdateSigningCertificate
+
+instance ToPath UpdateSigningCertificate where
+    toPath = const "/"
 
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateSigningCertificateResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'UpdateSigningCertificateResponse' constructor.
 updateSigningCertificateResponse :: UpdateSigningCertificateResponse
 updateSigningCertificateResponse = UpdateSigningCertificateResponse
 
@@ -109,5 +106,5 @@ instance AWSRequest UpdateSigningCertificate where
     type Sv UpdateSigningCertificate = IAM
     type Rs UpdateSigningCertificate = UpdateSigningCertificateResponse
 
-    request = post "UpdateSigningCertificate"
-    response _ = nullaryResponse UpdateSigningCertificateResponse
+    request  = post "UpdateSigningCertificate"
+    response = nullaryResponse UpdateSigningCertificateResponse

@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.EC2.DeleteNetworkInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,14 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified network interface. You must detach the network
--- interface before you can delete it. Example This example deletes the
--- specified network interface.
--- https://ec2.amazonaws.com/?Action=DeleteNetworkInterface
--- &amp;NetworkInterfaceId=eni-ffda3197 &amp;AUTHPARAMS
--- &lt;DeleteNetworkInterfaceResponse
--- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
--- &lt;requestId&gt;e1c6d73b-edaa-4e62-9909-6611404e1739&lt;/requestId&gt;
--- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkInterfaceResponse&gt;.
+-- interface before you can delete it.
 module Network.AWS.EC2.DeleteNetworkInterface
     (
     -- * Request
@@ -34,7 +29,8 @@ module Network.AWS.EC2.DeleteNetworkInterface
     -- ** Request constructor
     , deleteNetworkInterface
     -- ** Request lenses
-    , dniNetworkInterfaceId
+    , dni2DryRun
+    , dni2NetworkInterfaceId
 
     -- * Response
     , DeleteNetworkInterfaceResponse
@@ -42,42 +38,48 @@ module Network.AWS.EC2.DeleteNetworkInterface
     , deleteNetworkInterfaceResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
-import Network.AWS.Prelude
+import qualified GHC.Exts
 
-newtype DeleteNetworkInterface = DeleteNetworkInterface
-    { _dniNetworkInterfaceId :: Text
+data DeleteNetworkInterface = DeleteNetworkInterface
+    { _dni2DryRun             :: Maybe Bool
+    , _dni2NetworkInterfaceId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteNetworkInterface' request.
+-- | 'DeleteNetworkInterface' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkInterfaceId ::@ @Text@
+-- * 'dni2DryRun' @::@ 'Maybe' 'Bool'
 --
-deleteNetworkInterface :: Text -- ^ 'dniNetworkInterfaceId'
+-- * 'dni2NetworkInterfaceId' @::@ 'Text'
+--
+deleteNetworkInterface :: Text -- ^ 'dni2NetworkInterfaceId'
                        -> DeleteNetworkInterface
 deleteNetworkInterface p1 = DeleteNetworkInterface
-    { _dniNetworkInterfaceId = p1
+    { _dni2NetworkInterfaceId = p1
+    , _dni2DryRun             = Nothing
     }
 
--- | The ID of the network interface.
-dniNetworkInterfaceId :: Lens' DeleteNetworkInterface Text
-dniNetworkInterfaceId =
-    lens _dniNetworkInterfaceId (\s a -> s { _dniNetworkInterfaceId = a })
+dni2DryRun :: Lens' DeleteNetworkInterface (Maybe Bool)
+dni2DryRun = lens _dni2DryRun (\s a -> s { _dni2DryRun = a })
 
-instance ToQuery DeleteNetworkInterface where
-    toQuery = genericQuery def
+-- | The ID of the network interface.
+dni2NetworkInterfaceId :: Lens' DeleteNetworkInterface Text
+dni2NetworkInterfaceId =
+    lens _dni2NetworkInterfaceId (\s a -> s { _dni2NetworkInterfaceId = a })
+
+instance ToQuery DeleteNetworkInterface
+
+instance ToPath DeleteNetworkInterface where
+    toPath = const "/"
 
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteNetworkInterfaceResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'DeleteNetworkInterfaceResponse' constructor.
 deleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse
 deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
 
@@ -85,5 +87,5 @@ instance AWSRequest DeleteNetworkInterface where
     type Sv DeleteNetworkInterface = EC2
     type Rs DeleteNetworkInterface = DeleteNetworkInterfaceResponse
 
-    request = post "DeleteNetworkInterface"
-    response _ = nullaryResponse DeleteNetworkInterfaceResponse
+    request  = post "DeleteNetworkInterface"
+    response = nullaryResponse DeleteNetworkInterfaceResponse

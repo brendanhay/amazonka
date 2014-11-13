@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.CloudFront.ListInvalidations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,119 +24,108 @@
 module Network.AWS.CloudFront.ListInvalidations
     (
     -- * Request
-      ListInvalidations
+      ListInvalidations2014_05_31
     -- ** Request constructor
-    , listInvalidations
+    , listInvalidations2014_05_31
     -- ** Request lenses
     , liDistributionId
     , liMarker
     , liMaxItems
 
     -- * Response
-    , ListInvalidationsResponse
+    , ListInvalidations2014_05_31Response
     -- ** Response constructor
-    , listInvalidationsResponse
+    , listInvalidations2014_05_31Response
     -- ** Response lenses
     , lirInvalidationList
     ) where
 
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
 import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Network.AWS.Request
+import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
--- | The request to list invalidations.
-data ListInvalidations = ListInvalidations
+data ListInvalidations2014_05_31 = ListInvalidations2014_05_31
     { _liDistributionId :: Text
-    , _liMarker :: Maybe Text
-    , _liMaxItems :: Maybe Text
+    , _liMarker         :: Maybe Text
+    , _liMaxItems       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListInvalidations' request.
+-- | 'ListInvalidations2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DistributionId ::@ @Text@
+-- * 'liDistributionId' @::@ 'Text'
 --
--- * @Marker ::@ @Maybe Text@
+-- * 'liMarker' @::@ 'Maybe' 'Text'
 --
--- * @MaxItems ::@ @Maybe Text@
+-- * 'liMaxItems' @::@ 'Maybe' 'Text'
 --
-listInvalidations :: Text -- ^ 'liDistributionId'
-                  -> ListInvalidations
-listInvalidations p1 = ListInvalidations
+listInvalidations2014_05_31 :: Text -- ^ 'liDistributionId'
+                            -> ListInvalidations2014_05_31
+listInvalidations2014_05_31 p1 = ListInvalidations2014_05_31
     { _liDistributionId = p1
-    , _liMarker = Nothing
-    , _liMaxItems = Nothing
+    , _liMarker         = Nothing
+    , _liMaxItems       = Nothing
     }
 
 -- | The distribution's id.
-liDistributionId :: Lens' ListInvalidations Text
-liDistributionId =
-    lens _liDistributionId (\s a -> s { _liDistributionId = a })
+liDistributionId :: Lens' ListInvalidations2014_05_31 Text
+liDistributionId = lens _liDistributionId (\s a -> s { _liDistributionId = a })
 
 -- | Use this parameter when paginating results to indicate where to begin in
 -- your list of invalidation batches. Because the results are returned in
--- decreasing order from most recent to oldest, the most recent results are on
--- the first page, the second page will contain earlier results, and so on. To
--- get the next page of results, set the Marker to the value of the NextMarker
--- from the current page's response. This value is the same as the ID of the
--- last invalidation batch on that page.
-liMarker :: Lens' ListInvalidations (Maybe Text)
+-- decreasing order from most recent to oldest, the most recent results are
+-- on the first page, the second page will contain earlier results, and so
+-- on. To get the next page of results, set the Marker to the value of the
+-- NextMarker from the current page's response. This value is the same as
+-- the ID of the last invalidation batch on that page.
+liMarker :: Lens' ListInvalidations2014_05_31 (Maybe Text)
 liMarker = lens _liMarker (\s a -> s { _liMarker = a })
 
 -- | The maximum number of invalidation batches you want in the response body.
-liMaxItems :: Lens' ListInvalidations (Maybe Text)
+liMaxItems :: Lens' ListInvalidations2014_05_31 (Maybe Text)
 liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
 
-instance ToPath ListInvalidations
+instance ToPath ListInvalidations2014_05_31 where
+    toPath ListInvalidations2014_05_31{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _liDistributionId
+        , "/invalidation"
+        ]
 
-instance ToQuery ListInvalidations
+instance ToQuery ListInvalidations2014_05_31 where
+    toQuery ListInvalidations2014_05_31{..} = mconcat
+        [ "Marker"   =? _liMarker
+        , "MaxItems" =? _liMaxItems
+        ]
 
-instance ToHeaders ListInvalidations
+instance ToHeaders ListInvalidations2014_05_31
 
-instance ToXML ListInvalidations where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListInvalidations"
+newtype ListInvalidations2014_05_31Response = ListInvalidations2014_05_31Response
+    { _lirInvalidationList :: Maybe InvalidationList
+    } deriving (Eq, Show, Generic)
 
--- | The returned result of the corresponding request.
-newtype ListInvalidationsResponse = ListInvalidationsResponse
-    { _lirInvalidationList :: InvalidationList
-    } deriving (Eq, Ord, Show, Generic)
-
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListInvalidationsResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+-- | 'ListInvalidations2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InvalidationList ::@ @InvalidationList@
+-- * 'lirInvalidationList' @::@ 'Maybe' 'InvalidationList'
 --
-listInvalidationsResponse :: InvalidationList -- ^ 'lirInvalidationList'
-                          -> ListInvalidationsResponse
-listInvalidationsResponse p1 = ListInvalidationsResponse
-    { _lirInvalidationList = p1
+listInvalidations2014_05_31Response :: ListInvalidations2014_05_31Response
+listInvalidations2014_05_31Response = ListInvalidations2014_05_31Response
+    { _lirInvalidationList = Nothing
     }
 
 -- | Information about invalidation batches.
-lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
+lirInvalidationList :: Lens' ListInvalidations2014_05_31Response (Maybe InvalidationList)
 lirInvalidationList =
     lens _lirInvalidationList (\s a -> s { _lirInvalidationList = a })
 
-instance FromXML ListInvalidationsResponse where
-    fromXMLOptions = xmlOptions
+instance AWSRequest ListInvalidations2014_05_31 where
+    type Sv ListInvalidations2014_05_31 = CloudFront
+    type Rs ListInvalidations2014_05_31 = ListInvalidations2014_05_31Response
 
-instance AWSRequest ListInvalidations where
-    type Sv ListInvalidations = CloudFront
-    type Rs ListInvalidations = ListInvalidationsResponse
-
-    request = get
-    response _ = xmlResponse
-
-instance AWSPager ListInvalidations where
-    next rq rs
-        | not (rs ^. lirInvalidationList . ilIsTruncated) = Nothing
-        | otherwise = Just $
-            rq & liMarker .~ rs ^. lirInvalidationList . ilNextMarker
+    request  = get
+    response = xmlResponse $ \h x -> ListInvalidations2014_05_31Response
+        <$> x %| "InvalidationList"

@@ -1,11 +1,11 @@
 name:                  amazonka-cloudformation
 version:               0.0.0
-synopsis:              AWS CloudFormation SDK
+synopsis:              Amazon CloudFormation SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -13,15 +13,18 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS CloudFormation gives developers and systems administrators an easy way to create and manage a collection of related AWS resources, provisioning and updating them in an orderly and predictable fashion.
-    .
-    You can use AWS CloudFormation’s sample templates or create your own templates to describe the AWS resources, and any associated dependencies or runtime parameters, required to run your application.
-    .
-    You don’t need to figure out the order for provisioning AWS services or the subtleties of making those dependencies work.
-    .
-    CloudFormation takes care of this for you.
-    .
-    After the AWS resources are deployed, you can modify and update them in a controlled and predictable way, in effect applying version control to your AWS infrastructure the same way you do with your software.
+    AWS CloudFormation gives developers and systems administrators an easy
+    way to create and manage a collection of related AWS resources,
+    provisioning and updating them in an orderly and predictable fashion.
+    You can use AWS CloudFormation’s sample templates or create your own
+    templates to describe the AWS resources, and any associated
+    dependencies or runtime parameters, required to run your application.
+    You don’t need to figure out the order for provisioning AWS services or
+    the subtleties of making those dependencies work. CloudFormation takes
+    care of this for you. After the AWS resources are deployed, you can
+    modify and update them in a controlled and predictable way, in effect
+    applying version control to your AWS infrastructure the same way you do
+    with your software.
 
 source-repository head
     type:     git
@@ -35,7 +38,6 @@ library
 
     exposed-modules:
           Network.AWS.CloudFormation
-        , Network.AWS.CloudFormation.Types
         , Network.AWS.CloudFormation.CancelUpdateStack
         , Network.AWS.CloudFormation.CreateStack
         , Network.AWS.CloudFormation.DeleteStack
@@ -46,11 +48,16 @@ library
         , Network.AWS.CloudFormation.EstimateTemplateCost
         , Network.AWS.CloudFormation.GetStackPolicy
         , Network.AWS.CloudFormation.GetTemplate
+        , Network.AWS.CloudFormation.GetTemplateSummary
         , Network.AWS.CloudFormation.ListStackResources
         , Network.AWS.CloudFormation.ListStacks
         , Network.AWS.CloudFormation.SetStackPolicy
+        , Network.AWS.CloudFormation.SignalResource
+        , Network.AWS.CloudFormation.Types
         , Network.AWS.CloudFormation.UpdateStack
         , Network.AWS.CloudFormation.ValidateTemplate
+
+    other-modules:
 
     build-depends:
           amazonka-core

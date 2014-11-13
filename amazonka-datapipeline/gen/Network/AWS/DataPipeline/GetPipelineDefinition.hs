@@ -1,12 +1,14 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.DataPipeline.GetPipelineDefinition
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,23 +22,7 @@
 
 -- | Returns the definition of the specified pipeline. You can call
 -- GetPipelineDefinition to retrieve the pipeline definition you provided
--- using PutPipelineDefinition. POST / HTTP/1.1 Content-Type:
--- application/x-amz-json-1.1 X-Amz-Target: DataPipeline.GetPipelineDefinition
--- Content-Length: 40 Host: datapipeline.us-east-1.amazonaws.com X-Amz-Date:
--- Mon, 12 Nov 2012 17:49:52 GMT Authorization: AuthParams {"pipelineId":
--- "df-06372391ZG65EXAMPLE"} x-amzn-RequestId:
--- e28309e5-0776-11e2-8a14-21bb8a1f50ef Content-Type:
--- application/x-amz-json-1.1 Content-Length: 890 Date: Mon, 12 Nov 2012
--- 17:50:53 GMT {"pipelineObjects": [ {"fields": [ {"key": "workerGroup",
--- "stringValue": "workerGroup"} ], "id": "Default", "name": "Default"},
--- {"fields": [ {"key": "startDateTime", "stringValue":
--- "2012-09-25T17:00:00"}, {"key": "type", "stringValue": "Schedule"}, {"key":
--- "period", "stringValue": "1 hour"}, {"key": "endDateTime", "stringValue":
--- "2012-09-25T18:00:00"} ], "id": "Schedule", "name": "Schedule"}, {"fields":
--- [ {"key": "schedule", "refValue": "Schedule"}, {"key": "command",
--- "stringValue": "echo hello"}, {"key": "parent", "refValue": "Default"},
--- {"key": "type", "stringValue": "ShellCommandActivity"} ], "id": "SayHello",
--- "name": "SayHello"} ] }.
+-- using PutPipelineDefinition.
 module Network.AWS.DataPipeline.GetPipelineDefinition
     (
     -- * Request
@@ -55,64 +41,67 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     , gpdrPipelineObjects
     ) where
 
-import Network.AWS.DataPipeline.Types
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request
+import Network.AWS.DataPipeline.Types
 
--- | The input for the GetPipelineDefinition action.
 data GetPipelineDefinition = GetPipelineDefinition
     { _gpdPipelineId :: Text
-    , _gpdVersion :: Maybe Text
+    , _gpdVersion    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetPipelineDefinition' request.
+-- | 'GetPipelineDefinition' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PipelineId ::@ @Text@
+-- * 'gpdPipelineId' @::@ 'Text'
 --
--- * @Version ::@ @Maybe Text@
+-- * 'gpdVersion' @::@ 'Maybe' 'Text'
 --
 getPipelineDefinition :: Text -- ^ 'gpdPipelineId'
                       -> GetPipelineDefinition
 getPipelineDefinition p1 = GetPipelineDefinition
     { _gpdPipelineId = p1
-    , _gpdVersion = Nothing
+    , _gpdVersion    = Nothing
     }
 
 -- | The identifier of the pipeline.
 gpdPipelineId :: Lens' GetPipelineDefinition Text
 gpdPipelineId = lens _gpdPipelineId (\s a -> s { _gpdPipelineId = a })
 
--- | The version of the pipeline definition to retrieve. This parameter accepts
--- the values latest (default) and active. Where latest indicates the last
--- definition saved to the pipeline and active indicates the last definition
--- of the pipeline that was activated.
+-- | The version of the pipeline definition to retrieve. This parameter
+-- accepts the values latest (default) and active. Where latest indicates
+-- the last definition saved to the pipeline and active indicates the last
+-- definition of the pipeline that was activated.
 gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdVersion = lens _gpdVersion (\s a -> s { _gpdVersion = a })
 
-instance ToPath GetPipelineDefinition
+instance ToPath GetPipelineDefinition where
+    toPath = const "/"
 
-instance ToQuery GetPipelineDefinition
+instance ToQuery GetPipelineDefinition where
+    toQuery = const mempty
 
 instance ToHeaders GetPipelineDefinition
 
-instance ToJSON GetPipelineDefinition
+instance ToBody GetPipelineDefinition where
+    toBody = toBody . encode . _gpdPipelineId
 
--- | Contains the output from the GetPipelineDefinition action.
 newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
     { _gpdrPipelineObjects :: [PipelineObject]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetPipelineDefinitionResponse' response.
---
--- This constructor is provided for convenience and testing purposes.
+instance GHC.Exts.IsList GetPipelineDefinitionResponse where
+    type Item GetPipelineDefinitionResponse = PipelineObject
+
+    fromList = GetPipelineDefinitionResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gpdrPipelineObjects
+
+-- | 'GetPipelineDefinitionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PipelineObjects ::@ @[PipelineObject]@
+-- * 'gpdrPipelineObjects' @::@ ['PipelineObject']
 --
 getPipelineDefinitionResponse :: GetPipelineDefinitionResponse
 getPipelineDefinitionResponse = GetPipelineDefinitionResponse
@@ -124,11 +113,12 @@ gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
 gpdrPipelineObjects =
     lens _gpdrPipelineObjects (\s a -> s { _gpdrPipelineObjects = a })
 
-instance FromJSON GetPipelineDefinitionResponse
+-- FromJSON
 
 instance AWSRequest GetPipelineDefinition where
     type Sv GetPipelineDefinition = DataPipeline
     type Rs GetPipelineDefinition = GetPipelineDefinitionResponse
 
-    request = get
-    response _ = jsonResponse
+    request  = post'
+    response = jsonResponse $ \h o -> GetPipelineDefinitionResponse
+        <$> o .: "pipelineObjects"

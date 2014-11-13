@@ -200,7 +200,7 @@ operation a proto ns ss n o = op
       where
         f (Seg x)                     = Seg x
         f (Var x)
-            | Just n <- x `lookup` ls = Var n
+            | Just y <- x `lookup` ls = Var y
             | otherwise               = Var (k <> x)
 
         ls = fieldLocations d

@@ -152,7 +152,7 @@ lrrsStartRecordType =
 instance ToPath ListResourceRecordSets where
     toPath ListResourceRecordSets{..} = mconcat
         [ "/2013-04-01/hostedzone/"
-        , toText _lrrsId
+        , toText _lrrsHostedZoneId
         , "/rrset"
         ]
 

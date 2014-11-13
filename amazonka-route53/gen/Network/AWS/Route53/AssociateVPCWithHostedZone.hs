@@ -95,7 +95,7 @@ avpcwhzVPC = lens _avpcwhzVPC (\s a -> s { _avpcwhzVPC = a })
 instance ToPath AssociateVPCWithHostedZone where
     toPath AssociateVPCWithHostedZone{..} = mconcat
         [ "/2013-04-01/hostedzone/"
-        , toText _avpcwhzId
+        , toText _avpcwhzHostedZoneId
         , "/associatevpc"
         ]
 

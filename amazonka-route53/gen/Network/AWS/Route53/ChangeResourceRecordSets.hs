@@ -95,7 +95,7 @@ crrsHostedZoneId = lens _crrsHostedZoneId (\s a -> s { _crrsHostedZoneId = a })
 instance ToPath ChangeResourceRecordSets where
     toPath ChangeResourceRecordSets{..} = mconcat
         [ "/2013-04-01/hostedzone/"
-        , toText _crrsId
+        , toText _crrsHostedZoneId
         , "/rrset/"
         ]
 

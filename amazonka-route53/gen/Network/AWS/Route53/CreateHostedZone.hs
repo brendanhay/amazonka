@@ -219,5 +219,5 @@ instance AWSRequest CreateHostedZone where
         <$> x %| "ChangeInfo"
         <*> x %| "DelegationSet"
         <*> x %| "HostedZone"
-        <*> h ~:| "Location"
+        <*> h ~: "Location"
         <*> x %| "VPC"

@@ -94,7 +94,7 @@ dvpcfhzVPC = lens _dvpcfhzVPC (\s a -> s { _dvpcfhzVPC = a })
 instance ToPath DisassociateVPCFromHostedZone where
     toPath DisassociateVPCFromHostedZone{..} = mconcat
         [ "/2013-04-01/hostedzone/"
-        , toText _dvpcfhzId
+        , toText _dvpcfhzHostedZoneId
         , "/disassociatevpc"
         ]
 

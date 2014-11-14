@@ -7,12 +7,12 @@ instance AWSPager {{ request.name }} where
         <$> (rs ^. {{ pager.token.output }})
   {% when "one" %}
     next rq rs
-        | not (rs ^. {{ pager.more }}) = Nothing
-        | otherwise = Just $
-            rq & {{ pager.token.input }} .~ rs ^. {{ pager.token.output }}
+        | not (more (rs ^. {{ pager.more }})) = Nothing
+        | otherwise = Just $ rq
+            & {{ pager.token.input }} .~ rs ^. {{ pager.token.output }}
   {% when "many" %}
     next rq rs
-        | not (rs ^. {{ pager.more }}) = Nothing
+        | not (more (rs ^. {{ pager.more }})) = Nothing
         | {{ pager.negate }} = Nothing
         | otherwise = Just $ rq
     {% for token in pager.tokens %}

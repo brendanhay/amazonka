@@ -36,19 +36,6 @@ import           Network.HTTP.Types
 import qualified Text.XML                     as XML
 import           Text.XML.Cursor
 
--- index :: ToText c => Getting [b] a [b] -> Getting c b c -> a -> Maybe Text
--- index g f = fmap (toText . view f) . lastMay . view g
-
--- choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
--- choice f g x = f x <|> g x
-
--- lastMay :: [a] -> Maybe a
--- lastMay []     = Nothing
--- lastMay (x:xs) = Just (go x xs)
---   where
---     go y []     = y
---     go _ (y:ys) = go y ys
-
 xmlResponse :: (MonadResource m, AWSService (Sv a))
             => (ResponseHeaders -> Cursor -> Either String (Rs a))
             -> a

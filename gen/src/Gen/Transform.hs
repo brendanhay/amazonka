@@ -133,14 +133,13 @@ dataTypes o a s1 = (sort . Map.elems) `first` runState run ds
 -- the operations accordingly.
 requests :: Stage1 -> HashSet Text -> State (HashMap Text Data) Stage1
 requests s1 ss = do
-    os <- Map.traverseWithKey (const go) (s1 ^. s1Operations)
+    os <- Map.traverseWithKey go (s1 ^. s1Operations)
     return $! s1 & s1Operations .~ os
   where
-    go :: S1.Operation -> State (HashMap Text Data) S1.Operation
-    go o = do
-        let name = o ^. oName
-        rq <- update name (o ^. oInput)
-        rs <- update (name <> "Response") (o ^. oOutput)
+    go :: Text -> S1.Operation -> State (HashMap Text Data) S1.Operation
+    go n o = do
+        rq <- update n (o ^. oInput)
+        rs <- update (n <> "Response") (o ^. oOutput)
         return $! o
             & oInput  .~ rq
             & oOutput .~ rs
@@ -187,7 +186,7 @@ operation a proto ns ss pgs n o = do
         { _opName             = n
         , _opService          = a
         , _opProtocol         = proto
-        , _opNamespace        = operationNS a (o ^. oName)
+        , _opNamespace        = operationNS a n
         , _opImports          = requestNS proto : typesNS a : ns
         , _opDocumentation    = documentation (o ^. oDocumentation)
         , _opDocumentationUrl = o ^. oDocumentationUrl
@@ -213,10 +212,8 @@ operation a proto ns ss pgs n o = do
         w = fromMaybe False (join (_refWrapper <$> r))
         k = join (_refResultWrapper <$> r)
 
-    rqName = name
-    rsName = name <> "Response"
-
-    name = o ^. oName
+    rqName = n
+    rsName = n <> "Response"
 
     go :: (Text -> Text -> Bool -> Data -> a)
        -> Bool
@@ -263,47 +260,37 @@ pager inp out (Just pg) = get >>= go
 
         labeled _ NoKey        = NoKey
         labeled x (Key    n)   = Key    (applied x n)
-        labeled x (Index  n k) = Index  (applied x n) (labeled (applied x n) k)
+        labeled x (Index  n k) = Index  (applied x n) (labeled (indexed x n) k)
         labeled x (Apply  n k) = Apply  (applied x n) (labeled n k)
         labeled x (Choice n k) = Choice (labeled x n) (labeled x k)
 
-        applied x k
+        applied x n
             | Just d <- Map.lookup x ts
-            , Just f <- field k d = f
+            , Just f <- field n d = _fName f
             | otherwise           = error $
-                "Unable to find field "
-                    ++ show k
+                "Unable to apply field "
+                    ++ show n
                     ++ " in datatype "
                     ++ show x
                     ++ "\n"
                     ++ show (Map.keys ts)
 
-        -- indexed x k 
-        --     | Just d <- Map.lookup x ts
-        --     , Just f <- field k d = f
+        indexed x n
+            | Just d         <- Map.lookup x ts
+            , Just f         <- field n d
+            , Just (TType l) <- listElement (f ^. typeOf) = l
+            | otherwise           = error $
+                "Unable to index field "
+                    ++ show n
+                    ++ " in datatype "
+                    ++ show x
+                    ++ "\n"
+                    ++ show (Map.keys ts)
 
-        -- indexed x y =
-        --     let t = getType x
-        --         f = getField y (_typFields t)
-        --       in Text.init . Text.tail . fst . typeOf $ f^.ann
-
-        field :: Text -> Data -> Maybe Text
-        field (CI.mk -> k) = find f . toListOf (dataFields . fName)
+        field :: Text -> Data -> Maybe Field
+        field (CI.mk -> k) = find f . toListOf dataFields
           where
-            f = (k ==) . CI.mk . Text.dropWhile (not . isUpper)
-
-        -- applied x y =
-        --     let t = getType x
-        --         f = getField y (_typFields t)
-        --      in _fldPrefixed f
-
-        -- getType x =
-        --     fromMaybe (error $ "Missing type: " ++ show (x, map (view cmnName) types))
-        --               (find ((x ==) . view cmnName) types)
-
-        -- getField y z =
-        --     fromMaybe (error $ "Missing field: " ++ show y)
-        --               (find ((y ==) . _fldName) z)
+            f = (k ==) . CI.mk . Text.dropWhile (not . isUpper) . _fName
 
 -- | Find any datatypes that are shared as operation inputs/outputs.
 shared :: Stage1 -> State (HashMap Text Data) (HashSet Text)

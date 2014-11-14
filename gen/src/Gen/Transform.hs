@@ -251,7 +251,7 @@ pager inp out (Just pg) = get >>= go
   where
     go ds = return . Just $!
         case pg of
-            More m t -> More (labeled rq m) (map token t)
+            More m t -> More (labeled rs m) (map token t)
             Next r t -> Next (labeled rs r) (token t)
       where
         ts = Map.fromList [(rq, _rqData inp), (rs, _rsData out)] <> ds
@@ -271,7 +271,12 @@ pager inp out (Just pg) = get >>= go
             | Just d <- Map.lookup x ts
             , Just f <- field k d = f
             | otherwise           = error $
-                "Unable to find field: " ++ show (x, k, Map.keys ts)
+                "Unable to find field "
+                    ++ show k
+                    ++ " in datatype "
+                    ++ show x
+                    ++ "\n"
+                    ++ show (Map.keys ts)
 
         -- indexed x k 
         --     | Just d <- Map.lookup x ts
@@ -283,9 +288,9 @@ pager inp out (Just pg) = get >>= go
         --       in Text.init . Text.tail . fst . typeOf $ f^.ann
 
         field :: Text -> Data -> Maybe Text
-        field k = find f . toListOf (dataFields . fName)
+        field (CI.mk -> k) = find f . toListOf (dataFields . fName)
           where
-            f = (k ==) . Text.dropWhile (not . isUpper)
+            f = (k ==) . CI.mk . Text.dropWhile (not . isUpper)
 
         -- applied x y =
         --     let t = getType x

@@ -21,7 +21,7 @@ import           Data.Aeson
 import qualified Data.ByteString.Lazy as LBS
 import           Data.Text            (Text)
 import           GHC.Generics
-import           Network.AWS.Data
+import           Network.AWS.Data     hiding ((.:), (.:?))
 import           Network.AWS.Types
 import           Network.HTTP.Types
 

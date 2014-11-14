@@ -261,6 +261,7 @@ module Network.AWS.ElasticTranscoder.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2012-09-25@) of the Amazon Elastic Transcoder.
 data ElasticTranscoder deriving (Typeable)

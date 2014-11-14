@@ -163,6 +163,7 @@ module Network.AWS.StorageGateway.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2013-06-30@) of the Amazon Storage Gateway.
 data StorageGateway deriving (Typeable)

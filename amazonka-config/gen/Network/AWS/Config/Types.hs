@@ -120,6 +120,7 @@ module Network.AWS.Config.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2014-11-12@) of the Amazon Config.
 data Config deriving (Typeable)

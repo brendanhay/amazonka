@@ -92,6 +92,7 @@ module Network.AWS.Route53Domains.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2014-05-15@) of the Amazon Route 53 Domains.
 data Route53Domains deriving (Typeable)

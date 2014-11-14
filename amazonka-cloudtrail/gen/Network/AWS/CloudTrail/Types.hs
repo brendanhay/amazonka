@@ -39,6 +39,7 @@ module Network.AWS.CloudTrail.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2013-11-01@) of the Amazon CloudTrail.
 data CloudTrail deriving (Typeable)

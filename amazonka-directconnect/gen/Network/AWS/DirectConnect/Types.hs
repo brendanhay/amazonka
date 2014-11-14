@@ -144,6 +144,7 @@ module Network.AWS.DirectConnect.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2012-10-25@) of the Amazon Direct Connect.
 data DirectConnect deriving (Typeable)

@@ -213,6 +213,7 @@ module Network.AWS.CodeDeploy.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2014-10-06@) of the Amazon CodeDeploy.
 data CodeDeploy deriving (Typeable)

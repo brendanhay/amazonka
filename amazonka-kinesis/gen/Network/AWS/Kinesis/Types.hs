@@ -77,6 +77,7 @@ module Network.AWS.Kinesis.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2013-12-02@) of the Amazon Kinesis.
 data Kinesis deriving (Typeable)

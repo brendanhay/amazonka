@@ -77,6 +77,7 @@ module Network.AWS.KMS.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2014-11-01@) of the Amazon Key Management Service.
 data KMS deriving (Typeable)

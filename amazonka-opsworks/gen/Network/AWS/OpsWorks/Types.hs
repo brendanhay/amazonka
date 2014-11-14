@@ -415,6 +415,7 @@ module Network.AWS.OpsWorks.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2013-02-18@) of the Amazon OpsWorks.
 data OpsWorks deriving (Typeable)

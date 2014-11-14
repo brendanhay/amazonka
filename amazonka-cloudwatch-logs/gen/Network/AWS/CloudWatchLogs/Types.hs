@@ -85,6 +85,7 @@ module Network.AWS.CloudWatchLogs.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2014-03-28@) of the Amazon CloudWatch Logs.
 data CloudWatchLogs deriving (Typeable)

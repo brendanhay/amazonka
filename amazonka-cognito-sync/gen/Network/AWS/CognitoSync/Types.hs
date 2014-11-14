@@ -87,6 +87,7 @@ module Network.AWS.CognitoSync.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2014-06-30@) of the Amazon Cognito Sync.
 data CognitoSync deriving (Typeable)

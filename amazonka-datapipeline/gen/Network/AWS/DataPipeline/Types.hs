@@ -105,6 +105,7 @@ module Network.AWS.DataPipeline.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2012-10-29@) of the Amazon Data Pipeline.
 data DataPipeline deriving (Typeable)

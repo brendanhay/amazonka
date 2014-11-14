@@ -236,6 +236,7 @@ module Network.AWS.DynamoDB.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2012-08-10@) of the Amazon DynamoDB.
 data DynamoDB deriving (Typeable)

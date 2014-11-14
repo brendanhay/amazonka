@@ -69,6 +69,7 @@ module Network.AWS.Lambda.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2014-11-11@) of the Amazon Lambda.
 data Lambda deriving (Typeable)

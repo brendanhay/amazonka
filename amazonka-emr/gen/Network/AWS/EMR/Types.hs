@@ -407,6 +407,7 @@ module Network.AWS.EMR.Types
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2009-03-31@) of the Amazon Elastic MapReduce.
 data EMR deriving (Typeable)

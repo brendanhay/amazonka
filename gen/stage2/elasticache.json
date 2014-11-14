@@ -10390,53 +10390,53 @@
                     "location": "querystring",
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
                     "lens": "dedprEngineDefaults",
                     "name": "_dedprEngineDefaults",
                     "shape": "EngineDefaults",
                     "locationName": "EngineDefaults",
                     "documentation": null,
-                    "typeExposed": "Maybe EngineDefaults",
-                    "type": "Maybe EngineDefaults"
+                    "typeExposed": "EngineDefaults",
+                    "type": "EngineDefaults"
                 },
                 "wrapper": true,
                 "payload": null,
-                "required": [],
-                "shared": false,
-                "name": "DescribeEngineDefaultParametersResponse",
-                "resultWrapper": "DescribeEngineDefaultParametersResult",
-                "type": "newtype",
-                "optional": [
+                "required": [
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
                         "lens": "dedprEngineDefaults",
                         "name": "_dedprEngineDefaults",
                         "shape": "EngineDefaults",
                         "locationName": "EngineDefaults",
                         "documentation": null,
-                        "typeExposed": "Maybe EngineDefaults",
-                        "type": "Maybe EngineDefaults"
+                        "typeExposed": "EngineDefaults",
+                        "type": "EngineDefaults"
                     }
                 ],
+                "shared": false,
+                "name": "DescribeEngineDefaultParametersResponse",
+                "resultWrapper": "DescribeEngineDefaultParametersResult",
+                "type": "newtype",
+                "optional": [],
                 "fields": [
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
                         "lens": "dedprEngineDefaults",
                         "name": "_dedprEngineDefaults",
                         "shape": "EngineDefaults",
                         "locationName": "EngineDefaults",
                         "documentation": null,
-                        "typeExposed": "Maybe EngineDefaults",
-                        "type": "Maybe EngineDefaults"
+                        "typeExposed": "EngineDefaults",
+                        "type": "EngineDefaults"
                     }
                 ]
             },

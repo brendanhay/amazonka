@@ -95,21 +95,22 @@ instance ToPath DescribeEngineDefaultParameters where
     toPath = const "/"
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
-    { _dedprEngineDefaults :: Maybe EngineDefaults
+    { _dedprEngineDefaults :: EngineDefaults
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeEngineDefaultParametersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dedprEngineDefaults' @::@ 'Maybe' 'EngineDefaults'
+-- * 'dedprEngineDefaults' @::@ 'EngineDefaults'
 --
-describeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
-    { _dedprEngineDefaults = Nothing
+describeEngineDefaultParametersResponse :: EngineDefaults -- ^ 'dedprEngineDefaults'
+                                        -> DescribeEngineDefaultParametersResponse
+describeEngineDefaultParametersResponse p1 = DescribeEngineDefaultParametersResponse
+    { _dedprEngineDefaults = p1
     }
 
-dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
+dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
 dedprEngineDefaults =
     lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
 

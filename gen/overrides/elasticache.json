@@ -5,7 +5,7 @@
        "serviceAbbreviation": "ElastiCache"
     },
    "overrides": {
-        "DescribeEngineDefaultParametersResponse": {
+        "DescribeEngineDefaultParametersResult": {
             "required": [
                 "EngineDefaults"
             ]

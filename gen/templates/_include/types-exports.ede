@@ -7,8 +7,6 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
--- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 {% include "license.ede" %}
 
 {% if documentation %}

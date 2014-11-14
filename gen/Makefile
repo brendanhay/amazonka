@@ -54,7 +54,7 @@ MODELS ?= $(JSON) $(XML) $(QUERY)
 
 gen: build
 	@dist/build/amazonka-gen/amazonka-gen \
---out=../ \
+ --out=../ \
  --services=stage2 \
  --overrides=overrides \
  --templates=templates \

@@ -122,7 +122,6 @@ import           Data.Default.Class
 import           Data.IORef
 import           Data.Monoid
 import           Data.String
-import           Data.Tagged
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text

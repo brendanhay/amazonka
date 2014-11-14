@@ -40,6 +40,9 @@ module Network.AWS.Data
     -- * XML
     , module Network.AWS.Data.Internal.XML
 
+    -- * JSON
+    , module Network.AWS.Data.Internal.JSON
+
     -- * Collections
     -- ** Non-empty List
     , module Network.AWS.Data.Internal.List1
@@ -47,11 +50,12 @@ module Network.AWS.Data
     , module Network.AWS.Data.Internal.Map
     ) where
 
-import Network.AWS.Data.Internal.List1               (List1, _List1, list1)
-import Network.AWS.Data.Internal.Map
 import Network.AWS.Data.Internal.Body
 import Network.AWS.Data.Internal.ByteString
 import Network.AWS.Data.Internal.Header
+import Network.AWS.Data.Internal.JSON
+import Network.AWS.Data.Internal.List1      (List1, _List1, list1)
+import Network.AWS.Data.Internal.Map
 import Network.AWS.Data.Internal.Path
 import Network.AWS.Data.Internal.Query
 import Network.AWS.Data.Internal.Text

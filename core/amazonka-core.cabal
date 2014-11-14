@@ -52,6 +52,7 @@ library
         , Network.AWS.Data.Internal.Text
         , Network.AWS.Data.Internal.Time
         , Network.AWS.Data.Internal.URI
+        , Network.AWS.Data.Internal.JSON
         , Network.AWS.Data.Internal.XML
         , Network.AWS.Signing.Internal
 

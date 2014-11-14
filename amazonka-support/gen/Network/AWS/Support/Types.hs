@@ -228,6 +228,10 @@ tarsResourcesSuppressed :: Lens' TrustedAdvisorResourcesSummary Integer
 tarsResourcesSuppressed =
     lens _tarsResourcesSuppressed (\s a -> s { _tarsResourcesSuppressed = a })
 
+instance FromJSON TrustedAdvisorResourcesSummary
+
+instance ToJSON TrustedAdvisorResourcesSummary
+
 data Service = Service
     { _sCategories :: [Category]
     , _sCode       :: Maybe Text
@@ -268,6 +272,10 @@ sCode = lens _sCode (\s a -> s { _sCode = a })
 sName :: Lens' Service (Maybe Text)
 sName = lens _sName (\s a -> s { _sName = a })
 
+instance FromJSON Service
+
+instance ToJSON Service
+
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
     { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
     } deriving (Eq, Show, Generic)
@@ -288,6 +296,10 @@ trustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
 tacssCostOptimizing :: Lens' TrustedAdvisorCategorySpecificSummary (Maybe TrustedAdvisorCostOptimizingSummary)
 tacssCostOptimizing =
     lens _tacssCostOptimizing (\s a -> s { _tacssCostOptimizing = a })
+
+instance FromJSON TrustedAdvisorCategorySpecificSummary
+
+instance ToJSON TrustedAdvisorCategorySpecificSummary
 
 data Communication = Communication
     { _cAttachmentSet :: [AttachmentDetails]
@@ -342,6 +354,10 @@ cSubmittedBy = lens _cSubmittedBy (\s a -> s { _cSubmittedBy = a })
 cTimeCreated :: Lens' Communication (Maybe Text)
 cTimeCreated = lens _cTimeCreated (\s a -> s { _cTimeCreated = a })
 
+instance FromJSON Communication
+
+instance ToJSON Communication
+
 data Category = Category
     { _cCode :: Maybe Text
     , _cName :: Maybe Text
@@ -368,6 +384,10 @@ cCode = lens _cCode (\s a -> s { _cCode = a })
 -- | The category name for the support case.
 cName :: Lens' Category (Maybe Text)
 cName = lens _cName (\s a -> s { _cName = a })
+
+instance FromJSON Category
+
+instance ToJSON Category
 
 data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
     { _tacsCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
@@ -438,6 +458,10 @@ tacsStatus = lens _tacsStatus (\s a -> s { _tacsStatus = a })
 tacsTimestamp :: Lens' TrustedAdvisorCheckSummary Text
 tacsTimestamp = lens _tacsTimestamp (\s a -> s { _tacsTimestamp = a })
 
+instance FromJSON TrustedAdvisorCheckSummary
+
+instance ToJSON TrustedAdvisorCheckSummary
+
 data AttachmentDetails = AttachmentDetails
     { _adAttachmentId :: Maybe Text
     , _adFileName     :: Maybe Text
@@ -464,6 +488,10 @@ adAttachmentId = lens _adAttachmentId (\s a -> s { _adAttachmentId = a })
 -- | The file name of the attachment.
 adFileName :: Lens' AttachmentDetails (Maybe Text)
 adFileName = lens _adFileName (\s a -> s { _adFileName = a })
+
+instance FromJSON AttachmentDetails
+
+instance ToJSON AttachmentDetails
 
 data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
     { _tacrCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
@@ -534,6 +562,10 @@ tacrStatus = lens _tacrStatus (\s a -> s { _tacrStatus = a })
 tacrTimestamp :: Lens' TrustedAdvisorCheckResult Text
 tacrTimestamp = lens _tacrTimestamp (\s a -> s { _tacrTimestamp = a })
 
+instance FromJSON TrustedAdvisorCheckResult
+
+instance ToJSON TrustedAdvisorCheckResult
+
 data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
     { _tacdCategory    :: Text
     , _tacdDescription :: Text
@@ -594,6 +626,10 @@ tacdMetadata = lens _tacdMetadata (\s a -> s { _tacdMetadata = a })
 tacdName :: Lens' TrustedAdvisorCheckDescription Text
 tacdName = lens _tacdName (\s a -> s { _tacdName = a })
 
+instance FromJSON TrustedAdvisorCheckDescription
+
+instance ToJSON TrustedAdvisorCheckDescription
+
 data Attachment = Attachment
     { _aData     :: Maybe Base64
     , _aFileName :: Maybe Text
@@ -620,6 +656,10 @@ aData = lens _aData (\s a -> s { _aData = a })
 -- | The name of the attachment file.
 aFileName :: Lens' Attachment (Maybe Text)
 aFileName = lens _aFileName (\s a -> s { _aFileName = a })
+
+instance FromJSON Attachment
+
+instance ToJSON Attachment
 
 data RecentCaseCommunications = RecentCaseCommunications
     { _rccCommunications :: [Communication]
@@ -648,6 +688,10 @@ rccCommunications =
 -- | A resumption point for pagination.
 rccNextToken :: Lens' RecentCaseCommunications (Maybe Text)
 rccNextToken = lens _rccNextToken (\s a -> s { _rccNextToken = a })
+
+instance FromJSON RecentCaseCommunications
+
+instance ToJSON RecentCaseCommunications
 
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
     { _tardIsSuppressed :: Maybe Bool
@@ -709,6 +753,10 @@ tardResourceId = lens _tardResourceId (\s a -> s { _tardResourceId = a })
 tardStatus :: Lens' TrustedAdvisorResourceDetail Text
 tardStatus = lens _tardStatus (\s a -> s { _tardStatus = a })
 
+instance FromJSON TrustedAdvisorResourceDetail
+
+instance ToJSON TrustedAdvisorResourceDetail
+
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary
     { _tacosEstimatedMonthlySavings        :: Double
     , _tacosEstimatedPercentMonthlySavings :: Double
@@ -744,6 +792,10 @@ tacosEstimatedPercentMonthlySavings =
     lens _tacosEstimatedPercentMonthlySavings
         (\s a -> s { _tacosEstimatedPercentMonthlySavings = a })
 
+instance FromJSON TrustedAdvisorCostOptimizingSummary
+
+instance ToJSON TrustedAdvisorCostOptimizingSummary
+
 data SeverityLevel = SeverityLevel
     { _slCode :: Maybe Text
     , _slName :: Maybe Text
@@ -773,6 +825,10 @@ slCode = lens _slCode (\s a -> s { _slCode = a })
 -- code.
 slName :: Lens' SeverityLevel (Maybe Text)
 slName = lens _slName (\s a -> s { _slName = a })
+
+instance FromJSON SeverityLevel
+
+instance ToJSON SeverityLevel
 
 data CaseDetails = CaseDetails
     { _cdCaseId               :: Maybe Text
@@ -891,6 +947,10 @@ cdSubmittedBy = lens _cdSubmittedBy (\s a -> s { _cdSubmittedBy = a })
 cdTimeCreated :: Lens' CaseDetails (Maybe Text)
 cdTimeCreated = lens _cdTimeCreated (\s a -> s { _cdTimeCreated = a })
 
+instance FromJSON CaseDetails
+
+instance ToJSON CaseDetails
+
 data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
     { _tacrsCheckId                    :: Text
     , _tacrsMillisUntilNextRefreshable :: Integer
@@ -932,3 +992,7 @@ tacrsMillisUntilNextRefreshable =
 -- requested: "none", "enqueued", "processing", "success", or "abandoned".
 tacrsStatus :: Lens' TrustedAdvisorCheckRefreshStatus Text
 tacrsStatus = lens _tacrsStatus (\s a -> s { _tacrsStatus = a })
+
+instance FromJSON TrustedAdvisorCheckRefreshStatus
+
+instance ToJSON TrustedAdvisorCheckRefreshStatus

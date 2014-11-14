@@ -339,6 +339,10 @@ pocPermissions = lens _pocPermissions (\s a -> s { _pocPermissions = a })
 pocStorageClass :: Lens' PipelineOutputConfig (Maybe Text)
 pocStorageClass = lens _pocStorageClass (\s a -> s { _pocStorageClass = a })
 
+instance FromJSON PipelineOutputConfig
+
+instance ToJSON PipelineOutputConfig
+
 data CreateJobPlaylist = CreateJobPlaylist
     { _cjpFormat     :: Maybe Text
     , _cjpName       :: Maybe Text
@@ -404,6 +408,10 @@ cjpName = lens _cjpName (\s a -> s { _cjpName = a })
 cjpOutputKeys :: Lens' CreateJobPlaylist [Text]
 cjpOutputKeys = lens _cjpOutputKeys (\s a -> s { _cjpOutputKeys = a })
 
+instance FromJSON CreateJobPlaylist
+
+instance ToJSON CreateJobPlaylist
+
 data Captions = Captions
     { _cCaptionFormats :: [CaptionFormat]
     , _cCaptionSources :: [CaptionSource]
@@ -453,6 +461,10 @@ cCaptionSources = lens _cCaptionSources (\s a -> s { _cCaptionSources = a })
 cMergePolicy :: Lens' Captions (Maybe Text)
 cMergePolicy = lens _cMergePolicy (\s a -> s { _cMergePolicy = a })
 
+instance FromJSON Captions
+
+instance ToJSON Captions
+
 newtype AudioCodecOptions = AudioCodecOptions
     { _acoProfile :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -480,6 +492,10 @@ audioCodecOptions = AudioCodecOptions
 -- Profile.
 acoProfile :: Lens' AudioCodecOptions (Maybe Text)
 acoProfile = lens _acoProfile (\s a -> s { _acoProfile = a })
+
+instance FromJSON AudioCodecOptions
+
+instance ToJSON AudioCodecOptions
 
 data JobOutput = JobOutput
     { _joAlbumArt         :: Maybe JobAlbumArt
@@ -715,6 +731,10 @@ joWatermarks = lens _joWatermarks (\s a -> s { _joWatermarks = a })
 joWidth :: Lens' JobOutput (Maybe Int)
 joWidth = lens _joWidth (\s a -> s { _joWidth = a })
 
+instance FromJSON JobOutput
+
+instance ToJSON JobOutput
+
 data CaptionSource = CaptionSource
     { _csKey        :: Maybe Text
     , _csLabel      :: Maybe Text
@@ -766,6 +786,10 @@ csLanguage = lens _csLanguage (\s a -> s { _csLanguage = a })
 -- in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
 csTimeOffset :: Lens' CaptionSource (Maybe Text)
 csTimeOffset = lens _csTimeOffset (\s a -> s { _csTimeOffset = a })
+
+instance FromJSON CaptionSource
+
+instance ToJSON CaptionSource
 
 data Artwork = Artwork
     { _aAlbumArtFormat :: Maybe Text
@@ -859,6 +883,10 @@ aPaddingPolicy = lens _aPaddingPolicy (\s a -> s { _aPaddingPolicy = a })
 aSizingPolicy :: Lens' Artwork (Maybe Text)
 aSizingPolicy = lens _aSizingPolicy (\s a -> s { _aSizingPolicy = a })
 
+instance FromJSON Artwork
+
+instance ToJSON Artwork
+
 data TimeSpan = TimeSpan
     { _tsDuration  :: Maybe Text
     , _tsStartTime :: Maybe Text
@@ -894,6 +922,10 @@ tsDuration = lens _tsDuration (\s a -> s { _tsDuration = a })
 -- input file.
 tsStartTime :: Lens' TimeSpan (Maybe Text)
 tsStartTime = lens _tsStartTime (\s a -> s { _tsStartTime = a })
+
+instance FromJSON TimeSpan
+
+instance ToJSON TimeSpan
 
 data CreateJobOutput = CreateJobOutput
     { _cjoAlbumArt         :: Maybe JobAlbumArt
@@ -1059,6 +1091,10 @@ cjoThumbnailPattern =
 cjoWatermarks :: Lens' CreateJobOutput [JobWatermark]
 cjoWatermarks = lens _cjoWatermarks (\s a -> s { _cjoWatermarks = a })
 
+instance FromJSON CreateJobOutput
+
+instance ToJSON CreateJobOutput
+
 data AudioParameters = AudioParameters
     { _apBitRate      :: Maybe Text
     , _apChannels     :: Maybe Text
@@ -1118,6 +1154,10 @@ apCodecOptions = lens _apCodecOptions (\s a -> s { _apCodecOptions = a })
 -- auto, Elastic Transcoder automatically detects the sample rate.
 apSampleRate :: Lens' AudioParameters (Maybe Text)
 apSampleRate = lens _apSampleRate (\s a -> s { _apSampleRate = a })
+
+instance FromJSON AudioParameters
+
+instance ToJSON AudioParameters
 
 data Thumbnails = Thumbnails
     { _tAspectRatio   :: Maybe Text
@@ -1237,6 +1277,10 @@ tResolution = lens _tResolution (\s a -> s { _tResolution = a })
 tSizingPolicy :: Lens' Thumbnails (Maybe Text)
 tSizingPolicy = lens _tSizingPolicy (\s a -> s { _tSizingPolicy = a })
 
+instance FromJSON Thumbnails
+
+instance ToJSON Thumbnails
+
 data JobAlbumArt = JobAlbumArt
     { _jaaArtwork     :: [Artwork]
     , _jaaMergePolicy :: Maybe Text
@@ -1272,6 +1316,10 @@ jaaArtwork = lens _jaaArtwork (\s a -> s { _jaaArtwork = a })
 -- Elastic Transcoder will use the specified album art file.
 jaaMergePolicy :: Lens' JobAlbumArt (Maybe Text)
 jaaMergePolicy = lens _jaaMergePolicy (\s a -> s { _jaaMergePolicy = a })
+
+instance FromJSON JobAlbumArt
+
+instance ToJSON JobAlbumArt
 
 data Job = Job
     { _jobArn             :: Maybe Text
@@ -1382,6 +1430,10 @@ jobPlaylists = lens _jobPlaylists (\s a -> s { _jobPlaylists = a })
 jobStatus :: Lens' Job (Maybe Text)
 jobStatus = lens _jobStatus (\s a -> s { _jobStatus = a })
 
+instance FromJSON Job
+
+instance ToJSON Job
+
 data JobWatermark = JobWatermark
     { _jwInputKey          :: Maybe Text
     , _jwPresetWatermarkId :: Maybe Text
@@ -1418,6 +1470,10 @@ jwInputKey = lens _jwInputKey (\s a -> s { _jwInputKey = a })
 jwPresetWatermarkId :: Lens' JobWatermark (Maybe Text)
 jwPresetWatermarkId =
     lens _jwPresetWatermarkId (\s a -> s { _jwPresetWatermarkId = a })
+
+instance FromJSON JobWatermark
+
+instance ToJSON JobWatermark
 
 data Pipeline = Pipeline
     { _pArn             :: Maybe Text
@@ -1578,6 +1634,10 @@ pStatus = lens _pStatus (\s a -> s { _pStatus = a })
 pThumbnailConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
 pThumbnailConfig = lens _pThumbnailConfig (\s a -> s { _pThumbnailConfig = a })
 
+instance FromJSON Pipeline
+
+instance ToJSON Pipeline
+
 data Preset = Preset
     { _p1Arn         :: Maybe Text
     , _p1Audio       :: Maybe AudioParameters
@@ -1667,6 +1727,10 @@ p1Type = lens _p1Type (\s a -> s { _p1Type = a })
 p1Video :: Lens' Preset (Maybe VideoParameters)
 p1Video = lens _p1Video (\s a -> s { _p1Video = a })
 
+instance FromJSON Preset
+
+instance ToJSON Preset
+
 data CaptionFormat = CaptionFormat
     { _cfFormat  :: Maybe Text
     , _cfPattern :: Maybe Text
@@ -1710,6 +1774,10 @@ cfFormat = lens _cfFormat (\s a -> s { _cfFormat = a })
 -- caption file will be Sydney-en-sunrise00000.srt.
 cfPattern :: Lens' CaptionFormat (Maybe Text)
 cfPattern = lens _cfPattern (\s a -> s { _cfPattern = a })
+
+instance FromJSON CaptionFormat
+
+instance ToJSON CaptionFormat
 
 data PresetWatermark = PresetWatermark
     { _pwHorizontalAlign  :: Maybe Text
@@ -1880,6 +1948,10 @@ pwVerticalAlign = lens _pwVerticalAlign (\s a -> s { _pwVerticalAlign = a })
 pwVerticalOffset :: Lens' PresetWatermark (Maybe Text)
 pwVerticalOffset = lens _pwVerticalOffset (\s a -> s { _pwVerticalOffset = a })
 
+instance FromJSON PresetWatermark
+
+instance ToJSON PresetWatermark
+
 data Permission = Permission
     { _pAccess      :: [Text]
     , _pGrantee     :: Maybe Text
@@ -1931,6 +2003,10 @@ pGrantee = lens _pGrantee (\s a -> s { _pGrantee = a })
 -- AllUsers, AuthenticatedUsers, or LogDelivery.
 pGranteeType :: Lens' Permission (Maybe Text)
 pGranteeType = lens _pGranteeType (\s a -> s { _pGranteeType = a })
+
+instance FromJSON Permission
+
+instance ToJSON Permission
 
 data VideoParameters = VideoParameters
     { _vpAspectRatio        :: Maybe Text
@@ -2209,6 +2285,10 @@ vpSizingPolicy = lens _vpSizingPolicy (\s a -> s { _vpSizingPolicy = a })
 vpWatermarks :: Lens' VideoParameters [PresetWatermark]
 vpWatermarks = lens _vpWatermarks (\s a -> s { _vpWatermarks = a })
 
+instance FromJSON VideoParameters
+
+instance ToJSON VideoParameters
+
 data Playlist = Playlist
     { _p2Format       :: Maybe Text
     , _p2Name         :: Maybe Text
@@ -2290,6 +2370,10 @@ p2Status = lens _p2Status (\s a -> s { _p2Status = a })
 p2StatusDetail :: Lens' Playlist (Maybe Text)
 p2StatusDetail = lens _p2StatusDetail (\s a -> s { _p2StatusDetail = a })
 
+instance FromJSON Playlist
+
+instance ToJSON Playlist
+
 data Notifications = Notifications
     { _nCompleted   :: Maybe Text
     , _nError       :: Maybe Text
@@ -2337,6 +2421,10 @@ nProgressing = lens _nProgressing (\s a -> s { _nProgressing = a })
 nWarning :: Lens' Notifications (Maybe Text)
 nWarning = lens _nWarning (\s a -> s { _nWarning = a })
 
+instance FromJSON Notifications
+
+instance ToJSON Notifications
+
 newtype Clip = Clip
     { _cTimeSpan :: Maybe TimeSpan
     } deriving (Eq, Show, Generic)
@@ -2355,6 +2443,10 @@ clip = Clip
 -- | Settings that determine when a clip begins and how long it lasts.
 cTimeSpan :: Lens' Clip (Maybe TimeSpan)
 cTimeSpan = lens _cTimeSpan (\s a -> s { _cTimeSpan = a })
+
+instance FromJSON Clip
+
+instance ToJSON Clip
 
 data JobInput = JobInput
     { _jiAspectRatio :: Maybe Text
@@ -2438,3 +2530,7 @@ jiKey = lens _jiKey (\s a -> s { _jiKey = a })
 -- detect the resolution of the input file.
 jiResolution :: Lens' JobInput (Maybe Text)
 jiResolution = lens _jiResolution (\s a -> s { _jiResolution = a })
+
+instance FromJSON JobInput
+
+instance ToJSON JobInput

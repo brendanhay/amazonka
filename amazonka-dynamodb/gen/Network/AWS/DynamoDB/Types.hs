@@ -282,6 +282,10 @@ wDeleteRequest = lens _wDeleteRequest (\s a -> s { _wDeleteRequest = a })
 wPutRequest :: Lens' WriteRequest (Maybe PutRequest)
 wPutRequest = lens _wPutRequest (\s a -> s { _wPutRequest = a })
 
+instance FromJSON WriteRequest
+
+instance ToJSON WriteRequest
+
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription
     { _ptdLastDecreaseDateTime   :: Maybe RFC822
     , _ptdLastIncreaseDateTime   :: Maybe RFC822
@@ -350,6 +354,10 @@ ptdWriteCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdWriteCapacityUnits =
     lens _ptdWriteCapacityUnits (\s a -> s { _ptdWriteCapacityUnits = a })
 
+instance FromJSON ProvisionedThroughputDescription
+
+instance ToJSON ProvisionedThroughputDescription
+
 data KeyType
     = Hash  -- ^ HASH
     | Range -- ^ RANGE
@@ -365,6 +373,10 @@ instance ToText KeyType where
     toText = \case
         Hash  -> "HASH"
         Range -> "RANGE"
+
+instance FromJSON KeyType
+
+instance ToJSON KeyType
 
 data AttributeValue = AttributeValue
     { _avB    :: Maybe Base64
@@ -458,6 +470,10 @@ avS = lens _avS (\s a -> s { _avS = a })
 avSS :: Lens' AttributeValue [Text]
 avSS = lens _avSS (\s a -> s { _avSS = a })
 
+instance FromJSON AttributeValue
+
+instance ToJSON AttributeValue
+
 data IndexStatus
     = Active   -- ^ ACTIVE
     | Creating -- ^ CREATING
@@ -479,6 +495,10 @@ instance ToText IndexStatus where
         Creating -> "CREATING"
         Deleting -> "DELETING"
         Updating -> "UPDATING"
+
+instance FromJSON IndexStatus
+
+instance ToJSON IndexStatus
 
 data ProvisionedThroughput = ProvisionedThroughput
     { _ptReadCapacityUnits  :: Natural
@@ -516,6 +536,10 @@ ptWriteCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptWriteCapacityUnits =
     lens _ptWriteCapacityUnits (\s a -> s { _ptWriteCapacityUnits = a })
 
+instance FromJSON ProvisionedThroughput
+
+instance ToJSON ProvisionedThroughput
+
 data TableStatus
     = TSActive   -- ^ ACTIVE
     | TSCreating -- ^ CREATING
@@ -538,6 +562,10 @@ instance ToText TableStatus where
         TSDeleting -> "DELETING"
         TSUpdating -> "UPDATING"
 
+instance FromJSON TableStatus
+
+instance ToJSON TableStatus
+
 data ProjectionType
     = All      -- ^ ALL
     | Include  -- ^ INCLUDE
@@ -556,6 +584,10 @@ instance ToText ProjectionType where
         All      -> "ALL"
         Include  -> "INCLUDE"
         KeysOnly -> "KEYS_ONLY"
+
+instance FromJSON ProjectionType
+
+instance ToJSON ProjectionType
 
 data TableDescription = TableDescription
     { _tdAttributeDefinitions   :: [AttributeDefinition]
@@ -730,6 +762,10 @@ tdTableSizeBytes = lens _tdTableSizeBytes (\s a -> s { _tdTableSizeBytes = a })
 tdTableStatus :: Lens' TableDescription (Maybe Text)
 tdTableStatus = lens _tdTableStatus (\s a -> s { _tdTableStatus = a })
 
+instance FromJSON TableDescription
+
+instance ToJSON TableDescription
+
 data KeysAndAttributes = KeysAndAttributes
     { _kaaAttributesToGet          :: List1 Text
     , _kaaConsistentRead           :: Maybe Bool
@@ -812,6 +848,10 @@ kaaProjectionExpression :: Lens' KeysAndAttributes (Maybe Text)
 kaaProjectionExpression =
     lens _kaaProjectionExpression (\s a -> s { _kaaProjectionExpression = a })
 
+instance FromJSON KeysAndAttributes
+
+instance ToJSON KeysAndAttributes
+
 data ReturnConsumedCapacity
     = Indexes -- ^ INDEXES
     | None    -- ^ NONE
@@ -831,6 +871,10 @@ instance ToText ReturnConsumedCapacity where
         None    -> "NONE"
         Total   -> "TOTAL"
 
+instance FromJSON ReturnConsumedCapacity
+
+instance ToJSON ReturnConsumedCapacity
+
 data ReturnItemCollectionMetrics
     = RICMNone -- ^ NONE
     | RICMSize -- ^ SIZE
@@ -846,6 +890,10 @@ instance ToText ReturnItemCollectionMetrics where
     toText = \case
         RICMNone -> "NONE"
         RICMSize -> "SIZE"
+
+instance FromJSON ReturnItemCollectionMetrics
+
+instance ToJSON ReturnItemCollectionMetrics
 
 data AttributeValueUpdate = AttributeValueUpdate
     { _avuAction :: Maybe Text
@@ -905,6 +953,10 @@ avuAction = lens _avuAction (\s a -> s { _avuAction = a })
 
 avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
 avuValue = lens _avuValue (\s a -> s { _avuValue = a })
+
+instance FromJSON AttributeValueUpdate
+
+instance ToJSON AttributeValueUpdate
 
 data ExpectedAttributeValue = ExpectedAttributeValue
     { _eavAttributeValueList :: [AttributeValue]
@@ -1054,6 +1106,10 @@ eavExists = lens _eavExists (\s a -> s { _eavExists = a })
 eavValue :: Lens' ExpectedAttributeValue (Maybe AttributeValue)
 eavValue = lens _eavValue (\s a -> s { _eavValue = a })
 
+instance FromJSON ExpectedAttributeValue
+
+instance ToJSON ExpectedAttributeValue
+
 data AttributeDefinition = AttributeDefinition
     { _adAttributeName :: Text
     , _adAttributeType :: Text
@@ -1082,6 +1138,10 @@ adAttributeName = lens _adAttributeName (\s a -> s { _adAttributeName = a })
 -- | The data type for the attribute.
 adAttributeType :: Lens' AttributeDefinition Text
 adAttributeType = lens _adAttributeType (\s a -> s { _adAttributeType = a })
+
+instance FromJSON AttributeDefinition
+
+instance ToJSON AttributeDefinition
 
 data ComparisonOperator
     = BeginsWith  -- ^ BEGINS_WITH
@@ -1132,6 +1192,10 @@ instance ToText ComparisonOperator where
         NotNull     -> "NOT_NULL"
         Null        -> "NULL"
 
+instance FromJSON ComparisonOperator
+
+instance ToJSON ComparisonOperator
+
 data ReturnValue
     = RVAllNew     -- ^ ALL_NEW
     | RVAllOld     -- ^ ALL_OLD
@@ -1156,6 +1220,10 @@ instance ToText ReturnValue where
         RVNone       -> "NONE"
         RVUpdatedNew -> "UPDATED_NEW"
         RVUpdatedOld -> "UPDATED_OLD"
+
+instance FromJSON ReturnValue
+
+instance ToJSON ReturnValue
 
 data LocalSecondaryIndex = LocalSecondaryIndex
     { _lsiIndexName  :: Text
@@ -1196,6 +1264,10 @@ lsiKeySchema = lens _lsiKeySchema (\s a -> s { _lsiKeySchema = a })
 
 lsiProjection :: Lens' LocalSecondaryIndex Projection
 lsiProjection = lens _lsiProjection (\s a -> s { _lsiProjection = a })
+
+instance FromJSON LocalSecondaryIndex
+
+instance ToJSON LocalSecondaryIndex
 
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     { _gsidIndexName             :: Maybe Text
@@ -1276,6 +1348,10 @@ gsidProvisionedThroughput =
     lens _gsidProvisionedThroughput
         (\s a -> s { _gsidProvisionedThroughput = a })
 
+instance FromJSON GlobalSecondaryIndexDescription
+
+instance ToJSON GlobalSecondaryIndexDescription
+
 data ItemCollectionMetrics = ItemCollectionMetrics
     { _icmItemCollectionKey   :: Map Text AttributeValue
     , _icmSizeEstimateRangeGB :: [Double]
@@ -1314,6 +1390,10 @@ icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics [Double]
 icmSizeEstimateRangeGB =
     lens _icmSizeEstimateRangeGB (\s a -> s { _icmSizeEstimateRangeGB = a })
 
+instance FromJSON ItemCollectionMetrics
+
+instance ToJSON ItemCollectionMetrics
+
 newtype Capacity = Capacity
     { _cCapacityUnits :: Maybe Double
     } deriving (Eq, Ord, Show, Generic)
@@ -1332,6 +1412,10 @@ capacity = Capacity
 -- | The total number of capacity units consumed on a table or an index.
 cCapacityUnits :: Lens' Capacity (Maybe Double)
 cCapacityUnits = lens _cCapacityUnits (\s a -> s { _cCapacityUnits = a })
+
+instance FromJSON Capacity
+
+instance ToJSON Capacity
 
 data ConsumedCapacity = ConsumedCapacity
     { _ccCapacityUnits          :: Maybe Double
@@ -1391,6 +1475,10 @@ ccTable = lens _ccTable (\s a -> s { _ccTable = a })
 ccTableName :: Lens' ConsumedCapacity (Maybe Text)
 ccTableName = lens _ccTableName (\s a -> s { _ccTableName = a })
 
+instance FromJSON ConsumedCapacity
+
+instance ToJSON ConsumedCapacity
+
 data GlobalSecondaryIndex = GlobalSecondaryIndex
     { _gsiIndexName             :: Text
     , _gsiKeySchema             :: List1 KeySchemaElement
@@ -1440,6 +1528,10 @@ gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex ProvisionedThroughput
 gsiProvisionedThroughput =
     lens _gsiProvisionedThroughput
         (\s a -> s { _gsiProvisionedThroughput = a })
+
+instance FromJSON GlobalSecondaryIndex
+
+instance ToJSON GlobalSecondaryIndex
 
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     { _lsidIndexName      :: Maybe Text
@@ -1499,6 +1591,10 @@ lsidKeySchema = lens _lsidKeySchema (\s a -> s { _lsidKeySchema = a })
 lsidProjection :: Lens' LocalSecondaryIndexDescription (Maybe Projection)
 lsidProjection = lens _lsidProjection (\s a -> s { _lsidProjection = a })
 
+instance FromJSON LocalSecondaryIndexDescription
+
+instance ToJSON LocalSecondaryIndexDescription
+
 data AttributeAction
     = Add    -- ^ ADD
     | Delete -- ^ DELETE
@@ -1518,6 +1614,10 @@ instance ToText AttributeAction where
         Delete -> "DELETE"
         Put    -> "PUT"
 
+instance FromJSON AttributeAction
+
+instance ToJSON AttributeAction
+
 data ScalarAttributeType
     = B -- ^ B
     | N -- ^ N
@@ -1536,6 +1636,10 @@ instance ToText ScalarAttributeType where
         B -> "B"
         N -> "N"
         S -> "S"
+
+instance FromJSON ScalarAttributeType
+
+instance ToJSON ScalarAttributeType
 
 data Projection = Projection
     { _pNonKeyAttributes :: List1 Text
@@ -1575,6 +1679,10 @@ pNonKeyAttributes =
 pProjectionType :: Lens' Projection (Maybe Text)
 pProjectionType = lens _pProjectionType (\s a -> s { _pProjectionType = a })
 
+instance FromJSON Projection
+
+instance ToJSON Projection
+
 data Select
     = AllAttributes          -- ^ ALL_ATTRIBUTES
     | AllProjectedAttributes -- ^ ALL_PROJECTED_ATTRIBUTES
@@ -1596,6 +1704,10 @@ instance ToText Select where
         AllProjectedAttributes -> "ALL_PROJECTED_ATTRIBUTES"
         Count                  -> "COUNT"
         SpecificAttributes     -> "SPECIFIC_ATTRIBUTES"
+
+instance FromJSON Select
+
+instance ToJSON Select
 
 data KeySchemaElement = KeySchemaElement
     { _kseAttributeName :: Text
@@ -1627,6 +1739,10 @@ kseAttributeName = lens _kseAttributeName (\s a -> s { _kseAttributeName = a })
 kseKeyType :: Lens' KeySchemaElement Text
 kseKeyType = lens _kseKeyType (\s a -> s { _kseKeyType = a })
 
+instance FromJSON KeySchemaElement
+
+instance ToJSON KeySchemaElement
+
 newtype DeleteRequest = DeleteRequest
     { _dKey :: Map Text AttributeValue
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -1649,6 +1765,10 @@ deleteRequest = DeleteRequest
 dKey :: Lens' DeleteRequest (HashMap Text AttributeValue)
 dKey = lens _dKey (\s a -> s { _dKey = a })
     . _Map
+
+instance FromJSON DeleteRequest
+
+instance ToJSON DeleteRequest
 
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction
     { _ugsiaIndexName             :: Text
@@ -1680,6 +1800,10 @@ ugsiaProvisionedThroughput =
     lens _ugsiaProvisionedThroughput
         (\s a -> s { _ugsiaProvisionedThroughput = a })
 
+instance FromJSON UpdateGlobalSecondaryIndexAction
+
+instance ToJSON UpdateGlobalSecondaryIndexAction
+
 newtype PutRequest = PutRequest
     { _pItem :: Map Text AttributeValue
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -1704,6 +1828,10 @@ putRequest = PutRequest
 pItem :: Lens' PutRequest (HashMap Text AttributeValue)
 pItem = lens _pItem (\s a -> s { _pItem = a })
     . _Map
+
+instance FromJSON PutRequest
+
+instance ToJSON PutRequest
 
 data Condition = Condition
     { _cAttributeValueList :: [AttributeValue]
@@ -1824,6 +1952,10 @@ cComparisonOperator :: Lens' Condition Text
 cComparisonOperator =
     lens _cComparisonOperator (\s a -> s { _cComparisonOperator = a })
 
+instance FromJSON Condition
+
+instance ToJSON Condition
+
 data ConditionalOperator
     = And -- ^ AND
     | Or  -- ^ OR
@@ -1839,6 +1971,10 @@ instance ToText ConditionalOperator where
     toText = \case
         And -> "AND"
         Or  -> "OR"
+
+instance FromJSON ConditionalOperator
+
+instance ToJSON ConditionalOperator
 
 newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction
@@ -1859,3 +1995,7 @@ globalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
 -- throughput settings that are to be applied to that index.
 gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
 gsiuUpdate = lens _gsiuUpdate (\s a -> s { _gsiuUpdate = a })
+
+instance FromJSON GlobalSecondaryIndexUpdate
+
+instance ToJSON GlobalSecondaryIndexUpdate

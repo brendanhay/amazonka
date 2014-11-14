@@ -97,6 +97,10 @@ idIdentityId = lens _idIdentityId (\s a -> s { _idIdentityId = a })
 idLogins :: Lens' IdentityDescription [Text]
 idLogins = lens _idLogins (\s a -> s { _idLogins = a })
 
+instance FromJSON IdentityDescription
+
+instance ToJSON IdentityDescription
+
 data IdentityPool = IdentityPool
     { _ipAllowUnauthenticatedIdentities :: Bool
     , _ipDeveloperProviderName          :: Maybe Text
@@ -167,6 +171,10 @@ ipSupportedLoginProviders =
         (\s a -> s { _ipSupportedLoginProviders = a })
             . _Map
 
+instance FromJSON IdentityPool
+
+instance ToJSON IdentityPool
+
 data IdentityPoolShortDescription = IdentityPoolShortDescription
     { _ipsdIdentityPoolId   :: Maybe Text
     , _ipsdIdentityPoolName :: Maybe Text
@@ -195,3 +203,7 @@ ipsdIdentityPoolId =
 ipsdIdentityPoolName :: Lens' IdentityPoolShortDescription (Maybe Text)
 ipsdIdentityPoolName =
     lens _ipsdIdentityPoolName (\s a -> s { _ipsdIdentityPoolName = a })
+
+instance FromJSON IdentityPoolShortDescription
+
+instance ToJSON IdentityPoolShortDescription

@@ -137,6 +137,10 @@ ssRid = lens _ssRid (\s a -> s { _ssRid = a })
 ssTimems :: Lens' SearchStatus (Maybe Integer)
 ssTimems = lens _ssTimems (\s a -> s { _ssTimems = a })
 
+instance FromJSON SearchStatus
+
+instance ToJSON SearchStatus
+
 data QueryParser
     = Dismax     -- ^ dismax
     | Lucene     -- ^ lucene
@@ -158,6 +162,10 @@ instance ToText QueryParser where
         Lucene     -> "lucene"
         Simple     -> "simple"
         Structured -> "structured"
+
+instance FromJSON QueryParser
+
+instance ToJSON QueryParser
 
 data Hit = Hit
     { _hitFields     :: Map Text [Text]
@@ -196,6 +204,10 @@ hitHighlights = lens _hitHighlights (\s a -> s { _hitHighlights = a })
 hitId :: Lens' Hit (Maybe Text)
 hitId = lens _hitId (\s a -> s { _hitId = a })
 
+instance FromJSON Hit
+
+instance ToJSON Hit
+
 data SuggestStatus = SuggestStatus
     { _ss1Rid    :: Maybe Text
     , _ss1Timems :: Maybe Integer
@@ -222,6 +234,10 @@ ss1Rid = lens _ss1Rid (\s a -> s { _ss1Rid = a })
 -- | How long it took to process the request, in milliseconds.
 ss1Timems :: Lens' SuggestStatus (Maybe Integer)
 ss1Timems = lens _ss1Timems (\s a -> s { _ss1Timems = a })
+
+instance FromJSON SuggestStatus
+
+instance ToJSON SuggestStatus
 
 data Bucket = Bucket
     { _bCount :: Maybe Integer
@@ -250,6 +266,10 @@ bCount = lens _bCount (\s a -> s { _bCount = a })
 -- | The facet value being counted.
 bValue :: Lens' Bucket (Maybe Text)
 bValue = lens _bValue (\s a -> s { _bValue = a })
+
+instance FromJSON Bucket
+
+instance ToJSON Bucket
 
 data SuggestionMatch = SuggestionMatch
     { _smId         :: Maybe Text
@@ -286,6 +306,10 @@ smScore = lens _smScore (\s a -> s { _smScore = a })
 smSuggestion :: Lens' SuggestionMatch (Maybe Text)
 smSuggestion = lens _smSuggestion (\s a -> s { _smSuggestion = a })
 
+instance FromJSON SuggestionMatch
+
+instance ToJSON SuggestionMatch
+
 newtype BucketInfo = BucketInfo
     { _biBuckets :: [Bucket]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -311,6 +335,10 @@ bucketInfo = BucketInfo
 biBuckets :: Lens' BucketInfo [Bucket]
 biBuckets = lens _biBuckets (\s a -> s { _biBuckets = a })
 
+instance FromJSON BucketInfo
+
+instance ToJSON BucketInfo
+
 newtype DocumentServiceWarning = DocumentServiceWarning
     { _dswMessage :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -329,6 +357,10 @@ documentServiceWarning = DocumentServiceWarning
 -- | The description for a warning returned by the document service.
 dswMessage :: Lens' DocumentServiceWarning (Maybe Text)
 dswMessage = lens _dswMessage (\s a -> s { _dswMessage = a })
+
+instance FromJSON DocumentServiceWarning
+
+instance ToJSON DocumentServiceWarning
 
 data SuggestModel = SuggestModel
     { _smFound       :: Maybe Integer
@@ -364,6 +396,10 @@ smQuery = lens _smQuery (\s a -> s { _smQuery = a })
 -- | The documents that match the query string.
 smSuggestions :: Lens' SuggestModel [SuggestionMatch]
 smSuggestions = lens _smSuggestions (\s a -> s { _smSuggestions = a })
+
+instance FromJSON SuggestModel
+
+instance ToJSON SuggestModel
 
 data Hits = Hits
     { _hCursor :: Maybe Text
@@ -409,6 +445,10 @@ hHit = lens _hHit (\s a -> s { _hHit = a })
 hStart :: Lens' Hits (Maybe Integer)
 hStart = lens _hStart (\s a -> s { _hStart = a })
 
+instance FromJSON Hits
+
+instance ToJSON Hits
+
 data ContentType
     = ApplicationJson -- ^ application/json
     | ApplicationXml  -- ^ application/xml
@@ -424,3 +464,7 @@ instance ToText ContentType where
     toText = \case
         ApplicationJson -> "application/json"
         ApplicationXml  -> "application/xml"
+
+instance FromJSON ContentType
+
+instance ToJSON ContentType

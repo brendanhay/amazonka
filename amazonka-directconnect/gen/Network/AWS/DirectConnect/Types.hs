@@ -288,6 +288,10 @@ viVirtualInterfaceType =
 viVlan :: Lens' VirtualInterface (Maybe Int)
 viVlan = lens _viVlan (\s a -> s { _viVlan = a })
 
+instance FromJSON VirtualInterface
+
+instance ToJSON VirtualInterface
+
 data Location = Location
     { _lLocationCode :: Maybe Text
     , _lLocationName :: Maybe Text
@@ -316,6 +320,10 @@ lLocationCode = lens _lLocationCode (\s a -> s { _lLocationCode = a })
 lLocationName :: Lens' Location (Maybe Text)
 lLocationName = lens _lLocationName (\s a -> s { _lLocationName = a })
 
+instance FromJSON Location
+
+instance ToJSON Location
+
 newtype Connections = Connections
     { _cConnections :: [Connection]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -340,6 +348,10 @@ connections = Connections
 -- | A list of connections.
 cConnections :: Lens' Connections [Connection]
 cConnections = lens _cConnections (\s a -> s { _cConnections = a })
+
+instance FromJSON Connections
+
+instance ToJSON Connections
 
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
     { _npviaAmazonAddress        :: Maybe Text
@@ -401,6 +413,10 @@ npviaVirtualInterfaceName =
 npviaVlan :: Lens' NewPrivateVirtualInterfaceAllocation Int
 npviaVlan = lens _npviaVlan (\s a -> s { _npviaVlan = a })
 
+instance FromJSON NewPrivateVirtualInterfaceAllocation
+
+instance ToJSON NewPrivateVirtualInterfaceAllocation
+
 data VirtualInterfaceState
     = Available  -- ^ available
     | Confirming -- ^ confirming
@@ -431,6 +447,10 @@ instance ToText VirtualInterfaceState where
         Pending    -> "pending"
         Rejected   -> "rejected"
         Verifying  -> "verifying"
+
+instance FromJSON VirtualInterfaceState
+
+instance ToJSON VirtualInterfaceState
 
 data Connection = Connection
     { _cBandwidth       :: Maybe Text
@@ -508,6 +528,10 @@ cRegion = lens _cRegion (\s a -> s { _cRegion = a })
 cVlan :: Lens' Connection (Maybe Int)
 cVlan = lens _cVlan (\s a -> s { _cVlan = a })
 
+instance FromJSON Connection
+
+instance ToJSON Connection
+
 data NewPublicVirtualInterface = NewPublicVirtualInterface
     { _npviAmazonAddress        :: Text
     , _npviAsn                  :: Int
@@ -578,6 +602,10 @@ npviVirtualInterfaceName =
 npviVlan :: Lens' NewPublicVirtualInterface Int
 npviVlan = lens _npviVlan (\s a -> s { _npviVlan = a })
 
+instance FromJSON NewPublicVirtualInterface
+
+instance ToJSON NewPublicVirtualInterface
+
 data Interconnect = Interconnect
     { _iBandwidth         :: Maybe Text
     , _iInterconnectId    :: Maybe Text
@@ -633,6 +661,10 @@ iLocation = lens _iLocation (\s a -> s { _iLocation = a })
 iRegion :: Lens' Interconnect (Maybe Text)
 iRegion = lens _iRegion (\s a -> s { _iRegion = a })
 
+instance FromJSON Interconnect
+
+instance ToJSON Interconnect
+
 data InterconnectState
     = ISAvailable -- ^ available
     | ISDeleted   -- ^ deleted
@@ -660,6 +692,10 @@ instance ToText InterconnectState where
         ISDown      -> "down"
         ISPending   -> "pending"
         ISRequested -> "requested"
+
+instance FromJSON InterconnectState
+
+instance ToJSON InterconnectState
 
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface
     { _npvi1AmazonAddress        :: Maybe Text
@@ -729,6 +765,10 @@ npvi1VirtualInterfaceName =
 
 npvi1Vlan :: Lens' NewPrivateVirtualInterface Int
 npvi1Vlan = lens _npvi1Vlan (\s a -> s { _npvi1Vlan = a })
+
+instance FromJSON NewPrivateVirtualInterface
+
+instance ToJSON NewPrivateVirtualInterface
 
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
     { _npvia1AmazonAddress        :: Text
@@ -801,6 +841,10 @@ npvia1VirtualInterfaceName =
 npvia1Vlan :: Lens' NewPublicVirtualInterfaceAllocation Int
 npvia1Vlan = lens _npvia1Vlan (\s a -> s { _npvia1Vlan = a })
 
+instance FromJSON NewPublicVirtualInterfaceAllocation
+
+instance ToJSON NewPublicVirtualInterfaceAllocation
+
 data ConnectionState
     = CSAvailable -- ^ available
     | CSDeleted   -- ^ deleted
@@ -835,6 +879,10 @@ instance ToText ConnectionState where
         CSRejected  -> "rejected"
         CSRequested -> "requested"
 
+instance FromJSON ConnectionState
+
+instance ToJSON ConnectionState
+
 data VirtualGateway = VirtualGateway
     { _vgVirtualGatewayId    :: Maybe Text
     , _vgVirtualGatewayState :: Maybe Text
@@ -862,6 +910,10 @@ vgVirtualGatewayState :: Lens' VirtualGateway (Maybe Text)
 vgVirtualGatewayState =
     lens _vgVirtualGatewayState (\s a -> s { _vgVirtualGatewayState = a })
 
+instance FromJSON VirtualGateway
+
+instance ToJSON VirtualGateway
+
 newtype RouteFilterPrefix = RouteFilterPrefix
     { _rfpCidr :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -881,3 +933,7 @@ routeFilterPrefix = RouteFilterPrefix
 -- commas. Example: 10.10.10.0/24,10.10.11.0/24.
 rfpCidr :: Lens' RouteFilterPrefix (Maybe Text)
 rfpCidr = lens _rfpCidr (\s a -> s { _rfpCidr = a })
+
+instance FromJSON RouteFilterPrefix
+
+instance ToJSON RouteFilterPrefix

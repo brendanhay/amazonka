@@ -196,6 +196,10 @@ cediLastSuccessfulTime =
     lens _cediLastSuccessfulTime (\s a -> s { _cediLastSuccessfulTime = a })
         . mapping _Time
 
+instance FromJSON ConfigExportDeliveryInfo
+
+instance ToJSON ConfigExportDeliveryInfo
+
 data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo
     { _csdiLastErrorCode        :: Maybe Text
     , _csdiLastErrorMessage     :: Maybe Text
@@ -244,6 +248,10 @@ csdiLastStatusChangeTime =
         (\s a -> s { _csdiLastStatusChangeTime = a })
             . mapping _Time
 
+instance FromJSON ConfigStreamDeliveryInfo
+
+instance ToJSON ConfigStreamDeliveryInfo
+
 data Relationship = Relationship
     { _rRelationshipName :: Maybe Text
     , _rResourceId       :: Maybe Text
@@ -279,6 +287,10 @@ rResourceId = lens _rResourceId (\s a -> s { _rResourceId = a })
 -- | The resource type of the related resource.
 rResourceType :: Lens' Relationship (Maybe Text)
 rResourceType = lens _rResourceType (\s a -> s { _rResourceType = a })
+
+instance FromJSON Relationship
+
+instance ToJSON Relationship
 
 data DeliveryChannel = DeliveryChannel
     { _dcName         :: Maybe Text
@@ -327,6 +339,10 @@ dcS3KeyPrefix = lens _dcS3KeyPrefix (\s a -> s { _dcS3KeyPrefix = a })
 dcSnsTopicARN :: Lens' DeliveryChannel (Maybe Text)
 dcSnsTopicARN = lens _dcSnsTopicARN (\s a -> s { _dcSnsTopicARN = a })
 
+instance FromJSON DeliveryChannel
+
+instance ToJSON DeliveryChannel
+
 data ChronologicalOrder
     = Forward -- ^ Forward
     | Reverse -- ^ Reverse
@@ -342,6 +358,10 @@ instance ToText ChronologicalOrder where
     toText = \case
         Forward -> "Forward"
         Reverse -> "Reverse"
+
+instance FromJSON ChronologicalOrder
+
+instance ToJSON ChronologicalOrder
 
 data ResourceType
     = AWSCloudTrailTrail     -- ^ AWS::CloudTrail::Trail
@@ -394,6 +414,10 @@ instance ToText ResourceType where
         AWSEC2VPNConnection    -> "AWS::EC2::VPNConnection"
         AWSEC2VPNGateway       -> "AWS::EC2::VPNGateway"
         AWSEC2Volume           -> "AWS::EC2::Volume"
+
+instance FromJSON ResourceType
+
+instance ToJSON ResourceType
 
 data ConfigurationItem = ConfigurationItem
     { _ciAccountId                    :: Maybe Text
@@ -545,6 +569,10 @@ ciTags = lens _ciTags (\s a -> s { _ciTags = a })
 ciVersion :: Lens' ConfigurationItem (Maybe Text)
 ciVersion = lens _ciVersion (\s a -> s { _ciVersion = a })
 
+instance FromJSON ConfigurationItem
+
+instance ToJSON ConfigurationItem
+
 data DeliveryStatus
     = Failure -- ^ Failure
     | Success -- ^ Success
@@ -560,6 +588,10 @@ instance ToText DeliveryStatus where
     toText = \case
         Failure -> "Failure"
         Success -> "Success"
+
+instance FromJSON DeliveryStatus
+
+instance ToJSON DeliveryStatus
 
 data DeliveryChannelStatus = DeliveryChannelStatus
     { _dcsConfigHistoryDeliveryInfo  :: Maybe ConfigExportDeliveryInfo
@@ -612,6 +644,10 @@ dcsConfigStreamDeliveryInfo =
 -- | The name of the delivery channel.
 dcsName :: Lens' DeliveryChannelStatus (Maybe Text)
 dcsName = lens _dcsName (\s a -> s { _dcsName = a })
+
+instance FromJSON DeliveryChannelStatus
+
+instance ToJSON DeliveryChannelStatus
 
 data ConfigurationRecorderStatus = ConfigurationRecorderStatus
     { _crsLastErrorCode        :: Maybe Text
@@ -693,6 +729,10 @@ crsName = lens _crsName (\s a -> s { _crsName = a })
 crsRecording :: Lens' ConfigurationRecorderStatus (Maybe Bool)
 crsRecording = lens _crsRecording (\s a -> s { _crsRecording = a })
 
+instance FromJSON ConfigurationRecorderStatus
+
+instance ToJSON ConfigurationRecorderStatus
+
 data ConfigurationItemStatus
     = Deleted    -- ^ Deleted
     | Discovered -- ^ Discovered
@@ -714,6 +754,10 @@ instance ToText ConfigurationItemStatus where
         Discovered -> "Discovered"
         Failed     -> "Failed"
         Ok         -> "Ok"
+
+instance FromJSON ConfigurationItemStatus
+
+instance ToJSON ConfigurationItemStatus
 
 data ConfigurationRecorder = ConfigurationRecorder
     { _crName    :: Maybe Text
@@ -745,6 +789,10 @@ crName = lens _crName (\s a -> s { _crName = a })
 crRoleARN :: Lens' ConfigurationRecorder (Maybe Text)
 crRoleARN = lens _crRoleARN (\s a -> s { _crRoleARN = a })
 
+instance FromJSON ConfigurationRecorder
+
+instance ToJSON ConfigurationRecorder
+
 data RecorderStatus
     = RSFailure -- ^ Failure
     | RSPending -- ^ Pending
@@ -763,3 +811,7 @@ instance ToText RecorderStatus where
         RSFailure -> "Failure"
         RSPending -> "Pending"
         RSSuccess -> "Success"
+
+instance FromJSON RecorderStatus
+
+instance ToJSON RecorderStatus

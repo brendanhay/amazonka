@@ -472,6 +472,10 @@ scChain = lens _scChain (\s a -> s { _scChain = a })
 scPrivateKey :: Lens' SslConfiguration Text
 scPrivateKey = lens _scPrivateKey (\s a -> s { _scPrivateKey = a })
 
+instance FromJSON SslConfiguration
+
+instance ToJSON SslConfiguration
+
 data Command = Command
     { _cAcknowledgedAt :: Maybe Text
     , _cCommandId      :: Maybe Text
@@ -564,6 +568,10 @@ cStatus = lens _cStatus (\s a -> s { _cStatus = a })
 -- execute_recipes.
 cType :: Lens' Command (Maybe Text)
 cType = lens _cType (\s a -> s { _cType = a })
+
+instance FromJSON Command
+
+instance ToJSON Command
 
 data RaidArray = RaidArray
     { _raAvailabilityZone :: Maybe Text
@@ -674,6 +682,10 @@ raSize = lens _raSize (\s a -> s { _raSize = a })
 raVolumeType :: Lens' RaidArray (Maybe Text)
 raVolumeType = lens _raVolumeType (\s a -> s { _raVolumeType = a })
 
+instance FromJSON RaidArray
+
+instance ToJSON RaidArray
+
 data ElasticLoadBalancer = ElasticLoadBalancer
     { _elbAvailabilityZones       :: [Text]
     , _elbDnsName                 :: Maybe Text
@@ -761,6 +773,10 @@ elbSubnetIds = lens _elbSubnetIds (\s a -> s { _elbSubnetIds = a })
 -- | The VPC ID.
 elbVpcId :: Lens' ElasticLoadBalancer (Maybe Text)
 elbVpcId = lens _elbVpcId (\s a -> s { _elbVpcId = a })
+
+instance FromJSON ElasticLoadBalancer
+
+instance ToJSON ElasticLoadBalancer
 
 data RdsDbInstance = RdsDbInstance
     { _rdiAddress              :: Maybe Text
@@ -850,6 +866,10 @@ rdiRegion = lens _rdiRegion (\s a -> s { _rdiRegion = a })
 rdiStackId :: Lens' RdsDbInstance (Maybe Text)
 rdiStackId = lens _rdiStackId (\s a -> s { _rdiStackId = a })
 
+instance FromJSON RdsDbInstance
+
+instance ToJSON RdsDbInstance
+
 data AppAttributesKeys
     = AutoBundleOnDeploy -- ^ AutoBundleOnDeploy
     | DocumentRoot       -- ^ DocumentRoot
@@ -868,6 +888,10 @@ instance ToText AppAttributesKeys where
         AutoBundleOnDeploy -> "AutoBundleOnDeploy"
         DocumentRoot       -> "DocumentRoot"
         RailsEnv           -> "RailsEnv"
+
+instance FromJSON AppAttributesKeys
+
+instance ToJSON AppAttributesKeys
 
 data StackSummary = StackSummary
     { _ssAppsCount      :: Maybe Int
@@ -928,6 +952,10 @@ ssName = lens _ssName (\s a -> s { _ssName = a })
 ssStackId :: Lens' StackSummary (Maybe Text)
 ssStackId = lens _ssStackId (\s a -> s { _ssStackId = a })
 
+instance FromJSON StackSummary
+
+instance ToJSON StackSummary
+
 data StackAttributesKeys
     = Color -- ^ Color
       deriving (Eq, Ord, Show, Generic, Enum)
@@ -939,6 +967,10 @@ instance FromText StackAttributesKeys where
 
 instance ToText StackAttributesKeys where
     toText Color = "Color"
+
+instance FromJSON StackAttributesKeys
+
+instance ToJSON StackAttributesKeys
 
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     { _lbascDownScaling :: Maybe AutoScalingThresholds
@@ -987,6 +1019,10 @@ lbascLayerId = lens _lbascLayerId (\s a -> s { _lbascLayerId = a })
 lbascUpScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbascUpScaling = lens _lbascUpScaling (\s a -> s { _lbascUpScaling = a })
 
+instance FromJSON LoadBasedAutoScalingConfiguration
+
+instance ToJSON LoadBasedAutoScalingConfiguration
+
 data SourceType
     = Archive -- ^ archive
     | Git     -- ^ git
@@ -1008,6 +1044,10 @@ instance ToText SourceType where
         Git     -> "git"
         S3      -> "s3"
         Svn     -> "svn"
+
+instance FromJSON SourceType
+
+instance ToJSON SourceType
 
 data Volume = Volume
     { _vAvailabilityZone :: Maybe Text
@@ -1127,6 +1167,10 @@ vVolumeId = lens _vVolumeId (\s a -> s { _vVolumeId = a })
 vVolumeType :: Lens' Volume (Maybe Text)
 vVolumeType = lens _vVolumeType (\s a -> s { _vVolumeType = a })
 
+instance FromJSON Volume
+
+instance ToJSON Volume
+
 data ChefConfiguration = ChefConfiguration
     { _ccBerkshelfVersion :: Maybe Text
     , _ccManageBerkshelf  :: Maybe Bool
@@ -1155,6 +1199,10 @@ ccBerkshelfVersion =
 ccManageBerkshelf :: Lens' ChefConfiguration (Maybe Bool)
 ccManageBerkshelf =
     lens _ccManageBerkshelf (\s a -> s { _ccManageBerkshelf = a })
+
+instance FromJSON ChefConfiguration
+
+instance ToJSON ChefConfiguration
 
 data LayerType
     = Custom           -- ^ custom
@@ -1192,6 +1240,10 @@ instance ToText LayerType where
         PhpApp           -> "php-app"
         RailsApp         -> "rails-app"
         Web              -> "web"
+
+instance FromJSON LayerType
+
+instance ToJSON LayerType
 
 data AutoScalingThresholds = AutoScalingThresholds
     { _astCpuThreshold       :: Maybe Double
@@ -1264,6 +1316,10 @@ astMemoryThreshold =
 astThresholdsWaitTime :: Lens' AutoScalingThresholds (Maybe Natural)
 astThresholdsWaitTime =
     lens _astThresholdsWaitTime (\s a -> s { _astThresholdsWaitTime = a })
+
+instance FromJSON AutoScalingThresholds
+
+instance ToJSON AutoScalingThresholds
 
 data App = App
     { _appAppId            :: Maybe Text
@@ -1383,6 +1439,10 @@ appStackId = lens _appStackId (\s a -> s { _appStackId = a })
 appType :: Lens' App (Maybe Text)
 appType = lens _appType (\s a -> s { _appType = a })
 
+instance FromJSON App
+
+instance ToJSON App
+
 data ElasticIp = ElasticIp
     { _eiDomain     :: Maybe Text
     , _eiInstanceId :: Maybe Text
@@ -1433,6 +1493,10 @@ eiName = lens _eiName (\s a -> s { _eiName = a })
 -- | The AWS region. For more information, see Regions and Endpoints.
 eiRegion :: Lens' ElasticIp (Maybe Text)
 eiRegion = lens _eiRegion (\s a -> s { _eiRegion = a })
+
+instance FromJSON ElasticIp
+
+instance ToJSON ElasticIp
 
 data UserProfile = UserProfile
     { _upAllowSelfManagement :: Maybe Bool
@@ -1487,6 +1551,10 @@ upSshPublicKey = lens _upSshPublicKey (\s a -> s { _upSshPublicKey = a })
 upSshUsername :: Lens' UserProfile (Maybe Text)
 upSshUsername = lens _upSshUsername (\s a -> s { _upSshUsername = a })
 
+instance FromJSON UserProfile
+
+instance ToJSON UserProfile
+
 data AutoScalingType
     = Load  -- ^ load
     | Timer -- ^ timer
@@ -1502,6 +1570,10 @@ instance ToText AutoScalingType where
     toText = \case
         Load  -> "load"
         Timer -> "timer"
+
+instance FromJSON AutoScalingType
+
+instance ToJSON AutoScalingType
 
 data Source = Source
     { _sPassword :: Maybe Text
@@ -1570,6 +1642,10 @@ sUrl = lens _sUrl (\s a -> s { _sUrl = a })
 sUsername :: Lens' Source (Maybe Text)
 sUsername = lens _sUsername (\s a -> s { _sUsername = a })
 
+instance FromJSON Source
+
+instance ToJSON Source
+
 data DataSource = DataSource
     { _dsArn          :: Maybe Text
     , _dsDatabaseName :: Maybe Text
@@ -1606,6 +1682,10 @@ dsDatabaseName = lens _dsDatabaseName (\s a -> s { _dsDatabaseName = a })
 dsType :: Lens' DataSource (Maybe Text)
 dsType = lens _dsType (\s a -> s { _dsType = a })
 
+instance FromJSON DataSource
+
+instance ToJSON DataSource
+
 data Architecture
     = I386  -- ^ i386
     | X8664 -- ^ x86_64
@@ -1621,6 +1701,10 @@ instance ToText Architecture where
     toText = \case
         I386  -> "i386"
         X8664 -> "x86_64"
+
+instance FromJSON Architecture
+
+instance ToJSON Architecture
 
 data StackConfigurationManager = StackConfigurationManager
     { _scmName    :: Maybe Text
@@ -1649,6 +1733,10 @@ scmName = lens _scmName (\s a -> s { _scmName = a })
 -- default value is 11.4.
 scmVersion :: Lens' StackConfigurationManager (Maybe Text)
 scmVersion = lens _scmVersion (\s a -> s { _scmVersion = a })
+
+instance FromJSON StackConfigurationManager
+
+instance ToJSON StackConfigurationManager
 
 data ServiceError = ServiceError
     { _seCreatedAt      :: Maybe Text
@@ -1708,6 +1796,10 @@ seStackId = lens _seStackId (\s a -> s { _seStackId = a })
 -- | The error type.
 seType :: Lens' ServiceError (Maybe Text)
 seType = lens _seType (\s a -> s { _seType = a })
+
+instance FromJSON ServiceError
+
+instance ToJSON ServiceError
 
 data LayerAttributesKeys
     = BundlerVersion              -- ^ BundlerVersion
@@ -1791,6 +1883,10 @@ instance ToText LayerAttributesKeys where
         RubyVersion                 -> "RubyVersion"
         RubygemsVersion             -> "RubygemsVersion"
 
+instance FromJSON LayerAttributesKeys
+
+instance ToJSON LayerAttributesKeys
+
 data VolumeConfiguration = VolumeConfiguration
     { _vcIops          :: Maybe Int
     , _vcMountPoint    :: Text
@@ -1853,6 +1949,10 @@ vcSize = lens _vcSize (\s a -> s { _vcSize = a })
 vcVolumeType :: Lens' VolumeConfiguration (Maybe Text)
 vcVolumeType = lens _vcVolumeType (\s a -> s { _vcVolumeType = a })
 
+instance FromJSON VolumeConfiguration
+
+instance ToJSON VolumeConfiguration
+
 data Permission = Permission
     { _pAllowSsh   :: Maybe Bool
     , _pAllowSudo  :: Maybe Bool
@@ -1906,6 +2006,10 @@ pLevel = lens _pLevel (\s a -> s { _pLevel = a })
 -- | A stack ID.
 pStackId :: Lens' Permission (Maybe Text)
 pStackId = lens _pStackId (\s a -> s { _pStackId = a })
+
+instance FromJSON Permission
+
+instance ToJSON Permission
 
 data Layer = Layer
     { _lAttributes                :: Map Text Text
@@ -2093,6 +2197,10 @@ lVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
 lVolumeConfigurations =
     lens _lVolumeConfigurations (\s a -> s { _lVolumeConfigurations = a })
 
+instance FromJSON Layer
+
+instance ToJSON Layer
+
 data Recipes = Recipes
     { _rConfigure :: [Text]
     , _rDeploy    :: [Text]
@@ -2144,6 +2252,10 @@ rShutdown = lens _rShutdown (\s a -> s { _rShutdown = a })
 rUndeploy :: Lens' Recipes [Text]
 rUndeploy = lens _rUndeploy (\s a -> s { _rUndeploy = a })
 
+instance FromJSON Recipes
+
+instance ToJSON Recipes
+
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     { _tbascAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
     , _tbascInstanceId          :: Maybe Text
@@ -2172,6 +2284,10 @@ tbascAutoScalingSchedule =
 -- | The instance ID.
 tbascInstanceId :: Lens' TimeBasedAutoScalingConfiguration (Maybe Text)
 tbascInstanceId = lens _tbascInstanceId (\s a -> s { _tbascInstanceId = a })
+
+instance FromJSON TimeBasedAutoScalingConfiguration
+
+instance ToJSON TimeBasedAutoScalingConfiguration
 
 data SelfUserProfile = SelfUserProfile
     { _supIamUserArn   :: Maybe Text
@@ -2216,6 +2332,10 @@ supSshPublicKey = lens _supSshPublicKey (\s a -> s { _supSshPublicKey = a })
 supSshUsername :: Lens' SelfUserProfile (Maybe Text)
 supSshUsername = lens _supSshUsername (\s a -> s { _supSshUsername = a })
 
+instance FromJSON SelfUserProfile
+
+instance ToJSON SelfUserProfile
+
 data RootDeviceType
     = Ebs           -- ^ ebs
     | InstanceStore -- ^ instance-store
@@ -2231,6 +2351,10 @@ instance ToText RootDeviceType where
     toText = \case
         Ebs           -> "ebs"
         InstanceStore -> "instance-store"
+
+instance FromJSON RootDeviceType
+
+instance ToJSON RootDeviceType
 
 data Stack = Stack
     { _sArn                       :: Maybe Text
@@ -2438,6 +2562,10 @@ sUseOpsworksSecurityGroups =
 sVpcId :: Lens' Stack (Maybe Text)
 sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 
+instance FromJSON Stack
+
+instance ToJSON Stack
+
 data DeploymentCommand = DeploymentCommand
     { _dcArgs :: Map Text [Text]
     , _dcName :: Text
@@ -2485,6 +2613,10 @@ dcArgs = lens _dcArgs (\s a -> s { _dcArgs = a })
 -- the app.
 dcName :: Lens' DeploymentCommand Text
 dcName = lens _dcName (\s a -> s { _dcName = a })
+
+instance FromJSON DeploymentCommand
+
+instance ToJSON DeploymentCommand
 
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
     { _wassFriday    :: Map Text Text
@@ -2560,6 +2692,10 @@ wassWednesday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
 wassWednesday = lens _wassWednesday (\s a -> s { _wassWednesday = a })
     . _Map
 
+instance FromJSON WeeklyAutoScalingSchedule
+
+instance ToJSON WeeklyAutoScalingSchedule
+
 data DeploymentCommandName
     = Deploy                -- ^ deploy
     | ExecuteRecipes        -- ^ execute_recipes
@@ -2599,6 +2735,10 @@ instance ToText DeploymentCommandName where
         Undeploy              -> "undeploy"
         UpdateCustomCookbooks -> "update_custom_cookbooks"
         UpdateDependencies    -> "update_dependencies"
+
+instance FromJSON DeploymentCommandName
+
+instance ToJSON DeploymentCommandName
 
 data Instance = Instance
     { _iAmiId                    :: Maybe Text
@@ -2882,6 +3022,10 @@ iVirtualizationType :: Lens' Instance (Maybe Text)
 iVirtualizationType =
     lens _iVirtualizationType (\s a -> s { _iVirtualizationType = a })
 
+instance FromJSON Instance
+
+instance ToJSON Instance
+
 data Deployment = Deployment
     { _dAppId        :: Maybe Text
     , _dCommand      :: Maybe DeploymentCommand
@@ -2992,6 +3136,10 @@ dStackId = lens _dStackId (\s a -> s { _dStackId = a })
 -- | The deployment status: running successful failed.
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\s a -> s { _dStatus = a })
+
+instance FromJSON Deployment
+
+instance ToJSON Deployment
 
 data InstancesCount = InstancesCount
     { _icBooting        :: Maybe Int
@@ -3116,6 +3264,10 @@ icTerminated = lens _icTerminated (\s a -> s { _icTerminated = a })
 icTerminating :: Lens' InstancesCount (Maybe Int)
 icTerminating = lens _icTerminating (\s a -> s { _icTerminating = a })
 
+instance FromJSON InstancesCount
+
+instance ToJSON InstancesCount
+
 data AppType
     = Nodejs -- ^ nodejs
     | Other  -- ^ other
@@ -3140,3 +3292,7 @@ instance ToText AppType where
         Php    -> "php"
         Rails  -> "rails"
         Static -> "static"
+
+instance FromJSON AppType
+
+instance ToJSON AppType

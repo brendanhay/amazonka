@@ -108,6 +108,10 @@ instance FromText KeyUsageType where
 instance ToText KeyUsageType where
     toText EncryptDecrypt = "ENCRYPT_DECRYPT"
 
+instance FromJSON KeyUsageType
+
+instance ToJSON KeyUsageType
+
 data KeyMetadata = KeyMetadata
     { _kmAWSAccountId :: Maybe Text
     , _kmArn          :: Maybe Text
@@ -177,6 +181,10 @@ kmKeyId = lens _kmKeyId (\s a -> s { _kmKeyId = a })
 kmKeyUsage :: Lens' KeyMetadata (Maybe Text)
 kmKeyUsage = lens _kmKeyUsage (\s a -> s { _kmKeyUsage = a })
 
+instance FromJSON KeyMetadata
+
+instance ToJSON KeyMetadata
+
 data DataKeySpec
     = AES128 -- ^ AES_128
     | AES256 -- ^ AES_256
@@ -192,6 +200,10 @@ instance ToText DataKeySpec where
     toText = \case
         AES128 -> "AES_128"
         AES256 -> "AES_256"
+
+instance FromJSON DataKeySpec
+
+instance ToJSON DataKeySpec
 
 data GrantConstraints = GrantConstraints
     { _gcEncryptionContextEquals :: Map Text Text
@@ -227,6 +239,10 @@ gcEncryptionContextSubset =
         (\s a -> s { _gcEncryptionContextSubset = a })
             . _Map
 
+instance FromJSON GrantConstraints
+
+instance ToJSON GrantConstraints
+
 data AliasListEntry = AliasListEntry
     { _aleAliasArn    :: Maybe Text
     , _aleAliasName   :: Maybe Text
@@ -261,6 +277,10 @@ aleAliasName = lens _aleAliasName (\s a -> s { _aleAliasName = a })
 -- | String that contains the key identifier pointed to by the alias.
 aleTargetKeyId :: Lens' AliasListEntry (Maybe Text)
 aleTargetKeyId = lens _aleTargetKeyId (\s a -> s { _aleTargetKeyId = a })
+
+instance FromJSON AliasListEntry
+
+instance ToJSON AliasListEntry
 
 data GrantListEntry = GrantListEntry
     { _gleConstraints       :: Maybe GrantConstraints
@@ -327,6 +347,10 @@ gleRetiringPrincipal :: Lens' GrantListEntry (Maybe Text)
 gleRetiringPrincipal =
     lens _gleRetiringPrincipal (\s a -> s { _gleRetiringPrincipal = a })
 
+instance FromJSON GrantListEntry
+
+instance ToJSON GrantListEntry
+
 data GrantOperation
     = GOCreateGrant                     -- ^ CreateGrant
     | GODecrypt                         -- ^ Decrypt
@@ -361,6 +385,10 @@ instance ToText GrantOperation where
         GOReEncryptTo                     -> "ReEncryptTo"
         GORetireGrant                     -> "RetireGrant"
 
+instance FromJSON GrantOperation
+
+instance ToJSON GrantOperation
+
 data KeyListEntry = KeyListEntry
     { _kleKeyArn :: Maybe Text
     , _kleKeyId  :: Maybe Text
@@ -387,3 +415,7 @@ kleKeyArn = lens _kleKeyArn (\s a -> s { _kleKeyArn = a })
 -- | Unique identifier of the key.
 kleKeyId :: Lens' KeyListEntry (Maybe Text)
 kleKeyId = lens _kleKeyId (\s a -> s { _kleKeyId = a })
+
+instance FromJSON KeyListEntry
+
+instance ToJSON KeyListEntry

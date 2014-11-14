@@ -287,6 +287,10 @@ griRegisterTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
 griRegisterTime = lens _griRegisterTime (\s a -> s { _griRegisterTime = a })
     . mapping _Time
 
+instance FromJSON GenericRevisionInfo
+
+instance ToJSON GenericRevisionInfo
+
 data ApplicationInfo = ApplicationInfo
     { _aiApplicationId   :: Maybe Text
     , _aiApplicationName :: Maybe Text
@@ -333,6 +337,10 @@ aiCreateTime = lens _aiCreateTime (\s a -> s { _aiCreateTime = a })
 aiLinkedToGitHub :: Lens' ApplicationInfo (Maybe Bool)
 aiLinkedToGitHub = lens _aiLinkedToGitHub (\s a -> s { _aiLinkedToGitHub = a })
 
+instance FromJSON ApplicationInfo
+
+instance ToJSON ApplicationInfo
+
 data BundleType
     = Tar -- ^ tar
     | Tgz -- ^ tgz
@@ -351,6 +359,10 @@ instance ToText BundleType where
         Tar -> "tar"
         Tgz -> "tgz"
         Zip -> "zip"
+
+instance FromJSON BundleType
+
+instance ToJSON BundleType
 
 data TimeRange = TimeRange
     { _trEnd   :: Maybe RFC822
@@ -383,6 +395,10 @@ trStart :: Lens' TimeRange (Maybe UTCTime)
 trStart = lens _trStart (\s a -> s { _trStart = a })
     . mapping _Time
 
+instance FromJSON TimeRange
+
+instance ToJSON TimeRange
+
 data DeploymentCreator
     = Autoscaling -- ^ autoscaling
     | User        -- ^ user
@@ -398,6 +414,10 @@ instance ToText DeploymentCreator where
     toText = \case
         Autoscaling -> "autoscaling"
         User        -> "user"
+
+instance FromJSON DeploymentCreator
+
+instance ToJSON DeploymentCreator
 
 data InstanceSummary = InstanceSummary
     { _isDeploymentId    :: Maybe Text
@@ -457,6 +477,10 @@ isLifecycleEvents =
 isStatus :: Lens' InstanceSummary (Maybe Text)
 isStatus = lens _isStatus (\s a -> s { _isStatus = a })
 
+instance FromJSON InstanceSummary
+
+instance ToJSON InstanceSummary
+
 data AutoScalingGroup = AutoScalingGroup
     { _asgHook :: Maybe Text
     , _asgName :: Maybe Text
@@ -483,6 +507,10 @@ asgHook = lens _asgHook (\s a -> s { _asgHook = a })
 -- | The Auto Scaling group name.
 asgName :: Lens' AutoScalingGroup (Maybe Text)
 asgName = lens _asgName (\s a -> s { _asgName = a })
+
+instance FromJSON AutoScalingGroup
+
+instance ToJSON AutoScalingGroup
 
 data DeploymentGroupInfo = DeploymentGroupInfo
     { _dgiApplicationName      :: Maybe Text
@@ -567,6 +595,10 @@ dgiTargetRevision :: Lens' DeploymentGroupInfo (Maybe RevisionLocation)
 dgiTargetRevision =
     lens _dgiTargetRevision (\s a -> s { _dgiTargetRevision = a })
 
+instance FromJSON DeploymentGroupInfo
+
+instance ToJSON DeploymentGroupInfo
+
 data ApplicationRevisionSortBy
     = FirstUsedTime -- ^ firstUsedTime
     | LastUsedTime  -- ^ lastUsedTime
@@ -585,6 +617,10 @@ instance ToText ApplicationRevisionSortBy where
         FirstUsedTime -> "firstUsedTime"
         LastUsedTime  -> "lastUsedTime"
         RegisterTime  -> "registerTime"
+
+instance FromJSON ApplicationRevisionSortBy
+
+instance ToJSON ApplicationRevisionSortBy
 
 data MinimumHealthyHosts = MinimumHealthyHosts
     { _mhhType  :: Maybe Text
@@ -626,6 +662,10 @@ mhhType = lens _mhhType (\s a -> s { _mhhType = a })
 mhhValue :: Lens' MinimumHealthyHosts (Maybe Int)
 mhhValue = lens _mhhValue (\s a -> s { _mhhValue = a })
 
+instance FromJSON MinimumHealthyHosts
+
+instance ToJSON MinimumHealthyHosts
+
 data ListStateFilterAction
     = Exclude -- ^ exclude
     | Ignore  -- ^ ignore
@@ -644,6 +684,10 @@ instance ToText ListStateFilterAction where
         Exclude -> "exclude"
         Ignore  -> "ignore"
         Include -> "include"
+
+instance FromJSON ListStateFilterAction
+
+instance ToJSON ListStateFilterAction
 
 data LifecycleErrorCode
     = ScriptFailed        -- ^ ScriptFailed
@@ -672,6 +716,10 @@ instance ToText LifecycleErrorCode where
         ScriptTimedOut      -> "ScriptTimedOut"
         Success             -> "Success"
         UnknownError        -> "UnknownError"
+
+instance FromJSON LifecycleErrorCode
+
+instance ToJSON LifecycleErrorCode
 
 data RevisionLocation = RevisionLocation
     { _rlGitHubLocation :: Maybe GitHubLocation
@@ -707,6 +755,10 @@ rlRevisionType = lens _rlRevisionType (\s a -> s { _rlRevisionType = a })
 rlS3Location :: Lens' RevisionLocation (Maybe S3Location)
 rlS3Location = lens _rlS3Location (\s a -> s { _rlS3Location = a })
 
+instance FromJSON RevisionLocation
+
+instance ToJSON RevisionLocation
+
 data LifecycleEventStatus
     = Failed     -- ^ Failed
     | InProgress -- ^ InProgress
@@ -734,6 +786,10 @@ instance ToText LifecycleEventStatus where
         Skipped    -> "Skipped"
         Succeeded  -> "Succeeded"
         Unknown    -> "Unknown"
+
+instance FromJSON LifecycleEventStatus
+
+instance ToJSON LifecycleEventStatus
 
 data EC2TagFilter = EC2TagFilter
     { _ectfKey   :: Maybe Text
@@ -770,6 +826,10 @@ ectfType = lens _ectfType (\s a -> s { _ectfType = a })
 -- | The Amazon EC2 tag filter value.
 ectfValue :: Lens' EC2TagFilter (Maybe Text)
 ectfValue = lens _ectfValue (\s a -> s { _ectfValue = a })
+
+instance FromJSON EC2TagFilter
+
+instance ToJSON EC2TagFilter
 
 data Diagnostics = Diagnostics
     { _dErrorCode  :: Maybe Text
@@ -820,6 +880,10 @@ dMessage = lens _dMessage (\s a -> s { _dMessage = a })
 dScriptName :: Lens' Diagnostics (Maybe Text)
 dScriptName = lens _dScriptName (\s a -> s { _dScriptName = a })
 
+instance FromJSON Diagnostics
+
+instance ToJSON Diagnostics
+
 data StopStatus
     = SSPending   -- ^ Pending
     | SSSucceeded -- ^ Succeeded
@@ -835,6 +899,10 @@ instance ToText StopStatus where
     toText = \case
         SSPending   -> "Pending"
         SSSucceeded -> "Succeeded"
+
+instance FromJSON StopStatus
+
+instance ToJSON StopStatus
 
 data ErrorInformation = ErrorInformation
     { _eiCode    :: Maybe Text
@@ -880,6 +948,10 @@ eiCode = lens _eiCode (\s a -> s { _eiCode = a })
 eiMessage :: Lens' ErrorInformation (Maybe Text)
 eiMessage = lens _eiMessage (\s a -> s { _eiMessage = a })
 
+instance FromJSON ErrorInformation
+
+instance ToJSON ErrorInformation
+
 data SortOrder
     = Ascending  -- ^ ascending
     | Descending -- ^ descending
@@ -895,6 +967,10 @@ instance ToText SortOrder where
     toText = \case
         Ascending  -> "ascending"
         Descending -> "descending"
+
+instance FromJSON SortOrder
+
+instance ToJSON SortOrder
 
 data DeploymentInfo = DeploymentInfo
     { _diApplicationName               :: Maybe Text
@@ -1042,6 +1118,10 @@ diStartTime = lens _diStartTime (\s a -> s { _diStartTime = a })
 diStatus :: Lens' DeploymentInfo (Maybe Text)
 diStatus = lens _diStatus (\s a -> s { _diStatus = a })
 
+instance FromJSON DeploymentInfo
+
+instance ToJSON DeploymentInfo
+
 data LifecycleEvent = LifecycleEvent
     { _leDiagnostics        :: Maybe Diagnostics
     , _leEndTime            :: Maybe RFC822
@@ -1102,6 +1182,10 @@ leStartTime = lens _leStartTime (\s a -> s { _leStartTime = a })
 leStatus :: Lens' LifecycleEvent (Maybe Text)
 leStatus = lens _leStatus (\s a -> s { _leStatus = a })
 
+instance FromJSON LifecycleEvent
+
+instance ToJSON LifecycleEvent
+
 data DeploymentOverview = DeploymentOverview
     { _doFailed     :: Maybe Integer
     , _doInProgress :: Maybe Integer
@@ -1153,6 +1237,10 @@ doSkipped = lens _doSkipped (\s a -> s { _doSkipped = a })
 doSucceeded :: Lens' DeploymentOverview (Maybe Integer)
 doSucceeded = lens _doSucceeded (\s a -> s { _doSucceeded = a })
 
+instance FromJSON DeploymentOverview
+
+instance ToJSON DeploymentOverview
+
 data ErrorCode
     = ApplicationMissing       -- ^ APPLICATION_MISSING
     | DeploymentGroupMissing   -- ^ DEPLOYMENT_GROUP_MISSING
@@ -1195,6 +1283,10 @@ instance ToText ErrorCode where
         OverMaxInstances         -> "OVER_MAX_INSTANCES"
         RevisionMissing          -> "REVISION_MISSING"
         Timeout                  -> "TIMEOUT"
+
+instance FromJSON ErrorCode
+
+instance ToJSON ErrorCode
 
 data DeploymentConfigInfo = DeploymentConfigInfo
     { _dciCreateTime           :: Maybe RFC822
@@ -1243,6 +1335,10 @@ dciMinimumHealthyHosts :: Lens' DeploymentConfigInfo (Maybe MinimumHealthyHosts)
 dciMinimumHealthyHosts =
     lens _dciMinimumHealthyHosts (\s a -> s { _dciMinimumHealthyHosts = a })
 
+instance FromJSON DeploymentConfigInfo
+
+instance ToJSON DeploymentConfigInfo
+
 data InstanceStatus
     = ISFailed     -- ^ Failed
     | ISInProgress -- ^ InProgress
@@ -1271,6 +1367,10 @@ instance ToText InstanceStatus where
         ISSucceeded  -> "Succeeded"
         ISUnknown    -> "Unknown"
 
+instance FromJSON InstanceStatus
+
+instance ToJSON InstanceStatus
+
 data DeploymentStatus
     = DSCreated    -- ^ Created
     | DSFailed     -- ^ Failed
@@ -1298,6 +1398,10 @@ instance ToText DeploymentStatus where
         DSQueued     -> "Queued"
         DSStopped    -> "Stopped"
         DSSucceeded  -> "Succeeded"
+
+instance FromJSON DeploymentStatus
+
+instance ToJSON DeploymentStatus
 
 data S3Location = S3Location
     { _slBucket     :: Maybe Text
@@ -1358,6 +1462,10 @@ slKey = lens _slKey (\s a -> s { _slKey = a })
 slVersion :: Lens' S3Location (Maybe Text)
 slVersion = lens _slVersion (\s a -> s { _slVersion = a })
 
+instance FromJSON S3Location
+
+instance ToJSON S3Location
+
 data MinimumHealthyHostsType
     = FleetPercent -- ^ FLEET_PERCENT
     | HostCount    -- ^ HOST_COUNT
@@ -1373,6 +1481,10 @@ instance ToText MinimumHealthyHostsType where
     toText = \case
         FleetPercent -> "FLEET_PERCENT"
         HostCount    -> "HOST_COUNT"
+
+instance FromJSON MinimumHealthyHostsType
+
+instance ToJSON MinimumHealthyHostsType
 
 data GitHubLocation = GitHubLocation
     { _ghlCommitId   :: Maybe Text
@@ -1404,6 +1516,10 @@ ghlCommitId = lens _ghlCommitId (\s a -> s { _ghlCommitId = a })
 ghlRepository :: Lens' GitHubLocation (Maybe Text)
 ghlRepository = lens _ghlRepository (\s a -> s { _ghlRepository = a })
 
+instance FromJSON GitHubLocation
+
+instance ToJSON GitHubLocation
+
 data RevisionLocationType
     = GitHub -- ^ GitHub
     | S3     -- ^ S3
@@ -1419,6 +1535,10 @@ instance ToText RevisionLocationType where
     toText = \case
         GitHub -> "GitHub"
         S3     -> "S3"
+
+instance FromJSON RevisionLocationType
+
+instance ToJSON RevisionLocationType
 
 data EC2TagFilterType
     = KeyAndValue -- ^ KEY_AND_VALUE
@@ -1438,3 +1558,7 @@ instance ToText EC2TagFilterType where
         KeyAndValue -> "KEY_AND_VALUE"
         KeyOnly     -> "KEY_ONLY"
         ValueOnly   -> "VALUE_ONLY"
+
+instance FromJSON EC2TagFilterType
+
+instance ToJSON EC2TagFilterType

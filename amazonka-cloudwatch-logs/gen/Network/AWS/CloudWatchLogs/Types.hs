@@ -146,6 +146,10 @@ mfMetricTransformations =
     lens _mfMetricTransformations (\s a -> s { _mfMetricTransformations = a })
         . _List1
 
+instance FromJSON MetricFilter
+
+instance ToJSON MetricFilter
+
 data MetricFilterMatchRecord = MetricFilterMatchRecord
     { _mfmrEventMessage    :: Maybe Text
     , _mfmrEventNumber     :: Maybe Integer
@@ -179,6 +183,10 @@ mfmrExtractedValues :: Lens' MetricFilterMatchRecord (HashMap Text Text)
 mfmrExtractedValues =
     lens _mfmrExtractedValues (\s a -> s { _mfmrExtractedValues = a })
         . _Map
+
+instance FromJSON MetricFilterMatchRecord
+
+instance ToJSON MetricFilterMatchRecord
 
 data MetricTransformation = MetricTransformation
     { _mtMetricName      :: Text
@@ -215,6 +223,10 @@ mtMetricNamespace =
 
 mtMetricValue :: Lens' MetricTransformation Text
 mtMetricValue = lens _mtMetricValue (\s a -> s { _mtMetricValue = a })
+
+instance FromJSON MetricTransformation
+
+instance ToJSON MetricTransformation
 
 data LogStream = LogStream
     { _lsArn                 :: Maybe Text
@@ -287,6 +299,10 @@ lsUploadSequenceToken :: Lens' LogStream (Maybe Text)
 lsUploadSequenceToken =
     lens _lsUploadSequenceToken (\s a -> s { _lsUploadSequenceToken = a })
 
+instance FromJSON LogStream
+
+instance ToJSON LogStream
+
 data LogGroup = LogGroup
     { _lgArn               :: Maybe Text
     , _lgCreationTime      :: Maybe Natural
@@ -342,6 +358,10 @@ lgRetentionInDays =
 lgStoredBytes :: Lens' LogGroup (Maybe Natural)
 lgStoredBytes = lens _lgStoredBytes (\s a -> s { _lgStoredBytes = a })
 
+instance FromJSON LogGroup
+
+instance ToJSON LogGroup
+
 data InputLogEvent = InputLogEvent
     { _ileMessage   :: Text
     , _ileTimestamp :: Natural
@@ -368,6 +388,10 @@ ileMessage = lens _ileMessage (\s a -> s { _ileMessage = a })
 
 ileTimestamp :: Lens' InputLogEvent Natural
 ileTimestamp = lens _ileTimestamp (\s a -> s { _ileTimestamp = a })
+
+instance FromJSON InputLogEvent
+
+instance ToJSON InputLogEvent
 
 data OutputLogEvent = OutputLogEvent
     { _oleIngestionTime :: Maybe Natural
@@ -400,3 +424,7 @@ oleMessage = lens _oleMessage (\s a -> s { _oleMessage = a })
 
 oleTimestamp :: Lens' OutputLogEvent (Maybe Natural)
 oleTimestamp = lens _oleTimestamp (\s a -> s { _oleTimestamp = a })
+
+instance FromJSON OutputLogEvent
+
+instance ToJSON OutputLogEvent

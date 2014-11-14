@@ -155,6 +155,10 @@ ipuSyncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
 ipuSyncSessionsCount =
     lens _ipuSyncSessionsCount (\s a -> s { _ipuSyncSessionsCount = a })
 
+instance FromJSON IdentityPoolUsage
+
+instance ToJSON IdentityPoolUsage
+
 data Platform
     = Adm         -- ^ ADM
     | Apns        -- ^ APNS
@@ -176,6 +180,10 @@ instance ToText Platform where
         Apns        -> "APNS"
         ApnsSandbox -> "APNS_SANDBOX"
         Gcm         -> "GCM"
+
+instance FromJSON Platform
+
+instance ToJSON Platform
 
 data Dataset = Dataset
     { _dCreationDate     :: Maybe RFC822
@@ -250,6 +258,10 @@ dLastModifiedDate =
 dNumRecords :: Lens' Dataset (Maybe Integer)
 dNumRecords = lens _dNumRecords (\s a -> s { _dNumRecords = a })
 
+instance FromJSON Dataset
+
+instance ToJSON Dataset
+
 data Operation
     = Remove  -- ^ remove
     | Replace -- ^ replace
@@ -265,6 +277,10 @@ instance ToText Operation where
     toText = \case
         Remove  -> "remove"
         Replace -> "replace"
+
+instance FromJSON Operation
+
+instance ToJSON Operation
 
 data Record = Record
     { _rDeviceLastModifiedDate :: Maybe RFC822
@@ -329,6 +345,10 @@ rSyncCount = lens _rSyncCount (\s a -> s { _rSyncCount = a })
 rValue :: Lens' Record (Maybe Text)
 rValue = lens _rValue (\s a -> s { _rValue = a })
 
+instance FromJSON Record
+
+instance ToJSON Record
+
 data IdentityUsage = IdentityUsage
     { _iuDataStorage      :: Maybe Integer
     , _iuDatasetCount     :: Maybe Int
@@ -385,6 +405,10 @@ iuLastModifiedDate :: Lens' IdentityUsage (Maybe UTCTime)
 iuLastModifiedDate =
     lens _iuLastModifiedDate (\s a -> s { _iuLastModifiedDate = a })
         . mapping _Time
+
+instance FromJSON IdentityUsage
+
+instance ToJSON IdentityUsage
 
 data RecordPatch = RecordPatch
     { _rpDeviceLastModifiedDate :: Maybe RFC822
@@ -443,6 +467,10 @@ rpSyncCount = lens _rpSyncCount (\s a -> s { _rpSyncCount = a })
 rpValue :: Lens' RecordPatch (Maybe Text)
 rpValue = lens _rpValue (\s a -> s { _rpValue = a })
 
+instance FromJSON RecordPatch
+
+instance ToJSON RecordPatch
+
 data PushSync = PushSync
     { _psApplicationArns :: [Text]
     , _psRoleArn         :: Maybe Text
@@ -471,3 +499,7 @@ psApplicationArns =
 -- developer.
 psRoleArn :: Lens' PushSync (Maybe Text)
 psRoleArn = lens _psRoleArn (\s a -> s { _psRoleArn = a })
+
+instance FromJSON PushSync
+
+instance ToJSON PushSync

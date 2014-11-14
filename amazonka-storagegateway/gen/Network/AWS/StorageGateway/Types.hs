@@ -232,6 +232,10 @@ ciSecretToAuthenticateTarget =
 ciTargetARN :: Lens' ChapInfo (Maybe Text)
 ciTargetARN = lens _ciTargetARN (\s a -> s { _ciTargetARN = a })
 
+instance FromJSON ChapInfo
+
+instance ToJSON ChapInfo
+
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes
     { _vscsiaChapEnabled          :: Maybe Bool
     , _vscsiaLunNumber            :: Maybe Natural
@@ -288,6 +292,10 @@ vscsiaNetworkInterfacePort =
 vscsiaTargetARN :: Lens' VolumeiSCSIAttributes (Maybe Text)
 vscsiaTargetARN = lens _vscsiaTargetARN (\s a -> s { _vscsiaTargetARN = a })
 
+instance FromJSON VolumeiSCSIAttributes
+
+instance ToJSON VolumeiSCSIAttributes
+
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes
     { _dscsiaChapEnabled          :: Maybe Bool
     , _dscsiaNetworkInterfaceId   :: Maybe Text
@@ -337,6 +345,10 @@ dscsiaNetworkInterfacePort =
 dscsiaTargetARN :: Lens' DeviceiSCSIAttributes (Maybe Text)
 dscsiaTargetARN = lens _dscsiaTargetARN (\s a -> s { _dscsiaTargetARN = a })
 
+instance FromJSON DeviceiSCSIAttributes
+
+instance ToJSON DeviceiSCSIAttributes
+
 data Error' = Error'
     { _eErrorCode    :: Maybe Text
     , _eErrorDetails :: Map Text Text
@@ -364,6 +376,10 @@ eErrorCode = lens _eErrorCode (\s a -> s { _eErrorCode = a })
 eErrorDetails :: Lens' Error' (HashMap Text Text)
 eErrorDetails = lens _eErrorDetails (\s a -> s { _eErrorDetails = a })
     . _Map
+
+instance FromJSON Error'
+
+instance ToJSON Error'
 
 data Disk = Disk
     { _dDiskAllocationResource :: Maybe Text
@@ -419,6 +435,10 @@ dDiskPath = lens _dDiskPath (\s a -> s { _dDiskPath = a })
 
 dDiskSizeInBytes :: Lens' Disk (Maybe Integer)
 dDiskSizeInBytes = lens _dDiskSizeInBytes (\s a -> s { _dDiskSizeInBytes = a })
+
+instance FromJSON Disk
+
+instance ToJSON Disk
 
 data Tape = Tape
     { _tProgress        :: Maybe Double
@@ -482,6 +502,10 @@ tTapeStatus = lens _tTapeStatus (\s a -> s { _tTapeStatus = a })
 tVTLDevice :: Lens' Tape (Maybe Text)
 tVTLDevice = lens _tVTLDevice (\s a -> s { _tVTLDevice = a })
 
+instance FromJSON Tape
+
+instance ToJSON Tape
+
 data NetworkInterface = NetworkInterface
     { _niIpv4Address :: Maybe Text
     , _niIpv6Address :: Maybe Text
@@ -517,6 +541,10 @@ niIpv6Address = lens _niIpv6Address (\s a -> s { _niIpv6Address = a })
 -- | The Media Access Control (MAC) address of the interface.
 niMacAddress :: Lens' NetworkInterface (Maybe Text)
 niMacAddress = lens _niMacAddress (\s a -> s { _niMacAddress = a })
+
+instance FromJSON NetworkInterface
+
+instance ToJSON NetworkInterface
 
 data VTLDevice = VTLDevice
     { _vtldDeviceiSCSIAttributes      :: Maybe DeviceiSCSIAttributes
@@ -573,6 +601,10 @@ vtldVTLDeviceVendor :: Lens' VTLDevice (Maybe Text)
 vtldVTLDeviceVendor =
     lens _vtldVTLDeviceVendor (\s a -> s { _vtldVTLDeviceVendor = a })
 
+instance FromJSON VTLDevice
+
+instance ToJSON VTLDevice
+
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo
     { _trpiTapeARN               :: Maybe Text
     , _trpiTapeRecoveryPointTime :: Maybe RFC822
@@ -621,6 +653,10 @@ trpiTapeSizeInBytes =
 trpiTapeStatus :: Lens' TapeRecoveryPointInfo (Maybe Text)
 trpiTapeStatus = lens _trpiTapeStatus (\s a -> s { _trpiTapeStatus = a })
 
+instance FromJSON TapeRecoveryPointInfo
+
+instance ToJSON TapeRecoveryPointInfo
+
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
     { _vrpiVolumeARN               :: Maybe Text
     , _vrpiVolumeRecoveryPointTime :: Maybe Text
@@ -663,6 +699,10 @@ vrpiVolumeSizeInBytes =
 vrpiVolumeUsageInBytes :: Lens' VolumeRecoveryPointInfo (Maybe Integer)
 vrpiVolumeUsageInBytes =
     lens _vrpiVolumeUsageInBytes (\s a -> s { _vrpiVolumeUsageInBytes = a })
+
+instance FromJSON VolumeRecoveryPointInfo
+
+instance ToJSON VolumeRecoveryPointInfo
 
 data TapeArchive = TapeArchive
     { _taCompletionTime  :: Maybe RFC822
@@ -728,6 +768,10 @@ taTapeSizeInBytes =
 -- | The current state of the archived virtual tape.
 taTapeStatus :: Lens' TapeArchive (Maybe Text)
 taTapeStatus = lens _taTapeStatus (\s a -> s { _taTapeStatus = a })
+
+instance FromJSON TapeArchive
+
+instance ToJSON TapeArchive
 
 data ErrorCode
     = ActivationKeyExpired              -- ^ ActivationKeyExpired
@@ -922,6 +966,10 @@ instance ToText ErrorCode where
         VolumeNotFound                    -> "VolumeNotFound"
         VolumeNotReady                    -> "VolumeNotReady"
 
+instance FromJSON ErrorCode
+
+instance ToJSON ErrorCode
+
 data StorediSCSIVolume = StorediSCSIVolume
     { _sscsivPreservedExistingData :: Maybe Bool
     , _sscsivSourceSnapshotId      :: Maybe Text
@@ -1012,6 +1060,10 @@ sscsivVolumeiSCSIAttributes =
     lens _sscsivVolumeiSCSIAttributes
         (\s a -> s { _sscsivVolumeiSCSIAttributes = a })
 
+instance FromJSON StorediSCSIVolume
+
+instance ToJSON StorediSCSIVolume
+
 data CachediSCSIVolume = CachediSCSIVolume
     { _cscsivSourceSnapshotId      :: Maybe Text
     , _cscsivVolumeARN             :: Maybe Text
@@ -1085,6 +1137,10 @@ cscsivVolumeiSCSIAttributes =
     lens _cscsivVolumeiSCSIAttributes
         (\s a -> s { _cscsivVolumeiSCSIAttributes = a })
 
+instance FromJSON CachediSCSIVolume
+
+instance ToJSON CachediSCSIVolume
+
 data VolumeInfo = VolumeInfo
     { _viVolumeARN  :: Maybe Text
     , _viVolumeType :: Maybe Text
@@ -1109,6 +1165,10 @@ viVolumeARN = lens _viVolumeARN (\s a -> s { _viVolumeARN = a })
 
 viVolumeType :: Lens' VolumeInfo (Maybe Text)
 viVolumeType = lens _viVolumeType (\s a -> s { _viVolumeType = a })
+
+instance FromJSON VolumeInfo
+
+instance ToJSON VolumeInfo
 
 data GatewayInfo = GatewayInfo
     { _giGatewayARN              :: Maybe Text
@@ -1143,3 +1203,7 @@ giGatewayOperationalState =
 
 giGatewayType :: Lens' GatewayInfo (Maybe Text)
 giGatewayType = lens _giGatewayType (\s a -> s { _giGatewayType = a })
+
+instance FromJSON GatewayInfo
+
+instance ToJSON GatewayInfo

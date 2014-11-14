@@ -161,6 +161,10 @@ poId = lens _poId (\s a -> s { _poId = a })
 poName :: Lens' PipelineObject Text
 poName = lens _poName (\s a -> s { _poName = a })
 
+instance FromJSON PipelineObject
+
+instance ToJSON PipelineObject
+
 data Field = Field
     { _fKey         :: Text
     , _fRefValue    :: Maybe Text
@@ -197,6 +201,10 @@ fRefValue = lens _fRefValue (\s a -> s { _fRefValue = a })
 fStringValue :: Lens' Field (Maybe Text)
 fStringValue = lens _fStringValue (\s a -> s { _fStringValue = a })
 
+instance FromJSON Field
+
+instance ToJSON Field
+
 data Selector = Selector
     { _sFieldName :: Maybe Text
     , _sOperator  :: Maybe Operator
@@ -225,6 +233,10 @@ sFieldName = lens _sFieldName (\s a -> s { _sFieldName = a })
 
 sOperator :: Lens' Selector (Maybe Operator)
 sOperator = lens _sOperator (\s a -> s { _sOperator = a })
+
+instance FromJSON Selector
+
+instance ToJSON Selector
 
 data Operator = Operator
     { _oType   :: Maybe Text
@@ -266,6 +278,10 @@ oType = lens _oType (\s a -> s { _oType = a })
 -- | The value that the actual field value will be compared with.
 oValues :: Lens' Operator [Text]
 oValues = lens _oValues (\s a -> s { _oValues = a })
+
+instance FromJSON Operator
+
+instance ToJSON Operator
 
 data TaskObject = TaskObject
     { _toAttemptId  :: Maybe Text
@@ -314,6 +330,10 @@ toPipelineId = lens _toPipelineId (\s a -> s { _toPipelineId = a })
 toTaskId :: Lens' TaskObject (Maybe Text)
 toTaskId = lens _toTaskId (\s a -> s { _toTaskId = a })
 
+instance FromJSON TaskObject
+
+instance ToJSON TaskObject
+
 data ValidationError = ValidationError
     { _veErrors :: [Text]
     , _veId     :: Maybe Text
@@ -340,6 +360,10 @@ veErrors = lens _veErrors (\s a -> s { _veErrors = a })
 -- | The identifier of the object that contains the validation error.
 veId :: Lens' ValidationError (Maybe Text)
 veId = lens _veId (\s a -> s { _veId = a })
+
+instance FromJSON ValidationError
+
+instance ToJSON ValidationError
 
 data PipelineDescription = PipelineDescription
     { _pdDescription :: Maybe Text
@@ -388,6 +412,10 @@ pdName = lens _pdName (\s a -> s { _pdName = a })
 pdPipelineId :: Lens' PipelineDescription Text
 pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
 
+instance FromJSON PipelineDescription
+
+instance ToJSON PipelineDescription
+
 data InstanceIdentity = InstanceIdentity
     { _iiDocument  :: Maybe Text
     , _iiSignature :: Maybe Text
@@ -418,6 +446,10 @@ iiDocument = lens _iiDocument (\s a -> s { _iiDocument = a })
 iiSignature :: Lens' InstanceIdentity (Maybe Text)
 iiSignature = lens _iiSignature (\s a -> s { _iiSignature = a })
 
+instance FromJSON InstanceIdentity
+
+instance ToJSON InstanceIdentity
+
 newtype Query = Query
     { _qSelectors :: [Selector]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -444,6 +476,10 @@ query = Query
 qSelectors :: Lens' Query [Selector]
 qSelectors = lens _qSelectors (\s a -> s { _qSelectors = a })
 
+instance FromJSON Query
+
+instance ToJSON Query
+
 data OperatorType
     = Between -- ^ BETWEEN
     | Eq      -- ^ EQ
@@ -468,6 +504,10 @@ instance ToText OperatorType where
         Ge      -> "GE"
         Le      -> "LE"
         RefEq   -> "REF_EQ"
+
+instance FromJSON OperatorType
+
+instance ToJSON OperatorType
 
 data PipelineIdName = PipelineIdName
     { _pinId   :: Maybe Text
@@ -497,6 +537,10 @@ pinId = lens _pinId (\s a -> s { _pinId = a })
 pinName :: Lens' PipelineIdName (Maybe Text)
 pinName = lens _pinName (\s a -> s { _pinName = a })
 
+instance FromJSON PipelineIdName
+
+instance ToJSON PipelineIdName
+
 data TaskStatus
     = Failed   -- ^ FAILED
     | False    -- ^ FALSE
@@ -515,6 +559,10 @@ instance ToText TaskStatus where
         Failed   -> "FAILED"
         False    -> "FALSE"
         Finished -> "FINISHED"
+
+instance FromJSON TaskStatus
+
+instance ToJSON TaskStatus
 
 data ValidationWarning = ValidationWarning
     { _vwId       :: Maybe Text
@@ -542,3 +590,7 @@ vwId = lens _vwId (\s a -> s { _vwId = a })
 -- | A description of the validation warning.
 vwWarnings :: Lens' ValidationWarning [Text]
 vwWarnings = lens _vwWarnings (\s a -> s { _vwWarnings = a })
+
+instance FromJSON ValidationWarning
+
+instance ToJSON ValidationWarning

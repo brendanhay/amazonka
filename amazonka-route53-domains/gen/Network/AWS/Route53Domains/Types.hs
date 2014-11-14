@@ -159,6 +159,10 @@ dsExpiry = lens _dsExpiry (\s a -> s { _dsExpiry = a })
 dsTransferLock :: Lens' DomainSummary (Maybe Bool)
 dsTransferLock = lens _dsTransferLock (\s a -> s { _dsTransferLock = a })
 
+instance FromJSON DomainSummary
+
+instance ToJSON DomainSummary
+
 data ExtraParamName
     = AuIdNumber          -- ^ AU_ID_NUMBER
     | AuIdType            -- ^ AU_ID_TYPE
@@ -220,6 +224,10 @@ instance ToText ExtraParamName where
         SgIdNumber          -> "SG_ID_NUMBER"
         VatNumber           -> "VAT_NUMBER"
 
+instance FromJSON ExtraParamName
+
+instance ToJSON ExtraParamName
+
 data Nameserver = Nameserver
     { _nGlueIps :: [Text]
     , _nName    :: Text
@@ -254,6 +262,10 @@ nGlueIps = lens _nGlueIps (\s a -> s { _nGlueIps = a })
 nName :: Lens' Nameserver Text
 nName = lens _nName (\s a -> s { _nName = a })
 
+instance FromJSON Nameserver
+
+instance ToJSON Nameserver
+
 data OperationStatus
     = Error      -- ^ ERROR
     | Failed     -- ^ FAILED
@@ -278,6 +290,10 @@ instance ToText OperationStatus where
         InProgress -> "IN_PROGRESS"
         Submitted  -> "SUBMITTED"
         Successful -> "SUCCESSFUL"
+
+instance FromJSON OperationStatus
+
+instance ToJSON OperationStatus
 
 data DomainAvailability
     = Available             -- ^ AVAILABLE
@@ -310,6 +326,10 @@ instance ToText DomainAvailability where
         UnavailablePremium    -> "UNAVAILABLE_PREMIUM"
         UnavailableRestricted -> "UNAVAILABLE_RESTRICTED"
 
+instance FromJSON DomainAvailability
+
+instance ToJSON DomainAvailability
+
 data OperationType
     = OTChangePrivacyProtection -- ^ CHANGE_PRIVACY_PROTECTION
     | OTDeleteDomain            -- ^ DELETE_DOMAIN
@@ -340,6 +360,10 @@ instance ToText OperationType where
         OTTransferInDomain        -> "TRANSFER_IN_DOMAIN"
         OTUpdateDomainContact     -> "UPDATE_DOMAIN_CONTACT"
         OTUpdateNameserver        -> "UPDATE_NAMESERVER"
+
+instance FromJSON OperationType
+
+instance ToJSON OperationType
 
 data CountryCode
     = Ad -- ^ AD
@@ -1038,6 +1062,10 @@ instance ToText CountryCode where
         Zm -> "ZM"
         Zw -> "ZW"
 
+instance FromJSON CountryCode
+
+instance ToJSON CountryCode
+
 data ExtraParam = ExtraParam
     { _epName  :: Text
     , _epValue :: Text
@@ -1075,6 +1103,10 @@ epName = lens _epName (\s a -> s { _epName = a })
 epValue :: Lens' ExtraParam Text
 epValue = lens _epValue (\s a -> s { _epValue = a })
 
+instance FromJSON ExtraParam
+
+instance ToJSON ExtraParam
+
 data ContactType
     = CTAssociation -- ^ ASSOCIATION
     | CTCompany     -- ^ COMPANY
@@ -1099,6 +1131,10 @@ instance ToText ContactType where
         CTPerson      -> "PERSON"
         CTPublicBody  -> "PUBLIC_BODY"
         CTReseller    -> "RESELLER"
+
+instance FromJSON ContactType
+
+instance ToJSON ContactType
 
 data ContactDetail = ContactDetail
     { _cdAddressLine1     :: Maybe Text
@@ -1260,6 +1296,10 @@ cdState = lens _cdState (\s a -> s { _cdState = a })
 cdZipCode :: Lens' ContactDetail (Maybe Text)
 cdZipCode = lens _cdZipCode (\s a -> s { _cdZipCode = a })
 
+instance FromJSON ContactDetail
+
+instance ToJSON ContactDetail
+
 data OperationSummary = OperationSummary
     { _osOperationId   :: Text
     , _osStatus        :: Text
@@ -1310,3 +1350,7 @@ osSubmittedDate = lens _osSubmittedDate (\s a -> s { _osSubmittedDate = a })
 -- UPDATE_NAMESERVER | CHANGE_PRIVACY_PROTECTION | DOMAIN_LOCK.
 osType :: Lens' OperationSummary Text
 osType = lens _osType (\s a -> s { _osType = a })
+
+instance FromJSON OperationSummary
+
+instance ToJSON OperationSummary

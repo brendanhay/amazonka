@@ -153,6 +153,10 @@ sSequenceNumberRange =
 sShardId :: Lens' Shard Text
 sShardId = lens _sShardId (\s a -> s { _sShardId = a })
 
+instance FromJSON Shard
+
+instance ToJSON Shard
+
 data Tag = Tag
     { _tagKey   :: Text
     , _tagValue :: Maybe Text
@@ -183,6 +187,10 @@ tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 -- space, _ . / = + - % @.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
+
+instance FromJSON Tag
+
+instance ToJSON Tag
 
 data StreamDescription = StreamDescription
     { _sdHasMoreShards :: Bool
@@ -247,6 +255,10 @@ sdStreamName = lens _sdStreamName (\s a -> s { _sdStreamName = a })
 sdStreamStatus :: Lens' StreamDescription Text
 sdStreamStatus = lens _sdStreamStatus (\s a -> s { _sdStreamStatus = a })
 
+instance FromJSON StreamDescription
+
+instance ToJSON StreamDescription
+
 data StreamStatus
     = Active   -- ^ ACTIVE
     | Creating -- ^ CREATING
@@ -268,6 +280,10 @@ instance ToText StreamStatus where
         Creating -> "CREATING"
         Deleting -> "DELETING"
         Updating -> "UPDATING"
+
+instance FromJSON StreamStatus
+
+instance ToJSON StreamStatus
 
 data HashKeyRange = HashKeyRange
     { _hkrEndingHashKey   :: Text
@@ -298,6 +314,10 @@ hkrEndingHashKey = lens _hkrEndingHashKey (\s a -> s { _hkrEndingHashKey = a })
 hkrStartingHashKey :: Lens' HashKeyRange Text
 hkrStartingHashKey =
     lens _hkrStartingHashKey (\s a -> s { _hkrStartingHashKey = a })
+
+instance FromJSON HashKeyRange
+
+instance ToJSON HashKeyRange
 
 data Record = Record
     { _rData           :: Base64
@@ -340,6 +360,10 @@ rPartitionKey = lens _rPartitionKey (\s a -> s { _rPartitionKey = a })
 rSequenceNumber :: Lens' Record Text
 rSequenceNumber = lens _rSequenceNumber (\s a -> s { _rSequenceNumber = a })
 
+instance FromJSON Record
+
+instance ToJSON Record
+
 data SequenceNumberRange = SequenceNumberRange
     { _snrEndingSequenceNumber   :: Maybe Text
     , _snrStartingSequenceNumber :: Text
@@ -372,6 +396,10 @@ snrStartingSequenceNumber =
     lens _snrStartingSequenceNumber
         (\s a -> s { _snrStartingSequenceNumber = a })
 
+instance FromJSON SequenceNumberRange
+
+instance ToJSON SequenceNumberRange
+
 data ShardIteratorType
     = AfterSequenceNumber -- ^ AFTER_SEQUENCE_NUMBER
     | AtSequenceNumber    -- ^ AT_SEQUENCE_NUMBER
@@ -393,3 +421,7 @@ instance ToText ShardIteratorType where
         AtSequenceNumber    -> "AT_SEQUENCE_NUMBER"
         Latest              -> "LATEST"
         TrimHorizon         -> "TRIM_HORIZON"
+
+instance FromJSON ShardIteratorType
+
+instance ToJSON ShardIteratorType

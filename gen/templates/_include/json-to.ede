@@ -1,0 +1,1 @@
+instance ToJSON {{ type.name }}

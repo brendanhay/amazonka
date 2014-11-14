@@ -442,6 +442,10 @@ instance ToText MarketType where
         OnDemand -> "ON_DEMAND"
         Spot     -> "SPOT"
 
+instance FromJSON MarketType
+
+instance ToJSON MarketType
+
 data InstanceGroupConfig = InstanceGroupConfig
     { _igcBidPrice      :: Maybe Text
     , _igcInstanceCount :: Int
@@ -505,6 +509,10 @@ igcMarket = lens _igcMarket (\s a -> s { _igcMarket = a })
 igcName :: Lens' InstanceGroupConfig (Maybe Text)
 igcName = lens _igcName (\s a -> s { _igcName = a })
 
+instance FromJSON InstanceGroupConfig
+
+instance ToJSON InstanceGroupConfig
+
 data InstanceStateChangeReason = InstanceStateChangeReason
     { _iscrCode    :: Maybe Text
     , _iscrMessage :: Maybe Text
@@ -531,6 +539,10 @@ iscrCode = lens _iscrCode (\s a -> s { _iscrCode = a })
 -- | The status change reason description.
 iscrMessage :: Lens' InstanceStateChangeReason (Maybe Text)
 iscrMessage = lens _iscrMessage (\s a -> s { _iscrMessage = a })
+
+instance FromJSON InstanceStateChangeReason
+
+instance ToJSON InstanceStateChangeReason
 
 data JobFlowDetail = JobFlowDetail
     { _jfdAmiVersion            :: Maybe Text
@@ -660,6 +672,10 @@ jfdVisibleToAllUsers :: Lens' JobFlowDetail (Maybe Bool)
 jfdVisibleToAllUsers =
     lens _jfdVisibleToAllUsers (\s a -> s { _jfdVisibleToAllUsers = a })
 
+instance FromJSON JobFlowDetail
+
+instance ToJSON JobFlowDetail
+
 data KeyValue = KeyValue
     { _kvKey   :: Maybe Text
     , _kvValue :: Maybe Text
@@ -687,6 +703,10 @@ kvKey = lens _kvKey (\s a -> s { _kvKey = a })
 kvValue :: Lens' KeyValue (Maybe Text)
 kvValue = lens _kvValue (\s a -> s { _kvValue = a })
 
+instance FromJSON KeyValue
+
+instance ToJSON KeyValue
+
 data SupportedProductConfig = SupportedProductConfig
     { _spcArgs :: [Text]
     , _spcName :: Maybe Text
@@ -713,6 +733,10 @@ spcArgs = lens _spcArgs (\s a -> s { _spcArgs = a })
 -- | The name of the product configuration.
 spcName :: Lens' SupportedProductConfig (Maybe Text)
 spcName = lens _spcName (\s a -> s { _spcName = a })
+
+instance FromJSON SupportedProductConfig
+
+instance ToJSON SupportedProductConfig
 
 data Command = Command
     { _cArgs       :: [Text]
@@ -749,6 +773,10 @@ cName = lens _cName (\s a -> s { _cName = a })
 cScriptPath :: Lens' Command (Maybe Text)
 cScriptPath = lens _cScriptPath (\s a -> s { _cScriptPath = a })
 
+instance FromJSON Command
+
+instance ToJSON Command
+
 data StepExecutionState
     = Cancelled   -- ^ CANCELLED
     | Completed   -- ^ COMPLETED
@@ -780,6 +808,10 @@ instance ToText StepExecutionState where
         Pending     -> "PENDING"
         Running     -> "RUNNING"
 
+instance FromJSON StepExecutionState
+
+instance ToJSON StepExecutionState
+
 data ActionOnFailure
     = AOFCancelAndWait    -- ^ CANCEL_AND_WAIT
     | AOFContinue         -- ^ CONTINUE
@@ -801,6 +833,10 @@ instance ToText ActionOnFailure where
         AOFContinue         -> "CONTINUE"
         AOFTerminateCluster -> "TERMINATE_CLUSTER"
         AOFTerminateJobFlow -> "TERMINATE_JOB_FLOW"
+
+instance FromJSON ActionOnFailure
+
+instance ToJSON ActionOnFailure
 
 data ClusterStateChangeReason = ClusterStateChangeReason
     { _cscrCode    :: Maybe Text
@@ -828,6 +864,10 @@ cscrCode = lens _cscrCode (\s a -> s { _cscrCode = a })
 -- | The descriptive message for the state change reason.
 cscrMessage :: Lens' ClusterStateChangeReason (Maybe Text)
 cscrMessage = lens _cscrMessage (\s a -> s { _cscrMessage = a })
+
+instance FromJSON ClusterStateChangeReason
+
+instance ToJSON ClusterStateChangeReason
 
 data Tag = Tag
     { _tagKey   :: Maybe Text
@@ -857,6 +897,10 @@ tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 -- see Tagging Amazon EMR Resources.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
+
+instance FromJSON Tag
+
+instance ToJSON Tag
 
 data Application = Application
     { _aAdditionalInfo :: Map Text Text
@@ -903,6 +947,10 @@ aName = lens _aName (\s a -> s { _aName = a })
 -- | The version of the application.
 aVersion :: Lens' Application (Maybe Text)
 aVersion = lens _aVersion (\s a -> s { _aVersion = a })
+
+instance FromJSON Application
+
+instance ToJSON Application
 
 data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
     { _jfesdCreationDateTime      :: RFC822
@@ -975,6 +1023,10 @@ jfesdStartDateTime =
 jfesdState :: Lens' JobFlowExecutionStatusDetail Text
 jfesdState = lens _jfesdState (\s a -> s { _jfesdState = a })
 
+instance FromJSON JobFlowExecutionStatusDetail
+
+instance ToJSON JobFlowExecutionStatusDetail
+
 data InstanceGroupStatus = InstanceGroupStatus
     { _igsState             :: Maybe Text
     , _igsStateChangeReason :: Maybe InstanceGroupStateChangeReason
@@ -1010,6 +1062,10 @@ igsStateChangeReason =
 -- | The timeline of the instance group status over time.
 igsTimeline :: Lens' InstanceGroupStatus (Maybe InstanceGroupTimeline)
 igsTimeline = lens _igsTimeline (\s a -> s { _igsTimeline = a })
+
+instance FromJSON InstanceGroupStatus
+
+instance ToJSON InstanceGroupStatus
 
 data Cluster = Cluster
     { _c1Applications          :: [Application]
@@ -1142,6 +1198,10 @@ c1VisibleToAllUsers :: Lens' Cluster (Maybe Bool)
 c1VisibleToAllUsers =
     lens _c1VisibleToAllUsers (\s a -> s { _c1VisibleToAllUsers = a })
 
+instance FromJSON Cluster
+
+instance ToJSON Cluster
+
 data InstanceTimeline = InstanceTimeline
     { _itCreationDateTime :: Maybe RFC822
     , _itEndDateTime      :: Maybe RFC822
@@ -1180,6 +1240,10 @@ itEndDateTime = lens _itEndDateTime (\s a -> s { _itEndDateTime = a })
 itReadyDateTime :: Lens' InstanceTimeline (Maybe UTCTime)
 itReadyDateTime = lens _itReadyDateTime (\s a -> s { _itReadyDateTime = a })
     . mapping _Time
+
+instance FromJSON InstanceTimeline
+
+instance ToJSON InstanceTimeline
 
 data Ec2InstanceAttributes = Ec2InstanceAttributes
     { _eiaEc2AvailabilityZone :: Maybe Text
@@ -1234,6 +1298,10 @@ eiaIamInstanceProfile :: Lens' Ec2InstanceAttributes (Maybe Text)
 eiaIamInstanceProfile =
     lens _eiaIamInstanceProfile (\s a -> s { _eiaIamInstanceProfile = a })
 
+instance FromJSON Ec2InstanceAttributes
+
+instance ToJSON Ec2InstanceAttributes
+
 data StepStateChangeReasonCode
     = None -- ^ NONE
       deriving (Eq, Ord, Show, Generic, Enum)
@@ -1245,6 +1313,10 @@ instance FromText StepStateChangeReasonCode where
 
 instance ToText StepStateChangeReasonCode where
     toText None = "NONE"
+
+instance FromJSON StepStateChangeReasonCode
+
+instance ToJSON StepStateChangeReasonCode
 
 data ClusterState
     = CSBootstrapping        -- ^ BOOTSTRAPPING
@@ -1276,6 +1348,10 @@ instance ToText ClusterState where
         CSTerminatedWithErrors -> "TERMINATED_WITH_ERRORS"
         CSTerminating          -> "TERMINATING"
         CSWaiting              -> "WAITING"
+
+instance FromJSON ClusterState
+
+instance ToJSON ClusterState
 
 data HadoopStepConfig = HadoopStepConfig
     { _hscArgs       :: [Text]
@@ -1324,6 +1400,10 @@ hscProperties :: Lens' HadoopStepConfig (HashMap Text Text)
 hscProperties = lens _hscProperties (\s a -> s { _hscProperties = a })
     . _Map
 
+instance FromJSON HadoopStepConfig
+
+instance ToJSON HadoopStepConfig
+
 data JobFlowExecutionState
     = JFESBootstrapping -- ^ BOOTSTRAPPING
     | JFESCompleted     -- ^ COMPLETED
@@ -1358,6 +1438,10 @@ instance ToText JobFlowExecutionState where
         JFESTerminated    -> "TERMINATED"
         JFESWaiting       -> "WAITING"
 
+instance FromJSON JobFlowExecutionState
+
+instance ToJSON JobFlowExecutionState
+
 data StepDetail = StepDetail
     { _sdExecutionStatusDetail :: StepExecutionStatusDetail
     , _sdStepConfig            :: StepConfig
@@ -1388,6 +1472,10 @@ sdExecutionStatusDetail =
 sdStepConfig :: Lens' StepDetail StepConfig
 sdStepConfig = lens _sdStepConfig (\s a -> s { _sdStepConfig = a })
 
+instance FromJSON StepDetail
+
+instance ToJSON StepDetail
+
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason
     { _igscrCode    :: Maybe Text
     , _igscrMessage :: Maybe Text
@@ -1415,6 +1503,10 @@ igscrCode = lens _igscrCode (\s a -> s { _igscrCode = a })
 igscrMessage :: Lens' InstanceGroupStateChangeReason (Maybe Text)
 igscrMessage = lens _igscrMessage (\s a -> s { _igscrMessage = a })
 
+instance FromJSON InstanceGroupStateChangeReason
+
+instance ToJSON InstanceGroupStateChangeReason
+
 data InstanceGroupType
     = Core   -- ^ CORE
     | Master -- ^ MASTER
@@ -1433,6 +1525,10 @@ instance ToText InstanceGroupType where
         Core   -> "CORE"
         Master -> "MASTER"
         Task   -> "TASK"
+
+instance FromJSON InstanceGroupType
+
+instance ToJSON InstanceGroupType
 
 data InstanceGroupStateChangeReasonCode
     = ClusterTerminated -- ^ CLUSTER_TERMINATED
@@ -1455,6 +1551,10 @@ instance ToText InstanceGroupStateChangeReasonCode where
         InstanceFailure   -> "INSTANCE_FAILURE"
         InternalError     -> "INTERNAL_ERROR"
         ValidationError   -> "VALIDATION_ERROR"
+
+instance FromJSON InstanceGroupStateChangeReasonCode
+
+instance ToJSON InstanceGroupStateChangeReasonCode
 
 data StepStatus = StepStatus
     { _ssState             :: Maybe Text
@@ -1492,6 +1592,10 @@ ssStateChangeReason =
 ssTimeline :: Lens' StepStatus (Maybe StepTimeline)
 ssTimeline = lens _ssTimeline (\s a -> s { _ssTimeline = a })
 
+instance FromJSON StepStatus
+
+instance ToJSON StepStatus
+
 data StepSummary = StepSummary
     { _ssId     :: Maybe Text
     , _ssName   :: Maybe Text
@@ -1526,6 +1630,10 @@ ssName = lens _ssName (\s a -> s { _ssName = a })
 -- | The current execution status details of the cluster step.
 ssStatus :: Lens' StepSummary (Maybe StepStatus)
 ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
+
+instance FromJSON StepSummary
+
+instance ToJSON StepSummary
 
 data InstanceGroupState
     = IGSArrested      -- ^ ARRESTED
@@ -1567,6 +1675,10 @@ instance ToText InstanceGroupState where
         IGSTerminated    -> "TERMINATED"
         IGSTerminating   -> "TERMINATING"
 
+instance FromJSON InstanceGroupState
+
+instance ToJSON InstanceGroupState
+
 data StepTimeline = StepTimeline
     { _stCreationDateTime :: Maybe RFC822
     , _stEndDateTime      :: Maybe RFC822
@@ -1606,6 +1718,10 @@ stStartDateTime :: Lens' StepTimeline (Maybe UTCTime)
 stStartDateTime = lens _stStartDateTime (\s a -> s { _stStartDateTime = a })
     . mapping _Time
 
+instance FromJSON StepTimeline
+
+instance ToJSON StepTimeline
+
 newtype PlacementType = PlacementType
     { _ptAvailabilityZone :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
@@ -1626,6 +1742,10 @@ placementType p1 = PlacementType
 ptAvailabilityZone :: Lens' PlacementType Text
 ptAvailabilityZone =
     lens _ptAvailabilityZone (\s a -> s { _ptAvailabilityZone = a })
+
+instance FromJSON PlacementType
+
+instance ToJSON PlacementType
 
 data HadoopJarStepConfig = HadoopJarStepConfig
     { _hjscArgs       :: [Text]
@@ -1674,6 +1794,10 @@ hjscMainClass = lens _hjscMainClass (\s a -> s { _hjscMainClass = a })
 hjscProperties :: Lens' HadoopJarStepConfig [KeyValue]
 hjscProperties = lens _hjscProperties (\s a -> s { _hjscProperties = a })
 
+instance FromJSON HadoopJarStepConfig
+
+instance ToJSON HadoopJarStepConfig
+
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig
     { _igmcEC2InstanceIdsToTerminate :: [Text]
     , _igmcInstanceCount             :: Maybe Int
@@ -1715,6 +1839,10 @@ igmcInstanceCount =
 igmcInstanceGroupId :: Lens' InstanceGroupModifyConfig Text
 igmcInstanceGroupId =
     lens _igmcInstanceGroupId (\s a -> s { _igmcInstanceGroupId = a })
+
+instance FromJSON InstanceGroupModifyConfig
+
+instance ToJSON InstanceGroupModifyConfig
 
 data InstanceGroupDetail = InstanceGroupDetail
     { _igdBidPrice              :: Maybe Text
@@ -1858,6 +1986,10 @@ igdStartDateTime = lens _igdStartDateTime (\s a -> s { _igdStartDateTime = a })
 igdState :: Lens' InstanceGroupDetail Text
 igdState = lens _igdState (\s a -> s { _igdState = a })
 
+instance FromJSON InstanceGroupDetail
+
+instance ToJSON InstanceGroupDetail
+
 data StepStateChangeReason = StepStateChangeReason
     { _sscrCode    :: Maybe Text
     , _sscrMessage :: Maybe Text
@@ -1884,6 +2016,10 @@ sscrCode = lens _sscrCode (\s a -> s { _sscrCode = a })
 -- | The descriptive message for the state change reason.
 sscrMessage :: Lens' StepStateChangeReason (Maybe Text)
 sscrMessage = lens _sscrMessage (\s a -> s { _sscrMessage = a })
+
+instance FromJSON StepStateChangeReason
+
+instance ToJSON StepStateChangeReason
 
 data ClusterStateChangeReasonCode
     = CSCRCAllStepsCompleted -- ^ ALL_STEPS_COMPLETED
@@ -1915,6 +2051,10 @@ instance ToText ClusterStateChangeReasonCode where
         CSCRCStepFailure       -> "STEP_FAILURE"
         CSCRCUserRequest       -> "USER_REQUEST"
         CSCRCValidationError   -> "VALIDATION_ERROR"
+
+instance FromJSON ClusterStateChangeReasonCode
+
+instance ToJSON ClusterStateChangeReasonCode
 
 data Step = Step
     { _sActionOnFailure :: Maybe Text
@@ -1968,6 +2108,10 @@ sName = lens _sName (\s a -> s { _sName = a })
 sStatus :: Lens' Step (Maybe StepStatus)
 sStatus = lens _sStatus (\s a -> s { _sStatus = a })
 
+instance FromJSON Step
+
+instance ToJSON Step
+
 data StepState
     = SSCancelled   -- ^ CANCELLED
     | SSCompleted   -- ^ COMPLETED
@@ -1995,6 +2139,10 @@ instance ToText StepState where
         SSInterrupted -> "INTERRUPTED"
         SSPending     -> "PENDING"
         SSRunning     -> "RUNNING"
+
+instance FromJSON StepState
+
+instance ToJSON StepState
 
 data InstanceGroupTimeline = InstanceGroupTimeline
     { _igtCreationDateTime :: Maybe RFC822
@@ -2035,6 +2183,10 @@ igtReadyDateTime :: Lens' InstanceGroupTimeline (Maybe UTCTime)
 igtReadyDateTime = lens _igtReadyDateTime (\s a -> s { _igtReadyDateTime = a })
     . mapping _Time
 
+instance FromJSON InstanceGroupTimeline
+
+instance ToJSON InstanceGroupTimeline
+
 newtype BootstrapActionDetail = BootstrapActionDetail
     { _badBootstrapActionConfig :: Maybe BootstrapActionConfig
     } deriving (Eq, Show, Generic)
@@ -2055,6 +2207,10 @@ badBootstrapActionConfig :: Lens' BootstrapActionDetail (Maybe BootstrapActionCo
 badBootstrapActionConfig =
     lens _badBootstrapActionConfig
         (\s a -> s { _badBootstrapActionConfig = a })
+
+instance FromJSON BootstrapActionDetail
+
+instance ToJSON BootstrapActionDetail
 
 data StepExecutionStatusDetail = StepExecutionStatusDetail
     { _sesdCreationDateTime      :: RFC822
@@ -2116,6 +2272,10 @@ sesdStartDateTime =
 sesdState :: Lens' StepExecutionStatusDetail Text
 sesdState = lens _sesdState (\s a -> s { _sesdState = a })
 
+instance FromJSON StepExecutionStatusDetail
+
+instance ToJSON StepExecutionStatusDetail
+
 data InstanceStatus = InstanceStatus
     { _isState             :: Maybe Text
     , _isStateChangeReason :: Maybe InstanceStateChangeReason
@@ -2152,6 +2312,10 @@ isStateChangeReason =
 isTimeline :: Lens' InstanceStatus (Maybe InstanceTimeline)
 isTimeline = lens _isTimeline (\s a -> s { _isTimeline = a })
 
+instance FromJSON InstanceStatus
+
+instance ToJSON InstanceStatus
+
 data InstanceRoleType
     = IRTCore   -- ^ CORE
     | IRTMaster -- ^ MASTER
@@ -2170,6 +2334,10 @@ instance ToText InstanceRoleType where
         IRTCore   -> "CORE"
         IRTMaster -> "MASTER"
         IRTTask   -> "TASK"
+
+instance FromJSON InstanceRoleType
+
+instance ToJSON InstanceRoleType
 
 data JobFlowInstancesConfig = JobFlowInstancesConfig
     { _jficEc2KeyName                  :: Maybe Text
@@ -2285,6 +2453,10 @@ jficTerminationProtected =
     lens _jficTerminationProtected
         (\s a -> s { _jficTerminationProtected = a })
 
+instance FromJSON JobFlowInstancesConfig
+
+instance ToJSON JobFlowInstancesConfig
+
 data StepConfig = StepConfig
     { _scActionOnFailure :: Maybe Text
     , _scHadoopJarStep   :: HadoopJarStepConfig
@@ -2322,6 +2494,10 @@ scHadoopJarStep = lens _scHadoopJarStep (\s a -> s { _scHadoopJarStep = a })
 -- | The name of the job flow step.
 scName :: Lens' StepConfig Text
 scName = lens _scName (\s a -> s { _scName = a })
+
+instance FromJSON StepConfig
+
+instance ToJSON StepConfig
 
 data InstanceGroup = InstanceGroup
     { _igBidPrice               :: Maybe Text
@@ -2412,6 +2588,10 @@ igRunningInstanceCount =
 igStatus :: Lens' InstanceGroup (Maybe InstanceGroupStatus)
 igStatus = lens _igStatus (\s a -> s { _igStatus = a })
 
+instance FromJSON InstanceGroup
+
+instance ToJSON InstanceGroup
+
 data BootstrapActionConfig = BootstrapActionConfig
     { _bacName                  :: Text
     , _bacScriptBootstrapAction :: ScriptBootstrapActionConfig
@@ -2442,6 +2622,10 @@ bacScriptBootstrapAction :: Lens' BootstrapActionConfig ScriptBootstrapActionCon
 bacScriptBootstrapAction =
     lens _bacScriptBootstrapAction
         (\s a -> s { _bacScriptBootstrapAction = a })
+
+instance FromJSON BootstrapActionConfig
+
+instance ToJSON BootstrapActionConfig
 
 data ClusterSummary = ClusterSummary
     { _csId     :: Maybe Text
@@ -2477,6 +2661,10 @@ csName = lens _csName (\s a -> s { _csName = a })
 -- | The details about the current status of the cluster.
 csStatus :: Lens' ClusterSummary (Maybe ClusterStatus)
 csStatus = lens _csStatus (\s a -> s { _csStatus = a })
+
+instance FromJSON ClusterSummary
+
+instance ToJSON ClusterSummary
 
 data JobFlowInstancesDetail = JobFlowInstancesDetail
     { _jfidEc2KeyName                  :: Maybe Text
@@ -2622,6 +2810,10 @@ jfidTerminationProtected =
     lens _jfidTerminationProtected
         (\s a -> s { _jfidTerminationProtected = a })
 
+instance FromJSON JobFlowInstancesDetail
+
+instance ToJSON JobFlowInstancesDetail
+
 data ClusterStatus = ClusterStatus
     { _csState             :: Maybe Text
     , _csStateChangeReason :: Maybe ClusterStateChangeReason
@@ -2659,6 +2851,10 @@ csStateChangeReason =
 csTimeline :: Lens' ClusterStatus (Maybe ClusterTimeline)
 csTimeline = lens _csTimeline (\s a -> s { _csTimeline = a })
 
+instance FromJSON ClusterStatus
+
+instance ToJSON ClusterStatus
+
 data InstanceState
     = ISAwaitingFulfillment -- ^ AWAITING_FULFILLMENT
     | ISBootstrapping       -- ^ BOOTSTRAPPING
@@ -2683,6 +2879,10 @@ instance ToText InstanceState where
         ISProvisioning        -> "PROVISIONING"
         ISRunning             -> "RUNNING"
         ISTerminated          -> "TERMINATED"
+
+instance FromJSON InstanceState
+
+instance ToJSON InstanceState
 
 data ClusterTimeline = ClusterTimeline
     { _ctCreationDateTime :: Maybe RFC822
@@ -2723,6 +2923,10 @@ ctReadyDateTime :: Lens' ClusterTimeline (Maybe UTCTime)
 ctReadyDateTime = lens _ctReadyDateTime (\s a -> s { _ctReadyDateTime = a })
     . mapping _Time
 
+instance FromJSON ClusterTimeline
+
+instance ToJSON ClusterTimeline
+
 data InstanceStateChangeReasonCode
     = ISCRCBootstrapFailure  -- ^ BOOTSTRAP_FAILURE
     | ISCRCClusterTerminated -- ^ CLUSTER_TERMINATED
@@ -2747,6 +2951,10 @@ instance ToText InstanceStateChangeReasonCode where
         ISCRCInstanceFailure   -> "INSTANCE_FAILURE"
         ISCRCInternalError     -> "INTERNAL_ERROR"
         ISCRCValidationError   -> "VALIDATION_ERROR"
+
+instance FromJSON InstanceStateChangeReasonCode
+
+instance ToJSON InstanceStateChangeReasonCode
 
 data Instance = Instance
     { _iEc2InstanceId    :: Maybe Text
@@ -2816,6 +3024,10 @@ iPublicIpAddress = lens _iPublicIpAddress (\s a -> s { _iPublicIpAddress = a })
 iStatus :: Lens' Instance (Maybe InstanceStatus)
 iStatus = lens _iStatus (\s a -> s { _iStatus = a })
 
+instance FromJSON Instance
+
+instance ToJSON Instance
+
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig
     { _sbacArgs :: [Text]
     , _sbacPath :: Text
@@ -2844,3 +3056,7 @@ sbacArgs = lens _sbacArgs (\s a -> s { _sbacArgs = a })
 -- location in Amazon S3 or on a local file system.
 sbacPath :: Lens' ScriptBootstrapActionConfig Text
 sbacPath = lens _sbacPath (\s a -> s { _sbacPath = a })
+
+instance FromJSON ScriptBootstrapActionConfig
+
+instance ToJSON ScriptBootstrapActionConfig

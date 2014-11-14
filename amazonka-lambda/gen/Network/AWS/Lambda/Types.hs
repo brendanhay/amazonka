@@ -100,6 +100,10 @@ instance FromText Runtime where
 instance ToText Runtime where
     toText Nodejs = "nodejs"
 
+instance FromJSON Runtime
+
+instance ToJSON Runtime
+
 data Mode
     = Event -- ^ event
       deriving (Eq, Ord, Show, Generic, Enum)
@@ -111,6 +115,10 @@ instance FromText Mode where
 
 instance ToText Mode where
     toText Event = "event"
+
+instance FromJSON Mode
+
+instance ToJSON Mode
 
 data FunctionCodeLocation = FunctionCodeLocation
     { _fclLocation       :: Maybe Text
@@ -140,6 +148,10 @@ fclLocation = lens _fclLocation (\s a -> s { _fclLocation = a })
 fclRepositoryType :: Lens' FunctionCodeLocation (Maybe Text)
 fclRepositoryType =
     lens _fclRepositoryType (\s a -> s { _fclRepositoryType = a })
+
+instance FromJSON FunctionCodeLocation
+
+instance ToJSON FunctionCodeLocation
 
 data FunctionConfiguration = FunctionConfiguration
     { _fcCodeSize        :: Maybe Integer
@@ -257,6 +269,10 @@ fcRuntime = lens _fcRuntime (\s a -> s { _fcRuntime = a })
 fcTimeout :: Lens' FunctionConfiguration (Maybe Natural)
 fcTimeout = lens _fcTimeout (\s a -> s { _fcTimeout = a })
 
+instance FromJSON FunctionConfiguration
+
+instance ToJSON FunctionConfiguration
+
 data EventSourceConfiguration = EventSourceConfiguration
     { _escBatchSize    :: Maybe Int
     , _escEventSource  :: Maybe Text
@@ -351,3 +367,7 @@ escStatus = lens _escStatus (\s a -> s { _escStatus = a })
 -- | The AWS Lambda assigned opaque identifier for the mapping.
 escUUID :: Lens' EventSourceConfiguration (Maybe Text)
 escUUID = lens _escUUID (\s a -> s { _escUUID = a })
+
+instance FromJSON EventSourceConfiguration
+
+instance ToJSON EventSourceConfiguration

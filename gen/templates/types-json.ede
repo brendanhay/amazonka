@@ -10,6 +10,10 @@ import qualified GHC.Exts
 
 {% for type in types %}
 {% include "_include/datatype.ede" with type = type.value %}
+
+{% include "_include/json-from.ede" with type = type.value %}
+
+{% include "_include/json-to.ede" with type = type.value %}
   {% if !type.last %}
 
   {% endif %}

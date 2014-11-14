@@ -134,3 +134,7 @@ tS3KeyPrefix = lens _tS3KeyPrefix (\s a -> s { _tS3KeyPrefix = a })
 -- account owner when new CloudTrail log files have been delivered.
 tSnsTopicName :: Lens' Trail (Maybe Text)
 tSnsTopicName = lens _tSnsTopicName (\s a -> s { _tSnsTopicName = a })
+
+instance FromJSON Trail
+
+instance ToJSON Trail

@@ -262,28 +262,30 @@ pager inp out (Just pg) = get >>= go
         rs = _rsName out
 
         labeled _ NoKey        = NoKey
-        labeled x (Key    k)   = Key    (applied x k)
-        labeled x (Index  k z) = Index  (applied x k) (labeled (indexed x k) z)
-        labeled x (Apply  k z) = Apply  (applied x k) (labeled k z)
-        labeled x (Choice k z) = Choice (labeled x k) (labeled x z)
+        labeled x (Key    n)   = Key    (applied x n)
+        labeled x (Index  n k) = Index  (applied x n) (labeled (applied x n) k)
+        labeled x (Apply  n k) = Apply  (applied x n) (labeled n k)
+        labeled x (Choice n k) = Choice (labeled x n) (labeled x k)
 
         applied x k
             | Just d <- Map.lookup x ts
-            , Just f <- trace (show (x, k, d)) $ field k d = f
+            , Just f <- field k d = f
             | otherwise           = error $
                 "Unable to find field: " ++ show (x, k, Map.keys ts)
 
-        indexed _ y = y
-
-        field :: Text -> Data -> Maybe Text
-        field k = find f . toListOf (dataFields . fName)
-          where
-            f = (k ==) . Text.dropWhile (not . isUpper)
+        -- indexed x k 
+        --     | Just d <- Map.lookup x ts
+        --     , Just f <- field k d = f
 
         -- indexed x y =
         --     let t = getType x
         --         f = getField y (_typFields t)
         --       in Text.init . Text.tail . fst . typeOf $ f^.ann
+
+        field :: Text -> Data -> Maybe Text
+        field k = find f . toListOf (dataFields . fName)
+          where
+            f = (k ==) . Text.dropWhile (not . isUpper)
 
         -- applied x y =
         --     let t = getType x

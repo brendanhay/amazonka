@@ -328,11 +328,11 @@ instance A.ToJSON Key where
       where
         go = \case
             NoKey                -> "(to id)"
-            Key    k             -> k
-            Index  x y           -> "index "   <> x <> " " <> go y
-            Apply  x (Index y z) -> "index ("  <> go (Apply x (Key y)) <> ") " <> go z
-            Apply  x y           -> x <> " . " <> go y
-            Choice x y           -> "choice (" <> go x <> ") (" <> go y <> ")"
+            Key    n             -> n
+            Index  n k           -> "index "   <> n <> " " <> go k
+            Apply  n (Index a b) -> "index ("  <> go (Apply n (Key a)) <> ") " <> go b
+            Apply  n k           -> n <> " . " <> go k
+            Choice n k           -> "choice (" <> go n <> ") (" <> go k <> ")"
 
 data Token = Token
     { _tokInput  :: Key

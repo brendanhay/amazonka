@@ -127,3 +127,7 @@ instance AWSRequest DescribeAutoScalingGroups where
     response = xmlResponse $ \h x -> DescribeAutoScalingGroupsResponse
         <$> x %| "AutoScalingGroups"
         <*> x %| "NextToken"
+
+instance AWSPager DescribeAutoScalingGroups where
+    next rq rs = (\x -> rq & dasgNextToken ?~ x)
+        <$> (rs ^. dasgrNextToken)

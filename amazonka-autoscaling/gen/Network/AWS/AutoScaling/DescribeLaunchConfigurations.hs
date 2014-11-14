@@ -125,3 +125,7 @@ instance AWSRequest DescribeLaunchConfigurations where
     response = xmlResponse $ \h x -> DescribeLaunchConfigurationsResponse
         <$> x %| "LaunchConfigurations"
         <*> x %| "NextToken"
+
+instance AWSPager DescribeLaunchConfigurations where
+    next rq rs = (\x -> rq & dlcNextToken ?~ x)
+        <$> (rs ^. dlcrNextToken)

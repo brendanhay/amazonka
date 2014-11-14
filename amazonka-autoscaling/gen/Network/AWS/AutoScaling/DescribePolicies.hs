@@ -138,3 +138,7 @@ instance AWSRequest DescribePolicies where
     response = xmlResponse $ \h x -> DescribePoliciesResponse
         <$> x %| "NextToken"
         <*> x %| "ScalingPolicies"
+
+instance AWSPager DescribePolicies where
+    next rq rs = (\x -> rq & dp1NextToken ?~ x)
+        <$> (rs ^. dprNextToken)

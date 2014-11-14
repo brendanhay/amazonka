@@ -6844,6 +6844,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dasgNextToken",
+                    "output": "dasgrNextToken"
+                },
+                "type": "next",
+                "resultKey": "dasgrAutoScalingGroups"
+            },
             "name": "DescribeAutoScalingGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a full description of each Auto Scaling group in the given list. This includes all Amazon EC2 instances that are members of the group. If a list of names is not provided, the service returns the full details of all Auto Scaling groups. \u003c/p\u003e \u003cp\u003e This action supports pagination by returning a token if there are more pages to retrieve. To get the next page, call this action again with the returned token as the \u003ccode\u003eNextToken\u003c/code\u003e parameter. \u003c/p\u003e",
@@ -7063,6 +7071,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dasiNextToken",
+                    "output": "dasirNextToken"
+                },
+                "type": "next",
+                "resultKey": "dasirAutoScalingInstances"
+            },
             "name": "DescribeAutoScalingInstances",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a description of each Auto Scaling instance in the \u003ccode\u003eInstanceIds\u003c/code\u003e list. If a list is not provided, the service returns the full details of all instances up to a maximum of 50. By default, the service returns a list of 20 items. \u003c/p\u003e \u003cp\u003e This action supports pagination by returning a token if there are more pages to retrieve. To get the next page, call this action again with the returned token as the \u003ccode\u003eNextToken\u003c/code\u003e parameter. \u003c/p\u003e",
@@ -7388,6 +7404,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dlcNextToken",
+                    "output": "dlcrNextToken"
+                },
+                "type": "next",
+                "resultKey": "dlcrLaunchConfigurations"
+            },
             "name": "DescribeLaunchConfigurations",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a full description of the launch configurations, or the specified launch configurations, if they exist. \u003c/p\u003e \u003cp\u003e If no name is specified, then the full details of all launch configurations are returned. \u003c/p\u003e",
@@ -8005,6 +8029,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dncNextToken",
+                    "output": "dncrNextToken"
+                },
+                "type": "next",
+                "resultKey": "dncrNotificationConfigurations"
+            },
             "name": "DescribeNotificationConfigurations",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of notification actions associated with Auto Scaling groups for specified events. \u003c/p\u003e",
@@ -8224,6 +8256,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dp1NextToken",
+                    "output": "dprNextToken"
+                },
+                "type": "next",
+                "resultKey": "dprScalingPolicies"
+            },
             "name": "DescribePolicies",
             "method": "post",
             "documentation": "\u003cp\u003e Returns descriptions of what each policy does. This action supports pagination. If the response includes a token, there are more records available. To get the additional records, repeat the request with the response token as the \u003ccode\u003eNextToken\u003c/code\u003e parameter. \u003c/p\u003e",
@@ -8476,6 +8516,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dsa2NextToken",
+                    "output": "dsar1NextToken"
+                },
+                "type": "next",
+                "resultKey": "dsar1Activities"
+            },
             "name": "DescribeScalingActivities",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the scaling activities for the specified Auto Scaling group. \u003c/p\u003e \u003cp\u003e If the specified \u003ccode\u003eActivityIds\u003c/code\u003e list is empty, all the activities from the past six weeks are returned. Activities are sorted by the start time. Activities still in progress appear first on the list. \u003c/p\u003e \u003cp\u003e This action supports pagination. If the response includes a token, there are more records available. To get the additional records, repeat the request with the response token as the \u003ccode\u003eNextToken\u003c/code\u003e parameter. \u003c/p\u003e",
@@ -8833,6 +8881,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dsa1NextToken",
+                    "output": "dsarNextToken"
+                },
+                "type": "next",
+                "resultKey": "dsarScheduledUpdateGroupActions"
+            },
             "name": "DescribeScheduledActions",
             "method": "post",
             "documentation": "\u003cp\u003e Lists all the actions scheduled for your Auto Scaling group that haven't been executed. To see a list of actions already executed, see the activity record returned in \u003ca\u003eDescribeScalingActivities\u003c/a\u003e. \u003c/p\u003e",
@@ -9151,6 +9207,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dtNextToken",
+                    "output": "dtrNextToken"
+                },
+                "type": "next",
+                "resultKey": "dtrTags"
+            },
             "name": "DescribeTags",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the Auto Scaling group tags. \u003c/p\u003e \u003cp\u003e You can use filters to limit results when describing tags. For example, you can query for tags of a particular Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results. \u003c/p\u003e \u003cp\u003e You can also specify multiple filters. The result includes information for a particular tag only if it matches all your filters. If there's no match, no special message is returned. \u003c/p\u003e",

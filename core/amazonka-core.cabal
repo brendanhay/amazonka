@@ -45,6 +45,7 @@ library
           Network.AWS.Data.Internal.Body
         , Network.AWS.Data.Internal.ByteString
         , Network.AWS.Data.Internal.Header
+        , Network.AWS.Data.Internal.JSON
         , Network.AWS.Data.Internal.List1
         , Network.AWS.Data.Internal.Map
         , Network.AWS.Data.Internal.Path
@@ -52,7 +53,6 @@ library
         , Network.AWS.Data.Internal.Text
         , Network.AWS.Data.Internal.Time
         , Network.AWS.Data.Internal.URI
-        , Network.AWS.Data.Internal.JSON
         , Network.AWS.Data.Internal.XML
         , Network.AWS.Signing.Internal
 

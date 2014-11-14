@@ -162,3 +162,7 @@ instance AWSRequest DescribeScheduledActions where
     response = xmlResponse $ \h x -> DescribeScheduledActionsResponse
         <$> x %| "NextToken"
         <*> x %| "ScheduledUpdateGroupActions"
+
+instance AWSPager DescribeScheduledActions where
+    next rq rs = (\x -> rq & dsa1NextToken ?~ x)
+        <$> (rs ^. dsarNextToken)

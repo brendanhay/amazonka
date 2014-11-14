@@ -131,3 +131,7 @@ instance AWSRequest DescribeAutoScalingInstances where
     response = xmlResponse $ \h x -> DescribeAutoScalingInstancesResponse
         <$> x %| "AutoScalingInstances"
         <*> x %| "NextToken"
+
+instance AWSPager DescribeAutoScalingInstances where
+    next rq rs = (\x -> rq & dasiNextToken ?~ x)
+        <$> (rs ^. dasirNextToken)

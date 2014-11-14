@@ -126,3 +126,7 @@ instance AWSRequest DescribeNotificationConfigurations where
     response = xmlResponse $ \h x -> DescribeNotificationConfigurationsResponse
         <$> x %| "NextToken"
         <*> x %| "NotificationConfigurations"
+
+instance AWSPager DescribeNotificationConfigurations where
+    next rq rs = (\x -> rq & dncNextToken ?~ x)
+        <$> (rs ^. dncrNextToken)

@@ -4,11 +4,7 @@ instance AWSPager {{ request.name }} where
   {% case pager.type %}
   {% when "next" %}
     next rq rs = (\x -> rq & {{ pager.token.input }} ?~ x)
-    {% if pager.token.output_prefix %}
         <$> (rs ^. {{ pager.token.output }})
-    {% else %}
-        <$> ({{ pager.token.output }} rs)
-    {% endif %}
   {% when "one" %}
     next rq rs
         | not (rs ^. {{ pager.more }}) = Nothing

@@ -143,3 +143,7 @@ instance AWSRequest DescribeScalingActivities where
     response = xmlResponse $ \h x -> DescribeScalingActivitiesResponse
         <$> x %| "Activities"
         <*> x %| "NextToken"
+
+instance AWSPager DescribeScalingActivities where
+    next rq rs = (\x -> rq & dsa2NextToken ?~ x)
+        <$> (rs ^. dsar1NextToken)

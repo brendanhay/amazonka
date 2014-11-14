@@ -27,16 +27,18 @@ import           Control.Monad
 import           Control.Monad.State.Strict
 import           Data.Bifunctor
 import qualified Data.CaseInsensitive       as CI
+import           Data.Char
 import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.HashSet               (HashSet)
 import qualified Data.HashSet               as Set
-import           Data.List                  (sort, group)
+import           Data.List                  (find, sort, group)
 import           Data.Monoid                hiding (Product)
 import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
+import           Debug.Trace
 import           Gen.Names
 import qualified Gen.Stage1                 as S1
 import           Gen.Stage1                 hiding (Operation)
@@ -240,28 +242,43 @@ operation a proto ns ss pgs n o = do
 
 -- | Prefix the nested field access and index notation of a pager by introspecting
 -- the state fields.
-pager :: Request -> Response -> Maybe Pager -> m (Maybe Pager)
+pager :: Request
+      -> Response
+      -> Maybe Pager
+      -> State (HashMap Text Data) (Maybe Pager)
 pager _   _   Nothing   = return Nothing
 pager inp out (Just pg) = get >>= go
   where
-    go ts = return . Just $!
+    go ds = return . Just $!
         case pg of
             More m t -> More (labeled rq m) (map token t)
             Next r t -> Next (labeled rs r) (token t)
       where
+        ts = Map.fromList [(rq, _rqData inp), (rs, _rsData out)] <> ds
+
         token t = t & tokInput %~ labeled rq & tokOutput %~ labeled rs
 
         rq = _rqName inp
         rs = _rsName out
 
         labeled _ NoKey        = NoKey
-        labeled x (Key    y)   = Key    (applied x y)
-        labeled x (Index  y z) = Index  (applied x y) (labeled (indexed x y) z)
-        labeled x (Apply  y z) = Apply  (applied x y) (labeled y z)
-        labeled x (Choice y z) = Choice (labeled x y) (labeled x z)
+        labeled x (Key    k)   = Key    (applied x k)
+        labeled x (Index  k z) = Index  (applied x k) (labeled (indexed x k) z)
+        labeled x (Apply  k z) = Apply  (applied x k) (labeled k z)
+        labeled x (Choice k z) = Choice (labeled x k) (labeled x z)
 
-        applied = undefined
-        indexed = undefined
+        applied x k
+            | Just d <- Map.lookup x ts
+            , Just f <- trace (show (x, k, d)) $ field k d = f
+            | otherwise           = error $
+                "Unable to find field: " ++ show (x, k, Map.keys ts)
+
+        indexed _ y = y
+
+        field :: Text -> Data -> Maybe Text
+        field k = find f . toListOf (dataFields . fName)
+          where
+            f = (k ==) . Text.dropWhile (not . isUpper)
 
         -- indexed x y =
         --     let t = getType x

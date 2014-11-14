@@ -6,9 +6,7 @@
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TypeFamilies               #-}
 
--- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
--- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
-{-# OPTIONS_GHC -w #-}
+{-# OPTIONS_GHC -w                      #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>

@@ -95,12 +95,10 @@ startGatewayResponse = StartGatewayResponse
 sgrGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
 sgrGatewayARN = lens _sgrGatewayARN (\s a -> s { _sgrGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest StartGateway where
     type Sv StartGateway = StorageGateway
     type Rs StartGateway = StartGatewayResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> StartGatewayResponse
         <$> o .: "GatewayARN"

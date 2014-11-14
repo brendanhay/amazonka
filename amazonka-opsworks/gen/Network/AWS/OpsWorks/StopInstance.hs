@@ -85,11 +85,9 @@ data StopInstanceResponse = StopInstanceResponse
 stopInstanceResponse :: StopInstanceResponse
 stopInstanceResponse = StopInstanceResponse
 
--- FromJSON
-
 instance AWSRequest StopInstance where
     type Sv StopInstance = OpsWorks
     type Rs StopInstance = StopInstanceResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse StopInstanceResponse

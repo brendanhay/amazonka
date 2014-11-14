@@ -155,12 +155,10 @@ createDeploymentResponse = CreateDeploymentResponse
 cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrDeploymentId = lens _cdrDeploymentId (\s a -> s { _cdrDeploymentId = a })
 
--- FromJSON
-
 instance AWSRequest CreateDeployment where
     type Sv CreateDeployment = CodeDeploy
     type Rs CreateDeployment = CreateDeploymentResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateDeploymentResponse
         <$> o .: "deploymentId"

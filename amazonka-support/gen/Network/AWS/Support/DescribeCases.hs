@@ -188,13 +188,11 @@ dcr1Cases = lens _dcr1Cases (\s a -> s { _dcr1Cases = a })
 dcr1NextToken :: Lens' DescribeCasesResponse (Maybe Text)
 dcr1NextToken = lens _dcr1NextToken (\s a -> s { _dcr1NextToken = a })
 
--- FromJSON
-
 instance AWSRequest DescribeCases where
     type Sv DescribeCases = Support
     type Rs DescribeCases = DescribeCasesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeCasesResponse
         <$> o .: "cases"
         <*> o .: "nextToken"

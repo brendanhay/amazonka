@@ -96,12 +96,10 @@ updateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
 ugsnrGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
 ugsnrGatewayARN = lens _ugsnrGatewayARN (\s a -> s { _ugsnrGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest UpdateGatewaySoftwareNow where
     type Sv UpdateGatewaySoftwareNow = StorageGateway
     type Rs UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNowResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateGatewaySoftwareNowResponse
         <$> o .: "GatewayARN"

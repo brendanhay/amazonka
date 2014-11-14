@@ -103,12 +103,10 @@ addUploadBufferResponse = AddUploadBufferResponse
 aubrGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrGatewayARN = lens _aubrGatewayARN (\s a -> s { _aubrGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest AddUploadBuffer where
     type Sv AddUploadBuffer = StorageGateway
     type Rs AddUploadBuffer = AddUploadBufferResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> AddUploadBufferResponse
         <$> o .: "GatewayARN"

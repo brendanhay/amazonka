@@ -112,12 +112,10 @@ describeRaidArraysResponse = DescribeRaidArraysResponse
 drarRaidArrays :: Lens' DescribeRaidArraysResponse [RaidArray]
 drarRaidArrays = lens _drarRaidArrays (\s a -> s { _drarRaidArrays = a })
 
--- FromJSON
-
 instance AWSRequest DescribeRaidArrays where
     type Sv DescribeRaidArrays = OpsWorks
     type Rs DescribeRaidArrays = DescribeRaidArraysResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeRaidArraysResponse
         <$> o .: "RaidArrays"

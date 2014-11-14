@@ -147,12 +147,10 @@ createTapesResponse = CreateTapesResponse
 ctrTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrTapeARNs = lens _ctrTapeARNs (\s a -> s { _ctrTapeARNs = a })
 
--- FromJSON
-
 instance AWSRequest CreateTapes where
     type Sv CreateTapes = StorageGateway
     type Rs CreateTapes = CreateTapesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateTapesResponse
         <$> o .: "TapeARNs"

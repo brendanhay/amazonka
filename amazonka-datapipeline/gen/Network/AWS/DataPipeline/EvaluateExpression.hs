@@ -115,12 +115,10 @@ eerEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
 eerEvaluatedExpression =
     lens _eerEvaluatedExpression (\s a -> s { _eerEvaluatedExpression = a })
 
--- FromJSON
-
 instance AWSRequest EvaluateExpression where
     type Sv EvaluateExpression = DataPipeline
     type Rs EvaluateExpression = EvaluateExpressionResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> EvaluateExpressionResponse
         <$> o .: "evaluatedExpression"

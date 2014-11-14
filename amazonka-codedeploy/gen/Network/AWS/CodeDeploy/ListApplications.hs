@@ -103,13 +103,11 @@ lar1Applications = lens _lar1Applications (\s a -> s { _lar1Applications = a })
 lar1NextToken :: Lens' ListApplicationsResponse (Maybe Text)
 lar1NextToken = lens _lar1NextToken (\s a -> s { _lar1NextToken = a })
 
--- FromJSON
-
 instance AWSRequest ListApplications where
     type Sv ListApplications = CodeDeploy
     type Rs ListApplications = ListApplicationsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListApplicationsResponse
         <$> o .: "applications"
         <*> o .: "nextToken"

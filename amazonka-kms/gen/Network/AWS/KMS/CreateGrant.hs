@@ -164,13 +164,11 @@ cgrGrantId = lens _cgrGrantId (\s a -> s { _cgrGrantId = a })
 cgrGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrGrantToken = lens _cgrGrantToken (\s a -> s { _cgrGrantToken = a })
 
--- FromJSON
-
 instance AWSRequest CreateGrant where
     type Sv CreateGrant = KMS
     type Rs CreateGrant = CreateGrantResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateGrantResponse
         <$> o .: "GrantId"
         <*> o .: "GrantToken"

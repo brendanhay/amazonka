@@ -154,13 +154,11 @@ grrNextShardIterator =
 grrRecords :: Lens' GetRecordsResponse [Record]
 grrRecords = lens _grrRecords (\s a -> s { _grrRecords = a })
 
--- FromJSON
-
 instance AWSRequest GetRecords where
     type Sv GetRecords = Kinesis
     type Rs GetRecords = GetRecordsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetRecordsResponse
         <$> o .: "NextShardIterator"
         <*> o .: "Records"

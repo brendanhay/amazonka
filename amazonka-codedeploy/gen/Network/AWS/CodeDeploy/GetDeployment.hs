@@ -93,12 +93,10 @@ gdrDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
 gdrDeploymentInfo =
     lens _gdrDeploymentInfo (\s a -> s { _gdrDeploymentInfo = a })
 
--- FromJSON
-
 instance AWSRequest GetDeployment where
     type Sv GetDeployment = CodeDeploy
     type Rs GetDeployment = GetDeploymentResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetDeploymentResponse
         <$> o .: "deploymentInfo"

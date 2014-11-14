@@ -111,12 +111,10 @@ diurIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
 diurIdentityUsage =
     lens _diurIdentityUsage (\s a -> s { _diurIdentityUsage = a })
 
--- FromJSON
-
 instance AWSRequest DescribeIdentityUsage where
     type Sv DescribeIdentityUsage = CognitoSync
     type Rs DescribeIdentityUsage = DescribeIdentityUsageResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> DescribeIdentityUsageResponse
         <$> o .: "IdentityUsage"

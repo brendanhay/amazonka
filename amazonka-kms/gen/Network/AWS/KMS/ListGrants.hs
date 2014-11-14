@@ -137,13 +137,11 @@ lgrNextMarker = lens _lgrNextMarker (\s a -> s { _lgrNextMarker = a })
 lgrTruncated :: Lens' ListGrantsResponse (Maybe Bool)
 lgrTruncated = lens _lgrTruncated (\s a -> s { _lgrTruncated = a })
 
--- FromJSON
-
 instance AWSRequest ListGrants where
     type Sv ListGrants = KMS
     type Rs ListGrants = ListGrantsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListGrantsResponse
         <$> o .: "Grants"
         <*> o .: "NextMarker"

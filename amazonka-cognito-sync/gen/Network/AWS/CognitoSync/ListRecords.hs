@@ -247,13 +247,11 @@ lrrSyncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
 lrrSyncSessionToken =
     lens _lrrSyncSessionToken (\s a -> s { _lrrSyncSessionToken = a })
 
--- FromJSON
-
 instance AWSRequest ListRecords where
     type Sv ListRecords = CognitoSync
     type Rs ListRecords = ListRecordsResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> ListRecordsResponse
         <$> o .: "Count"
         <*> o .: "DatasetDeletedAfterRequestedSyncCount"

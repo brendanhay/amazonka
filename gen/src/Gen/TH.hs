@@ -41,7 +41,7 @@ stage1 = TH ctorName keyName lensName "type" "contents" $
     J.deriveFromJSON (jason stage1)
 
 stage2 :: TH
-stage2 = stage1 & thJSON .~ (A.deriveToJSON (aeson stage2))
+stage2 = stage1 & thJSON .~ A.deriveToJSON (aeson stage2)
 
 nullary :: TH -> Name -> Q [Dec]
 nullary = (^. thJSON)

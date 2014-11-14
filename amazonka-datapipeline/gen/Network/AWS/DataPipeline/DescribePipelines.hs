@@ -114,12 +114,10 @@ dprPipelineDescriptionList =
     lens _dprPipelineDescriptionList
         (\s a -> s { _dprPipelineDescriptionList = a })
 
--- FromJSON
-
 instance AWSRequest DescribePipelines where
     type Sv DescribePipelines = DataPipeline
     type Rs DescribePipelines = DescribePipelinesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribePipelinesResponse
         <$> o .: "pipelineDescriptionList"

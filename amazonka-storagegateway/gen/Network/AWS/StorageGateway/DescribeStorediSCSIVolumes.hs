@@ -110,12 +110,10 @@ dsscsivrStorediSCSIVolumes =
     lens _dsscsivrStorediSCSIVolumes
         (\s a -> s { _dsscsivrStorediSCSIVolumes = a })
 
--- FromJSON
-
 instance AWSRequest DescribeStorediSCSIVolumes where
     type Sv DescribeStorediSCSIVolumes = StorageGateway
     type Rs DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeStorediSCSIVolumesResponse
         <$> o .: "StorediSCSIVolumes"

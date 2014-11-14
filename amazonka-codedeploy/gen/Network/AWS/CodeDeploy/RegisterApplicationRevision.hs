@@ -100,11 +100,9 @@ data RegisterApplicationRevisionResponse = RegisterApplicationRevisionResponse
 registerApplicationRevisionResponse :: RegisterApplicationRevisionResponse
 registerApplicationRevisionResponse = RegisterApplicationRevisionResponse
 
--- FromJSON
-
 instance AWSRequest RegisterApplicationRevision where
     type Sv RegisterApplicationRevision = CodeDeploy
     type Rs RegisterApplicationRevision = RegisterApplicationRevisionResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RegisterApplicationRevisionResponse

@@ -122,13 +122,11 @@ ldrNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextPageMarker =
     lens _ldrNextPageMarker (\s a -> s { _ldrNextPageMarker = a })
 
--- FromJSON
-
 instance AWSRequest ListDomains where
     type Sv ListDomains = Route53Domains
     type Rs ListDomains = ListDomainsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListDomainsResponse
         <$> o .: "Domains"
         <*> o .: "NextPageMarker"

@@ -130,12 +130,10 @@ rathrCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
 rathrCancelRequested =
     lens _rathrCancelRequested (\s a -> s { _rathrCancelRequested = a })
 
--- FromJSON
-
 instance AWSRequest RecordActivityTaskHeartbeat where
     type Sv RecordActivityTaskHeartbeat = SWF
     type Rs RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeatResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> RecordActivityTaskHeartbeatResponse
         <$> o .: "cancelRequested"

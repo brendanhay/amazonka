@@ -114,12 +114,10 @@ updateDomainNameserversResponse p1 = UpdateDomainNameserversResponse
 udnrOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrOperationId = lens _udnrOperationId (\s a -> s { _udnrOperationId = a })
 
--- FromJSON
-
 instance AWSRequest UpdateDomainNameservers where
     type Sv UpdateDomainNameservers = Route53Domains
     type Rs UpdateDomainNameservers = UpdateDomainNameserversResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateDomainNameserversResponse
         <$> o .: "OperationId"

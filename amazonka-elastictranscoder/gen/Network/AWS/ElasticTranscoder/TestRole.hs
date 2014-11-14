@@ -141,13 +141,11 @@ trrMessages = lens _trrMessages (\s a -> s { _trrMessages = a })
 trrSuccess :: Lens' TestRoleResponse (Maybe Text)
 trrSuccess = lens _trrSuccess (\s a -> s { _trrSuccess = a })
 
--- FromJSON
-
 instance AWSRequest TestRole where
     type Sv TestRole = ElasticTranscoder
     type Rs TestRole = TestRoleResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> TestRoleResponse
         <$> o .: "Messages"
         <*> o .: "Success"

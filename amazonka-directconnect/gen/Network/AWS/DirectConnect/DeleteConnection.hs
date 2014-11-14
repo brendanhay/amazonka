@@ -161,13 +161,11 @@ dcrRegion = lens _dcrRegion (\s a -> s { _dcrRegion = a })
 dcrVlan :: Lens' DeleteConnectionResponse (Maybe Int)
 dcrVlan = lens _dcrVlan (\s a -> s { _dcrVlan = a })
 
--- FromJSON
-
 instance AWSRequest DeleteConnection where
     type Sv DeleteConnection = DirectConnect
     type Rs DeleteConnection = DeleteConnectionResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteConnectionResponse
         <$> o .: "bandwidth"
         <*> o .: "connectionId"

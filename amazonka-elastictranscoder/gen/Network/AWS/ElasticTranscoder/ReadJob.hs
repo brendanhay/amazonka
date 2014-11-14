@@ -92,12 +92,10 @@ readJobResponse = ReadJobResponse
 rjrJob :: Lens' ReadJobResponse (Maybe Job)
 rjrJob = lens _rjrJob (\s a -> s { _rjrJob = a })
 
--- FromJSON
-
 instance AWSRequest ReadJob where
     type Sv ReadJob = ElasticTranscoder
     type Rs ReadJob = ReadJobResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> ReadJobResponse
         <$> o .: "Job"

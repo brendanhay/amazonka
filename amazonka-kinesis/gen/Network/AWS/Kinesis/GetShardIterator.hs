@@ -165,12 +165,10 @@ gsirShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirShardIterator =
     lens _gsirShardIterator (\s a -> s { _gsirShardIterator = a })
 
--- FromJSON
-
 instance AWSRequest GetShardIterator where
     type Sv GetShardIterator = Kinesis
     type Rs GetShardIterator = GetShardIteratorResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetShardIteratorResponse
         <$> o .: "ShardIterator"

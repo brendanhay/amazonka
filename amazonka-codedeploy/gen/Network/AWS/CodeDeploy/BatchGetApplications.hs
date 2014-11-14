@@ -106,12 +106,10 @@ bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
 bgarApplicationsInfo =
     lens _bgarApplicationsInfo (\s a -> s { _bgarApplicationsInfo = a })
 
--- FromJSON
-
 instance AWSRequest BatchGetApplications where
     type Sv BatchGetApplications = CodeDeploy
     type Rs BatchGetApplications = BatchGetApplicationsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> BatchGetApplicationsResponse
         <$> o .: "applicationsInfo"

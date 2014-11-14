@@ -89,11 +89,9 @@ data PutRetentionPolicyResponse = PutRetentionPolicyResponse
 putRetentionPolicyResponse :: PutRetentionPolicyResponse
 putRetentionPolicyResponse = PutRetentionPolicyResponse
 
--- FromJSON
-
 instance AWSRequest PutRetentionPolicy where
     type Sv PutRetentionPolicy = CloudWatchLogs
     type Rs PutRetentionPolicy = PutRetentionPolicyResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse PutRetentionPolicyResponse

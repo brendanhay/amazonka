@@ -92,11 +92,9 @@ data RemoveTagsResponse = RemoveTagsResponse
 removeTagsResponse :: RemoveTagsResponse
 removeTagsResponse = RemoveTagsResponse
 
--- FromJSON
-
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = EMR
     type Rs RemoveTags = RemoveTagsResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RemoveTagsResponse

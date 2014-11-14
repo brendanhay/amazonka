@@ -37,7 +37,6 @@ import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
-import           Debug.Trace
 import           Gen.Names
 import qualified Gen.Stage1                 as S1
 import           Gen.Stage1                 hiding (Operation)
@@ -377,16 +376,10 @@ overriden = flip (Map.foldlWithKey' run)
         f x@Nullary{} = mapFieldNames (mappend y . upperHead) x
         f x           = x
 
-    -- Fields:
-
     required s f
         | Set.member (nameCI f) s
         , TMaybe t <- f ^. typeOf = f & typeOf .~ t
         | otherwise               = f
-
-    ignored s n
-        | Set.member (nameCI n) s = Nothing
-        | otherwise               = Just n
 
     renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
 

@@ -169,13 +169,11 @@ cirLocation = lens _cirLocation (\s a -> s { _cirLocation = a })
 cirRegion :: Lens' CreateInterconnectResponse (Maybe Text)
 cirRegion = lens _cirRegion (\s a -> s { _cirRegion = a })
 
--- FromJSON
-
 instance AWSRequest CreateInterconnect where
     type Sv CreateInterconnect = DirectConnect
     type Rs CreateInterconnect = CreateInterconnectResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateInterconnectResponse
         <$> o .: "bandwidth"
         <*> o .: "interconnectId"

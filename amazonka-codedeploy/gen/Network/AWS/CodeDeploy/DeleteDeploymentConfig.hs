@@ -82,11 +82,9 @@ data DeleteDeploymentConfigResponse = DeleteDeploymentConfigResponse
 deleteDeploymentConfigResponse :: DeleteDeploymentConfigResponse
 deleteDeploymentConfigResponse = DeleteDeploymentConfigResponse
 
--- FromJSON
-
 instance AWSRequest DeleteDeploymentConfig where
     type Sv DeleteDeploymentConfig = CodeDeploy
     type Rs DeleteDeploymentConfig = DeleteDeploymentConfigResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteDeploymentConfigResponse

@@ -95,11 +95,9 @@ data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
 attachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse
 attachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
 
--- FromJSON
-
 instance AWSRequest AttachElasticLoadBalancer where
     type Sv AttachElasticLoadBalancer = OpsWorks
     type Rs AttachElasticLoadBalancer = AttachElasticLoadBalancerResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse AttachElasticLoadBalancerResponse

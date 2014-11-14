@@ -258,12 +258,10 @@ createInstanceResponse = CreateInstanceResponse
 cirInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
 cirInstanceId = lens _cirInstanceId (\s a -> s { _cirInstanceId = a })
 
--- FromJSON
-
 instance AWSRequest CreateInstance where
     type Sv CreateInstance = OpsWorks
     type Rs CreateInstance = CreateInstanceResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateInstanceResponse
         <$> o .: "InstanceId"

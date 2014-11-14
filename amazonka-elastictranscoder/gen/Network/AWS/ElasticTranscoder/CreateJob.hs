@@ -156,12 +156,10 @@ createJobResponse = CreateJobResponse
 cjrJob :: Lens' CreateJobResponse (Maybe Job)
 cjrJob = lens _cjrJob (\s a -> s { _cjrJob = a })
 
--- FromJSON
-
 instance AWSRequest CreateJob where
     type Sv CreateJob = ElasticTranscoder
     type Rs CreateJob = CreateJobResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateJobResponse
         <$> o .: "Job"

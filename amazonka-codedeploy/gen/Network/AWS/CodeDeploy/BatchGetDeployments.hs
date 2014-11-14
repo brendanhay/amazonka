@@ -105,12 +105,10 @@ bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrDeploymentsInfo =
     lens _bgdrDeploymentsInfo (\s a -> s { _bgdrDeploymentsInfo = a })
 
--- FromJSON
-
 instance AWSRequest BatchGetDeployments where
     type Sv BatchGetDeployments = CodeDeploy
     type Rs BatchGetDeployments = BatchGetDeploymentsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> BatchGetDeploymentsResponse
         <$> o .: "deploymentsInfo"

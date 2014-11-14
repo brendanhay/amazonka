@@ -164,13 +164,11 @@ qorIds = lens _qorIds (\s a -> s { _qorIds = a })
 qorMarker :: Lens' QueryObjectsResponse (Maybe Text)
 qorMarker = lens _qorMarker (\s a -> s { _qorMarker = a })
 
--- FromJSON
-
 instance AWSRequest QueryObjects where
     type Sv QueryObjects = DataPipeline
     type Rs QueryObjects = QueryObjectsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> QueryObjectsResponse
         <$> o .: "hasMoreResults"
         <*> o .: "ids"

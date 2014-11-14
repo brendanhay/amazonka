@@ -78,11 +78,9 @@ data DeleteAliasResponse = DeleteAliasResponse
 deleteAliasResponse :: DeleteAliasResponse
 deleteAliasResponse = DeleteAliasResponse
 
--- FromJSON
-
 instance AWSRequest DeleteAlias where
     type Sv DeleteAlias = KMS
     type Rs DeleteAlias = DeleteAliasResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteAliasResponse

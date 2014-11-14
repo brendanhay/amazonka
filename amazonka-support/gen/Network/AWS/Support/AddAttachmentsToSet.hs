@@ -126,13 +126,11 @@ aatsrAttachmentSetId =
 aatsrExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrExpiryTime = lens _aatsrExpiryTime (\s a -> s { _aatsrExpiryTime = a })
 
--- FromJSON
-
 instance AWSRequest AddAttachmentsToSet where
     type Sv AddAttachmentsToSet = Support
     type Rs AddAttachmentsToSet = AddAttachmentsToSetResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> AddAttachmentsToSetResponse
         <$> o .: "attachmentSetId"
         <*> o .: "expiryTime"

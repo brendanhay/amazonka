@@ -124,13 +124,11 @@ dlgrLogGroups = lens _dlgrLogGroups (\s a -> s { _dlgrLogGroups = a })
 dlgrNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrNextToken = lens _dlgrNextToken (\s a -> s { _dlgrNextToken = a })
 
--- FromJSON
-
 instance AWSRequest DescribeLogGroups where
     type Sv DescribeLogGroups = CloudWatchLogs
     type Rs DescribeLogGroups = DescribeLogGroupsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeLogGroupsResponse
         <$> o .: "logGroups"
         <*> o .: "nextToken"

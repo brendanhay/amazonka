@@ -3,9 +3,9 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "CognitoSync",
-        "error": "JSONError",
+        "error": "RESTError",
         "namespace": "Network.AWS.CognitoSync",
-        "protocol": "json",
+        "protocol": "rest-json",
         "imports": [
             "Network.AWS.CognitoSync.DeleteDataset",
             "Network.AWS.CognitoSync.DescribeDataset",
@@ -59,9 +59,9 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "CognitoSync",
-            "error": "JSONError",
+            "error": "RESTError",
             "namespace": "Network.AWS.CognitoSync",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.CognitoSync.DeleteDataset",
                 "Network.AWS.CognitoSync.DescribeDataset",
@@ -1206,7 +1206,7 @@
                 ]
             },
             "namespace": "Network.AWS.CognitoSync.DeleteDataset",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -1429,7 +1429,7 @@
                 ]
             },
             "namespace": "Network.AWS.CognitoSync.DescribeDataset",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -1652,7 +1652,7 @@
                 ]
             },
             "namespace": "Network.AWS.CognitoSync.DescribeIdentityPoolUsage",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -1820,7 +1820,7 @@
                 ]
             },
             "namespace": "Network.AWS.CognitoSync.DescribeIdentityUsage",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -2020,7 +2020,7 @@
                 ]
             },
             "namespace": "Network.AWS.CognitoSync.GetIdentityPoolConfiguration",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -2233,7 +2233,7 @@
                 ]
             },
             "namespace": "Network.AWS.CognitoSync.ListDatasets",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -2561,7 +2561,7 @@
                 ]
             },
             "namespace": "Network.AWS.CognitoSync.ListIdentityPoolUsage",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -2956,7 +2956,7 @@
                 ]
             },
             "namespace": "Network.AWS.CognitoSync.ListRecords",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -3319,7 +3319,7 @@
                 ]
             },
             "namespace": "Network.AWS.CognitoSync.RegisterDevice",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -3592,7 +3592,7 @@
                 ]
             },
             "namespace": "Network.AWS.CognitoSync.SetIdentityPoolConfiguration",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -3730,7 +3730,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.CognitoSync.SubscribeToDataset",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -3931,7 +3931,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.CognitoSync.UnsubscribeFromDataset",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"
@@ -4192,7 +4192,7 @@
                 ]
             },
             "namespace": "Network.AWS.CognitoSync.UpdateRecords",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CognitoSync.Types"

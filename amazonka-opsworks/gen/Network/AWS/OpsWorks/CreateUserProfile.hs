@@ -128,12 +128,10 @@ createUserProfileResponse = CreateUserProfileResponse
 cuprIamUserArn :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprIamUserArn = lens _cuprIamUserArn (\s a -> s { _cuprIamUserArn = a })
 
--- FromJSON
-
 instance AWSRequest CreateUserProfile where
     type Sv CreateUserProfile = OpsWorks
     type Rs CreateUserProfile = CreateUserProfileResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateUserProfileResponse
         <$> o .: "IamUserArn"

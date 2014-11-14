@@ -105,13 +105,11 @@ lvrprVolumeRecoveryPointInfos =
     lens _lvrprVolumeRecoveryPointInfos
         (\s a -> s { _lvrprVolumeRecoveryPointInfos = a })
 
--- FromJSON
-
 instance AWSRequest ListVolumeRecoveryPoints where
     type Sv ListVolumeRecoveryPoints = StorageGateway
     type Rs ListVolumeRecoveryPoints = ListVolumeRecoveryPointsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListVolumeRecoveryPointsResponse
         <$> o .: "GatewayARN"
         <*> o .: "VolumeRecoveryPointInfos"

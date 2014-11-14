@@ -251,13 +251,11 @@ apvirVirtualInterfaceType =
 apvirVlan :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Int)
 apvirVlan = lens _apvirVlan (\s a -> s { _apvirVlan = a })
 
--- FromJSON
-
 instance AWSRequest AllocatePrivateVirtualInterface where
     type Sv AllocatePrivateVirtualInterface = DirectConnect
     type Rs AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterfaceResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> AllocatePrivateVirtualInterfaceResponse
         <$> o .: "amazonAddress"
         <*> o .: "asn"

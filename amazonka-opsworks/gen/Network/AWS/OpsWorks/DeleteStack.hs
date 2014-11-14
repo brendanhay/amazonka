@@ -82,11 +82,9 @@ data DeleteStackResponse = DeleteStackResponse
 deleteStackResponse :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse
 
--- FromJSON
-
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = OpsWorks
     type Rs DeleteStack = DeleteStackResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteStackResponse

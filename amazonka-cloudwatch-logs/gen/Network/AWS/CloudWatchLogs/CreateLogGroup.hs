@@ -82,11 +82,9 @@ data CreateLogGroupResponse = CreateLogGroupResponse
 createLogGroupResponse :: CreateLogGroupResponse
 createLogGroupResponse = CreateLogGroupResponse
 
--- FromJSON
-
 instance AWSRequest CreateLogGroup where
     type Sv CreateLogGroup = CloudWatchLogs
     type Rs CreateLogGroup = CreateLogGroupResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse CreateLogGroupResponse

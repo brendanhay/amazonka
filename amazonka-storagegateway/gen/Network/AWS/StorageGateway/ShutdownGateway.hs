@@ -100,12 +100,10 @@ shutdownGatewayResponse = ShutdownGatewayResponse
 sgr1GatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
 sgr1GatewayARN = lens _sgr1GatewayARN (\s a -> s { _sgr1GatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest ShutdownGateway where
     type Sv ShutdownGateway = StorageGateway
     type Rs ShutdownGateway = ShutdownGatewayResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ShutdownGatewayResponse
         <$> o .: "GatewayARN"

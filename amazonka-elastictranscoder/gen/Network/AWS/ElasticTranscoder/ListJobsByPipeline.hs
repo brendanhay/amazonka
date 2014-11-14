@@ -133,13 +133,11 @@ ljbprNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
 ljbprNextPageToken =
     lens _ljbprNextPageToken (\s a -> s { _ljbprNextPageToken = a })
 
--- FromJSON
-
 instance AWSRequest ListJobsByPipeline where
     type Sv ListJobsByPipeline = ElasticTranscoder
     type Rs ListJobsByPipeline = ListJobsByPipelineResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> ListJobsByPipelineResponse
         <$> o .: "Jobs"
         <*> o .: "NextPageToken"

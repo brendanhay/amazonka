@@ -96,6 +96,8 @@ module Network.AWS.S3.Types
     -- * NotificationConfiguration
     , NotificationConfiguration
     , notificationConfiguration
+    , ncCloudFunctionConfiguration
+    , ncQueueConfiguration
     , ncTopicConfiguration
 
     -- * S3ServiceError
@@ -202,7 +204,17 @@ module Network.AWS.S3.Types
     , TopicConfiguration
     , topicConfiguration
     , tcEvent
+    , tcEvents
+    , tcId
     , tcTopic
+
+    -- * QueueConfiguration
+    , QueueConfiguration
+    , queueConfiguration
+    , qcEvent
+    , qcEvents
+    , qcId
+    , qcQueue
 
     -- * Owner
     , Owner
@@ -343,6 +355,15 @@ module Network.AWS.S3.Types
     -- * MFADelete
     , MFADelete (..)
 
+    -- * CloudFunctionConfiguration
+    , CloudFunctionConfiguration
+    , cloudFunctionConfiguration
+    , cfcCloudFunction
+    , cfcEvent
+    , cfcEvents
+    , cfcId
+    , cfcInvocationRole
+
     -- * Grantee
     , Grantee
     , grantee
@@ -393,8 +414,8 @@ module Network.AWS.S3.Types
     , module Network.AWS.S3.Internal
     ) where
 
-import Network.AWS.Prelude
 import Network.AWS.Error
+import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import Network.AWS.S3.Internal
 import qualified GHC.Exts
@@ -420,16 +441,29 @@ xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
 
 data Event
-    = S3ReducedRedundancyLostObject -- ^ s3:ReducedRedundancyLostObject
+    = S3ObjectCreatedCompleteMultipartUpload -- ^ s3:ObjectCreated:CompleteMultipartUpload
+    | S3ObjectCreatedCopy                    -- ^ s3:ObjectCreated:Copy
+    | S3ObjectCreatedPost                    -- ^ s3:ObjectCreated:Post
+    | S3ObjectCreatedPut                     -- ^ s3:ObjectCreated:Put
+    | S3ReducedRedundancyLostObject          -- ^ s3:ReducedRedundancyLostObject
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable Event
 
 instance FromText Event where
-    parser = match "s3:ReducedRedundancyLostObject" S3ReducedRedundancyLostObject
+    parser = match "s3:ObjectCreated:CompleteMultipartUpload" S3ObjectCreatedCompleteMultipartUpload
+         <|> match "s3:ObjectCreated:Copy"                    S3ObjectCreatedCopy
+         <|> match "s3:ObjectCreated:Post"                    S3ObjectCreatedPost
+         <|> match "s3:ObjectCreated:Put"                     S3ObjectCreatedPut
+         <|> match "s3:ReducedRedundancyLostObject"           S3ReducedRedundancyLostObject
 
 instance ToText Event where
-    toText S3ReducedRedundancyLostObject = "s3:ReducedRedundancyLostObject"
+    toText = \case
+        S3ObjectCreatedCompleteMultipartUpload -> "s3:ObjectCreated:CompleteMultipartUpload"
+        S3ObjectCreatedCopy                    -> "s3:ObjectCreated:Copy"
+        S3ObjectCreatedPost                    -> "s3:ObjectCreated:Post"
+        S3ObjectCreatedPut                     -> "s3:ObjectCreated:Put"
+        S3ReducedRedundancyLostObject          -> "s3:ReducedRedundancyLostObject"
 
 instance FromXML Event where
     fromXMLOptions = xmlOptions
@@ -858,23 +892,39 @@ instance ToXML RoutingRule where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "RoutingRule"
 
-newtype NotificationConfiguration = NotificationConfiguration
-    { _ncTopicConfiguration :: TopicConfiguration
+data NotificationConfiguration = NotificationConfiguration
+    { _ncCloudFunctionConfiguration :: Maybe CloudFunctionConfiguration
+    , _ncQueueConfiguration         :: Maybe QueueConfiguration
+    , _ncTopicConfiguration         :: Maybe TopicConfiguration
     } deriving (Eq, Show, Generic)
 
 -- | 'NotificationConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ncTopicConfiguration' @::@ 'TopicConfiguration'
+-- * 'ncCloudFunctionConfiguration' @::@ 'Maybe' 'CloudFunctionConfiguration'
 --
-notificationConfiguration :: TopicConfiguration -- ^ 'ncTopicConfiguration'
-                          -> NotificationConfiguration
-notificationConfiguration p1 = NotificationConfiguration
-    { _ncTopicConfiguration = p1
+-- * 'ncQueueConfiguration' @::@ 'Maybe' 'QueueConfiguration'
+--
+-- * 'ncTopicConfiguration' @::@ 'Maybe' 'TopicConfiguration'
+--
+notificationConfiguration :: NotificationConfiguration
+notificationConfiguration = NotificationConfiguration
+    { _ncTopicConfiguration         = Nothing
+    , _ncQueueConfiguration         = Nothing
+    , _ncCloudFunctionConfiguration = Nothing
     }
 
-ncTopicConfiguration :: Lens' NotificationConfiguration TopicConfiguration
+ncCloudFunctionConfiguration :: Lens' NotificationConfiguration (Maybe CloudFunctionConfiguration)
+ncCloudFunctionConfiguration =
+    lens _ncCloudFunctionConfiguration
+        (\s a -> s { _ncCloudFunctionConfiguration = a })
+
+ncQueueConfiguration :: Lens' NotificationConfiguration (Maybe QueueConfiguration)
+ncQueueConfiguration =
+    lens _ncQueueConfiguration (\s a -> s { _ncQueueConfiguration = a })
+
+ncTopicConfiguration :: Lens' NotificationConfiguration (Maybe TopicConfiguration)
 ncTopicConfiguration =
     lens _ncTopicConfiguration (\s a -> s { _ncTopicConfiguration = a })
 
@@ -1550,8 +1600,10 @@ instance ToXML Rule where
     toXMLRoot    = toRoot "Rule"
 
 data TopicConfiguration = TopicConfiguration
-    { _tcEvent :: Maybe Text
-    , _tcTopic :: Maybe Text
+    { _tcEvent  :: Maybe Text
+    , _tcEvents :: [Text]
+    , _tcId     :: Maybe Text
+    , _tcTopic  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'TopicConfiguration' constructor.
@@ -1560,17 +1612,29 @@ data TopicConfiguration = TopicConfiguration
 --
 -- * 'tcEvent' @::@ 'Maybe' 'Text'
 --
+-- * 'tcEvents' @::@ ['Text']
+--
+-- * 'tcId' @::@ 'Maybe' 'Text'
+--
 -- * 'tcTopic' @::@ 'Maybe' 'Text'
 --
 topicConfiguration :: TopicConfiguration
 topicConfiguration = TopicConfiguration
-    { _tcEvent = Nothing
-    , _tcTopic = Nothing
+    { _tcId     = Nothing
+    , _tcEvents = mempty
+    , _tcEvent  = Nothing
+    , _tcTopic  = Nothing
     }
 
 -- | Bucket event for which to send notifications.
 tcEvent :: Lens' TopicConfiguration (Maybe Text)
 tcEvent = lens _tcEvent (\s a -> s { _tcEvent = a })
+
+tcEvents :: Lens' TopicConfiguration [Text]
+tcEvents = lens _tcEvents (\s a -> s { _tcEvents = a })
+
+tcId :: Lens' TopicConfiguration (Maybe Text)
+tcId = lens _tcId (\s a -> s { _tcId = a })
 
 -- | Amazon SNS topic to which Amazon S3 will publish a message to report the
 -- specified events for the bucket.
@@ -1584,6 +1648,53 @@ instance FromXML TopicConfiguration where
 instance ToXML TopicConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "TopicConfiguration"
+
+data QueueConfiguration = QueueConfiguration
+    { _qcEvent  :: Maybe Text
+    , _qcEvents :: [Text]
+    , _qcId     :: Maybe Text
+    , _qcQueue  :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'QueueConfiguration' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'qcEvent' @::@ 'Maybe' 'Text'
+--
+-- * 'qcEvents' @::@ ['Text']
+--
+-- * 'qcId' @::@ 'Maybe' 'Text'
+--
+-- * 'qcQueue' @::@ 'Maybe' 'Text'
+--
+queueConfiguration :: QueueConfiguration
+queueConfiguration = QueueConfiguration
+    { _qcId     = Nothing
+    , _qcEvent  = Nothing
+    , _qcEvents = mempty
+    , _qcQueue  = Nothing
+    }
+
+qcEvent :: Lens' QueueConfiguration (Maybe Text)
+qcEvent = lens _qcEvent (\s a -> s { _qcEvent = a })
+
+qcEvents :: Lens' QueueConfiguration [Text]
+qcEvents = lens _qcEvents (\s a -> s { _qcEvents = a })
+
+qcId :: Lens' QueueConfiguration (Maybe Text)
+qcId = lens _qcId (\s a -> s { _qcId = a })
+
+qcQueue :: Lens' QueueConfiguration (Maybe Text)
+qcQueue = lens _qcQueue (\s a -> s { _qcQueue = a })
+
+instance FromXML QueueConfiguration where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "QueueConfiguration"
+
+instance ToXML QueueConfiguration where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "QueueConfiguration"
 
 data Owner = Owner
     { _oDisplayName :: Maybe Text
@@ -2532,6 +2643,61 @@ instance FromXML MFADelete where
 instance ToXML MFADelete where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "MFADelete"
+
+data CloudFunctionConfiguration = CloudFunctionConfiguration
+    { _cfcCloudFunction  :: Maybe Text
+    , _cfcEvent          :: Maybe Text
+    , _cfcEvents         :: [Text]
+    , _cfcId             :: Maybe Text
+    , _cfcInvocationRole :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'CloudFunctionConfiguration' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cfcCloudFunction' @::@ 'Maybe' 'Text'
+--
+-- * 'cfcEvent' @::@ 'Maybe' 'Text'
+--
+-- * 'cfcEvents' @::@ ['Text']
+--
+-- * 'cfcId' @::@ 'Maybe' 'Text'
+--
+-- * 'cfcInvocationRole' @::@ 'Maybe' 'Text'
+--
+cloudFunctionConfiguration :: CloudFunctionConfiguration
+cloudFunctionConfiguration = CloudFunctionConfiguration
+    { _cfcId             = Nothing
+    , _cfcEvent          = Nothing
+    , _cfcEvents         = mempty
+    , _cfcCloudFunction  = Nothing
+    , _cfcInvocationRole = Nothing
+    }
+
+cfcCloudFunction :: Lens' CloudFunctionConfiguration (Maybe Text)
+cfcCloudFunction = lens _cfcCloudFunction (\s a -> s { _cfcCloudFunction = a })
+
+cfcEvent :: Lens' CloudFunctionConfiguration (Maybe Text)
+cfcEvent = lens _cfcEvent (\s a -> s { _cfcEvent = a })
+
+cfcEvents :: Lens' CloudFunctionConfiguration [Text]
+cfcEvents = lens _cfcEvents (\s a -> s { _cfcEvents = a })
+
+cfcId :: Lens' CloudFunctionConfiguration (Maybe Text)
+cfcId = lens _cfcId (\s a -> s { _cfcId = a })
+
+cfcInvocationRole :: Lens' CloudFunctionConfiguration (Maybe Text)
+cfcInvocationRole =
+    lens _cfcInvocationRole (\s a -> s { _cfcInvocationRole = a })
+
+instance FromXML CloudFunctionConfiguration where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CloudFunctionConfiguration"
+
+instance ToXML CloudFunctionConfiguration where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CloudFunctionConfiguration"
 
 data Grantee = Grantee
     { _gDisplayName  :: Maybe Text

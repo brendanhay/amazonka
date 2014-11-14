@@ -78,11 +78,9 @@ data DeleteLogGroupResponse = DeleteLogGroupResponse
 deleteLogGroupResponse :: DeleteLogGroupResponse
 deleteLogGroupResponse = DeleteLogGroupResponse
 
--- FromJSON
-
 instance AWSRequest DeleteLogGroup where
     type Sv DeleteLogGroup = CloudWatchLogs
     type Rs DeleteLogGroup = DeleteLogGroupResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteLogGroupResponse

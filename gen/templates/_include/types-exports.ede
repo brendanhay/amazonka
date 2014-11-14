@@ -22,6 +22,7 @@ module {{ namespace }}
     , {{ service.error }}
 {% case service.protocol %}
 {% when "json" %}
+{% when "rest-json" %}
 {% else %}
     -- ** XML
     , xmlOptions

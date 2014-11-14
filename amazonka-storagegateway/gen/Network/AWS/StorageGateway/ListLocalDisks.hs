@@ -102,13 +102,11 @@ lldrDisks = lens _lldrDisks (\s a -> s { _lldrDisks = a })
 lldrGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
 lldrGatewayARN = lens _lldrGatewayARN (\s a -> s { _lldrGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest ListLocalDisks where
     type Sv ListLocalDisks = StorageGateway
     type Rs ListLocalDisks = ListLocalDisksResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListLocalDisksResponse
         <$> o .: "Disks"
         <*> o .: "GatewayARN"

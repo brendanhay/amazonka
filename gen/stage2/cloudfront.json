@@ -5,7 +5,7 @@
         "abbrev": "CloudFront",
         "error": "RESTError",
         "namespace": "Network.AWS.CloudFront",
-        "protocol": "xml",
+        "protocol": "rest-xml",
         "imports": [
             "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity",
             "Network.AWS.CloudFront.CreateDistribution",
@@ -77,7 +77,7 @@
             "abbrev": "CloudFront",
             "error": "RESTError",
             "namespace": "Network.AWS.CloudFront",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity",
                 "Network.AWS.CloudFront.CreateDistribution",
@@ -6542,7 +6542,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -6757,7 +6757,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.CreateDistribution",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -6944,7 +6944,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.CreateInvalidation",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -7180,7 +7180,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.CreateStreamingDistribution",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -7296,7 +7296,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -7424,7 +7424,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.CloudFront.DeleteDistribution",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -7552,7 +7552,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.CloudFront.DeleteStreamingDistribution",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -7751,7 +7751,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -7932,7 +7932,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -8117,7 +8117,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.GetDistribution",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -8298,7 +8298,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.GetDistributionConfig",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -8470,7 +8470,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.GetInvalidation",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -8670,7 +8670,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.GetStreamingDistribution",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -8851,7 +8851,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.GetStreamingDistributionConfig",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -9023,7 +9023,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -9209,7 +9209,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.ListDistributions",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -9395,7 +9395,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.ListInvalidations",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -9618,7 +9618,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.ListStreamingDistributions",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -9817,7 +9817,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -10060,7 +10060,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.UpdateDistribution",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
@@ -10303,7 +10303,7 @@
                 ]
             },
             "namespace": "Network.AWS.CloudFront.UpdateStreamingDistribution",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"

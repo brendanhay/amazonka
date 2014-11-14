@@ -80,11 +80,9 @@ data RetireGrantResponse = RetireGrantResponse
 retireGrantResponse :: RetireGrantResponse
 retireGrantResponse = RetireGrantResponse
 
--- FromJSON
-
 instance AWSRequest RetireGrant where
     type Sv RetireGrant = KMS
     type Rs RetireGrant = RetireGrantResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RetireGrantResponse

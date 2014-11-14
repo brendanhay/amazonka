@@ -99,12 +99,10 @@ dcsrConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
 dcsrConfigSnapshotId =
     lens _dcsrConfigSnapshotId (\s a -> s { _dcsrConfigSnapshotId = a })
 
--- FromJSON
-
 instance AWSRequest DeliverConfigSnapshot where
     type Sv DeliverConfigSnapshot = Config
     type Rs DeliverConfigSnapshot = DeliverConfigSnapshotResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeliverConfigSnapshotResponse
         <$> o .: "configSnapshotId"

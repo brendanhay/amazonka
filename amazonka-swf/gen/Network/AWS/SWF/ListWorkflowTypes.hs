@@ -172,13 +172,11 @@ lwtrNextPageToken =
 lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
 lwtrTypeInfos = lens _lwtrTypeInfos (\s a -> s { _lwtrTypeInfos = a })
 
--- FromJSON
-
 instance AWSRequest ListWorkflowTypes where
     type Sv ListWorkflowTypes = SWF
     type Rs ListWorkflowTypes = ListWorkflowTypesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListWorkflowTypesResponse
         <$> o .: "nextPageToken"
         <*> o .: "typeInfos"

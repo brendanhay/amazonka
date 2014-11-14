@@ -131,12 +131,10 @@ updateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
 ussrVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrVolumeARN = lens _ussrVolumeARN (\s a -> s { _ussrVolumeARN = a })
 
--- FromJSON
-
 instance AWSRequest UpdateSnapshotSchedule where
     type Sv UpdateSnapshotSchedule = StorageGateway
     type Rs UpdateSnapshotSchedule = UpdateSnapshotScheduleResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateSnapshotScheduleResponse
         <$> o .: "VolumeARN"

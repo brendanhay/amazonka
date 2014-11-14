@@ -233,12 +233,10 @@ registerDomainResponse p1 = RegisterDomainResponse
 rdrOperationId :: Lens' RegisterDomainResponse Text
 rdrOperationId = lens _rdrOperationId (\s a -> s { _rdrOperationId = a })
 
--- FromJSON
-
 instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = Route53Domains
     type Rs RegisterDomain = RegisterDomainResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> RegisterDomainResponse
         <$> o .: "OperationId"

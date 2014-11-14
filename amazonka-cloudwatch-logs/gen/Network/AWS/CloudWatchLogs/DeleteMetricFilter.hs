@@ -86,11 +86,9 @@ data DeleteMetricFilterResponse = DeleteMetricFilterResponse
 deleteMetricFilterResponse :: DeleteMetricFilterResponse
 deleteMetricFilterResponse = DeleteMetricFilterResponse
 
--- FromJSON
-
 instance AWSRequest DeleteMetricFilter where
     type Sv DeleteMetricFilter = CloudWatchLogs
     type Rs DeleteMetricFilter = DeleteMetricFilterResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteMetricFilterResponse

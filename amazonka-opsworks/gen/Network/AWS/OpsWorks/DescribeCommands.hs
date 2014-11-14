@@ -124,12 +124,10 @@ describeCommandsResponse = DescribeCommandsResponse
 dcrCommands :: Lens' DescribeCommandsResponse [Command]
 dcrCommands = lens _dcrCommands (\s a -> s { _dcrCommands = a })
 
--- FromJSON
-
 instance AWSRequest DescribeCommands where
     type Sv DescribeCommands = OpsWorks
     type Rs DescribeCommands = DescribeCommandsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeCommandsResponse
         <$> o .: "Commands"

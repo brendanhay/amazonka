@@ -5,7 +5,7 @@
         "abbrev": "S3",
         "error": "RESTError",
         "namespace": "Network.AWS.S3",
-        "protocol": "xml",
+        "protocol": "rest-xml",
         "imports": [
             "Network.AWS.S3.AbortMultipartUpload",
             "Network.AWS.S3.CompleteMultipartUpload",
@@ -135,7 +135,7 @@
             "abbrev": "S3",
             "error": "RESTError",
             "namespace": "Network.AWS.S3",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.S3.AbortMultipartUpload",
                 "Network.AWS.S3.CompleteMultipartUpload",
@@ -206,12 +206,16 @@
                     "Enum"
                 ],
                 "branches": {
-                    "S3ReducedRedundancyLostObject": "s3:ReducedRedundancyLostObject"
+                    "S3ObjectCreatedPut": "s3:ObjectCreated:Put",
+                    "S3ReducedRedundancyLostObject": "s3:ReducedRedundancyLostObject",
+                    "S3ObjectCreatedPost": "s3:ObjectCreated:Post",
+                    "S3ObjectCreatedCopy": "s3:ObjectCreated:Copy",
+                    "S3ObjectCreatedCompleteMultipartUpload": "s3:ObjectCreated:CompleteMultipartUpload"
                 },
-                "valuePad": 31,
+                "valuePad": 41,
                 "name": "Event",
                 "type": "nullary",
-                "branchPad": 29
+                "branchPad": 38
             },
             {
                 "deriving": [
@@ -1126,70 +1130,111 @@
                     "Show",
                     "Generic"
                 ],
-                "listElement": null,
-                "fieldPad": 0,
+                "fieldPad": 29,
                 "ctor": "notificationConfiguration",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ncTopicConfiguration",
-                    "name": "_ncTopicConfiguration",
-                    "shape": "TopicConfiguration",
-                    "locationName": "TopicConfiguration",
-                    "documentation": null,
-                    "typeExposed": "TopicConfiguration",
-                    "type": "TopicConfiguration"
-                },
                 "payload": {
                     "location": "body-xml",
                     "iso": null,
                     "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
+                    "default": "Nothing",
+                    "required": false,
                     "lens": "ncTopicConfiguration",
                     "name": "_ncTopicConfiguration",
                     "shape": "TopicConfiguration",
                     "locationName": "TopicConfiguration",
                     "documentation": null,
-                    "typeExposed": "TopicConfiguration",
-                    "type": "TopicConfiguration"
+                    "typeExposed": "Maybe TopicConfiguration",
+                    "type": "Maybe TopicConfiguration"
                 },
-                "required": [
+                "required": [],
+                "name": "NotificationConfiguration",
+                "type": "record",
+                "optional": [
                     {
                         "location": "body-xml",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "\u003cerror\u003e",
-                        "required": true,
+                        "default": "Nothing",
+                        "required": false,
                         "lens": "ncTopicConfiguration",
                         "name": "_ncTopicConfiguration",
                         "shape": "TopicConfiguration",
                         "locationName": "TopicConfiguration",
                         "documentation": null,
-                        "typeExposed": "TopicConfiguration",
-                        "type": "TopicConfiguration"
+                        "typeExposed": "Maybe TopicConfiguration",
+                        "type": "Maybe TopicConfiguration"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ncQueueConfiguration",
+                        "name": "_ncQueueConfiguration",
+                        "shape": "QueueConfiguration",
+                        "locationName": "QueueConfiguration",
+                        "documentation": null,
+                        "typeExposed": "Maybe QueueConfiguration",
+                        "type": "Maybe QueueConfiguration"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ncCloudFunctionConfiguration",
+                        "name": "_ncCloudFunctionConfiguration",
+                        "shape": "CloudFunctionConfiguration",
+                        "locationName": "CloudFunctionConfiguration",
+                        "documentation": null,
+                        "typeExposed": "Maybe CloudFunctionConfiguration",
+                        "type": "Maybe CloudFunctionConfiguration"
                     }
                 ],
-                "name": "NotificationConfiguration",
-                "type": "newtype",
-                "optional": [],
                 "fields": [
                     {
                         "location": "body-xml",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "\u003cerror\u003e",
-                        "required": true,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ncCloudFunctionConfiguration",
+                        "name": "_ncCloudFunctionConfiguration",
+                        "shape": "CloudFunctionConfiguration",
+                        "locationName": "CloudFunctionConfiguration",
+                        "documentation": null,
+                        "typeExposed": "Maybe CloudFunctionConfiguration",
+                        "type": "Maybe CloudFunctionConfiguration"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ncQueueConfiguration",
+                        "name": "_ncQueueConfiguration",
+                        "shape": "QueueConfiguration",
+                        "locationName": "QueueConfiguration",
+                        "documentation": null,
+                        "typeExposed": "Maybe QueueConfiguration",
+                        "type": "Maybe QueueConfiguration"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
                         "lens": "ncTopicConfiguration",
                         "name": "_ncTopicConfiguration",
                         "shape": "TopicConfiguration",
                         "locationName": "TopicConfiguration",
                         "documentation": null,
-                        "typeExposed": "TopicConfiguration",
-                        "type": "TopicConfiguration"
+                        "typeExposed": "Maybe TopicConfiguration",
+                        "type": "Maybe TopicConfiguration"
                     }
                 ]
             },
@@ -2711,7 +2756,7 @@
                     "Show",
                     "Generic"
                 ],
-                "fieldPad": 8,
+                "fieldPad": 9,
                 "ctor": "topicConfiguration",
                 "payload": {
                     "location": "body-xml",
@@ -2719,11 +2764,11 @@
                     "lensMapping": null,
                     "default": "Nothing",
                     "required": false,
-                    "lens": "tcEvent",
-                    "name": "_tcEvent",
-                    "shape": "Event",
-                    "locationName": "Event",
-                    "documentation": "Bucket event for which to send notifications.",
+                    "lens": "tcId",
+                    "name": "_tcId",
+                    "shape": "NotificationId",
+                    "locationName": "Id",
+                    "documentation": null,
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -2731,6 +2776,34 @@
                 "name": "TopicConfiguration",
                 "type": "record",
                 "optional": [
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "tcId",
+                        "name": "_tcId",
+                        "shape": "NotificationId",
+                        "locationName": "Id",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "tcEvents",
+                        "name": "_tcEvents",
+                        "shape": "Events",
+                        "locationName": "Event",
+                        "documentation": null,
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
                     {
                         "location": "body-xml",
                         "iso": null,
@@ -2779,6 +2852,34 @@
                         "location": "body-xml",
                         "iso": null,
                         "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "tcEvents",
+                        "name": "_tcEvents",
+                        "shape": "Events",
+                        "locationName": "Event",
+                        "documentation": null,
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "tcId",
+                        "name": "_tcId",
+                        "shape": "NotificationId",
+                        "locationName": "Id",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
                         "lens": "tcTopic",
@@ -2786,6 +2887,149 @@
                         "shape": "Topic",
                         "locationName": "Topic",
                         "documentation": "Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 9,
+                "ctor": "queueConfiguration",
+                "payload": {
+                    "location": "body-xml",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "qcId",
+                    "name": "_qcId",
+                    "shape": "NotificationId",
+                    "locationName": "Id",
+                    "documentation": null,
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "QueueConfiguration",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "qcId",
+                        "name": "_qcId",
+                        "shape": "NotificationId",
+                        "locationName": "Id",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "qcEvent",
+                        "name": "_qcEvent",
+                        "shape": "Event",
+                        "locationName": "Event",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "qcEvents",
+                        "name": "_qcEvents",
+                        "shape": "Events",
+                        "locationName": "Event",
+                        "documentation": null,
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "qcQueue",
+                        "name": "_qcQueue",
+                        "shape": "Queue",
+                        "locationName": "Queue",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "qcEvent",
+                        "name": "_qcEvent",
+                        "shape": "Event",
+                        "locationName": "Event",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "qcEvents",
+                        "name": "_qcEvents",
+                        "shape": "Events",
+                        "locationName": "Event",
+                        "documentation": null,
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "qcId",
+                        "name": "_qcId",
+                        "shape": "NotificationId",
+                        "locationName": "Id",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "qcQueue",
+                        "name": "_qcQueue",
+                        "shape": "Queue",
+                        "locationName": "Queue",
+                        "documentation": null,
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4822,6 +5066,177 @@
                     "Show",
                     "Generic"
                 ],
+                "fieldPad": 18,
+                "ctor": "cloudFunctionConfiguration",
+                "payload": {
+                    "location": "body-xml",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "cfcId",
+                    "name": "_cfcId",
+                    "shape": "NotificationId",
+                    "locationName": "Id",
+                    "documentation": null,
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "CloudFunctionConfiguration",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cfcId",
+                        "name": "_cfcId",
+                        "shape": "NotificationId",
+                        "locationName": "Id",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cfcEvent",
+                        "name": "_cfcEvent",
+                        "shape": "Event",
+                        "locationName": "Event",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "cfcEvents",
+                        "name": "_cfcEvents",
+                        "shape": "Events",
+                        "locationName": "Event",
+                        "documentation": null,
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cfcCloudFunction",
+                        "name": "_cfcCloudFunction",
+                        "shape": "CloudFunction",
+                        "locationName": "CloudFunction",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cfcInvocationRole",
+                        "name": "_cfcInvocationRole",
+                        "shape": "CloudFunctionInvocationRole",
+                        "locationName": "InvocationRole",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cfcCloudFunction",
+                        "name": "_cfcCloudFunction",
+                        "shape": "CloudFunction",
+                        "locationName": "CloudFunction",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cfcEvent",
+                        "name": "_cfcEvent",
+                        "shape": "Event",
+                        "locationName": "Event",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "cfcEvents",
+                        "name": "_cfcEvents",
+                        "shape": "Events",
+                        "locationName": "Event",
+                        "documentation": null,
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cfcId",
+                        "name": "_cfcId",
+                        "shape": "NotificationId",
+                        "locationName": "Id",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cfcInvocationRole",
+                        "name": "_cfcInvocationRole",
+                        "shape": "CloudFunctionInvocationRole",
+                        "locationName": "InvocationRole",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "fieldPad": 14,
                 "ctor": "grantee",
                 "payload": {
@@ -5547,7 +5962,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.AbortMultipartUpload",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -5951,7 +6366,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.CompleteMultipartUpload",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -6367,7 +6782,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.CopyObject",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -7469,7 +7884,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.CreateBucket",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -8015,7 +8430,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.CreateMultipartUpload",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -8778,7 +9193,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.DeleteBucket",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -8889,7 +9304,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.DeleteBucketCors",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -9005,7 +9420,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.DeleteBucketLifecycle",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -9121,7 +9536,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.DeleteBucketPolicy",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -9237,7 +9652,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.DeleteBucketTagging",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -9353,7 +9768,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.DeleteBucketWebsite",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -9528,7 +9943,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.DeleteObject",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -9798,7 +10213,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.DeleteObjects",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -10043,7 +10458,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetBucketAcl",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -10219,7 +10634,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetBucketCors",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -10395,7 +10810,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetBucketLifecycle",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -10571,7 +10986,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetBucketLocation",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -10745,7 +11160,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetBucketLogging",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -10848,23 +11263,8 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "listElement": null,
-                "fieldPad": 0,
+                "fieldPad": 31,
                 "ctor": "getBucketNotificationResponse",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "gbnrTopicConfiguration",
-                    "name": "_gbnrTopicConfiguration",
-                    "shape": "TopicConfiguration",
-                    "locationName": "TopicConfiguration",
-                    "documentation": null,
-                    "typeExposed": "Maybe TopicConfiguration",
-                    "type": "Maybe TopicConfiguration"
-                },
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -10884,7 +11284,7 @@
                 "shared": false,
                 "name": "GetBucketNotificationResponse",
                 "resultWrapper": null,
-                "type": "newtype",
+                "type": "record",
                 "optional": [
                     {
                         "location": "body-xml",
@@ -10899,9 +11299,65 @@
                         "documentation": null,
                         "typeExposed": "Maybe TopicConfiguration",
                         "type": "Maybe TopicConfiguration"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gbnrQueueConfiguration",
+                        "name": "_gbnrQueueConfiguration",
+                        "shape": "QueueConfiguration",
+                        "locationName": "QueueConfiguration",
+                        "documentation": null,
+                        "typeExposed": "Maybe QueueConfiguration",
+                        "type": "Maybe QueueConfiguration"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gbnrCloudFunctionConfiguration",
+                        "name": "_gbnrCloudFunctionConfiguration",
+                        "shape": "CloudFunctionConfiguration",
+                        "locationName": "CloudFunctionConfiguration",
+                        "documentation": null,
+                        "typeExposed": "Maybe CloudFunctionConfiguration",
+                        "type": "Maybe CloudFunctionConfiguration"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gbnrCloudFunctionConfiguration",
+                        "name": "_gbnrCloudFunctionConfiguration",
+                        "shape": "CloudFunctionConfiguration",
+                        "locationName": "CloudFunctionConfiguration",
+                        "documentation": null,
+                        "typeExposed": "Maybe CloudFunctionConfiguration",
+                        "type": "Maybe CloudFunctionConfiguration"
+                    },
+                    {
+                        "location": "body-xml",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gbnrQueueConfiguration",
+                        "name": "_gbnrQueueConfiguration",
+                        "shape": "QueueConfiguration",
+                        "locationName": "QueueConfiguration",
+                        "documentation": null,
+                        "typeExposed": "Maybe QueueConfiguration",
+                        "type": "Maybe QueueConfiguration"
+                    },
                     {
                         "location": "body-xml",
                         "iso": null,
@@ -10919,7 +11375,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetBucketNotification",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -11095,7 +11551,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetBucketPolicy",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -11271,7 +11727,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetBucketRequestPayment",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -11447,7 +11903,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetBucketTagging",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -11635,7 +12091,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetBucketVersioning",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -11878,7 +12334,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetBucketWebsite",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -12625,7 +13081,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetObject",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -13357,7 +13813,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetObjectAcl",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -13583,7 +14039,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.GetObjectTorrent",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -13718,7 +14174,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.HeadBucket",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -14419,7 +14875,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.HeadObject",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -14953,7 +15409,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.ListBuckets",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -15363,7 +15819,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.ListMultipartUploads",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -16040,7 +16496,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.ListObjectVersions",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -16633,7 +17089,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.ListObjects",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -17217,7 +17673,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.ListParts",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -17448,7 +17904,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.PutBucketAcl",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -17820,7 +18276,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.PutBucketCors",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -17994,7 +18450,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.PutBucketLifecycle",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -18168,7 +18624,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.PutBucketLogging",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -18342,7 +18798,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.PutBucketNotification",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -18516,7 +18972,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.PutBucketPolicy",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -18691,7 +19147,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.PutBucketRequestPayment",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -18865,7 +19321,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.PutBucketTagging",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -19039,7 +19495,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.PutBucketVersioning",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -19246,7 +19702,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.PutBucketWebsite",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -19619,7 +20075,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.PutObject",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -20483,7 +20939,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.PutObjectAcl",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -20891,7 +21347,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.S3.RestoreObject",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -21243,7 +21699,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.UploadPart",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
@@ -21862,7 +22318,7 @@
                 ]
             },
             "namespace": "Network.AWS.S3.UploadPartCopy",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"

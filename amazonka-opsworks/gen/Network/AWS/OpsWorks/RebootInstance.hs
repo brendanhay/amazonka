@@ -82,11 +82,9 @@ data RebootInstanceResponse = RebootInstanceResponse
 rebootInstanceResponse :: RebootInstanceResponse
 rebootInstanceResponse = RebootInstanceResponse
 
--- FromJSON
-
 instance AWSRequest RebootInstance where
     type Sv RebootInstance = OpsWorks
     type Rs RebootInstance = RebootInstanceResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RebootInstanceResponse

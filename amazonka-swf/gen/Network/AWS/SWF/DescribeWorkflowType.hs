@@ -134,13 +134,11 @@ dwtrConfiguration =
 dwtrTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
 dwtrTypeInfo = lens _dwtrTypeInfo (\s a -> s { _dwtrTypeInfo = a })
 
--- FromJSON
-
 instance AWSRequest DescribeWorkflowType where
     type Sv DescribeWorkflowType = SWF
     type Rs DescribeWorkflowType = DescribeWorkflowTypeResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeWorkflowTypeResponse
         <$> o .: "configuration"
         <*> o .: "typeInfo"

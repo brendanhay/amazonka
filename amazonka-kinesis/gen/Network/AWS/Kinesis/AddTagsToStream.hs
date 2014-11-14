@@ -91,11 +91,9 @@ data AddTagsToStreamResponse = AddTagsToStreamResponse
 addTagsToStreamResponse :: AddTagsToStreamResponse
 addTagsToStreamResponse = AddTagsToStreamResponse
 
--- FromJSON
-
 instance AWSRequest AddTagsToStream where
     type Sv AddTagsToStream = Kinesis
     type Rs AddTagsToStream = AddTagsToStreamResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse AddTagsToStreamResponse

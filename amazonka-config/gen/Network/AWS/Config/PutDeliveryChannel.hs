@@ -87,11 +87,9 @@ data PutDeliveryChannelResponse = PutDeliveryChannelResponse
 putDeliveryChannelResponse :: PutDeliveryChannelResponse
 putDeliveryChannelResponse = PutDeliveryChannelResponse
 
--- FromJSON
-
 instance AWSRequest PutDeliveryChannel where
     type Sv PutDeliveryChannel = Config
     type Rs PutDeliveryChannel = PutDeliveryChannelResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse PutDeliveryChannelResponse

@@ -120,11 +120,9 @@ data SubscribeToDatasetResponse = SubscribeToDatasetResponse
 subscribeToDatasetResponse :: SubscribeToDatasetResponse
 subscribeToDatasetResponse = SubscribeToDatasetResponse
 
--- FromJSON
-
 instance AWSRequest SubscribeToDataset where
     type Sv SubscribeToDataset = CognitoSync
     type Rs SubscribeToDataset = SubscribeToDatasetResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse SubscribeToDatasetResponse

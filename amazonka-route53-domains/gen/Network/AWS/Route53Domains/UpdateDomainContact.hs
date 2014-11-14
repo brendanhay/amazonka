@@ -140,12 +140,10 @@ updateDomainContactResponse p1 = UpdateDomainContactResponse
 udcrOperationId :: Lens' UpdateDomainContactResponse Text
 udcrOperationId = lens _udcrOperationId (\s a -> s { _udcrOperationId = a })
 
--- FromJSON
-
 instance AWSRequest UpdateDomainContact where
     type Sv UpdateDomainContact = Route53Domains
     type Rs UpdateDomainContact = UpdateDomainContactResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateDomainContactResponse
         <$> o .: "OperationId"

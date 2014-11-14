@@ -257,12 +257,10 @@ createLayerResponse = CreateLayerResponse
 clrLayerId :: Lens' CreateLayerResponse (Maybe Text)
 clrLayerId = lens _clrLayerId (\s a -> s { _clrLayerId = a })
 
--- FromJSON
-
 instance AWSRequest CreateLayer where
     type Sv CreateLayer = OpsWorks
     type Rs CreateLayer = CreateLayerResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateLayerResponse
         <$> o .: "LayerId"

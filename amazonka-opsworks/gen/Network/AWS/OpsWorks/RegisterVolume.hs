@@ -107,12 +107,10 @@ registerVolumeResponse = RegisterVolumeResponse
 rvrVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrVolumeId = lens _rvrVolumeId (\s a -> s { _rvrVolumeId = a })
 
--- FromJSON
-
 instance AWSRequest RegisterVolume where
     type Sv RegisterVolume = OpsWorks
     type Rs RegisterVolume = RegisterVolumeResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> RegisterVolumeResponse
         <$> o .: "VolumeId"

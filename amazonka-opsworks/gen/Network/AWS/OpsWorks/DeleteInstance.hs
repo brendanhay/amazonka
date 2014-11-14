@@ -102,11 +102,9 @@ data DeleteInstanceResponse = DeleteInstanceResponse
 deleteInstanceResponse :: DeleteInstanceResponse
 deleteInstanceResponse = DeleteInstanceResponse
 
--- FromJSON
-
 instance AWSRequest DeleteInstance where
     type Sv DeleteInstance = OpsWorks
     type Rs DeleteInstance = DeleteInstanceResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteInstanceResponse

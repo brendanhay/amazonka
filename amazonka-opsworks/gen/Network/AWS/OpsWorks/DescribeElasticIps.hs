@@ -125,12 +125,10 @@ describeElasticIpsResponse = DescribeElasticIpsResponse
 deirElasticIps :: Lens' DescribeElasticIpsResponse [ElasticIp]
 deirElasticIps = lens _deirElasticIps (\s a -> s { _deirElasticIps = a })
 
--- FromJSON
-
 instance AWSRequest DescribeElasticIps where
     type Sv DescribeElasticIps = OpsWorks
     type Rs DescribeElasticIps = DescribeElasticIpsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeElasticIpsResponse
         <$> o .: "ElasticIps"

@@ -103,12 +103,10 @@ dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrSeverityLevels =
     lens _dslrSeverityLevels (\s a -> s { _dslrSeverityLevels = a })
 
--- FromJSON
-
 instance AWSRequest DescribeSeverityLevels where
     type Sv DescribeSeverityLevels = Support
     type Rs DescribeSeverityLevels = DescribeSeverityLevelsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeSeverityLevelsResponse
         <$> o .: "severityLevels"

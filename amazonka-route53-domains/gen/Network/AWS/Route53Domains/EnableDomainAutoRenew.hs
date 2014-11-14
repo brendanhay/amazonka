@@ -85,11 +85,9 @@ data EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse
 enableDomainAutoRenewResponse :: EnableDomainAutoRenewResponse
 enableDomainAutoRenewResponse = EnableDomainAutoRenewResponse
 
--- FromJSON
-
 instance AWSRequest EnableDomainAutoRenew where
     type Sv EnableDomainAutoRenew = Route53Domains
     type Rs EnableDomainAutoRenew = EnableDomainAutoRenewResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse EnableDomainAutoRenewResponse

@@ -79,11 +79,9 @@ data DisableKeyRotationResponse = DisableKeyRotationResponse
 disableKeyRotationResponse :: DisableKeyRotationResponse
 disableKeyRotationResponse = DisableKeyRotationResponse
 
--- FromJSON
-
 instance AWSRequest DisableKeyRotation where
     type Sv DisableKeyRotation = KMS
     type Rs DisableKeyRotation = DisableKeyRotationResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DisableKeyRotationResponse

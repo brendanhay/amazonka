@@ -115,12 +115,10 @@ dvirVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterfa
 dvirVirtualInterfaces =
     lens _dvirVirtualInterfaces (\s a -> s { _dvirVirtualInterfaces = a })
 
--- FromJSON
-
 instance AWSRequest DescribeVirtualInterfaces where
     type Sv DescribeVirtualInterfaces = DirectConnect
     type Rs DescribeVirtualInterfaces = DescribeVirtualInterfacesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeVirtualInterfacesResponse
         <$> o .: "virtualInterfaces"

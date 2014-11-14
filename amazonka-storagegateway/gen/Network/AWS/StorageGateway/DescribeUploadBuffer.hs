@@ -122,13 +122,11 @@ dubrUploadBufferUsedInBytes =
     lens _dubrUploadBufferUsedInBytes
         (\s a -> s { _dubrUploadBufferUsedInBytes = a })
 
--- FromJSON
-
 instance AWSRequest DescribeUploadBuffer where
     type Sv DescribeUploadBuffer = StorageGateway
     type Rs DescribeUploadBuffer = DescribeUploadBufferResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeUploadBufferResponse
         <$> o .: "DiskIds"
         <*> o .: "GatewayARN"

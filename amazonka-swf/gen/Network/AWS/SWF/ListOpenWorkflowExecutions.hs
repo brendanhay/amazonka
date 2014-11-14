@@ -200,13 +200,11 @@ lowerNextPageToken :: Lens' ListOpenWorkflowExecutionsResponse (Maybe Text)
 lowerNextPageToken =
     lens _lowerNextPageToken (\s a -> s { _lowerNextPageToken = a })
 
--- FromJSON
-
 instance AWSRequest ListOpenWorkflowExecutions where
     type Sv ListOpenWorkflowExecutions = SWF
     type Rs ListOpenWorkflowExecutions = ListOpenWorkflowExecutionsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListOpenWorkflowExecutionsResponse
         <$> o .: "executionInfos"
         <*> o .: "nextPageToken"

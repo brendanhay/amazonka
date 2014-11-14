@@ -125,12 +125,10 @@ utrTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
 utrTableDescription =
     lens _utrTableDescription (\s a -> s { _utrTableDescription = a })
 
--- FromJSON
-
 instance AWSRequest UpdateTable where
     type Sv UpdateTable = DynamoDB
     type Rs UpdateTable = UpdateTableResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateTableResponse
         <$> o .: "TableDescription"

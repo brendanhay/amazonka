@@ -130,12 +130,10 @@ registerDeviceResponse = RegisterDeviceResponse
 rdrDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrDeviceId = lens _rdrDeviceId (\s a -> s { _rdrDeviceId = a })
 
--- FromJSON
-
 instance AWSRequest RegisterDevice where
     type Sv RegisterDevice = CognitoSync
     type Rs RegisterDevice = RegisterDeviceResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> RegisterDeviceResponse
         <$> o .: "DeviceId"

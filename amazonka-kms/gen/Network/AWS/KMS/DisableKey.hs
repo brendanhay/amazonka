@@ -79,11 +79,9 @@ data DisableKeyResponse = DisableKeyResponse
 disableKeyResponse :: DisableKeyResponse
 disableKeyResponse = DisableKeyResponse
 
--- FromJSON
-
 instance AWSRequest DisableKey where
     type Sv DisableKey = KMS
     type Rs DisableKey = DisableKeyResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DisableKeyResponse

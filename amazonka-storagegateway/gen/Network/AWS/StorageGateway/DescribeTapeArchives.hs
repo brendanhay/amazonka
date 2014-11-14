@@ -132,13 +132,11 @@ dtarMarker = lens _dtarMarker (\s a -> s { _dtarMarker = a })
 dtarTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
 dtarTapeArchives = lens _dtarTapeArchives (\s a -> s { _dtarTapeArchives = a })
 
--- FromJSON
-
 instance AWSRequest DescribeTapeArchives where
     type Sv DescribeTapeArchives = StorageGateway
     type Rs DescribeTapeArchives = DescribeTapeArchivesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeTapeArchivesResponse
         <$> o .: "Marker"
         <*> o .: "TapeArchives"

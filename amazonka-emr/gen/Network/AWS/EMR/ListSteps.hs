@@ -119,13 +119,11 @@ lsrMarker = lens _lsrMarker (\s a -> s { _lsrMarker = a })
 lsrSteps :: Lens' ListStepsResponse [StepSummary]
 lsrSteps = lens _lsrSteps (\s a -> s { _lsrSteps = a })
 
--- FromJSON
-
 instance AWSRequest ListSteps where
     type Sv ListSteps = EMR
     type Rs ListSteps = ListStepsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListStepsResponse
         <$> o .: "Marker"
         <*> o .: "Steps"

@@ -83,11 +83,9 @@ data DisassociateElasticIpResponse = DisassociateElasticIpResponse
 disassociateElasticIpResponse :: DisassociateElasticIpResponse
 disassociateElasticIpResponse = DisassociateElasticIpResponse
 
--- FromJSON
-
 instance AWSRequest DisassociateElasticIp where
     type Sv DisassociateElasticIp = OpsWorks
     type Rs DisassociateElasticIp = DisassociateElasticIpResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DisassociateElasticIpResponse

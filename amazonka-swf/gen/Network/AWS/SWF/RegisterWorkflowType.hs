@@ -198,11 +198,9 @@ data RegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse
 registerWorkflowTypeResponse :: RegisterWorkflowTypeResponse
 registerWorkflowTypeResponse = RegisterWorkflowTypeResponse
 
--- FromJSON
-
 instance AWSRequest RegisterWorkflowType where
     type Sv RegisterWorkflowType = SWF
     type Rs RegisterWorkflowType = RegisterWorkflowTypeResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RegisterWorkflowTypeResponse

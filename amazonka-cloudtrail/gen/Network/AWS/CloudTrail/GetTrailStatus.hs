@@ -194,13 +194,11 @@ gtsrStopLoggingTime =
     lens _gtsrStopLoggingTime (\s a -> s { _gtsrStopLoggingTime = a })
         . mapping _Time
 
--- FromJSON
-
 instance AWSRequest GetTrailStatus where
     type Sv GetTrailStatus = CloudTrail
     type Rs GetTrailStatus = GetTrailStatusResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetTrailStatusResponse
         <$> o .: "IsLogging"
         <*> o .: "LatestCloudWatchLogsDeliveryError"

@@ -145,13 +145,11 @@ uccrInitiatorName =
 uccrTargetARN :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrTargetARN = lens _uccrTargetARN (\s a -> s { _uccrTargetARN = a })
 
--- FromJSON
-
 instance AWSRequest UpdateChapCredentials where
     type Sv UpdateChapCredentials = StorageGateway
     type Rs UpdateChapCredentials = UpdateChapCredentialsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateChapCredentialsResponse
         <$> o .: "InitiatorName"
         <*> o .: "TargetARN"

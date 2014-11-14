@@ -83,11 +83,9 @@ data UnassignVolumeResponse = UnassignVolumeResponse
 unassignVolumeResponse :: UnassignVolumeResponse
 unassignVolumeResponse = UnassignVolumeResponse
 
--- FromJSON
-
 instance AWSRequest UnassignVolume where
     type Sv UnassignVolume = OpsWorks
     type Rs UnassignVolume = UnassignVolumeResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse UnassignVolumeResponse

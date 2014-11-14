@@ -35,6 +35,8 @@ module Network.AWS.S3.GetBucketNotification
     -- ** Response constructor
     , getBucketNotificationResponse
     -- ** Response lenses
+    , gbnrCloudFunctionConfiguration
+    , gbnrQueueConfiguration
     , gbnrTopicConfiguration
     ) where
 
@@ -73,20 +75,37 @@ instance ToQuery GetBucketNotification where
 
 instance ToHeaders GetBucketNotification
 
-newtype GetBucketNotificationResponse = GetBucketNotificationResponse
-    { _gbnrTopicConfiguration :: Maybe TopicConfiguration
+data GetBucketNotificationResponse = GetBucketNotificationResponse
+    { _gbnrCloudFunctionConfiguration :: Maybe CloudFunctionConfiguration
+    , _gbnrQueueConfiguration         :: Maybe QueueConfiguration
+    , _gbnrTopicConfiguration         :: Maybe TopicConfiguration
     } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketNotificationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'gbnrCloudFunctionConfiguration' @::@ 'Maybe' 'CloudFunctionConfiguration'
+--
+-- * 'gbnrQueueConfiguration' @::@ 'Maybe' 'QueueConfiguration'
+--
 -- * 'gbnrTopicConfiguration' @::@ 'Maybe' 'TopicConfiguration'
 --
 getBucketNotificationResponse :: GetBucketNotificationResponse
 getBucketNotificationResponse = GetBucketNotificationResponse
-    { _gbnrTopicConfiguration = Nothing
+    { _gbnrTopicConfiguration         = Nothing
+    , _gbnrQueueConfiguration         = Nothing
+    , _gbnrCloudFunctionConfiguration = Nothing
     }
+
+gbnrCloudFunctionConfiguration :: Lens' GetBucketNotificationResponse (Maybe CloudFunctionConfiguration)
+gbnrCloudFunctionConfiguration =
+    lens _gbnrCloudFunctionConfiguration
+        (\s a -> s { _gbnrCloudFunctionConfiguration = a })
+
+gbnrQueueConfiguration :: Lens' GetBucketNotificationResponse (Maybe QueueConfiguration)
+gbnrQueueConfiguration =
+    lens _gbnrQueueConfiguration (\s a -> s { _gbnrQueueConfiguration = a })
 
 gbnrTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfiguration)
 gbnrTopicConfiguration =
@@ -98,4 +117,6 @@ instance AWSRequest GetBucketNotification where
 
     request  = get
     response = xmlResponse $ \h x -> GetBucketNotificationResponse
-        <$> x %| "TopicConfiguration"
+        <$> x %| "CloudFunctionConfiguration"
+        <*> x %| "QueueConfiguration"
+        <*> x %| "TopicConfiguration"

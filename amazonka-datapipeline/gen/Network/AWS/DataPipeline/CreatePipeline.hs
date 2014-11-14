@@ -127,12 +127,10 @@ createPipelineResponse p1 = CreatePipelineResponse
 cprPipelineId :: Lens' CreatePipelineResponse Text
 cprPipelineId = lens _cprPipelineId (\s a -> s { _cprPipelineId = a })
 
--- FromJSON
-
 instance AWSRequest CreatePipeline where
     type Sv CreatePipeline = DataPipeline
     type Rs CreatePipeline = CreatePipelineResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreatePipelineResponse
         <$> o .: "pipelineId"

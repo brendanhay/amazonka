@@ -103,11 +103,9 @@ data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
 deprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse
 deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
 
--- FromJSON
-
 instance AWSRequest DeprecateWorkflowType where
     type Sv DeprecateWorkflowType = SWF
     type Rs DeprecateWorkflowType = DeprecateWorkflowTypeResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeprecateWorkflowTypeResponse

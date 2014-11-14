@@ -97,12 +97,10 @@ describeAttachmentResponse = DescribeAttachmentResponse
 darAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 darAttachment = lens _darAttachment (\s a -> s { _darAttachment = a })
 
--- FromJSON
-
 instance AWSRequest DescribeAttachment where
     type Sv DescribeAttachment = Support
     type Rs DescribeAttachment = DescribeAttachmentResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeAttachmentResponse
         <$> o .: "attachment"

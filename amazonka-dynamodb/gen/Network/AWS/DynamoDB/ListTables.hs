@@ -126,13 +126,11 @@ ltrLastEvaluatedTableName =
 ltrTableNames :: Lens' ListTablesResponse [Text]
 ltrTableNames = lens _ltrTableNames (\s a -> s { _ltrTableNames = a })
 
--- FromJSON
-
 instance AWSRequest ListTables where
     type Sv ListTables = DynamoDB
     type Rs ListTables = ListTablesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListTablesResponse
         <$> o .: "LastEvaluatedTableName"
         <*> o .: "TableNames"

@@ -93,12 +93,10 @@ describeKeyResponse = DescribeKeyResponse
 dkrKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
 dkrKeyMetadata = lens _dkrKeyMetadata (\s a -> s { _dkrKeyMetadata = a })
 
--- FromJSON
-
 instance AWSRequest DescribeKey where
     type Sv DescribeKey = KMS
     type Rs DescribeKey = DescribeKeyResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeKeyResponse
         <$> o .: "KeyMetadata"

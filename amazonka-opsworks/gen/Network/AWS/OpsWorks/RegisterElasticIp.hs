@@ -108,12 +108,10 @@ registerElasticIpResponse = RegisterElasticIpResponse
 reirElasticIp :: Lens' RegisterElasticIpResponse (Maybe Text)
 reirElasticIp = lens _reirElasticIp (\s a -> s { _reirElasticIp = a })
 
--- FromJSON
-
 instance AWSRequest RegisterElasticIp where
     type Sv RegisterElasticIp = OpsWorks
     type Rs RegisterElasticIp = RegisterElasticIpResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> RegisterElasticIpResponse
         <$> o .: "ElasticIp"

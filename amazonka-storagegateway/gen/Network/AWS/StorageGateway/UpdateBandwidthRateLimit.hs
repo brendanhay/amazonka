@@ -119,12 +119,10 @@ updateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
 ubrlrGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
 ubrlrGatewayARN = lens _ubrlrGatewayARN (\s a -> s { _ubrlrGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest UpdateBandwidthRateLimit where
     type Sv UpdateBandwidthRateLimit = StorageGateway
     type Rs UpdateBandwidthRateLimit = UpdateBandwidthRateLimitResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateBandwidthRateLimitResponse
         <$> o .: "GatewayARN"

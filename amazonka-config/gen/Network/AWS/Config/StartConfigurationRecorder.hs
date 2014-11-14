@@ -83,11 +83,9 @@ data StartConfigurationRecorderResponse = StartConfigurationRecorderResponse
 startConfigurationRecorderResponse :: StartConfigurationRecorderResponse
 startConfigurationRecorderResponse = StartConfigurationRecorderResponse
 
--- FromJSON
-
 instance AWSRequest StartConfigurationRecorder where
     type Sv StartConfigurationRecorder = Config
     type Rs StartConfigurationRecorder = StartConfigurationRecorderResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse StartConfigurationRecorderResponse

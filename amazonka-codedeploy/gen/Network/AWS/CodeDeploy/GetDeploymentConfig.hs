@@ -96,12 +96,10 @@ gdcrDeploymentConfigInfo =
     lens _gdcrDeploymentConfigInfo
         (\s a -> s { _gdcrDeploymentConfigInfo = a })
 
--- FromJSON
-
 instance AWSRequest GetDeploymentConfig where
     type Sv GetDeploymentConfig = CodeDeploy
     type Rs GetDeploymentConfig = GetDeploymentConfigResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetDeploymentConfigResponse
         <$> o .: "deploymentConfigInfo"

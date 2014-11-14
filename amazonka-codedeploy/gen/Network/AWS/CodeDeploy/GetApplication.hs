@@ -94,12 +94,10 @@ getApplicationResponse = GetApplicationResponse
 garApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
 garApplication = lens _garApplication (\s a -> s { _garApplication = a })
 
--- FromJSON
-
 instance AWSRequest GetApplication where
     type Sv GetApplication = CodeDeploy
     type Rs GetApplication = GetApplicationResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetApplicationResponse
         <$> o .: "application"

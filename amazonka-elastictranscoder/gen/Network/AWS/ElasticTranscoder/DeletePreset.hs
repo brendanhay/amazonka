@@ -80,11 +80,9 @@ data DeletePresetResponse = DeletePresetResponse
 deletePresetResponse :: DeletePresetResponse
 deletePresetResponse = DeletePresetResponse
 
--- FromJSON
-
 instance AWSRequest DeletePreset where
     type Sv DeletePreset = ElasticTranscoder
     type Rs DeletePreset = DeletePresetResponse
 
-    request  = delete'
+    request  = delete
     response = nullaryResponse DeletePresetResponse

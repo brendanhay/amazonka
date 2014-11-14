@@ -176,13 +176,11 @@ larrNextToken = lens _larrNextToken (\s a -> s { _larrNextToken = a })
 larrRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
 larrRevisions = lens _larrRevisions (\s a -> s { _larrRevisions = a })
 
--- FromJSON
-
 instance AWSRequest ListApplicationRevisions where
     type Sv ListApplicationRevisions = CodeDeploy
     type Rs ListApplicationRevisions = ListApplicationRevisionsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListApplicationRevisionsResponse
         <$> o .: "nextToken"
         <*> o .: "revisions"

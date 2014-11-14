@@ -195,12 +195,10 @@ createAppResponse = CreateAppResponse
 carAppId :: Lens' CreateAppResponse (Maybe Text)
 carAppId = lens _carAppId (\s a -> s { _carAppId = a })
 
--- FromJSON
-
 instance AWSRequest CreateApp where
     type Sv CreateApp = OpsWorks
     type Rs CreateApp = CreateAppResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateAppResponse
         <$> o .: "AppId"

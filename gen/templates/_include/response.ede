@@ -5,7 +5,7 @@
   {% if response.streaming %}
     response = bodyResponse $ \h b -> {{ response.name }}
 {% include "response-fields.ede" %}
-  {% elif protocol == "json" %}
+  {% elif protocol == "json" || protocol == "rest-json" %}
     response = jsonResponse $ \h o -> {{ response.name }}
 {% include "response-fields.ede" %}
   {% else %}

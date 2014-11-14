@@ -90,11 +90,9 @@ data RemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse
 removeTagsFromStreamResponse :: RemoveTagsFromStreamResponse
 removeTagsFromStreamResponse = RemoveTagsFromStreamResponse
 
--- FromJSON
-
 instance AWSRequest RemoveTagsFromStream where
     type Sv RemoveTagsFromStream = Kinesis
     type Rs RemoveTagsFromStream = RemoveTagsFromStreamResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RemoveTagsFromStreamResponse

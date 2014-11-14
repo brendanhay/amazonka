@@ -87,11 +87,9 @@ data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
 modifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse
 modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
 
--- FromJSON
-
 instance AWSRequest ModifyInstanceGroups where
     type Sv ModifyInstanceGroups = EMR
     type Rs ModifyInstanceGroups = ModifyInstanceGroupsResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse ModifyInstanceGroupsResponse

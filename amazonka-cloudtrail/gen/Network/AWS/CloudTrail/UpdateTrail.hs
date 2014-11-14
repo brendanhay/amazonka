@@ -228,13 +228,11 @@ utrS3KeyPrefix = lens _utrS3KeyPrefix (\s a -> s { _utrS3KeyPrefix = a })
 utrSnsTopicName :: Lens' UpdateTrailResponse (Maybe Text)
 utrSnsTopicName = lens _utrSnsTopicName (\s a -> s { _utrSnsTopicName = a })
 
--- FromJSON
-
 instance AWSRequest UpdateTrail where
     type Sv UpdateTrail = CloudTrail
     type Rs UpdateTrail = UpdateTrailResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateTrailResponse
         <$> o .: "CloudWatchLogsLogGroupArn"
         <*> o .: "CloudWatchLogsRoleArn"

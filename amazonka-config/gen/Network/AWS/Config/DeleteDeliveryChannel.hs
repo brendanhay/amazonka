@@ -82,11 +82,9 @@ data DeleteDeliveryChannelResponse = DeleteDeliveryChannelResponse
 deleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse
 deleteDeliveryChannelResponse = DeleteDeliveryChannelResponse
 
--- FromJSON
-
 instance AWSRequest DeleteDeliveryChannel where
     type Sv DeleteDeliveryChannel = Config
     type Rs DeleteDeliveryChannel = DeleteDeliveryChannelResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteDeliveryChannelResponse

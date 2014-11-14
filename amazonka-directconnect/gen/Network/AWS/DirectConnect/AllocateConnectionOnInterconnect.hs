@@ -209,13 +209,11 @@ acoirRegion = lens _acoirRegion (\s a -> s { _acoirRegion = a })
 acoirVlan :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Int)
 acoirVlan = lens _acoirVlan (\s a -> s { _acoirVlan = a })
 
--- FromJSON
-
 instance AWSRequest AllocateConnectionOnInterconnect where
     type Sv AllocateConnectionOnInterconnect = DirectConnect
     type Rs AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnectResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> AllocateConnectionOnInterconnectResponse
         <$> o .: "bandwidth"
         <*> o .: "connectionId"

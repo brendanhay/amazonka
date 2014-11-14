@@ -109,11 +109,9 @@ data PutMetricFilterResponse = PutMetricFilterResponse
 putMetricFilterResponse :: PutMetricFilterResponse
 putMetricFilterResponse = PutMetricFilterResponse
 
--- FromJSON
-
 instance AWSRequest PutMetricFilter where
     type Sv PutMetricFilter = CloudWatchLogs
     type Rs PutMetricFilter = PutMetricFilterResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse PutMetricFilterResponse

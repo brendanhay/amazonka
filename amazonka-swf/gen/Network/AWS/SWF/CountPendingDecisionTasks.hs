@@ -125,13 +125,11 @@ cpdtrCount = lens _cpdtrCount (\s a -> s { _cpdtrCount = a })
 cpdtrTruncated :: Lens' CountPendingDecisionTasksResponse (Maybe Bool)
 cpdtrTruncated = lens _cpdtrTruncated (\s a -> s { _cpdtrTruncated = a })
 
--- FromJSON
-
 instance AWSRequest CountPendingDecisionTasks where
     type Sv CountPendingDecisionTasks = SWF
     type Rs CountPendingDecisionTasks = CountPendingDecisionTasksResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CountPendingDecisionTasksResponse
         <$> o .: "count"
         <*> o .: "truncated"

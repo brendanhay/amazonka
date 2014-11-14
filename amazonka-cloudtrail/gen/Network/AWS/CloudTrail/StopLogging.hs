@@ -82,11 +82,9 @@ data StopLoggingResponse = StopLoggingResponse
 stopLoggingResponse :: StopLoggingResponse
 stopLoggingResponse = StopLoggingResponse
 
--- FromJSON
-
 instance AWSRequest StopLogging where
     type Sv StopLogging = CloudTrail
     type Rs StopLogging = StopLoggingResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse StopLoggingResponse

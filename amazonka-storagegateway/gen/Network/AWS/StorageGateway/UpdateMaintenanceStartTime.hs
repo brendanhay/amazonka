@@ -126,12 +126,10 @@ updateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
 umstrGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
 umstrGatewayARN = lens _umstrGatewayARN (\s a -> s { _umstrGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest UpdateMaintenanceStartTime where
     type Sv UpdateMaintenanceStartTime = StorageGateway
     type Rs UpdateMaintenanceStartTime = UpdateMaintenanceStartTimeResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateMaintenanceStartTimeResponse
         <$> o .: "GatewayARN"

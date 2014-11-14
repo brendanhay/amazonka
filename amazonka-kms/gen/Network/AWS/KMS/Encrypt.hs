@@ -135,13 +135,11 @@ erCiphertextBlob = lens _erCiphertextBlob (\s a -> s { _erCiphertextBlob = a })
 erKeyId :: Lens' EncryptResponse (Maybe Text)
 erKeyId = lens _erKeyId (\s a -> s { _erKeyId = a })
 
--- FromJSON
-
 instance AWSRequest Encrypt where
     type Sv Encrypt = KMS
     type Rs Encrypt = EncryptResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> EncryptResponse
         <$> o .: "CiphertextBlob"
         <*> o .: "KeyId"

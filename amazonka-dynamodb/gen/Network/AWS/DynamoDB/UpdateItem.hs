@@ -490,13 +490,11 @@ uirItemCollectionMetrics =
     lens _uirItemCollectionMetrics
         (\s a -> s { _uirItemCollectionMetrics = a })
 
--- FromJSON
-
 instance AWSRequest UpdateItem where
     type Sv UpdateItem = DynamoDB
     type Rs UpdateItem = UpdateItemResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateItemResponse
         <$> o .: "Attributes"
         <*> o .: "ConsumedCapacity"

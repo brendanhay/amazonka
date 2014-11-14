@@ -94,11 +94,9 @@ data AddTagsResponse = AddTagsResponse
 addTagsResponse :: AddTagsResponse
 addTagsResponse = AddTagsResponse
 
--- FromJSON
-
 instance AWSRequest AddTags where
     type Sv AddTags = EMR
     type Rs AddTags = AddTagsResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse AddTagsResponse

@@ -212,11 +212,9 @@ data RegisterActivityTypeResponse = RegisterActivityTypeResponse
 registerActivityTypeResponse :: RegisterActivityTypeResponse
 registerActivityTypeResponse = RegisterActivityTypeResponse
 
--- FromJSON
-
 instance AWSRequest RegisterActivityType where
     type Sv RegisterActivityType = SWF
     type Rs RegisterActivityType = RegisterActivityTypeResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RegisterActivityTypeResponse

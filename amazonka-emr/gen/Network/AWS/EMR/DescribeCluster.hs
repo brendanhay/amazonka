@@ -94,12 +94,10 @@ describeClusterResponse = DescribeClusterResponse
 dcrCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
 dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
 
--- FromJSON
-
 instance AWSRequest DescribeCluster where
     type Sv DescribeCluster = EMR
     type Rs DescribeCluster = DescribeClusterResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeClusterResponse
         <$> o .: "Cluster"

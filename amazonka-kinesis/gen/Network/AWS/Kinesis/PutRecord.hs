@@ -188,13 +188,11 @@ prrSequenceNumber =
 prrShardId :: Lens' PutRecordResponse Text
 prrShardId = lens _prrShardId (\s a -> s { _prrShardId = a })
 
--- FromJSON
-
 instance AWSRequest PutRecord where
     type Sv PutRecord = Kinesis
     type Rs PutRecord = PutRecordResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> PutRecordResponse
         <$> o .: "SequenceNumber"
         <*> o .: "ShardId"

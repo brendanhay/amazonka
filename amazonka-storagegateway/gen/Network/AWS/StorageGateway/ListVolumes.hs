@@ -135,13 +135,11 @@ lvrMarker = lens _lvrMarker (\s a -> s { _lvrMarker = a })
 lvrVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
 lvrVolumeInfos = lens _lvrVolumeInfos (\s a -> s { _lvrVolumeInfos = a })
 
--- FromJSON
-
 instance AWSRequest ListVolumes where
     type Sv ListVolumes = StorageGateway
     type Rs ListVolumes = ListVolumesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListVolumesResponse
         <$> o .: "GatewayARN"
         <*> o .: "Marker"

@@ -131,12 +131,10 @@ dsrStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrStreamDescription =
     lens _dsrStreamDescription (\s a -> s { _dsrStreamDescription = a })
 
--- FromJSON
-
 instance AWSRequest DescribeStream where
     type Sv DescribeStream = Kinesis
     type Rs DescribeStream = DescribeStreamResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeStreamResponse
         <$> o .: "StreamDescription"

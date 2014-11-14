@@ -124,13 +124,11 @@ garrRevision = lens _garrRevision (\s a -> s { _garrRevision = a })
 garrRevisionInfo :: Lens' GetApplicationRevisionResponse (Maybe GenericRevisionInfo)
 garrRevisionInfo = lens _garrRevisionInfo (\s a -> s { _garrRevisionInfo = a })
 
--- FromJSON
-
 instance AWSRequest GetApplicationRevision where
     type Sv GetApplicationRevision = CodeDeploy
     type Rs GetApplicationRevision = GetApplicationRevisionResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetApplicationRevisionResponse
         <$> o .: "applicationName"
         <*> o .: "revision"

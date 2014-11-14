@@ -152,13 +152,11 @@ udrStatus = lens _udrStatus (\s a -> s { _udrStatus = a })
 udrWarnings :: Lens' UploadDocumentsResponse [DocumentServiceWarning]
 udrWarnings = lens _udrWarnings (\s a -> s { _udrWarnings = a })
 
--- FromJSON
-
 instance AWSRequest UploadDocuments where
     type Sv UploadDocuments = CloudSearchDomains
     type Rs UploadDocuments = UploadDocumentsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UploadDocumentsResponse
         <$> o .: "adds"
         <*> o .: "deletes"

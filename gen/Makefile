@@ -45,7 +45,8 @@ JSON := \
  config \
  elastictranscoder \
  cognito-sync \
- cloudsearchdomain
+ cloudsearchdomain \
+ lambda
 
 MODELS ?= $(JSON) $(XML) $(QUERY)
 

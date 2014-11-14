@@ -134,13 +134,11 @@ lirInstances = lens _lirInstances (\s a -> s { _lirInstances = a })
 lirMarker :: Lens' ListInstancesResponse (Maybe Text)
 lirMarker = lens _lirMarker (\s a -> s { _lirMarker = a })
 
--- FromJSON
-
 instance AWSRequest ListInstances where
     type Sv ListInstances = EMR
     type Rs ListInstances = ListInstancesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListInstancesResponse
         <$> o .: "Instances"
         <*> o .: "Marker"

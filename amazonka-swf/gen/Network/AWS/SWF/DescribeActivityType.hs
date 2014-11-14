@@ -132,13 +132,11 @@ datrConfiguration =
 datrTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
 datrTypeInfo = lens _datrTypeInfo (\s a -> s { _datrTypeInfo = a })
 
--- FromJSON
-
 instance AWSRequest DescribeActivityType where
     type Sv DescribeActivityType = SWF
     type Rs DescribeActivityType = DescribeActivityTypeResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeActivityTypeResponse
         <$> o .: "configuration"
         <*> o .: "typeInfo"

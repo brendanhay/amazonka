@@ -256,13 +256,11 @@ pfdtrWorkflowType :: Lens' PollForDecisionTaskResponse WorkflowType
 pfdtrWorkflowType =
     lens _pfdtrWorkflowType (\s a -> s { _pfdtrWorkflowType = a })
 
--- FromJSON
-
 instance AWSRequest PollForDecisionTask where
     type Sv PollForDecisionTask = SWF
     type Rs PollForDecisionTask = PollForDecisionTaskResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> PollForDecisionTaskResponse
         <$> o .: "events"
         <*> o .: "nextPageToken"

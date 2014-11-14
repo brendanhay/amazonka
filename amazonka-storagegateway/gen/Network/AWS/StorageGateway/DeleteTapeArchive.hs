@@ -94,12 +94,10 @@ deleteTapeArchiveResponse = DeleteTapeArchiveResponse
 dtarTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
 dtarTapeARN = lens _dtarTapeARN (\s a -> s { _dtarTapeARN = a })
 
--- FromJSON
-
 instance AWSRequest DeleteTapeArchive where
     type Sv DeleteTapeArchive = StorageGateway
     type Rs DeleteTapeArchive = DeleteTapeArchiveResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteTapeArchiveResponse
         <$> o .: "TapeARN"

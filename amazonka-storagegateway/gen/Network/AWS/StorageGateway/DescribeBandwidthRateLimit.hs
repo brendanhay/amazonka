@@ -120,13 +120,11 @@ dbrlrAverageUploadRateLimitInBitsPerSec =
 dbrlrGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
 dbrlrGatewayARN = lens _dbrlrGatewayARN (\s a -> s { _dbrlrGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest DescribeBandwidthRateLimit where
     type Sv DescribeBandwidthRateLimit = StorageGateway
     type Rs DescribeBandwidthRateLimit = DescribeBandwidthRateLimitResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeBandwidthRateLimitResponse
         <$> o .: "AverageDownloadRateLimitInBitsPerSec"
         <*> o .: "AverageUploadRateLimitInBitsPerSec"

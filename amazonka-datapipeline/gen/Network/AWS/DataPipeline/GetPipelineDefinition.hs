@@ -113,12 +113,10 @@ gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
 gpdrPipelineObjects =
     lens _gpdrPipelineObjects (\s a -> s { _gpdrPipelineObjects = a })
 
--- FromJSON
-
 instance AWSRequest GetPipelineDefinition where
     type Sv GetPipelineDefinition = DataPipeline
     type Rs GetPipelineDefinition = GetPipelineDefinitionResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetPipelineDefinitionResponse
         <$> o .: "pipelineObjects"

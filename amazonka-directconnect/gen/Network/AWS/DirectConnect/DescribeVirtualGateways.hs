@@ -87,12 +87,10 @@ dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrVirtualGateways =
     lens _dvgrVirtualGateways (\s a -> s { _dvgrVirtualGateways = a })
 
--- FromJSON
-
 instance AWSRequest DescribeVirtualGateways where
     type Sv DescribeVirtualGateways = DirectConnect
     type Rs DescribeVirtualGateways = DescribeVirtualGatewaysResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeVirtualGatewaysResponse
         <$> o .: "virtualGateways"

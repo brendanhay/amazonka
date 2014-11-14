@@ -122,11 +122,9 @@ data SetPermissionResponse = SetPermissionResponse
 setPermissionResponse :: SetPermissionResponse
 setPermissionResponse = SetPermissionResponse
 
--- FromJSON
-
 instance AWSRequest SetPermission where
     type Sv SetPermission = OpsWorks
     type Rs SetPermission = SetPermissionResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse SetPermissionResponse

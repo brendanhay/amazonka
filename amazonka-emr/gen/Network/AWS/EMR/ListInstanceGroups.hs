@@ -111,13 +111,11 @@ ligrInstanceGroups =
 ligrMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
 ligrMarker = lens _ligrMarker (\s a -> s { _ligrMarker = a })
 
--- FromJSON
-
 instance AWSRequest ListInstanceGroups where
     type Sv ListInstanceGroups = EMR
     type Rs ListInstanceGroups = ListInstanceGroupsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListInstanceGroupsResponse
         <$> o .: "InstanceGroups"
         <*> o .: "Marker"

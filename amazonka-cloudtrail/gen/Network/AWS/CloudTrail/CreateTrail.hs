@@ -226,13 +226,11 @@ ctrS3KeyPrefix = lens _ctrS3KeyPrefix (\s a -> s { _ctrS3KeyPrefix = a })
 ctrSnsTopicName :: Lens' CreateTrailResponse (Maybe Text)
 ctrSnsTopicName = lens _ctrSnsTopicName (\s a -> s { _ctrSnsTopicName = a })
 
--- FromJSON
-
 instance AWSRequest CreateTrail where
     type Sv CreateTrail = CloudTrail
     type Rs CreateTrail = CreateTrailResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateTrailResponse
         <$> o .: "CloudWatchLogsLogGroupArn"
         <*> o .: "CloudWatchLogsRoleArn"

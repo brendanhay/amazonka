@@ -125,13 +125,11 @@ dmstrMinuteOfHour =
 dmstrTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrTimezone = lens _dmstrTimezone (\s a -> s { _dmstrTimezone = a })
 
--- FromJSON
-
 instance AWSRequest DescribeMaintenanceStartTime where
     type Sv DescribeMaintenanceStartTime = StorageGateway
     type Rs DescribeMaintenanceStartTime = DescribeMaintenanceStartTimeResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeMaintenanceStartTimeResponse
         <$> o .: "DayOfWeek"
         <*> o .: "GatewayARN"

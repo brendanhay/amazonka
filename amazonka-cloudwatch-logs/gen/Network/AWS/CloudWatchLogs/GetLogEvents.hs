@@ -174,13 +174,11 @@ glerNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glerNextForwardToken =
     lens _glerNextForwardToken (\s a -> s { _glerNextForwardToken = a })
 
--- FromJSON
-
 instance AWSRequest GetLogEvents where
     type Sv GetLogEvents = CloudWatchLogs
     type Rs GetLogEvents = GetLogEventsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetLogEventsResponse
         <$> o .: "events"
         <*> o .: "nextBackwardToken"

@@ -94,12 +94,10 @@ deleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
 dssr1VolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dssr1VolumeARN = lens _dssr1VolumeARN (\s a -> s { _dssr1VolumeARN = a })
 
--- FromJSON
-
 instance AWSRequest DeleteSnapshotSchedule where
     type Sv DeleteSnapshotSchedule = StorageGateway
     type Rs DeleteSnapshotSchedule = DeleteSnapshotScheduleResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteSnapshotScheduleResponse
         <$> o .: "VolumeARN"

@@ -103,12 +103,10 @@ addCacheResponse = AddCacheResponse
 acrGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acrGatewayARN = lens _acrGatewayARN (\s a -> s { _acrGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest AddCache where
     type Sv AddCache = StorageGateway
     type Rs AddCache = AddCacheResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> AddCacheResponse
         <$> o .: "GatewayARN"

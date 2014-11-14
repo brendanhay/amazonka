@@ -126,13 +126,11 @@ lkrNextMarker = lens _lkrNextMarker (\s a -> s { _lkrNextMarker = a })
 lkrTruncated :: Lens' ListKeysResponse (Maybe Bool)
 lkrTruncated = lens _lkrTruncated (\s a -> s { _lkrTruncated = a })
 
--- FromJSON
-
 instance AWSRequest ListKeys where
     type Sv ListKeys = KMS
     type Rs ListKeys = ListKeysResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListKeysResponse
         <$> o .: "Keys"
         <*> o .: "NextMarker"

@@ -110,12 +110,10 @@ dcrrConfigurationRecorders =
     lens _dcrrConfigurationRecorders
         (\s a -> s { _dcrrConfigurationRecorders = a })
 
--- FromJSON
-
 instance AWSRequest DescribeConfigurationRecorders where
     type Sv DescribeConfigurationRecorders = Config
     type Rs DescribeConfigurationRecorders = DescribeConfigurationRecordersResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeConfigurationRecordersResponse
         <$> o .: "ConfigurationRecorders"

@@ -147,11 +147,9 @@ data TerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
 terminateWorkflowExecutionResponse :: TerminateWorkflowExecutionResponse
 terminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
 
--- FromJSON
-
 instance AWSRequest TerminateWorkflowExecution where
     type Sv TerminateWorkflowExecution = SWF
     type Rs TerminateWorkflowExecution = TerminateWorkflowExecutionResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse TerminateWorkflowExecutionResponse

@@ -134,13 +134,11 @@ dmfrMetricFilters =
 dmfrNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
 dmfrNextToken = lens _dmfrNextToken (\s a -> s { _dmfrNextToken = a })
 
--- FromJSON
-
 instance AWSRequest DescribeMetricFilters where
     type Sv DescribeMetricFilters = CloudWatchLogs
     type Rs DescribeMetricFilters = DescribeMetricFiltersResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeMetricFiltersResponse
         <$> o .: "metricFilters"
         <*> o .: "nextToken"

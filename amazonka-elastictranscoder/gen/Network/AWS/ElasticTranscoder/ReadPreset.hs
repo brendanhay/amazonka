@@ -94,12 +94,10 @@ readPresetResponse = ReadPresetResponse
 rprPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprPreset = lens _rprPreset (\s a -> s { _rprPreset = a })
 
--- FromJSON
-
 instance AWSRequest ReadPreset where
     type Sv ReadPreset = ElasticTranscoder
     type Rs ReadPreset = ReadPresetResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> ReadPresetResponse
         <$> o .: "Preset"

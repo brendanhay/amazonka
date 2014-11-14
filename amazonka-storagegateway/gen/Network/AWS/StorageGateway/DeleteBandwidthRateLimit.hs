@@ -104,12 +104,10 @@ deleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
 dbrlr1GatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
 dbrlr1GatewayARN = lens _dbrlr1GatewayARN (\s a -> s { _dbrlr1GatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest DeleteBandwidthRateLimit where
     type Sv DeleteBandwidthRateLimit = StorageGateway
     type Rs DeleteBandwidthRateLimit = DeleteBandwidthRateLimitResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteBandwidthRateLimitResponse
         <$> o .: "GatewayARN"

@@ -97,11 +97,9 @@ data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
 setVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse
 setVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
 
--- FromJSON
-
 instance AWSRequest SetVisibleToAllUsers where
     type Sv SetVisibleToAllUsers = EMR
     type Rs SetVisibleToAllUsers = SetVisibleToAllUsersResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse SetVisibleToAllUsersResponse

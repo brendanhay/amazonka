@@ -97,12 +97,10 @@ describeConnectionsResponse = DescribeConnectionsResponse
 dcrConnections :: Lens' DescribeConnectionsResponse [Connection]
 dcrConnections = lens _dcrConnections (\s a -> s { _dcrConnections = a })
 
--- FromJSON
-
 instance AWSRequest DescribeConnections where
     type Sv DescribeConnections = DirectConnect
     type Rs DescribeConnections = DescribeConnectionsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeConnectionsResponse
         <$> o .: "connections"

@@ -122,13 +122,11 @@ lorNextPageMarker =
 lorOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorOperations = lens _lorOperations (\s a -> s { _lorOperations = a })
 
--- FromJSON
-
 instance AWSRequest ListOperations where
     type Sv ListOperations = Route53Domains
     type Rs ListOperations = ListOperationsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListOperationsResponse
         <$> o .: "NextPageMarker"
         <*> o .: "Operations"

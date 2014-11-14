@@ -105,13 +105,11 @@ ghsrHostname = lens _ghsrHostname (\s a -> s { _ghsrHostname = a })
 ghsrLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrLayerId = lens _ghsrLayerId (\s a -> s { _ghsrLayerId = a })
 
--- FromJSON
-
 instance AWSRequest GetHostnameSuggestion where
     type Sv GetHostnameSuggestion = OpsWorks
     type Rs GetHostnameSuggestion = GetHostnameSuggestionResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetHostnameSuggestionResponse
         <$> o .: "Hostname"
         <*> o .: "LayerId"

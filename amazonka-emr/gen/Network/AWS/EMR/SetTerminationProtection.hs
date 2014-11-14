@@ -104,11 +104,9 @@ data SetTerminationProtectionResponse = SetTerminationProtectionResponse
 setTerminationProtectionResponse :: SetTerminationProtectionResponse
 setTerminationProtectionResponse = SetTerminationProtectionResponse
 
--- FromJSON
-
 instance AWSRequest SetTerminationProtection where
     type Sv SetTerminationProtection = EMR
     type Rs SetTerminationProtection = SetTerminationProtectionResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse SetTerminationProtectionResponse

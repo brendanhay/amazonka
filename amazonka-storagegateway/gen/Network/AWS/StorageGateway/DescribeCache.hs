@@ -147,13 +147,11 @@ dcrDiskIds = lens _dcrDiskIds (\s a -> s { _dcrDiskIds = a })
 dcrGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
 dcrGatewayARN = lens _dcrGatewayARN (\s a -> s { _dcrGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest DescribeCache where
     type Sv DescribeCache = StorageGateway
     type Rs DescribeCache = DescribeCacheResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeCacheResponse
         <$> o .: "CacheAllocatedInBytes"
         <*> o .: "CacheDirtyPercentage"

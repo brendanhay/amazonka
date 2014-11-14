@@ -196,11 +196,9 @@ data UpdateInstanceResponse = UpdateInstanceResponse
 updateInstanceResponse :: UpdateInstanceResponse
 updateInstanceResponse = UpdateInstanceResponse
 
--- FromJSON
-
 instance AWSRequest UpdateInstance where
     type Sv UpdateInstance = OpsWorks
     type Rs UpdateInstance = UpdateInstanceResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse UpdateInstanceResponse

@@ -81,11 +81,9 @@ data DeleteAppResponse = DeleteAppResponse
 deleteAppResponse :: DeleteAppResponse
 deleteAppResponse = DeleteAppResponse
 
--- FromJSON
-
 instance AWSRequest DeleteApp where
     type Sv DeleteApp = OpsWorks
     type Rs DeleteApp = DeleteAppResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteAppResponse

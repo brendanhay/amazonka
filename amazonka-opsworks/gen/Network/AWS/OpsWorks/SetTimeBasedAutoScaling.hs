@@ -94,11 +94,9 @@ data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
 setTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse
 setTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
 
--- FromJSON
-
 instance AWSRequest SetTimeBasedAutoScaling where
     type Sv SetTimeBasedAutoScaling = OpsWorks
     type Rs SetTimeBasedAutoScaling = SetTimeBasedAutoScalingResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse SetTimeBasedAutoScalingResponse

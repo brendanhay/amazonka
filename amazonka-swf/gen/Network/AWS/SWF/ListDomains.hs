@@ -153,13 +153,11 @@ ldrDomainInfos = lens _ldrDomainInfos (\s a -> s { _ldrDomainInfos = a })
 ldrNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextPageToken = lens _ldrNextPageToken (\s a -> s { _ldrNextPageToken = a })
 
--- FromJSON
-
 instance AWSRequest ListDomains where
     type Sv ListDomains = SWF
     type Rs ListDomains = ListDomainsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListDomainsResponse
         <$> o .: "domainInfos"
         <*> o .: "nextPageToken"

@@ -107,12 +107,10 @@ ddcrDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
 ddcrDeliveryChannels =
     lens _ddcrDeliveryChannels (\s a -> s { _ddcrDeliveryChannels = a })
 
--- FromJSON
-
 instance AWSRequest DescribeDeliveryChannels where
     type Sv DescribeDeliveryChannels = Config
     type Rs DescribeDeliveryChannels = DescribeDeliveryChannelsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeDeliveryChannelsResponse
         <$> o .: "DeliveryChannels"

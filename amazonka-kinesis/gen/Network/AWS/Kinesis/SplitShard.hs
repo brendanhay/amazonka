@@ -139,11 +139,9 @@ data SplitShardResponse = SplitShardResponse
 splitShardResponse :: SplitShardResponse
 splitShardResponse = SplitShardResponse
 
--- FromJSON
-
 instance AWSRequest SplitShard where
     type Sv SplitShard = Kinesis
     type Rs SplitShard = SplitShardResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse SplitShardResponse

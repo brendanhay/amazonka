@@ -93,12 +93,10 @@ dvirVirtualInterfaceState =
     lens _dvirVirtualInterfaceState
         (\s a -> s { _dvirVirtualInterfaceState = a })
 
--- FromJSON
-
 instance AWSRequest DeleteVirtualInterface where
     type Sv DeleteVirtualInterface = DirectConnect
     type Rs DeleteVirtualInterface = DeleteVirtualInterfaceResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteVirtualInterfaceResponse
         <$> o .: "virtualInterfaceState"

@@ -81,11 +81,9 @@ data StartStackResponse = StartStackResponse
 startStackResponse :: StartStackResponse
 startStackResponse = StartStackResponse
 
--- FromJSON
-
 instance AWSRequest StartStack where
     type Sv StartStack = OpsWorks
     type Rs StartStack = StartStackResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse StartStackResponse

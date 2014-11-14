@@ -123,12 +123,10 @@ describeDeploymentsResponse = DescribeDeploymentsResponse
 ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
 ddrDeployments = lens _ddrDeployments (\s a -> s { _ddrDeployments = a })
 
--- FromJSON
-
 instance AWSRequest DescribeDeployments where
     type Sv DescribeDeployments = OpsWorks
     type Rs DescribeDeployments = DescribeDeploymentsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeDeploymentsResponse
         <$> o .: "Deployments"

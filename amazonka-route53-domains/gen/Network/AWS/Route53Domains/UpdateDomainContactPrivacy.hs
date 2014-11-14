@@ -146,12 +146,10 @@ updateDomainContactPrivacyResponse p1 = UpdateDomainContactPrivacyResponse
 udcprOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
 udcprOperationId = lens _udcprOperationId (\s a -> s { _udcprOperationId = a })
 
--- FromJSON
-
 instance AWSRequest UpdateDomainContactPrivacy where
     type Sv UpdateDomainContactPrivacy = Route53Domains
     type Rs UpdateDomainContactPrivacy = UpdateDomainContactPrivacyResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateDomainContactPrivacyResponse
         <$> o .: "OperationId"

@@ -106,12 +106,10 @@ describeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummar
 dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
 dtacsrSummaries = lens _dtacsrSummaries (\s a -> s { _dtacsrSummaries = a })
 
--- FromJSON
-
 instance AWSRequest DescribeTrustedAdvisorCheckSummaries where
     type Sv DescribeTrustedAdvisorCheckSummaries = Support
     type Rs DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummariesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeTrustedAdvisorCheckSummariesResponse
         <$> o .: "summaries"

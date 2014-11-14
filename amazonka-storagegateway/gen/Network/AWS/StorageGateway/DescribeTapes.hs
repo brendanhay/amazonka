@@ -137,13 +137,11 @@ dtrMarker = lens _dtrMarker (\s a -> s { _dtrMarker = a })
 dtrTapes :: Lens' DescribeTapesResponse [Tape]
 dtrTapes = lens _dtrTapes (\s a -> s { _dtrTapes = a })
 
--- FromJSON
-
 instance AWSRequest DescribeTapes where
     type Sv DescribeTapes = StorageGateway
     type Rs DescribeTapes = DescribeTapesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeTapesResponse
         <$> o .: "Marker"
         <*> o .: "Tapes"

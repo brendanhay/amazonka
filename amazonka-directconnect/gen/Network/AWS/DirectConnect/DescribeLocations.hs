@@ -83,12 +83,10 @@ describeLocationsResponse = DescribeLocationsResponse
 dlrLocations :: Lens' DescribeLocationsResponse [Location]
 dlrLocations = lens _dlrLocations (\s a -> s { _dlrLocations = a })
 
--- FromJSON
-
 instance AWSRequest DescribeLocations where
     type Sv DescribeLocations = DirectConnect
     type Rs DescribeLocations = DescribeLocationsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeLocationsResponse
         <$> o .: "locations"

@@ -90,11 +90,9 @@ data CreateLogStreamResponse = CreateLogStreamResponse
 createLogStreamResponse :: CreateLogStreamResponse
 createLogStreamResponse = CreateLogStreamResponse
 
--- FromJSON
-
 instance AWSRequest CreateLogStream where
     type Sv CreateLogStream = CloudWatchLogs
     type Rs CreateLogStream = CreateLogStreamResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse CreateLogStreamResponse

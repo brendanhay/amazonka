@@ -105,12 +105,10 @@ describeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheck
 dtacrsrStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
 dtacrsrStatuses = lens _dtacrsrStatuses (\s a -> s { _dtacrsrStatuses = a })
 
--- FromJSON
-
 instance AWSRequest DescribeTrustedAdvisorCheckRefreshStatuses where
     type Sv DescribeTrustedAdvisorCheckRefreshStatuses = Support
     type Rs DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatusesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
         <$> o .: "statuses"

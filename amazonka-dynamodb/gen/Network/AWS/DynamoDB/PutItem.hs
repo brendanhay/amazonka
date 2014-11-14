@@ -406,13 +406,11 @@ pirItemCollectionMetrics =
     lens _pirItemCollectionMetrics
         (\s a -> s { _pirItemCollectionMetrics = a })
 
--- FromJSON
-
 instance AWSRequest PutItem where
     type Sv PutItem = DynamoDB
     type Rs PutItem = PutItemResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> PutItemResponse
         <$> o .: "Attributes"
         <*> o .: "ConsumedCapacity"

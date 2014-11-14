@@ -161,13 +161,11 @@ goitfdirIdentityId =
 goitfdirToken :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
 goitfdirToken = lens _goitfdirToken (\s a -> s { _goitfdirToken = a })
 
--- FromJSON
-
 instance AWSRequest GetOpenIdTokenForDeveloperIdentity where
     type Sv GetOpenIdTokenForDeveloperIdentity = CognitoIdentity
     type Rs GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentityResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetOpenIdTokenForDeveloperIdentityResponse
         <$> o .: "IdentityId"
         <*> o .: "Token"

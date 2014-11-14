@@ -151,13 +151,11 @@ dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
 dorPipelineObjects =
     lens _dorPipelineObjects (\s a -> s { _dorPipelineObjects = a })
 
--- FromJSON
-
 instance AWSRequest DescribeObjects where
     type Sv DescribeObjects = DataPipeline
     type Rs DescribeObjects = DescribeObjectsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeObjectsResponse
         <$> o .: "hasMoreResults"
         <*> o .: "marker"

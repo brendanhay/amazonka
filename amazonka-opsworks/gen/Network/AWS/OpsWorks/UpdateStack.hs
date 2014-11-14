@@ -285,11 +285,9 @@ data UpdateStackResponse = UpdateStackResponse
 updateStackResponse :: UpdateStackResponse
 updateStackResponse = UpdateStackResponse
 
--- FromJSON
-
 instance AWSRequest UpdateStack where
     type Sv UpdateStack = OpsWorks
     type Rs UpdateStack = UpdateStackResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse UpdateStackResponse

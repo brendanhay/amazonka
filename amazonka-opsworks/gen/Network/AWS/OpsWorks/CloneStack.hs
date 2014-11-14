@@ -360,12 +360,10 @@ cloneStackResponse = CloneStackResponse
 csrStackId :: Lens' CloneStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\s a -> s { _csrStackId = a })
 
--- FromJSON
-
 instance AWSRequest CloneStack where
     type Sv CloneStack = OpsWorks
     type Rs CloneStack = CloneStackResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CloneStackResponse
         <$> o .: "StackId"

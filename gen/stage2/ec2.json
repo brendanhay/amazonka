@@ -3,9 +3,9 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "EC2",
-        "error": "EC2Error",
+        "error": "RESTError",
         "namespace": "Network.AWS.EC2",
-        "protocol": "query",
+        "protocol": "ec2",
         "imports": [
             "Network.AWS.EC2.AcceptVpcPeeringConnection",
             "Network.AWS.EC2.AllocateAddress",
@@ -343,9 +343,9 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "EC2",
-            "error": "EC2Error",
+            "error": "RESTError",
             "namespace": "Network.AWS.EC2",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.EC2.AcceptVpcPeeringConnection",
                 "Network.AWS.EC2.AllocateAddress",
@@ -22026,7 +22026,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.AcceptVpcPeeringConnection",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -22241,7 +22241,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.AllocateAddress",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -22369,7 +22369,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.AssignPrivateIpAddresses",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -22611,7 +22611,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.AssociateAddress",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -22904,7 +22904,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.AssociateDhcpOptions",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -23113,7 +23113,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.AssociateRouteTable",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -23275,7 +23275,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.AttachInternetGateway",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -23484,7 +23484,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.AttachNetworkInterface",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -23850,7 +23850,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.AttachVolume",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -24090,7 +24090,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.AttachVpnGateway",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -24252,7 +24252,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.AuthorizeSecurityGroupEgress",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -24611,7 +24611,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.AuthorizeSecurityGroupIngress",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -25047,7 +25047,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.BundleInstance",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -25253,7 +25253,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CancelBundleTask",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -25382,7 +25382,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.CancelConversionTask",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -25544,7 +25544,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.CancelExportTask",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -25703,7 +25703,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CancelReservedInstancesListing",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -25862,7 +25862,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CancelSpotInstanceRequests",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -26037,7 +26037,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.ConfirmProductInstance",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -26246,7 +26246,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CopyImage",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -26554,7 +26554,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CopySnapshot",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -26860,7 +26860,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateCustomerGateway",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -27100,7 +27100,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateDhcpOptions",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -27274,7 +27274,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateImage",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -27579,7 +27579,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateInstanceExportTask",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -27818,7 +27818,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateInternetGateway",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -28015,7 +28015,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateKeyPair",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -28189,7 +28189,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateNetworkAcl",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -28318,7 +28318,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.CreateNetworkAclEntry",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -28722,7 +28722,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateNetworkInterface",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -29015,7 +29015,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.CreatePlacementGroup",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -29224,7 +29224,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateReservedInstancesListing",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -29418,7 +29418,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.CreateRoute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -29757,7 +29757,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateRouteTable",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -29933,7 +29933,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateSecurityGroup",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -30438,7 +30438,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateSnapshot",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -30645,7 +30645,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateSpotDatafeedSubscription",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -30852,7 +30852,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateSubnet",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -31047,7 +31047,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.CreateTags",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -31517,7 +31517,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateVolume",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -31856,7 +31856,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateVpc",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -32063,7 +32063,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateVpcPeeringConnection",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -32302,7 +32302,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateVpnConnection",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -32529,7 +32529,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.CreateVpnConnectionRoute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -32702,7 +32702,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.CreateVpnGateway",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -32864,7 +32864,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteCustomerGateway",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -32993,7 +32993,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteDhcpOptions",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -33122,7 +33122,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteInternetGateway",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -33251,7 +33251,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteKeyPair",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -33380,7 +33380,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteNetworkAcl",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -33509,7 +33509,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteNetworkAclEntry",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -33704,7 +33704,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteNetworkInterface",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -33833,7 +33833,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeletePlacementGroup",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -33962,7 +33962,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteRoute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -34124,7 +34124,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteRouteTable",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -34253,7 +34253,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteSecurityGroup",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -34414,7 +34414,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteSnapshot",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -34543,7 +34543,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteSpotDatafeedSubscription",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -34653,7 +34653,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteSubnet",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -34782,7 +34782,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteTags",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -34942,7 +34942,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteVolume",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -35071,7 +35071,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteVpc",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -35246,7 +35246,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DeleteVpcPeeringConnection",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -35375,7 +35375,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteVpnConnection",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -35504,7 +35504,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteVpnConnectionRoute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -35632,7 +35632,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeleteVpnGateway",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -35761,7 +35761,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DeregisterImage",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -35937,7 +35937,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeAccountAttributes",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -36112,7 +36112,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeAddresses",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -36352,7 +36352,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeAvailabilityZones",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -36559,7 +36559,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeBundleTasks",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -36766,7 +36766,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeConversionTasks",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -36973,7 +36973,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeCustomerGateways",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -37180,7 +37180,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeDhcpOptions",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -37387,7 +37387,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeExportTasks",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -37725,7 +37725,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeImageAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -37934,7 +37934,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeImages",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -38554,7 +38554,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeInstanceAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -38774,7 +38774,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeInstanceStatus",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -39091,7 +39091,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeInstances",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -39364,7 +39364,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeInternetGateways",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -39571,7 +39571,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeKeyPairs",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -39778,7 +39778,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeNetworkAcls",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -40080,7 +40080,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeNetworkInterfaceAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -40289,7 +40289,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeNetworkInterfaces",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -40496,7 +40496,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribePlacementGroups",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -40703,7 +40703,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeRegions",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -40910,7 +40910,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeReservedInstances",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -41150,7 +41150,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeReservedInstancesListings",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -41368,7 +41368,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeReservedInstancesModifications",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -41586,7 +41586,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeReservedInstancesOfferings",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -42156,7 +42156,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeRouteTables",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -42363,7 +42363,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeSecurityGroups",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -42642,7 +42642,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeSnapshotAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -42851,7 +42851,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeSnapshots",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -43122,7 +43122,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeSpotDatafeedSubscription",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -43279,7 +43279,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeSpotInstanceRequests",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -43497,7 +43497,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeSpotPriceHistory",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -43902,7 +43902,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeSubnets",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -44120,7 +44120,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeTags",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -44399,7 +44399,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeVolumeAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -44619,7 +44619,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeVolumeStatus",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -44903,7 +44903,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeVolumes",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -45215,7 +45215,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeVpcAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -45424,7 +45424,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeVpcPeeringConnections",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -45631,7 +45631,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeVpcs",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -45838,7 +45838,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeVpnConnections",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -46045,7 +46045,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DescribeVpnGateways",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -46205,7 +46205,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DetachInternetGateway",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -46367,7 +46367,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DetachNetworkInterface",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -46700,7 +46700,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.DetachVolume",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -46928,7 +46928,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DetachVpnGateway",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -47090,7 +47090,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DisableVgwRoutePropagation",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -47218,7 +47218,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DisassociateAddress",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -47379,7 +47379,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.DisassociateRouteTable",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -47508,7 +47508,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.EnableVgwRoutePropagation",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -47636,7 +47636,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.EnableVolumeIO",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -47852,7 +47852,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.GetConsoleOutput",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -48068,7 +48068,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.GetPasswordData",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -48242,7 +48242,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.ImportInstance",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -48528,7 +48528,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.ImportKeyPair",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -48734,7 +48734,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.ImportVolume",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -48961,7 +48961,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ModifyImageAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -49353,7 +49353,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ModifyInstanceAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -49910,7 +49910,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ModifyNetworkInterfaceAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -50217,7 +50217,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.ModifyReservedInstances",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -50377,7 +50377,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ModifySnapshotAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -50670,7 +50670,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ModifySubnetAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -50798,7 +50798,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ModifyVolumeAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -50959,7 +50959,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ModifyVpcAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -51167,7 +51167,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.MonitorInstances",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -51342,7 +51342,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.PurchaseReservedInstancesOffering",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -51536,7 +51536,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.RebootInstances",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -51711,7 +51711,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.RegisterImage",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -52182,7 +52182,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.RejectVpcPeeringConnection",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -52311,7 +52311,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ReleaseAddress",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -52519,7 +52519,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.ReplaceNetworkAclAssociation",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -52681,7 +52681,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ReplaceNetworkAclEntry",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -53040,7 +53040,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ReplaceRoute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -53381,7 +53381,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.ReplaceRouteTableAssociation",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -53543,7 +53543,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ReportInstanceStatus",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -53884,7 +53884,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.RequestSpotInstances",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -54243,7 +54243,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ResetImageAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -54405,7 +54405,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ResetInstanceAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -54567,7 +54567,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ResetNetworkInterfaceAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -54729,7 +54729,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.ResetSnapshotAttribute",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -54891,7 +54891,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.RevokeSecurityGroupEgress",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -55250,7 +55250,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.RevokeSecurityGroupIngress",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -55783,7 +55783,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.RunInstances",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -56651,7 +56651,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.StartInstances",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -56859,7 +56859,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.StopInstances",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -57067,7 +57067,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.TerminateInstances",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -57195,7 +57195,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.EC2.UnassignPrivateIpAddresses",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
@@ -57371,7 +57371,7 @@
                 ]
             },
             "namespace": "Network.AWS.EC2.UnmonitorInstances",
-            "protocol": "query",
+            "protocol": "ec2",
             "imports": [
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"

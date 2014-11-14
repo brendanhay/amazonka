@@ -112,12 +112,10 @@ retrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
 rtarTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtarTapeARN = lens _rtarTapeARN (\s a -> s { _rtarTapeARN = a })
 
--- FromJSON
-
 instance AWSRequest RetrieveTapeArchive where
     type Sv RetrieveTapeArchive = StorageGateway
     type Rs RetrieveTapeArchive = RetrieveTapeArchiveResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> RetrieveTapeArchiveResponse
         <$> o .: "TapeARN"

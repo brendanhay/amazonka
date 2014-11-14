@@ -130,11 +130,9 @@ data SignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
 signalWorkflowExecutionResponse :: SignalWorkflowExecutionResponse
 signalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
 
--- FromJSON
-
 instance AWSRequest SignalWorkflowExecution where
     type Sv SignalWorkflowExecution = SWF
     type Rs SignalWorkflowExecution = SignalWorkflowExecutionResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse SignalWorkflowExecutionResponse

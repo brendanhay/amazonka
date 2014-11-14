@@ -128,13 +128,11 @@ lipurMaxResults = lens _lipurMaxResults (\s a -> s { _lipurMaxResults = a })
 lipurNextToken :: Lens' ListIdentityPoolUsageResponse (Maybe Text)
 lipurNextToken = lens _lipurNextToken (\s a -> s { _lipurNextToken = a })
 
--- FromJSON
-
 instance AWSRequest ListIdentityPoolUsage where
     type Sv ListIdentityPoolUsage = CognitoSync
     type Rs ListIdentityPoolUsage = ListIdentityPoolUsageResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> ListIdentityPoolUsageResponse
         <$> o .: "Count"
         <*> o .: "IdentityPoolUsages"

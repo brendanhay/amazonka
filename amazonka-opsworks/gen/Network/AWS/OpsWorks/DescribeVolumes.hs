@@ -133,12 +133,10 @@ describeVolumesResponse = DescribeVolumesResponse
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
 
--- FromJSON
-
 instance AWSRequest DescribeVolumes where
     type Sv DescribeVolumes = OpsWorks
     type Rs DescribeVolumes = DescribeVolumesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeVolumesResponse
         <$> o .: "Volumes"

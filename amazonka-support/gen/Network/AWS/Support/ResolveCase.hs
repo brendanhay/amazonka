@@ -105,13 +105,11 @@ rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrInitialCaseStatus =
     lens _rcrInitialCaseStatus (\s a -> s { _rcrInitialCaseStatus = a })
 
--- FromJSON
-
 instance AWSRequest ResolveCase where
     type Sv ResolveCase = Support
     type Rs ResolveCase = ResolveCaseResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ResolveCaseResponse
         <$> o .: "finalCaseStatus"
         <*> o .: "initialCaseStatus"

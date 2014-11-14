@@ -116,13 +116,11 @@ lgrGateways = lens _lgrGateways (\s a -> s { _lgrGateways = a })
 lgrMarker :: Lens' ListGatewaysResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
 
--- FromJSON
-
 instance AWSRequest ListGateways where
     type Sv ListGateways = StorageGateway
     type Rs ListGateways = ListGatewaysResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListGatewaysResponse
         <$> o .: "Gateways"
         <*> o .: "Marker"

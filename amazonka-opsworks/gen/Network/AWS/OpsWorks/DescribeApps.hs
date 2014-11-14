@@ -113,12 +113,10 @@ describeAppsResponse = DescribeAppsResponse
 darApps :: Lens' DescribeAppsResponse [App]
 darApps = lens _darApps (\s a -> s { _darApps = a })
 
--- FromJSON
-
 instance AWSRequest DescribeApps where
     type Sv DescribeApps = OpsWorks
     type Rs DescribeApps = DescribeAppsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeAppsResponse
         <$> o .: "Apps"

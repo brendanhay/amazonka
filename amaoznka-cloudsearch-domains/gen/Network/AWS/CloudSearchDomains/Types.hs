@@ -24,7 +24,7 @@ module Network.AWS.CloudSearchDomains.Types
     -- * Service
       CloudSearchDomains
     -- ** Error
-    , JSONError
+    , RESTError
 
     -- * SearchStatus
     , SearchStatus
@@ -99,7 +99,7 @@ data CloudSearchDomains deriving (Typeable)
 
 instance AWSService CloudSearchDomains where
     type Sg CloudSearchDomains = V4
-    type Er CloudSearchDomains = JSONError
+    type Er CloudSearchDomains = RESTError
 
     service = Service
         { _svcEndpoint = regional
@@ -109,7 +109,7 @@ instance AWSService CloudSearchDomains where
         , _svcTarget   = Nothing
         }
 
-    handle = jsonError alwaysFail
+    handle = restError alwaysFail
 
 data SearchStatus = SearchStatus
     { _ssRid    :: Maybe Text

@@ -100,11 +100,9 @@ data UnlinkIdentityResponse = UnlinkIdentityResponse
 unlinkIdentityResponse :: UnlinkIdentityResponse
 unlinkIdentityResponse = UnlinkIdentityResponse
 
--- FromJSON
-
 instance AWSRequest UnlinkIdentity where
     type Sv UnlinkIdentity = CognitoIdentity
     type Rs UnlinkIdentity = UnlinkIdentityResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse UnlinkIdentityResponse

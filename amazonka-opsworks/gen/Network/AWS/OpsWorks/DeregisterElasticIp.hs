@@ -83,11 +83,9 @@ data DeregisterElasticIpResponse = DeregisterElasticIpResponse
 deregisterElasticIpResponse :: DeregisterElasticIpResponse
 deregisterElasticIpResponse = DeregisterElasticIpResponse
 
--- FromJSON
-
 instance AWSRequest DeregisterElasticIp where
     type Sv DeregisterElasticIp = OpsWorks
     type Rs DeregisterElasticIp = DeregisterElasticIpResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeregisterElasticIpResponse

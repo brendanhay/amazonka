@@ -78,11 +78,9 @@ data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
 deleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse
 deleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
 
--- FromJSON
-
 instance AWSRequest DeleteRetentionPolicy where
     type Sv DeleteRetentionPolicy = CloudWatchLogs
     type Rs DeleteRetentionPolicy = DeleteRetentionPolicyResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteRetentionPolicyResponse

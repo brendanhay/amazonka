@@ -397,13 +397,11 @@ srLastEvaluatedKey =
 srScannedCount :: Lens' ScanResponse (Maybe Int)
 srScannedCount = lens _srScannedCount (\s a -> s { _srScannedCount = a })
 
--- FromJSON
-
 instance AWSRequest Scan where
     type Sv Scan = DynamoDB
     type Rs Scan = ScanResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ScanResponse
         <$> o .: "ConsumedCapacity"
         <*> o .: "Count"

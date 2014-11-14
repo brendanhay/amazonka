@@ -116,13 +116,11 @@ goitrIdentityId = lens _goitrIdentityId (\s a -> s { _goitrIdentityId = a })
 goitrToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrToken = lens _goitrToken (\s a -> s { _goitrToken = a })
 
--- FromJSON
-
 instance AWSRequest GetOpenIdToken where
     type Sv GetOpenIdToken = CognitoIdentity
     type Rs GetOpenIdToken = GetOpenIdTokenResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetOpenIdTokenResponse
         <$> o .: "IdentityId"
         <*> o .: "Token"

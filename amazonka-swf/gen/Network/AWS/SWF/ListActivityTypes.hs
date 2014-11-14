@@ -174,13 +174,11 @@ latrNextPageToken =
 latrTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
 latrTypeInfos = lens _latrTypeInfos (\s a -> s { _latrTypeInfos = a })
 
--- FromJSON
-
 instance AWSRequest ListActivityTypes where
     type Sv ListActivityTypes = SWF
     type Rs ListActivityTypes = ListActivityTypesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListActivityTypesResponse
         <$> o .: "nextPageToken"
         <*> o .: "typeInfos"

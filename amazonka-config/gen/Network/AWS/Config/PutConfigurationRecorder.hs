@@ -84,11 +84,9 @@ data PutConfigurationRecorderResponse = PutConfigurationRecorderResponse
 putConfigurationRecorderResponse :: PutConfigurationRecorderResponse
 putConfigurationRecorderResponse = PutConfigurationRecorderResponse
 
--- FromJSON
-
 instance AWSRequest PutConfigurationRecorder where
     type Sv PutConfigurationRecorder = Config
     type Rs PutConfigurationRecorder = PutConfigurationRecorderResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse PutConfigurationRecorderResponse

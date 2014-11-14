@@ -131,13 +131,11 @@ dwsrWorkingStorageUsedInBytes =
     lens _dwsrWorkingStorageUsedInBytes
         (\s a -> s { _dwsrWorkingStorageUsedInBytes = a })
 
--- FromJSON
-
 instance AWSRequest DescribeWorkingStorage where
     type Sv DescribeWorkingStorage = StorageGateway
     type Rs DescribeWorkingStorage = DescribeWorkingStorageResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeWorkingStorageResponse
         <$> o .: "DiskIds"
         <*> o .: "GatewayARN"

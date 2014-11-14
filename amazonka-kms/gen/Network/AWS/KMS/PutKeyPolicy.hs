@@ -100,11 +100,9 @@ data PutKeyPolicyResponse = PutKeyPolicyResponse
 putKeyPolicyResponse :: PutKeyPolicyResponse
 putKeyPolicyResponse = PutKeyPolicyResponse
 
--- FromJSON
-
 instance AWSRequest PutKeyPolicy where
     type Sv PutKeyPolicy = KMS
     type Rs PutKeyPolicy = PutKeyPolicyResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse PutKeyPolicyResponse

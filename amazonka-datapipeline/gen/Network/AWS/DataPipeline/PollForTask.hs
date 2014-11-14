@@ -139,12 +139,10 @@ pollForTaskResponse = PollForTaskResponse
 pftrTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrTaskObject = lens _pftrTaskObject (\s a -> s { _pftrTaskObject = a })
 
--- FromJSON
-
 instance AWSRequest PollForTask where
     type Sv PollForTask = DataPipeline
     type Rs PollForTask = PollForTaskResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> PollForTaskResponse
         <$> o .: "taskObject"

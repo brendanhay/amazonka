@@ -184,8 +184,8 @@ module Network.AWS.Route53.Types
     , hcoStatusReport
     ) where
 
-import Network.AWS.Prelude
 import Network.AWS.Error
+import Network.AWS.Prelude
 import Network.AWS.Signing.V3
 import qualified GHC.Exts
 

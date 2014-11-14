@@ -117,12 +117,10 @@ createKeyResponse = CreateKeyResponse
 ckrKeyMetadata :: Lens' CreateKeyResponse (Maybe KeyMetadata)
 ckrKeyMetadata = lens _ckrKeyMetadata (\s a -> s { _ckrKeyMetadata = a })
 
--- FromJSON
-
 instance AWSRequest CreateKey where
     type Sv CreateKey = KMS
     type Rs CreateKey = CreateKeyResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateKeyResponse
         <$> o .: "KeyMetadata"

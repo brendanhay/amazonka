@@ -80,11 +80,9 @@ data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse
 deleteIdentityPoolResponse :: DeleteIdentityPoolResponse
 deleteIdentityPoolResponse = DeleteIdentityPoolResponse
 
--- FromJSON
-
 instance AWSRequest DeleteIdentityPool where
     type Sv DeleteIdentityPool = CognitoIdentity
     type Rs DeleteIdentityPool = DeleteIdentityPoolResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteIdentityPoolResponse

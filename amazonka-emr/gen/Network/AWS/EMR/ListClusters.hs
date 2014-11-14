@@ -133,13 +133,11 @@ lcrClusters = lens _lcrClusters (\s a -> s { _lcrClusters = a })
 lcrMarker :: Lens' ListClustersResponse (Maybe Text)
 lcrMarker = lens _lcrMarker (\s a -> s { _lcrMarker = a })
 
--- FromJSON
-
 instance AWSRequest ListClusters where
     type Sv ListClusters = EMR
     type Rs ListClusters = ListClustersResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListClustersResponse
         <$> o .: "Clusters"
         <*> o .: "Marker"

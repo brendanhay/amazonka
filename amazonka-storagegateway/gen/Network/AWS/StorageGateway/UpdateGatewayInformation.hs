@@ -109,12 +109,10 @@ updateGatewayInformationResponse = UpdateGatewayInformationResponse
 ugirGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirGatewayARN = lens _ugirGatewayARN (\s a -> s { _ugirGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest UpdateGatewayInformation where
     type Sv UpdateGatewayInformation = StorageGateway
     type Rs UpdateGatewayInformation = UpdateGatewayInformationResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateGatewayInformationResponse
         <$> o .: "GatewayARN"

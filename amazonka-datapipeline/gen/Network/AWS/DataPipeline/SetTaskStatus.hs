@@ -131,11 +131,9 @@ data SetTaskStatusResponse = SetTaskStatusResponse
 setTaskStatusResponse :: SetTaskStatusResponse
 setTaskStatusResponse = SetTaskStatusResponse
 
--- FromJSON
-
 instance AWSRequest SetTaskStatus where
     type Sv SetTaskStatus = DataPipeline
     type Rs SetTaskStatus = SetTaskStatusResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse SetTaskStatusResponse

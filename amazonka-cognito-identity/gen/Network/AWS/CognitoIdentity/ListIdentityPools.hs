@@ -111,13 +111,11 @@ liprIdentityPools =
 liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprNextToken = lens _liprNextToken (\s a -> s { _liprNextToken = a })
 
--- FromJSON
-
 instance AWSRequest ListIdentityPools where
     type Sv ListIdentityPools = CognitoIdentity
     type Rs ListIdentityPools = ListIdentityPoolsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListIdentityPoolsResponse
         <$> o .: "IdentityPools"
         <*> o .: "NextToken"

@@ -97,12 +97,10 @@ dipurIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe Identit
 dipurIdentityPoolUsage =
     lens _dipurIdentityPoolUsage (\s a -> s { _dipurIdentityPoolUsage = a })
 
--- FromJSON
-
 instance AWSRequest DescribeIdentityPoolUsage where
     type Sv DescribeIdentityPoolUsage = CognitoSync
     type Rs DescribeIdentityPoolUsage = DescribeIdentityPoolUsageResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> DescribeIdentityPoolUsageResponse
         <$> o .: "IdentityPoolUsage"

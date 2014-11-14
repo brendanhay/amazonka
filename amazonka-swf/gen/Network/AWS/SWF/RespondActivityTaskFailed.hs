@@ -115,11 +115,9 @@ data RespondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
 respondActivityTaskFailedResponse :: RespondActivityTaskFailedResponse
 respondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
 
--- FromJSON
-
 instance AWSRequest RespondActivityTaskFailed where
     type Sv RespondActivityTaskFailed = SWF
     type Rs RespondActivityTaskFailed = RespondActivityTaskFailedResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RespondActivityTaskFailedResponse

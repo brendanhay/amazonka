@@ -253,12 +253,10 @@ transferDomainResponse p1 = TransferDomainResponse
 tdrOperationId :: Lens' TransferDomainResponse Text
 tdrOperationId = lens _tdrOperationId (\s a -> s { _tdrOperationId = a })
 
--- FromJSON
-
 instance AWSRequest TransferDomain where
     type Sv TransferDomain = Route53Domains
     type Rs TransferDomain = TransferDomainResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> TransferDomainResponse
         <$> o .: "OperationId"

@@ -117,12 +117,10 @@ ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrHooksNotCleanedUp =
     lens _ddgrHooksNotCleanedUp (\s a -> s { _ddgrHooksNotCleanedUp = a })
 
--- FromJSON
-
 instance AWSRequest DeleteDeploymentGroup where
     type Sv DeleteDeploymentGroup = CodeDeploy
     type Rs DeleteDeploymentGroup = DeleteDeploymentGroupResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteDeploymentGroupResponse
         <$> o .: "hooksNotCleanedUp"

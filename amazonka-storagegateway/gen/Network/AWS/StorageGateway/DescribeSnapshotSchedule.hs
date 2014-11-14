@@ -127,13 +127,11 @@ dssrTimezone = lens _dssrTimezone (\s a -> s { _dssrTimezone = a })
 dssrVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrVolumeARN = lens _dssrVolumeARN (\s a -> s { _dssrVolumeARN = a })
 
--- FromJSON
-
 instance AWSRequest DescribeSnapshotSchedule where
     type Sv DescribeSnapshotSchedule = StorageGateway
     type Rs DescribeSnapshotSchedule = DescribeSnapshotScheduleResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeSnapshotScheduleResponse
         <$> o .: "Description"
         <*> o .: "RecurrenceInHours"

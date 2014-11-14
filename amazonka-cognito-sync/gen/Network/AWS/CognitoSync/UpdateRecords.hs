@@ -178,12 +178,10 @@ updateRecordsResponse = UpdateRecordsResponse
 urrRecords :: Lens' UpdateRecordsResponse [Record]
 urrRecords = lens _urrRecords (\s a -> s { _urrRecords = a })
 
--- FromJSON
-
 instance AWSRequest UpdateRecords where
     type Sv UpdateRecords = CognitoSync
     type Rs UpdateRecords = UpdateRecordsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateRecordsResponse
         <$> o .: "Records"

@@ -95,12 +95,10 @@ disableGatewayResponse = DisableGatewayResponse
 dgr1GatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 dgr1GatewayARN = lens _dgr1GatewayARN (\s a -> s { _dgr1GatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest DisableGateway where
     type Sv DisableGateway = StorageGateway
     type Rs DisableGateway = DisableGatewayResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DisableGatewayResponse
         <$> o .: "GatewayARN"

@@ -264,12 +264,10 @@ createPipelineResponse = CreatePipelineResponse
 cprPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
 cprPipeline = lens _cprPipeline (\s a -> s { _cprPipeline = a })
 
--- FromJSON
-
 instance AWSRequest CreatePipeline where
     type Sv CreatePipeline = ElasticTranscoder
     type Rs CreatePipeline = CreatePipelineResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreatePipelineResponse
         <$> o .: "Pipeline"

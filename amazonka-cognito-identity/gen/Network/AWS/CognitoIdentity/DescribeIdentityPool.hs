@@ -152,13 +152,11 @@ diprSupportedLoginProviders =
         (\s a -> s { _diprSupportedLoginProviders = a })
             . _Map
 
--- FromJSON
-
 instance AWSRequest DescribeIdentityPool where
     type Sv DescribeIdentityPool = CognitoIdentity
     type Rs DescribeIdentityPool = DescribeIdentityPoolResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeIdentityPoolResponse
         <$> o .: "AllowUnauthenticatedIdentities"
         <*> o .: "DeveloperProviderName"

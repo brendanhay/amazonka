@@ -151,13 +151,11 @@ ldrDeployments = lens _ldrDeployments (\s a -> s { _ldrDeployments = a })
 ldrNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 
--- FromJSON
-
 instance AWSRequest ListDeployments where
     type Sv ListDeployments = CodeDeploy
     type Rs ListDeployments = ListDeploymentsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListDeploymentsResponse
         <$> o .: "deployments"
         <*> o .: "nextToken"

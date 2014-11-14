@@ -156,13 +156,11 @@ dgirNextUpdateAvailabilityDate =
     lens _dgirNextUpdateAvailabilityDate
         (\s a -> s { _dgirNextUpdateAvailabilityDate = a })
 
--- FromJSON
-
 instance AWSRequest DescribeGatewayInformation where
     type Sv DescribeGatewayInformation = StorageGateway
     type Rs DescribeGatewayInformation = DescribeGatewayInformationResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeGatewayInformationResponse
         <$> o .: "GatewayARN"
         <*> o .: "GatewayId"

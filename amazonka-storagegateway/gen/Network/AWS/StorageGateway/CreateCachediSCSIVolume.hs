@@ -159,13 +159,11 @@ ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrVolumeARN =
     lens _ccscsivrVolumeARN (\s a -> s { _ccscsivrVolumeARN = a })
 
--- FromJSON
-
 instance AWSRequest CreateCachediSCSIVolume where
     type Sv CreateCachediSCSIVolume = StorageGateway
     type Rs CreateCachediSCSIVolume = CreateCachediSCSIVolumeResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateCachediSCSIVolumeResponse
         <$> o .: "TargetARN"
         <*> o .: "VolumeARN"

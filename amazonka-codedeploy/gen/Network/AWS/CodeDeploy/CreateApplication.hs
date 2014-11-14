@@ -94,12 +94,10 @@ createApplicationResponse = CreateApplicationResponse
 carApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
 carApplicationId = lens _carApplicationId (\s a -> s { _carApplicationId = a })
 
--- FromJSON
-
 instance AWSRequest CreateApplication where
     type Sv CreateApplication = CodeDeploy
     type Rs CreateApplication = CreateApplicationResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateApplicationResponse
         <$> o .: "applicationId"

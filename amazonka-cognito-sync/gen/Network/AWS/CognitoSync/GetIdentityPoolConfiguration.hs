@@ -108,13 +108,11 @@ gipcrIdentityPoolId =
 gipcrPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
 gipcrPushSync = lens _gipcrPushSync (\s a -> s { _gipcrPushSync = a })
 
--- FromJSON
-
 instance AWSRequest GetIdentityPoolConfiguration where
     type Sv GetIdentityPoolConfiguration = CognitoSync
     type Rs GetIdentityPoolConfiguration = GetIdentityPoolConfigurationResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> GetIdentityPoolConfigurationResponse
         <$> o .: "IdentityPoolId"
         <*> o .: "PushSync"

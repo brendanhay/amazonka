@@ -42,7 +42,7 @@ import           Data.Ord
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Traversable     (Traversable, traverse)
-import           Gen.JSON          ()
+import           Gen.JSON             ()
 import           Gen.Names
 import           Gen.TH
 import           System.FilePath
@@ -92,27 +92,15 @@ instance A.ToJSON Signature where
 
 data Protocol
     = Json
+    | RestJson
     | Xml
+    | RestXml
     | Query
-      deriving (Eq)
+    | Ec2
+      deriving (Eq, Show)
 
-instance Show Protocol where
-    show = \case
-        Json  -> "JSON"
-        Xml   -> "XML"
-        Query -> "Query"
-
-instance FromJSON Protocol where
-    parseJSON = withText "protocol" $ \case
-        "json"      -> pure Json
-        "rest-json" -> pure Json
-        "rest-xml"  -> pure Xml
-        "query"     -> pure Query
-        "ec2"       -> pure Query
-        e           -> fail ("Unknown Protocol: " ++ Text.unpack e)
-
-instance A.ToJSON Protocol where
-    toJSON = A.toJSON . map toLower . show
+nullary stage1 ''Protocol
+nullary stage2 ''Protocol
 
 data Timestamp
     = RFC822
@@ -165,22 +153,33 @@ data Location
     | Header
     | Uri
     | Querystring
+    | StatusCode
     | BodyXml
     | BodyJson
     | Body
       deriving (Eq, Ord, Show)
 
+instance FromJSON Location where
+    parseJSON = withText "location" $ \case
+        "headers"     -> pure Headers
+        "header"      -> pure Header
+        "uri"         -> pure Uri
+        "querystring" -> pure Querystring
+        "statusCode"  -> pure StatusCode
+        e             -> fail ("Unknown Location: " ++ Text.unpack e)
+
+nullary stage2 ''Location
+
 location :: Protocol -> Bool -> Maybe Location -> Location
 location _ True = const Body
-location p _    = fromMaybe l
-  where
-    l = case p of
-        Json  -> BodyJson
-        Xml   -> BodyXml
-        Query -> Querystring
-
-nullary stage1 ''Location
-nullary stage2 ''Location
+location p _    = fromMaybe $
+    case p of
+        Json     -> BodyJson
+        RestJson -> BodyJson
+        Xml      -> BodyXml
+        RestXml  -> BodyXml
+        Query    -> Querystring
+        Ec2      -> Querystring
 
 data Seg
     = Seg Text
@@ -267,15 +266,15 @@ operationNS :: Abbrev -> Text -> NS
 operationNS (Abbrev a) o = namespace [a, Text.dropWhileEnd (not . isAlpha) o]
 
 requestNS :: Protocol -> NS
-requestNS Query = NS ["Network", "AWS", "Request", "Query"]
-requestNS _     = NS ["Network", "AWS", "Request"]
+requestNS p
+    | p == Ec2 || p == Query = NS ["Network", "AWS", "Request", "Query"]
+    | otherwise              = NS ["Network", "AWS", "Request"]
 
 data Override = Override
     { _oRenameTo   :: Maybe Text             -- ^ Rename type
     , _oReplacedBy :: Maybe Text             -- ^ Existing type that supplants this type
     , _oSumPrefix  :: Maybe Text             -- ^ Sum constructor prefix
     , _oRequired   :: HashSet (CI Text)      -- ^ Required fields
-    , _oIgnored    :: HashSet (CI Text)      -- ^ Ignored fields
     , _oRenamed    :: HashMap (CI Text) Text -- ^ Rename fields
     } deriving (Eq, Show)
 
@@ -287,7 +286,6 @@ instance FromJSON Override where
         <*> o .:? "replaced_by"
         <*> o .:? "sum_prefix"
         <*> o .:? "required" .!= mempty
-        <*> o .:? "ignored"  .!= mempty
         <*> o .:? "renamed"  .!= mempty
 
 data Overrides = Overrides

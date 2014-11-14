@@ -116,13 +116,11 @@ lprNextPageToken = lens _lprNextPageToken (\s a -> s { _lprNextPageToken = a })
 lprPipelines :: Lens' ListPipelinesResponse [Pipeline]
 lprPipelines = lens _lprPipelines (\s a -> s { _lprPipelines = a })
 
--- FromJSON
-
 instance AWSRequest ListPipelines where
     type Sv ListPipelines = ElasticTranscoder
     type Rs ListPipelines = ListPipelinesResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> ListPipelinesResponse
         <$> o .: "NextPageToken"
         <*> o .: "Pipelines"

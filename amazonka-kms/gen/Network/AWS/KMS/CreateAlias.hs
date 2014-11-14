@@ -96,11 +96,9 @@ data CreateAliasResponse = CreateAliasResponse
 createAliasResponse :: CreateAliasResponse
 createAliasResponse = CreateAliasResponse
 
--- FromJSON
-
 instance AWSRequest CreateAlias where
     type Sv CreateAlias = KMS
     type Rs CreateAlias = CreateAliasResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse CreateAliasResponse

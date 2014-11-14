@@ -104,12 +104,10 @@ describeTrailsResponse = DescribeTrailsResponse
 dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrTrailList = lens _dtrTrailList (\s a -> s { _dtrTrailList = a })
 
--- FromJSON
-
 instance AWSRequest DescribeTrails where
     type Sv DescribeTrails = CloudTrail
     type Rs DescribeTrails = DescribeTrailsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeTrailsResponse
         <$> o .: "trailList"

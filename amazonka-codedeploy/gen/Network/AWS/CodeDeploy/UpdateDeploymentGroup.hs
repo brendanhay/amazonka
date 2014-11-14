@@ -169,12 +169,10 @@ udgrHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrHooksNotCleanedUp =
     lens _udgrHooksNotCleanedUp (\s a -> s { _udgrHooksNotCleanedUp = a })
 
--- FromJSON
-
 instance AWSRequest UpdateDeploymentGroup where
     type Sv UpdateDeploymentGroup = CodeDeploy
     type Rs UpdateDeploymentGroup = UpdateDeploymentGroupResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateDeploymentGroupResponse
         <$> o .: "hooksNotCleanedUp"

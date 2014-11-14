@@ -137,12 +137,10 @@ describeJobFlowsResponse = DescribeJobFlowsResponse
 djfrJobFlows :: Lens' DescribeJobFlowsResponse [JobFlowDetail]
 djfrJobFlows = lens _djfrJobFlows (\s a -> s { _djfrJobFlows = a })
 
--- FromJSON
-
 instance AWSRequest DescribeJobFlows where
     type Sv DescribeJobFlows = EMR
     type Rs DescribeJobFlows = DescribeJobFlowsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeJobFlowsResponse
         <$> o .: "JobFlows"

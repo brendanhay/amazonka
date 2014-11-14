@@ -105,12 +105,10 @@ cancelRetrievalResponse = CancelRetrievalResponse
 crrTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrTapeARN = lens _crrTapeARN (\s a -> s { _crrTapeARN = a })
 
--- FromJSON
-
 instance AWSRequest CancelRetrieval where
     type Sv CancelRetrieval = StorageGateway
     type Rs CancelRetrieval = CancelRetrievalResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CancelRetrievalResponse
         <$> o .: "TapeARN"

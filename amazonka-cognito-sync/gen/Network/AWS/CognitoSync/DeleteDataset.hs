@@ -129,12 +129,10 @@ deleteDatasetResponse = DeleteDatasetResponse
 ddr1Dataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
 ddr1Dataset = lens _ddr1Dataset (\s a -> s { _ddr1Dataset = a })
 
--- FromJSON
-
 instance AWSRequest DeleteDataset where
     type Sv DeleteDataset = CognitoSync
     type Rs DeleteDataset = DeleteDatasetResponse
 
-    request  = delete'
+    request  = delete
     response = jsonResponse $ \h o -> DeleteDatasetResponse
         <$> o .: "Dataset"

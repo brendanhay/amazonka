@@ -91,11 +91,9 @@ data DeprecateDomainResponse = DeprecateDomainResponse
 deprecateDomainResponse :: DeprecateDomainResponse
 deprecateDomainResponse = DeprecateDomainResponse
 
--- FromJSON
-
 instance AWSRequest DeprecateDomain where
     type Sv DeprecateDomain = SWF
     type Rs DeprecateDomain = DeprecateDomainResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeprecateDomainResponse

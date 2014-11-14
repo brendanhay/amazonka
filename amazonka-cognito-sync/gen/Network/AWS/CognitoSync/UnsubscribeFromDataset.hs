@@ -118,11 +118,9 @@ data UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse
 unsubscribeFromDatasetResponse :: UnsubscribeFromDatasetResponse
 unsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse
 
--- FromJSON
-
 instance AWSRequest UnsubscribeFromDataset where
     type Sv UnsubscribeFromDataset = CognitoSync
     type Rs UnsubscribeFromDataset = UnsubscribeFromDatasetResponse
 
-    request  = delete'
+    request  = delete
     response = nullaryResponse UnsubscribeFromDatasetResponse

@@ -132,12 +132,10 @@ addCommunicationToCaseResponse = AddCommunicationToCaseResponse
 actcrResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrResult = lens _actcrResult (\s a -> s { _actcrResult = a })
 
--- FromJSON
-
 instance AWSRequest AddCommunicationToCase where
     type Sv AddCommunicationToCase = Support
     type Rs AddCommunicationToCase = AddCommunicationToCaseResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> AddCommunicationToCaseResponse
         <$> o .: "result"

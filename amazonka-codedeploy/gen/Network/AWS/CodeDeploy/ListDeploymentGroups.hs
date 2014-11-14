@@ -129,13 +129,11 @@ ldgrDeploymentGroups =
 ldgrNextToken :: Lens' ListDeploymentGroupsResponse (Maybe Text)
 ldgrNextToken = lens _ldgrNextToken (\s a -> s { _ldgrNextToken = a })
 
--- FromJSON
-
 instance AWSRequest ListDeploymentGroups where
     type Sv ListDeploymentGroups = CodeDeploy
     type Rs ListDeploymentGroups = ListDeploymentGroupsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListDeploymentGroupsResponse
         <$> o .: "applicationName"
         <*> o .: "deploymentGroups"

@@ -202,13 +202,11 @@ girItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
 girItem = lens _girItem (\s a -> s { _girItem = a })
     . _Map
 
--- FromJSON
-
 instance AWSRequest GetItem where
     type Sv GetItem = DynamoDB
     type Rs GetItem = GetItemResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetItemResponse
         <$> o .: "ConsumedCapacity"
         <*> o .: "Item"

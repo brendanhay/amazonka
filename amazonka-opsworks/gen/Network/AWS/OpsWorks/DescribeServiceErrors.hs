@@ -125,12 +125,10 @@ dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError]
 dserServiceErrors =
     lens _dserServiceErrors (\s a -> s { _dserServiceErrors = a })
 
--- FromJSON
-
 instance AWSRequest DescribeServiceErrors where
     type Sv DescribeServiceErrors = OpsWorks
     type Rs DescribeServiceErrors = DescribeServiceErrorsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeServiceErrorsResponse
         <$> o .: "ServiceErrors"

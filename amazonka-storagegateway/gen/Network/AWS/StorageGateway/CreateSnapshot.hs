@@ -132,13 +132,11 @@ csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 csrVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
 csrVolumeARN = lens _csrVolumeARN (\s a -> s { _csrVolumeARN = a })
 
--- FromJSON
-
 instance AWSRequest CreateSnapshot where
     type Sv CreateSnapshot = StorageGateway
     type Rs CreateSnapshot = CreateSnapshotResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateSnapshotResponse
         <$> o .: "SnapshotId"
         <*> o .: "VolumeARN"

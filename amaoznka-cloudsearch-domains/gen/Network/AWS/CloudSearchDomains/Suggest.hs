@@ -136,13 +136,11 @@ srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 srSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
 srSuggest = lens _srSuggest (\s a -> s { _srSuggest = a })
 
--- FromJSON
-
 instance AWSRequest Suggest where
     type Sv Suggest = CloudSearchDomains
     type Rs Suggest = SuggestResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> SuggestResponse
         <$> o .: "status"
         <*> o .: "suggest"

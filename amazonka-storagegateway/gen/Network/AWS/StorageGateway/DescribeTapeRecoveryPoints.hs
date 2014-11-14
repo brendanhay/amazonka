@@ -139,13 +139,11 @@ dtrprTapeRecoveryPointInfos =
     lens _dtrprTapeRecoveryPointInfos
         (\s a -> s { _dtrprTapeRecoveryPointInfos = a })
 
--- FromJSON
-
 instance AWSRequest DescribeTapeRecoveryPoints where
     type Sv DescribeTapeRecoveryPoints = StorageGateway
     type Rs DescribeTapeRecoveryPoints = DescribeTapeRecoveryPointsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeTapeRecoveryPointsResponse
         <$> o .: "GatewayARN"
         <*> o .: "Marker"

@@ -93,12 +93,10 @@ readPipelineResponse = ReadPipelineResponse
 rprPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 rprPipeline = lens _rprPipeline (\s a -> s { _rprPipeline = a })
 
--- FromJSON
-
 instance AWSRequest ReadPipeline where
     type Sv ReadPipeline = ElasticTranscoder
     type Rs ReadPipeline = ReadPipelineResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> ReadPipelineResponse
         <$> o .: "Pipeline"

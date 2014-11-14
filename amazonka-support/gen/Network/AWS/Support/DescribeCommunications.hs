@@ -149,13 +149,11 @@ dcrCommunications =
 dcrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
 dcrNextToken = lens _dcrNextToken (\s a -> s { _dcrNextToken = a })
 
--- FromJSON
-
 instance AWSRequest DescribeCommunications where
     type Sv DescribeCommunications = Support
     type Rs DescribeCommunications = DescribeCommunicationsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeCommunicationsResponse
         <$> o .: "communications"
         <*> o .: "nextToken"

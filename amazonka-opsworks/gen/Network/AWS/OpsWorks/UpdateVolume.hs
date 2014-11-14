@@ -100,11 +100,9 @@ data UpdateVolumeResponse = UpdateVolumeResponse
 updateVolumeResponse :: UpdateVolumeResponse
 updateVolumeResponse = UpdateVolumeResponse
 
--- FromJSON
-
 instance AWSRequest UpdateVolume where
     type Sv UpdateVolume = OpsWorks
     type Rs UpdateVolume = UpdateVolumeResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse UpdateVolumeResponse

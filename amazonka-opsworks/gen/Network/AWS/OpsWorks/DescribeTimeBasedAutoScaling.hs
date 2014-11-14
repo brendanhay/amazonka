@@ -110,12 +110,10 @@ dtbasrTimeBasedAutoScalingConfigurations =
     lens _dtbasrTimeBasedAutoScalingConfigurations
         (\s a -> s { _dtbasrTimeBasedAutoScalingConfigurations = a })
 
--- FromJSON
-
 instance AWSRequest DescribeTimeBasedAutoScaling where
     type Sv DescribeTimeBasedAutoScaling = OpsWorks
     type Rs DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScalingResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeTimeBasedAutoScalingResponse
         <$> o .: "TimeBasedAutoScalingConfigurations"

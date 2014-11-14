@@ -507,13 +507,11 @@ qrLastEvaluatedKey =
 qrScannedCount :: Lens' QueryResponse (Maybe Int)
 qrScannedCount = lens _qrScannedCount (\s a -> s { _qrScannedCount = a })
 
--- FromJSON
-
 instance AWSRequest Query where
     type Sv Query = DynamoDB
     type Rs Query = QueryResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> QueryResponse
         <$> o .: "ConsumedCapacity"
         <*> o .: "Count"

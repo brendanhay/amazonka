@@ -115,12 +115,10 @@ checkDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
 cdarAvailability :: Lens' CheckDomainAvailabilityResponse Text
 cdarAvailability = lens _cdarAvailability (\s a -> s { _cdarAvailability = a })
 
--- FromJSON
-
 instance AWSRequest CheckDomainAvailability where
     type Sv CheckDomainAvailability = Route53Domains
     type Rs CheckDomainAvailability = CheckDomainAvailabilityResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CheckDomainAvailabilityResponse
         <$> o .: "Availability"

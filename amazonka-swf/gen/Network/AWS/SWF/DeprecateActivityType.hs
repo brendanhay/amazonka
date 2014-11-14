@@ -102,11 +102,9 @@ data DeprecateActivityTypeResponse = DeprecateActivityTypeResponse
 deprecateActivityTypeResponse :: DeprecateActivityTypeResponse
 deprecateActivityTypeResponse = DeprecateActivityTypeResponse
 
--- FromJSON
-
 instance AWSRequest DeprecateActivityType where
     type Sv DeprecateActivityType = SWF
     type Rs DeprecateActivityType = DeprecateActivityTypeResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeprecateActivityTypeResponse

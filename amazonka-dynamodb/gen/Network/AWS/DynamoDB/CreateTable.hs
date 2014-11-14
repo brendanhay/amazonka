@@ -205,12 +205,10 @@ ctrTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
 ctrTableDescription =
     lens _ctrTableDescription (\s a -> s { _ctrTableDescription = a })
 
--- FromJSON
-
 instance AWSRequest CreateTable where
     type Sv CreateTable = DynamoDB
     type Rs CreateTable = CreateTableResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateTableResponse
         <$> o .: "TableDescription"

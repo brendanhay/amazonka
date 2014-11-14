@@ -110,12 +110,10 @@ dlbasrLoadBasedAutoScalingConfigurations =
     lens _dlbasrLoadBasedAutoScalingConfigurations
         (\s a -> s { _dlbasrLoadBasedAutoScalingConfigurations = a })
 
--- FromJSON
-
 instance AWSRequest DescribeLoadBasedAutoScaling where
     type Sv DescribeLoadBasedAutoScaling = OpsWorks
     type Rs DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScalingResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeLoadBasedAutoScalingResponse
         <$> o .: "LoadBasedAutoScalingConfigurations"

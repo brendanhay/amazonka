@@ -3,9 +3,9 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "ElasticTranscoder",
-        "error": "JSONError",
+        "error": "RESTError",
         "namespace": "Network.AWS.ElasticTranscoder",
-        "protocol": "json",
+        "protocol": "rest-json",
         "imports": [
             "Network.AWS.ElasticTranscoder.CancelJob",
             "Network.AWS.ElasticTranscoder.CreateJob",
@@ -67,9 +67,9 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "ElasticTranscoder",
-            "error": "JSONError",
+            "error": "RESTError",
             "namespace": "Network.AWS.ElasticTranscoder",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.ElasticTranscoder.CancelJob",
                 "Network.AWS.ElasticTranscoder.CreateJob",
@@ -4725,7 +4725,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.ElasticTranscoder.CancelJob",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -4893,7 +4893,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.CreateJob",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -5193,7 +5193,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.CreatePipeline",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -5534,7 +5534,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.CreatePreset",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -5776,7 +5776,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.ElasticTranscoder.DeletePipeline",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -5886,7 +5886,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.ElasticTranscoder.DeletePreset",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -6067,7 +6067,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.ListJobsByPipeline",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -6299,7 +6299,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.ListJobsByStatus",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -6531,7 +6531,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.ListPipelines",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -6730,7 +6730,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.ListPresets",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -6916,7 +6916,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.ReadJob",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -7084,7 +7084,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.ReadPipeline",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -7252,7 +7252,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.ReadPreset",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -7434,7 +7434,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.TestRole",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -7679,7 +7679,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.UpdatePipeline",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -8011,7 +8011,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.UpdatePipelineNotifications",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
@@ -8206,7 +8206,7 @@
                 ]
             },
             "namespace": "Network.AWS.ElasticTranscoder.UpdatePipelineStatus",
-            "protocol": "json",
+            "protocol": "rest-json",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"

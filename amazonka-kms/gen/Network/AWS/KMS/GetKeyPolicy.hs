@@ -104,12 +104,10 @@ getKeyPolicyResponse = GetKeyPolicyResponse
 gkprPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
 gkprPolicy = lens _gkprPolicy (\s a -> s { _gkprPolicy = a })
 
--- FromJSON
-
 instance AWSRequest GetKeyPolicy where
     type Sv GetKeyPolicy = KMS
     type Rs GetKeyPolicy = GetKeyPolicyResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetKeyPolicyResponse
         <$> o .: "Policy"

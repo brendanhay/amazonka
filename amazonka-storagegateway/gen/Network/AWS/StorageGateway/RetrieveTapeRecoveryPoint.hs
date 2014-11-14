@@ -106,12 +106,10 @@ retrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
 rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprTapeARN = lens _rtrprTapeARN (\s a -> s { _rtrprTapeARN = a })
 
--- FromJSON
-
 instance AWSRequest RetrieveTapeRecoveryPoint where
     type Sv RetrieveTapeRecoveryPoint = StorageGateway
     type Rs RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPointResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> RetrieveTapeRecoveryPointResponse
         <$> o .: "TapeARN"

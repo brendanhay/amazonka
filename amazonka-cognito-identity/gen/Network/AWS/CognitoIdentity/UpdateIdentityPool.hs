@@ -207,13 +207,11 @@ uiprSupportedLoginProviders =
         (\s a -> s { _uiprSupportedLoginProviders = a })
             . _Map
 
--- FromJSON
-
 instance AWSRequest UpdateIdentityPool where
     type Sv UpdateIdentityPool = CognitoIdentity
     type Rs UpdateIdentityPool = UpdateIdentityPoolResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> UpdateIdentityPoolResponse
         <$> o .: "AllowUnauthenticatedIdentities"
         <*> o .: "DeveloperProviderName"

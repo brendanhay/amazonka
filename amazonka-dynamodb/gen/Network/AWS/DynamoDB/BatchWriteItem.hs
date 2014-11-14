@@ -242,13 +242,11 @@ bwirUnprocessedItems =
     lens _bwirUnprocessedItems (\s a -> s { _bwirUnprocessedItems = a })
         . _Map
 
--- FromJSON
-
 instance AWSRequest BatchWriteItem where
     type Sv BatchWriteItem = DynamoDB
     type Rs BatchWriteItem = BatchWriteItemResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> BatchWriteItemResponse
         <$> o .: "ConsumedCapacity"
         <*> o .: "ItemCollectionMetrics"

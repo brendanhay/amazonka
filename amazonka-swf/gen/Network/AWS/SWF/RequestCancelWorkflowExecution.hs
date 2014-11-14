@@ -110,11 +110,9 @@ data RequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResp
 requestCancelWorkflowExecutionResponse :: RequestCancelWorkflowExecutionResponse
 requestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse
 
--- FromJSON
-
 instance AWSRequest RequestCancelWorkflowExecution where
     type Sv RequestCancelWorkflowExecution = SWF
     type Rs RequestCancelWorkflowExecution = RequestCancelWorkflowExecutionResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RequestCancelWorkflowExecutionResponse

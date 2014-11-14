@@ -103,11 +103,9 @@ data SetStatusResponse = SetStatusResponse
 setStatusResponse :: SetStatusResponse
 setStatusResponse = SetStatusResponse
 
--- FromJSON
-
 instance AWSRequest SetStatus where
     type Sv SetStatus = DataPipeline
     type Rs SetStatus = SetStatusResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse SetStatusResponse

@@ -164,13 +164,11 @@ gwehrNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
 gwehrNextPageToken =
     lens _gwehrNextPageToken (\s a -> s { _gwehrNextPageToken = a })
 
--- FromJSON
-
 instance AWSRequest GetWorkflowExecutionHistory where
     type Sv GetWorkflowExecutionHistory = SWF
     type Rs GetWorkflowExecutionHistory = GetWorkflowExecutionHistoryResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetWorkflowExecutionHistoryResponse
         <$> o .: "events"
         <*> o .: "nextPageToken"

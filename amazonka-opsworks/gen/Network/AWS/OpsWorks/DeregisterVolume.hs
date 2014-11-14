@@ -83,11 +83,9 @@ data DeregisterVolumeResponse = DeregisterVolumeResponse
 deregisterVolumeResponse :: DeregisterVolumeResponse
 deregisterVolumeResponse = DeregisterVolumeResponse
 
--- FromJSON
-
 instance AWSRequest DeregisterVolume where
     type Sv DeregisterVolume = OpsWorks
     type Rs DeregisterVolume = DeregisterVolumeResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeregisterVolumeResponse

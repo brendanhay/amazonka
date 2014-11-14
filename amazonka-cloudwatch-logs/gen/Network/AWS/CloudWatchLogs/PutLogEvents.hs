@@ -130,12 +130,10 @@ plerNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plerNextSequenceToken =
     lens _plerNextSequenceToken (\s a -> s { _plerNextSequenceToken = a })
 
--- FromJSON
-
 instance AWSRequest PutLogEvents where
     type Sv PutLogEvents = CloudWatchLogs
     type Rs PutLogEvents = PutLogEventsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> PutLogEventsResponse
         <$> o .: "nextSequenceToken"

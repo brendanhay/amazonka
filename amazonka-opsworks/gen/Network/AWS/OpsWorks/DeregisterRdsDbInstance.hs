@@ -79,11 +79,9 @@ data DeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
 deregisterRdsDbInstanceResponse :: DeregisterRdsDbInstanceResponse
 deregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
 
--- FromJSON
-
 instance AWSRequest DeregisterRdsDbInstance where
     type Sv DeregisterRdsDbInstance = OpsWorks
     type Rs DeregisterRdsDbInstance = DeregisterRdsDbInstanceResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeregisterRdsDbInstanceResponse

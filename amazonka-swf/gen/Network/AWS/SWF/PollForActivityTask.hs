@@ -194,13 +194,11 @@ pfatrWorkflowExecution :: Lens' PollForActivityTaskResponse WorkflowExecution
 pfatrWorkflowExecution =
     lens _pfatrWorkflowExecution (\s a -> s { _pfatrWorkflowExecution = a })
 
--- FromJSON
-
 instance AWSRequest PollForActivityTask where
     type Sv PollForActivityTask = SWF
     type Rs PollForActivityTask = PollForActivityTaskResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> PollForActivityTaskResponse
         <$> o .: "activityId"
         <*> o .: "activityType"

@@ -391,8 +391,8 @@ module Network.AWS.CloudFront.Types
     , lcPrefix
     ) where
 
-import Network.AWS.Prelude
 import Network.AWS.Error
+import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 

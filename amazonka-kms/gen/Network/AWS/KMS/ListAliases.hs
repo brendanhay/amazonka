@@ -127,13 +127,11 @@ larNextMarker = lens _larNextMarker (\s a -> s { _larNextMarker = a })
 larTruncated :: Lens' ListAliasesResponse (Maybe Bool)
 larTruncated = lens _larTruncated (\s a -> s { _larTruncated = a })
 
--- FromJSON
-
 instance AWSRequest ListAliases where
     type Sv ListAliases = KMS
     type Rs ListAliases = ListAliasesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListAliasesResponse
         <$> o .: "Aliases"
         <*> o .: "NextMarker"

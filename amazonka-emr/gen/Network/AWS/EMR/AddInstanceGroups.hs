@@ -112,13 +112,11 @@ aigrInstanceGroupIds =
 aigrJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
 aigrJobFlowId = lens _aigrJobFlowId (\s a -> s { _aigrJobFlowId = a })
 
--- FromJSON
-
 instance AWSRequest AddInstanceGroups where
     type Sv AddInstanceGroups = EMR
     type Rs AddInstanceGroups = AddInstanceGroupsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> AddInstanceGroupsResponse
         <$> o .: "InstanceGroupIds"
         <*> o .: "JobFlowId"

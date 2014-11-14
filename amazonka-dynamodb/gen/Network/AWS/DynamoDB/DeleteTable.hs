@@ -100,12 +100,10 @@ dtrTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
 dtrTableDescription =
     lens _dtrTableDescription (\s a -> s { _dtrTableDescription = a })
 
--- FromJSON
-
 instance AWSRequest DeleteTable where
     type Sv DeleteTable = DynamoDB
     type Rs DeleteTable = DeleteTableResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteTableResponse
         <$> o .: "TableDescription"

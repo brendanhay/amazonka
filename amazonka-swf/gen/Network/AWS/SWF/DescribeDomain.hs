@@ -110,13 +110,11 @@ ddrConfiguration = lens _ddrConfiguration (\s a -> s { _ddrConfiguration = a })
 ddrDomainInfo :: Lens' DescribeDomainResponse DomainInfo
 ddrDomainInfo = lens _ddrDomainInfo (\s a -> s { _ddrDomainInfo = a })
 
--- FromJSON
-
 instance AWSRequest DescribeDomain where
     type Sv DescribeDomain = SWF
     type Rs DescribeDomain = DescribeDomainResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeDomainResponse
         <$> o .: "configuration"
         <*> o .: "domainInfo"

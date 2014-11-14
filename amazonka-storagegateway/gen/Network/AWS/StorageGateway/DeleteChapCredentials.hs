@@ -116,13 +116,11 @@ dccrInitiatorName =
 dccrTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 dccrTargetARN = lens _dccrTargetARN (\s a -> s { _dccrTargetARN = a })
 
--- FromJSON
-
 instance AWSRequest DeleteChapCredentials where
     type Sv DeleteChapCredentials = StorageGateway
     type Rs DeleteChapCredentials = DeleteChapCredentialsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteChapCredentialsResponse
         <$> o .: "InitiatorName"
         <*> o .: "TargetARN"

@@ -129,12 +129,10 @@ describeDatasetResponse = DescribeDatasetResponse
 ddrDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
 ddrDataset = lens _ddrDataset (\s a -> s { _ddrDataset = a })
 
--- FromJSON
-
 instance AWSRequest DescribeDataset where
     type Sv DescribeDataset = CognitoSync
     type Rs DescribeDataset = DescribeDatasetResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> DescribeDatasetResponse
         <$> o .: "Dataset"

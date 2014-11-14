@@ -166,13 +166,11 @@ dwerLatestExecutionContext =
 dwerOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
 dwerOpenCounts = lens _dwerOpenCounts (\s a -> s { _dwerOpenCounts = a })
 
--- FromJSON
-
 instance AWSRequest DescribeWorkflowExecution where
     type Sv DescribeWorkflowExecution = SWF
     type Rs DescribeWorkflowExecution = DescribeWorkflowExecutionResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeWorkflowExecutionResponse
         <$> o .: "executionConfiguration"
         <*> o .: "executionInfo"

@@ -203,13 +203,11 @@ ciprSupportedLoginProviders =
         (\s a -> s { _ciprSupportedLoginProviders = a })
             . _Map
 
--- FromJSON
-
 instance AWSRequest CreateIdentityPool where
     type Sv CreateIdentityPool = CognitoIdentity
     type Rs CreateIdentityPool = CreateIdentityPoolResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateIdentityPoolResponse
         <$> o .: "AllowUnauthenticatedIdentities"
         <*> o .: "DeveloperProviderName"

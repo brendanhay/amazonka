@@ -80,11 +80,9 @@ data CancelJobResponse = CancelJobResponse
 cancelJobResponse :: CancelJobResponse
 cancelJobResponse = CancelJobResponse
 
--- FromJSON
-
 instance AWSRequest CancelJob where
     type Sv CancelJob = ElasticTranscoder
     type Rs CancelJob = CancelJobResponse
 
-    request  = delete'
+    request  = delete
     response = nullaryResponse CancelJobResponse

@@ -93,11 +93,9 @@ data AssignVolumeResponse = AssignVolumeResponse
 assignVolumeResponse :: AssignVolumeResponse
 assignVolumeResponse = AssignVolumeResponse
 
--- FromJSON
-
 instance AWSRequest AssignVolume where
     type Sv AssignVolume = OpsWorks
     type Rs AssignVolume = AssignVolumeResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse AssignVolumeResponse

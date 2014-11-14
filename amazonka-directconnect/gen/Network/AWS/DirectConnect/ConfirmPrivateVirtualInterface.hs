@@ -110,12 +110,10 @@ cpvir1VirtualInterfaceState =
     lens _cpvir1VirtualInterfaceState
         (\s a -> s { _cpvir1VirtualInterfaceState = a })
 
--- FromJSON
-
 instance AWSRequest ConfirmPrivateVirtualInterface where
     type Sv ConfirmPrivateVirtualInterface = DirectConnect
     type Rs ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterfaceResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ConfirmPrivateVirtualInterfaceResponse
         <$> o .: "virtualInterfaceState"

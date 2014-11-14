@@ -194,13 +194,11 @@ csscsivrVolumeSizeInBytes =
     lens _csscsivrVolumeSizeInBytes
         (\s a -> s { _csscsivrVolumeSizeInBytes = a })
 
--- FromJSON
-
 instance AWSRequest CreateStorediSCSIVolume where
     type Sv CreateStorediSCSIVolume = StorageGateway
     type Rs CreateStorediSCSIVolume = CreateStorediSCSIVolumeResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateStorediSCSIVolumeResponse
         <$> o .: "TargetARN"
         <*> o .: "VolumeARN"

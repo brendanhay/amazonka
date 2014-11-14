@@ -134,13 +134,11 @@ ljbsrNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
 ljbsrNextPageToken =
     lens _ljbsrNextPageToken (\s a -> s { _ljbsrNextPageToken = a })
 
--- FromJSON
-
 instance AWSRequest ListJobsByStatus where
     type Sv ListJobsByStatus = ElasticTranscoder
     type Rs ListJobsByStatus = ListJobsByStatusResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> ListJobsByStatusResponse
         <$> o .: "Jobs"
         <*> o .: "NextPageToken"

@@ -108,13 +108,11 @@ ldcrDeploymentConfigsList =
 ldcrNextToken :: Lens' ListDeploymentConfigsResponse (Maybe Text)
 ldcrNextToken = lens _ldcrNextToken (\s a -> s { _ldcrNextToken = a })
 
--- FromJSON
-
 instance AWSRequest ListDeploymentConfigs where
     type Sv ListDeploymentConfigs = CodeDeploy
     type Rs ListDeploymentConfigs = ListDeploymentConfigsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListDeploymentConfigsResponse
         <$> o .: "deploymentConfigsList"
         <*> o .: "nextToken"

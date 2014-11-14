@@ -160,13 +160,11 @@ rerKeyId = lens _rerKeyId (\s a -> s { _rerKeyId = a })
 rerSourceKeyId :: Lens' ReEncryptResponse (Maybe Text)
 rerSourceKeyId = lens _rerSourceKeyId (\s a -> s { _rerSourceKeyId = a })
 
--- FromJSON
-
 instance AWSRequest ReEncrypt where
     type Sv ReEncrypt = KMS
     type Rs ReEncrypt = ReEncryptResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ReEncryptResponse
         <$> o .: "CiphertextBlob"
         <*> o .: "KeyId"

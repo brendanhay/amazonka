@@ -108,12 +108,10 @@ describeStacksResponse = DescribeStacksResponse
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a })
 
--- FromJSON
-
 instance AWSRequest DescribeStacks where
     type Sv DescribeStacks = OpsWorks
     type Rs DescribeStacks = DescribeStacksResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeStacksResponse
         <$> o .: "Stacks"

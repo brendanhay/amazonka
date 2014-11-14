@@ -80,11 +80,9 @@ data DeleteUserProfileResponse = DeleteUserProfileResponse
 deleteUserProfileResponse :: DeleteUserProfileResponse
 deleteUserProfileResponse = DeleteUserProfileResponse
 
--- FromJSON
-
 instance AWSRequest DeleteUserProfile where
     type Sv DeleteUserProfile = OpsWorks
     type Rs DeleteUserProfile = DeleteUserProfileResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteUserProfileResponse

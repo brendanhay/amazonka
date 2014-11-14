@@ -24,7 +24,7 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Service
       ElasticTranscoder
     -- ** Error
-    , JSONError
+    , RESTError
 
     -- * PipelineOutputConfig
     , PipelineOutputConfig
@@ -269,7 +269,7 @@ data ElasticTranscoder deriving (Typeable)
 
 instance AWSService ElasticTranscoder where
     type Sg ElasticTranscoder = V4
-    type Er ElasticTranscoder = JSONError
+    type Er ElasticTranscoder = RESTError
 
     service = Service
         { _svcEndpoint = regional
@@ -279,7 +279,7 @@ instance AWSService ElasticTranscoder where
         , _svcTarget   = Nothing
         }
 
-    handle = jsonError alwaysFail
+    handle = restError alwaysFail
 
 data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket       :: Maybe Text

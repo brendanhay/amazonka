@@ -5,7 +5,7 @@
         "abbrev": "Route53",
         "error": "RESTError",
         "namespace": "Network.AWS.Route53",
-        "protocol": "xml",
+        "protocol": "rest-xml",
         "imports": [
             "Network.AWS.Route53.AssociateVPCWithHostedZone",
             "Network.AWS.Route53.ChangeResourceRecordSets",
@@ -89,7 +89,7 @@
             "abbrev": "Route53",
             "error": "RESTError",
             "namespace": "Network.AWS.Route53",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Route53.AssociateVPCWithHostedZone",
                 "Network.AWS.Route53.ChangeResourceRecordSets",
@@ -2721,7 +2721,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.AssociateVPCWithHostedZone",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -2945,7 +2945,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.ChangeResourceRecordSets",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -3082,7 +3082,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.Route53.ChangeTagsForResource",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -3350,7 +3350,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.CreateHealthCheck",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -3635,7 +3635,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.CreateHostedZone",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -3920,7 +3920,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.CreateReusableDelegationSet",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -4051,7 +4051,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.Route53.DeleteHealthCheck",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -4219,7 +4219,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.DeleteHostedZone",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -4329,7 +4329,7 @@
                 "fields": []
             },
             "namespace": "Network.AWS.Route53.DeleteReusableDelegationSet",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -4497,7 +4497,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.DisassociateVPCFromHostedZone",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -4721,7 +4721,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.GetChange",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -4892,7 +4892,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.GetCheckerIpRanges",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -5008,7 +5008,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.GetGeoLocation",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -5227,7 +5227,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.GetHealthCheck",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -5400,7 +5400,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.GetHealthCheckCount",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -5518,7 +5518,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.GetHealthCheckLastFailureReason",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -5692,7 +5692,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.GetHealthCheckStatus",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -5906,7 +5906,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.GetHostedZone",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -6074,7 +6074,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.GetReusableDelegationSet",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -6368,7 +6368,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.ListGeoLocations",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -6718,7 +6718,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.ListHealthChecks",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -7002,7 +7002,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.ListHostedZones",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -7347,7 +7347,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.ListResourceRecordSets",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -7734,7 +7734,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.ListReusableDelegationSets",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -7920,7 +7920,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.ListTagsForResource",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -8109,7 +8109,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.ListTagsForResources",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
@@ -8301,7 +8301,7 @@
                 ]
             },
             "namespace": "Network.AWS.Route53.UpdateHealthCheck",
-            "protocol": "xml",
+            "protocol": "rest-xml",
             "imports": [
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"

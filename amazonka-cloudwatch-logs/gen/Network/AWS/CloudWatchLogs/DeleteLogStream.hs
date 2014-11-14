@@ -87,11 +87,9 @@ data DeleteLogStreamResponse = DeleteLogStreamResponse
 deleteLogStreamResponse :: DeleteLogStreamResponse
 deleteLogStreamResponse = DeleteLogStreamResponse
 
--- FromJSON
-
 instance AWSRequest DeleteLogStream where
     type Sv DeleteLogStream = CloudWatchLogs
     type Rs DeleteLogStream = DeleteLogStreamResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteLogStreamResponse

@@ -83,11 +83,9 @@ data DeleteLayerResponse = DeleteLayerResponse
 deleteLayerResponse :: DeleteLayerResponse
 deleteLayerResponse = DeleteLayerResponse
 
--- FromJSON
-
 instance AWSRequest DeleteLayer where
     type Sv DeleteLayer = OpsWorks
     type Rs DeleteLayer = DeleteLayerResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteLayerResponse

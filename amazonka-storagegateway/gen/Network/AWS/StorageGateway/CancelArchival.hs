@@ -104,12 +104,10 @@ cancelArchivalResponse = CancelArchivalResponse
 carTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carTapeARN = lens _carTapeARN (\s a -> s { _carTapeARN = a })
 
--- FromJSON
-
 instance AWSRequest CancelArchival where
     type Sv CancelArchival = StorageGateway
     type Rs CancelArchival = CancelArchivalResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CancelArchivalResponse
         <$> o .: "TapeARN"

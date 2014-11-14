@@ -109,12 +109,10 @@ ddcsrDeliveryChannelsStatus =
     lens _ddcsrDeliveryChannelsStatus
         (\s a -> s { _ddcsrDeliveryChannelsStatus = a })
 
--- FromJSON
-
 instance AWSRequest DescribeDeliveryChannelStatus where
     type Sv DescribeDeliveryChannelStatus = Config
     type Rs DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatusResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeDeliveryChannelStatusResponse
         <$> o .: "DeliveryChannelsStatus"

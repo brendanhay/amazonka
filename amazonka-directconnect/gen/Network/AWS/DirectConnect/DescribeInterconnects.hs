@@ -98,12 +98,10 @@ describeInterconnectsResponse = DescribeInterconnectsResponse
 dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirInterconnects = lens _dirInterconnects (\s a -> s { _dirInterconnects = a })
 
--- FromJSON
-
 instance AWSRequest DescribeInterconnects where
     type Sv DescribeInterconnects = DirectConnect
     type Rs DescribeInterconnects = DescribeInterconnectsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeInterconnectsResponse
         <$> o .: "interconnects"

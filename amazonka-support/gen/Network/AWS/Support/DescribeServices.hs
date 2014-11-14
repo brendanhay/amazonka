@@ -118,12 +118,10 @@ describeServicesResponse = DescribeServicesResponse
 dsrServices :: Lens' DescribeServicesResponse [Service]
 dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a })
 
--- FromJSON
-
 instance AWSRequest DescribeServices where
     type Sv DescribeServices = Support
     type Rs DescribeServices = DescribeServicesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeServicesResponse
         <$> o .: "services"

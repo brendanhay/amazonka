@@ -92,12 +92,10 @@ dirInterconnectState :: Lens' DeleteInterconnectResponse (Maybe Text)
 dirInterconnectState =
     lens _dirInterconnectState (\s a -> s { _dirInterconnectState = a })
 
--- FromJSON
-
 instance AWSRequest DeleteInterconnect where
     type Sv DeleteInterconnect = DirectConnect
     type Rs DeleteInterconnect = DeleteInterconnectResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteInterconnectResponse
         <$> o .: "interconnectState"

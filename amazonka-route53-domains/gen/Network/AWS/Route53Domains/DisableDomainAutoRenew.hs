@@ -78,11 +78,9 @@ data DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse
 disableDomainAutoRenewResponse :: DisableDomainAutoRenewResponse
 disableDomainAutoRenewResponse = DisableDomainAutoRenewResponse
 
--- FromJSON
-
 instance AWSRequest DisableDomainAutoRenew where
     type Sv DisableDomainAutoRenew = Route53Domains
     type Rs DisableDomainAutoRenew = DisableDomainAutoRenewResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DisableDomainAutoRenewResponse

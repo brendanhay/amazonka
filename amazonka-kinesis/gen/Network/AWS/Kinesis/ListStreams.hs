@@ -125,13 +125,11 @@ lsrHasMoreStreams =
 lsrStreamNames :: Lens' ListStreamsResponse [Text]
 lsrStreamNames = lens _lsrStreamNames (\s a -> s { _lsrStreamNames = a })
 
--- FromJSON
-
 instance AWSRequest ListStreams where
     type Sv ListStreams = Kinesis
     type Rs ListStreams = ListStreamsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListStreamsResponse
         <$> o .: "HasMoreStreams"
         <*> o .: "StreamNames"

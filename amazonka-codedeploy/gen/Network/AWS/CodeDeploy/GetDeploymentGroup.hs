@@ -106,12 +106,10 @@ gdgrDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGro
 gdgrDeploymentGroupInfo =
     lens _gdgrDeploymentGroupInfo (\s a -> s { _gdgrDeploymentGroupInfo = a })
 
--- FromJSON
-
 instance AWSRequest GetDeploymentGroup where
     type Sv GetDeploymentGroup = CodeDeploy
     type Rs GetDeploymentGroup = GetDeploymentGroupResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetDeploymentGroupResponse
         <$> o .: "deploymentGroupInfo"

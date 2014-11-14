@@ -81,11 +81,9 @@ data StopStackResponse = StopStackResponse
 stopStackResponse :: StopStackResponse
 stopStackResponse = StopStackResponse
 
--- FromJSON
-
 instance AWSRequest StopStack where
     type Sv StopStack = OpsWorks
     type Rs StopStack = StopStackResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse StopStackResponse

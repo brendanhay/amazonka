@@ -97,12 +97,10 @@ describeStackSummaryResponse = DescribeStackSummaryResponse
 dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrStackSummary = lens _dssrStackSummary (\s a -> s { _dssrStackSummary = a })
 
--- FromJSON
-
 instance AWSRequest DescribeStackSummary where
     type Sv DescribeStackSummary = OpsWorks
     type Rs DescribeStackSummary = DescribeStackSummaryResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeStackSummaryResponse
         <$> o .: "StackSummary"

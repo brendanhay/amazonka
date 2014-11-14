@@ -168,13 +168,11 @@ cprPreset = lens _cprPreset (\s a -> s { _cprPreset = a })
 cprWarning :: Lens' CreatePresetResponse (Maybe Text)
 cprWarning = lens _cprWarning (\s a -> s { _cprWarning = a })
 
--- FromJSON
-
 instance AWSRequest CreatePreset where
     type Sv CreatePreset = ElasticTranscoder
     type Rs CreatePreset = CreatePresetResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreatePresetResponse
         <$> o .: "Preset"
         <*> o .: "Warning"

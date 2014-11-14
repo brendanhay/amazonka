@@ -102,12 +102,10 @@ describeStepResponse = DescribeStepResponse
 dsrStep :: Lens' DescribeStepResponse (Maybe Step)
 dsrStep = lens _dsrStep (\s a -> s { _dsrStep = a })
 
--- FromJSON
-
 instance AWSRequest DescribeStep where
     type Sv DescribeStep = EMR
     type Rs DescribeStep = DescribeStepResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeStepResponse
         <$> o .: "Step"

@@ -104,12 +104,10 @@ disableDomainTransferLockResponse p1 = DisableDomainTransferLockResponse
 ddtlrOperationId :: Lens' DisableDomainTransferLockResponse Text
 ddtlrOperationId = lens _ddtlrOperationId (\s a -> s { _ddtlrOperationId = a })
 
--- FromJSON
-
 instance AWSRequest DisableDomainTransferLock where
     type Sv DisableDomainTransferLock = Route53Domains
     type Rs DisableDomainTransferLock = DisableDomainTransferLockResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DisableDomainTransferLockResponse
         <$> o .: "OperationId"

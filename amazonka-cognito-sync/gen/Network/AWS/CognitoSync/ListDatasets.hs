@@ -152,13 +152,11 @@ ldrDatasets = lens _ldrDatasets (\s a -> s { _ldrDatasets = a })
 ldrNextToken :: Lens' ListDatasetsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 
--- FromJSON
-
 instance AWSRequest ListDatasets where
     type Sv ListDatasets = CognitoSync
     type Rs ListDatasets = ListDatasetsResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> ListDatasetsResponse
         <$> o .: "Count"
         <*> o .: "Datasets"

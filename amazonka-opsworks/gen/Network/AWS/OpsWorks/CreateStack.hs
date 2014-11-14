@@ -330,12 +330,10 @@ createStackResponse = CreateStackResponse
 csr1StackId :: Lens' CreateStackResponse (Maybe Text)
 csr1StackId = lens _csr1StackId (\s a -> s { _csr1StackId = a })
 
--- FromJSON
-
 instance AWSRequest CreateStack where
     type Sv CreateStack = OpsWorks
     type Rs CreateStack = CreateStackResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateStackResponse
         <$> o .: "StackId"

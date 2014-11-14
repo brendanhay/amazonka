@@ -101,12 +101,10 @@ refreshTrustedAdvisorCheckResponse p1 = RefreshTrustedAdvisorCheckResponse
 rtacrStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
 rtacrStatus = lens _rtacrStatus (\s a -> s { _rtacrStatus = a })
 
--- FromJSON
-
 instance AWSRequest RefreshTrustedAdvisorCheck where
     type Sv RefreshTrustedAdvisorCheck = Support
     type Rs RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheckResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> RefreshTrustedAdvisorCheckResponse
         <$> o .: "status"

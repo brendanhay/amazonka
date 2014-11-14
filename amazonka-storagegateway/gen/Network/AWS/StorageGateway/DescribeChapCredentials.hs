@@ -113,12 +113,10 @@ dccrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
 dccrChapCredentials =
     lens _dccrChapCredentials (\s a -> s { _dccrChapCredentials = a })
 
--- FromJSON
-
 instance AWSRequest DescribeChapCredentials where
     type Sv DescribeChapCredentials = StorageGateway
     type Rs DescribeChapCredentials = DescribeChapCredentialsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeChapCredentialsResponse
         <$> o .: "ChapCredentials"

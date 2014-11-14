@@ -109,11 +109,9 @@ data RegisterRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
 registerRdsDbInstanceResponse :: RegisterRdsDbInstanceResponse
 registerRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
 
--- FromJSON
-
 instance AWSRequest RegisterRdsDbInstance where
     type Sv RegisterRdsDbInstance = OpsWorks
     type Rs RegisterRdsDbInstance = RegisterRdsDbInstanceResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RegisterRdsDbInstanceResponse

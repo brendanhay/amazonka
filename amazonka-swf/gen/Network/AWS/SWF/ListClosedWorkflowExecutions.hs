@@ -226,13 +226,11 @@ lcwerNextPageToken :: Lens' ListClosedWorkflowExecutionsResponse (Maybe Text)
 lcwerNextPageToken =
     lens _lcwerNextPageToken (\s a -> s { _lcwerNextPageToken = a })
 
--- FromJSON
-
 instance AWSRequest ListClosedWorkflowExecutions where
     type Sv ListClosedWorkflowExecutions = SWF
     type Rs ListClosedWorkflowExecutions = ListClosedWorkflowExecutionsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListClosedWorkflowExecutionsResponse
         <$> o .: "executionInfos"
         <*> o .: "nextPageToken"

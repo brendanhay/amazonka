@@ -169,13 +169,11 @@ grchrConfigurationItems =
 grchrNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
 grchrNextToken = lens _grchrNextToken (\s a -> s { _grchrNextToken = a })
 
--- FromJSON
-
 instance AWSRequest GetResourceConfigHistory where
     type Sv GetResourceConfigHistory = Config
     type Rs GetResourceConfigHistory = GetResourceConfigHistoryResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetResourceConfigHistoryResponse
         <$> o .: "configurationItems"
         <*> o .: "nextToken"

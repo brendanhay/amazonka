@@ -92,12 +92,10 @@ generateRandomResponse = GenerateRandomResponse
 grrPlaintext :: Lens' GenerateRandomResponse (Maybe Base64)
 grrPlaintext = lens _grrPlaintext (\s a -> s { _grrPlaintext = a })
 
--- FromJSON
-
 instance AWSRequest GenerateRandom where
     type Sv GenerateRandom = KMS
     type Rs GenerateRandom = GenerateRandomResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GenerateRandomResponse
         <$> o .: "Plaintext"

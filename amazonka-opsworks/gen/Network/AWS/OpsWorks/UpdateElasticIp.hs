@@ -91,11 +91,9 @@ data UpdateElasticIpResponse = UpdateElasticIpResponse
 updateElasticIpResponse :: UpdateElasticIpResponse
 updateElasticIpResponse = UpdateElasticIpResponse
 
--- FromJSON
-
 instance AWSRequest UpdateElasticIp where
     type Sv UpdateElasticIp = OpsWorks
     type Rs UpdateElasticIp = UpdateElasticIpResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse UpdateElasticIpResponse

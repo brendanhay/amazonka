@@ -117,13 +117,11 @@ lpr1NextPageToken =
 lpr1Presets :: Lens' ListPresetsResponse [Preset]
 lpr1Presets = lens _lpr1Presets (\s a -> s { _lpr1Presets = a })
 
--- FromJSON
-
 instance AWSRequest ListPresets where
     type Sv ListPresets = ElasticTranscoder
     type Rs ListPresets = ListPresetsResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> ListPresetsResponse
         <$> o .: "NextPageToken"
         <*> o .: "Presets"

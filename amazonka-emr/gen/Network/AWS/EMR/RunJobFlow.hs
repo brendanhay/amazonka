@@ -256,12 +256,10 @@ runJobFlowResponse = RunJobFlowResponse
 rjfrJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrJobFlowId = lens _rjfrJobFlowId (\s a -> s { _rjfrJobFlowId = a })
 
--- FromJSON
-
 instance AWSRequest RunJobFlow where
     type Sv RunJobFlow = EMR
     type Rs RunJobFlow = RunJobFlowResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> RunJobFlowResponse
         <$> o .: "JobFlowId"

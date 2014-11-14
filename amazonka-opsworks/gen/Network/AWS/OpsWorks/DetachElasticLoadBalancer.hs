@@ -95,11 +95,9 @@ data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
 detachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse
 detachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
 
--- FromJSON
-
 instance AWSRequest DetachElasticLoadBalancer where
     type Sv DetachElasticLoadBalancer = OpsWorks
     type Rs DetachElasticLoadBalancer = DetachElasticLoadBalancerResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DetachElasticLoadBalancerResponse

@@ -132,13 +132,11 @@ csfvrprVolumeRecoveryPointTime =
     lens _csfvrprVolumeRecoveryPointTime
         (\s a -> s { _csfvrprVolumeRecoveryPointTime = a })
 
--- FromJSON
-
 instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
     type Sv CreateSnapshotFromVolumeRecoveryPoint = StorageGateway
     type Rs CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPointResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateSnapshotFromVolumeRecoveryPointResponse
         <$> o .: "SnapshotId"
         <*> o .: "VolumeARN"

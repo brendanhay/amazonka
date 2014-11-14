@@ -175,12 +175,10 @@ cdgrDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
 cdgrDeploymentGroupId =
     lens _cdgrDeploymentGroupId (\s a -> s { _cdgrDeploymentGroupId = a })
 
--- FromJSON
-
 instance AWSRequest CreateDeploymentGroup where
     type Sv CreateDeploymentGroup = CodeDeploy
     type Rs CreateDeploymentGroup = CreateDeploymentGroupResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateDeploymentGroupResponse
         <$> o .: "deploymentGroupId"

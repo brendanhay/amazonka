@@ -116,12 +116,10 @@ describePermissionsResponse = DescribePermissionsResponse
 dprPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprPermissions = lens _dprPermissions (\s a -> s { _dprPermissions = a })
 
--- FromJSON
-
 instance AWSRequest DescribePermissions where
     type Sv DescribePermissions = OpsWorks
     type Rs DescribePermissions = DescribePermissionsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribePermissionsResponse
         <$> o .: "Permissions"

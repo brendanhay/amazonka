@@ -98,12 +98,10 @@ rdacrAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
 rdacrAuthCode = lens _rdacrAuthCode (\s a -> s { _rdacrAuthCode = a })
     . _Sensitive
 
--- FromJSON
-
 instance AWSRequest RetrieveDomainAuthCode where
     type Sv RetrieveDomainAuthCode = Route53Domains
     type Rs RetrieveDomainAuthCode = RetrieveDomainAuthCodeResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> RetrieveDomainAuthCodeResponse
         <$> o .: "AuthCode"

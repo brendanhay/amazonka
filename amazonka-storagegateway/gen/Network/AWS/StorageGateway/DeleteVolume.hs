@@ -104,12 +104,10 @@ deleteVolumeResponse = DeleteVolumeResponse
 dvrVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrVolumeARN = lens _dvrVolumeARN (\s a -> s { _dvrVolumeARN = a })
 
--- FromJSON
-
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = StorageGateway
     type Rs DeleteVolume = DeleteVolumeResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteVolumeResponse
         <$> o .: "VolumeARN"

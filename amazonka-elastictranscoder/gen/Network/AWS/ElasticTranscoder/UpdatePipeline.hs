@@ -233,12 +233,10 @@ updatePipelineResponse = UpdatePipelineResponse
 uprPipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)
 uprPipeline = lens _uprPipeline (\s a -> s { _uprPipeline = a })
 
--- FromJSON
-
 instance AWSRequest UpdatePipeline where
     type Sv UpdatePipeline = ElasticTranscoder
     type Rs UpdatePipeline = UpdatePipelineResponse
 
-    request  = put'
+    request  = put
     response = jsonResponse $ \h o -> UpdatePipelineResponse
         <$> o .: "Pipeline"

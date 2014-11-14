@@ -103,12 +103,10 @@ deleteGatewayResponse = DeleteGatewayResponse
 dgrGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgrGatewayARN = lens _dgrGatewayARN (\s a -> s { _dgrGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest DeleteGateway where
     type Sv DeleteGateway = StorageGateway
     type Rs DeleteGateway = DeleteGatewayResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteGatewayResponse
         <$> o .: "GatewayARN"

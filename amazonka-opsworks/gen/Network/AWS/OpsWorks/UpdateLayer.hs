@@ -223,11 +223,9 @@ data UpdateLayerResponse = UpdateLayerResponse
 updateLayerResponse :: UpdateLayerResponse
 updateLayerResponse = UpdateLayerResponse
 
--- FromJSON
-
 instance AWSRequest UpdateLayer where
     type Sv UpdateLayer = OpsWorks
     type Rs UpdateLayer = UpdateLayerResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse UpdateLayerResponse

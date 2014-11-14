@@ -90,11 +90,9 @@ data DeleteStreamResponse = DeleteStreamResponse
 deleteStreamResponse :: DeleteStreamResponse
 deleteStreamResponse = DeleteStreamResponse
 
--- FromJSON
-
 instance AWSRequest DeleteStream where
     type Sv DeleteStream = Kinesis
     type Rs DeleteStream = DeleteStreamResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse DeleteStreamResponse

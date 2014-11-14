@@ -329,13 +329,11 @@ gddrUpdatedDate = lens _gddrUpdatedDate (\s a -> s { _gddrUpdatedDate = a })
 gddrWhoIsServer :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrWhoIsServer = lens _gddrWhoIsServer (\s a -> s { _gddrWhoIsServer = a })
 
--- FromJSON
-
 instance AWSRequest GetDomainDetail where
     type Sv GetDomainDetail = Route53Domains
     type Rs GetDomainDetail = GetDomainDetailResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetDomainDetailResponse
         <$> o .: "AbuseContactEmail"
         <*> o .: "AbuseContactPhone"

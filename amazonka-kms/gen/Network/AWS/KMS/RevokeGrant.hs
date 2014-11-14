@@ -89,11 +89,9 @@ data RevokeGrantResponse = RevokeGrantResponse
 revokeGrantResponse :: RevokeGrantResponse
 revokeGrantResponse = RevokeGrantResponse
 
--- FromJSON
-
 instance AWSRequest RevokeGrant where
     type Sv RevokeGrant = KMS
     type Rs RevokeGrant = RevokeGrantResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RevokeGrantResponse

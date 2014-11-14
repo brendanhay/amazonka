@@ -145,13 +145,11 @@ dvtldrMarker = lens _dvtldrMarker (\s a -> s { _dvtldrMarker = a })
 dvtldrVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
 dvtldrVTLDevices = lens _dvtldrVTLDevices (\s a -> s { _dvtldrVTLDevices = a })
 
--- FromJSON
-
 instance AWSRequest DescribeVTLDevices where
     type Sv DescribeVTLDevices = StorageGateway
     type Rs DescribeVTLDevices = DescribeVTLDevicesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeVTLDevicesResponse
         <$> o .: "GatewayARN"
         <*> o .: "Marker"

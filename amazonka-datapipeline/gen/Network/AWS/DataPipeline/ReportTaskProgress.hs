@@ -107,12 +107,10 @@ reportTaskProgressResponse p1 = ReportTaskProgressResponse
 rtprCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprCanceled = lens _rtprCanceled (\s a -> s { _rtprCanceled = a })
 
--- FromJSON
-
 instance AWSRequest ReportTaskProgress where
     type Sv ReportTaskProgress = DataPipeline
     type Rs ReportTaskProgress = ReportTaskProgressResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ReportTaskProgressResponse
         <$> o .: "canceled"

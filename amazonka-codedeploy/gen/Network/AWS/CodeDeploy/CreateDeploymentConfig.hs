@@ -115,12 +115,10 @@ cdcrDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
 cdcrDeploymentConfigId =
     lens _cdcrDeploymentConfigId (\s a -> s { _cdcrDeploymentConfigId = a })
 
--- FromJSON
-
 instance AWSRequest CreateDeploymentConfig where
     type Sv CreateDeploymentConfig = CodeDeploy
     type Rs CreateDeploymentConfig = CreateDeploymentConfigResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateDeploymentConfigResponse
         <$> o .: "deploymentConfigId"

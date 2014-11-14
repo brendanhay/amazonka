@@ -81,11 +81,9 @@ data DeletePipelineResponse = DeletePipelineResponse
 deletePipelineResponse :: DeletePipelineResponse
 deletePipelineResponse = DeletePipelineResponse
 
--- FromJSON
-
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = ElasticTranscoder
     type Rs DeletePipeline = DeletePipelineResponse
 
-    request  = delete'
+    request  = delete
     response = nullaryResponse DeletePipelineResponse

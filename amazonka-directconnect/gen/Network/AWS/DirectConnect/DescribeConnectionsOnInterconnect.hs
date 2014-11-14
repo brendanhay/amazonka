@@ -101,12 +101,10 @@ describeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectRes
 dcoirConnections :: Lens' DescribeConnectionsOnInterconnectResponse [Connection]
 dcoirConnections = lens _dcoirConnections (\s a -> s { _dcoirConnections = a })
 
--- FromJSON
-
 instance AWSRequest DescribeConnectionsOnInterconnect where
     type Sv DescribeConnectionsOnInterconnect = DirectConnect
     type Rs DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnectResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeConnectionsOnInterconnectResponse
         <$> o .: "connections"

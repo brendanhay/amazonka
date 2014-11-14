@@ -121,13 +121,11 @@ lprPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprPipelineIdList =
     lens _lprPipelineIdList (\s a -> s { _lprPipelineIdList = a })
 
--- FromJSON
-
 instance AWSRequest ListPipelines where
     type Sv ListPipelines = DataPipeline
     type Rs ListPipelines = ListPipelinesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListPipelinesResponse
         <$> o .: "hasMoreResults"
         <*> o .: "marker"

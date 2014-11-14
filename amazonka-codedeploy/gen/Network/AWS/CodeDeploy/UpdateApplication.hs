@@ -88,11 +88,9 @@ data UpdateApplicationResponse = UpdateApplicationResponse
 updateApplicationResponse :: UpdateApplicationResponse
 updateApplicationResponse = UpdateApplicationResponse
 
--- FromJSON
-
 instance AWSRequest UpdateApplication where
     type Sv UpdateApplication = CodeDeploy
     type Rs UpdateApplication = UpdateApplicationResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse UpdateApplicationResponse

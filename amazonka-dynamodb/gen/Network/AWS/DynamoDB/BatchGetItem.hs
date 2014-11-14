@@ -190,13 +190,11 @@ bgirUnprocessedKeys =
     lens _bgirUnprocessedKeys (\s a -> s { _bgirUnprocessedKeys = a })
         . _Map
 
--- FromJSON
-
 instance AWSRequest BatchGetItem where
     type Sv BatchGetItem = DynamoDB
     type Rs BatchGetItem = BatchGetItemResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> BatchGetItemResponse
         <$> o .: "ConsumedCapacity"
         <*> o .: "Responses"

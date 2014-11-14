@@ -115,12 +115,10 @@ delbrElasticLoadBalancers =
     lens _delbrElasticLoadBalancers
         (\s a -> s { _delbrElasticLoadBalancers = a })
 
--- FromJSON
-
 instance AWSRequest DescribeElasticLoadBalancers where
     type Sv DescribeElasticLoadBalancers = OpsWorks
     type Rs DescribeElasticLoadBalancers = DescribeElasticLoadBalancersResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeElasticLoadBalancersResponse
         <$> o .: "ElasticLoadBalancers"

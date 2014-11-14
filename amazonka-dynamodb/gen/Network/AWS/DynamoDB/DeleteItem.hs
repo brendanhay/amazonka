@@ -394,13 +394,11 @@ dirItemCollectionMetrics =
     lens _dirItemCollectionMetrics
         (\s a -> s { _dirItemCollectionMetrics = a })
 
--- FromJSON
-
 instance AWSRequest DeleteItem where
     type Sv DeleteItem = DynamoDB
     type Rs DeleteItem = DeleteItemResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DeleteItemResponse
         <$> o .: "Attributes"
         <*> o .: "ConsumedCapacity"

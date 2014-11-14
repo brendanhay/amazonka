@@ -235,13 +235,11 @@ cpvirVirtualInterfaceType =
 cpvirVlan :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Int)
 cpvirVlan = lens _cpvirVlan (\s a -> s { _cpvirVlan = a })
 
--- FromJSON
-
 instance AWSRequest CreatePublicVirtualInterface where
     type Sv CreatePublicVirtualInterface = DirectConnect
     type Rs CreatePublicVirtualInterface = CreatePublicVirtualInterfaceResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreatePublicVirtualInterfaceResponse
         <$> o .: "amazonAddress"
         <*> o .: "asn"

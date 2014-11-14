@@ -109,11 +109,9 @@ data RespondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
 respondActivityTaskCanceledResponse :: RespondActivityTaskCanceledResponse
 respondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
 
--- FromJSON
-
 instance AWSRequest RespondActivityTaskCanceled where
     type Sv RespondActivityTaskCanceled = SWF
     type Rs RespondActivityTaskCanceled = RespondActivityTaskCanceledResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RespondActivityTaskCanceledResponse

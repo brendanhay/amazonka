@@ -136,13 +136,11 @@ ppdrValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning
 ppdrValidationWarnings =
     lens _ppdrValidationWarnings (\s a -> s { _ppdrValidationWarnings = a })
 
--- FromJSON
-
 instance AWSRequest PutPipelineDefinition where
     type Sv PutPipelineDefinition = DataPipeline
     type Rs PutPipelineDefinition = PutPipelineDefinitionResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> PutPipelineDefinitionResponse
         <$> o .: "errored"
         <*> o .: "validationErrors"

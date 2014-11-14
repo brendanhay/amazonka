@@ -142,12 +142,10 @@ mergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse
 mdirIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
 mdirIdentityId = lens _mdirIdentityId (\s a -> s { _mdirIdentityId = a })
 
--- FromJSON
-
 instance AWSRequest MergeDeveloperIdentities where
     type Sv MergeDeveloperIdentities = CognitoIdentity
     type Rs MergeDeveloperIdentities = MergeDeveloperIdentitiesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> MergeDeveloperIdentitiesResponse
         <$> o .: "IdentityId"

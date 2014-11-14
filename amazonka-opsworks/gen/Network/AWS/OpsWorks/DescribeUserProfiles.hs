@@ -105,12 +105,10 @@ describeUserProfilesResponse = DescribeUserProfilesResponse
 duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprUserProfiles = lens _duprUserProfiles (\s a -> s { _duprUserProfiles = a })
 
--- FromJSON
-
 instance AWSRequest DescribeUserProfiles where
     type Sv DescribeUserProfiles = OpsWorks
     type Rs DescribeUserProfiles = DescribeUserProfilesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeUserProfilesResponse
         <$> o .: "UserProfiles"

@@ -78,11 +78,9 @@ data StartLoggingResponse = StartLoggingResponse
 startLoggingResponse :: StartLoggingResponse
 startLoggingResponse = StartLoggingResponse
 
--- FromJSON
-
 instance AWSRequest StartLogging where
     type Sv StartLogging = CloudTrail
     type Rs StartLogging = StartLoggingResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse StartLoggingResponse

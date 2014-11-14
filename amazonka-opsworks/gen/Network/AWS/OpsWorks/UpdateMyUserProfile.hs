@@ -80,11 +80,9 @@ data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse
 updateMyUserProfileResponse :: UpdateMyUserProfileResponse
 updateMyUserProfileResponse = UpdateMyUserProfileResponse
 
--- FromJSON
-
 instance AWSRequest UpdateMyUserProfile where
     type Sv UpdateMyUserProfile = OpsWorks
     type Rs UpdateMyUserProfile = UpdateMyUserProfileResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse UpdateMyUserProfileResponse

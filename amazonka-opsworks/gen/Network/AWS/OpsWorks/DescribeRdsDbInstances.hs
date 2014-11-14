@@ -110,12 +110,10 @@ drdirRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse [RdsDbInstance]
 drdirRdsDbInstances =
     lens _drdirRdsDbInstances (\s a -> s { _drdirRdsDbInstances = a })
 
--- FromJSON
-
 instance AWSRequest DescribeRdsDbInstances where
     type Sv DescribeRdsDbInstances = OpsWorks
     type Rs DescribeRdsDbInstances = DescribeRdsDbInstancesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeRdsDbInstancesResponse
         <$> o .: "RdsDbInstances"

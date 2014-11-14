@@ -160,13 +160,11 @@ gdkrKeyId = lens _gdkrKeyId (\s a -> s { _gdkrKeyId = a })
 gdkrPlaintext :: Lens' GenerateDataKeyResponse (Maybe Base64)
 gdkrPlaintext = lens _gdkrPlaintext (\s a -> s { _gdkrPlaintext = a })
 
--- FromJSON
-
 instance AWSRequest GenerateDataKey where
     type Sv GenerateDataKey = KMS
     type Rs GenerateDataKey = GenerateDataKeyResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GenerateDataKeyResponse
         <$> o .: "CiphertextBlob"
         <*> o .: "KeyId"

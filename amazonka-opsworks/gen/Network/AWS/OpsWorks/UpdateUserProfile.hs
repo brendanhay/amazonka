@@ -114,11 +114,9 @@ data UpdateUserProfileResponse = UpdateUserProfileResponse
 updateUserProfileResponse :: UpdateUserProfileResponse
 updateUserProfileResponse = UpdateUserProfileResponse
 
--- FromJSON
-
 instance AWSRequest UpdateUserProfile where
     type Sv UpdateUserProfile = OpsWorks
     type Rs UpdateUserProfile = UpdateUserProfileResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse UpdateUserProfileResponse

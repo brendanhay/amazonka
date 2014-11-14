@@ -107,12 +107,10 @@ addWorkingStorageResponse = AddWorkingStorageResponse
 awsrGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
 awsrGatewayARN = lens _awsrGatewayARN (\s a -> s { _awsrGatewayARN = a })
 
--- FromJSON
-
 instance AWSRequest AddWorkingStorage where
     type Sv AddWorkingStorage = StorageGateway
     type Rs AddWorkingStorage = AddWorkingStorageResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> AddWorkingStorageResponse
         <$> o .: "GatewayARN"

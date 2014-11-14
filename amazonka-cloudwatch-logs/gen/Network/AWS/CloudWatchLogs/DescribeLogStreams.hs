@@ -133,13 +133,11 @@ dlsrLogStreams = lens _dlsrLogStreams (\s a -> s { _dlsrLogStreams = a })
 dlsrNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
 dlsrNextToken = lens _dlsrNextToken (\s a -> s { _dlsrNextToken = a })
 
--- FromJSON
-
 instance AWSRequest DescribeLogStreams where
     type Sv DescribeLogStreams = CloudWatchLogs
     type Rs DescribeLogStreams = DescribeLogStreamsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeLogStreamsResponse
         <$> o .: "logStreams"
         <*> o .: "nextToken"

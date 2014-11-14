@@ -114,11 +114,9 @@ data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
 setLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse
 setLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
 
--- FromJSON
-
 instance AWSRequest SetLoadBasedAutoScaling where
     type Sv SetLoadBasedAutoScaling = OpsWorks
     type Rs SetLoadBasedAutoScaling = SetLoadBasedAutoScalingResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse SetLoadBasedAutoScalingResponse

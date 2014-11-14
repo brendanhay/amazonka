@@ -148,13 +148,11 @@ gdkwprCiphertextBlob =
 gdkwprKeyId :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Text)
 gdkwprKeyId = lens _gdkwprKeyId (\s a -> s { _gdkwprKeyId = a })
 
--- FromJSON
-
 instance AWSRequest GenerateDataKeyWithoutPlaintext where
     type Sv GenerateDataKeyWithoutPlaintext = KMS
     type Rs GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintextResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GenerateDataKeyWithoutPlaintextResponse
         <$> o .: "CiphertextBlob"
         <*> o .: "KeyId"

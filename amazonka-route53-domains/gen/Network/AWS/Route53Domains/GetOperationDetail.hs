@@ -144,13 +144,11 @@ godrSubmittedDate =
 godrType :: Lens' GetOperationDetailResponse (Maybe Text)
 godrType = lens _godrType (\s a -> s { _godrType = a })
 
--- FromJSON
-
 instance AWSRequest GetOperationDetail where
     type Sv GetOperationDetail = Route53Domains
     type Rs GetOperationDetail = GetOperationDetailResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetOperationDetailResponse
         <$> o .: "DomainName"
         <*> o .: "Message"

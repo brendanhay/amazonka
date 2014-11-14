@@ -109,12 +109,10 @@ testMetricFilterResponse = TestMetricFilterResponse
 tmfrMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrMatches = lens _tmfrMatches (\s a -> s { _tmfrMatches = a })
 
--- FromJSON
-
 instance AWSRequest TestMetricFilter where
     type Sv TestMetricFilter = CloudWatchLogs
     type Rs TestMetricFilter = TestMetricFilterResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> TestMetricFilterResponse
         <$> o .: "matches"

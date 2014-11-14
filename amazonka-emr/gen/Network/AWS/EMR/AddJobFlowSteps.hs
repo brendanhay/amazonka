@@ -125,12 +125,10 @@ addJobFlowStepsResponse = AddJobFlowStepsResponse
 ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]
 ajfsrStepIds = lens _ajfsrStepIds (\s a -> s { _ajfsrStepIds = a })
 
--- FromJSON
-
 instance AWSRequest AddJobFlowSteps where
     type Sv AddJobFlowSteps = EMR
     type Rs AddJobFlowSteps = AddJobFlowStepsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> AddJobFlowStepsResponse
         <$> o .: "StepIds"

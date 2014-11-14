@@ -115,12 +115,10 @@ getIdResponse = GetIdResponse
 girIdentityId :: Lens' GetIdResponse (Maybe Text)
 girIdentityId = lens _girIdentityId (\s a -> s { _girIdentityId = a })
 
--- FromJSON
-
 instance AWSRequest GetId where
     type Sv GetId = CognitoIdentity
     type Rs GetId = GetIdResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetIdResponse
         <$> o .: "IdentityId"

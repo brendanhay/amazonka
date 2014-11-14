@@ -184,13 +184,11 @@ ccrRegion = lens _ccrRegion (\s a -> s { _ccrRegion = a })
 ccrVlan :: Lens' CreateConnectionResponse (Maybe Int)
 ccrVlan = lens _ccrVlan (\s a -> s { _ccrVlan = a })
 
--- FromJSON
-
 instance AWSRequest CreateConnection where
     type Sv CreateConnection = DirectConnect
     type Rs CreateConnection = CreateConnectionResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateConnectionResponse
         <$> o .: "bandwidth"
         <*> o .: "connectionId"

@@ -62,9 +62,12 @@ loadTemplates d = do
         <*> load "operation-query"
 
     return $! f $ \case
-        Json  -> j
-        Xml   -> x
-        Query -> q
+        Json     -> j
+        RestJson -> j
+        Xml      -> x
+        RestXml  -> x
+        Query    -> q
+        Ec2      -> q
   where
     load (path -> f) =
            say "Parse Template" f

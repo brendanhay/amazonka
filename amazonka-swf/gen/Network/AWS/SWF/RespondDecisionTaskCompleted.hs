@@ -114,11 +114,9 @@ data RespondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse
 respondDecisionTaskCompletedResponse :: RespondDecisionTaskCompletedResponse
 respondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse
 
--- FromJSON
-
 instance AWSRequest RespondDecisionTaskCompleted where
     type Sv RespondDecisionTaskCompleted = SWF
     type Rs RespondDecisionTaskCompleted = RespondDecisionTaskCompletedResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse RespondDecisionTaskCompletedResponse

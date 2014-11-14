@@ -79,12 +79,10 @@ describeMyUserProfileResponse = DescribeMyUserProfileResponse
 dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprUserProfile = lens _dmuprUserProfile (\s a -> s { _dmuprUserProfile = a })
 
--- FromJSON
-
 instance AWSRequest DescribeMyUserProfile where
     type Sv DescribeMyUserProfile = OpsWorks
     type Rs DescribeMyUserProfile = DescribeMyUserProfileResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeMyUserProfileResponse
         <$> o .: "UserProfile"

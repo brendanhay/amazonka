@@ -123,11 +123,9 @@ data CreateStreamResponse = CreateStreamResponse
 createStreamResponse :: CreateStreamResponse
 createStreamResponse = CreateStreamResponse
 
--- FromJSON
-
 instance AWSRequest CreateStream where
     type Sv CreateStream = Kinesis
     type Rs CreateStream = CreateStreamResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse CreateStreamResponse

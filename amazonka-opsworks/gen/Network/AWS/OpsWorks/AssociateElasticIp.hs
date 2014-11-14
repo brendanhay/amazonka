@@ -93,11 +93,9 @@ data AssociateElasticIpResponse = AssociateElasticIpResponse
 associateElasticIpResponse :: AssociateElasticIpResponse
 associateElasticIpResponse = AssociateElasticIpResponse
 
--- FromJSON
-
 instance AWSRequest AssociateElasticIp where
     type Sv AssociateElasticIp = OpsWorks
     type Rs AssociateElasticIp = AssociateElasticIpResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse AssociateElasticIpResponse

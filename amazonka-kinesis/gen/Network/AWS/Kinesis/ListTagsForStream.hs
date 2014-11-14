@@ -129,13 +129,11 @@ ltfsrHasMoreTags = lens _ltfsrHasMoreTags (\s a -> s { _ltfsrHasMoreTags = a })
 ltfsrTags :: Lens' ListTagsForStreamResponse [Tag]
 ltfsrTags = lens _ltfsrTags (\s a -> s { _ltfsrTags = a })
 
--- FromJSON
-
 instance AWSRequest ListTagsForStream where
     type Sv ListTagsForStream = Kinesis
     type Rs ListTagsForStream = ListTagsForStreamResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListTagsForStreamResponse
         <$> o .: "HasMoreTags"
         <*> o .: "Tags"

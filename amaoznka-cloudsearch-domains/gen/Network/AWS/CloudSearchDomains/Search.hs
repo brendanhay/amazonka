@@ -437,13 +437,11 @@ sr1Hits = lens _sr1Hits (\s a -> s { _sr1Hits = a })
 sr1Status :: Lens' SearchResponse (Maybe SearchStatus)
 sr1Status = lens _sr1Status (\s a -> s { _sr1Status = a })
 
--- FromJSON
-
 instance AWSRequest Search where
     type Sv Search = CloudSearchDomains
     type Rs Search = SearchResponse
 
-    request  = get'
+    request  = get
     response = jsonResponse $ \h o -> SearchResponse
         <$> o .: "facets"
         <*> o .: "hits"

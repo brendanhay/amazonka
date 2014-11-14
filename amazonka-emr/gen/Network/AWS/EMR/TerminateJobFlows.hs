@@ -90,11 +90,9 @@ data TerminateJobFlowsResponse = TerminateJobFlowsResponse
 terminateJobFlowsResponse :: TerminateJobFlowsResponse
 terminateJobFlowsResponse = TerminateJobFlowsResponse
 
--- FromJSON
-
 instance AWSRequest TerminateJobFlows where
     type Sv TerminateJobFlows = EMR
     type Rs TerminateJobFlows = TerminateJobFlowsResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse TerminateJobFlowsResponse

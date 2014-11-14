@@ -127,13 +127,11 @@ drKeyId = lens _drKeyId (\s a -> s { _drKeyId = a })
 drPlaintext :: Lens' DecryptResponse (Maybe Base64)
 drPlaintext = lens _drPlaintext (\s a -> s { _drPlaintext = a })
 
--- FromJSON
-
 instance AWSRequest Decrypt where
     type Sv Decrypt = KMS
     type Rs Decrypt = DecryptResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DecryptResponse
         <$> o .: "KeyId"
         <*> o .: "Plaintext"

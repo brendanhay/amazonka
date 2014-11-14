@@ -230,12 +230,10 @@ startWorkflowExecutionResponse = StartWorkflowExecutionResponse
 swerRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)
 swerRunId = lens _swerRunId (\s a -> s { _swerRunId = a })
 
--- FromJSON
-
 instance AWSRequest StartWorkflowExecution where
     type Sv StartWorkflowExecution = SWF
     type Rs StartWorkflowExecution = StartWorkflowExecutionResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> StartWorkflowExecutionResponse
         <$> o .: "runId"

@@ -95,12 +95,10 @@ gkrsrKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
 gkrsrKeyRotationEnabled =
     lens _gkrsrKeyRotationEnabled (\s a -> s { _gkrsrKeyRotationEnabled = a })
 
--- FromJSON
-
 instance AWSRequest GetKeyRotationStatus where
     type Sv GetKeyRotationStatus = KMS
     type Rs GetKeyRotationStatus = GetKeyRotationStatusResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetKeyRotationStatusResponse
         <$> o .: "KeyRotationEnabled"

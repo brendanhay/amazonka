@@ -104,12 +104,10 @@ gdirInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummar
 gdirInstanceSummary =
     lens _gdirInstanceSummary (\s a -> s { _gdirInstanceSummary = a })
 
--- FromJSON
-
 instance AWSRequest GetDeploymentInstance where
     type Sv GetDeploymentInstance = CodeDeploy
     type Rs GetDeploymentInstance = GetDeploymentInstanceResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> GetDeploymentInstanceResponse
         <$> o .: "instanceSummary"

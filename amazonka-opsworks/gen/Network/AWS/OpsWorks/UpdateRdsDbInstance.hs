@@ -97,11 +97,9 @@ data UpdateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse
 updateRdsDbInstanceResponse :: UpdateRdsDbInstanceResponse
 updateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse
 
--- FromJSON
-
 instance AWSRequest UpdateRdsDbInstance where
     type Sv UpdateRdsDbInstance = OpsWorks
     type Rs UpdateRdsDbInstance = UpdateRdsDbInstanceResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse UpdateRdsDbInstanceResponse

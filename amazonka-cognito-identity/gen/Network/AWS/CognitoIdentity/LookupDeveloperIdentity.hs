@@ -173,13 +173,11 @@ ldirIdentityId = lens _ldirIdentityId (\s a -> s { _ldirIdentityId = a })
 ldirNextToken :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
 ldirNextToken = lens _ldirNextToken (\s a -> s { _ldirNextToken = a })
 
--- FromJSON
-
 instance AWSRequest LookupDeveloperIdentity where
     type Sv LookupDeveloperIdentity = CognitoIdentity
     type Rs LookupDeveloperIdentity = LookupDeveloperIdentityResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> LookupDeveloperIdentityResponse
         <$> o .: "DeveloperUserIdentifierList"
         <*> o .: "IdentityId"

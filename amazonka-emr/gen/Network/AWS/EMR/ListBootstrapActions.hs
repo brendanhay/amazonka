@@ -111,13 +111,11 @@ lbarBootstrapActions =
 lbarMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarMarker = lens _lbarMarker (\s a -> s { _lbarMarker = a })
 
--- FromJSON
-
 instance AWSRequest ListBootstrapActions where
     type Sv ListBootstrapActions = EMR
     type Rs ListBootstrapActions = ListBootstrapActionsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListBootstrapActionsResponse
         <$> o .: "BootstrapActions"
         <*> o .: "Marker"

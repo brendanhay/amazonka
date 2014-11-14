@@ -120,13 +120,11 @@ sipcrIdentityPoolId =
 sipcrPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
 sipcrPushSync = lens _sipcrPushSync (\s a -> s { _sipcrPushSync = a })
 
--- FromJSON
-
 instance AWSRequest SetIdentityPoolConfiguration where
     type Sv SetIdentityPoolConfiguration = CognitoSync
     type Rs SetIdentityPoolConfiguration = SetIdentityPoolConfigurationResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> SetIdentityPoolConfigurationResponse
         <$> o .: "IdentityPoolId"
         <*> o .: "PushSync"

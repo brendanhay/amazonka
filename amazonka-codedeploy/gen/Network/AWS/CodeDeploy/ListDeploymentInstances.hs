@@ -134,13 +134,11 @@ ldirInstancesList =
 ldirNextToken :: Lens' ListDeploymentInstancesResponse (Maybe Text)
 ldirNextToken = lens _ldirNextToken (\s a -> s { _ldirNextToken = a })
 
--- FromJSON
-
 instance AWSRequest ListDeploymentInstances where
     type Sv ListDeploymentInstances = CodeDeploy
     type Rs ListDeploymentInstances = ListDeploymentInstancesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListDeploymentInstancesResponse
         <$> o .: "instancesList"
         <*> o .: "nextToken"

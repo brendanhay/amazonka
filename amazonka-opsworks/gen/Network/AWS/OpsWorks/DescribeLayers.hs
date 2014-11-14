@@ -112,12 +112,10 @@ describeLayersResponse = DescribeLayersResponse
 dlrLayers :: Lens' DescribeLayersResponse [Layer]
 dlrLayers = lens _dlrLayers (\s a -> s { _dlrLayers = a })
 
--- FromJSON
-
 instance AWSRequest DescribeLayers where
     type Sv DescribeLayers = OpsWorks
     type Rs DescribeLayers = DescribeLayersResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeLayersResponse
         <$> o .: "Layers"

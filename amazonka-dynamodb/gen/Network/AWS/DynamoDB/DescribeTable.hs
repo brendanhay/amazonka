@@ -93,12 +93,10 @@ describeTableResponse = DescribeTableResponse
 dtrTable :: Lens' DescribeTableResponse (Maybe TableDescription)
 dtrTable = lens _dtrTable (\s a -> s { _dtrTable = a })
 
--- FromJSON
-
 instance AWSRequest DescribeTable where
     type Sv DescribeTable = DynamoDB
     type Rs DescribeTable = DescribeTableResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> DescribeTableResponse
         <$> o .: "Table"

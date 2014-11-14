@@ -102,13 +102,11 @@ sdrStatus = lens _sdrStatus (\s a -> s { _sdrStatus = a })
 sdrStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
 sdrStatusMessage = lens _sdrStatusMessage (\s a -> s { _sdrStatusMessage = a })
 
--- FromJSON
-
 instance AWSRequest StopDeployment where
     type Sv StopDeployment = CodeDeploy
     type Rs StopDeployment = StopDeploymentResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> StopDeploymentResponse
         <$> o .: "status"
         <*> o .: "statusMessage"

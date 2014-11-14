@@ -138,13 +138,11 @@ lkprPolicyNames = lens _lkprPolicyNames (\s a -> s { _lkprPolicyNames = a })
 lkprTruncated :: Lens' ListKeyPoliciesResponse (Maybe Bool)
 lkprTruncated = lens _lkprTruncated (\s a -> s { _lkprTruncated = a })
 
--- FromJSON
-
 instance AWSRequest ListKeyPolicies where
     type Sv ListKeyPolicies = KMS
     type Rs ListKeyPolicies = ListKeyPoliciesResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ListKeyPoliciesResponse
         <$> o .: "NextMarker"
         <*> o .: "PolicyNames"

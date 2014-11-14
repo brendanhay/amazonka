@@ -126,11 +126,9 @@ data MergeShardsResponse = MergeShardsResponse
 mergeShardsResponse :: MergeShardsResponse
 mergeShardsResponse = MergeShardsResponse
 
--- FromJSON
-
 instance AWSRequest MergeShards where
     type Sv MergeShards = Kinesis
     type Rs MergeShards = MergeShardsResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse MergeShardsResponse

@@ -82,11 +82,9 @@ data ActivatePipelineResponse = ActivatePipelineResponse
 activatePipelineResponse :: ActivatePipelineResponse
 activatePipelineResponse = ActivatePipelineResponse
 
--- FromJSON
-
 instance AWSRequest ActivatePipeline where
     type Sv ActivatePipeline = DataPipeline
     type Rs ActivatePipeline = ActivatePipelineResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse ActivatePipelineResponse

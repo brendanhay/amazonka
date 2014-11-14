@@ -127,13 +127,11 @@ vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWa
 vpdrValidationWarnings =
     lens _vpdrValidationWarnings (\s a -> s { _vpdrValidationWarnings = a })
 
--- FromJSON
-
 instance AWSRequest ValidatePipelineDefinition where
     type Sv ValidatePipelineDefinition = DataPipeline
     type Rs ValidatePipelineDefinition = ValidatePipelineDefinitionResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ValidatePipelineDefinitionResponse
         <$> o .: "errored"
         <*> o .: "validationErrors"

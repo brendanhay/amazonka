@@ -94,12 +94,10 @@ ccr1ConnectionState :: Lens' ConfirmConnectionResponse (Maybe Text)
 ccr1ConnectionState =
     lens _ccr1ConnectionState (\s a -> s { _ccr1ConnectionState = a })
 
--- FromJSON
-
 instance AWSRequest ConfirmConnection where
     type Sv ConfirmConnection = DirectConnect
     type Rs ConfirmConnection = ConfirmConnectionResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> ConfirmConnectionResponse
         <$> o .: "connectionState"

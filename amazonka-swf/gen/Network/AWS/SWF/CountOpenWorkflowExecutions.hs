@@ -158,13 +158,11 @@ cowerCount = lens _cowerCount (\s a -> s { _cowerCount = a })
 cowerTruncated :: Lens' CountOpenWorkflowExecutionsResponse (Maybe Bool)
 cowerTruncated = lens _cowerTruncated (\s a -> s { _cowerTruncated = a })
 
--- FromJSON
-
 instance AWSRequest CountOpenWorkflowExecutions where
     type Sv CountOpenWorkflowExecutions = SWF
     type Rs CountOpenWorkflowExecutions = CountOpenWorkflowExecutionsResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CountOpenWorkflowExecutionsResponse
         <$> o .: "count"
         <*> o .: "truncated"

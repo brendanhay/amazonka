@@ -201,12 +201,10 @@ createCaseResponse = CreateCaseResponse
 ccrCaseId :: Lens' CreateCaseResponse (Maybe Text)
 ccrCaseId = lens _ccrCaseId (\s a -> s { _ccrCaseId = a })
 
--- FromJSON
-
 instance AWSRequest CreateCase where
     type Sv CreateCase = Support
     type Rs CreateCase = CreateCaseResponse
 
-    request  = post'
+    request  = post
     response = jsonResponse $ \h o -> CreateCaseResponse
         <$> o .: "caseId"

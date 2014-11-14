@@ -80,11 +80,9 @@ data EnableKeyResponse = EnableKeyResponse
 enableKeyResponse :: EnableKeyResponse
 enableKeyResponse = EnableKeyResponse
 
--- FromJSON
-
 instance AWSRequest EnableKey where
     type Sv EnableKey = KMS
     type Rs EnableKey = EnableKeyResponse
 
-    request  = post'
+    request  = post
     response = nullaryResponse EnableKeyResponse

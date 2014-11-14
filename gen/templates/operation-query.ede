@@ -19,3 +19,4 @@ instance AWSRequest {{ request.name }} where
 
     request  = {{ method }} "{{ name }}"
 {% include "_include/response.ede" %}
+{% include "_include/pager.ede" %}

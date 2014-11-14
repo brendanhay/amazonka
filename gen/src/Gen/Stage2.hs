@@ -602,8 +602,6 @@ operationJSON n d = y <> x
             Record  _ fs -> fs
             _            -> []
 
--- FIXME: Errors? Pagination? Result/Request inline and not part of
--- the types module?
 data Operation = Operation
     { _opName             :: !Text
     , _opService          :: !Abbrev
@@ -615,6 +613,7 @@ data Operation = Operation
     , _opMethod           :: !Method
     , _opRequest          :: !Request
     , _opResponse         :: !Response
+    , _opPager            :: Maybe Pager
     } deriving (Eq, Show)
 
 record stage2 ''Operation

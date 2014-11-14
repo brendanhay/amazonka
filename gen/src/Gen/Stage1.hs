@@ -22,21 +22,20 @@
 
 module Gen.Stage1 where
 
-import           Control.Applicative
-import           Control.Error
-import           Control.Lens        hiding ((<.>), (??))
-import           Data.HashMap.Strict (HashMap)
-import           Data.Jason          as J
-import           Data.Jason.Types
-import           Data.Text           (Text)
-import qualified Data.Vector         as Vector
-import           Gen.IO
-import           Gen.JSON
-import           Gen.Names
-import           Gen.TH
-import           Gen.Types
-import           System.FilePath
-import           System.Directory
+import Control.Applicative
+import Control.Error
+import Control.Lens        hiding ((<.>), (??))
+import Data.HashMap.Strict (HashMap)
+import Data.Jason          as J
+import Data.Jason.Types
+import Data.Text           (Text)
+import Gen.IO
+import Gen.JSON
+import Gen.Names
+import Gen.TH
+import Gen.Types
+import System.Directory
+import System.FilePath
 
 default (Text)
 
@@ -194,27 +193,16 @@ instance FromJSON Shape where
             "blob"      -> f Blob'
             e           -> fail ("Unknown Shape type: " ++ show e)
 
-data Key
-    = Many [Text]
-    | One  Text
-      deriving (Eq, Show)
+-- data Pager = Pager
+--     { _pgMoreResults      :: Maybe [Key]
+--     , _pgLimitKey         :: Maybe [Key]
+--     , _pgOutputToken      :: Maybe [Key]
+--     , _pgInputToken       :: Maybe [Key]
+--     , _pgResultkey        :: Maybe [Key]
+--     , _pgNonAggregateKeys :: Maybe [Key]
+--     } deriving (Eq, Show)
 
-instance FromJSON Key where
-    parseJSON = \case
-        J.String t -> pure (One t)
-        J.Array  v -> Many <$> traverse parseJSON (Vector.toList v)
-        e          -> fail ("Unknown Pager Key: " ++ show e)
-
-data Pager = Pager
-    { _pgMoreResults      :: Maybe Text
-    , _pgLimitKey         :: Maybe Text
-    , _pgOutputToken      :: Maybe Key
-    , _pgInputToken       :: Maybe Key
-    , _pgResultkey        :: Maybe Key
-    , _pgNonAggregatekeys :: Maybe Key
-    } deriving (Eq, Show)
-
-record stage1 ''Pager
+-- record stage1 ''Pager
 
 data Waiter = Waiter
     { _wOperation    :: Maybe Text

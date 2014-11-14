@@ -26,6 +26,7 @@ module Gen.Types where
 
 import           Control.Applicative
 import           Control.Lens         (Traversal', makeLenses)
+import           Control.Monad
 import qualified Data.Aeson           as A
 import           Data.Attoparsec.Text (Parser, parseOnly)
 import qualified Data.Attoparsec.Text as AText
@@ -34,6 +35,7 @@ import           Data.CaseInsensitive (CI)
 import           Data.Char
 import           Data.Foldable        (Foldable)
 import           Data.HashMap.Strict  (HashMap)
+import qualified Data.HashMap.Strict  as Map
 import           Data.HashSet         (HashSet)
 import           Data.Jason.Types     hiding (Parser)
 import           Data.Maybe
@@ -269,6 +271,132 @@ requestNS :: Protocol -> NS
 requestNS p
     | p == Ec2 || p == Query = NS ["Network", "AWS", "Request", "Query"]
     | otherwise              = NS ["Network", "AWS", "Request"]
+
+data Key
+    = NoKey
+    | Key    Text
+    | Index  Text Key
+    | Apply  Text Key
+    | Choice Key  Key
+      deriving (Eq, Show)
+
+keyNames :: Traversal' Key Text
+keyNames f = \case
+    NoKey      -> pure NoKey
+    Key    n   -> Key    <$> f n
+    Index  n k -> Index  <$> f n <*> keyNames f k
+    Apply  n k -> Apply  <$> f n <*> keyNames f k
+    Choice a b -> Choice <$> keyNames f a <*> keyNames f b
+
+instance FromJSON Key where
+    parseJSON = withText "key" $ \t ->
+        either (fail . mappend (msg t)) return (AText.parseOnly syntax t)
+      where
+        msg t = "Failed parsing index notation: "
+            ++ Text.unpack t
+            ++ ", with: "
+
+        syntax = index <|> apply <|> keyed <|> choice
+
+        choice = Choice
+            <$> syntax
+             <* AText.string "||"
+            <*> syntax
+
+        keyed = Key <$> label
+
+        index = Index
+            <$> label
+             <* AText.string "[-1]"
+            <*> (AText.char '.' *> syntax <|> return NoKey)
+
+        apply = Apply
+            <$> label
+            <* AText.char '.'
+            <*> syntax
+
+        label = clean (AText.takeWhile1 (not . delim))
+
+        delim c = c == '.'
+               || c == '['
+               || c == '|'
+
+        clean = fmap Text.strip
+
+instance A.ToJSON Key where
+    toJSON = A.toJSON . go
+      where
+        go = \case
+            NoKey                -> "(to id)"
+            Key    k             -> k
+            Index  x y           -> "index "   <> x <> " " <> go y
+            Apply  x (Index y z) -> "index ("  <> go (Apply x (Key y)) <> ") " <> go z
+            Apply  x y           -> x <> " . " <> go y
+            Choice x y           -> "choice (" <> go x <> ") (" <> go y <> ")"
+
+data Token = Token
+    { _tokInput  :: Key
+    , _tokOutput :: Key
+    } deriving (Eq, Show)
+
+record stage2 ''Token
+
+tokenKeys :: Traversal' Token Key
+tokenKeys f (Token a b) = Token <$> f a <*> f b
+
+data Pager
+    = More Key [Token]
+    | Next Key Token
+      deriving (Eq, Show)
+
+pagerKeys :: Traversal' Pager Key
+pagerKeys f = \case
+    More k ts -> More <$> f k <*> traverse (tokenKeys f) ts
+    Next k t  -> Next <$> f k <*> tokenKeys f t
+
+instance FromJSON Pager where
+    parseJSON = withObject "pager" $ \o -> more o <|> next o
+      where
+        more o = do
+            xs <- f "input_token"
+            ys <- f "output_token"
+
+            unless (length xs == length ys) $
+                fail "input_token and output_token don't contain same number of keys."
+
+            More <$> o .: "more_results"
+                 <*> pure (zipWith Token xs ys)
+          where
+            f k = o .: k <|> (:[]) <$> o .: k
+
+        next o = Next
+            <$> o .: "result_key"
+            <*> (Token <$> o .: "input_token" <*> o .: "output_token")
+
+instance A.ToJSON Pager where
+    toJSON = A.object . \case
+        Next rk t ->
+            [ "type"      A..= "next"
+            , "resultKey" A..= rk
+            , "token"     A..= t
+            ]
+
+        More k [t] ->
+            [ "type"      A..= "one"
+            , "more"      A..= k
+            , "token"     A..= t
+            ]
+
+        More k ts ->
+            [ "type"      A..= "many"
+            , "more"      A..= k
+            , "tokens"    A..= m
+            , "negate"    A..= pre
+            ]
+          where
+            f x = (Text.pack ('p' : show x),)
+            m   = Map.fromList (zipWith f [1..length ts] ts)
+            pre = "isNothing " <> Text.intercalate " && isNothing " (Map.keys m)
 
 data Override = Override
     { _oRenameTo   :: Maybe Text             -- ^ Rename type

@@ -22,7 +22,7 @@ module Gen.Transform (transformS1ToS2) where
 import           Control.Applicative        ((<$>), (<*>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error
-import           Control.Lens               hiding (op, ignored, filtered)
+import           Control.Lens               hiding (op, ignored, filtered, indexed)
 import           Control.Monad
 import           Control.Monad.State.Strict
 import           Data.Bifunctor
@@ -116,7 +116,7 @@ dataTypes :: Overrides
 dataTypes o a s1 = (sort . Map.elems) `first` runState run ds
   where
     run = Map.traverseWithKey
-        (operation a proto (o ^. oOperationsModules) ss)
+        (operation a proto (o ^. oOperationsModules) ss (s1 ^. s1Pagination))
         (s1' ^. s1Operations)
 
     (s1', prefixed -> ds) = runState (requests s1 ss) datas
@@ -172,14 +172,16 @@ operation :: Abbrev
           -> Protocol
           -> [NS]
           -> HashSet Text
+          -> HashMap Text Pager
           -> Text
           -> S1.Operation
           -> State (HashMap Text Data) Operation
-operation a proto ns ss n o = op
-    <$> request  (o ^. oInput)
-    <*> response (o ^. oOutput)
+operation a proto ns ss pgs n o = do
+    inp <- request  (o ^. oInput)
+    out <- response (o ^. oOutput)
+    op inp out <$> pager inp out (Map.lookup n pgs)
   where
-    op rq rs = Operation
+    op rq rs pg = Operation
         { _opName             = n
         , _opService          = a
         , _opProtocol         = proto
@@ -190,6 +192,7 @@ operation a proto ns ss n o = op
         , _opMethod           = o ^. oHttp.hMethod
         , _opRequest          = rq
         , _opResponse         = rs
+        , _opPager            = pg
         }
 
     request = go (\x k s d -> Request (prefixURI x d) k s d) True
@@ -234,6 +237,49 @@ operation a proto ns ss n o = op
 
     placeholder c True  = c "" rqName False (Empty rqName)
     placeholder c False = c "" rsName False (Empty rsName)
+
+-- | Prefix the nested field access and index notation of a pager by introspecting
+-- the state fields.
+pager :: Request -> Response -> Maybe Pager -> m (Maybe Pager)
+pager _   _   Nothing   = return Nothing
+pager inp out (Just pg) = get >>= go
+  where
+    go ts = return . Just $!
+        case pg of
+            More m t -> More (labeled rq m) (map token t)
+            Next r t -> Next (labeled rs r) (token t)
+      where
+        token t = t & tokInput %~ labeled rq & tokOutput %~ labeled rs
+
+        rq = _rqName inp
+        rs = _rsName out
+
+        labeled _ NoKey        = NoKey
+        labeled x (Key    y)   = Key    (applied x y)
+        labeled x (Index  y z) = Index  (applied x y) (labeled (indexed x y) z)
+        labeled x (Apply  y z) = Apply  (applied x y) (labeled y z)
+        labeled x (Choice y z) = Choice (labeled x y) (labeled x z)
+
+        applied = undefined
+        indexed = undefined
+
+        -- indexed x y =
+        --     let t = getType x
+        --         f = getField y (_typFields t)
+        --       in Text.init . Text.tail . fst . typeOf $ f^.ann
+
+        -- applied x y =
+        --     let t = getType x
+        --         f = getField y (_typFields t)
+        --      in _fldPrefixed f
+
+        -- getType x =
+        --     fromMaybe (error $ "Missing type: " ++ show (x, map (view cmnName) types))
+        --               (find ((x ==) . view cmnName) types)
+
+        -- getField y z =
+        --     fromMaybe (error $ "Missing field: " ++ show y)
+        --               (find ((y ==) . _fldName) z)
 
 -- | Find any datatypes that are shared as operation inputs/outputs.
 shared :: Stage1 -> State (HashMap Text Data) (HashSet Text)

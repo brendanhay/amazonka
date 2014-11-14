@@ -148,3 +148,9 @@ instance AWSRequest ListSigningCertificates where
         <$> x %| "Certificates"
         <*> x %| "IsTruncated"
         <*> x %| "Marker"
+
+instance AWSPager ListSigningCertificates where
+    next rq rs
+        | not (more (rs ^. lscr1IsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lsc1Marker .~ rs ^. lscr1Marker

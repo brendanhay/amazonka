@@ -139,3 +139,7 @@ instance AWSRequest DescribeTags where
     response = xmlResponse $ \h x -> DescribeTagsResponse
         <$> x %| "nextToken"
         <*> x %| "tagSet"
+
+instance AWSPager DescribeTags where
+    next rq rs = (\x -> rq & dtNextToken ?~ x)
+        <$> (rs ^. dtrNextToken)

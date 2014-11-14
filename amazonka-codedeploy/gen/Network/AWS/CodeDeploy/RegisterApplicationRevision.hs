@@ -39,6 +39,7 @@ module Network.AWS.CodeDeploy.RegisterApplicationRevision
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 data RegisterApplicationRevision = RegisterApplicationRevision
     { _rarApplicationName :: Text

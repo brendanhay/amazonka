@@ -47,6 +47,7 @@ module Network.AWS.EMR.ListClusters
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types
+import qualified GHC.Exts
 
 data ListClusters = ListClusters
     { _lcClusterStates :: [Text]

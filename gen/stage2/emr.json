@@ -7802,6 +7802,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lbaMarker",
+                    "output": "lbarMarker"
+                },
+                "type": "next",
+                "resultKey": "lbarBootstrapActions"
+            },
             "name": "ListBootstrapActions",
             "method": "post",
             "documentation": "\u003cp\u003eProvides information about the bootstrap actions associated with a cluster.\u003c/p\u003e",
@@ -8004,6 +8012,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lcMarker",
+                    "output": "lcrMarker"
+                },
+                "type": "next",
+                "resultKey": "lcrClusters"
+            },
             "name": "ListClusters",
             "method": "post",
             "documentation": "\u003cp\u003eProvides the status of all clusters visible to this AWS account. Allows you to filter the list of clusters based on certain criteria; for example, filtering by cluster creation date and time or by status. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListClusters calls. \u003c/p\u003e",
@@ -8261,6 +8277,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ligMarker",
+                    "output": "ligrMarker"
+                },
+                "type": "next",
+                "resultKey": "ligrInstanceGroups"
+            },
             "name": "ListInstanceGroups",
             "method": "post",
             "documentation": "\u003cp\u003eProvides all available details about the instance groups in a cluster.\u003c/p\u003e",
@@ -8463,6 +8487,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "liMarker",
+                    "output": "lirMarker"
+                },
+                "type": "next",
+                "resultKey": "lirInstances"
+            },
             "name": "ListInstances",
             "method": "post",
             "documentation": "\u003cp\u003eProvides information about the cluster instances that Amazon EMR provisions on behalf of a user when it creates the cluster. For example, this operation indicates when the EC2 instances reach the Ready state, when instances become available to Amazon EMR to use for jobs, and the IP addresses for cluster instances, etc. \u003c/p\u003e",
@@ -8721,6 +8753,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lsMarker",
+                    "output": "lsrMarker"
+                },
+                "type": "next",
+                "resultKey": "lsrSteps"
+            },
             "name": "ListSteps",
             "method": "post",
             "documentation": "\u003cp\u003eProvides a list of steps for the cluster. \u003c/p\u003e",

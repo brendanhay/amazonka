@@ -42,6 +42,7 @@ module Network.AWS.ElasticTranscoder.ListPipelines
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 data ListPipelines = ListPipelines
     { _lpAscending :: Maybe Text

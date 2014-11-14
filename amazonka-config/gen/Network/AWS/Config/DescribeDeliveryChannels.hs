@@ -41,6 +41,7 @@ module Network.AWS.Config.DescribeDeliveryChannels
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types
+import qualified GHC.Exts
 
 newtype DescribeDeliveryChannels = DescribeDeliveryChannels
     { _ddcDeliveryChannelNames :: [Text]

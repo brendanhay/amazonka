@@ -42,6 +42,7 @@ module Network.AWS.DataPipeline.ListPipelines
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 newtype ListPipelines = ListPipelines
     { _lpMarker :: Maybe Text

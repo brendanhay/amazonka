@@ -56,6 +56,7 @@ module Network.AWS.Kinesis.DescribeStream
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 data DescribeStream = DescribeStream
     { _ds1ExclusiveStartShardId :: Maybe Text

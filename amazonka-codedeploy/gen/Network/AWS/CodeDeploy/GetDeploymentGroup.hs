@@ -40,6 +40,7 @@ module Network.AWS.CodeDeploy.GetDeploymentGroup
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 data GetDeploymentGroup = GetDeploymentGroup
     { _gdgApplicationName     :: Text

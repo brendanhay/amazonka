@@ -52,6 +52,7 @@ module Network.AWS.StorageGateway.DeleteGateway
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 newtype DeleteGateway = DeleteGateway
     { _dgGatewayARN :: Text

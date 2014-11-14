@@ -60,6 +60,7 @@ module Network.AWS.Route53Domains.GetDomainDetail
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types
+import qualified GHC.Exts
 
 newtype GetDomainDetail = GetDomainDetail
     { _gddDomainName :: Text

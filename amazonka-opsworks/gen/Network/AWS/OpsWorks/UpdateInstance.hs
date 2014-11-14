@@ -50,6 +50,7 @@ module Network.AWS.OpsWorks.UpdateInstance
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data UpdateInstance = UpdateInstance
     { _uiAmiId                :: Maybe Text

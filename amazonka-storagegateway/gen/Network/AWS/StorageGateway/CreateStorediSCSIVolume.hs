@@ -56,6 +56,7 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume
     { _csscsivDiskId               :: Text

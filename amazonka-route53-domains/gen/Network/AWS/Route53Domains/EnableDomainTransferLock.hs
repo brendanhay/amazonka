@@ -43,6 +43,7 @@ module Network.AWS.Route53Domains.EnableDomainTransferLock
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types
+import qualified GHC.Exts
 
 newtype EnableDomainTransferLock = EnableDomainTransferLock
     { _edtlDomainName :: Text

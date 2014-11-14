@@ -139,3 +139,7 @@ instance AWSRequest DescribeEventSubscriptions where
     response = xmlResponse $ \h x -> DescribeEventSubscriptionsResponse
         <$> x %| "EventSubscriptionsList"
         <*> x %| "Marker"
+
+instance AWSPager DescribeEventSubscriptions where
+    next rq rs = (\x -> rq & des1Marker ?~ x)
+        <$> (rs ^. desrMarker)

@@ -3416,6 +3416,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.Support.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcNextToken",
+                    "output": "dcr1NextToken"
+                },
+                "type": "next",
+                "resultKey": "dcr1Cases"
+            },
             "name": "DescribeCases",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list of cases that you specify by passing one or more case IDs. In addition, you can filter the cases by date by setting values for the \u003ccode\u003eAfterTime\u003c/code\u003e and \u003ccode\u003eBeforeTime\u003c/code\u003e request parameters. \u003c/p\u003e \u003cp\u003eCase data is available for 12 months after creation. If a case was created more than 12 months ago, a request for data might cause an error. \u003c/p\u003e \u003cp\u003eThe response returns the following in JSON format:\u003c/p\u003e \u003col\u003e \u003cli\u003eOne or more \u003ca\u003eCaseDetails\u003c/a\u003e data types. \u003c/li\u003e \u003cli\u003eOne or more \u003ccode\u003eNextToken\u003c/code\u003e values, which specify where to paginate the returned records represented by the \u003ccode\u003eCaseDetails\u003c/code\u003e objects.\u003c/li\u003e \u003c/ol\u003e",
@@ -3813,6 +3821,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.Support.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dc1NextToken",
+                    "output": "dcrNextToken"
+                },
+                "type": "next",
+                "resultKey": "dcrCommunications"
+            },
             "name": "DescribeCommunications",
             "method": "post",
             "documentation": "\u003cp\u003eReturns communications (and attachments) for one or more support cases. You can use the \u003ccode\u003eAfterTime\u003c/code\u003e and \u003ccode\u003eBeforeTime\u003c/code\u003e parameters to filter by date. You can use the \u003ccode\u003eCaseId\u003c/code\u003e parameter to restrict the results to a particular case.\u003c/p\u003e \u003cp\u003eCase data is available for 12 months after creation. If a case was created more than 12 months ago, a request for data might cause an error. \u003c/p\u003e \u003cp\u003eYou can use the \u003ccode\u003eMaxResults\u003c/code\u003e and \u003ccode\u003eNextToken\u003c/code\u003e parameters to control the pagination of the result set. Set \u003ccode\u003eMaxResults\u003c/code\u003e to the number of cases you want displayed on each page, and use \u003ccode\u003eNextToken\u003c/code\u003e to specify the resumption of pagination.\u003c/p\u003e",

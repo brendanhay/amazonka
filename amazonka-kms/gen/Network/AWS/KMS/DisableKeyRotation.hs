@@ -37,6 +37,7 @@ module Network.AWS.KMS.DisableKeyRotation
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 newtype DisableKeyRotation = DisableKeyRotation
     { _dkrKeyId :: Text

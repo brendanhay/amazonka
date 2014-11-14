@@ -46,6 +46,7 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 data ListApplicationRevisions = ListApplicationRevisions
     { _larApplicationName :: Text

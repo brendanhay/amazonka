@@ -44,6 +44,7 @@ module Network.AWS.StorageGateway.CreateTapes
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data CreateTapes = CreateTapes
     { _ctClientToken       :: Text

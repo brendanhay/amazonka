@@ -120,3 +120,7 @@ instance AWSRequest DescribeEngineDefaultParameters where
     request  = post "DescribeEngineDefaultParameters"
     response = xmlResponse $ \h x -> DescribeEngineDefaultParametersResponse
         <$> x %| "EngineDefaults"
+
+instance AWSPager DescribeEngineDefaultParameters where
+    next rq rs = (\x -> rq & dedpMarker ?~ x)
+        <$> (rs ^. dedprEngineDefaults . edMarker)

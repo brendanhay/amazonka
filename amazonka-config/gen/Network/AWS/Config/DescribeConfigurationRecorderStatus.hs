@@ -41,6 +41,7 @@ module Network.AWS.Config.DescribeConfigurationRecorderStatus
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types
+import qualified GHC.Exts
 
 newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus
     { _dcrsConfigurationRecorderNames :: [Text]

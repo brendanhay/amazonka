@@ -39,6 +39,7 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 newtype DeleteVirtualInterface = DeleteVirtualInterface
     { _dvi1VirtualInterfaceId :: Text

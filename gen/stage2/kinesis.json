@@ -1281,6 +1281,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.Kinesis.Types"
             ],
+            "pager": {
+                "more": "dsrStreamDescription . sdHasMoreShards",
+                "token": {
+                    "input": "ds1ExclusiveStartShardId",
+                    "output": "index (dsrStreamDescription . sdShards) sShardId"
+                },
+                "type": "one"
+            },
             "name": "DescribeStream",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the specified stream.\u003c/p\u003e \u003cp\u003eThe information about the stream includes its current status, its Amazon Resource Name (ARN), and an array of shard objects. For each shard object, there is information about the hash key and sequence number ranges that the shard spans, and the IDs of any earlier shards that played in a role in creating the shard. A sequence number is the identifier associated with every record ingested in the Amazon Kinesis stream. The sequence number is assigned when a record is put into the stream.\u003c/p\u003e \u003cp\u003eYou can limit the number of returned shards using the \u003ccode\u003eLimit\u003c/code\u003e parameter. The number of shards in a stream may be too large to return from a single call to \u003ccode\u003eDescribeStream\u003c/code\u003e. You can detect this by using the \u003ccode\u003eHasMoreShards\u003c/code\u003e flag in the returned output. \u003ccode\u003eHasMoreShards\u003c/code\u003e is set to \u003ccode\u003etrue\u003c/code\u003e when there is more data available. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eDescribeStream\u003c/code\u003e is a paginated operation. If there are more shards available, you can request them using the shard ID of the last shard returned. Specify this ID in the \u003ccode\u003eExclusiveStartShardId\u003c/code\u003e parameter in a subsequent request to \u003ccode\u003eDescribeStream\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eDescribeStream\u003c/code\u003e has a limit of 10 transactions per second per account.\u003c/p\u003e",
@@ -1962,6 +1970,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.Kinesis.Types"
             ],
+            "pager": {
+                "more": "lsrHasMoreStreams",
+                "token": {
+                    "input": "lsExclusiveStartStreamName",
+                    "output": "index lsrStreamNames (to id)"
+                },
+                "type": "one"
+            },
             "name": "ListStreams",
             "method": "post",
             "documentation": "\u003cp\u003e Lists your streams.\u003c/p\u003e \u003cp\u003e The number of streams may be too large to return from a single call to \u003ccode\u003eListStreams\u003c/code\u003e. You can limit the number of returned streams using the \u003ccode\u003eLimit\u003c/code\u003e parameter. If you do not specify a value for the \u003ccode\u003eLimit\u003c/code\u003e parameter, Amazon Kinesis uses the default limit, which is currently 10.\u003c/p\u003e \u003cp\u003e You can detect if there are more streams available to list by using the \u003ccode\u003eHasMoreStreams\u003c/code\u003e flag from the returned output. If there are more streams available, you can request more streams by using the name of the last stream returned by the \u003ccode\u003eListStreams\u003c/code\u003e request in the \u003ccode\u003eExclusiveStartStreamName\u003c/code\u003e parameter in a subsequent request to \u003ccode\u003eListStreams\u003c/code\u003e. The group of stream names returned by the subsequent request is then added to the list. You can continue this process until all the stream names have been collected in the list. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eListStreams\u003c/code\u003e has a limit of 5 transactions per second per account.\u003c/p\u003e",

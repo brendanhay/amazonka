@@ -40,6 +40,7 @@ module Network.AWS.CloudWatchLogs.PutRetentionPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 data PutRetentionPolicy = PutRetentionPolicy
     { _prpLogGroupName    :: Text

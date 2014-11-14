@@ -197,3 +197,7 @@ instance AWSRequest DescribeReservedDBInstancesOfferings where
     response = xmlResponse $ \h x -> DescribeReservedDBInstancesOfferingsResponse
         <$> x %| "Marker"
         <*> x %| "ReservedDBInstancesOfferings"
+
+instance AWSPager DescribeReservedDBInstancesOfferings where
+    next rq rs = (\x -> rq & drdbioMarker ?~ x)
+        <$> (rs ^. drdbiorMarker)

@@ -6679,6 +6679,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
             ],
+            "pager": {
+                "more": "lhcrIsTruncated",
+                "token": {
+                    "input": "lhcMarker",
+                    "output": "lhcrNextMarker"
+                },
+                "type": "one"
+            },
             "name": "ListHealthChecks",
             "method": "get",
             "documentation": "\u003cp\u003e To retrieve a list of your health checks, send a \u003ccode\u003eGET\u003c/code\u003e request to the \u003ccode\u003e2013-04-01/healthcheck\u003c/code\u003e resource. The response to this request includes a \u003ccode\u003eHealthChecks\u003c/code\u003e element with zero, one, or multiple \u003ccode\u003eHealthCheck\u003c/code\u003e child elements. By default, the list of health checks is displayed on a single page. You can control the length of the page that is displayed by using the \u003ccode\u003eMaxItems\u003c/code\u003e parameter. You can use the \u003ccode\u003eMarker\u003c/code\u003e parameter to control the health check that the list begins with. \u003c/p\u003e \u003cnote\u003e Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value greater than 100, Amazon Route 53 returns only the first 100.\u003c/note\u003e",
@@ -6963,6 +6971,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
             ],
+            "pager": {
+                "more": "lhzrIsTruncated",
+                "token": {
+                    "input": "lhzMarker",
+                    "output": "lhzrNextMarker"
+                },
+                "type": "one"
+            },
             "name": "ListHostedZones",
             "method": "get",
             "documentation": "\u003cp\u003e To retrieve a list of your hosted zones, send a \u003ccode\u003eGET\u003c/code\u003e request to the \u003ccode\u003e2013-04-01/hostedzone\u003c/code\u003e resource. The response to this request includes a \u003ccode\u003eHostedZones\u003c/code\u003e element with zero, one, or multiple \u003ccode\u003eHostedZone\u003c/code\u003e child elements. By default, the list of hosted zones is displayed on a single page. You can control the length of the page that is displayed by using the \u003ccode\u003eMaxItems\u003c/code\u003e parameter. You can use the \u003ccode\u003eMarker\u003c/code\u003e parameter to control the hosted zone that the list begins with. \u003c/p\u003e \u003cnote\u003e Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value greater than 100, Amazon Route 53 returns only the first 100.\u003c/note\u003e",
@@ -7308,6 +7324,25 @@
                 "Network.AWS.Request",
                 "Network.AWS.Route53.Types"
             ],
+            "pager": {
+                "more": "lrrsrIsTruncated",
+                "tokens": {
+                    "p1": {
+                        "input": "lrrsStartRecordName",
+                        "output": "lrrsrNextRecordName"
+                    },
+                    "p2": {
+                        "input": "lrrsStartRecordType",
+                        "output": "lrrsrNextRecordType"
+                    },
+                    "p3": {
+                        "input": "lrrsStartRecordIdentifier",
+                        "output": "lrrsrNextRecordIdentifier"
+                    }
+                },
+                "negate": "isNothing p1 && isNothing p2 && isNothing p3",
+                "type": "many"
+            },
             "name": "ListResourceRecordSets",
             "method": "get",
             "documentation": "\u003cp\u003eImagine all the resource record sets in a zone listed out in front of you. Imagine them sorted lexicographically first by DNS name (with the labels reversed, like \"com.amazon.www\" for example), and secondarily, lexicographically by record type. This operation retrieves at most MaxItems resource record sets from this list, in order, starting at a position specified by the Name and Type arguments:\u003c/p\u003e \u003cul\u003e \u003cli\u003eIf both Name and Type are omitted, this means start the results at the first RRSET in the HostedZone.\u003c/li\u003e \u003cli\u003eIf Name is specified but Type is omitted, this means start the results at the first RRSET in the list whose name is greater than or equal to Name. \u003c/li\u003e \u003cli\u003eIf both Name and Type are specified, this means start the results at the first RRSET in the list whose name is greater than or equal to Name and whose type is greater than or equal to Type.\u003c/li\u003e \u003cli\u003eIt is an error to specify the Type but not the Name.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eUse ListResourceRecordSets to retrieve a single known record set by specifying the record set's name and type, and setting MaxItems = 1\u003c/p\u003e \u003cp\u003eTo retrieve all the records in a HostedZone, first pause any processes making calls to ChangeResourceRecordSets. Initially call ListResourceRecordSets without a Name and Type to get the first page of record sets. For subsequent calls, set Name and Type to the NextName and NextType values returned by the previous response. \u003c/p\u003e \u003cp\u003eIn the presence of concurrent ChangeResourceRecordSets calls, there is no consistency of results across calls to ListResourceRecordSets. The only way to get a consistent multi-page snapshot of all RRSETs in a zone is to stop making changes while pagination is in progress.\u003c/p\u003e \u003cp\u003eHowever, the results from ListResourceRecordSets are consistent within a page. If MakeChange calls are taking place concurrently, the result of each one will either be completely visible in your results or not at all. You will not see partial changes, or changes that do not ultimately succeed. (This follows from the fact that MakeChange is atomic) \u003c/p\u003e \u003cp\u003eThe results from ListResourceRecordSets are strongly consistent with ChangeResourceRecordSets. To be precise, if a single process makes a call to ChangeResourceRecordSets and receives a successful response, the effects of that change will be visible in a subsequent call to ListResourceRecordSets by that process.\u003c/p\u003e",

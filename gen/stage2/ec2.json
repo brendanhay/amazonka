@@ -38608,6 +38608,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "disNextToken",
+                    "output": "disrNextToken"
+                },
+                "type": "next",
+                "resultKey": "disrInstanceStatuses"
+            },
             "name": "DescribeInstanceStatus",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the status of one or more instances, including any scheduled events.\u003c/p\u003e \u003cp\u003eInstance status has two main components:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003eSystem Status reports impaired functionality that stems from issues related to the systems that support an instance, such as such as hardware failures and network connectivity problems. This call reports such problems as impaired reachability.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eInstance Status reports impaired functionality that arises from problems internal to the instance. This call reports such problems as impaired reachability.\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eInstance status provides information about four types of scheduled events for an instance that may require your attention:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003eScheduled Reboot: When Amazon EC2 determines that an instance must be rebooted, the instances status returns one of two event codes: \u003ccode\u003esystem-reboot\u003c/code\u003e or \u003ccode\u003einstance-reboot\u003c/code\u003e. System reboot commonly occurs if certain maintenance or upgrade operations require a reboot of the underlying host that supports an instance. Instance reboot commonly occurs if the instance must be rebooted, rather than the underlying host. Rebooting events include a scheduled start and end time.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eSystem Maintenance: When Amazon EC2 determines that an instance requires maintenance that requires power or network impact, the instance status is the event code \u003ccode\u003esystem-maintenance\u003c/code\u003e. System maintenance is either power maintenance or network maintenance. For power maintenance, your instance will be unavailable for a brief period of time and then rebooted. For network maintenance, your instance will experience a brief loss of network connectivity. System maintenance events include a scheduled start and end time. You will also be notified by email if one of your instances is set for system maintenance. The email message indicates when your instance is scheduled for maintenance.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eScheduled Retirement: When Amazon EC2 determines that an instance must be shut down, the instance status is the event code \u003ccode\u003einstance-retirement\u003c/code\u003e. Retirement commonly occurs when the underlying host is degraded and must be replaced. Retirement events include a scheduled start and end time. You will also be notified by email if one of your instances is set to retiring. The email message indicates when your instance will be permanently retired.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eScheduled Stop: When Amazon EC2 determines that an instance must be shut down, the instances status returns an event code called \u003ccode\u003einstance-stop\u003c/code\u003e. Stop events include a scheduled start and end time. You will also be notified by email if one of your instances is set to stop. The email message indicates when your instance will be stopped.\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eWhen your instance is retired, it will either be terminated (if its root device type is the instance-store) or stopped (if its root device type is an EBS volume). Instances stopped due to retirement will not be restarted, but you can do so manually. You can also avoid retirement of EBS-backed instances by manually restarting your instance when its event code is \u003ccode\u003einstance-retirement\u003c/code\u003e. This ensures that your instance is started on a different underlying host.\u003c/p\u003e \u003cp\u003eFor more information about failed status checks, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html\"\u003eTroubleshooting Instances with Failed Status Checks\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e. For more information about working with scheduled events, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#schedevents_actions\"\u003eWorking with an Instance That Has a Scheduled Event\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
@@ -38925,6 +38933,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "di1NextToken",
+                    "output": "dirNextToken"
+                },
+                "type": "next",
+                "resultKey": "dirReservations"
+            },
             "name": "DescribeInstances",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your instances.\u003c/p\u003e \u003cp\u003eIf you specify one or more instance IDs, Amazon EC2 returns information for those instances. If you do not specify instance IDs, Amazon EC2 returns information for all relevant instances. If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the returned results.\u003c/p\u003e \u003cp\u003eRecently terminated instances might appear in the returned results. This interval is usually less than one hour.\u003c/p\u003e",
@@ -41202,6 +41218,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "drimNextToken",
+                    "output": "drimrNextToken"
+                },
+                "type": "next",
+                "resultKey": "drimrReservedInstancesModifications"
+            },
             "name": "DescribeReservedInstancesModifications",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\"\u003eModifying Reserved Instances\u003c/a\u003e in the Amazon Elastic Compute Cloud User Guide.\u003c/p\u003e",
@@ -41420,6 +41444,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "drioNextToken",
+                    "output": "driorNextToken"
+                },
+                "type": "next",
+                "resultKey": "driorReservedInstancesOfferings"
+            },
             "name": "DescribeReservedInstancesOfferings",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\"\u003eReserved Instance Marketplace\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
@@ -43331,6 +43363,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dsphNextToken",
+                    "output": "dsphrNextToken"
+                },
+                "type": "next",
+                "resultKey": "dsphrSpotPriceHistory"
+            },
             "name": "DescribeSpotPriceHistory",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the Spot Price history. Spot Instances are instances that Amazon EC2 starts on your behalf when the maximum price that you specify exceeds the current Spot Price. Amazon EC2 periodically sets the Spot Price based on available Spot Instance capacity and current Spot Instance requests. For more information about Spot Instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html\"\u003eSpot Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eWhen you specify an Availability Zone, this operation describes the price history for the specified Availability Zone with the most recent set of prices listed first. If you don't specify an Availability Zone, you get the prices across all Availability Zones, starting with the most recent set. However, if you're using an API version earlier than 2011-05-15, you get the lowest price across the region for the specified time period. The prices returned are listed in chronological order, from the oldest to the most recent.\u003c/p\u003e \u003cp\u003eWhen you specify the start and end time options, this operation returns two pieces of data: the prices of the instance types within the time range that you specified and the time when the price changed. The price is valid within the time period that you specified; the response merely indicates the last time that the price changed.\u003c/p\u003e",
@@ -43954,6 +43994,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dtNextToken",
+                    "output": "dtrNextToken"
+                },
+                "type": "next",
+                "resultKey": "dtrTags"
+            },
             "name": "DescribeTags",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of the tags for your EC2 resources.\u003c/p\u003e \u003cp\u003eFor more information about tags, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\"\u003eTagging Your Resources\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
@@ -44453,6 +44501,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dvsNextToken",
+                    "output": "dvsrNextToken"
+                },
+                "type": "next",
+                "resultKey": "dvsrVolumeStatuses"
+            },
             "name": "DescribeVolumeStatus",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the status of the specified volumes. Volume status provides the result of the checks performed on your volumes to determine events that can impair the performance of your volumes. The performance of a volume can be affected if an issue occurs on the volume's underlying host. If the volume's underlying host experiences a power outage or system issue, after the system is restored, there could be data inconsistencies on the volume. Volume events notify you if this occurs. Volume actions notify you if any action needs to be taken in response to the event.\u003c/p\u003e \u003cp\u003eThe \u003ccode\u003eDescribeVolumeStatus\u003c/code\u003e operation provides the following information about the specified volumes:\u003c/p\u003e \u003cp\u003e\u003ci\u003eStatus\u003c/i\u003e: Reflects the current status of the volume. The possible values are \u003ccode\u003eok\u003c/code\u003e, \u003ccode\u003eimpaired\u003c/code\u003e , \u003ccode\u003ewarning\u003c/code\u003e, or \u003ccode\u003einsufficient-data\u003c/code\u003e. If all checks pass, the overall status of the volume is \u003ccode\u003eok\u003c/code\u003e. If the check fails, the overall status is \u003ccode\u003eimpaired\u003c/code\u003e. If the status is \u003ccode\u003einsufficient-data\u003c/code\u003e, then the checks may still be taking place on your volume at the time. We recommend that you retry the request. For more information on volume status, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html\"\u003eMonitoring the Status of Your Volumes\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003ci\u003eEvents\u003c/i\u003e: Reflect the cause of a volume status and may require you to take action. For example, if your volume returns an \u003ccode\u003eimpaired\u003c/code\u003e status, then the volume event might be \u003ccode\u003epotential-data-inconsistency\u003c/code\u003e. This means that your volume has been affected by an issue with the underlying host, has all I/O operations disabled, and may have inconsistent data.\u003c/p\u003e \u003cp\u003e\u003ci\u003eActions\u003c/i\u003e: Reflect the actions you may have to take in response to an event. For example, if the status of the volume is \u003ccode\u003eimpaired\u003c/code\u003e and the volume event shows \u003ccode\u003epotential-data-inconsistency\u003c/code\u003e, then the action shows \u003ccode\u003eenable-volume-io\u003c/code\u003e. This means that you may want to enable the I/O operations for the volume by calling the \u003ca\u003eEnableVolumeIO\u003c/a\u003e action and then check the volume for data consistency.\u003c/p\u003e",

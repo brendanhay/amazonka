@@ -41,6 +41,7 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types
+import qualified GHC.Exts
 
 data ListIdentityPools = ListIdentityPools
     { _lipMaxResults :: Natural

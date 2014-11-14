@@ -147,3 +147,7 @@ instance AWSRequest DescribeReservedInstancesModifications where
     response = xmlResponse $ \h x -> DescribeReservedInstancesModificationsResponse
         <$> x %| "nextToken"
         <*> x %| "reservedInstancesModificationsSet"
+
+instance AWSPager DescribeReservedInstancesModifications where
+    next rq rs = (\x -> rq & drimNextToken ?~ x)
+        <$> (rs ^. drimrNextToken)

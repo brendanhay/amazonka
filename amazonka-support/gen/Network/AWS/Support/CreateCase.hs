@@ -71,6 +71,7 @@ module Network.AWS.Support.CreateCase
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 data CreateCase = CreateCase
     { _ccAttachmentSetId   :: Maybe Text

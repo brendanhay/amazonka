@@ -71,6 +71,7 @@ module Network.AWS.Kinesis.GetShardIterator
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 data GetShardIterator = GetShardIterator
     { _gsiShardId                :: Text

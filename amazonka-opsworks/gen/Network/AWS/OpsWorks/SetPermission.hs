@@ -45,6 +45,7 @@ module Network.AWS.OpsWorks.SetPermission
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data SetPermission = SetPermission
     { _spAllowSsh   :: Maybe Bool

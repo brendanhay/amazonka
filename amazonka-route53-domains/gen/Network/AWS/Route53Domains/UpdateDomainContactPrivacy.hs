@@ -50,6 +50,7 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types
+import qualified GHC.Exts
 
 data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
     { _udcpAdminPrivacy      :: Maybe Bool

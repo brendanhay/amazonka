@@ -2012,6 +2012,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "liNextToken",
+                    "output": "lirNextToken"
+                },
+                "type": "next",
+                "resultKey": "lirIdentities"
+            },
             "name": "ListIdentities",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",

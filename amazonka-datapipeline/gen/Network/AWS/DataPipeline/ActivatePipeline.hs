@@ -41,6 +41,7 @@ module Network.AWS.DataPipeline.ActivatePipeline
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 newtype ActivatePipeline = ActivatePipeline
     { _apPipelineId :: Text

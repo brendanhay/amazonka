@@ -39,6 +39,7 @@ module Network.AWS.DirectConnect.DeleteInterconnect
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 newtype DeleteInterconnect = DeleteInterconnect
     { _di1InterconnectId :: Text

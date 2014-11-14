@@ -22,17 +22,17 @@
 module Network.AWS.CloudFront.DeleteDistribution
     (
     -- * Request
-      DeleteDistribution2014_05_31
+      DeleteDistribution
     -- ** Request constructor
-    , deleteDistribution2014_05_31
+    , deleteDistribution
     -- ** Request lenses
     , ddId
     , ddIfMatch
 
     -- * Response
-    , DeleteDistribution2014_05_31Response
+    , DeleteDistributionResponse
     -- ** Response constructor
-    , deleteDistribution2014_05_31Response
+    , deleteDistributionResponse
     ) where
 
 import Network.AWS.Prelude
@@ -40,12 +40,12 @@ import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
-data DeleteDistribution2014_05_31 = DeleteDistribution2014_05_31
+data DeleteDistribution = DeleteDistribution
     { _ddId      :: Text
     , _ddIfMatch :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteDistribution2014_05_31' constructor.
+-- | 'DeleteDistribution' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -53,46 +53,46 @@ data DeleteDistribution2014_05_31 = DeleteDistribution2014_05_31
 --
 -- * 'ddIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteDistribution2014_05_31 :: Text -- ^ 'ddId'
-                             -> DeleteDistribution2014_05_31
-deleteDistribution2014_05_31 p1 = DeleteDistribution2014_05_31
+deleteDistribution :: Text -- ^ 'ddId'
+                   -> DeleteDistribution
+deleteDistribution p1 = DeleteDistribution
     { _ddId      = p1
     , _ddIfMatch = Nothing
     }
 
 -- | The distribution id.
-ddId :: Lens' DeleteDistribution2014_05_31 Text
+ddId :: Lens' DeleteDistribution Text
 ddId = lens _ddId (\s a -> s { _ddId = a })
 
 -- | The value of the ETag header you received when you disabled the
 -- distribution. For example: E2QWRUHAPOMQZL.
-ddIfMatch :: Lens' DeleteDistribution2014_05_31 (Maybe Text)
+ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
 ddIfMatch = lens _ddIfMatch (\s a -> s { _ddIfMatch = a })
 
-instance ToPath DeleteDistribution2014_05_31 where
-    toPath DeleteDistribution2014_05_31{..} = mconcat
+instance ToPath DeleteDistribution where
+    toPath DeleteDistribution{..} = mconcat
         [ "/2014-05-31/distribution/"
         , toText _ddId
         ]
 
-instance ToQuery DeleteDistribution2014_05_31 where
+instance ToQuery DeleteDistribution where
     toQuery = const mempty
 
-instance ToHeaders DeleteDistribution2014_05_31 where
-    toHeaders DeleteDistribution2014_05_31{..} = mconcat
+instance ToHeaders DeleteDistribution where
+    toHeaders DeleteDistribution{..} = mconcat
         [ "If-Match" =: _ddIfMatch
         ]
 
-data DeleteDistribution2014_05_31Response = DeleteDistribution2014_05_31Response
+data DeleteDistributionResponse = DeleteDistributionResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteDistribution2014_05_31Response' constructor.
-deleteDistribution2014_05_31Response :: DeleteDistribution2014_05_31Response
-deleteDistribution2014_05_31Response = DeleteDistribution2014_05_31Response
+-- | 'DeleteDistributionResponse' constructor.
+deleteDistributionResponse :: DeleteDistributionResponse
+deleteDistributionResponse = DeleteDistributionResponse
 
-instance AWSRequest DeleteDistribution2014_05_31 where
-    type Sv DeleteDistribution2014_05_31 = CloudFront
-    type Rs DeleteDistribution2014_05_31 = DeleteDistribution2014_05_31Response
+instance AWSRequest DeleteDistribution where
+    type Sv DeleteDistribution = CloudFront
+    type Rs DeleteDistribution = DeleteDistributionResponse
 
     request  = delete
-    response = nullaryResponse DeleteDistribution2014_05_31Response
+    response = nullaryResponse DeleteDistributionResponse

@@ -64,6 +64,7 @@ module Network.AWS.Kinesis.CreateStream
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 data CreateStream = CreateStream
     { _csShardCount :: Natural

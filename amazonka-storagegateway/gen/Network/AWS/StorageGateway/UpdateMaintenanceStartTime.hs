@@ -44,6 +44,7 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
     { _umstDayOfWeek    :: Natural

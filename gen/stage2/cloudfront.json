@@ -6393,7 +6393,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 38,
-                "ctor": "createCloudFrontOriginAccessIdentity2014_05_31Response",
+                "ctor": "createCloudFrontOriginAccessIdentityResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -6411,7 +6411,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "CreateCloudFrontOriginAccessIdentity2014_05_31Response",
+                "name": "CreateCloudFrontOriginAccessIdentityResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -6521,7 +6521,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createCloudFrontOriginAccessIdentity2014_05_31",
+                "ctor": "createCloudFrontOriginAccessIdentity",
                 "headerPad": 0,
                 "field": {
                     "location": "body-xml",
@@ -6576,7 +6576,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 0,
-                "name": "CreateCloudFrontOriginAccessIdentity2014_05_31",
+                "name": "CreateCloudFrontOriginAccessIdentity",
                 "query": [],
                 "type": "newtype",
                 "optional": [],
@@ -6608,7 +6608,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "createDistribution2014_05_31Response",
+                "ctor": "createDistributionResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -6626,7 +6626,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "CreateDistribution2014_05_31Response",
+                "name": "CreateDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -6736,7 +6736,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createDistribution2014_05_31",
+                "ctor": "createDistribution",
                 "headerPad": 0,
                 "field": {
                     "location": "body-xml",
@@ -6791,7 +6791,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 0,
-                "name": "CreateDistribution2014_05_31",
+                "name": "CreateDistribution",
                 "query": [],
                 "type": "newtype",
                 "optional": [],
@@ -6823,7 +6823,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "createInvalidation2014_05_31Response",
+                "ctor": "createInvalidationResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -6841,7 +6841,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "CreateInvalidation2014_05_31Response",
+                "name": "CreateInvalidationResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -6922,7 +6922,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "createInvalidation2014_05_31",
+                "ctor": "createInvalidation",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6985,7 +6985,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 0,
-                "name": "CreateInvalidation2014_05_31",
+                "name": "CreateInvalidation",
                 "query": [],
                 "type": "record",
                 "optional": [],
@@ -7031,7 +7031,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "createStreamingDistribution2014_05_31Response",
+                "ctor": "createStreamingDistributionResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -7049,7 +7049,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "CreateStreamingDistribution2014_05_31Response",
+                "name": "CreateStreamingDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -7159,7 +7159,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createStreamingDistribution2014_05_31",
+                "ctor": "createStreamingDistribution",
                 "headerPad": 0,
                 "field": {
                     "location": "body-xml",
@@ -7214,7 +7214,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 0,
-                "name": "CreateStreamingDistribution2014_05_31",
+                "name": "CreateStreamingDistribution",
                 "query": [],
                 "type": "newtype",
                 "optional": [],
@@ -7247,11 +7247,11 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteCloudFrontOriginAccessIdentity2014_05_31Response",
+                "ctor": "deleteCloudFrontOriginAccessIdentityResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
-                "name": "DeleteCloudFrontOriginAccessIdentity2014_05_31Response",
+                "name": "DeleteCloudFrontOriginAccessIdentityResponse",
                 "resultWrapper": null,
                 "type": "empty",
                 "optional": [],
@@ -7275,7 +7275,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 14,
-                "ctor": "deleteCloudFrontOriginAccessIdentity2014_05_31",
+                "ctor": "deleteCloudFrontOriginAccessIdentity",
                 "headerPad": 9,
                 "path": [
                     {
@@ -7313,7 +7313,7 @@
                     }
                 ],
                 "queryPad": 0,
-                "name": "DeleteCloudFrontOriginAccessIdentity2014_05_31",
+                "name": "DeleteCloudFrontOriginAccessIdentity",
                 "query": [],
                 "type": "record",
                 "optional": [
@@ -7375,11 +7375,11 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteDistribution2014_05_31Response",
+                "ctor": "deleteDistributionResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
-                "name": "DeleteDistribution2014_05_31Response",
+                "name": "DeleteDistributionResponse",
                 "resultWrapper": null,
                 "type": "empty",
                 "optional": [],
@@ -7403,7 +7403,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 10,
-                "ctor": "deleteDistribution2014_05_31",
+                "ctor": "deleteDistribution",
                 "headerPad": 9,
                 "path": [
                     {
@@ -7441,7 +7441,7 @@
                     }
                 ],
                 "queryPad": 0,
-                "name": "DeleteDistribution2014_05_31",
+                "name": "DeleteDistribution",
                 "query": [],
                 "type": "record",
                 "optional": [
@@ -7503,11 +7503,11 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteStreamingDistribution2014_05_31Response",
+                "ctor": "deleteStreamingDistributionResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
-                "name": "DeleteStreamingDistribution2014_05_31Response",
+                "name": "DeleteStreamingDistributionResponse",
                 "resultWrapper": null,
                 "type": "empty",
                 "optional": [],
@@ -7531,7 +7531,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "deleteStreamingDistribution2014_05_31",
+                "ctor": "deleteStreamingDistribution",
                 "headerPad": 9,
                 "path": [
                     {
@@ -7569,7 +7569,7 @@
                     }
                 ],
                 "queryPad": 0,
-                "name": "DeleteStreamingDistribution2014_05_31",
+                "name": "DeleteStreamingDistribution",
                 "query": [],
                 "type": "record",
                 "optional": [
@@ -7630,7 +7630,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 38,
-                "ctor": "getCloudFrontOriginAccessIdentity2014_05_31Response",
+                "ctor": "getCloudFrontOriginAccessIdentityResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -7648,7 +7648,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "GetCloudFrontOriginAccessIdentity2014_05_31Response",
+                "name": "GetCloudFrontOriginAccessIdentityResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -7733,7 +7733,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getCloudFrontOriginAccessIdentity2014_05_31",
+                "ctor": "getCloudFrontOriginAccessIdentity",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -7779,7 +7779,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 0,
-                "name": "GetCloudFrontOriginAccessIdentity2014_05_31",
+                "name": "GetCloudFrontOriginAccessIdentity",
                 "query": [],
                 "type": "newtype",
                 "optional": [],
@@ -7811,7 +7811,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 45,
-                "ctor": "getCloudFrontOriginAccessIdentityConfig2014_05_31Response",
+                "ctor": "getCloudFrontOriginAccessIdentityConfigResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -7829,7 +7829,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "GetCloudFrontOriginAccessIdentityConfig2014_05_31Response",
+                "name": "GetCloudFrontOriginAccessIdentityConfigResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -7914,7 +7914,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getCloudFrontOriginAccessIdentityConfig2014_05_31",
+                "ctor": "getCloudFrontOriginAccessIdentityConfig",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -7964,7 +7964,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 0,
-                "name": "GetCloudFrontOriginAccessIdentityConfig2014_05_31",
+                "name": "GetCloudFrontOriginAccessIdentityConfig",
                 "query": [],
                 "type": "newtype",
                 "optional": [],
@@ -7996,7 +7996,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "getDistribution2014_05_31Response",
+                "ctor": "getDistributionResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -8014,7 +8014,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "GetDistribution2014_05_31Response",
+                "name": "GetDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -8099,7 +8099,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getDistribution2014_05_31",
+                "ctor": "getDistribution",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8145,7 +8145,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 0,
-                "name": "GetDistribution2014_05_31",
+                "name": "GetDistribution",
                 "query": [],
                 "type": "newtype",
                 "optional": [],
@@ -8177,7 +8177,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "getDistributionConfig2014_05_31Response",
+                "ctor": "getDistributionConfigResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -8195,7 +8195,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "GetDistributionConfig2014_05_31Response",
+                "name": "GetDistributionConfigResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -8280,7 +8280,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getDistributionConfig2014_05_31",
+                "ctor": "getDistributionConfig",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8330,7 +8330,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 0,
-                "name": "GetDistributionConfig2014_05_31",
+                "name": "GetDistributionConfig",
                 "query": [],
                 "type": "newtype",
                 "optional": [],
@@ -8363,7 +8363,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getInvalidation2014_05_31Response",
+                "ctor": "getInvalidationResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -8395,7 +8395,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "GetInvalidation2014_05_31Response",
+                "name": "GetInvalidationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
@@ -8449,7 +8449,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "getInvalidation2014_05_31",
+                "ctor": "getInvalidation",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8503,7 +8503,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 0,
-                "name": "GetInvalidation2014_05_31",
+                "name": "GetInvalidation",
                 "query": [],
                 "type": "record",
                 "optional": [],
@@ -8549,7 +8549,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "getStreamingDistribution2014_05_31Response",
+                "ctor": "getStreamingDistributionResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -8567,7 +8567,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "GetStreamingDistribution2014_05_31Response",
+                "name": "GetStreamingDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -8652,7 +8652,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getStreamingDistribution2014_05_31",
+                "ctor": "getStreamingDistribution",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8698,7 +8698,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 0,
-                "name": "GetStreamingDistribution2014_05_31",
+                "name": "GetStreamingDistribution",
                 "query": [],
                 "type": "newtype",
                 "optional": [],
@@ -8730,7 +8730,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 33,
-                "ctor": "getStreamingDistributionConfig2014_05_31Response",
+                "ctor": "getStreamingDistributionConfigResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -8748,7 +8748,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "GetStreamingDistributionConfig2014_05_31Response",
+                "name": "GetStreamingDistributionConfigResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -8833,7 +8833,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getStreamingDistributionConfig2014_05_31",
+                "ctor": "getStreamingDistributionConfig",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8883,7 +8883,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 0,
-                "name": "GetStreamingDistributionConfig2014_05_31",
+                "name": "GetStreamingDistributionConfig",
                 "query": [],
                 "type": "newtype",
                 "optional": [],
@@ -8916,7 +8916,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "listCloudFrontOriginAccessIdentities2014_05_31Response",
+                "ctor": "listCloudFrontOriginAccessIdentitiesResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -8948,7 +8948,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "ListCloudFrontOriginAccessIdentities2014_05_31Response",
+                "name": "ListCloudFrontOriginAccessIdentitiesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
@@ -8990,6 +8990,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": {
+                "more": "lcfoairCloudFrontOriginAccessIdentityList . cfoailIsTruncated",
+                "token": {
+                    "input": "lcfoaiMarker",
+                    "output": "lcfoairCloudFrontOriginAccessIdentityList . cfoailNextMarker"
+                },
+                "type": "one"
+            },
             "name": "ListCloudFrontOriginAccessIdentities",
             "method": "get",
             "documentation": "List origin access identities.",
@@ -9002,7 +9010,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "listCloudFrontOriginAccessIdentities2014_05_31",
+                "ctor": "listCloudFrontOriginAccessIdentities",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9015,7 +9023,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 9,
-                "name": "ListCloudFrontOriginAccessIdentities2014_05_31",
+                "name": "ListCloudFrontOriginAccessIdentities",
                 "query": [
                     {
                         "field": "_lcfoaiMarker",
@@ -9102,7 +9110,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "listDistributions2014_05_31Response",
+                "ctor": "listDistributionsResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -9134,7 +9142,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "ListDistributions2014_05_31Response",
+                "name": "ListDistributionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
@@ -9176,6 +9184,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": {
+                "more": "ldrDistributionList . dlIsTruncated",
+                "token": {
+                    "input": "ldMarker",
+                    "output": "ldrDistributionList . dlNextMarker"
+                },
+                "type": "one"
+            },
             "name": "ListDistributions",
             "method": "get",
             "documentation": "List distributions.",
@@ -9188,7 +9204,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "listDistributions2014_05_31",
+                "ctor": "listDistributions",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9201,7 +9217,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 9,
-                "name": "ListDistributions2014_05_31",
+                "name": "ListDistributions",
                 "query": [
                     {
                         "field": "_ldMarker",
@@ -9288,7 +9304,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "listInvalidations2014_05_31Response",
+                "ctor": "listInvalidationsResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -9320,7 +9336,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "ListInvalidations2014_05_31Response",
+                "name": "ListInvalidationsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
@@ -9362,6 +9378,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": {
+                "more": "lirInvalidationList . ilIsTruncated",
+                "token": {
+                    "input": "liMarker",
+                    "output": "lirInvalidationList . ilNextMarker"
+                },
+                "type": "one"
+            },
             "name": "ListInvalidations",
             "method": "get",
             "documentation": "List invalidation batches.",
@@ -9374,7 +9398,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "listInvalidations2014_05_31",
+                "ctor": "listInvalidations",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9410,7 +9434,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 9,
-                "name": "ListInvalidations2014_05_31",
+                "name": "ListInvalidations",
                 "query": [
                     {
                         "field": "_liMarker",
@@ -9511,7 +9535,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "listStreamingDistributions2014_05_31Response",
+                "ctor": "listStreamingDistributionsResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -9543,7 +9567,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "ListStreamingDistributions2014_05_31Response",
+                "name": "ListStreamingDistributionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
@@ -9585,6 +9609,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": {
+                "more": "lsdrStreamingDistributionList . sdlIsTruncated",
+                "token": {
+                    "input": "lsdMarker",
+                    "output": "lsdrStreamingDistributionList . sdlNextMarker"
+                },
+                "type": "one"
+            },
             "name": "ListStreamingDistributions",
             "method": "get",
             "documentation": "List streaming distributions.",
@@ -9597,7 +9629,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 12,
-                "ctor": "listStreamingDistributions2014_05_31",
+                "ctor": "listStreamingDistributions",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9610,7 +9642,7 @@
                 "shared": false,
                 "headers": [],
                 "queryPad": 9,
-                "name": "ListStreamingDistributions2014_05_31",
+                "name": "ListStreamingDistributions",
                 "query": [
                     {
                         "field": "_lsdMarker",
@@ -9696,7 +9728,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 38,
-                "ctor": "updateCloudFrontOriginAccessIdentity2014_05_31Response",
+                "ctor": "updateCloudFrontOriginAccessIdentityResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -9714,7 +9746,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "UpdateCloudFrontOriginAccessIdentity2014_05_31Response",
+                "name": "UpdateCloudFrontOriginAccessIdentityResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -9795,7 +9827,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 43,
-                "ctor": "updateCloudFrontOriginAccessIdentity2014_05_31",
+                "ctor": "updateCloudFrontOriginAccessIdentity",
                 "headerPad": 9,
                 "path": [
                     {
@@ -9864,7 +9896,7 @@
                     }
                 ],
                 "queryPad": 0,
-                "name": "UpdateCloudFrontOriginAccessIdentity2014_05_31",
+                "name": "UpdateCloudFrontOriginAccessIdentity",
                 "query": [],
                 "type": "record",
                 "optional": [
@@ -9939,7 +9971,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "updateDistribution2014_05_31Response",
+                "ctor": "updateDistributionResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -9957,7 +9989,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "UpdateDistribution2014_05_31Response",
+                "name": "UpdateDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -10038,7 +10070,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "updateDistribution2014_05_31",
+                "ctor": "updateDistribution",
                 "headerPad": 9,
                 "path": [
                     {
@@ -10107,7 +10139,7 @@
                     }
                 ],
                 "queryPad": 0,
-                "name": "UpdateDistribution2014_05_31",
+                "name": "UpdateDistribution",
                 "query": [],
                 "type": "record",
                 "optional": [
@@ -10182,7 +10214,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "updateStreamingDistribution2014_05_31Response",
+                "ctor": "updateStreamingDistributionResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -10200,7 +10232,7 @@
                 },
                 "required": [],
                 "shared": false,
-                "name": "UpdateStreamingDistribution2014_05_31Response",
+                "name": "UpdateStreamingDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
@@ -10281,7 +10313,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "updateStreamingDistribution2014_05_31",
+                "ctor": "updateStreamingDistribution",
                 "headerPad": 9,
                 "path": [
                     {
@@ -10350,7 +10382,7 @@
                     }
                 ],
                 "queryPad": 0,
-                "name": "UpdateStreamingDistribution2014_05_31",
+                "name": "UpdateStreamingDistribution",
                 "query": [],
                 "type": "record",
                 "optional": [

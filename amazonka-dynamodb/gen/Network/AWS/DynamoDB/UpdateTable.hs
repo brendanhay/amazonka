@@ -53,6 +53,7 @@ module Network.AWS.DynamoDB.UpdateTable
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types
+import qualified GHC.Exts
 
 data UpdateTable = UpdateTable
     { _utGlobalSecondaryIndexUpdates :: [GlobalSecondaryIndexUpdate]

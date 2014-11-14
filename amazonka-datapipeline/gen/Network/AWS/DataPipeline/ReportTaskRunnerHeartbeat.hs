@@ -45,6 +45,7 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
     { _rtrhHostname     :: Maybe Text

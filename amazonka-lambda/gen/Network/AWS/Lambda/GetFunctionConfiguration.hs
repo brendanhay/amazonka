@@ -53,6 +53,7 @@ module Network.AWS.Lambda.GetFunctionConfiguration
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Lambda.Types
+import qualified GHC.Exts
 
 newtype GetFunctionConfiguration = GetFunctionConfiguration
     { _gfcFunctionName :: Text

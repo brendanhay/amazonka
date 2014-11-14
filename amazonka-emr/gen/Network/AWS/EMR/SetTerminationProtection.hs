@@ -50,6 +50,7 @@ module Network.AWS.EMR.SetTerminationProtection
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types
+import qualified GHC.Exts
 
 data SetTerminationProtection = SetTerminationProtection
     { _stpJobFlowIds           :: [Text]

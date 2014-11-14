@@ -48,6 +48,7 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
     { _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Natural

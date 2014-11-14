@@ -42,6 +42,7 @@ module Network.AWS.DirectConnect.ConfirmConnection
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 newtype ConfirmConnection = ConfirmConnection
     { _ccConnectionId :: Text

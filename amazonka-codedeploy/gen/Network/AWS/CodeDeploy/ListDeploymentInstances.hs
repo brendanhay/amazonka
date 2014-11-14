@@ -43,6 +43,7 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 data ListDeploymentInstances = ListDeploymentInstances
     { _ldiDeploymentId         :: Text

@@ -46,6 +46,7 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 newtype DescribeUploadBuffer = DescribeUploadBuffer
     { _dubGatewayARN :: Text

@@ -45,6 +45,7 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types
+import qualified GHC.Exts
 
 newtype DescribeIdentityPool = DescribeIdentityPool
     { _dipIdentityPoolId :: Text

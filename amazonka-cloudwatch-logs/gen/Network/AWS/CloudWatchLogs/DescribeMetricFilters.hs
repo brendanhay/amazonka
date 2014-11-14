@@ -48,6 +48,7 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 data DescribeMetricFilters = DescribeMetricFilters
     { _dmfFilterNamePrefix :: Maybe Text

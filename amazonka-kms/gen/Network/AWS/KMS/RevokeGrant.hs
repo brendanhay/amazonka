@@ -39,6 +39,7 @@ module Network.AWS.KMS.RevokeGrant
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 data RevokeGrant = RevokeGrant
     { _rgGrantId :: Text

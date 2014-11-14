@@ -45,6 +45,7 @@ module Network.AWS.Route53Domains.GetOperationDetail
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types
+import qualified GHC.Exts
 
 newtype GetOperationDetail = GetOperationDetail
     { _godOperationId :: Text

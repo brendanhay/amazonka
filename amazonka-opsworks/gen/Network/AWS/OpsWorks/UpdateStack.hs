@@ -56,6 +56,7 @@ module Network.AWS.OpsWorks.UpdateStack
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data UpdateStack = UpdateStack
     { _usAttributes                :: Map Text Text

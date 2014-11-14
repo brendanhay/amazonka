@@ -54,6 +54,7 @@ module Network.AWS.SWF.DescribeActivityType
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data DescribeActivityType = DescribeActivityType
     { _datActivityType :: ActivityType

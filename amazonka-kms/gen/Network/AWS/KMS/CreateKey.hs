@@ -45,6 +45,7 @@ module Network.AWS.KMS.CreateKey
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 data CreateKey = CreateKey
     { _ckDescription :: Maybe Text

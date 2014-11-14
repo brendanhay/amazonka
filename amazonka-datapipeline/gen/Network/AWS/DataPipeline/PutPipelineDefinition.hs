@@ -50,6 +50,7 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 data PutPipelineDefinition = PutPipelineDefinition
     { _ppdPipelineId      :: Text

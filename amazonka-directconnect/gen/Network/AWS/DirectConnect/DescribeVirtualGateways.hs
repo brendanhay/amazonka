@@ -41,6 +41,7 @@ module Network.AWS.DirectConnect.DescribeVirtualGateways
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 data DescribeVirtualGateways = DescribeVirtualGateways
     deriving (Eq, Ord, Show, Generic)

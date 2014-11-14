@@ -5327,6 +5327,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.DynamoDB.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ltExclusiveStartTableName",
+                    "output": "ltrLastEvaluatedTableName"
+                },
+                "type": "next",
+                "resultKey": "ltrTableNames"
+            },
             "name": "ListTables",
             "method": "post",
             "documentation": "\u003cp\u003eReturns an array of table names associated with the current account and endpoint. The output from \u003ci\u003eListTables\u003c/i\u003e is paginated, with each page returning a maximum of 100 table names.\u003c/p\u003e",
@@ -6065,6 +6073,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.DynamoDB.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "qExclusiveStartKey",
+                    "output": "qrLastEvaluatedKey"
+                },
+                "type": "next",
+                "resultKey": "qrItems"
+            },
             "name": "Query",
             "method": "post",
             "documentation": "\u003cp\u003eA \u003ci\u003eQuery\u003c/i\u003e operation directly accesses items from a table using the table primary key, or from an index using the index key. You must provide a specific hash key value. You can narrow the scope of the query by using comparison operators on the range key value, or on the index key. You can use the \u003ci\u003eScanIndexForward\u003c/i\u003e parameter to get results in forward or reverse order, by range key or by index key. \u003c/p\u003e \u003cp\u003eQueries that do not return results consume the minimum number of read capacity units for that type of read operation.\u003c/p\u003e \u003cp\u003eIf the total number of items meeting the query criteria exceeds the result set size limit of 1 MB, the query stops and results are returned to the user with \u003ci\u003eLastEvaluatedKey\u003c/i\u003e to continue the query in a subsequent operation. Unlike a \u003ci\u003eScan\u003c/i\u003e operation, a \u003ci\u003eQuery\u003c/i\u003e operation never returns both an empty result set and a \u003ci\u003eLastEvaluatedKey\u003c/i\u003e. The \u003ci\u003eLastEvaluatedKey\u003c/i\u003e is only provided if the results exceed 1 MB, or if you have used \u003ci\u003eLimit\u003c/i\u003e. \u003c/p\u003e \u003cp\u003eYou can query a table, a local secondary index, or a global secondary index. For a query on a table or on a local secondary index, you can set \u003ci\u003eConsistentRead\u003c/i\u003e to true and obtain a strongly consistent result. Global secondary indexes support eventually consistent reads only, so do not specify \u003ci\u003eConsistentRead\u003c/i\u003e when querying a global secondary index.\u003c/p\u003e",
@@ -6742,6 +6758,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.DynamoDB.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "sExclusiveStartKey",
+                    "output": "srLastEvaluatedKey"
+                },
+                "type": "next",
+                "resultKey": "srItems"
+            },
             "name": "Scan",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eScan\u003c/i\u003e operation returns one or more items and item attributes by accessing every item in the table. To have DynamoDB return fewer items, you can provide a \u003ci\u003eScanFilter\u003c/i\u003e operation.\u003c/p\u003e \u003cp\u003eIf the total number of scanned items exceeds the maximum data set size limit of 1 MB, the scan stops and results are returned to the user as a \u003ci\u003eLastEvaluatedKey\u003c/i\u003e value to continue the scan in a subsequent operation. The results also include the number of items exceeding the limit. A scan can result in no table data meeting the filter criteria. \u003c/p\u003e \u003cp\u003eThe result set is eventually consistent. \u003c/p\u003e \u003cp\u003eBy default, \u003ci\u003eScan\u003c/i\u003e operations proceed sequentially; however, for faster performance on large tables, applications can request a parallel \u003ci\u003eScan\u003c/i\u003e operation by specifying the \u003ci\u003eSegment\u003c/i\u003e and \u003ci\u003eTotalSegments\u003c/i\u003e parameters. For more information, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#QueryAndScanParallelScan\"\u003eParallel Scan\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",

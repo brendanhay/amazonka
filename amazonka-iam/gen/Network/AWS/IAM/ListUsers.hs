@@ -146,3 +146,9 @@ instance AWSRequest ListUsers where
         <$> x %| "IsTruncated"
         <*> x %| "Marker"
         <*> x %| "Users"
+
+instance AWSPager ListUsers where
+    next rq rs
+        | not (more (rs ^. lurIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & luMarker .~ rs ^. lurMarker

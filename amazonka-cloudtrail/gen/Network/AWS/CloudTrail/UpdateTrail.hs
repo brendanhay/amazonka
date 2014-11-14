@@ -55,6 +55,7 @@ module Network.AWS.CloudTrail.UpdateTrail
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudTrail.Types
+import qualified GHC.Exts
 
 data UpdateTrail = UpdateTrail
     { _utCloudWatchLogsLogGroupArn  :: Maybe Text

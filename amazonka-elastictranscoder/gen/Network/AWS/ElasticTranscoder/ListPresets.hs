@@ -42,6 +42,7 @@ module Network.AWS.ElasticTranscoder.ListPresets
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 data ListPresets = ListPresets
     { _lp1Ascending :: Maybe Text

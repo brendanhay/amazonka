@@ -40,6 +40,7 @@ module Network.AWS.CodeDeploy.StopDeployment
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 newtype StopDeployment = StopDeployment
     { _sdDeploymentId :: Text

@@ -45,6 +45,7 @@ module Network.AWS.DataPipeline.SetTaskStatus
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 data SetTaskStatus = SetTaskStatus
     { _stsErrorId         :: Maybe Text

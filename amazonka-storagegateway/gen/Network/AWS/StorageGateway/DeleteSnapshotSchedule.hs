@@ -43,6 +43,7 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule
     { _dss1VolumeARN :: Text

@@ -37,6 +37,7 @@ module Network.AWS.CloudTrail.DeleteTrail
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudTrail.Types
+import qualified GHC.Exts
 
 newtype DeleteTrail = DeleteTrail
     { _dtName :: Text

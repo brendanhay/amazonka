@@ -42,6 +42,7 @@ module Network.AWS.DataPipeline.CreatePipeline
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 data CreatePipeline = CreatePipeline
     { _cpDescription :: Maybe Text

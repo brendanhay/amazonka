@@ -1914,6 +1914,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudWatch.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dahNextToken",
+                    "output": "dahrNextToken"
+                },
+                "type": "next",
+                "resultKey": "dahrAlarmHistoryItems"
+            },
             "name": "DescribeAlarmHistory",
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves history for the specified alarm. Filter alarms by date range or item type. If an alarm name is not specified, Amazon CloudWatch returns histories for all of the owner's alarms. \u003c/p\u003e",
@@ -2232,6 +2240,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudWatch.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "daNextToken",
+                    "output": "darNextToken"
+                },
+                "type": "next",
+                "resultKey": "darMetricAlarms"
+            },
             "name": "DescribeAlarms",
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves alarms with the specified names. If no name is specified, all alarms for the user are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action. \u003c/p\u003e",
@@ -3465,6 +3481,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudWatch.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lmNextToken",
+                    "output": "lmrNextToken"
+                },
+                "type": "next",
+                "resultKey": "lmrMetrics"
+            },
             "name": "ListMetrics",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of valid metrics stored for the AWS account owner. Returned metrics can be used with \u003ca\u003eGetMetricStatistics\u003c/a\u003e to obtain statistical data for a given metric. \u003c/p\u003e",

@@ -110,3 +110,9 @@ instance AWSRequest ListJobs where
     response = xmlResponse $ \h x -> ListJobsResponse
         <$> x %| "IsTruncated"
         <*> x %| "Jobs"
+
+instance AWSPager ListJobs where
+    next rq rs
+        | not (more (rs ^. ljrIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & ljMarker .~ rs ^. index ljrJobs jobJobId

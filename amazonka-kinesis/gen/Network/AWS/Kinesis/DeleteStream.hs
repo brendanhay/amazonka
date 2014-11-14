@@ -49,6 +49,7 @@ module Network.AWS.Kinesis.DeleteStream
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 newtype DeleteStream = DeleteStream
     { _dsStreamName :: Text

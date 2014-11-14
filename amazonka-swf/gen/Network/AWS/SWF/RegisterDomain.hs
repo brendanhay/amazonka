@@ -48,6 +48,7 @@ module Network.AWS.SWF.RegisterDomain
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data RegisterDomain = RegisterDomain
     { _rdDescription                            :: Maybe Text

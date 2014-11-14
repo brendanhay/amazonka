@@ -42,6 +42,7 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 data GetApplicationRevision = GetApplicationRevision
     { _garApplicationName :: Text

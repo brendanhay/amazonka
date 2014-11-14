@@ -52,6 +52,7 @@ module Network.AWS.Kinesis.ListStreams
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 data ListStreams = ListStreams
     { _lsExclusiveStartStreamName :: Maybe Text

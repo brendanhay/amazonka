@@ -53,6 +53,7 @@ module Network.AWS.SWF.CountPendingActivityTasks
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data CountPendingActivityTasks = CountPendingActivityTasks
     { _cpatDomain   :: Text

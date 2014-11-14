@@ -41,6 +41,7 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 newtype DescribeChapCredentials = DescribeChapCredentials
     { _dccTargetARN :: Text

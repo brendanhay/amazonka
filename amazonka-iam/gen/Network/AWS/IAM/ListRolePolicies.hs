@@ -143,3 +143,9 @@ instance AWSRequest ListRolePolicies where
         <$> x %| "IsTruncated"
         <*> x %| "Marker"
         <*> x %| "PolicyNames"
+
+instance AWSPager ListRolePolicies where
+    next rq rs
+        | not (more (rs ^. lrprIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lrpMarker .~ rs ^. lrprMarker

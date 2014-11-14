@@ -46,6 +46,7 @@ module Network.AWS.DataPipeline.DescribePipelines
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 newtype DescribePipelines = DescribePipelines
     { _dpPipelineIds :: [Text]

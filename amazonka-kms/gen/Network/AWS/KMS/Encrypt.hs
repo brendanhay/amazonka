@@ -43,6 +43,7 @@ module Network.AWS.KMS.Encrypt
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 data Encrypt = Encrypt
     { _eEncryptionContext :: Map Text Text

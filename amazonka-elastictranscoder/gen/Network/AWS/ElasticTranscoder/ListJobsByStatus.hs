@@ -44,6 +44,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 data ListJobsByStatus = ListJobsByStatus
     { _ljbsAscending :: Maybe Text

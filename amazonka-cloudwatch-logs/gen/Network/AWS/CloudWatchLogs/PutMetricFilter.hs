@@ -42,6 +42,7 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 data PutMetricFilter = PutMetricFilter
     { _pmfFilterName            :: Text

@@ -119,3 +119,7 @@ instance AWSRequest ListDomains where
     response = xmlResponse $ \h x -> ListDomainsResponse
         <$> x %| "DomainNames"
         <*> x %| "NextToken"
+
+instance AWSPager ListDomains where
+    next rq rs = (\x -> rq & ldNextToken ?~ x)
+        <$> (rs ^. ldrNextToken)

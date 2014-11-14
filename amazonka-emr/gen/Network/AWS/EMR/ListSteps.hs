@@ -42,6 +42,7 @@ module Network.AWS.EMR.ListSteps
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types
+import qualified GHC.Exts
 
 data ListSteps = ListSteps
     { _lsClusterId  :: Text

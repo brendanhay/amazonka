@@ -45,6 +45,7 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
     { _lvrpGatewayARN :: Text

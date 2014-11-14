@@ -43,6 +43,7 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
     { _rtrpGatewayARN :: Text

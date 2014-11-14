@@ -51,6 +51,7 @@ module Network.AWS.Support.DescribeCommunications
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 data DescribeCommunications = DescribeCommunications
     { _dc1AfterTime  :: Maybe Text

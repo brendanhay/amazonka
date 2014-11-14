@@ -148,3 +148,7 @@ instance AWSRequest DescribeOptionGroupOptions where
     response = xmlResponse $ \h x -> DescribeOptionGroupOptionsResponse
         <$> x %| "Marker"
         <*> x %| "OptionGroupOptions"
+
+instance AWSPager DescribeOptionGroupOptions where
+    next rq rs = (\x -> rq & dogoMarker ?~ x)
+        <$> (rs ^. dogorMarker)

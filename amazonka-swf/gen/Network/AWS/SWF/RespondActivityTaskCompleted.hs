@@ -58,6 +58,7 @@ module Network.AWS.SWF.RespondActivityTaskCompleted
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data RespondActivityTaskCompleted = RespondActivityTaskCompleted
     { _ratcResult    :: Maybe Text

@@ -42,6 +42,7 @@ module Network.AWS.Kinesis.ListTagsForStream
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 data ListTagsForStream = ListTagsForStream
     { _ltfsExclusiveStartTagKey :: Maybe Text

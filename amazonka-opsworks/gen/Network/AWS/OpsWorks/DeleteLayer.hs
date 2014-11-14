@@ -42,6 +42,7 @@ module Network.AWS.OpsWorks.DeleteLayer
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 newtype DeleteLayer = DeleteLayer
     { _dlLayerId :: Text

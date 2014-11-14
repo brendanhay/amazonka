@@ -61,6 +61,7 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface
     { _apvi1ConnectionId                        :: Text

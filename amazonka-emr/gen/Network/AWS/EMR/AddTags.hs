@@ -41,6 +41,7 @@ module Network.AWS.EMR.AddTags
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types
+import qualified GHC.Exts
 
 data AddTags = AddTags
     { _atResourceId :: Text

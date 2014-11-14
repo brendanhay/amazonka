@@ -220,3 +220,7 @@ instance AWSRequest DescribeInstanceStatus where
     response = xmlResponse $ \h x -> DescribeInstanceStatusResponse
         <$> x %| "instanceStatusSet"
         <*> x %| "nextToken"
+
+instance AWSPager DescribeInstanceStatus where
+    next rq rs = (\x -> rq & disNextToken ?~ x)
+        <$> (rs ^. disrNextToken)

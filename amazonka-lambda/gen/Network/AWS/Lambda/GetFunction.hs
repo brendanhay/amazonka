@@ -45,6 +45,7 @@ module Network.AWS.Lambda.GetFunction
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Lambda.Types
+import qualified GHC.Exts
 
 newtype GetFunction = GetFunction
     { _gfFunctionName :: Text

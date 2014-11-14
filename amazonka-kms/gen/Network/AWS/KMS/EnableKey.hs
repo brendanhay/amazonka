@@ -38,6 +38,7 @@ module Network.AWS.KMS.EnableKey
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 newtype EnableKey = EnableKey
     { _ekKeyId :: Text

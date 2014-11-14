@@ -43,6 +43,7 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
     { _stbasAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule

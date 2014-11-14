@@ -44,6 +44,7 @@ module Network.AWS.OpsWorks.CreateUserProfile
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data CreateUserProfile = CreateUserProfile
     { _cupAllowSelfManagement :: Maybe Bool

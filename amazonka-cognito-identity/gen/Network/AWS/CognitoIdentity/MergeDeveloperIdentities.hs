@@ -49,6 +49,7 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types
+import qualified GHC.Exts
 
 data MergeDeveloperIdentities = MergeDeveloperIdentities
     { _mdiDestinationUserIdentifier :: Text

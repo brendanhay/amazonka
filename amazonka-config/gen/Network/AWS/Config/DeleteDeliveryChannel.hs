@@ -40,6 +40,7 @@ module Network.AWS.Config.DeleteDeliveryChannel
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types
+import qualified GHC.Exts
 
 newtype DeleteDeliveryChannel = DeleteDeliveryChannel
     { _ddcDeliveryChannelName :: Text

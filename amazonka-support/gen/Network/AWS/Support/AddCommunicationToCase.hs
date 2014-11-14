@@ -48,6 +48,7 @@ module Network.AWS.Support.AddCommunicationToCase
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 data AddCommunicationToCase = AddCommunicationToCase
     { _actcAttachmentSetId   :: Maybe Text

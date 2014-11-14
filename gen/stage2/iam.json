@@ -7606,6 +7606,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "ggrIsTruncated",
+                "token": {
+                    "input": "ggMarker",
+                    "output": "ggrMarker"
+                },
+                "type": "one"
+            },
             "name": "GetGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of users that are in the specified group. You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -9709,6 +9717,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lakrIsTruncated",
+                "token": {
+                    "input": "lakMarker",
+                    "output": "lakrMarker"
+                },
+                "type": "one"
+            },
             "name": "ListAccessKeys",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about the access key IDs associated with the specified user. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003e Although each user is limited to a small number of keys, you can still paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e \u003cp\u003e If the \u003ccode\u003eUserName\u003c/code\u003e field is not specified, the UserName is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users. \u003c/p\u003e",
@@ -9957,6 +9973,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "laarIsTruncated",
+                "token": {
+                    "input": "laaMarker",
+                    "output": "laarMarker"
+                },
+                "type": "one"
+            },
             "name": "ListAccountAliases",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the account aliases associated with the account. For information about using an AWS account alias, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html\"\u003eUsing an Alias for Your AWS Account ID\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -10172,6 +10196,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lgprIsTruncated",
+                "token": {
+                    "input": "lgpMarker",
+                    "output": "lgprMarker"
+                },
+                "type": "one"
+            },
             "name": "ListGroupPolicies",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the names of the policies associated with the specified group. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -10420,6 +10452,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lgrIsTruncated",
+                "token": {
+                    "input": "lgMarker",
+                    "output": "lgrMarker"
+                },
+                "type": "one"
+            },
             "name": "ListGroups",
             "method": "post",
             "documentation": "\u003cp\u003eLists the groups that have the specified path prefix.\u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -10667,6 +10707,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lgfurIsTruncated",
+                "token": {
+                    "input": "lgfuMarker",
+                    "output": "lgfurMarker"
+                },
+                "type": "one"
+            },
             "name": "ListGroupsForUser",
             "method": "post",
             "documentation": "\u003cp\u003eLists the groups the specified user belongs to.\u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -10915,6 +10963,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "liprIsTruncated",
+                "token": {
+                    "input": "lipMarker",
+                    "output": "liprMarker"
+                },
+                "type": "one"
+            },
             "name": "ListInstanceProfiles",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the instance profiles that have the specified path prefix. If there are none, the action returns an empty list. For more information about instance profiles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html\"\u003eAbout Instance Profiles\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -11162,6 +11218,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lipfrrIsTruncated",
+                "token": {
+                    "input": "lipfrMarker",
+                    "output": "lipfrrMarker"
+                },
+                "type": "one"
+            },
             "name": "ListInstanceProfilesForRole",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the instance profiles that have the specified associated role. If there are none, the action returns an empty list. For more information about instance profiles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html\"\u003eAbout Instance Profiles\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -11410,6 +11474,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lmfadrIsTruncated",
+                "token": {
+                    "input": "lmfadMarker",
+                    "output": "lmfadrMarker"
+                },
+                "type": "one"
+            },
             "name": "ListMFADevices",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the MFA devices. If the request includes the user name, then this action lists all the MFA devices associated with the specified user name. If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -11763,6 +11835,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lrprIsTruncated",
+                "token": {
+                    "input": "lrpMarker",
+                    "output": "lrprMarker"
+                },
+                "type": "one"
+            },
             "name": "ListRolePolicies",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the names of the policies associated with the specified role. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -12011,6 +12091,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lrrIsTruncated",
+                "token": {
+                    "input": "lrMarker",
+                    "output": "lrrMarker"
+                },
+                "type": "one"
+            },
             "name": "ListRoles",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the roles that have the specified path prefix. If there are none, the action returns an empty list. For more information about roles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html\"\u003eWorking with Roles\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e \u003cp\u003e The returned policy is URL-encoded according to RFC 3986. For more information about RFC 3986, go to \u003ca href=\"http://www.faqs.org/rfcs/rfc3986.html\"\u003ehttp://www.faqs.org/rfcs/rfc3986.html\u003c/a\u003e. \u003c/p\u003e",
@@ -12363,6 +12451,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lscrIsTruncated",
+                "token": {
+                    "input": "lscMarker",
+                    "output": "lscrMarker"
+                },
+                "type": "one"
+            },
             "name": "ListServerCertificates",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the server certificates that have the specified path prefix. If none exist, the action returns an empty list. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -12610,6 +12706,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lscr1IsTruncated",
+                "token": {
+                    "input": "lsc1Marker",
+                    "output": "lscr1Marker"
+                },
+                "type": "one"
+            },
             "name": "ListSigningCertificates",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about the signing certificates associated with the specified user. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003e Although each user is limited to a small number of signing certificates, you can still paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e \u003cp\u003e If the \u003ccode\u003eUserName\u003c/code\u003e field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users. \u003c/p\u003e",
@@ -12858,6 +12962,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "luprIsTruncated",
+                "token": {
+                    "input": "lupMarker",
+                    "output": "luprMarker"
+                },
+                "type": "one"
+            },
             "name": "ListUserPolicies",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the names of the policies associated with the specified user. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -13106,6 +13218,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lurIsTruncated",
+                "token": {
+                    "input": "luMarker",
+                    "output": "lurMarker"
+                },
+                "type": "one"
+            },
             "name": "ListUsers",
             "method": "post",
             "documentation": "\u003cp\u003eLists the IAM users that have the specified path prefix. If no path prefix is specified, the action returns all users in the AWS account. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003eYou can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
@@ -13353,6 +13473,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": {
+                "more": "lvmfadrIsTruncated",
+                "token": {
+                    "input": "lvmfadMarker",
+                    "output": "lvmfadrMarker"
+                },
+                "type": "one"
+            },
             "name": "ListVirtualMFADevices",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the virtual MFA devices under the AWS account by assignment status. If you do not specify an assignment status, the action returns a list of all virtual MFA devices. Assignment status can be \u003ccode\u003eAssigned\u003c/code\u003e, \u003ccode\u003eUnassigned\u003c/code\u003e, or \u003ccode\u003eAny\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",

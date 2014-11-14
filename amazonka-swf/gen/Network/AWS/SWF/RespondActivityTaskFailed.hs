@@ -55,6 +55,7 @@ module Network.AWS.SWF.RespondActivityTaskFailed
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data RespondActivityTaskFailed = RespondActivityTaskFailed
     { _ratfDetails   :: Maybe Text

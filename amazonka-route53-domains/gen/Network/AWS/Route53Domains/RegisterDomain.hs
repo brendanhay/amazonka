@@ -64,6 +64,7 @@ module Network.AWS.Route53Domains.RegisterDomain
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types
+import qualified GHC.Exts
 
 data RegisterDomain = RegisterDomain
     { _rdAdminContact                    :: ContactDetail

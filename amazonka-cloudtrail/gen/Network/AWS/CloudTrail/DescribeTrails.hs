@@ -40,6 +40,7 @@ module Network.AWS.CloudTrail.DescribeTrails
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudTrail.Types
+import qualified GHC.Exts
 
 newtype DescribeTrails = DescribeTrails
     { _dtTrailNameList :: [Text]

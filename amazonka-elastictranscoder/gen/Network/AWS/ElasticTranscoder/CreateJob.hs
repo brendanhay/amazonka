@@ -49,6 +49,7 @@ module Network.AWS.ElasticTranscoder.CreateJob
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 data CreateJob = CreateJob
     { _cjInput           :: JobInput

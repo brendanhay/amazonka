@@ -42,6 +42,7 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 data TestMetricFilter = TestMetricFilter
     { _tmfFilterPattern    :: Text

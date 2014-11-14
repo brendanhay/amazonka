@@ -41,6 +41,7 @@ module Network.AWS.EMR.ListBootstrapActions
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types
+import qualified GHC.Exts
 
 data ListBootstrapActions = ListBootstrapActions
     { _lbaClusterId :: Text

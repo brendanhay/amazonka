@@ -39,6 +39,7 @@ module Network.AWS.KMS.GenerateRandom
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 newtype GenerateRandom = GenerateRandom
     { _grNumberOfBytes :: Maybe Natural

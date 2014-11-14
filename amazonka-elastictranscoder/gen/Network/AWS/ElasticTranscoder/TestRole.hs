@@ -48,6 +48,7 @@ module Network.AWS.ElasticTranscoder.TestRole
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 data TestRole = TestRole
     { _trInputBucket  :: Text

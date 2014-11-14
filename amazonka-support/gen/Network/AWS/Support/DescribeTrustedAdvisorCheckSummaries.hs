@@ -42,6 +42,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
     { _dtacsCheckIds :: [Text]

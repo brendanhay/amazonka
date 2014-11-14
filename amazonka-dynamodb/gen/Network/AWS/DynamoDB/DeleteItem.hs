@@ -59,6 +59,7 @@ module Network.AWS.DynamoDB.DeleteItem
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types
+import qualified GHC.Exts
 
 data DeleteItem = DeleteItem
     { _diConditionExpression         :: Maybe Text

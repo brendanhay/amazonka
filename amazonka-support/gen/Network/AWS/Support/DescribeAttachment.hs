@@ -43,6 +43,7 @@ module Network.AWS.Support.DescribeAttachment
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 newtype DescribeAttachment = DescribeAttachment
     { _daAttachmentId :: Text

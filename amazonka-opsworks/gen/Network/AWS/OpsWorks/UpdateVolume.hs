@@ -43,6 +43,7 @@ module Network.AWS.OpsWorks.UpdateVolume
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data UpdateVolume = UpdateVolume
     { _uv1MountPoint :: Maybe Text

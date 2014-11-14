@@ -44,6 +44,7 @@ module Network.AWS.CodeDeploy.CreateDeployment
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 data CreateDeployment = CreateDeployment
     { _cdApplicationName               :: Text

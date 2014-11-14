@@ -45,6 +45,7 @@ module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
     { _slbasDownScaling :: Maybe AutoScalingThresholds

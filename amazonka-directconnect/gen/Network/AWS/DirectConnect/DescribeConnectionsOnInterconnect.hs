@@ -40,6 +40,7 @@ module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
     { _dcoiInterconnectId :: Text

@@ -38,6 +38,7 @@ module Network.AWS.Route53Domains.DisableDomainAutoRenew
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types
+import qualified GHC.Exts
 
 newtype DisableDomainAutoRenew = DisableDomainAutoRenew
     { _ddarDomainName :: Text

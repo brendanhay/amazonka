@@ -65,6 +65,7 @@ module Network.AWS.Kinesis.MergeShards
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 data MergeShards = MergeShards
     { _msAdjacentShardToMerge :: Text

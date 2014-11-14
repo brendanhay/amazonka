@@ -91,6 +91,7 @@ module Network.AWS.DynamoDB.BatchWriteItem
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types
+import qualified GHC.Exts
 
 data BatchWriteItem = BatchWriteItem
     { _bwiRequestItems                :: Map Text (List1 WriteRequest)

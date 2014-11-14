@@ -10150,6 +10150,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcpgMarker",
+                    "output": "dcpgrMarker"
+                },
+                "type": "next",
+                "resultKey": "dcpgrParameterGroups"
+            },
             "name": "DescribeClusterParameterGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of Amazon Redshift parameter groups, including parameter groups you created and the default parameter group. For each parameter group, the response includes the parameter group name, description, and parameter group family name. You can optionally specify a name to retrieve the description of a specific parameter group. \u003c/p\u003e \u003cp\u003e For more information about managing parameter groups, go to \u003ca href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\"\u003eAmazon Redshift Parameter Groups\u003c/a\u003e in the \u003ci\u003eAmazon Redshift Management Guide\u003c/i\u003e. \u003c/p\u003e",
@@ -10369,6 +10377,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcp1Marker",
+                    "output": "dcprMarker"
+                },
+                "type": "next",
+                "resultKey": "dcprParameters"
+            },
             "name": "DescribeClusterParameters",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a detailed list of parameters contained within the specified Amazon Redshift parameter group. For each parameter the response includes information such as parameter name, description, data type, value, whether the parameter value is modifiable, and so on. \u003c/p\u003e \u003cp\u003eYou can specify \u003ci\u003esource\u003c/i\u003e filter to retrieve parameters of only specific type. For example, to retrieve parameters that were modified by a user action such as from \u003ca\u003eModifyClusterParameterGroup\u003c/a\u003e, you can specify \u003ci\u003esource\u003c/i\u003e equal to \u003ci\u003euser\u003c/i\u003e.\u003c/p\u003e \u003cp\u003e For more information about managing parameter groups, go to \u003ca href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\"\u003eAmazon Redshift Parameter Groups\u003c/a\u003e in the \u003ci\u003eAmazon Redshift Management Guide\u003c/i\u003e. \u003c/p\u003e",
@@ -10622,6 +10638,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcsgMarker",
+                    "output": "dcsgr1Marker"
+                },
+                "type": "next",
+                "resultKey": "dcsgr1ClusterSecurityGroups"
+            },
             "name": "DescribeClusterSecurityGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about Amazon Redshift security groups. If the name of a security group is specified, the response will contain only information about only that security group. \u003c/p\u003e \u003cp\u003e For information about managing security groups, go to \u003ca href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\"\u003eAmazon Redshift Cluster Security Groups\u003c/a\u003e in the \u003ci\u003eAmazon Redshift Management Guide\u003c/i\u003e. \u003c/p\u003e",
@@ -10841,6 +10865,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcs1Marker",
+                    "output": "dcsrMarker"
+                },
+                "type": "next",
+                "resultKey": "dcsrSnapshots"
+            },
             "name": "DescribeClusterSnapshots",
             "method": "post",
             "documentation": "\u003cp\u003e Returns one or more snapshot objects, which contain metadata about your cluster snapshots. By default, this operation returns information about all snapshots of all clusters that are owned by you AWS customer account. No information is returned for snapshots owned by inactive AWS customer accounts. \u003c/p\u003e",
@@ -11225,6 +11257,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcsg1Marker",
+                    "output": "dcsgrMarker"
+                },
+                "type": "next",
+                "resultKey": "dcsgrClusterSubnetGroups"
+            },
             "name": "DescribeClusterSubnetGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Returns one or more cluster subnet group objects, which contain metadata about your cluster subnet groups. By default, this operation returns information about all cluster subnet groups that are defined in you AWS account. \u003c/p\u003e",
@@ -11444,6 +11484,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcvMarker",
+                    "output": "dcvrMarker"
+                },
+                "type": "next",
+                "resultKey": "dcvrClusterVersions"
+            },
             "name": "DescribeClusterVersions",
             "method": "post",
             "documentation": "\u003cp\u003e Returns descriptions of the available Amazon Redshift cluster versions. You can call this operation even before creating any clusters to learn more about the Amazon Redshift versions. For more information about managing clusters, go to \u003ca href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\"\u003eAmazon Redshift Clusters\u003c/a\u003e in the \u003ci\u003eAmazon Redshift Management Guide\u003c/i\u003e \u003c/p\u003e",
@@ -11696,6 +11744,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcMarker",
+                    "output": "dcrMarker"
+                },
+                "type": "next",
+                "resultKey": "dcrClusters"
+            },
             "name": "DescribeClusters",
             "method": "post",
             "documentation": "\u003cp\u003e Returns properties of provisioned clusters including general cluster properties, cluster database properties, maintenance and backup properties, and security and access properties. This operation supports pagination. For more information about managing clusters, go to \u003ca href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\"\u003eAmazon Redshift Clusters\u003c/a\u003e in the \u003ci\u003eAmazon Redshift Management Guide\u003c/i\u003e . \u003c/p\u003e",
@@ -11902,6 +11958,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ddcpMarker",
+                    "output": "ddcprDefaultClusterParameters . dcpMarker"
+                },
+                "type": "next",
+                "resultKey": "ddcprDefaultClusterParameters . dcpParameters"
+            },
             "name": "DescribeDefaultClusterParameters",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of parameter settings for the specified parameter group family. \u003c/p\u003e \u003cp\u003e For more information about managing parameter groups, go to \u003ca href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\"\u003eAmazon Redshift Parameter Groups\u003c/a\u003e in the \u003ci\u003eAmazon Redshift Management Guide\u003c/i\u003e. \u003c/p\u003e",
@@ -12280,6 +12344,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "des1Marker",
+                    "output": "desrMarker"
+                },
+                "type": "next",
+                "resultKey": "desrEventSubscriptionsList"
+            },
             "name": "DescribeEventSubscriptions",
             "method": "post",
             "documentation": "\u003cp\u003e Lists descriptions of all the Amazon Redshift event notifications subscription for a customer account. If you specify a subscription name, lists the description for that subscription. \u003c/p\u003e",
@@ -12499,6 +12571,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "deMarker",
+                    "output": "derMarker"
+                },
+                "type": "next",
+                "resultKey": "derEvents"
+            },
             "name": "DescribeEvents",
             "method": "post",
             "documentation": "\u003cp\u003e Returns events related to clusters, security groups, snapshots, and parameter groups for the past 14 days. Events specific to a particular cluster, security group, snapshot or parameter group can be obtained by providing the name as a parameter. By default, the past hour of events are returned. \u003c/p\u003e",
@@ -12850,6 +12930,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dhccMarker",
+                    "output": "dhccrMarker"
+                },
+                "type": "next",
+                "resultKey": "dhccrHsmClientCertificates"
+            },
             "name": "DescribeHsmClientCertificates",
             "method": "post",
             "documentation": "\u003cp\u003eReturns information about the specified HSM client certificate. If no certificate ID is specified, returns information about all the HSM certificates owned by your AWS customer account.\u003c/p\u003e",
@@ -13069,6 +13157,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dhc1Marker",
+                    "output": "dhcrMarker"
+                },
+                "type": "next",
+                "resultKey": "dhcrHsmConfigurations"
+            },
             "name": "DescribeHsmConfigurations",
             "method": "post",
             "documentation": "\u003cp\u003eReturns information about the specified Amazon Redshift HSM configuration. If no configuration ID is specified, returns information about all the HSM configurations owned by your AWS customer account.\u003c/p\u003e",
@@ -13571,6 +13667,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "docoMarker",
+                    "output": "docorMarker"
+                },
+                "type": "next",
+                "resultKey": "docorOrderableClusterOptions"
+            },
             "name": "DescribeOrderableClusterOptions",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of orderable cluster options. Before you create a new cluster you can use this operation to find what options are available, such as the EC2 Availability Zones (AZ) in the specific AWS region that you can specify, and the node types you can request. The node types differ by available storage, memory, CPU and price. With the cost involved you might want to obtain a list of cluster options in the specific region and specify values when creating a cluster. For more information about managing clusters, go to \u003ca href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\"\u003eAmazon Redshift Clusters\u003c/a\u003e in the \u003ci\u003eAmazon Redshift Management Guide\u003c/i\u003e \u003c/p\u003e",
@@ -13823,6 +13927,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "drnoMarker",
+                    "output": "drnorMarker"
+                },
+                "type": "next",
+                "resultKey": "drnorReservedNodeOfferings"
+            },
             "name": "DescribeReservedNodeOfferings",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of the available reserved node offerings by Amazon Redshift with their descriptions including the node type, the fixed and recurring costs of reserving the node and duration the node will be reserved for you. These descriptions help you determine which reserve node offering you want to purchase. You then use the unique offering ID in you call to \u003ca\u003ePurchaseReservedNodeOffering\u003c/a\u003e to reserve one or more nodes for your Amazon Redshift cluster. \u003c/p\u003e \u003cp\u003e For more information about managing parameter groups, go to \u003ca href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html\"\u003ePurchasing Reserved Nodes\u003c/a\u003e in the \u003ci\u003eAmazon Redshift Management Guide\u003c/i\u003e. \u003c/p\u003e",
@@ -14042,6 +14154,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.Redshift.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "drnMarker",
+                    "output": "drnrMarker"
+                },
+                "type": "next",
+                "resultKey": "drnrReservedNodes"
+            },
             "name": "DescribeReservedNodes",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the descriptions of the reserved nodes. \u003c/p\u003e",

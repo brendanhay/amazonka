@@ -44,6 +44,7 @@ module Network.AWS.OpsWorks.DescribeStackSummary
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 newtype DescribeStackSummary = DescribeStackSummary
     { _dssStackId :: Text

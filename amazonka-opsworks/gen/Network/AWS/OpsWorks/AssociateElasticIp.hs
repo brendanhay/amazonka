@@ -44,6 +44,7 @@ module Network.AWS.OpsWorks.AssociateElasticIp
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data AssociateElasticIp = AssociateElasticIp
     { _aeiElasticIp  :: Text

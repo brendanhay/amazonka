@@ -38,6 +38,7 @@ module Network.AWS.ElasticTranscoder.DeletePreset
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 newtype DeletePreset = DeletePreset
     { _dpId :: Text

@@ -40,6 +40,7 @@ module Network.AWS.OpsWorks.UpdateMyUserProfile
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 newtype UpdateMyUserProfile = UpdateMyUserProfile
     { _umupSshPublicKey :: Maybe Text

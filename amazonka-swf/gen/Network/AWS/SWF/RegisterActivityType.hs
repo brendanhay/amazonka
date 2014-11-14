@@ -60,6 +60,7 @@ module Network.AWS.SWF.RegisterActivityType
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data RegisterActivityType = RegisterActivityType
     { _ratDefaultTaskHeartbeatTimeout       :: Maybe Text

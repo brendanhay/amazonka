@@ -47,6 +47,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 data DescribeLogGroups = DescribeLogGroups
     { _dlgLimit              :: Maybe Natural

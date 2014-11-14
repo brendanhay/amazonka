@@ -39,6 +39,7 @@ module Network.AWS.CloudWatchLogs.DeleteLogStream
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 data DeleteLogStream = DeleteLogStream
     { _dlsLogGroupName  :: Text

@@ -43,6 +43,7 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 data ListDeploymentGroups = ListDeploymentGroups
     { _ldgApplicationName :: Text

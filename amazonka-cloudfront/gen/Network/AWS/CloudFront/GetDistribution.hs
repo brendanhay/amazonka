@@ -22,16 +22,16 @@
 module Network.AWS.CloudFront.GetDistribution
     (
     -- * Request
-      GetDistribution2014_05_31
+      GetDistribution
     -- ** Request constructor
-    , getDistribution2014_05_31
+    , getDistribution
     -- ** Request lenses
     , gdId
 
     -- * Response
-    , GetDistribution2014_05_31Response
+    , GetDistributionResponse
     -- ** Response constructor
-    , getDistribution2014_05_31Response
+    , getDistributionResponse
     -- ** Response lenses
     , gdrDistribution
     , gdrETag
@@ -42,43 +42,43 @@ import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
-newtype GetDistribution2014_05_31 = GetDistribution2014_05_31
+newtype GetDistribution = GetDistribution
     { _gdId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'GetDistribution2014_05_31' constructor.
+-- | 'GetDistribution' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdId' @::@ 'Text'
 --
-getDistribution2014_05_31 :: Text -- ^ 'gdId'
-                          -> GetDistribution2014_05_31
-getDistribution2014_05_31 p1 = GetDistribution2014_05_31
+getDistribution :: Text -- ^ 'gdId'
+                -> GetDistribution
+getDistribution p1 = GetDistribution
     { _gdId = p1
     }
 
 -- | The distribution's id.
-gdId :: Lens' GetDistribution2014_05_31 Text
+gdId :: Lens' GetDistribution Text
 gdId = lens _gdId (\s a -> s { _gdId = a })
 
-instance ToPath GetDistribution2014_05_31 where
-    toPath GetDistribution2014_05_31{..} = mconcat
+instance ToPath GetDistribution where
+    toPath GetDistribution{..} = mconcat
         [ "/2014-05-31/distribution/"
         , toText _gdId
         ]
 
-instance ToQuery GetDistribution2014_05_31 where
+instance ToQuery GetDistribution where
     toQuery = const mempty
 
-instance ToHeaders GetDistribution2014_05_31
+instance ToHeaders GetDistribution
 
-data GetDistribution2014_05_31Response = GetDistribution2014_05_31Response
+data GetDistributionResponse = GetDistributionResponse
     { _gdrDistribution :: Maybe Distribution
     , _gdrETag         :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'GetDistribution2014_05_31Response' constructor.
+-- | 'GetDistributionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,26 +86,26 @@ data GetDistribution2014_05_31Response = GetDistribution2014_05_31Response
 --
 -- * 'gdrETag' @::@ 'Maybe' 'Text'
 --
-getDistribution2014_05_31Response :: GetDistribution2014_05_31Response
-getDistribution2014_05_31Response = GetDistribution2014_05_31Response
+getDistributionResponse :: GetDistributionResponse
+getDistributionResponse = GetDistributionResponse
     { _gdrDistribution = Nothing
     , _gdrETag         = Nothing
     }
 
 -- | The distribution's information.
-gdrDistribution :: Lens' GetDistribution2014_05_31Response (Maybe Distribution)
+gdrDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
 gdrDistribution = lens _gdrDistribution (\s a -> s { _gdrDistribution = a })
 
 -- | The current version of the distribution's information. For example:
 -- E2QWRUHAPOMQZL.
-gdrETag :: Lens' GetDistribution2014_05_31Response (Maybe Text)
+gdrETag :: Lens' GetDistributionResponse (Maybe Text)
 gdrETag = lens _gdrETag (\s a -> s { _gdrETag = a })
 
-instance AWSRequest GetDistribution2014_05_31 where
-    type Sv GetDistribution2014_05_31 = CloudFront
-    type Rs GetDistribution2014_05_31 = GetDistribution2014_05_31Response
+instance AWSRequest GetDistribution where
+    type Sv GetDistribution = CloudFront
+    type Rs GetDistribution = GetDistributionResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetDistribution2014_05_31Response
+    response = xmlResponse $ \h x -> GetDistributionResponse
         <$> x %| "Distribution"
         <*> h ~:? "ETag"

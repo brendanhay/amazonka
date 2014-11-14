@@ -45,6 +45,7 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext
     { _gdkwpEncryptionContext :: Map Text Text

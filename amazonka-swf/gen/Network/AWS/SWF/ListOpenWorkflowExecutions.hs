@@ -62,6 +62,7 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions
     { _loweDomain          :: Text

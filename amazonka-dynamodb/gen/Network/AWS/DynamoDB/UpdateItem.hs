@@ -58,6 +58,7 @@ module Network.AWS.DynamoDB.UpdateItem
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types
+import qualified GHC.Exts
 
 data UpdateItem = UpdateItem
     { _uiAttributeUpdates            :: Map Text AttributeValueUpdate

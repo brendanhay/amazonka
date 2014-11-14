@@ -43,6 +43,7 @@ module Network.AWS.OpsWorks.UpdateUserProfile
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data UpdateUserProfile = UpdateUserProfile
     { _uupAllowSelfManagement :: Maybe Bool

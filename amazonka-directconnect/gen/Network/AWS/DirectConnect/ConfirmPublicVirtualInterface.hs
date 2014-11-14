@@ -41,6 +41,7 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
     { _cpvi1VirtualInterfaceId :: Text

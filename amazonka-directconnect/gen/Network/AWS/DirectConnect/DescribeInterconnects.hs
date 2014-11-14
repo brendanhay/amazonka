@@ -41,6 +41,7 @@ module Network.AWS.DirectConnect.DescribeInterconnects
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 newtype DescribeInterconnects = DescribeInterconnects
     { _diInterconnectId :: Maybe Text

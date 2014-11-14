@@ -39,6 +39,7 @@ module Network.AWS.KMS.DescribeKey
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 newtype DescribeKey = DescribeKey
     { _dk1KeyId :: Text

@@ -7780,6 +7780,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "deNextToken",
+                    "output": "derNextToken"
+                },
+                "type": "next",
+                "resultKey": "derEvents"
+            },
             "name": "DescribeEvents",
             "method": "post",
             "documentation": "\u003cp\u003eReturns list of event descriptions matching criteria up to the last 6 weeks.\u003c/p\u003e",

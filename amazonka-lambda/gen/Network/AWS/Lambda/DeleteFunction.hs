@@ -38,6 +38,7 @@ module Network.AWS.Lambda.DeleteFunction
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Lambda.Types
+import qualified GHC.Exts
 
 newtype DeleteFunction = DeleteFunction
     { _dfFunctionName :: Text

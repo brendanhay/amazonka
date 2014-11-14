@@ -61,6 +61,7 @@ module Network.AWS.Lambda.AddEventSource
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Lambda.Types
+import qualified GHC.Exts
 
 data AddEventSource = AddEventSource
     { _aesBatchSize    :: Maybe Int

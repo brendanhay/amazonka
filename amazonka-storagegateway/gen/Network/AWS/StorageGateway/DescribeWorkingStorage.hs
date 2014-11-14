@@ -47,6 +47,7 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 newtype DescribeWorkingStorage = DescribeWorkingStorage
     { _dwsGatewayARN :: Text

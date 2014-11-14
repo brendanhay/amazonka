@@ -41,6 +41,7 @@ module Network.AWS.OpsWorks.DeleteStack
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 newtype DeleteStack = DeleteStack
     { _dsStackId :: Text

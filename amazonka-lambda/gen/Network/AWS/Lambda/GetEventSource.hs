@@ -49,6 +49,7 @@ module Network.AWS.Lambda.GetEventSource
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Lambda.Types
+import qualified GHC.Exts
 
 newtype GetEventSource = GetEventSource
     { _gesUUID :: Text

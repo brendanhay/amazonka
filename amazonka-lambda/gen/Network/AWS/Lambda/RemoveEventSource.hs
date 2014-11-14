@@ -39,6 +39,7 @@ module Network.AWS.Lambda.RemoveEventSource
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Lambda.Types
+import qualified GHC.Exts
 
 newtype RemoveEventSource = RemoveEventSource
     { _resUUID :: Text

@@ -139,3 +139,9 @@ instance AWSRequest ListGroupsForUser where
         <$> x %| "Groups"
         <*> x %| "IsTruncated"
         <*> x %| "Marker"
+
+instance AWSPager ListGroupsForUser where
+    next rq rs
+        | not (more (rs ^. lgfurIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lgfuMarker .~ rs ^. lgfurMarker

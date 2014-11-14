@@ -50,6 +50,7 @@ module Network.AWS.SWF.DeprecateDomain
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 newtype DeprecateDomain = DeprecateDomain
     { _dd1Name :: Text

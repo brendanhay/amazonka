@@ -46,6 +46,7 @@ module Network.AWS.StorageGateway.AddWorkingStorage
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data AddWorkingStorage = AddWorkingStorage
     { _awsDiskIds    :: [Text]

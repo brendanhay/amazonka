@@ -22,16 +22,16 @@
 module Network.AWS.CloudFront.GetDistributionConfig
     (
     -- * Request
-      GetDistributionConfig2014_05_31
+      GetDistributionConfig
     -- ** Request constructor
-    , getDistributionConfig2014_05_31
+    , getDistributionConfig
     -- ** Request lenses
     , gdcId
 
     -- * Response
-    , GetDistributionConfig2014_05_31Response
+    , GetDistributionConfigResponse
     -- ** Response constructor
-    , getDistributionConfig2014_05_31Response
+    , getDistributionConfigResponse
     -- ** Response lenses
     , gdcrDistributionConfig
     , gdcrETag
@@ -42,44 +42,44 @@ import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
-newtype GetDistributionConfig2014_05_31 = GetDistributionConfig2014_05_31
+newtype GetDistributionConfig = GetDistributionConfig
     { _gdcId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'GetDistributionConfig2014_05_31' constructor.
+-- | 'GetDistributionConfig' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdcId' @::@ 'Text'
 --
-getDistributionConfig2014_05_31 :: Text -- ^ 'gdcId'
-                                -> GetDistributionConfig2014_05_31
-getDistributionConfig2014_05_31 p1 = GetDistributionConfig2014_05_31
+getDistributionConfig :: Text -- ^ 'gdcId'
+                      -> GetDistributionConfig
+getDistributionConfig p1 = GetDistributionConfig
     { _gdcId = p1
     }
 
 -- | The distribution's id.
-gdcId :: Lens' GetDistributionConfig2014_05_31 Text
+gdcId :: Lens' GetDistributionConfig Text
 gdcId = lens _gdcId (\s a -> s { _gdcId = a })
 
-instance ToPath GetDistributionConfig2014_05_31 where
-    toPath GetDistributionConfig2014_05_31{..} = mconcat
+instance ToPath GetDistributionConfig where
+    toPath GetDistributionConfig{..} = mconcat
         [ "/2014-05-31/distribution/"
         , toText _gdcId
         , "/config"
         ]
 
-instance ToQuery GetDistributionConfig2014_05_31 where
+instance ToQuery GetDistributionConfig where
     toQuery = const mempty
 
-instance ToHeaders GetDistributionConfig2014_05_31
+instance ToHeaders GetDistributionConfig
 
-data GetDistributionConfig2014_05_31Response = GetDistributionConfig2014_05_31Response
+data GetDistributionConfigResponse = GetDistributionConfigResponse
     { _gdcrDistributionConfig :: Maybe DistributionConfig
     , _gdcrETag               :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'GetDistributionConfig2014_05_31Response' constructor.
+-- | 'GetDistributionConfigResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -87,26 +87,26 @@ data GetDistributionConfig2014_05_31Response = GetDistributionConfig2014_05_31Re
 --
 -- * 'gdcrETag' @::@ 'Maybe' 'Text'
 --
-getDistributionConfig2014_05_31Response :: GetDistributionConfig2014_05_31Response
-getDistributionConfig2014_05_31Response = GetDistributionConfig2014_05_31Response
+getDistributionConfigResponse :: GetDistributionConfigResponse
+getDistributionConfigResponse = GetDistributionConfigResponse
     { _gdcrDistributionConfig = Nothing
     , _gdcrETag               = Nothing
     }
 
 -- | The distribution's configuration information.
-gdcrDistributionConfig :: Lens' GetDistributionConfig2014_05_31Response (Maybe DistributionConfig)
+gdcrDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
 gdcrDistributionConfig =
     lens _gdcrDistributionConfig (\s a -> s { _gdcrDistributionConfig = a })
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gdcrETag :: Lens' GetDistributionConfig2014_05_31Response (Maybe Text)
+gdcrETag :: Lens' GetDistributionConfigResponse (Maybe Text)
 gdcrETag = lens _gdcrETag (\s a -> s { _gdcrETag = a })
 
-instance AWSRequest GetDistributionConfig2014_05_31 where
-    type Sv GetDistributionConfig2014_05_31 = CloudFront
-    type Rs GetDistributionConfig2014_05_31 = GetDistributionConfig2014_05_31Response
+instance AWSRequest GetDistributionConfig where
+    type Sv GetDistributionConfig = CloudFront
+    type Rs GetDistributionConfig = GetDistributionConfigResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetDistributionConfig2014_05_31Response
+    response = xmlResponse $ \h x -> GetDistributionConfigResponse
         <$> x %| "DistributionConfig"
         <*> h ~:? "ETag"

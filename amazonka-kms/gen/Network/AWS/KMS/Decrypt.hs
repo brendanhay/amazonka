@@ -43,6 +43,7 @@ module Network.AWS.KMS.Decrypt
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 data Decrypt = Decrypt
     { _dCiphertextBlob    :: Base64

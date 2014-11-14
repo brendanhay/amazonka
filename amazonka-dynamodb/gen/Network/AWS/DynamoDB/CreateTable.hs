@@ -54,6 +54,7 @@ module Network.AWS.DynamoDB.CreateTable
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types
+import qualified GHC.Exts
 
 data CreateTable = CreateTable
     { _ctAttributeDefinitions   :: [AttributeDefinition]

@@ -38,6 +38,7 @@ module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 newtype DeleteRetentionPolicy = DeleteRetentionPolicy
     { _drpLogGroupName :: Text

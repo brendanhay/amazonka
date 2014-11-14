@@ -38,6 +38,7 @@ module Network.AWS.CodeDeploy.UpdateApplication
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 data UpdateApplication = UpdateApplication
     { _uaApplicationName    :: Maybe Text

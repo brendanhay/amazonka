@@ -50,6 +50,7 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types
+import qualified GHC.Exts
 
 data CreateIdentityPool = CreateIdentityPool
     { _cipAllowUnauthenticatedIdentities :: Bool

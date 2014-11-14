@@ -48,6 +48,7 @@ module Network.AWS.StorageGateway.ListGateways
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data ListGateways = ListGateways
     { _lgLimit  :: Maybe Natural

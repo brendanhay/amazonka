@@ -53,6 +53,7 @@ module Network.AWS.EMR.DescribeJobFlows
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types
+import qualified GHC.Exts
 
 data DescribeJobFlows = DescribeJobFlows
     { _djfCreatedAfter  :: Maybe RFC822

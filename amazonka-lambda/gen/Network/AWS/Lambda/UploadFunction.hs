@@ -63,6 +63,7 @@ module Network.AWS.Lambda.UploadFunction
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Lambda.Types
+import qualified GHC.Exts
 
 data UploadFunction = UploadFunction
     { _ufDescription  :: Maybe Text

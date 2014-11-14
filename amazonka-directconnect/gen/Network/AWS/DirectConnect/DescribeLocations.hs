@@ -39,6 +39,7 @@ module Network.AWS.DirectConnect.DescribeLocations
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 data DescribeLocations = DescribeLocations
     deriving (Eq, Ord, Show, Generic)

@@ -42,6 +42,7 @@ module Network.AWS.CognitoSync.RegisterDevice
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types
+import qualified GHC.Exts
 
 data RegisterDevice = RegisterDevice
     { _rdIdentityId     :: Text

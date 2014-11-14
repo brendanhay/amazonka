@@ -22,16 +22,16 @@
 module Network.AWS.CloudFront.GetStreamingDistributionConfig
     (
     -- * Request
-      GetStreamingDistributionConfig2014_05_31
+      GetStreamingDistributionConfig
     -- ** Request constructor
-    , getStreamingDistributionConfig2014_05_31
+    , getStreamingDistributionConfig
     -- ** Request lenses
     , gsdcId
 
     -- * Response
-    , GetStreamingDistributionConfig2014_05_31Response
+    , GetStreamingDistributionConfigResponse
     -- ** Response constructor
-    , getStreamingDistributionConfig2014_05_31Response
+    , getStreamingDistributionConfigResponse
     -- ** Response lenses
     , gsdcrETag
     , gsdcrStreamingDistributionConfig
@@ -42,44 +42,44 @@ import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
-newtype GetStreamingDistributionConfig2014_05_31 = GetStreamingDistributionConfig2014_05_31
+newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig
     { _gsdcId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'GetStreamingDistributionConfig2014_05_31' constructor.
+-- | 'GetStreamingDistributionConfig' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsdcId' @::@ 'Text'
 --
-getStreamingDistributionConfig2014_05_31 :: Text -- ^ 'gsdcId'
-                                         -> GetStreamingDistributionConfig2014_05_31
-getStreamingDistributionConfig2014_05_31 p1 = GetStreamingDistributionConfig2014_05_31
+getStreamingDistributionConfig :: Text -- ^ 'gsdcId'
+                               -> GetStreamingDistributionConfig
+getStreamingDistributionConfig p1 = GetStreamingDistributionConfig
     { _gsdcId = p1
     }
 
 -- | The streaming distribution's id.
-gsdcId :: Lens' GetStreamingDistributionConfig2014_05_31 Text
+gsdcId :: Lens' GetStreamingDistributionConfig Text
 gsdcId = lens _gsdcId (\s a -> s { _gsdcId = a })
 
-instance ToPath GetStreamingDistributionConfig2014_05_31 where
-    toPath GetStreamingDistributionConfig2014_05_31{..} = mconcat
+instance ToPath GetStreamingDistributionConfig where
+    toPath GetStreamingDistributionConfig{..} = mconcat
         [ "/2014-05-31/streaming-distribution/"
         , toText _gsdcId
         , "/config"
         ]
 
-instance ToQuery GetStreamingDistributionConfig2014_05_31 where
+instance ToQuery GetStreamingDistributionConfig where
     toQuery = const mempty
 
-instance ToHeaders GetStreamingDistributionConfig2014_05_31
+instance ToHeaders GetStreamingDistributionConfig
 
-data GetStreamingDistributionConfig2014_05_31Response = GetStreamingDistributionConfig2014_05_31Response
+data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
     { _gsdcrETag                        :: Maybe Text
     , _gsdcrStreamingDistributionConfig :: Maybe StreamingDistributionConfig
     } deriving (Eq, Show, Generic)
 
--- | 'GetStreamingDistributionConfig2014_05_31Response' constructor.
+-- | 'GetStreamingDistributionConfigResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -87,27 +87,27 @@ data GetStreamingDistributionConfig2014_05_31Response = GetStreamingDistribution
 --
 -- * 'gsdcrStreamingDistributionConfig' @::@ 'Maybe' 'StreamingDistributionConfig'
 --
-getStreamingDistributionConfig2014_05_31Response :: GetStreamingDistributionConfig2014_05_31Response
-getStreamingDistributionConfig2014_05_31Response = GetStreamingDistributionConfig2014_05_31Response
+getStreamingDistributionConfigResponse :: GetStreamingDistributionConfigResponse
+getStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
     { _gsdcrStreamingDistributionConfig = Nothing
     , _gsdcrETag                        = Nothing
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gsdcrETag :: Lens' GetStreamingDistributionConfig2014_05_31Response (Maybe Text)
+gsdcrETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
 gsdcrETag = lens _gsdcrETag (\s a -> s { _gsdcrETag = a })
 
 -- | The streaming distribution's configuration information.
-gsdcrStreamingDistributionConfig :: Lens' GetStreamingDistributionConfig2014_05_31Response (Maybe StreamingDistributionConfig)
+gsdcrStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
 gsdcrStreamingDistributionConfig =
     lens _gsdcrStreamingDistributionConfig
         (\s a -> s { _gsdcrStreamingDistributionConfig = a })
 
-instance AWSRequest GetStreamingDistributionConfig2014_05_31 where
-    type Sv GetStreamingDistributionConfig2014_05_31 = CloudFront
-    type Rs GetStreamingDistributionConfig2014_05_31 = GetStreamingDistributionConfig2014_05_31Response
+instance AWSRequest GetStreamingDistributionConfig where
+    type Sv GetStreamingDistributionConfig = CloudFront
+    type Rs GetStreamingDistributionConfig = GetStreamingDistributionConfigResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetStreamingDistributionConfig2014_05_31Response
+    response = xmlResponse $ \h x -> GetStreamingDistributionConfigResponse
         <$> h ~:? "ETag"
         <*> x %| "StreamingDistributionConfig"

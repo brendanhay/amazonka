@@ -183,3 +183,7 @@ instance AWSRequest DescribeDBEngineVersions where
     response = xmlResponse $ \h x -> DescribeDBEngineVersionsResponse
         <$> x %| "DBEngineVersions"
         <*> x %| "Marker"
+
+instance AWSPager DescribeDBEngineVersions where
+    next rq rs = (\x -> rq & ddbevMarker ?~ x)
+        <$> (rs ^. ddbevrMarker)

@@ -43,6 +43,7 @@ module Network.AWS.DataPipeline.DeletePipeline
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 newtype DeletePipeline = DeletePipeline
     { _dpPipelineId :: Text

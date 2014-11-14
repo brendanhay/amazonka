@@ -120,3 +120,7 @@ instance AWSRequest ListStackResources where
     response = xmlResponse $ \h x -> ListStackResourcesResponse
         <$> x %| "NextToken"
         <*> x %| "StackResourceSummaries"
+
+instance AWSPager ListStackResources where
+    next rq rs = (\x -> rq & lsrNextToken ?~ x)
+        <$> (rs ^. lsrrNextToken)

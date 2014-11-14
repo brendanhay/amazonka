@@ -40,6 +40,7 @@ module Network.AWS.CloudTrail.StopLogging
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudTrail.Types
+import qualified GHC.Exts
 
 newtype StopLogging = StopLogging
     { _slName :: Text

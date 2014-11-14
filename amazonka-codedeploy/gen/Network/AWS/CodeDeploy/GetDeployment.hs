@@ -39,6 +39,7 @@ module Network.AWS.CodeDeploy.GetDeployment
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 newtype GetDeployment = GetDeployment
     { _gdDeploymentId :: Text

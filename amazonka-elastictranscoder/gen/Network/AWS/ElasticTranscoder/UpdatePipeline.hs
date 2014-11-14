@@ -49,6 +49,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 data UpdatePipeline = UpdatePipeline
     { _upContentConfig   :: Maybe PipelineOutputConfig

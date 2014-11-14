@@ -53,6 +53,7 @@ module Network.AWS.DataPipeline.PollForTask
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 data PollForTask = PollForTask
     { _pftHostname         :: Maybe Text

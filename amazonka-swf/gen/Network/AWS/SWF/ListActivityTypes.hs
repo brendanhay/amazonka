@@ -58,6 +58,7 @@ module Network.AWS.SWF.ListActivityTypes
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data ListActivityTypes = ListActivityTypes
     { _latDomain             :: Text

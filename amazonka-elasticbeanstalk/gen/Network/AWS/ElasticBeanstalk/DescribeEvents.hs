@@ -209,3 +209,7 @@ instance AWSRequest DescribeEvents where
     response = xmlResponse $ \h x -> DescribeEventsResponse
         <$> x %| "Events"
         <*> x %| "NextToken"
+
+instance AWSPager DescribeEvents where
+    next rq rs = (\x -> rq & deNextToken ?~ x)
+        <$> (rs ^. derNextToken)

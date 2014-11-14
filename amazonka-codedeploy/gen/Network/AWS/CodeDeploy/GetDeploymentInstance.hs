@@ -40,6 +40,7 @@ module Network.AWS.CodeDeploy.GetDeploymentInstance
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 data GetDeploymentInstance = GetDeploymentInstance
     { _gdiDeploymentId :: Text

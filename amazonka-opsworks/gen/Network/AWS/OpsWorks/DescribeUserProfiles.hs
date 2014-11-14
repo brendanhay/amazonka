@@ -41,6 +41,7 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 newtype DescribeUserProfiles = DescribeUserProfiles
     { _dupIamUserArns :: [Text]

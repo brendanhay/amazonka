@@ -8695,6 +8695,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.StorageGateway.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dtaMarker",
+                    "output": "dtarMarker"
+                },
+                "type": "next",
+                "resultKey": "dtarTapeArchives"
+            },
             "name": "DescribeTapeArchives",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a description of specified virtual tapes in the virtual tape shelf (VTS). \u003c/p\u003e \u003cp\u003eIf a specific \u003ccode\u003eTapeARN\u003c/code\u003e is not specified, AWS Storage Gateway returns a description of all virtual tapes found in the VTS associated with your account.\u003c/p\u003e",
@@ -8952,6 +8960,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.StorageGateway.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dtrpMarker",
+                    "output": "dtrprMarker"
+                },
+                "type": "next",
+                "resultKey": "dtrprTapeRecoveryPointInfos"
+            },
             "name": "DescribeTapeRecoveryPoints",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list of virtual tape recovery points that are available for the specified gateway-VTL.\u003c/p\u003e \u003cp\u003eA recovery point is a point in time view of a virtual tape at which all the data on the virtual tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be recovered to a new gateway.\u003c/p\u003e",
@@ -9182,6 +9198,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.StorageGateway.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dtMarker",
+                    "output": "dtrMarker"
+                },
+                "type": "next",
+                "resultKey": "dtrTapes"
+            },
             "name": "DescribeTapes",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a \u003ccode\u003eTapeARN\u003c/code\u003e is not specified, returns a description of all virtual tapes associated with the specified gateway.\u003c/p\u003e",
@@ -9715,6 +9739,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.StorageGateway.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dvtldMarker",
+                    "output": "dvtldrMarker"
+                },
+                "type": "next",
+                "resultKey": "dvtldrVTLDevices"
+            },
             "name": "DescribeVTLDevices",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a description of virtual tape library (VTL) devices for the specified gateway. In the response, AWS Storage Gateway returns VTL device information. \u003c/p\u003e \u003cp\u003eThe list of VTL devices must be from one gateway.\u003c/p\u003e",
@@ -10399,6 +10431,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.StorageGateway.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lgMarker",
+                    "output": "lgrMarker"
+                },
+                "type": "next",
+                "resultKey": "lgrGateways"
+            },
             "name": "ListGateways",
             "method": "post",
             "documentation": "\u003cp\u003eThis operation lists gateways owned by an AWS account in a region specified in the request. The returned list is ordered by gateway Amazon Resource Name (ARN).\u003c/p\u003e \u003cp\u003eBy default, the operation returns a maximum of 100 gateways. This operation supports pagination that allows you to optionally reduce the number of gateways returned in a response.\u003c/p\u003e \u003cp\u003eIf you have more gateways than are returned in a response-that is, the response returns only a truncated list of your gateways-the response contains a marker that you can specify in your next request to fetch the next page of gateways.\u003c/p\u003e",
@@ -11008,6 +11048,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.StorageGateway.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lvMarker",
+                    "output": "lvrMarker"
+                },
+                "type": "next",
+                "resultKey": "lvrVolumeInfos"
+            },
             "name": "ListVolumes",
             "method": "post",
             "documentation": "\u003cp\u003eThis operation lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The response includes only the volume ARNs. If you want additional volume information, use the \u003ca\u003eDescribeStorediSCSIVolumes\u003c/a\u003e API.\u003c/p\u003e \u003cp\u003eThe operation supports pagination. By default, the operation returns a maximum of up to 100 volumes. You can optionally specify the \u003ccode\u003eLimit\u003c/code\u003e field in the body to limit the number of volumes in the response. If the number of volumes returned in the response is truncated, the response includes a Marker field. You can use this Marker value in your subsequent request to retrieve the next set of volumes.\u003c/p\u003e",

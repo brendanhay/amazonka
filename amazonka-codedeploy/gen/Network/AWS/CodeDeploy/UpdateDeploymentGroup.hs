@@ -45,6 +45,7 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 data UpdateDeploymentGroup = UpdateDeploymentGroup
     { _udgApplicationName            :: Text

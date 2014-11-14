@@ -41,6 +41,7 @@ module Network.AWS.CognitoSync.DescribeIdentityUsage
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types
+import qualified GHC.Exts
 
 data DescribeIdentityUsage = DescribeIdentityUsage
     { _diuIdentityId     :: Text

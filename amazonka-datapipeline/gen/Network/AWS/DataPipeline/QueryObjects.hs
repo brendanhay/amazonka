@@ -50,6 +50,7 @@ module Network.AWS.DataPipeline.QueryObjects
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 data QueryObjects = QueryObjects
     { _qoLimit      :: Maybe Int

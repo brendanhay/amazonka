@@ -41,6 +41,7 @@ module Network.AWS.OpsWorks.RebootInstance
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 newtype RebootInstance = RebootInstance
     { _riInstanceId :: Text

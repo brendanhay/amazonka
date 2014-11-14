@@ -135,3 +135,7 @@ instance AWSRequest DescribeReservedNodes where
     response = xmlResponse $ \h x -> DescribeReservedNodesResponse
         <$> x %| "Marker"
         <*> x %| "ReservedNodes"
+
+instance AWSPager DescribeReservedNodes where
+    next rq rs = (\x -> rq & drnMarker ?~ x)
+        <$> (rs ^. drnrMarker)

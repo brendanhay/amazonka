@@ -55,6 +55,7 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
     { _gwehDomain          :: Text

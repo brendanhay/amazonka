@@ -41,6 +41,7 @@ module Network.AWS.DynamoDB.DescribeTable
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types
+import qualified GHC.Exts
 
 newtype DescribeTable = DescribeTable
     { _dt1TableName :: Text

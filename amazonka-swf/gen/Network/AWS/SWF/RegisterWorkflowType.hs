@@ -60,6 +60,7 @@ module Network.AWS.SWF.RegisterWorkflowType
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data RegisterWorkflowType = RegisterWorkflowType
     { _rwtDefaultChildPolicy                  :: Maybe Text

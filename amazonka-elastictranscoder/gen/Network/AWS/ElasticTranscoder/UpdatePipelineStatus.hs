@@ -46,6 +46,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 data UpdatePipelineStatus = UpdatePipelineStatus
     { _upsId     :: Text

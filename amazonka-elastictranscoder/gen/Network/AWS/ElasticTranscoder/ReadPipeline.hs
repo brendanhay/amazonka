@@ -39,6 +39,7 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 newtype ReadPipeline = ReadPipeline
     { _rp1Id :: Text

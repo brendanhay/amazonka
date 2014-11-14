@@ -40,6 +40,7 @@ module Network.AWS.KMS.GetKeyPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 data GetKeyPolicy = GetKeyPolicy
     { _gkpKeyId      :: Text

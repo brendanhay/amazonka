@@ -42,6 +42,7 @@ module Network.AWS.Route53Domains.ListOperations
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types
+import qualified GHC.Exts
 
 data ListOperations = ListOperations
     { _loMarker   :: Maybe Text

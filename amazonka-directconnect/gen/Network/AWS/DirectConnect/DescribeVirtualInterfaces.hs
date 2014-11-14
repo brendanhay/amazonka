@@ -49,6 +49,7 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces
     { _dviConnectionId       :: Maybe Text

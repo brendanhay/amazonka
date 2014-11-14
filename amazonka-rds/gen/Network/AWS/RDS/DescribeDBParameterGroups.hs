@@ -144,3 +144,7 @@ instance AWSRequest DescribeDBParameterGroups where
     response = xmlResponse $ \h x -> DescribeDBParameterGroupsResponse
         <$> x %| "DBParameterGroups"
         <*> x %| "Marker"
+
+instance AWSPager DescribeDBParameterGroups where
+    next rq rs = (\x -> rq & ddbpgMarker ?~ x)
+        <$> (rs ^. ddbpgrMarker)

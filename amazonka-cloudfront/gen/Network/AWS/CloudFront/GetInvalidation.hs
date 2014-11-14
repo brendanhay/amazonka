@@ -22,17 +22,17 @@
 module Network.AWS.CloudFront.GetInvalidation
     (
     -- * Request
-      GetInvalidation2014_05_31
+      GetInvalidation
     -- ** Request constructor
-    , getInvalidation2014_05_31
+    , getInvalidation
     -- ** Request lenses
     , giDistributionId
     , giId
 
     -- * Response
-    , GetInvalidation2014_05_31Response
+    , GetInvalidationResponse
     -- ** Response constructor
-    , getInvalidation2014_05_31Response
+    , getInvalidationResponse
     -- ** Response lenses
     , girInvalidation
     ) where
@@ -42,12 +42,12 @@ import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
-data GetInvalidation2014_05_31 = GetInvalidation2014_05_31
+data GetInvalidation = GetInvalidation
     { _giDistributionId :: Text
     , _giId             :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'GetInvalidation2014_05_31' constructor.
+-- | 'GetInvalidation' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -55,58 +55,58 @@ data GetInvalidation2014_05_31 = GetInvalidation2014_05_31
 --
 -- * 'giId' @::@ 'Text'
 --
-getInvalidation2014_05_31 :: Text -- ^ 'giDistributionId'
-                          -> Text -- ^ 'giId'
-                          -> GetInvalidation2014_05_31
-getInvalidation2014_05_31 p1 p2 = GetInvalidation2014_05_31
+getInvalidation :: Text -- ^ 'giDistributionId'
+                -> Text -- ^ 'giId'
+                -> GetInvalidation
+getInvalidation p1 p2 = GetInvalidation
     { _giDistributionId = p1
     , _giId             = p2
     }
 
 -- | The distribution's id.
-giDistributionId :: Lens' GetInvalidation2014_05_31 Text
+giDistributionId :: Lens' GetInvalidation Text
 giDistributionId = lens _giDistributionId (\s a -> s { _giDistributionId = a })
 
 -- | The invalidation's id.
-giId :: Lens' GetInvalidation2014_05_31 Text
+giId :: Lens' GetInvalidation Text
 giId = lens _giId (\s a -> s { _giId = a })
 
-instance ToPath GetInvalidation2014_05_31 where
-    toPath GetInvalidation2014_05_31{..} = mconcat
+instance ToPath GetInvalidation where
+    toPath GetInvalidation{..} = mconcat
         [ "/2014-05-31/distribution/"
         , toText _giDistributionId
         , "/invalidation/"
         , toText _giId
         ]
 
-instance ToQuery GetInvalidation2014_05_31 where
+instance ToQuery GetInvalidation where
     toQuery = const mempty
 
-instance ToHeaders GetInvalidation2014_05_31
+instance ToHeaders GetInvalidation
 
-newtype GetInvalidation2014_05_31Response = GetInvalidation2014_05_31Response
+newtype GetInvalidationResponse = GetInvalidationResponse
     { _girInvalidation :: Maybe Invalidation
     } deriving (Eq, Show, Generic)
 
--- | 'GetInvalidation2014_05_31Response' constructor.
+-- | 'GetInvalidationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'girInvalidation' @::@ 'Maybe' 'Invalidation'
 --
-getInvalidation2014_05_31Response :: GetInvalidation2014_05_31Response
-getInvalidation2014_05_31Response = GetInvalidation2014_05_31Response
+getInvalidationResponse :: GetInvalidationResponse
+getInvalidationResponse = GetInvalidationResponse
     { _girInvalidation = Nothing
     }
 
 -- | The invalidation's information.
-girInvalidation :: Lens' GetInvalidation2014_05_31Response (Maybe Invalidation)
+girInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 girInvalidation = lens _girInvalidation (\s a -> s { _girInvalidation = a })
 
-instance AWSRequest GetInvalidation2014_05_31 where
-    type Sv GetInvalidation2014_05_31 = CloudFront
-    type Rs GetInvalidation2014_05_31 = GetInvalidation2014_05_31Response
+instance AWSRequest GetInvalidation where
+    type Sv GetInvalidation = CloudFront
+    type Rs GetInvalidation = GetInvalidationResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetInvalidation2014_05_31Response
+    response = xmlResponse $ \h x -> GetInvalidationResponse
         <$> x %| "Invalidation"

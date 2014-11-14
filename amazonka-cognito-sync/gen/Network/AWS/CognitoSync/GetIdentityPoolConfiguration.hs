@@ -40,6 +40,7 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types
+import qualified GHC.Exts
 
 newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration
     { _gipcIdentityPoolId :: Text

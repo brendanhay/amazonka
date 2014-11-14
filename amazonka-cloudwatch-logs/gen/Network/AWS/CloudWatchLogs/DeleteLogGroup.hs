@@ -38,6 +38,7 @@ module Network.AWS.CloudWatchLogs.DeleteLogGroup
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 newtype DeleteLogGroup = DeleteLogGroup
     { _dlgLogGroupName :: Text

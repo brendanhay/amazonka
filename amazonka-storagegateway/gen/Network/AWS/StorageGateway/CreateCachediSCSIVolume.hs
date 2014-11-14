@@ -52,6 +52,7 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data CreateCachediSCSIVolume = CreateCachediSCSIVolume
     { _ccscsivClientToken        :: Text

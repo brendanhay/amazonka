@@ -51,6 +51,7 @@ module Network.AWS.StorageGateway.ListVolumes
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data ListVolumes = ListVolumes
     { _lvGatewayARN :: Text

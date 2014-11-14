@@ -22,17 +22,17 @@
 module Network.AWS.CloudFront.DeleteStreamingDistribution
     (
     -- * Request
-      DeleteStreamingDistribution2014_05_31
+      DeleteStreamingDistribution
     -- ** Request constructor
-    , deleteStreamingDistribution2014_05_31
+    , deleteStreamingDistribution
     -- ** Request lenses
     , dsdId
     , dsdIfMatch
 
     -- * Response
-    , DeleteStreamingDistribution2014_05_31Response
+    , DeleteStreamingDistributionResponse
     -- ** Response constructor
-    , deleteStreamingDistribution2014_05_31Response
+    , deleteStreamingDistributionResponse
     ) where
 
 import Network.AWS.Prelude
@@ -40,12 +40,12 @@ import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
-data DeleteStreamingDistribution2014_05_31 = DeleteStreamingDistribution2014_05_31
+data DeleteStreamingDistribution = DeleteStreamingDistribution
     { _dsdId      :: Text
     , _dsdIfMatch :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteStreamingDistribution2014_05_31' constructor.
+-- | 'DeleteStreamingDistribution' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -53,46 +53,46 @@ data DeleteStreamingDistribution2014_05_31 = DeleteStreamingDistribution2014_05_
 --
 -- * 'dsdIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteStreamingDistribution2014_05_31 :: Text -- ^ 'dsdId'
-                                      -> DeleteStreamingDistribution2014_05_31
-deleteStreamingDistribution2014_05_31 p1 = DeleteStreamingDistribution2014_05_31
+deleteStreamingDistribution :: Text -- ^ 'dsdId'
+                            -> DeleteStreamingDistribution
+deleteStreamingDistribution p1 = DeleteStreamingDistribution
     { _dsdId      = p1
     , _dsdIfMatch = Nothing
     }
 
 -- | The distribution id.
-dsdId :: Lens' DeleteStreamingDistribution2014_05_31 Text
+dsdId :: Lens' DeleteStreamingDistribution Text
 dsdId = lens _dsdId (\s a -> s { _dsdId = a })
 
 -- | The value of the ETag header you received when you disabled the streaming
 -- distribution. For example: E2QWRUHAPOMQZL.
-dsdIfMatch :: Lens' DeleteStreamingDistribution2014_05_31 (Maybe Text)
+dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
 dsdIfMatch = lens _dsdIfMatch (\s a -> s { _dsdIfMatch = a })
 
-instance ToPath DeleteStreamingDistribution2014_05_31 where
-    toPath DeleteStreamingDistribution2014_05_31{..} = mconcat
+instance ToPath DeleteStreamingDistribution where
+    toPath DeleteStreamingDistribution{..} = mconcat
         [ "/2014-05-31/streaming-distribution/"
         , toText _dsdId
         ]
 
-instance ToQuery DeleteStreamingDistribution2014_05_31 where
+instance ToQuery DeleteStreamingDistribution where
     toQuery = const mempty
 
-instance ToHeaders DeleteStreamingDistribution2014_05_31 where
-    toHeaders DeleteStreamingDistribution2014_05_31{..} = mconcat
+instance ToHeaders DeleteStreamingDistribution where
+    toHeaders DeleteStreamingDistribution{..} = mconcat
         [ "If-Match" =: _dsdIfMatch
         ]
 
-data DeleteStreamingDistribution2014_05_31Response = DeleteStreamingDistribution2014_05_31Response
+data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
     deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteStreamingDistribution2014_05_31Response' constructor.
-deleteStreamingDistribution2014_05_31Response :: DeleteStreamingDistribution2014_05_31Response
-deleteStreamingDistribution2014_05_31Response = DeleteStreamingDistribution2014_05_31Response
+-- | 'DeleteStreamingDistributionResponse' constructor.
+deleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
+deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
 
-instance AWSRequest DeleteStreamingDistribution2014_05_31 where
-    type Sv DeleteStreamingDistribution2014_05_31 = CloudFront
-    type Rs DeleteStreamingDistribution2014_05_31 = DeleteStreamingDistribution2014_05_31Response
+instance AWSRequest DeleteStreamingDistribution where
+    type Sv DeleteStreamingDistribution = CloudFront
+    type Rs DeleteStreamingDistribution = DeleteStreamingDistributionResponse
 
     request  = delete
-    response = nullaryResponse DeleteStreamingDistribution2014_05_31Response
+    response = nullaryResponse DeleteStreamingDistributionResponse

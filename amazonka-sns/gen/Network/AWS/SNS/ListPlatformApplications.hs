@@ -114,3 +114,7 @@ instance AWSRequest ListPlatformApplications where
     response = xmlResponse $ \h x -> ListPlatformApplicationsResponse
         <$> x %| "NextToken"
         <*> x %| "PlatformApplications"
+
+instance AWSPager ListPlatformApplications where
+    next rq rs = (\x -> rq & lpaNextToken ?~ x)
+        <$> (rs ^. lparNextToken)

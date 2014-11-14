@@ -44,6 +44,7 @@ module Network.AWS.Lambda.ListFunctions
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Lambda.Types
+import qualified GHC.Exts
 
 data ListFunctions = ListFunctions
     { _lfMarker   :: Maybe Text

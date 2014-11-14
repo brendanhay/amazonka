@@ -49,6 +49,7 @@ module Network.AWS.Support.DescribeServices
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 data DescribeServices = DescribeServices
     { _dsLanguage        :: Maybe Text

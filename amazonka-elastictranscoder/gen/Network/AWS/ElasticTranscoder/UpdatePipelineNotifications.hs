@@ -43,6 +43,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 data UpdatePipelineNotifications = UpdatePipelineNotifications
     { _upnId            :: Text

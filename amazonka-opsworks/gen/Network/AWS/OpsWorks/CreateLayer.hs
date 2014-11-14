@@ -57,6 +57,7 @@ module Network.AWS.OpsWorks.CreateLayer
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data CreateLayer = CreateLayer
     { _clAttributes               :: Map Text Text

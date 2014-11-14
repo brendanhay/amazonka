@@ -48,6 +48,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
     { _dtacrCheckId  :: Text

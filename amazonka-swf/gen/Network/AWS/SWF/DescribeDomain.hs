@@ -49,6 +49,7 @@ module Network.AWS.SWF.DescribeDomain
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 newtype DescribeDomain = DescribeDomain
     { _ddName :: Text

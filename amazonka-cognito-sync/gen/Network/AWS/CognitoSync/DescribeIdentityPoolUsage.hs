@@ -40,6 +40,7 @@ module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types
+import qualified GHC.Exts
 
 newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage
     { _dipuIdentityPoolId :: Text

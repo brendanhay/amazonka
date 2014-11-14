@@ -155,3 +155,7 @@ instance AWSRequest DescribeSnapshots where
     response = xmlResponse $ \h x -> DescribeSnapshotsResponse
         <$> x %| "Marker"
         <*> x %| "Snapshots"
+
+instance AWSPager DescribeSnapshots where
+    next rq rs = (\x -> rq & dsMarker ?~ x)
+        <$> (rs ^. dsrMarker)

@@ -163,3 +163,7 @@ instance AWSRequest DescribeCacheEngineVersions where
     response = xmlResponse $ \h x -> DescribeCacheEngineVersionsResponse
         <$> x %| "CacheEngineVersions"
         <*> x %| "Marker"
+
+instance AWSPager DescribeCacheEngineVersions where
+    next rq rs = (\x -> rq & dcevMarker ?~ x)
+        <$> (rs ^. dcevrMarker)

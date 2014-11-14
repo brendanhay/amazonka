@@ -57,6 +57,7 @@ module Network.AWS.SWF.CountOpenWorkflowExecutions
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
     { _coweDomain          :: Text

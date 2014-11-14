@@ -65,6 +65,7 @@ module Network.AWS.SWF.PollForActivityTask
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data PollForActivityTask = PollForActivityTask
     { _pfatDomain   :: Text

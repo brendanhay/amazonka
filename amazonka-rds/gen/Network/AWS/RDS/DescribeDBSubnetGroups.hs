@@ -141,3 +141,7 @@ instance AWSRequest DescribeDBSubnetGroups where
     response = xmlResponse $ \h x -> DescribeDBSubnetGroupsResponse
         <$> x %| "DBSubnetGroups"
         <*> x %| "Marker"
+
+instance AWSPager DescribeDBSubnetGroups where
+    next rq rs = (\x -> rq & ddbsgMarker ?~ x)
+        <$> (rs ^. ddbsgrMarker)

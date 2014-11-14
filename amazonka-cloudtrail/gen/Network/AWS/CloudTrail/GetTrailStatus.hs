@@ -49,6 +49,7 @@ module Network.AWS.CloudTrail.GetTrailStatus
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudTrail.Types
+import qualified GHC.Exts
 
 newtype GetTrailStatus = GetTrailStatus
     { _gtsName :: Text

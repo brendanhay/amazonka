@@ -53,6 +53,7 @@ module Network.AWS.OpsWorks.CreateApp
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data CreateApp = CreateApp
     { _caAppSource        :: Maybe Source

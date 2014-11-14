@@ -46,6 +46,7 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types
+import qualified GHC.Exts
 
 data UpdateDomainNameservers = UpdateDomainNameservers
     { _udnDomainName  :: Text

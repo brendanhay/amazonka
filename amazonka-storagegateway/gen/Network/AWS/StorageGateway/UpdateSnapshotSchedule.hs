@@ -48,6 +48,7 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule
     { _ussDescription       :: Maybe Text

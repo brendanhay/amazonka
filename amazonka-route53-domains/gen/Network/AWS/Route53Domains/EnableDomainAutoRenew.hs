@@ -45,6 +45,7 @@ module Network.AWS.Route53Domains.EnableDomainAutoRenew
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types
+import qualified GHC.Exts
 
 newtype EnableDomainAutoRenew = EnableDomainAutoRenew
     { _edarDomainName :: Text

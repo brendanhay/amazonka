@@ -75,6 +75,7 @@ module Network.AWS.DynamoDB.Query
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types
+import qualified GHC.Exts
 
 data Query = Query
     { _qAttributesToGet           :: List1 Text

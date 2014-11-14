@@ -205,3 +205,7 @@ instance AWSRequest DescribeSpotPriceHistory where
     response = xmlResponse $ \h x -> DescribeSpotPriceHistoryResponse
         <$> x %| "nextToken"
         <*> x %| "spotPriceHistorySet"
+
+instance AWSPager DescribeSpotPriceHistory where
+    next rq rs = (\x -> rq & dsphNextToken ?~ x)
+        <$> (rs ^. dsphrNextToken)

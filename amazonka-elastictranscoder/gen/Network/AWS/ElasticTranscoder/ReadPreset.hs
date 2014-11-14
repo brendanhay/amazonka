@@ -39,6 +39,7 @@ module Network.AWS.ElasticTranscoder.ReadPreset
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 newtype ReadPreset = ReadPreset
     { _rpId :: Text

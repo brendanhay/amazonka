@@ -44,6 +44,7 @@ module Network.AWS.Config.DeliverConfigSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types
+import qualified GHC.Exts
 
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot
     { _dcsDeliveryChannelName :: Text

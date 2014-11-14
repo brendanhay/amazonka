@@ -140,3 +140,7 @@ instance AWSRequest DescribeClusterSubnetGroups where
     response = xmlResponse $ \h x -> DescribeClusterSubnetGroupsResponse
         <$> x %| "ClusterSubnetGroups"
         <*> x %| "Marker"
+
+instance AWSPager DescribeClusterSubnetGroups where
+    next rq rs = (\x -> rq & dcsg1Marker ?~ x)
+        <$> (rs ^. dcsgrMarker)

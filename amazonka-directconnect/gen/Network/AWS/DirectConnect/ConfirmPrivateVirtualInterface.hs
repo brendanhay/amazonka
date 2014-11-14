@@ -43,6 +43,7 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
     { _cpviVirtualGatewayId   :: Text

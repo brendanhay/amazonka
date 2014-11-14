@@ -64,6 +64,7 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat
     { _rathDetails   :: Maybe Text

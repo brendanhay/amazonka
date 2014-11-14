@@ -53,6 +53,7 @@ module Network.AWS.OpsWorks.UpdateLayer
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data UpdateLayer = UpdateLayer
     { _ulAttributes               :: Map Text Text

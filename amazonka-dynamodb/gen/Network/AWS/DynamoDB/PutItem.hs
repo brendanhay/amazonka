@@ -65,6 +65,7 @@ module Network.AWS.DynamoDB.PutItem
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types
+import qualified GHC.Exts
 
 data PutItem = PutItem
     { _piConditionExpression         :: Maybe Text

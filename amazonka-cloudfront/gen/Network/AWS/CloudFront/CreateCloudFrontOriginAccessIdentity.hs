@@ -22,16 +22,16 @@
 module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     (
     -- * Request
-      CreateCloudFrontOriginAccessIdentity2014_05_31
+      CreateCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , createCloudFrontOriginAccessIdentity2014_05_31
+    , createCloudFrontOriginAccessIdentity
     -- ** Request lenses
     , ccfoaiCloudFrontOriginAccessIdentityConfig
 
     -- * Response
-    , CreateCloudFrontOriginAccessIdentity2014_05_31Response
+    , CreateCloudFrontOriginAccessIdentityResponse
     -- ** Response constructor
-    , createCloudFrontOriginAccessIdentity2014_05_31Response
+    , createCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
     , ccfoairCloudFrontOriginAccessIdentity
     , ccfoairETag
@@ -43,46 +43,46 @@ import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
-newtype CreateCloudFrontOriginAccessIdentity2014_05_31 = CreateCloudFrontOriginAccessIdentity2014_05_31
+newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
     { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
     } deriving (Eq, Show, Generic)
 
--- | 'CreateCloudFrontOriginAccessIdentity2014_05_31' constructor.
+-- | 'CreateCloudFrontOriginAccessIdentity' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccfoaiCloudFrontOriginAccessIdentityConfig' @::@ 'CloudFrontOriginAccessIdentityConfig'
 --
-createCloudFrontOriginAccessIdentity2014_05_31 :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
-                                               -> CreateCloudFrontOriginAccessIdentity2014_05_31
-createCloudFrontOriginAccessIdentity2014_05_31 p1 = CreateCloudFrontOriginAccessIdentity2014_05_31
+createCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
+                                     -> CreateCloudFrontOriginAccessIdentity
+createCloudFrontOriginAccessIdentity p1 = CreateCloudFrontOriginAccessIdentity
     { _ccfoaiCloudFrontOriginAccessIdentityConfig = p1
     }
 
 -- | The origin access identity's configuration information.
-ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity2014_05_31 CloudFrontOriginAccessIdentityConfig
+ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
 ccfoaiCloudFrontOriginAccessIdentityConfig =
     lens _ccfoaiCloudFrontOriginAccessIdentityConfig
         (\s a -> s { _ccfoaiCloudFrontOriginAccessIdentityConfig = a })
 
-instance ToPath CreateCloudFrontOriginAccessIdentity2014_05_31 where
+instance ToPath CreateCloudFrontOriginAccessIdentity where
     toPath = const "/2014-05-31/origin-access-identity/cloudfront"
 
-instance ToQuery CreateCloudFrontOriginAccessIdentity2014_05_31 where
+instance ToQuery CreateCloudFrontOriginAccessIdentity where
     toQuery = const mempty
 
-instance ToHeaders CreateCloudFrontOriginAccessIdentity2014_05_31
+instance ToHeaders CreateCloudFrontOriginAccessIdentity
 
-instance ToBody CreateCloudFrontOriginAccessIdentity2014_05_31 where
+instance ToBody CreateCloudFrontOriginAccessIdentity where
     toBody = toBody . encodeXML . _ccfoaiCloudFrontOriginAccessIdentityConfig
 
-data CreateCloudFrontOriginAccessIdentity2014_05_31Response = CreateCloudFrontOriginAccessIdentity2014_05_31Response
+data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
     { _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _ccfoairETag                           :: Maybe Text
     , _ccfoairLocation                       :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'CreateCloudFrontOriginAccessIdentity2014_05_31Response' constructor.
+-- | 'CreateCloudFrontOriginAccessIdentityResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -92,36 +92,36 @@ data CreateCloudFrontOriginAccessIdentity2014_05_31Response = CreateCloudFrontOr
 --
 -- * 'ccfoairLocation' @::@ 'Maybe' 'Text'
 --
-createCloudFrontOriginAccessIdentity2014_05_31Response :: CreateCloudFrontOriginAccessIdentity2014_05_31Response
-createCloudFrontOriginAccessIdentity2014_05_31Response = CreateCloudFrontOriginAccessIdentity2014_05_31Response
+createCloudFrontOriginAccessIdentityResponse :: CreateCloudFrontOriginAccessIdentityResponse
+createCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
     { _ccfoairCloudFrontOriginAccessIdentity = Nothing
     , _ccfoairLocation                       = Nothing
     , _ccfoairETag                           = Nothing
     }
 
 -- | The origin access identity's information.
-ccfoairCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentity2014_05_31Response (Maybe CloudFrontOriginAccessIdentity)
+ccfoairCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 ccfoairCloudFrontOriginAccessIdentity =
     lens _ccfoairCloudFrontOriginAccessIdentity
         (\s a -> s { _ccfoairCloudFrontOriginAccessIdentity = a })
 
 -- | The current version of the origin access identity created.
-ccfoairETag :: Lens' CreateCloudFrontOriginAccessIdentity2014_05_31Response (Maybe Text)
+ccfoairETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoairETag = lens _ccfoairETag (\s a -> s { _ccfoairETag = a })
 
 -- | The fully qualified URI of the new origin access identity just created.
 -- For example:
 -- https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A.
 -- 
-ccfoairLocation :: Lens' CreateCloudFrontOriginAccessIdentity2014_05_31Response (Maybe Text)
+ccfoairLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoairLocation = lens _ccfoairLocation (\s a -> s { _ccfoairLocation = a })
 
-instance AWSRequest CreateCloudFrontOriginAccessIdentity2014_05_31 where
-    type Sv CreateCloudFrontOriginAccessIdentity2014_05_31 = CloudFront
-    type Rs CreateCloudFrontOriginAccessIdentity2014_05_31 = CreateCloudFrontOriginAccessIdentity2014_05_31Response
+instance AWSRequest CreateCloudFrontOriginAccessIdentity where
+    type Sv CreateCloudFrontOriginAccessIdentity = CloudFront
+    type Rs CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentityResponse
 
     request  = post
-    response = xmlResponse $ \h x -> CreateCloudFrontOriginAccessIdentity2014_05_31Response
+    response = xmlResponse $ \h x -> CreateCloudFrontOriginAccessIdentityResponse
         <$> x %| "CloudFrontOriginAccessIdentity"
         <*> h ~:? "ETag"
         <*> h ~:? "Location"

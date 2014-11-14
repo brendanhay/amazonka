@@ -50,6 +50,7 @@ module Network.AWS.DirectConnect.DeleteConnection
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 newtype DeleteConnection = DeleteConnection
     { _dcConnectionId :: Text

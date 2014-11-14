@@ -41,6 +41,7 @@ module Network.AWS.CognitoSync.UnsubscribeFromDataset
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types
+import qualified GHC.Exts
 
 data UnsubscribeFromDataset = UnsubscribeFromDataset
     { _ufdDatasetName    :: Text

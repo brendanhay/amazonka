@@ -49,6 +49,7 @@ module Network.AWS.CognitoSync.UpdateRecords
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types
+import qualified GHC.Exts
 
 data UpdateRecords = UpdateRecords
     { _urClientContext    :: Maybe Text

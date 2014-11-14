@@ -47,6 +47,7 @@ module Network.AWS.DynamoDB.DeleteTable
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types
+import qualified GHC.Exts
 
 newtype DeleteTable = DeleteTable
     { _dtTableName :: Text

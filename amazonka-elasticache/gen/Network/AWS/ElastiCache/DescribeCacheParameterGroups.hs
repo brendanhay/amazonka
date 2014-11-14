@@ -132,3 +132,7 @@ instance AWSRequest DescribeCacheParameterGroups where
     response = xmlResponse $ \h x -> DescribeCacheParameterGroupsResponse
         <$> x %| "CacheParameterGroups"
         <*> x %| "Marker"
+
+instance AWSPager DescribeCacheParameterGroups where
+    next rq rs = (\x -> rq & dcpgMarker ?~ x)
+        <$> (rs ^. dcpgrMarker)

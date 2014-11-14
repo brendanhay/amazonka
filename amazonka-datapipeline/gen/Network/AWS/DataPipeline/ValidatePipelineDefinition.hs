@@ -43,6 +43,7 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 data ValidatePipelineDefinition = ValidatePipelineDefinition
     { _vpdPipelineId      :: Text

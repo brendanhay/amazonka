@@ -38,6 +38,7 @@ module Network.AWS.Config.StopConfigurationRecorder
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types
+import qualified GHC.Exts
 
 newtype StopConfigurationRecorder = StopConfigurationRecorder
     { _scrConfigurationRecorderName :: Text

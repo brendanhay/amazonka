@@ -38,6 +38,7 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types
+import qualified GHC.Exts
 
 newtype DeleteIdentityPool = DeleteIdentityPool
     { _dip1IdentityPoolId :: Text

@@ -40,6 +40,7 @@ module Network.AWS.StorageGateway.DeleteTape
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data DeleteTape = DeleteTape
     { _dt1GatewayARN :: Text

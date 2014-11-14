@@ -57,6 +57,7 @@ module Network.AWS.DirectConnect.CreateConnection
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 data CreateConnection = CreateConnection
     { _ccBandwidth      :: Text

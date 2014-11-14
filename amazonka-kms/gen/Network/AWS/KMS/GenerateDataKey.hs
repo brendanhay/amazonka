@@ -46,6 +46,7 @@ module Network.AWS.KMS.GenerateDataKey
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 data GenerateDataKey = GenerateDataKey
     { _gdkEncryptionContext :: Map Text Text

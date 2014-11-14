@@ -153,3 +153,7 @@ instance AWSRequest DescribeClusterVersions where
     response = xmlResponse $ \h x -> DescribeClusterVersionsResponse
         <$> x %| "ClusterVersions"
         <*> x %| "Marker"
+
+instance AWSPager DescribeClusterVersions where
+    next rq rs = (\x -> rq & dcvMarker ?~ x)
+        <$> (rs ^. dcvrMarker)

@@ -37,6 +37,7 @@ module Network.AWS.CodeDeploy.DeleteApplication
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 newtype DeleteApplication = DeleteApplication
     { _daApplicationName :: Text

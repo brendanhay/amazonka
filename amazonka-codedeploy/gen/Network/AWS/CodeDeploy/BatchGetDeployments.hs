@@ -39,6 +39,7 @@ module Network.AWS.CodeDeploy.BatchGetDeployments
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 newtype BatchGetDeployments = BatchGetDeployments
     { _bgdDeploymentIds :: [Text]

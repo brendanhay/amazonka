@@ -53,6 +53,7 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect
     { _acoiBandwidth      :: Text

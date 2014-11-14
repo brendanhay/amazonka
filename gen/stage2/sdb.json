@@ -1954,6 +1954,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SDB.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ldNextToken",
+                    "output": "ldrNextToken"
+                },
+                "type": "next",
+                "resultKey": "ldrDomainNames"
+            },
             "name": "ListDomains",
             "method": "post",
             "documentation": "\u003cp\u003e The \u003ccode\u003eListDomains\u003c/code\u003e operation lists all domains associated with the Access Key ID. It returns domain names up to the limit set by \u003ca href=\"#MaxNumberOfDomains\"\u003eMaxNumberOfDomains\u003c/a\u003e. A \u003ca href=\"#NextToken\"\u003eNextToken\u003c/a\u003e is returned if there are more than \u003ccode\u003eMaxNumberOfDomains\u003c/code\u003e domains. Calling \u003ccode\u003eListDomains\u003c/code\u003e successive times with the \u003ccode\u003eNextToken\u003c/code\u003e provided by the operation returns up to \u003ccode\u003eMaxNumberOfDomains\u003c/code\u003e more domain names with each successive operation call. \u003c/p\u003e",
@@ -2334,6 +2342,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SDB.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "sNextToken",
+                    "output": "srNextToken"
+                },
+                "type": "next",
+                "resultKey": "srItems"
+            },
             "name": "Select",
             "method": "post",
             "documentation": "\u003cp\u003e The \u003ccode\u003eSelect\u003c/code\u003e operation returns a set of attributes for \u003ccode\u003eItemNames\u003c/code\u003e that match the select expression. \u003ccode\u003eSelect\u003c/code\u003e is similar to the standard SQL SELECT statement. \u003c/p\u003e \u003cp\u003e The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate \u003ccode\u003eNextToken\u003c/code\u003e so the client can access the next page of results. \u003c/p\u003e \u003cp\u003e For information on how to construct select expressions, see Using Select to Create Amazon SimpleDB Queries in the Developer Guide. \u003c/p\u003e",

@@ -40,6 +40,7 @@ module Network.AWS.CodeDeploy.ListDeploymentConfigs
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 newtype ListDeploymentConfigs = ListDeploymentConfigs
     { _ldcNextToken :: Maybe Text

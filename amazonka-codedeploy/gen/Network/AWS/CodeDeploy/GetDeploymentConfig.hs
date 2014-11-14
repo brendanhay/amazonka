@@ -39,6 +39,7 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 newtype GetDeploymentConfig = GetDeploymentConfig
     { _gdcDeploymentConfigName :: Text

@@ -40,6 +40,7 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 newtype DeletePipeline = DeletePipeline
     { _dp1Id :: Text

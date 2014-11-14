@@ -144,3 +144,7 @@ instance AWSRequest DescribeClusterParameterGroups where
     response = xmlResponse $ \h x -> DescribeClusterParameterGroupsResponse
         <$> x %| "Marker"
         <*> x %| "ParameterGroups"
+
+instance AWSPager DescribeClusterParameterGroups where
+    next rq rs = (\x -> rq & dcpgMarker ?~ x)
+        <$> (rs ^. dcpgrMarker)

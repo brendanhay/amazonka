@@ -58,6 +58,7 @@ module Network.AWS.ElasticTranscoder.CreatePreset
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 data CreatePreset = CreatePreset
     { _cpAudio       :: Maybe AudioParameters

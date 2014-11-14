@@ -52,6 +52,7 @@ module Network.AWS.KMS.CreateGrant
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 data CreateGrant = CreateGrant
     { _cgConstraints       :: Maybe GrantConstraints

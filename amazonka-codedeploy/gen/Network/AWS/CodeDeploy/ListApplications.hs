@@ -40,6 +40,7 @@ module Network.AWS.CodeDeploy.ListApplications
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types
+import qualified GHC.Exts
 
 newtype ListApplications = ListApplications
     { _laNextToken :: Maybe Text

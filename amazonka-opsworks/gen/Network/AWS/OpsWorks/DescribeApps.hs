@@ -44,6 +44,7 @@ module Network.AWS.OpsWorks.DescribeApps
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data DescribeApps = DescribeApps
     { _daAppIds  :: [Text]

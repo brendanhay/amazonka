@@ -116,3 +116,7 @@ instance AWSRequest DescribeStacks where
     response = xmlResponse $ \h x -> DescribeStacksResponse
         <$> x %| "NextToken"
         <*> x %| "Stacks"
+
+instance AWSPager DescribeStacks where
+    next rq rs = (\x -> rq & ds1NextToken ?~ x)
+        <$> (rs ^. dsrNextToken)

@@ -43,6 +43,7 @@ module Network.AWS.DynamoDB.ListTables
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types
+import qualified GHC.Exts
 
 data ListTables = ListTables
     { _ltExclusiveStartTableName :: Maybe Text

@@ -78,6 +78,7 @@ module Network.AWS.Kinesis.GetRecords
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 data GetRecords = GetRecords
     { _grLimit         :: Maybe Natural

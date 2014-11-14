@@ -44,6 +44,7 @@ module Network.AWS.OpsWorks.DeleteInstance
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data DeleteInstance = DeleteInstance
     { _diDeleteElasticIp :: Maybe Bool

@@ -53,6 +53,7 @@ module Network.AWS.SWF.SignalWorkflowExecution
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data SignalWorkflowExecution = SignalWorkflowExecution
     { _sweDomain     :: Text

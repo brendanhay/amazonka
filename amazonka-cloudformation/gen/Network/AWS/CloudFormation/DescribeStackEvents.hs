@@ -119,3 +119,7 @@ instance AWSRequest DescribeStackEvents where
     response = xmlResponse $ \h x -> DescribeStackEventsResponse
         <$> x %| "NextToken"
         <*> x %| "StackEvents"
+
+instance AWSPager DescribeStackEvents where
+    next rq rs = (\x -> rq & dseNextToken ?~ x)
+        <$> (rs ^. dserNextToken)

@@ -45,6 +45,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 data ListJobsByPipeline = ListJobsByPipeline
     { _ljbpAscending  :: Maybe Text

@@ -38,6 +38,7 @@ module Network.AWS.CloudWatchLogs.DeleteMetricFilter
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 data DeleteMetricFilter = DeleteMetricFilter
     { _dmf1FilterName   :: Text

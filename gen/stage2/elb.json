@@ -5753,6 +5753,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dlbMarker",
+                    "output": "dlbrNextMarker"
+                },
+                "type": "next",
+                "resultKey": "dlbrLoadBalancerDescriptions"
+            },
             "name": "DescribeLoadBalancers",
             "method": "post",
             "documentation": "\u003cp\u003e Returns detailed configuration information for all the load balancers created for the account. If you specify load balancer names, the action returns configuration information of the specified load balancers. \u003c/p\u003e \u003cnote\u003e In order to retrieve this information, you must provide the same account credentials that was used to create the load balancer.\u003c/note\u003e",

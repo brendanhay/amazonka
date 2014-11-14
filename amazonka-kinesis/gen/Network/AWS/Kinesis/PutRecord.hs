@@ -69,6 +69,7 @@ module Network.AWS.Kinesis.PutRecord
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 data PutRecord = PutRecord
     { _prData                      :: Base64

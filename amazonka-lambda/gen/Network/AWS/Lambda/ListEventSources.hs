@@ -46,6 +46,7 @@ module Network.AWS.Lambda.ListEventSources
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Lambda.Types
+import qualified GHC.Exts
 
 data ListEventSources = ListEventSources
     { _lesEventSourceArn :: Maybe Text

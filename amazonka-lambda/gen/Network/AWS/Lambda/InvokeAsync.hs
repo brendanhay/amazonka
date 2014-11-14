@@ -44,6 +44,7 @@ module Network.AWS.Lambda.InvokeAsync
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Lambda.Types
+import qualified GHC.Exts
 
 data InvokeAsync = InvokeAsync
     { _iaFunctionName :: Text

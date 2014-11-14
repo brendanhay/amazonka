@@ -41,6 +41,7 @@ module Network.AWS.OpsWorks.StartInstance
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 newtype StartInstance = StartInstance
     { _si1InstanceId :: Text

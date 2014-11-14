@@ -22,18 +22,18 @@
 module Network.AWS.CloudFront.UpdateDistribution
     (
     -- * Request
-      UpdateDistribution2014_05_31
+      UpdateDistribution
     -- ** Request constructor
-    , updateDistribution2014_05_31
+    , updateDistribution
     -- ** Request lenses
     , udDistributionConfig
     , udId
     , udIfMatch
 
     -- * Response
-    , UpdateDistribution2014_05_31Response
+    , UpdateDistributionResponse
     -- ** Response constructor
-    , updateDistribution2014_05_31Response
+    , updateDistributionResponse
     -- ** Response lenses
     , udrDistribution
     , udrETag
@@ -44,13 +44,13 @@ import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
-data UpdateDistribution2014_05_31 = UpdateDistribution2014_05_31
+data UpdateDistribution = UpdateDistribution
     { _udDistributionConfig :: DistributionConfig
     , _udId                 :: Text
     , _udIfMatch            :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'UpdateDistribution2014_05_31' constructor.
+-- | 'UpdateDistribution' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -60,53 +60,53 @@ data UpdateDistribution2014_05_31 = UpdateDistribution2014_05_31
 --
 -- * 'udIfMatch' @::@ 'Maybe' 'Text'
 --
-updateDistribution2014_05_31 :: DistributionConfig -- ^ 'udDistributionConfig'
-                             -> Text -- ^ 'udId'
-                             -> UpdateDistribution2014_05_31
-updateDistribution2014_05_31 p1 p2 = UpdateDistribution2014_05_31
+updateDistribution :: DistributionConfig -- ^ 'udDistributionConfig'
+                   -> Text -- ^ 'udId'
+                   -> UpdateDistribution
+updateDistribution p1 p2 = UpdateDistribution
     { _udDistributionConfig = p1
     , _udId                 = p2
     , _udIfMatch            = Nothing
     }
 
 -- | The distribution's configuration information.
-udDistributionConfig :: Lens' UpdateDistribution2014_05_31 DistributionConfig
+udDistributionConfig :: Lens' UpdateDistribution DistributionConfig
 udDistributionConfig =
     lens _udDistributionConfig (\s a -> s { _udDistributionConfig = a })
 
 -- | The distribution's id.
-udId :: Lens' UpdateDistribution2014_05_31 Text
+udId :: Lens' UpdateDistribution Text
 udId = lens _udId (\s a -> s { _udId = a })
 
 -- | The value of the ETag header you received when retrieving the
 -- distribution's configuration. For example: E2QWRUHAPOMQZL.
-udIfMatch :: Lens' UpdateDistribution2014_05_31 (Maybe Text)
+udIfMatch :: Lens' UpdateDistribution (Maybe Text)
 udIfMatch = lens _udIfMatch (\s a -> s { _udIfMatch = a })
 
-instance ToPath UpdateDistribution2014_05_31 where
-    toPath UpdateDistribution2014_05_31{..} = mconcat
+instance ToPath UpdateDistribution where
+    toPath UpdateDistribution{..} = mconcat
         [ "/2014-05-31/distribution/"
         , toText _udId
         , "/config"
         ]
 
-instance ToQuery UpdateDistribution2014_05_31 where
+instance ToQuery UpdateDistribution where
     toQuery = const mempty
 
-instance ToHeaders UpdateDistribution2014_05_31 where
-    toHeaders UpdateDistribution2014_05_31{..} = mconcat
+instance ToHeaders UpdateDistribution where
+    toHeaders UpdateDistribution{..} = mconcat
         [ "If-Match" =: _udIfMatch
         ]
 
-instance ToBody UpdateDistribution2014_05_31 where
+instance ToBody UpdateDistribution where
     toBody = toBody . encodeXML . _udDistributionConfig
 
-data UpdateDistribution2014_05_31Response = UpdateDistribution2014_05_31Response
+data UpdateDistributionResponse = UpdateDistributionResponse
     { _udrDistribution :: Maybe Distribution
     , _udrETag         :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'UpdateDistribution2014_05_31Response' constructor.
+-- | 'UpdateDistributionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -114,25 +114,25 @@ data UpdateDistribution2014_05_31Response = UpdateDistribution2014_05_31Response
 --
 -- * 'udrETag' @::@ 'Maybe' 'Text'
 --
-updateDistribution2014_05_31Response :: UpdateDistribution2014_05_31Response
-updateDistribution2014_05_31Response = UpdateDistribution2014_05_31Response
+updateDistributionResponse :: UpdateDistributionResponse
+updateDistributionResponse = UpdateDistributionResponse
     { _udrDistribution = Nothing
     , _udrETag         = Nothing
     }
 
 -- | The distribution's information.
-udrDistribution :: Lens' UpdateDistribution2014_05_31Response (Maybe Distribution)
+udrDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
 udrDistribution = lens _udrDistribution (\s a -> s { _udrDistribution = a })
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-udrETag :: Lens' UpdateDistribution2014_05_31Response (Maybe Text)
+udrETag :: Lens' UpdateDistributionResponse (Maybe Text)
 udrETag = lens _udrETag (\s a -> s { _udrETag = a })
 
-instance AWSRequest UpdateDistribution2014_05_31 where
-    type Sv UpdateDistribution2014_05_31 = CloudFront
-    type Rs UpdateDistribution2014_05_31 = UpdateDistribution2014_05_31Response
+instance AWSRequest UpdateDistribution where
+    type Sv UpdateDistribution = CloudFront
+    type Rs UpdateDistribution = UpdateDistributionResponse
 
     request  = put
-    response = xmlResponse $ \h x -> UpdateDistribution2014_05_31Response
+    response = xmlResponse $ \h x -> UpdateDistributionResponse
         <$> x %| "Distribution"
         <*> h ~:? "ETag"

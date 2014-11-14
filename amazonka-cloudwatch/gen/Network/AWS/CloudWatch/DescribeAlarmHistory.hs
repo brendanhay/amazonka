@@ -153,3 +153,7 @@ instance AWSRequest DescribeAlarmHistory where
     response = xmlResponse $ \h x -> DescribeAlarmHistoryResponse
         <$> x %| "AlarmHistoryItems"
         <*> x %| "NextToken"
+
+instance AWSPager DescribeAlarmHistory where
+    next rq rs = (\x -> rq & dahNextToken ?~ x)
+        <$> (rs ^. dahrNextToken)

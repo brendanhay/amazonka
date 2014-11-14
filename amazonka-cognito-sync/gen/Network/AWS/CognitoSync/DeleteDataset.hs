@@ -44,6 +44,7 @@ module Network.AWS.CognitoSync.DeleteDataset
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types
+import qualified GHC.Exts
 
 data DeleteDataset = DeleteDataset
     { _dd1DatasetName    :: Text

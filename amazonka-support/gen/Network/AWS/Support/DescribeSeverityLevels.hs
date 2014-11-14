@@ -41,6 +41,7 @@ module Network.AWS.Support.DescribeSeverityLevels
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 newtype DescribeSeverityLevels = DescribeSeverityLevels
     { _dslLanguage :: Maybe Text

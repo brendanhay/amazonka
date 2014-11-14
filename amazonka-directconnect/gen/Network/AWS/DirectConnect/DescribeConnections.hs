@@ -40,6 +40,7 @@ module Network.AWS.DirectConnect.DescribeConnections
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 newtype DescribeConnections = DescribeConnections
     { _dc1ConnectionId :: Maybe Text

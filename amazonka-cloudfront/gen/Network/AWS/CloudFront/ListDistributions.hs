@@ -22,17 +22,17 @@
 module Network.AWS.CloudFront.ListDistributions
     (
     -- * Request
-      ListDistributions2014_05_31
+      ListDistributions
     -- ** Request constructor
-    , listDistributions2014_05_31
+    , listDistributions
     -- ** Request lenses
     , ldMarker
     , ldMaxItems
 
     -- * Response
-    , ListDistributions2014_05_31Response
+    , ListDistributionsResponse
     -- ** Response constructor
-    , listDistributions2014_05_31Response
+    , listDistributionsResponse
     -- ** Response lenses
     , ldrDistributionList
     ) where
@@ -42,12 +42,12 @@ import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
-data ListDistributions2014_05_31 = ListDistributions2014_05_31
+data ListDistributions = ListDistributions
     { _ldMarker   :: Maybe Text
     , _ldMaxItems :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ListDistributions2014_05_31' constructor.
+-- | 'ListDistributions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -55,8 +55,8 @@ data ListDistributions2014_05_31 = ListDistributions2014_05_31
 --
 -- * 'ldMaxItems' @::@ 'Maybe' 'Text'
 --
-listDistributions2014_05_31 :: ListDistributions2014_05_31
-listDistributions2014_05_31 = ListDistributions2014_05_31
+listDistributions :: ListDistributions
+listDistributions = ListDistributions
     { _ldMarker   = Nothing
     , _ldMaxItems = Nothing
     }
@@ -66,48 +66,48 @@ listDistributions2014_05_31 = ListDistributions2014_05_31
 -- occur after the marker. To get the next page of results, set the Marker
 -- to the value of the NextMarker from the current page's response (which is
 -- also the ID of the last distribution on that page).
-ldMarker :: Lens' ListDistributions2014_05_31 (Maybe Text)
+ldMarker :: Lens' ListDistributions (Maybe Text)
 ldMarker = lens _ldMarker (\s a -> s { _ldMarker = a })
 
 -- | The maximum number of distributions you want in the response body.
-ldMaxItems :: Lens' ListDistributions2014_05_31 (Maybe Text)
+ldMaxItems :: Lens' ListDistributions (Maybe Text)
 ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
 
-instance ToPath ListDistributions2014_05_31 where
+instance ToPath ListDistributions where
     toPath = const "/2014-05-31/distribution"
 
-instance ToQuery ListDistributions2014_05_31 where
-    toQuery ListDistributions2014_05_31{..} = mconcat
+instance ToQuery ListDistributions where
+    toQuery ListDistributions{..} = mconcat
         [ "Marker"   =? _ldMarker
         , "MaxItems" =? _ldMaxItems
         ]
 
-instance ToHeaders ListDistributions2014_05_31
+instance ToHeaders ListDistributions
 
-newtype ListDistributions2014_05_31Response = ListDistributions2014_05_31Response
+newtype ListDistributionsResponse = ListDistributionsResponse
     { _ldrDistributionList :: Maybe DistributionList
     } deriving (Eq, Show, Generic)
 
--- | 'ListDistributions2014_05_31Response' constructor.
+-- | 'ListDistributionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldrDistributionList' @::@ 'Maybe' 'DistributionList'
 --
-listDistributions2014_05_31Response :: ListDistributions2014_05_31Response
-listDistributions2014_05_31Response = ListDistributions2014_05_31Response
+listDistributionsResponse :: ListDistributionsResponse
+listDistributionsResponse = ListDistributionsResponse
     { _ldrDistributionList = Nothing
     }
 
 -- | The DistributionList type.
-ldrDistributionList :: Lens' ListDistributions2014_05_31Response (Maybe DistributionList)
+ldrDistributionList :: Lens' ListDistributionsResponse (Maybe DistributionList)
 ldrDistributionList =
     lens _ldrDistributionList (\s a -> s { _ldrDistributionList = a })
 
-instance AWSRequest ListDistributions2014_05_31 where
-    type Sv ListDistributions2014_05_31 = CloudFront
-    type Rs ListDistributions2014_05_31 = ListDistributions2014_05_31Response
+instance AWSRequest ListDistributions where
+    type Sv ListDistributions = CloudFront
+    type Rs ListDistributions = ListDistributionsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListDistributions2014_05_31Response
+    response = xmlResponse $ \h x -> ListDistributionsResponse
         <$> x %| "DistributionList"

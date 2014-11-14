@@ -177,3 +177,7 @@ instance AWSRequest DescribeVolumeStatus where
     response = xmlResponse $ \h x -> DescribeVolumeStatusResponse
         <$> x %| "nextToken"
         <*> x %| "volumeStatusSet"
+
+instance AWSPager DescribeVolumeStatus where
+    next rq rs = (\x -> rq & dvsNextToken ?~ x)
+        <$> (rs ^. dvsrNextToken)

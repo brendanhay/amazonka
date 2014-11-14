@@ -59,6 +59,7 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions
     { _ccweCloseStatusFilter :: Maybe CloseStatusFilter

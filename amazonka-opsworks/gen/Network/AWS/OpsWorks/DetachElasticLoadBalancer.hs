@@ -42,6 +42,7 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer
     { _delbElasticLoadBalancerName :: Text

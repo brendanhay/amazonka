@@ -141,3 +141,7 @@ instance AWSRequest DescribeClusters where
     response = xmlResponse $ \h x -> DescribeClustersResponse
         <$> x %| "Clusters"
         <*> x %| "Marker"
+
+instance AWSPager DescribeClusters where
+    next rq rs = (\x -> rq & dcMarker ?~ x)
+        <$> (rs ^. dcrMarker)

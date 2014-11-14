@@ -37,6 +37,7 @@ module Network.AWS.ElasticTranscoder.CancelJob
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 newtype CancelJob = CancelJob
     { _cjId :: Text

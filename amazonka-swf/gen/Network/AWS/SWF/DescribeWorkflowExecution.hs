@@ -53,6 +53,7 @@ module Network.AWS.SWF.DescribeWorkflowExecution
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data DescribeWorkflowExecution = DescribeWorkflowExecution
     { _dweDomain    :: Text

@@ -48,6 +48,7 @@ module Network.AWS.KMS.ReEncrypt
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 data ReEncrypt = ReEncrypt
     { _reCiphertextBlob               :: Base64

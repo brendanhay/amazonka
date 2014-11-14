@@ -43,6 +43,7 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data UpdateGatewayInformation = UpdateGatewayInformation
     { _ugiGatewayARN      :: Text

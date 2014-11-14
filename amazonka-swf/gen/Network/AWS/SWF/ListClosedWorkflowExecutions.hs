@@ -64,6 +64,7 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
     { _lcweCloseStatusFilter :: Maybe CloseStatusFilter

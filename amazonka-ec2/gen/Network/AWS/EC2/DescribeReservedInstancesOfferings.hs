@@ -254,3 +254,7 @@ instance AWSRequest DescribeReservedInstancesOfferings where
     response = xmlResponse $ \h x -> DescribeReservedInstancesOfferingsResponse
         <$> x %| "nextToken"
         <*> x %| "reservedInstancesOfferingsSet"
+
+instance AWSPager DescribeReservedInstancesOfferings where
+    next rq rs = (\x -> rq & drioNextToken ?~ x)
+        <$> (rs ^. driorNextToken)

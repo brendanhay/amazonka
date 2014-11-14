@@ -52,6 +52,7 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 data PutLogEvents = PutLogEvents
     { _pleLogEvents     :: List1 InputLogEvent

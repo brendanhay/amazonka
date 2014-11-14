@@ -46,6 +46,7 @@ module Network.AWS.Support.RefreshTrustedAdvisorCheck
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
     { _rtacCheckId :: Text

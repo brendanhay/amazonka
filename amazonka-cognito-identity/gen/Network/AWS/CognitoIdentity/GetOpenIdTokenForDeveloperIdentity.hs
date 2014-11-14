@@ -55,6 +55,7 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types
+import qualified GHC.Exts
 
 data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity
     { _goitfdiIdentityId     :: Maybe Text

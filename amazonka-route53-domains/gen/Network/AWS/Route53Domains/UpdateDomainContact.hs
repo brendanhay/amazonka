@@ -47,6 +47,7 @@ module Network.AWS.Route53Domains.UpdateDomainContact
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types
+import qualified GHC.Exts
 
 data UpdateDomainContact = UpdateDomainContact
     { _udcAdminContact      :: Maybe ContactDetail

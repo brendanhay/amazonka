@@ -57,6 +57,7 @@ module Network.AWS.OpsWorks.CreateInstance
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data CreateInstance = CreateInstance
     { _ciAmiId                :: Maybe Text

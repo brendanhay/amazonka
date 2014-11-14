@@ -124,3 +124,7 @@ instance AWSRequest ListIdentities where
     response = xmlResponse $ \h x -> ListIdentitiesResponse
         <$> x %| "Identities"
         <*> x %| "NextToken"
+
+instance AWSPager ListIdentities where
+    next rq rs = (\x -> rq & liNextToken ?~ x)
+        <$> (rs ^. lirNextToken)

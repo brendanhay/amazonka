@@ -44,6 +44,7 @@ module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types
+import qualified GHC.Exts
 
 data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity
     { _udiDeveloperProviderName   :: Text

@@ -41,6 +41,7 @@ module Network.AWS.Support.ResolveCase
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 newtype ResolveCase = ResolveCase
     { _rcCaseId :: Maybe Text

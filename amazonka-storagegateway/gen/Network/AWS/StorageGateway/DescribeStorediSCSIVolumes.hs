@@ -42,6 +42,7 @@ module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
     { _dsscsivVolumeARNs :: [Text]

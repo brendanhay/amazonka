@@ -40,6 +40,7 @@ module Network.AWS.OpsWorks.DescribeRdsDbInstances
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data DescribeRdsDbInstances = DescribeRdsDbInstances
     { _drdiRdsDbInstanceArns :: [Text]

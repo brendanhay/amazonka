@@ -49,6 +49,7 @@ module Network.AWS.OpsWorks.UpdateApp
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data UpdateApp = UpdateApp
     { _uaAppId            :: Text

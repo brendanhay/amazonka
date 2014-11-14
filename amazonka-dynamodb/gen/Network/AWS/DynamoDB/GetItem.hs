@@ -51,6 +51,7 @@ module Network.AWS.DynamoDB.GetItem
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types
+import qualified GHC.Exts
 
 data GetItem = GetItem
     { _giAttributesToGet          :: List1 Text

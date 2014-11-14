@@ -42,6 +42,7 @@ module Network.AWS.CloudWatchLogs.CreateLogGroup
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 newtype CreateLogGroup = CreateLogGroup
     { _clgLogGroupName :: Text

@@ -53,6 +53,7 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types
+import qualified GHC.Exts
 
 data LookupDeveloperIdentity = LookupDeveloperIdentity
     { _ldiDeveloperUserIdentifier :: Maybe Text

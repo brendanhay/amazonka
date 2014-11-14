@@ -15758,6 +15758,21 @@
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
             ],
+            "pager": {
+                "more": "lmurIsTruncated",
+                "tokens": {
+                    "p1": {
+                        "input": "lmuKeyMarker",
+                        "output": "lmurNextKeyMarker"
+                    },
+                    "p2": {
+                        "input": "lmuUploadIdMarker",
+                        "output": "lmurNextUploadIdMarker"
+                    }
+                },
+                "negate": "isNothing p1 && isNothing p2",
+                "type": "many"
+            },
             "name": "ListMultipartUploads",
             "method": "get",
             "documentation": "This operation lists in-progress multipart uploads.",
@@ -16435,6 +16450,21 @@
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
             ],
+            "pager": {
+                "more": "lovrIsTruncated",
+                "tokens": {
+                    "p1": {
+                        "input": "lovKeyMarker",
+                        "output": "lovrNextKeyMarker"
+                    },
+                    "p2": {
+                        "input": "lovVersionIdMarker",
+                        "output": "lovrNextVersionIdMarker"
+                    }
+                },
+                "negate": "isNothing p1 && isNothing p2",
+                "type": "many"
+            },
             "name": "ListObjectVersions",
             "method": "get",
             "documentation": "Returns metadata about all of the versions of objects in a bucket.",
@@ -17028,6 +17058,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
             ],
+            "pager": {
+                "more": "lorIsTruncated",
+                "token": {
+                    "input": "loMarker",
+                    "output": "lorNextMarker"
+                },
+                "type": "one"
+            },
             "name": "ListObjects",
             "method": "get",
             "documentation": "Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.",
@@ -17612,6 +17650,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.S3.Types"
             ],
+            "pager": {
+                "more": "lprIsTruncated",
+                "token": {
+                    "input": "lpPartNumberMarker",
+                    "output": "lprNextPartNumberMarker"
+                },
+                "type": "one"
+            },
             "name": "ListParts",
             "method": "get",
             "documentation": "Lists the parts that have been uploaded for a specific multipart upload.",

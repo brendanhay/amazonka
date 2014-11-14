@@ -57,6 +57,7 @@ module Network.AWS.SWF.RespondActivityTaskCanceled
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled
     { _ratc1Details   :: Maybe Text

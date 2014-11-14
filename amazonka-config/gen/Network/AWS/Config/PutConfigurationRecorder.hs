@@ -40,6 +40,7 @@ module Network.AWS.Config.PutConfigurationRecorder
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types
+import qualified GHC.Exts
 
 newtype PutConfigurationRecorder = PutConfigurationRecorder
     { _pcrConfigurationRecorder :: ConfigurationRecorder

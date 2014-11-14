@@ -50,6 +50,7 @@ module Network.AWS.Config.GetResourceConfigHistory
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types
+import qualified GHC.Exts
 
 data GetResourceConfigHistory = GetResourceConfigHistory
     { _grchChronologicalOrder :: Maybe Text

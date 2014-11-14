@@ -136,3 +136,7 @@ instance AWSRequest Select where
     response = xmlResponse $ \h x -> SelectResponse
         <$> x %| "Items"
         <*> x %| "NextToken"
+
+instance AWSPager Select where
+    next rq rs = (\x -> rq & sNextToken ?~ x)
+        <$> (rs ^. srNextToken)

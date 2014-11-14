@@ -42,6 +42,7 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 data GetPipelineDefinition = GetPipelineDefinition
     { _gpdPipelineId :: Text

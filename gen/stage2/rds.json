@@ -12624,6 +12624,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ddbevMarker",
+                    "output": "ddbevrMarker"
+                },
+                "type": "next",
+                "resultKey": "ddbevrDBEngineVersions"
+            },
             "name": "DescribeDBEngineVersions",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of the available DB engines. \u003c/p\u003e",
@@ -13007,6 +13015,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ddbi1Marker",
+                    "output": "ddbirMarker"
+                },
+                "type": "next",
+                "resultKey": "ddbirDBInstances"
+            },
             "name": "DescribeDBInstances",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about provisioned RDS instances. This API supports pagination. \u003c/p\u003e",
@@ -13258,6 +13274,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ddblfMarker",
+                    "output": "ddblfrMarker"
+                },
+                "type": "next",
+                "resultKey": "ddblfrDescribeDBLogFiles"
+            },
             "name": "DescribeDBLogFiles",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of DB log files for the DB instance. \u003c/p\u003e",
@@ -13609,6 +13633,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ddbpgMarker",
+                    "output": "ddbpgrMarker"
+                },
+                "type": "next",
+                "resultKey": "ddbpgrDBParameterGroups"
+            },
             "name": "DescribeDBParameterGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of \u003ccode\u003eDBParameterGroup\u003c/code\u003e descriptions. If a \u003ccode\u003eDBParameterGroupName\u003c/code\u003e is specified, the list will contain only the description of the specified DB parameter group. \u003c/p\u003e",
@@ -13860,6 +13892,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ddbpMarker",
+                    "output": "ddbprMarker"
+                },
+                "type": "next",
+                "resultKey": "ddbprParameters"
+            },
             "name": "DescribeDBParameters",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the detailed parameter list for a particular DB parameter group. \u003c/p\u003e",
@@ -14145,6 +14185,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ddbsg1Marker",
+                    "output": "ddbsgr1Marker"
+                },
+                "type": "next",
+                "resultKey": "ddbsgr1DBSecurityGroups"
+            },
             "name": "DescribeDBSecurityGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of \u003ccode\u003eDBSecurityGroup\u003c/code\u003e descriptions. If a \u003ccode\u003eDBSecurityGroupName\u003c/code\u003e is specified, the list will contain only the descriptions of the specified DB security group. \u003c/p\u003e",
@@ -14396,6 +14444,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ddbsMarker",
+                    "output": "ddbsrMarker"
+                },
+                "type": "next",
+                "resultKey": "ddbsrDBSnapshots"
+            },
             "name": "DescribeDBSnapshots",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about DB snapshots. This API supports pagination. \u003c/p\u003e",
@@ -14713,6 +14769,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ddbsgMarker",
+                    "output": "ddbsgrMarker"
+                },
+                "type": "next",
+                "resultKey": "ddbsgrDBSubnetGroups"
+            },
             "name": "DescribeDBSubnetGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup. \u003c/p\u003e \u003cp\u003eFor an overview of CIDR ranges, go to the \u003ca href=\"http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\"\u003eWikipedia Tutorial\u003c/a\u003e. \u003c/p\u003e",
@@ -14951,6 +15015,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dedpMarker",
+                    "output": "dedprEngineDefaults . edMarker"
+                },
+                "type": "next",
+                "resultKey": "dedprEngineDefaults . edParameters"
+            },
             "name": "DescribeEngineDefaultParameters",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the default engine and system parameter information for the specified database engine. \u003c/p\u003e",
@@ -15377,6 +15449,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "des1Marker",
+                    "output": "desrMarker"
+                },
+                "type": "next",
+                "resultKey": "desrEventSubscriptionsList"
+            },
             "name": "DescribeEventSubscriptions",
             "method": "post",
             "documentation": "\u003cp\u003eLists all the subscription descriptions for a customer account. The description for a subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID, CreationTime, and Status. \u003c/p\u003e \u003cp\u003eIf you specify a SubscriptionName, lists the description for that subscription.\u003c/p\u003e",
@@ -15628,6 +15708,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "deMarker",
+                    "output": "derMarker"
+                },
+                "type": "next",
+                "resultKey": "derEvents"
+            },
             "name": "DescribeEvents",
             "method": "post",
             "documentation": "\u003cp\u003e Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter groups for the past 14 days. Events specific to a particular DB instance, DB security group, database snapshot, or DB parameter group can be obtained by providing the name as a parameter. By default, the past hour of events are returned. \u003c/p\u003e",
@@ -16044,6 +16132,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dogoMarker",
+                    "output": "dogorMarker"
+                },
+                "type": "next",
+                "resultKey": "dogorOptionGroupOptions"
+            },
             "name": "DescribeOptionGroupOptions",
             "method": "post",
             "documentation": "\u003cp\u003e Describes all available options. \u003c/p\u003e",
@@ -16329,6 +16425,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dogMarker",
+                    "output": "dogrMarker"
+                },
+                "type": "next",
+                "resultKey": "dogrOptionGroupsList"
+            },
             "name": "DescribeOptionGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Describes the available option groups. \u003c/p\u003e",
@@ -16646,6 +16750,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dodbioMarker",
+                    "output": "dodbiorMarker"
+                },
+                "type": "next",
+                "resultKey": "dodbiorOrderableDBInstanceOptions"
+            },
             "name": "DescribeOrderableDBInstanceOptions",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of orderable DB instance options for the specified engine. \u003c/p\u003e",
@@ -17030,6 +17142,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "drdbiMarker",
+                    "output": "drdbirMarker"
+                },
+                "type": "next",
+                "resultKey": "drdbirReservedDBInstances"
+            },
             "name": "DescribeReservedDBInstances",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about reserved DB instances for this account, or about a specified reserved DB instance. \u003c/p\u003e",
@@ -17479,6 +17599,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "drdbioMarker",
+                    "output": "drdbiorMarker"
+                },
+                "type": "next",
+                "resultKey": "drdbiorReservedDBInstancesOfferings"
+            },
             "name": "DescribeReservedDBInstancesOfferings",
             "method": "post",
             "documentation": "\u003cp\u003e Lists available reserved DB instance offerings. \u003c/p\u003e",
@@ -17924,6 +18052,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": {
+                "more": "ddblfprAdditionalDataPending",
+                "token": {
+                    "input": "ddblfpMarker",
+                    "output": "ddblfprMarker"
+                },
+                "type": "one"
+            },
             "name": "DownloadDBLogFilePortion",
             "method": "post",
             "documentation": "\u003cp\u003e Downloads all or a portion of the specified log file. \u003c/p\u003e",

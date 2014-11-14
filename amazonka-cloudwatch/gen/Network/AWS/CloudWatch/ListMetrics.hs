@@ -131,3 +131,7 @@ instance AWSRequest ListMetrics where
     response = xmlResponse $ \h x -> ListMetricsResponse
         <$> x %| "Metrics"
         <*> x %| "NextToken"
+
+instance AWSPager ListMetrics where
+    next rq rs = (\x -> rq & lmNextToken ?~ x)
+        <$> (rs ^. lmrNextToken)

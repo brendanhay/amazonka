@@ -42,6 +42,7 @@ module Network.AWS.CognitoIdentity.GetId
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types
+import qualified GHC.Exts
 
 data GetId = GetId
     { _giAccountId      :: Text

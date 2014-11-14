@@ -2622,6 +2622,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SNS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lebpaNextToken",
+                    "output": "lebparNextToken"
+                },
+                "type": "next",
+                "resultKey": "lebparEndpoints"
+            },
             "name": "ListEndpointsByPlatformApplication",
             "method": "post",
             "documentation": "\u003cp\u003eLists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for \u003ccode\u003eListEndpointsByPlatformApplication\u003c/code\u003e are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call \u003ccode\u003eListEndpointsByPlatformApplication\u003c/code\u003e again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e",
@@ -2809,6 +2817,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SNS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lpaNextToken",
+                    "output": "lparNextToken"
+                },
+                "type": "next",
+                "resultKey": "lparPlatformApplications"
+            },
             "name": "ListPlatformApplications",
             "method": "post",
             "documentation": "\u003cp\u003eLists the platform application objects for the supported push notification services, such as APNS and GCM. The results for \u003ccode\u003eListPlatformApplications\u003c/code\u003e are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call \u003ccode\u003eListPlatformApplications\u003c/code\u003e using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e",
@@ -2978,6 +2994,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SNS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lsNextToken",
+                    "output": "lsrNextToken"
+                },
+                "type": "next",
+                "resultKey": "lsrSubscriptions"
+            },
             "name": "ListSubscriptions",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list of the requester's subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a \u003ccode\u003eNextToken\u003c/code\u003e is also returned. Use the \u003ccode\u003eNextToken\u003c/code\u003e parameter in a new \u003ccode\u003eListSubscriptions\u003c/code\u003e call to get further results.\u003c/p\u003e",
@@ -3147,6 +3171,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SNS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lsbtNextToken",
+                    "output": "lsbtrNextToken"
+                },
+                "type": "next",
+                "resultKey": "lsbtrSubscriptions"
+            },
             "name": "ListSubscriptionsByTopic",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list of the subscriptions to a specific topic. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a \u003ccode\u003eNextToken\u003c/code\u003e is also returned. Use the \u003ccode\u003eNextToken\u003c/code\u003e parameter in a new \u003ccode\u003eListSubscriptionsByTopic\u003c/code\u003e call to get further results.\u003c/p\u003e",
@@ -3334,6 +3366,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SNS.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ltNextToken",
+                    "output": "ltrNextToken"
+                },
+                "type": "next",
+                "resultKey": "ltrTopics"
+            },
             "name": "ListTopics",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If there are more topics, a \u003ccode\u003eNextToken\u003c/code\u003e is also returned. Use the \u003ccode\u003eNextToken\u003c/code\u003e parameter in a new \u003ccode\u003eListTopics\u003c/code\u003e call to get further results.\u003c/p\u003e",

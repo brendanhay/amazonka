@@ -65,6 +65,7 @@ module Network.AWS.Route53Domains.TransferDomain
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types
+import qualified GHC.Exts
 
 data TransferDomain = TransferDomain
     { _tdAdminContact                    :: ContactDetail

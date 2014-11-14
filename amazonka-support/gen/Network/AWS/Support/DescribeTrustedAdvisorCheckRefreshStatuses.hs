@@ -41,6 +41,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses
     { _dtacrsCheckIds :: [Text]

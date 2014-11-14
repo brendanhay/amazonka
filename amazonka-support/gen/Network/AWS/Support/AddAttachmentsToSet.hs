@@ -49,6 +49,7 @@ module Network.AWS.Support.AddAttachmentsToSet
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types
+import qualified GHC.Exts
 
 data AddAttachmentsToSet = AddAttachmentsToSet
     { _aatsAttachmentSetId :: Maybe Text

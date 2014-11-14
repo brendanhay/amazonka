@@ -184,3 +184,7 @@ instance AWSRequest DescribeOrderableDBInstanceOptions where
     response = xmlResponse $ \h x -> DescribeOrderableDBInstanceOptionsResponse
         <$> x %| "Marker"
         <*> x %| "OrderableDBInstanceOptions"
+
+instance AWSPager DescribeOrderableDBInstanceOptions where
+    next rq rs = (\x -> rq & dodbioMarker ?~ x)
+        <$> (rs ^. dodbiorMarker)

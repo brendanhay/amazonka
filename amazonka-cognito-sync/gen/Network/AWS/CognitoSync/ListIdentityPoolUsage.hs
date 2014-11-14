@@ -43,6 +43,7 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types
+import qualified GHC.Exts
 
 data ListIdentityPoolUsage = ListIdentityPoolUsage
     { _lipuMaxResults :: Maybe Int

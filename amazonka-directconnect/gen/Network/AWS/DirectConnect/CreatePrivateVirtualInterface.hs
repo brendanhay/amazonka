@@ -56,6 +56,7 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface
     { _cpvi1ConnectionId               :: Text

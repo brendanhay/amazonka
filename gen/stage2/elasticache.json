@@ -8903,6 +8903,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcc1Marker",
+                    "output": "dccrMarker"
+                },
+                "type": "next",
+                "resultKey": "dccrCacheClusters"
+            },
             "name": "DescribeCacheClusters",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheClusters\u003c/i\u003e operation returns information about all provisioned cache clusters if no cache cluster identifier is specified, or about a specific cache cluster if a cache cluster identifier is supplied.\u003c/p\u003e \u003cp\u003eBy default, abbreviated information about the cache clusters(s) will be returned. You can use the optional \u003ci\u003eShowDetails\u003c/i\u003e flag to retrieve detailed information about the cache nodes associated with the cache clusters. These details include the DNS address and port for the cache node endpoint.\u003c/p\u003e \u003cp\u003eIf the cluster is in the CREATING state, only cluster level information will be displayed until all of the nodes are successfully provisioned.\u003c/p\u003e \u003cp\u003eIf the cluster is in the DELETING state, only cluster level information will be displayed.\u003c/p\u003e \u003cp\u003eIf cache nodes are currently being added to the cache cluster, node endpoint information and creation time for the additional nodes will not be displayed until they are completely provisioned. When the cache cluster state is \u003ci\u003eavailable\u003c/i\u003e, the cluster is ready for use.\u003c/p\u003e \u003cp\u003eIf cache nodes are currently being removed from the cache cluster, no endpoint information for the removed nodes is displayed.\u003c/p\u003e",
@@ -9155,6 +9163,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcevMarker",
+                    "output": "dcevrMarker"
+                },
+                "type": "next",
+                "resultKey": "dcevrCacheEngineVersions"
+            },
             "name": "DescribeCacheEngineVersions",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheEngineVersions\u003c/i\u003e operation returns a list of the available cache engines and their versions.\u003c/p\u003e",
@@ -9473,6 +9489,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcpgMarker",
+                    "output": "dcpgrMarker"
+                },
+                "type": "next",
+                "resultKey": "dcpgrCacheParameterGroups"
+            },
             "name": "DescribeCacheParameterGroups",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheParameterGroups\u003c/i\u003e operation returns a list of cache parameter group descriptions. If a cache parameter group name is specified, the list will contain only the descriptions for that group.\u003c/p\u003e",
@@ -9720,6 +9744,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcpMarker",
+                    "output": "dcprMarker"
+                },
+                "type": "next",
+                "resultKey": "dcprParameters"
+            },
             "name": "DescribeCacheParameters",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheParameters\u003c/i\u003e operation returns the detailed parameter list for a particular cache parameter group.\u003c/p\u003e",
@@ -9973,6 +10005,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcsg1Marker",
+                    "output": "dcsgr1Marker"
+                },
+                "type": "next",
+                "resultKey": "dcsgr1CacheSecurityGroups"
+            },
             "name": "DescribeCacheSecurityGroups",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheSecurityGroups\u003c/i\u003e operation returns a list of cache security group descriptions. If a cache security group name is specified, the list will contain only the description of that group.\u003c/p\u003e",
@@ -10192,6 +10232,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dcsgMarker",
+                    "output": "dcsgrMarker"
+                },
+                "type": "next",
+                "resultKey": "dcsgrCacheSubnetGroups"
+            },
             "name": "DescribeCacheSubnetGroups",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheSubnetGroups\u003c/i\u003e operation returns a list of cache subnet group descriptions. If a subnet group name is specified, the list will contain only the description of that group.\u003c/p\u003e",
@@ -10398,6 +10446,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dedpMarker",
+                    "output": "dedprEngineDefaults . edMarker"
+                },
+                "type": "next",
+                "resultKey": "dedprEngineDefaults . edParameters"
+            },
             "name": "DescribeEngineDefaultParameters",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeEngineDefaultParameters\u003c/i\u003e operation returns the default engine and system parameter information for the specified cache engine.\u003c/p\u003e",
@@ -10618,6 +10674,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "deMarker",
+                    "output": "derMarker"
+                },
+                "type": "next",
+                "resultKey": "derEvents"
+            },
             "name": "DescribeEvents",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeEvents\u003c/i\u003e operation returns events related to cache clusters, cache security groups, and cache parameter groups. You can obtain events specific to a particular cache cluster, cache security group, or cache parameter group by providing the name as a parameter.\u003c/p\u003e \u003cp\u003eBy default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.\u003c/p\u003e",
@@ -10969,6 +11033,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "drg1Marker",
+                    "output": "drgrMarker"
+                },
+                "type": "next",
+                "resultKey": "drgrReplicationGroups"
+            },
             "name": "DescribeReplicationGroups",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeReplicationGroups\u003c/i\u003e operation returns information about a particular replication group. If no identifier is specified, \u003ci\u003eDescribeReplicationGroups\u003c/i\u003e returns information about all replication groups.\u003c/p\u003e",
@@ -11188,6 +11260,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "drcnMarker",
+                    "output": "drcnrMarker"
+                },
+                "type": "next",
+                "resultKey": "drcnrReservedCacheNodes"
+            },
             "name": "DescribeReservedCacheNodes",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeReservedCacheNodes\u003c/i\u003e operation returns information about reserved cache nodes for this account, or about a specified reserved cache node.\u003c/p\u003e",
@@ -11572,6 +11652,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "drcnoMarker",
+                    "output": "drcnorMarker"
+                },
+                "type": "next",
+                "resultKey": "drcnorReservedCacheNodesOfferings"
+            },
             "name": "DescribeReservedCacheNodesOfferings",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeReservedCacheNodesOfferings\u003c/i\u003e operation lists available reserved cache node offerings.\u003c/p\u003e",
@@ -11923,6 +12011,14 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "dsMarker",
+                    "output": "dsrMarker"
+                },
+                "type": "next",
+                "resultKey": "dsrSnapshots"
+            },
             "name": "DescribeSnapshots",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeSnapshots\u003c/i\u003e operation returns information about cache cluster snapshots. By default, \u003ci\u003eDescribeSnapshots\u003c/i\u003e lists all of your snapshots; it can optionally describe a single snapshot, or just the snapshots associated with a particular cache cluster.\u003c/p\u003e",

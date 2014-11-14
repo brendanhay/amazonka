@@ -6038,6 +6038,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ljbpPageToken",
+                    "output": "ljbprNextPageToken"
+                },
+                "type": "next",
+                "resultKey": "ljbprJobs"
+            },
             "name": "ListJobsByPipeline",
             "method": "get",
             "documentation": "\u003cp\u003eThe ListJobsByPipeline operation gets a list of the jobs currently in a pipeline.\u003c/p\u003e \u003cp\u003eElastic Transcoder returns all of the jobs currently in the specified pipeline. The response body contains one element for each job that satisfies the search criteria.\u003c/p\u003e",
@@ -6270,6 +6278,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "ljbsPageToken",
+                    "output": "ljbsrNextPageToken"
+                },
+                "type": "next",
+                "resultKey": "ljbsrJobs"
+            },
             "name": "ListJobsByStatus",
             "method": "get",
             "documentation": "\u003cp\u003eThe ListJobsByStatus operation gets a list of jobs that have a specified status. The response body contains one element for each job that satisfies the search criteria.\u003c/p\u003e",
@@ -6502,6 +6518,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lpPageToken",
+                    "output": "lprNextPageToken"
+                },
+                "type": "next",
+                "resultKey": "lprPipelines"
+            },
             "name": "ListPipelines",
             "method": "get",
             "documentation": "\u003cp\u003eThe ListPipelines operation gets a list of the pipelines associated with the current AWS account.\u003c/p\u003e",
@@ -6701,6 +6725,14 @@
                 "Network.AWS.Request",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
+            "pager": {
+                "token": {
+                    "input": "lp1PageToken",
+                    "output": "lpr1NextPageToken"
+                },
+                "type": "next",
+                "resultKey": "lpr1Presets"
+            },
             "name": "ListPresets",
             "method": "get",
             "documentation": "\u003cp\u003eThe ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that you've added in an AWS region.\u003c/p\u003e",

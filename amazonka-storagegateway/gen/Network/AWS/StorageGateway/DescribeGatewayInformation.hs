@@ -48,6 +48,7 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 newtype DescribeGatewayInformation = DescribeGatewayInformation
     { _dgiGatewayARN :: Text

@@ -38,6 +38,7 @@ module Network.AWS.KMS.UpdateKeyDescription
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types
+import qualified GHC.Exts
 
 data UpdateKeyDescription = UpdateKeyDescription
     { _ukdDescription :: Text

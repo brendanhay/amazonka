@@ -151,3 +151,7 @@ instance AWSRequest DescribeDBParameters where
     response = xmlResponse $ \h x -> DescribeDBParametersResponse
         <$> x %| "Marker"
         <*> x %| "Parameters"
+
+instance AWSPager DescribeDBParameters where
+    next rq rs = (\x -> rq & ddbpMarker ?~ x)
+        <$> (rs ^. ddbprMarker)

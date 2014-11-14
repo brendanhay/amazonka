@@ -45,6 +45,7 @@ module Network.AWS.CognitoSync.DescribeDataset
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types
+import qualified GHC.Exts
 
 data DescribeDataset = DescribeDataset
     { _ddDatasetName    :: Text

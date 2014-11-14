@@ -48,6 +48,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 data DescribeLogStreams = DescribeLogStreams
     { _dls1Limit               :: Maybe Natural

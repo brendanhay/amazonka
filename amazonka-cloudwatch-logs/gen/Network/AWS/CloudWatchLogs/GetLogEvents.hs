@@ -55,6 +55,7 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 data GetLogEvents = GetLogEvents
     { _gleEndTime       :: Maybe Natural

@@ -42,6 +42,7 @@ module Network.AWS.EMR.RemoveTags
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types
+import qualified GHC.Exts
 
 data RemoveTags = RemoveTags
     { _rtResourceId :: Text

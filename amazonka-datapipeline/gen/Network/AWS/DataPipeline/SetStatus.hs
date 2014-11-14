@@ -42,6 +42,7 @@ module Network.AWS.DataPipeline.SetStatus
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 data SetStatus = SetStatus
     { _ssObjectIds  :: [Text]

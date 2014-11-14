@@ -58,6 +58,7 @@ module Network.AWS.DirectConnect.CreateInterconnect
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types
+import qualified GHC.Exts
 
 data CreateInterconnect = CreateInterconnect
     { _ciBandwidth        :: Text

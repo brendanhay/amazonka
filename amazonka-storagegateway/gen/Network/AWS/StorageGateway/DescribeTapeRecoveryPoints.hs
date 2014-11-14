@@ -47,6 +47,7 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
     { _dtrpGatewayARN :: Text

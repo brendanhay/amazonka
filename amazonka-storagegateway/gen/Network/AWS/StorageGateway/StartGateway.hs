@@ -44,6 +44,7 @@ module Network.AWS.StorageGateway.StartGateway
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 newtype StartGateway = StartGateway
     { _sgGatewayARN :: Text

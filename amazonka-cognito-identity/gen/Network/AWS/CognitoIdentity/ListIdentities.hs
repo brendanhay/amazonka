@@ -43,6 +43,7 @@ module Network.AWS.CognitoIdentity.ListIdentities
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types
+import qualified GHC.Exts
 
 data ListIdentities = ListIdentities
     { _liIdentityPoolId :: Text

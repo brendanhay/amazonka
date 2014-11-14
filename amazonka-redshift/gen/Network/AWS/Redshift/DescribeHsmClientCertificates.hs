@@ -143,3 +143,7 @@ instance AWSRequest DescribeHsmClientCertificates where
     response = xmlResponse $ \h x -> DescribeHsmClientCertificatesResponse
         <$> x %| "HsmClientCertificates"
         <*> x %| "Marker"
+
+instance AWSPager DescribeHsmClientCertificates where
+    next rq rs = (\x -> rq & dhccMarker ?~ x)
+        <$> (rs ^. dhccrMarker)

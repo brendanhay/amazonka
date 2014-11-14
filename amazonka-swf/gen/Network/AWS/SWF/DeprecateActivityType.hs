@@ -52,6 +52,7 @@ module Network.AWS.SWF.DeprecateActivityType
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data DeprecateActivityType = DeprecateActivityType
     { _dat1ActivityType :: ActivityType

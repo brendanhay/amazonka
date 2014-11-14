@@ -41,6 +41,7 @@ module Network.AWS.Kinesis.AddTagsToStream
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 data AddTagsToStream = AddTagsToStream
     { _attsStreamName :: Text

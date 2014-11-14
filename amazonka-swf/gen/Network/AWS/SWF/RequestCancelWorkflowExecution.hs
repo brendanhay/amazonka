@@ -52,6 +52,7 @@ module Network.AWS.SWF.RequestCancelWorkflowExecution
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
     { _rcweDomain     :: Text

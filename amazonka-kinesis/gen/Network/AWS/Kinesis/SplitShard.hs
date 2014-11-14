@@ -72,6 +72,7 @@ module Network.AWS.Kinesis.SplitShard
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 data SplitShard = SplitShard
     { _ssNewStartingHashKey :: Text

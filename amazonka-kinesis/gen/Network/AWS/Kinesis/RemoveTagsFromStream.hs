@@ -39,6 +39,7 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types
+import qualified GHC.Exts
 
 data RemoveTagsFromStream = RemoveTagsFromStream
     { _rtfsStreamName :: Text

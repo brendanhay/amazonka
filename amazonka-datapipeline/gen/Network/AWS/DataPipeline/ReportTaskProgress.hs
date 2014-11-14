@@ -50,6 +50,7 @@ module Network.AWS.DataPipeline.ReportTaskProgress
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types
+import qualified GHC.Exts
 
 newtype ReportTaskProgress = ReportTaskProgress
     { _rtpTaskId :: Text

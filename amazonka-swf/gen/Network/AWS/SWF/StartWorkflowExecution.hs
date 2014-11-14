@@ -64,6 +64,7 @@ module Network.AWS.SWF.StartWorkflowExecution
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types
+import qualified GHC.Exts
 
 data StartWorkflowExecution = StartWorkflowExecution
     { _swe1ChildPolicy                  :: Maybe Text

@@ -42,6 +42,7 @@ module Network.AWS.CloudWatchLogs.CreateLogStream
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudWatchLogs.Types
+import qualified GHC.Exts
 
 data CreateLogStream = CreateLogStream
     { _clsLogGroupName  :: Text

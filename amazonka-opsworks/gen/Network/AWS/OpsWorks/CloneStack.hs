@@ -62,6 +62,7 @@ module Network.AWS.OpsWorks.CloneStack
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types
+import qualified GHC.Exts
 
 data CloneStack = CloneStack
     { _cs1Attributes                :: Map Text Text

@@ -43,6 +43,7 @@ module Network.AWS.StorageGateway.DisableGateway
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types
+import qualified GHC.Exts
 
 newtype DisableGateway = DisableGateway
     { _dg1GatewayARN :: Text

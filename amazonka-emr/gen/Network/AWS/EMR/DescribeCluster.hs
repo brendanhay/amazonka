@@ -41,6 +41,7 @@ module Network.AWS.EMR.DescribeCluster
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types
+import qualified GHC.Exts
 
 newtype DescribeCluster = DescribeCluster
     { _dcClusterId :: Text

@@ -129,3 +129,7 @@ instance AWSRequest DescribeLoadBalancers where
     response = xmlResponse $ \h x -> DescribeLoadBalancersResponse
         <$> x %| "LoadBalancerDescriptions"
         <*> x %| "NextMarker"
+
+instance AWSPager DescribeLoadBalancers where
+    next rq rs = (\x -> rq & dlbMarker ?~ x)
+        <$> (rs ^. dlbrNextMarker)

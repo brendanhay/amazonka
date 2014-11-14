@@ -40,6 +40,7 @@ module Network.AWS.EMR.DescribeStep
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.EMR.Types
+import qualified GHC.Exts
 
 data DescribeStep = DescribeStep
     { _dsClusterId :: Text

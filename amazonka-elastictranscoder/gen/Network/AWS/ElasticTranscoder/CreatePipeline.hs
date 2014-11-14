@@ -46,6 +46,7 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types
+import qualified GHC.Exts
 
 data CreatePipeline = CreatePipeline
     { _cp1ContentConfig   :: Maybe PipelineOutputConfig

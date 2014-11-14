@@ -58,6 +58,7 @@ module Network.AWS.CognitoSync.ListRecords
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types
+import qualified GHC.Exts
 
 data ListRecords = ListRecords
     { _lrDatasetName      :: Text

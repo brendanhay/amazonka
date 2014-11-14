@@ -76,8 +76,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         }
 
     types = Types
-        { _tService   = service
-        , _tNamespace = typesNamespace
+        { _tNamespace = typesNamespace
         , _tImports   = overrides ^. oTypesModules
         , _tTypes     = filter (not . isVoid) (Map.elems ts)
         }

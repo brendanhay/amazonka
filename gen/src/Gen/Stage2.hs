@@ -33,6 +33,7 @@ import           Control.Applicative
 import           Control.Arrow            ((&&&))
 import           Control.Error
 import           Control.Lens             hiding ((.=), (<.>), op)
+import           Control.Monad            (forM_)
 import           Data.Aeson
 import           Data.Aeson.Encode.Pretty
 import           Data.Aeson.Types         (Pair)
@@ -670,8 +671,7 @@ instance ToFilePath Cabal where
     toFilePath c = toFilePath (_cLibrary c) <.> "cabal"
 
 data Types = Types
-    { _tService   :: Service
-    , _tNamespace :: !NS
+    { _tNamespace :: !NS
     , _tImports   :: [NS]
     , _tTypes     :: [Data]
     } deriving (Eq, Show)
@@ -697,18 +697,25 @@ store d m x =
     f = d </> _mName m <.> "json"
 
 render :: FilePath -> Templates -> Stage2 -> Script FilePath
-render d Templates{..} s2 = do
+render d Templates{..} Stage2{..} = do
     createDir src
 
-    renderFile "Render Cabal"   lib _tCabal   (s2 ^. s2Cabal)
-    renderFile "Render Service" gen _tService (s2 ^. s2Service)
-    renderFile "Render Types"   gen t         (s2 ^. s2Types)
+    svc <- toEnv _s2Service
 
-    mapM_ (renderFile "Render Operation" gen o) (s2 ^. s2Operations)
+    renderFile "Render Service" _tService gen _s2Service svc
+
+    renderFile "Render Types" typ gen _s2Types
+        =<< Map.insert "service" (Object svc) <$> toEnv _s2Types
+
+    forM_ _s2Operations $ \o -> renderFile "Render Operation" op gen o
+        =<< toEnv o
+
+    renderFile "Render Cabal" _tCabal lib _s2Cabal
+        =<< toEnv _s2Cabal
 
     return lib
   where
-    (t, o) = _tProtocol (s2 ^. s2Service . svProtocol)
+    (typ, op) = _tProtocol (_svProtocol _s2Service)
 
     src :: FilePath
     src = rel "src"
@@ -720,4 +727,4 @@ render d Templates{..} s2 = do
     lib = rel ""
 
     rel :: ToFilePath a => a -> FilePath
-    rel = combine d . combine (toFilePath (s2 ^. s2Cabal.cLibrary)) . toFilePath
+    rel = combine d . combine (toFilePath (_cLibrary _s2Cabal)) . toFilePath

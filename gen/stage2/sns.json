@@ -79,48 +79,6 @@
         "description": "Amazon Simple Notification Service (Amazon SNS) is a fast, flexible, fully managed push messaging service. Amazon SNS makes it simple and cost-effective to push notifications to Apple, Google, Fire OS, and Windows devices, as well as Android devices in China with Baidu Cloud Push. You can also use SNS to push notifications to internet connected smart devices, as well as other distributed services. Besides pushing cloud notifications directly to mobile devices, Amazon SNS can also deliver notifications by SMS text message or email, to Amazon Simple Queue Service (SQS) queues, or to any HTTP endpoint. To prevent messages from being lost, all messages published to Amazon SNS are stored redundantly across multiple availability zones."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "SNS",
-            "error": "RESTError",
-            "namespace": "Network.AWS.SNS",
-            "protocol": "query",
-            "imports": [
-                "Network.AWS.SNS.AddPermission",
-                "Network.AWS.SNS.ConfirmSubscription",
-                "Network.AWS.SNS.CreatePlatformApplication",
-                "Network.AWS.SNS.CreatePlatformEndpoint",
-                "Network.AWS.SNS.CreateTopic",
-                "Network.AWS.SNS.DeleteEndpoint",
-                "Network.AWS.SNS.DeletePlatformApplication",
-                "Network.AWS.SNS.DeleteTopic",
-                "Network.AWS.SNS.GetEndpointAttributes",
-                "Network.AWS.SNS.GetPlatformApplicationAttributes",
-                "Network.AWS.SNS.GetSubscriptionAttributes",
-                "Network.AWS.SNS.GetTopicAttributes",
-                "Network.AWS.SNS.ListEndpointsByPlatformApplication",
-                "Network.AWS.SNS.ListPlatformApplications",
-                "Network.AWS.SNS.ListSubscriptions",
-                "Network.AWS.SNS.ListSubscriptionsByTopic",
-                "Network.AWS.SNS.ListTopics",
-                "Network.AWS.SNS.Publish",
-                "Network.AWS.SNS.RemovePermission",
-                "Network.AWS.SNS.SetEndpointAttributes",
-                "Network.AWS.SNS.SetPlatformApplicationAttributes",
-                "Network.AWS.SNS.SetSubscriptionAttributes",
-                "Network.AWS.SNS.SetTopicAttributes",
-                "Network.AWS.SNS.Subscribe",
-                "Network.AWS.SNS.Types",
-                "Network.AWS.SNS.Unsubscribe"
-            ],
-            "name": "Amazon Simple Notification Service",
-            "version": "2010-03-31",
-            "documentation": "Amazon Simple Notification Service (Amazon SNS) is a fast, flexible, fully managed push messaging service. Amazon SNS makes it simple and cost-effective to push notifications to Apple, Google, Fire OS, and Windows devices, as well as Android devices in China with Baidu Cloud Push. You can also use SNS to push notifications to internet connected smart devices, as well as other distributed services. Besides pushing cloud notifications directly to mobile devices, Amazon SNS can also deliver notifications by SMS text message or email, to Amazon Simple Queue Service (SQS) queues, or to any HTTP endpoint. To prevent messages from being lost, all messages published to Amazon SNS are stored redundantly across multiple availability zones.",
-            "xmlNamespace": "http://sns.amazonaws.com/doc/2010-03-31/",
-            "endpoint": "Regional",
-            "endpointPrefix": "sns"
-        },
         "namespace": "Network.AWS.SNS.Types",
         "types": [
             {

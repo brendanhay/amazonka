@@ -68,43 +68,6 @@
         "description": "AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud and Amazon Virtual Private Cloud, bypassing Internet service providers in your network path."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "DirectConnect",
-            "error": "JSONError",
-            "namespace": "Network.AWS.DirectConnect",
-            "protocol": "json",
-            "imports": [
-                "Network.AWS.DirectConnect.AllocateConnectionOnInterconnect",
-                "Network.AWS.DirectConnect.AllocatePrivateVirtualInterface",
-                "Network.AWS.DirectConnect.AllocatePublicVirtualInterface",
-                "Network.AWS.DirectConnect.ConfirmConnection",
-                "Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface",
-                "Network.AWS.DirectConnect.ConfirmPublicVirtualInterface",
-                "Network.AWS.DirectConnect.CreateConnection",
-                "Network.AWS.DirectConnect.CreateInterconnect",
-                "Network.AWS.DirectConnect.CreatePrivateVirtualInterface",
-                "Network.AWS.DirectConnect.CreatePublicVirtualInterface",
-                "Network.AWS.DirectConnect.DeleteConnection",
-                "Network.AWS.DirectConnect.DeleteInterconnect",
-                "Network.AWS.DirectConnect.DeleteVirtualInterface",
-                "Network.AWS.DirectConnect.DescribeConnections",
-                "Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect",
-                "Network.AWS.DirectConnect.DescribeInterconnects",
-                "Network.AWS.DirectConnect.DescribeLocations",
-                "Network.AWS.DirectConnect.DescribeVirtualGateways",
-                "Network.AWS.DirectConnect.DescribeVirtualInterfaces",
-                "Network.AWS.DirectConnect.Types"
-            ],
-            "name": "Amazon Direct Connect",
-            "version": "2012-10-25",
-            "documentation": "AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud and Amazon Virtual Private Cloud, bypassing Internet service providers in your network path.",
-            "xmlNamespace": "https://directconnect.amazonaws.com/doc/2012-10-25/",
-            "endpoint": "Regional",
-            "endpointPrefix": "directconnect",
-            "targetPrefix": "OvertureService"
-        },
         "namespace": "Network.AWS.DirectConnect.Types",
         "types": [
             {

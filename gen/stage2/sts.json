@@ -41,29 +41,6 @@
         "description": "The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users)."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "STS",
-            "error": "RESTError",
-            "namespace": "Network.AWS.STS",
-            "protocol": "query",
-            "imports": [
-                "Network.AWS.STS.AssumeRole",
-                "Network.AWS.STS.AssumeRoleWithSAML",
-                "Network.AWS.STS.AssumeRoleWithWebIdentity",
-                "Network.AWS.STS.DecodeAuthorizationMessage",
-                "Network.AWS.STS.GetFederationToken",
-                "Network.AWS.STS.GetSessionToken",
-                "Network.AWS.STS.Types"
-            ],
-            "name": "Amazon Security Token Service",
-            "version": "2011-06-15",
-            "documentation": "The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users).",
-            "xmlNamespace": "https://sts.amazonaws.com/doc/2011-06-15/",
-            "endpoint": "Global",
-            "endpointPrefix": "sts"
-        },
         "namespace": "Network.AWS.STS.Types",
         "types": [
             {

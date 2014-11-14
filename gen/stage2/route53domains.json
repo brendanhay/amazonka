@@ -60,39 +60,6 @@
         "description": "Pending"
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "Route53Domains",
-            "error": "JSONError",
-            "namespace": "Network.AWS.Route53Domains",
-            "protocol": "json",
-            "imports": [
-                "Network.AWS.Route53Domains.CheckDomainAvailability",
-                "Network.AWS.Route53Domains.DisableDomainAutoRenew",
-                "Network.AWS.Route53Domains.DisableDomainTransferLock",
-                "Network.AWS.Route53Domains.EnableDomainAutoRenew",
-                "Network.AWS.Route53Domains.EnableDomainTransferLock",
-                "Network.AWS.Route53Domains.GetDomainDetail",
-                "Network.AWS.Route53Domains.GetOperationDetail",
-                "Network.AWS.Route53Domains.ListDomains",
-                "Network.AWS.Route53Domains.ListOperations",
-                "Network.AWS.Route53Domains.RegisterDomain",
-                "Network.AWS.Route53Domains.RetrieveDomainAuthCode",
-                "Network.AWS.Route53Domains.TransferDomain",
-                "Network.AWS.Route53Domains.Types",
-                "Network.AWS.Route53Domains.UpdateDomainContact",
-                "Network.AWS.Route53Domains.UpdateDomainContactPrivacy",
-                "Network.AWS.Route53Domains.UpdateDomainNameservers"
-            ],
-            "name": "Amazon Route 53 Domains",
-            "version": "2014-05-15",
-            "documentation": "Pending",
-            "xmlNamespace": "https://route53domains.amazonaws.com/doc/2014-05-15/",
-            "endpoint": "Regional",
-            "endpointPrefix": "route53domains",
-            "targetPrefix": "Route53Domains_v20140515"
-        },
         "namespace": "Network.AWS.Route53Domains.Types",
         "types": [
             {

@@ -39,28 +39,6 @@
         "description": "AWS Import/Export accelerates moving large amounts of data into and out of AWS using portable storage devices for transport. AWS transfers your data directly onto and off of storage devices using Amazon’s high-speed internal network and bypassing the Internet. For significant data sets, AWS Import/Export is often faster than Internet transfer and more cost effective than upgrading your connectivity."
     },
     "types": {
-        "service": {
-            "signature": "V2",
-            "checksum": "sha256",
-            "abbrev": "ImportExport",
-            "error": "RESTError",
-            "namespace": "Network.AWS.ImportExport",
-            "protocol": "query",
-            "imports": [
-                "Network.AWS.ImportExport.CancelJob",
-                "Network.AWS.ImportExport.CreateJob",
-                "Network.AWS.ImportExport.GetStatus",
-                "Network.AWS.ImportExport.ListJobs",
-                "Network.AWS.ImportExport.Types",
-                "Network.AWS.ImportExport.UpdateJob"
-            ],
-            "name": "Amazon Import/Export",
-            "version": "2010-06-01",
-            "documentation": "AWS Import/Export accelerates moving large amounts of data into and out of AWS using portable storage devices for transport. AWS transfers your data directly onto and off of storage devices using Amazon’s high-speed internal network and bypassing the Internet. For significant data sets, AWS Import/Export is often faster than Internet transfer and more cost effective than upgrading your connectivity.",
-            "xmlNamespace": "http://importexport.amazonaws.com/doc/2010-06-01/",
-            "endpoint": "Global",
-            "endpointPrefix": "importexport"
-        },
         "namespace": "Network.AWS.ImportExport.Types",
         "types": [
             {

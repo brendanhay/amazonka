@@ -61,39 +61,6 @@
         "description": "Amazon Simple Queue Service (SQS) is a fast, reliable, scalable, fully managed message queuing service. SQS makes it simple and cost-effective to decouple the components of a cloud application. You can use SQS to transmit any volume of data, at any level of throughput, without losing messages or requiring other services to be always available. With SQS, you can offload the administrative burden of operating and scaling a highly available messaging cluster, while paying a low price for only what you use."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "SQS",
-            "error": "RESTError",
-            "namespace": "Network.AWS.SQS",
-            "protocol": "query",
-            "imports": [
-                "Network.AWS.SQS.AddPermission",
-                "Network.AWS.SQS.ChangeMessageVisibility",
-                "Network.AWS.SQS.ChangeMessageVisibilityBatch",
-                "Network.AWS.SQS.CreateQueue",
-                "Network.AWS.SQS.DeleteMessage",
-                "Network.AWS.SQS.DeleteMessageBatch",
-                "Network.AWS.SQS.DeleteQueue",
-                "Network.AWS.SQS.GetQueueAttributes",
-                "Network.AWS.SQS.GetQueueUrl",
-                "Network.AWS.SQS.ListDeadLetterSourceQueues",
-                "Network.AWS.SQS.ListQueues",
-                "Network.AWS.SQS.ReceiveMessage",
-                "Network.AWS.SQS.RemovePermission",
-                "Network.AWS.SQS.SendMessage",
-                "Network.AWS.SQS.SendMessageBatch",
-                "Network.AWS.SQS.SetQueueAttributes",
-                "Network.AWS.SQS.Types"
-            ],
-            "name": "Amazon Simple Queue Service",
-            "version": "2012-11-05",
-            "documentation": "Amazon Simple Queue Service (SQS) is a fast, reliable, scalable, fully managed message queuing service. SQS makes it simple and cost-effective to decouple the components of a cloud application. You can use SQS to transmit any volume of data, at any level of throughput, without losing messages or requiring other services to be always available. With SQS, you can offload the administrative burden of operating and scaling a highly available messaging cluster, while paying a low price for only what you use.",
-            "xmlNamespace": "http://queue.amazonaws.com/doc/2012-11-05/",
-            "endpoint": "Regional",
-            "endpointPrefix": "sqs"
-        },
         "namespace": "Network.AWS.SQS.Types",
         "types": [
             {

@@ -58,38 +58,6 @@
         "description": "Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "CloudWatchLogs",
-            "error": "JSONError",
-            "namespace": "Network.AWS.CloudWatchLogs",
-            "protocol": "json",
-            "imports": [
-                "Network.AWS.CloudWatchLogs.CreateLogGroup",
-                "Network.AWS.CloudWatchLogs.CreateLogStream",
-                "Network.AWS.CloudWatchLogs.DeleteLogGroup",
-                "Network.AWS.CloudWatchLogs.DeleteLogStream",
-                "Network.AWS.CloudWatchLogs.DeleteMetricFilter",
-                "Network.AWS.CloudWatchLogs.DeleteRetentionPolicy",
-                "Network.AWS.CloudWatchLogs.DescribeLogGroups",
-                "Network.AWS.CloudWatchLogs.DescribeLogStreams",
-                "Network.AWS.CloudWatchLogs.DescribeMetricFilters",
-                "Network.AWS.CloudWatchLogs.GetLogEvents",
-                "Network.AWS.CloudWatchLogs.PutLogEvents",
-                "Network.AWS.CloudWatchLogs.PutMetricFilter",
-                "Network.AWS.CloudWatchLogs.PutRetentionPolicy",
-                "Network.AWS.CloudWatchLogs.TestMetricFilter",
-                "Network.AWS.CloudWatchLogs.Types"
-            ],
-            "name": "Amazon CloudWatch Logs",
-            "version": "2014-03-28",
-            "documentation": "Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files.",
-            "xmlNamespace": "https://logs.amazonaws.com/doc/2014-03-28/",
-            "endpoint": "Regional",
-            "endpointPrefix": "logs",
-            "targetPrefix": "Logs_20140328"
-        },
         "namespace": "Network.AWS.CloudWatchLogs.Types",
         "types": [
             {

@@ -65,41 +65,6 @@
         "description": "Amazon Simple Email Service (Amazon SES) is a cost-effective outbound-only email-sending service built on the reliable and scalable infrastructure that Amazon.com has developed to serve its own customer base. With Amazon SES, you can send transactional email, marketing messages, or any other type of high-quality content and you only pay for what you use. Along with high deliverability, Amazon SES provides easy, real-time access to your sending statistics and built-in notifications for bounces, complaints, and deliveries to help you fine-tune your email-sending strategy."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "SES",
-            "error": "RESTError",
-            "namespace": "Network.AWS.SES",
-            "protocol": "query",
-            "imports": [
-                "Network.AWS.SES.DeleteIdentity",
-                "Network.AWS.SES.DeleteVerifiedEmailAddress",
-                "Network.AWS.SES.GetIdentityDkimAttributes",
-                "Network.AWS.SES.GetIdentityNotificationAttributes",
-                "Network.AWS.SES.GetIdentityVerificationAttributes",
-                "Network.AWS.SES.GetSendQuota",
-                "Network.AWS.SES.GetSendStatistics",
-                "Network.AWS.SES.ListIdentities",
-                "Network.AWS.SES.ListVerifiedEmailAddresses",
-                "Network.AWS.SES.SendEmail",
-                "Network.AWS.SES.SendRawEmail",
-                "Network.AWS.SES.SetIdentityDkimEnabled",
-                "Network.AWS.SES.SetIdentityFeedbackForwardingEnabled",
-                "Network.AWS.SES.SetIdentityNotificationTopic",
-                "Network.AWS.SES.Types",
-                "Network.AWS.SES.VerifyDomainDkim",
-                "Network.AWS.SES.VerifyDomainIdentity",
-                "Network.AWS.SES.VerifyEmailAddress",
-                "Network.AWS.SES.VerifyEmailIdentity"
-            ],
-            "name": "Amazon Simple Email Service",
-            "version": "2010-12-01",
-            "documentation": "Amazon Simple Email Service (Amazon SES) is a cost-effective outbound-only email-sending service built on the reliable and scalable infrastructure that Amazon.com has developed to serve its own customer base. With Amazon SES, you can send transactional email, marketing messages, or any other type of high-quality content and you only pay for what you use. Along with high deliverability, Amazon SES provides easy, real-time access to your sending statistics and built-in notifications for bounces, complaints, and deliveries to help you fine-tune your email-sending strategy.",
-            "xmlNamespace": "http://ses.amazonaws.com/doc/2010-12-01/",
-            "endpoint": "Regional",
-            "endpointPrefix": "email"
-        },
         "namespace": "Network.AWS.SES.Types",
         "types": [
             {

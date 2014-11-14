@@ -55,36 +55,6 @@
         "description": "Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "CognitoSync",
-            "error": "RESTError",
-            "namespace": "Network.AWS.CognitoSync",
-            "protocol": "rest-json",
-            "imports": [
-                "Network.AWS.CognitoSync.DeleteDataset",
-                "Network.AWS.CognitoSync.DescribeDataset",
-                "Network.AWS.CognitoSync.DescribeIdentityPoolUsage",
-                "Network.AWS.CognitoSync.DescribeIdentityUsage",
-                "Network.AWS.CognitoSync.GetIdentityPoolConfiguration",
-                "Network.AWS.CognitoSync.ListDatasets",
-                "Network.AWS.CognitoSync.ListIdentityPoolUsage",
-                "Network.AWS.CognitoSync.ListRecords",
-                "Network.AWS.CognitoSync.RegisterDevice",
-                "Network.AWS.CognitoSync.SetIdentityPoolConfiguration",
-                "Network.AWS.CognitoSync.SubscribeToDataset",
-                "Network.AWS.CognitoSync.Types",
-                "Network.AWS.CognitoSync.UnsubscribeFromDataset",
-                "Network.AWS.CognitoSync.UpdateRecords"
-            ],
-            "name": "Amazon Cognito Sync",
-            "version": "2014-06-30",
-            "documentation": "Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.",
-            "xmlNamespace": "https://cognito-sync.amazonaws.com/doc/2014-06-30/",
-            "endpoint": "Regional",
-            "endpointPrefix": "cognito-sync"
-        },
         "namespace": "Network.AWS.CognitoSync.Types",
         "types": [
             {

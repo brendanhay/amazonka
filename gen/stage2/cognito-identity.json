@@ -56,37 +56,6 @@
         "description": "Amazon Cognito is a web service that facilitates the delivery of scoped, temporary credentials to mobile devices or other untrusted environments. Amazon Cognito uniquely identifies a device or user and supplies the user with a consistent identity throughout the lifetime of an application. Amazon Cognito lets users authenticate with third-party identity providers (Facebook, Google, or Login with Amazon). As a developer, you decide which identity providers to trust. You can also choose to support unauthenticated access from your application. Your users are provided with Cognito tokens that uniquely identify their device and any information provided about third-party logins."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "CognitoIdentity",
-            "error": "JSONError",
-            "namespace": "Network.AWS.CognitoIdentity",
-            "protocol": "json",
-            "imports": [
-                "Network.AWS.CognitoIdentity.CreateIdentityPool",
-                "Network.AWS.CognitoIdentity.DeleteIdentityPool",
-                "Network.AWS.CognitoIdentity.DescribeIdentityPool",
-                "Network.AWS.CognitoIdentity.GetId",
-                "Network.AWS.CognitoIdentity.GetOpenIdToken",
-                "Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity",
-                "Network.AWS.CognitoIdentity.ListIdentities",
-                "Network.AWS.CognitoIdentity.ListIdentityPools",
-                "Network.AWS.CognitoIdentity.LookupDeveloperIdentity",
-                "Network.AWS.CognitoIdentity.MergeDeveloperIdentities",
-                "Network.AWS.CognitoIdentity.Types",
-                "Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity",
-                "Network.AWS.CognitoIdentity.UnlinkIdentity",
-                "Network.AWS.CognitoIdentity.UpdateIdentityPool"
-            ],
-            "name": "Amazon Cognito Identity",
-            "version": "2014-06-30",
-            "documentation": "Amazon Cognito is a web service that facilitates the delivery of scoped, temporary credentials to mobile devices or other untrusted environments. Amazon Cognito uniquely identifies a device or user and supplies the user with a consistent identity throughout the lifetime of an application. Amazon Cognito lets users authenticate with third-party identity providers (Facebook, Google, or Login with Amazon). As a developer, you decide which identity providers to trust. You can also choose to support unauthenticated access from your application. Your users are provided with Cognito tokens that uniquely identify their device and any information provided about third-party logins.",
-            "xmlNamespace": "https://cognito-identity.amazonaws.com/doc/2014-06-30/",
-            "endpoint": "Regional",
-            "endpointPrefix": "cognito-identity",
-            "targetPrefix": "AWSCognitoIdentityService"
-        },
         "namespace": "Network.AWS.CognitoIdentity.Types",
         "types": [
             {

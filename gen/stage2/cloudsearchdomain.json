@@ -35,26 +35,6 @@
         "description": "Pending"
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "CloudSearchDomains",
-            "error": "RESTError",
-            "namespace": "Network.AWS.CloudSearchDomains",
-            "protocol": "rest-json",
-            "imports": [
-                "Network.AWS.CloudSearchDomains.Search",
-                "Network.AWS.CloudSearchDomains.Suggest",
-                "Network.AWS.CloudSearchDomains.Types",
-                "Network.AWS.CloudSearchDomains.UploadDocuments"
-            ],
-            "name": "Amazon CloudSearch Domain",
-            "version": "2013-01-01",
-            "documentation": "Pending",
-            "xmlNamespace": "https://cloudsearchdomain.amazonaws.com/doc/2013-01-01/",
-            "endpoint": "Regional",
-            "endpointPrefix": "cloudsearchdomain"
-        },
         "namespace": "Network.AWS.CloudSearchDomains.Types",
         "types": [
             {

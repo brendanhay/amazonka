@@ -77,47 +77,6 @@
         "description": "Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes it simple and cost-effective to set up, manage, and scale a search solution for your website or application. Amazon CloudSearch supports 34 languages and popular search features such as highlighting, autocomplete, and geospatial search."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "CloudSearch",
-            "error": "RESTError",
-            "namespace": "Network.AWS.CloudSearch",
-            "protocol": "query",
-            "imports": [
-                "Network.AWS.CloudSearch.BuildSuggesters",
-                "Network.AWS.CloudSearch.CreateDomain",
-                "Network.AWS.CloudSearch.DefineAnalysisScheme",
-                "Network.AWS.CloudSearch.DefineExpression",
-                "Network.AWS.CloudSearch.DefineIndexField",
-                "Network.AWS.CloudSearch.DefineSuggester",
-                "Network.AWS.CloudSearch.DeleteAnalysisScheme",
-                "Network.AWS.CloudSearch.DeleteDomain",
-                "Network.AWS.CloudSearch.DeleteExpression",
-                "Network.AWS.CloudSearch.DeleteIndexField",
-                "Network.AWS.CloudSearch.DeleteSuggester",
-                "Network.AWS.CloudSearch.DescribeAnalysisSchemes",
-                "Network.AWS.CloudSearch.DescribeAvailabilityOptions",
-                "Network.AWS.CloudSearch.DescribeDomains",
-                "Network.AWS.CloudSearch.DescribeExpressions",
-                "Network.AWS.CloudSearch.DescribeIndexFields",
-                "Network.AWS.CloudSearch.DescribeScalingParameters",
-                "Network.AWS.CloudSearch.DescribeServiceAccessPolicies",
-                "Network.AWS.CloudSearch.DescribeSuggesters",
-                "Network.AWS.CloudSearch.IndexDocuments",
-                "Network.AWS.CloudSearch.ListDomainNames",
-                "Network.AWS.CloudSearch.Types",
-                "Network.AWS.CloudSearch.UpdateAvailabilityOptions",
-                "Network.AWS.CloudSearch.UpdateScalingParameters",
-                "Network.AWS.CloudSearch.UpdateServiceAccessPolicies"
-            ],
-            "name": "Amazon CloudSearch",
-            "version": "2013-01-01",
-            "documentation": "Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes it simple and cost-effective to set up, manage, and scale a search solution for your website or application. Amazon CloudSearch supports 34 languages and popular search features such as highlighting, autocomplete, and geospatial search.",
-            "xmlNamespace": "http://cloudsearch.amazonaws.com/doc/2013-01-01/",
-            "endpoint": "Regional",
-            "endpointPrefix": "cloudsearch"
-        },
         "namespace": "Network.AWS.CloudSearch.Types",
         "types": [
             {

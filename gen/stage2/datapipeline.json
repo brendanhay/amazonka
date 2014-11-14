@@ -62,40 +62,6 @@
         "description": "AWS Data Pipeline is a web service that you can use to automate the movement and transformation of data. With AWS Data Pipeline, you can define data-driven workflows, so that tasks can be dependent on the successful completion of previous tasks."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "DataPipeline",
-            "error": "JSONError",
-            "namespace": "Network.AWS.DataPipeline",
-            "protocol": "json",
-            "imports": [
-                "Network.AWS.DataPipeline.ActivatePipeline",
-                "Network.AWS.DataPipeline.CreatePipeline",
-                "Network.AWS.DataPipeline.DeletePipeline",
-                "Network.AWS.DataPipeline.DescribeObjects",
-                "Network.AWS.DataPipeline.DescribePipelines",
-                "Network.AWS.DataPipeline.EvaluateExpression",
-                "Network.AWS.DataPipeline.GetPipelineDefinition",
-                "Network.AWS.DataPipeline.ListPipelines",
-                "Network.AWS.DataPipeline.PollForTask",
-                "Network.AWS.DataPipeline.PutPipelineDefinition",
-                "Network.AWS.DataPipeline.QueryObjects",
-                "Network.AWS.DataPipeline.ReportTaskProgress",
-                "Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat",
-                "Network.AWS.DataPipeline.SetStatus",
-                "Network.AWS.DataPipeline.SetTaskStatus",
-                "Network.AWS.DataPipeline.Types",
-                "Network.AWS.DataPipeline.ValidatePipelineDefinition"
-            ],
-            "name": "Amazon Data Pipeline",
-            "version": "2012-10-29",
-            "documentation": "AWS Data Pipeline is a web service that you can use to automate the movement and transformation of data. With AWS Data Pipeline, you can define data-driven workflows, so that tasks can be dependent on the successful completion of previous tasks.",
-            "xmlNamespace": "https://datapipeline.amazonaws.com/doc/2012-10-29/",
-            "endpoint": "Regional",
-            "endpointPrefix": "datapipeline",
-            "targetPrefix": "DataPipeline"
-        },
         "namespace": "Network.AWS.DataPipeline.Types",
         "types": [
             {

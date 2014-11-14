@@ -54,36 +54,6 @@
         "description": "Amazon Kinesis is a managed service that scales elastically for real-time processing of streaming big data. The service takes in large streams of data records that can then be consumed in real time by multiple data-processing applications that can be run on Amazon EC2 instances."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "Kinesis",
-            "error": "JSONError",
-            "namespace": "Network.AWS.Kinesis",
-            "protocol": "json",
-            "imports": [
-                "Network.AWS.Kinesis.AddTagsToStream",
-                "Network.AWS.Kinesis.CreateStream",
-                "Network.AWS.Kinesis.DeleteStream",
-                "Network.AWS.Kinesis.DescribeStream",
-                "Network.AWS.Kinesis.GetRecords",
-                "Network.AWS.Kinesis.GetShardIterator",
-                "Network.AWS.Kinesis.ListStreams",
-                "Network.AWS.Kinesis.ListTagsForStream",
-                "Network.AWS.Kinesis.MergeShards",
-                "Network.AWS.Kinesis.PutRecord",
-                "Network.AWS.Kinesis.RemoveTagsFromStream",
-                "Network.AWS.Kinesis.SplitShard",
-                "Network.AWS.Kinesis.Types"
-            ],
-            "name": "Amazon Kinesis",
-            "version": "2013-12-02",
-            "documentation": "Amazon Kinesis is a managed service that scales elastically for real-time processing of streaming big data. The service takes in large streams of data records that can then be consumed in real time by multiple data-processing applications that can be run on Amazon EC2 instances.",
-            "xmlNamespace": "https://kinesis.amazonaws.com/doc/2013-12-02/",
-            "endpoint": "Regional",
-            "endpointPrefix": "kinesis",
-            "targetPrefix": "Kinesis_20131202"
-        },
         "namespace": "Network.AWS.Kinesis.Types",
         "types": [
             {

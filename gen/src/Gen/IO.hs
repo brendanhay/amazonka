@@ -85,24 +85,25 @@ copyAssets s d = do
 
     dest f = d </> takeFileName f
 
-renderFile :: (ToFilePath a, A.ToJSON a)
+renderFile :: ToFilePath a
            => Text
-           -> FilePath
            -> Template
+           -> FilePath
            -> a
+           -> A.Object
            -> Script ()
-renderFile lbl d t x = do
+renderFile lbl t d p env = do
     createDir (dropFileName f)
     say lbl f
-    txt <- toEnv >>= hoistEither . EDE.eitherRenderWith genFilters t
+    txt <- hoistEither (EDE.eitherRenderWith genFilters t env)
     scriptIO (LText.writeFile f txt)
   where
-    f = d </> toFilePath x
+    f = d </> toFilePath p
 
-    toEnv :: Script A.Object
-    toEnv = case A.toJSON x of
-        A.Object o -> right o
-        e          -> left  ("Failed to extract JSON Object from: " ++ show e)
+toEnv :: A.ToJSON a => a -> Script A.Object
+toEnv x = case A.toJSON x of
+    A.Object o -> right o
+    e          -> left  ("Failed to extract JSON Object from: " ++ show e)
 
 createDir :: MonadIO m => FilePath -> EitherT String m ()
 createDir = scriptIO . createDirectoryIfMissing True

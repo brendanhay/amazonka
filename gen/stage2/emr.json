@@ -64,41 +64,6 @@
         "description": "Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do such tasks as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "EMR",
-            "error": "JSONError",
-            "namespace": "Network.AWS.EMR",
-            "protocol": "json",
-            "imports": [
-                "Network.AWS.EMR.AddInstanceGroups",
-                "Network.AWS.EMR.AddJobFlowSteps",
-                "Network.AWS.EMR.AddTags",
-                "Network.AWS.EMR.DescribeCluster",
-                "Network.AWS.EMR.DescribeJobFlows",
-                "Network.AWS.EMR.DescribeStep",
-                "Network.AWS.EMR.ListBootstrapActions",
-                "Network.AWS.EMR.ListClusters",
-                "Network.AWS.EMR.ListInstanceGroups",
-                "Network.AWS.EMR.ListInstances",
-                "Network.AWS.EMR.ListSteps",
-                "Network.AWS.EMR.ModifyInstanceGroups",
-                "Network.AWS.EMR.RemoveTags",
-                "Network.AWS.EMR.RunJobFlow",
-                "Network.AWS.EMR.SetTerminationProtection",
-                "Network.AWS.EMR.SetVisibleToAllUsers",
-                "Network.AWS.EMR.TerminateJobFlows",
-                "Network.AWS.EMR.Types"
-            ],
-            "name": "Amazon Elastic MapReduce",
-            "version": "2009-03-31",
-            "documentation": "Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do such tasks as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.",
-            "xmlNamespace": "https://elasticmapreduce.amazonaws.com/doc/2009-03-31/",
-            "endpoint": "Regional",
-            "endpointPrefix": "elasticmapreduce",
-            "targetPrefix": "ElasticMapReduce"
-        },
         "namespace": "Network.AWS.EMR.Types",
         "types": [
             {

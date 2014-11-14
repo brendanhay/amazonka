@@ -63,40 +63,6 @@
         "description": "Amazon Elastic Transcoder lets you convert media files that you have stored in Amazon Simple Storage Service (Amazon S3) into media files in the formats required by consumer playback devices. For example, you can convert large, high-quality digital media files into formats that users can play back on mobile devices, tablets, web browsers, and connected televisions."
     },
     "types": {
-        "service": {
-            "signature": "V4",
-            "checksum": "sha256",
-            "abbrev": "ElasticTranscoder",
-            "error": "RESTError",
-            "namespace": "Network.AWS.ElasticTranscoder",
-            "protocol": "rest-json",
-            "imports": [
-                "Network.AWS.ElasticTranscoder.CancelJob",
-                "Network.AWS.ElasticTranscoder.CreateJob",
-                "Network.AWS.ElasticTranscoder.CreatePipeline",
-                "Network.AWS.ElasticTranscoder.CreatePreset",
-                "Network.AWS.ElasticTranscoder.DeletePipeline",
-                "Network.AWS.ElasticTranscoder.DeletePreset",
-                "Network.AWS.ElasticTranscoder.ListJobsByPipeline",
-                "Network.AWS.ElasticTranscoder.ListJobsByStatus",
-                "Network.AWS.ElasticTranscoder.ListPipelines",
-                "Network.AWS.ElasticTranscoder.ListPresets",
-                "Network.AWS.ElasticTranscoder.ReadJob",
-                "Network.AWS.ElasticTranscoder.ReadPipeline",
-                "Network.AWS.ElasticTranscoder.ReadPreset",
-                "Network.AWS.ElasticTranscoder.TestRole",
-                "Network.AWS.ElasticTranscoder.Types",
-                "Network.AWS.ElasticTranscoder.UpdatePipeline",
-                "Network.AWS.ElasticTranscoder.UpdatePipelineNotifications",
-                "Network.AWS.ElasticTranscoder.UpdatePipelineStatus"
-            ],
-            "name": "Amazon Elastic Transcoder",
-            "version": "2012-09-25",
-            "documentation": "Amazon Elastic Transcoder lets you convert media files that you have stored in Amazon Simple Storage Service (Amazon S3) into media files in the formats required by consumer playback devices. For example, you can convert large, high-quality digital media files into formats that users can play back on mobile devices, tablets, web browsers, and connected televisions.",
-            "xmlNamespace": "https://elastictranscoder.amazonaws.com/doc/2012-09-25/",
-            "endpoint": "Regional",
-            "endpointPrefix": "elastictranscoder"
-        },
         "namespace": "Network.AWS.ElasticTranscoder.Types",
         "types": [
             {

@@ -28,7 +28,7 @@ operationName :: Text -> Text
 operationName t = fromMaybe t (Text.stripSuffix "Request" t)
 
 enumName :: Bool -> Text -> Text -> Text
-enumName u k1 v1 = k2 <> toPascal v3
+enumName u k1 v1 = k2 <> reserved (toPascal v3)
   where
     k2 | u         = Text.toUpper k1
        | otherwise = k1
@@ -85,7 +85,14 @@ reserved x
     | otherwise               = x
   where
     xs = Set.fromList $
-         "head"
-       : "delete"
-       : "filter"
-       : map (CI.mk . Text.pack) (reservedNames haskellDef)
+        prelude ++ map (CI.mk . Text.pack) (reservedNames haskellDef)
+
+    prelude =
+        [ "head"
+        , "tail"
+        , "delete"
+        , "filter"
+        , "true"
+        , "false"
+        , "map"
+        ]

@@ -1011,16 +1011,16 @@
                     "Enum"
                 ],
                 "branches": {
-                    "Eq": "EQ",
-                    "Ge": "GE",
-                    "Between": "BETWEEN",
-                    "RefEq": "REF_EQ",
-                    "Le": "LE"
+                    "OpRefEq": "REF_EQ",
+                    "OpGe": "GE",
+                    "OpBetween": "BETWEEN",
+                    "OpEq": "EQ",
+                    "OpLe": "LE"
                 },
                 "valuePad": 8,
                 "name": "OperatorType",
                 "type": "nullary",
-                "branchPad": 7
+                "branchPad": 9
             },
             {
                 "deriving": [
@@ -1118,8 +1118,8 @@
                     "Enum"
                 ],
                 "branches": {
-                    "False": "FALSE",
                     "Finished": "FINISHED",
+                    "False'": "FALSE",
                     "Failed": "FAILED"
                 },
                 "valuePad": 9,

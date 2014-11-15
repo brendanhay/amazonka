@@ -1,4 +1,5 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE TemplateHaskell            #-}
 
 -- Module      : Network.AWS.Data.Internal.Numeric
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -13,6 +14,7 @@
 module Network.AWS.Data.Internal.Numeric where
 
 import Control.Applicative
+import Control.Lens.TH
 import Control.Monad
 import Data.Aeson.Types
 import Network.AWS.Data.Internal.ByteString
@@ -47,3 +49,5 @@ instance FromJSON Nat where
 
 instance ToJSON Nat where
     toJSON = String . toText . unNat
+
+makePrisms ''Nat

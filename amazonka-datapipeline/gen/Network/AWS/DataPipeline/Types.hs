@@ -481,29 +481,29 @@ instance FromJSON Query
 instance ToJSON Query
 
 data OperatorType
-    = Between -- ^ BETWEEN
-    | Eq      -- ^ EQ
-    | Ge      -- ^ GE
-    | Le      -- ^ LE
-    | RefEq   -- ^ REF_EQ
+    = OpBetween -- ^ BETWEEN
+    | OpEq      -- ^ EQ
+    | OpGe      -- ^ GE
+    | OpLe      -- ^ LE
+    | OpRefEq   -- ^ REF_EQ
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable OperatorType
 
 instance FromText OperatorType where
-    parser = match "BETWEEN" Between
-         <|> match "EQ"      Eq
-         <|> match "GE"      Ge
-         <|> match "LE"      Le
-         <|> match "REF_EQ"  RefEq
+    parser = match "BETWEEN" OpBetween
+         <|> match "EQ"      OpEq
+         <|> match "GE"      OpGe
+         <|> match "LE"      OpLe
+         <|> match "REF_EQ"  OpRefEq
 
 instance ToText OperatorType where
     toText = \case
-        Between -> "BETWEEN"
-        Eq      -> "EQ"
-        Ge      -> "GE"
-        Le      -> "LE"
-        RefEq   -> "REF_EQ"
+        OpBetween -> "BETWEEN"
+        OpEq      -> "EQ"
+        OpGe      -> "GE"
+        OpLe      -> "LE"
+        OpRefEq   -> "REF_EQ"
 
 instance FromJSON OperatorType
 
@@ -543,7 +543,7 @@ instance ToJSON PipelineIdName
 
 data TaskStatus
     = Failed   -- ^ FAILED
-    | False    -- ^ FALSE
+    | False'   -- ^ FALSE
     | Finished -- ^ FINISHED
       deriving (Eq, Ord, Show, Generic, Enum)
 
@@ -551,13 +551,13 @@ instance Hashable TaskStatus
 
 instance FromText TaskStatus where
     parser = match "FAILED"   Failed
-         <|> match "FALSE"    False
+         <|> match "FALSE"    False'
          <|> match "FINISHED" Finished
 
 instance ToText TaskStatus where
     toText = \case
         Failed   -> "FAILED"
-        False    -> "FALSE"
+        False'   -> "FALSE"
         Finished -> "FINISHED"
 
 instance FromJSON TaskStatus

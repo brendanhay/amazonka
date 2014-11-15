@@ -336,27 +336,27 @@ prefixed m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
     go :: Text -> Text -> Data -> State (HashSet Text) Data
     go n k v1
         | Nullary{} <- v1 = do
-            let v2  = mapFieldNames (enumName False "") v1
-                v3  = mapFieldNames (enumName True  k)  v2
-                v4  = mapFieldNames (enumName False n)  v1
+            let v2 = mapFieldNames (enumName False "") v1
+                v3 = mapFieldNames (enumName True  k)  v2
+                v4 = mapFieldNames (enumName False n)  v1
 
-                fs1 = Set.fromList (fieldNames v2)
-                fs2 = Set.fromList (fieldNames v3)
-                fs3 = Set.fromList (fieldNames v4)
+                f1 = Set.fromList (fieldNames v2)
+                f2 = Set.fromList (fieldNames v3)
+                f3 = Set.fromList (fieldNames v4)
 
             s <- get
 
-            let p1 = Set.null (Set.intersection fs1 s)
-                p2 = Set.null (Set.intersection fs2 s)
-                p3 = Set.null (Set.intersection fs3 s)
+            let p1 = Set.null (Set.intersection f1 s)
+                p2 = Set.null (Set.intersection f2 s)
+                p3 = Set.null (Set.intersection f3 s)
 
-                d1 = Set.null (Set.intersection fs1 names)
-                d2 = Set.null (Set.intersection fs2 names)
-                d3 = Set.null (Set.intersection fs3 names)
+                d1 = Set.null (Set.intersection f1 names)
+                d2 = Set.null (Set.intersection f2 names)
+                d3 = Set.null (Set.intersection f3 names)
 
-            if | p1, d1    -> modify (mappend fs1) >> return v2
-               | p2, d2    -> modify (mappend fs2) >> return v3
-               | p3, d3    -> modify (mappend fs3) >> return v4
+            if | p1, d1    -> modify (mappend f1) >> return v2
+               | p2, d2    -> modify (mappend f2) >> return v3
+               | p3, d3    -> modify (mappend f3) >> return v4
                | otherwise ->
                    error $ "Unabled to generate enum fields for: " ++ show n
 
@@ -429,7 +429,7 @@ overriden = flip (Map.foldlWithKey' run)
     sumPrefix _ Nothing  = id
     sumPrefix k (Just y) = Map.adjust f k
       where
-        f x@Nullary{} = mapFieldNames (mappend y . upperHead) x
+        f x@Nullary{} = mapFieldNames (enumName False y) x
         f x           = x
 
     required s f

@@ -1155,7 +1155,7 @@ data ComparisonOperator
     | Eq          -- ^ EQ
     | Ge          -- ^ GE
     | Gt          -- ^ GT
-    | In          -- ^ IN
+    | In'         -- ^ IN
     | Le          -- ^ LE
     | Lt          -- ^ LT
     | Ne          -- ^ NE
@@ -1173,7 +1173,7 @@ instance FromText ComparisonOperator where
          <|> match "EQ"           Eq
          <|> match "GE"           Ge
          <|> match "GT"           Gt
-         <|> match "IN"           In
+         <|> match "IN"           In'
          <|> match "LE"           Le
          <|> match "LT"           Lt
          <|> match "NE"           Ne
@@ -1189,7 +1189,7 @@ instance ToText ComparisonOperator where
         Eq          -> "EQ"
         Ge          -> "GE"
         Gt          -> "GT"
-        In          -> "IN"
+        In'         -> "IN"
         Le          -> "LE"
         Lt          -> "LT"
         Ne          -> "NE"
@@ -1601,23 +1601,23 @@ instance FromJSON LocalSecondaryIndexDescription
 instance ToJSON LocalSecondaryIndexDescription
 
 data AttributeAction
-    = Add    -- ^ ADD
-    | Delete -- ^ DELETE
-    | Put    -- ^ PUT
+    = Add     -- ^ ADD
+    | Delete' -- ^ DELETE
+    | Put     -- ^ PUT
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable AttributeAction
 
 instance FromText AttributeAction where
     parser = match "ADD"    Add
-         <|> match "DELETE" Delete
+         <|> match "DELETE" Delete'
          <|> match "PUT"    Put
 
 instance ToText AttributeAction where
     toText = \case
-        Add    -> "ADD"
-        Delete -> "DELETE"
-        Put    -> "PUT"
+        Add     -> "ADD"
+        Delete' -> "DELETE"
+        Put     -> "PUT"
 
 instance FromJSON AttributeAction
 

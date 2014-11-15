@@ -3018,7 +3018,7 @@ data ResourceType
     = RTCustomerGateway      -- ^ customer-gateway
     | RTDhcpOptions          -- ^ dhcp-options
     | RTImage                -- ^ image
-    | RTInstance             -- ^ instance
+    | RTInstance'            -- ^ instance
     | RTInternetGateway      -- ^ internet-gateway
     | RTNetworkAcl           -- ^ network-acl
     | RTNetworkInterface     -- ^ network-interface
@@ -3040,7 +3040,7 @@ instance FromText ResourceType where
     parser = match "customer-gateway"       RTCustomerGateway
          <|> match "dhcp-options"           RTDhcpOptions
          <|> match "image"                  RTImage
-         <|> match "instance"               RTInstance
+         <|> match "instance"               RTInstance'
          <|> match "internet-gateway"       RTInternetGateway
          <|> match "network-acl"            RTNetworkAcl
          <|> match "network-interface"      RTNetworkInterface
@@ -3060,7 +3060,7 @@ instance ToText ResourceType where
         RTCustomerGateway      -> "customer-gateway"
         RTDhcpOptions          -> "dhcp-options"
         RTImage                -> "image"
-        RTInstance             -> "instance"
+        RTInstance'            -> "instance"
         RTInternetGateway      -> "internet-gateway"
         RTNetworkAcl           -> "network-acl"
         RTNetworkInterface     -> "network-interface"
@@ -7488,19 +7488,19 @@ instance ToQuery DiskImage
 
 data Tenancy
     = Dedicated -- ^ dedicated
-    | Default   -- ^ default
+    | Default'  -- ^ default
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable Tenancy
 
 instance FromText Tenancy where
     parser = match "dedicated" Dedicated
-         <|> match "default"   Default
+         <|> match "default"   Default'
 
 instance ToText Tenancy where
     toText = \case
         Dedicated -> "dedicated"
-        Default   -> "default"
+        Default'  -> "default"
 
 instance FromXML Tenancy where
     fromXMLOptions = xmlOptions

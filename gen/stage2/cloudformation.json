@@ -2337,8 +2337,8 @@
                 ],
                 "branches": {
                     "Rollback": "ROLLBACK",
-                    "DoNothing": "DO_NOTHING",
-                    "Delete": "DELETE"
+                    "Delete'": "DELETE",
+                    "DoNothing": "DO_NOTHING"
                 },
                 "valuePad": 11,
                 "name": "OnFailure",

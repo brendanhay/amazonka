@@ -466,6 +466,7 @@
                     "Hu": "HU",
                     "Br": "BR",
                     "Iq": "IQ",
+                    "In'": "IN",
                     "Bb": "BB",
                     "Sk": "SK",
                     "Ai": "AI",
@@ -479,7 +480,6 @@
                     "By": "BY",
                     "Fm": "FM",
                     "Ar": "AR",
-                    "Do": "DO",
                     "Bi": "BI",
                     "Gd": "GD",
                     "Gt": "GT",
@@ -531,6 +531,7 @@
                     "Kg": "KG",
                     "Ie": "IE",
                     "Fr": "FR",
+                    "Do'": "DO",
                     "So": "SO",
                     "Bf": "BF",
                     "Bm": "BM",
@@ -539,7 +540,6 @@
                     "Cd": "CD",
                     "Tk": "TK",
                     "Na": "NA",
-                    "In": "IN",
                     "Lc": "LC",
                     "Mz": "MZ",
                     "Er": "ER",
@@ -632,7 +632,7 @@
                 "valuePad": 3,
                 "name": "CountryCode",
                 "type": "nullary",
-                "branchPad": 2
+                "branchPad": 3
             },
             {
                 "deriving": [

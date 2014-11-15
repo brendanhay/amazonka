@@ -4089,12 +4089,12 @@
                     "RTSubnet": "subnet",
                     "RTNetworkInterface": "network-interface",
                     "RTReservedInstances": "reserved-instances",
+                    "RTInstance'": "instance",
                     "RTVpnConnection": "vpn-connection",
                     "RTNetworkAcl": "network-acl",
                     "RTVpnGateway": "vpn-gateway",
                     "RTDhcpOptions": "dhcp-options",
                     "RTImage": "image",
-                    "RTInstance": "instance",
                     "RTCustomerGateway": "customer-gateway",
                     "RTInternetGateway": "internet-gateway",
                     "RTSpotInstancesRequest": "spot-instances-request",
@@ -13697,8 +13697,8 @@
                     "Enum"
                 ],
                 "branches": {
-                    "Default": "default",
-                    "Dedicated": "dedicated"
+                    "Dedicated": "dedicated",
+                    "Default'": "default"
                 },
                 "valuePad": 10,
                 "name": "Tenancy",

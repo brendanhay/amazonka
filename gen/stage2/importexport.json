@@ -50,13 +50,13 @@
                     "Enum"
                 ],
                 "branches": {
-                    "Export": "Export",
-                    "Import": "Import"
+                    "Import'": "Import",
+                    "Export'": "Export"
                 },
                 "valuePad": 7,
                 "name": "JobType",
                 "type": "nullary",
-                "branchPad": 6
+                "branchPad": 7
             },
             {
                 "deriving": [

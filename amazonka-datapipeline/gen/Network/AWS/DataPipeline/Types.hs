@@ -481,29 +481,29 @@ instance FromJSON Query
 instance ToJSON Query
 
 data OperatorType
-    = OpBetween -- ^ BETWEEN
-    | OpEq      -- ^ EQ
-    | OpGe      -- ^ GE
-    | OpLe      -- ^ LE
-    | OpRefEq   -- ^ REF_EQ
+    = OperatorBetween -- ^ BETWEEN
+    | OperatorEq      -- ^ EQ
+    | OperatorGe      -- ^ GE
+    | OperatorLe      -- ^ LE
+    | OperatorRefEq   -- ^ REF_EQ
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable OperatorType
 
 instance FromText OperatorType where
-    parser = match "BETWEEN" OpBetween
-         <|> match "EQ"      OpEq
-         <|> match "GE"      OpGe
-         <|> match "LE"      OpLe
-         <|> match "REF_EQ"  OpRefEq
+    parser = match "BETWEEN" OperatorBetween
+         <|> match "EQ"      OperatorEq
+         <|> match "GE"      OperatorGe
+         <|> match "LE"      OperatorLe
+         <|> match "REF_EQ"  OperatorRefEq
 
 instance ToText OperatorType where
     toText = \case
-        OpBetween -> "BETWEEN"
-        OpEq      -> "EQ"
-        OpGe      -> "GE"
-        OpLe      -> "LE"
-        OpRefEq   -> "REF_EQ"
+        OperatorBetween -> "BETWEEN"
+        OperatorEq      -> "EQ"
+        OperatorGe      -> "GE"
+        OperatorLe      -> "LE"
+        OperatorRefEq   -> "REF_EQ"
 
 instance FromJSON OperatorType
 

@@ -4157,13 +4157,13 @@
                     "Enum"
                 ],
                 "branches": {
-                    "Head": "HEAD",
+                    "Head'": "HEAD",
                     "Post": "POST",
                     "Patch": "PATCH",
                     "Get": "GET",
                     "Options": "OPTIONS",
-                    "Put": "PUT",
-                    "Delete": "DELETE"
+                    "Delete'": "DELETE",
+                    "Put": "PUT"
                 },
                 "valuePad": 8,
                 "name": "Method",

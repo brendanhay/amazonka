@@ -66,20 +66,20 @@ xmlOptions = Tagged def
     }
 
 data JobType
-    = Export -- ^ Export
-    | Import -- ^ Import
+    = Export' -- ^ Export
+    | Import' -- ^ Import
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable JobType
 
 instance FromText JobType where
-    parser = match "Export" Export
-         <|> match "Import" Import
+    parser = match "Export" Export'
+         <|> match "Import" Import'
 
 instance ToText JobType where
     toText = \case
-        Export -> "Export"
-        Import -> "Import"
+        Export' -> "Export"
+        Import' -> "Import"
 
 instance FromXML JobType where
     fromXMLOptions = xmlOptions

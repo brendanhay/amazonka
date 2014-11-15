@@ -1583,16 +1583,16 @@ instance FromXML Trigger where
 instance ToQuery Trigger
 
 data EnvironmentInfoType
-    = Tail -- ^ tail
+    = Tail' -- ^ tail
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable EnvironmentInfoType
 
 instance FromText EnvironmentInfoType where
-    parser = match "tail" Tail
+    parser = match "tail" Tail'
 
 instance ToText EnvironmentInfoType where
-    toText Tail = "tail"
+    toText Tail' = "tail"
 
 instance FromXML EnvironmentInfoType where
     fromXMLOptions = xmlOptions

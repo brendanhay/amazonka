@@ -1628,11 +1628,11 @@
                 "branches": {
                     "Eq": "EQ",
                     "Ge": "GE",
+                    "In'": "IN",
                     "Gt": "GT",
                     "Null": "NULL",
                     "Ne": "NE",
                     "NotContains": "NOT_CONTAINS",
-                    "In": "IN",
                     "Between": "BETWEEN",
                     "Lt": "LT",
                     "Contains": "CONTAINS",
@@ -2659,13 +2659,13 @@
                 ],
                 "branches": {
                     "Add": "ADD",
-                    "Put": "PUT",
-                    "Delete": "DELETE"
+                    "Delete'": "DELETE",
+                    "Put": "PUT"
                 },
                 "valuePad": 7,
                 "name": "AttributeAction",
                 "type": "nullary",
-                "branchPad": 6
+                "branchPad": 7
             },
             {
                 "deriving": [

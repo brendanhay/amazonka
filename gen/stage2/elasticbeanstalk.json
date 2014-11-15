@@ -3048,12 +3048,12 @@
                     "Enum"
                 ],
                 "branches": {
-                    "Tail": "tail"
+                    "Tail'": "tail"
                 },
                 "valuePad": 5,
                 "name": "EnvironmentInfoType",
                 "type": "nullary",
-                "branchPad": 4
+                "branchPad": 5
             },
             {
                 "deriving": [

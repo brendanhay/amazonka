@@ -512,23 +512,23 @@ instance ToXML VPCRegion where
     toXMLRoot    = toRoot "VPCRegion"
 
 data ChangeAction
-    = Create -- ^ CREATE
-    | Delete -- ^ DELETE
-    | Upsert -- ^ UPSERT
+    = Create  -- ^ CREATE
+    | Delete' -- ^ DELETE
+    | Upsert  -- ^ UPSERT
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ChangeAction
 
 instance FromText ChangeAction where
     parser = match "CREATE" Create
-         <|> match "DELETE" Delete
+         <|> match "DELETE" Delete'
          <|> match "UPSERT" Upsert
 
 instance ToText ChangeAction where
     toText = \case
-        Create -> "CREATE"
-        Delete -> "DELETE"
-        Upsert -> "UPSERT"
+        Create  -> "CREATE"
+        Delete' -> "DELETE"
+        Upsert  -> "UPSERT"
 
 instance FromXML ChangeAction where
     fromXMLOptions = xmlOptions

@@ -2296,9 +2296,9 @@ instance ToXML Origins where
     toXMLRoot    = toRoot "Origins"
 
 data Method
-    = Delete  -- ^ DELETE
+    = Delete' -- ^ DELETE
     | Get     -- ^ GET
-    | Head    -- ^ HEAD
+    | Head'   -- ^ HEAD
     | Options -- ^ OPTIONS
     | Patch   -- ^ PATCH
     | Post    -- ^ POST
@@ -2308,9 +2308,9 @@ data Method
 instance Hashable Method
 
 instance FromText Method where
-    parser = match "DELETE"  Delete
+    parser = match "DELETE"  Delete'
          <|> match "GET"     Get
-         <|> match "HEAD"    Head
+         <|> match "HEAD"    Head'
          <|> match "OPTIONS" Options
          <|> match "PATCH"   Patch
          <|> match "POST"    Post
@@ -2318,9 +2318,9 @@ instance FromText Method where
 
 instance ToText Method where
     toText = \case
-        Delete  -> "DELETE"
+        Delete' -> "DELETE"
         Get     -> "GET"
-        Head    -> "HEAD"
+        Head'   -> "HEAD"
         Options -> "OPTIONS"
         Patch   -> "PATCH"
         Post    -> "POST"

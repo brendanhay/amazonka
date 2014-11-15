@@ -1150,7 +1150,7 @@ instance FromXML Stack where
 instance ToQuery Stack
 
 data OnFailure
-    = Delete    -- ^ DELETE
+    = Delete'   -- ^ DELETE
     | DoNothing -- ^ DO_NOTHING
     | Rollback  -- ^ ROLLBACK
       deriving (Eq, Ord, Show, Generic, Enum)
@@ -1158,13 +1158,13 @@ data OnFailure
 instance Hashable OnFailure
 
 instance FromText OnFailure where
-    parser = match "DELETE"     Delete
+    parser = match "DELETE"     Delete'
          <|> match "DO_NOTHING" DoNothing
          <|> match "ROLLBACK"   Rollback
 
 instance ToText OnFailure where
     toText = \case
-        Delete    -> "DELETE"
+        Delete'   -> "DELETE"
         DoNothing -> "DO_NOTHING"
         Rollback  -> "ROLLBACK"
 

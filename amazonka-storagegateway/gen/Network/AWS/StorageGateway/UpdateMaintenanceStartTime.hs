@@ -47,10 +47,10 @@ import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
-    { _umstDayOfWeek    :: Natural
+    { _umstDayOfWeek    :: Nat
     , _umstGatewayARN   :: Text
-    , _umstHourOfDay    :: Natural
-    , _umstMinuteOfHour :: Natural
+    , _umstHourOfDay    :: Nat
+    , _umstMinuteOfHour :: Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateMaintenanceStartTime' constructor.
@@ -72,14 +72,15 @@ updateMaintenanceStartTime :: Text -- ^ 'umstGatewayARN'
                            -> UpdateMaintenanceStartTime
 updateMaintenanceStartTime p1 p2 p3 p4 = UpdateMaintenanceStartTime
     { _umstGatewayARN   = p1
-    , _umstHourOfDay    = p2
-    , _umstMinuteOfHour = p3
-    , _umstDayOfWeek    = p4
+    , _umstHourOfDay    = withIso _Nat (const id) p2
+    , _umstMinuteOfHour = withIso _Nat (const id) p3
+    , _umstDayOfWeek    = withIso _Nat (const id) p4
     }
 
 -- | The maintenance start time day of the week.
 umstDayOfWeek :: Lens' UpdateMaintenanceStartTime Natural
 umstDayOfWeek = lens _umstDayOfWeek (\s a -> s { _umstDayOfWeek = a })
+    . _Nat
 
 umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
 umstGatewayARN = lens _umstGatewayARN (\s a -> s { _umstGatewayARN = a })
@@ -89,12 +90,14 @@ umstGatewayARN = lens _umstGatewayARN (\s a -> s { _umstGatewayARN = a })
 -- gateway.
 umstHourOfDay :: Lens' UpdateMaintenanceStartTime Natural
 umstHourOfDay = lens _umstHourOfDay (\s a -> s { _umstHourOfDay = a })
+    . _Nat
 
 -- | The minute component of the maintenance start time represented as mm,
 -- where mm is the minute (00 to 59). The minute of the hour is in the time
 -- zone of the gateway.
 umstMinuteOfHour :: Lens' UpdateMaintenanceStartTime Natural
 umstMinuteOfHour = lens _umstMinuteOfHour (\s a -> s { _umstMinuteOfHour = a })
+    . _Nat
 
 instance ToPath UpdateMaintenanceStartTime where
     toPath = const "/"

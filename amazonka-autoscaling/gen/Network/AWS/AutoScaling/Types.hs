@@ -1162,9 +1162,9 @@ instance ToQuery ScalingProcessQuery
 
 data Ebs = Ebs
     { _ebsDeleteOnTermination :: Maybe Bool
-    , _ebsIops                :: Maybe Natural
+    , _ebsIops                :: Maybe Nat
     , _ebsSnapshotId          :: Maybe Text
-    , _ebsVolumeSize          :: Maybe Natural
+    , _ebsVolumeSize          :: Maybe Nat
     , _ebsVolumeType          :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1202,6 +1202,7 @@ ebsDeleteOnTermination =
 -- 100 to 4000. Default: None.
 ebsIops :: Lens' Ebs (Maybe Natural)
 ebsIops = lens _ebsIops (\s a -> s { _ebsIops = a })
+    . mapping _Nat
 
 -- | The snapshot ID.
 ebsSnapshotId :: Lens' Ebs (Maybe Text)
@@ -1213,6 +1214,7 @@ ebsSnapshotId = lens _ebsSnapshotId (\s a -> s { _ebsSnapshotId = a })
 -- is the snapshot size. Required: Required when the volume type is io1.
 ebsVolumeSize :: Lens' Ebs (Maybe Natural)
 ebsVolumeSize = lens _ebsVolumeSize (\s a -> s { _ebsVolumeSize = a })
+    . mapping _Nat
 
 -- | The volume type. Valid values: standard | io1 Default: standard.
 ebsVolumeType :: Lens' Ebs (Maybe Text)

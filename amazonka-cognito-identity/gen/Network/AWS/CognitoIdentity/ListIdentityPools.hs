@@ -44,7 +44,7 @@ import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
 data ListIdentityPools = ListIdentityPools
-    { _lipMaxResults :: Natural
+    { _lipMaxResults :: Nat
     , _lipNextToken  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -59,13 +59,14 @@ data ListIdentityPools = ListIdentityPools
 listIdentityPools :: Natural -- ^ 'lipMaxResults'
                   -> ListIdentityPools
 listIdentityPools p1 = ListIdentityPools
-    { _lipMaxResults = p1
+    { _lipMaxResults = withIso _Nat (const id) p1
     , _lipNextToken  = Nothing
     }
 
 -- | The maximum number of identities to return.
 lipMaxResults :: Lens' ListIdentityPools Natural
 lipMaxResults = lens _lipMaxResults (\s a -> s { _lipMaxResults = a })
+    . _Nat
 
 -- | A pagination token.
 lipNextToken :: Lens' ListIdentityPools (Maybe Text)

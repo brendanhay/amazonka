@@ -62,7 +62,7 @@ import qualified GHC.Exts
 
 data ListActivityTypes = ListActivityTypes
     { _latDomain             :: Text
-    , _latMaximumPageSize    :: Maybe Natural
+    , _latMaximumPageSize    :: Maybe Nat
     , _latName               :: Maybe Text
     , _latNextPageToken      :: Maybe Text
     , _latRegistrationStatus :: Text
@@ -110,6 +110,7 @@ latDomain = lens _latDomain (\s a -> s { _latDomain = a })
 latMaximumPageSize :: Lens' ListActivityTypes (Maybe Natural)
 latMaximumPageSize =
     lens _latMaximumPageSize (\s a -> s { _latMaximumPageSize = a })
+        . mapping _Nat
 
 -- | If specified, only lists the activity types that have this name.
 latName :: Lens' ListActivityTypes (Maybe Text)

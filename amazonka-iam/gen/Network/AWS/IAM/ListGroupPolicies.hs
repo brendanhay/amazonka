@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data ListGroupPolicies = ListGroupPolicies
     { _lgpGroupName :: Text
     , _lgpMarker    :: Maybe Text
-    , _lgpMaxItems  :: Maybe Natural
+    , _lgpMaxItems  :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListGroupPolicies' constructor.
@@ -88,6 +88,7 @@ lgpMarker = lens _lgpMarker (\s a -> s { _lgpMarker = a })
 -- to 100.
 lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
 lgpMaxItems = lens _lgpMaxItems (\s a -> s { _lgpMaxItems = a })
+    . mapping _Nat
 
 instance ToQuery ListGroupPolicies
 

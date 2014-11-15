@@ -289,9 +289,9 @@ instance ToJSON WriteRequest
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription
     { _ptdLastDecreaseDateTime   :: Maybe RFC822
     , _ptdLastIncreaseDateTime   :: Maybe RFC822
-    , _ptdNumberOfDecreasesToday :: Maybe Natural
-    , _ptdReadCapacityUnits      :: Maybe Natural
-    , _ptdWriteCapacityUnits     :: Maybe Natural
+    , _ptdNumberOfDecreasesToday :: Maybe Nat
+    , _ptdReadCapacityUnits      :: Maybe Nat
+    , _ptdWriteCapacityUnits     :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ProvisionedThroughputDescription' constructor.
@@ -338,6 +338,7 @@ ptdNumberOfDecreasesToday :: Lens' ProvisionedThroughputDescription (Maybe Natur
 ptdNumberOfDecreasesToday =
     lens _ptdNumberOfDecreasesToday
         (\s a -> s { _ptdNumberOfDecreasesToday = a })
+            . mapping _Nat
 
 -- | The maximum number of strongly consistent reads consumed per second
 -- before DynamoDB returns a ThrottlingException. Eventually consistent
@@ -347,12 +348,14 @@ ptdNumberOfDecreasesToday =
 ptdReadCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdReadCapacityUnits =
     lens _ptdReadCapacityUnits (\s a -> s { _ptdReadCapacityUnits = a })
+        . mapping _Nat
 
 -- | The maximum number of writes consumed per second before DynamoDB returns
 -- a ThrottlingException.
 ptdWriteCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdWriteCapacityUnits =
     lens _ptdWriteCapacityUnits (\s a -> s { _ptdWriteCapacityUnits = a })
+        . mapping _Nat
 
 instance FromJSON ProvisionedThroughputDescription
 
@@ -501,8 +504,8 @@ instance FromJSON IndexStatus
 instance ToJSON IndexStatus
 
 data ProvisionedThroughput = ProvisionedThroughput
-    { _ptReadCapacityUnits  :: Natural
-    , _ptWriteCapacityUnits :: Natural
+    { _ptReadCapacityUnits  :: Nat
+    , _ptWriteCapacityUnits :: Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ProvisionedThroughput' constructor.
@@ -517,8 +520,8 @@ provisionedThroughput :: Natural -- ^ 'ptReadCapacityUnits'
                       -> Natural -- ^ 'ptWriteCapacityUnits'
                       -> ProvisionedThroughput
 provisionedThroughput p1 p2 = ProvisionedThroughput
-    { _ptReadCapacityUnits  = p1
-    , _ptWriteCapacityUnits = p2
+    { _ptReadCapacityUnits  = withIso _Nat (const id) p1
+    , _ptWriteCapacityUnits = withIso _Nat (const id) p2
     }
 
 -- | The maximum number of strongly consistent reads consumed per second
@@ -528,6 +531,7 @@ provisionedThroughput p1 p2 = ProvisionedThroughput
 ptReadCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptReadCapacityUnits =
     lens _ptReadCapacityUnits (\s a -> s { _ptReadCapacityUnits = a })
+        . _Nat
 
 -- | The maximum number of writes consumed per second before DynamoDB returns
 -- a ThrottlingException. For more information, see Specifying Read and
@@ -535,6 +539,7 @@ ptReadCapacityUnits =
 ptWriteCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptWriteCapacityUnits =
     lens _ptWriteCapacityUnits (\s a -> s { _ptWriteCapacityUnits = a })
+        . _Nat
 
 instance FromJSON ProvisionedThroughput
 

@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 data ListIdentities = ListIdentities
     { _liIdentityPoolId :: Text
-    , _liMaxResults     :: Natural
+    , _liMaxResults     :: Nat
     , _liNextToken      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -66,7 +66,7 @@ listIdentities :: Text -- ^ 'liIdentityPoolId'
                -> ListIdentities
 listIdentities p1 p2 = ListIdentities
     { _liIdentityPoolId = p1
-    , _liMaxResults     = p2
+    , _liMaxResults     = withIso _Nat (const id) p2
     , _liNextToken      = Nothing
     }
 
@@ -77,6 +77,7 @@ liIdentityPoolId = lens _liIdentityPoolId (\s a -> s { _liIdentityPoolId = a })
 -- | The maximum number of identities to return.
 liMaxResults :: Lens' ListIdentities Natural
 liMaxResults = lens _liMaxResults (\s a -> s { _liMaxResults = a })
+    . _Nat
 
 -- | A pagination token.
 liNextToken :: Lens' ListIdentities (Maybe Text)

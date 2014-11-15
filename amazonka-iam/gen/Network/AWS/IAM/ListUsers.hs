@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 data ListUsers = ListUsers
     { _luMarker     :: Maybe Text
-    , _luMaxItems   :: Maybe Natural
+    , _luMaxItems   :: Maybe Nat
     , _luPathPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -85,6 +85,7 @@ luMarker = lens _luMarker (\s a -> s { _luMarker = a })
 -- defaults to 100.
 luMaxItems :: Lens' ListUsers (Maybe Natural)
 luMaxItems = lens _luMaxItems (\s a -> s { _luMaxItems = a })
+    . mapping _Nat
 
 -- | The path prefix for filtering the results. For example:
 -- /division_abc/subdivision_xyz/, which would get all user names whose path

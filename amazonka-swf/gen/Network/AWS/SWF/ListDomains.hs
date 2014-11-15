@@ -58,7 +58,7 @@ import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
 data ListDomains = ListDomains
-    { _ldMaximumPageSize    :: Maybe Natural
+    { _ldMaximumPageSize    :: Maybe Nat
     , _ldNextPageToken      :: Maybe Text
     , _ldRegistrationStatus :: Text
     , _ldReverseOrder       :: Maybe Bool
@@ -94,6 +94,7 @@ listDomains p1 = ListDomains
 ldMaximumPageSize :: Lens' ListDomains (Maybe Natural)
 ldMaximumPageSize =
     lens _ldMaximumPageSize (\s a -> s { _ldMaximumPageSize = a })
+        . mapping _Nat
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- result has more than one page. To get the next page of results, repeat

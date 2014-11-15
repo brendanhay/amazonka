@@ -98,7 +98,7 @@ import Network.AWS.STS.Types
 import qualified GHC.Exts
 
 data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
-    { _arwwiDurationSeconds  :: Maybe Natural
+    { _arwwiDurationSeconds  :: Maybe Nat
     , _arwwiPolicy           :: Maybe Text
     , _arwwiProviderId       :: Maybe Text
     , _arwwiRoleArn          :: Text
@@ -141,6 +141,7 @@ assumeRoleWithWebIdentity p1 p2 p3 = AssumeRoleWithWebIdentity
 arwwiDurationSeconds :: Lens' AssumeRoleWithWebIdentity (Maybe Natural)
 arwwiDurationSeconds =
     lens _arwwiDurationSeconds (\s a -> s { _arwwiDurationSeconds = a })
+        . mapping _Nat
 
 -- | An IAM policy in JSON format. The policy parameter is optional. If you
 -- pass a policy, the temporary security credentials that are returned by
@@ -194,7 +195,7 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     { _arwwirAssumedRoleUser             :: Maybe AssumedRoleUser
     , _arwwirAudience                    :: Maybe Text
     , _arwwirCredentials                 :: Maybe Credentials
-    , _arwwirPackedPolicySize            :: Maybe Natural
+    , _arwwirPackedPolicySize            :: Maybe Nat
     , _arwwirProvider                    :: Maybe Text
     , _arwwirSubjectFromWebIdentityToken :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -253,6 +254,7 @@ arwwirCredentials =
 arwwirPackedPolicySize :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Natural)
 arwwirPackedPolicySize =
     lens _arwwirPackedPolicySize (\s a -> s { _arwwirPackedPolicySize = a })
+        . mapping _Nat
 
 -- | The issuing authority of the web identity token presented. For OpenID
 -- Connect ID Tokens this contains the value of the iss field. For OAuth 2.0

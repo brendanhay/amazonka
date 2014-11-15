@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 data ListFunctions = ListFunctions
     { _lfMarker   :: Maybe Text
-    , _lfMaxItems :: Maybe Natural
+    , _lfMaxItems :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListFunctions' constructor.
@@ -75,6 +75,7 @@ lfMarker = lens _lfMarker (\s a -> s { _lfMarker = a })
 -- return in response. This parameter value must be greater than 0.
 lfMaxItems :: Lens' ListFunctions (Maybe Natural)
 lfMaxItems = lens _lfMaxItems (\s a -> s { _lfMaxItems = a })
+    . mapping _Nat
 
 instance ToPath ListFunctions where
     toPath = const "/2014-11-13/functions/"

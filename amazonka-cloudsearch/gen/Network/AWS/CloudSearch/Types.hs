@@ -325,9 +325,9 @@ data DomainStatus = DomainStatus
     , _dsLimits                 :: Maybe Limits
     , _dsProcessing             :: Maybe Bool
     , _dsRequiresIndexDocuments :: Bool
-    , _dsSearchInstanceCount    :: Maybe Natural
+    , _dsSearchInstanceCount    :: Maybe Nat
     , _dsSearchInstanceType     :: Maybe Text
-    , _dsSearchPartitionCount   :: Maybe Natural
+    , _dsSearchPartitionCount   :: Maybe Nat
     , _dsSearchService          :: Maybe ServiceEndpoint
     } deriving (Eq, Show, Generic)
 
@@ -429,6 +429,7 @@ dsRequiresIndexDocuments =
 dsSearchInstanceCount :: Lens' DomainStatus (Maybe Natural)
 dsSearchInstanceCount =
     lens _dsSearchInstanceCount (\s a -> s { _dsSearchInstanceCount = a })
+        . mapping _Nat
 
 -- | The instance type that is being used to process search requests.
 dsSearchInstanceType :: Lens' DomainStatus (Maybe Text)
@@ -439,6 +440,7 @@ dsSearchInstanceType =
 dsSearchPartitionCount :: Lens' DomainStatus (Maybe Natural)
 dsSearchPartitionCount =
     lens _dsSearchPartitionCount (\s a -> s { _dsSearchPartitionCount = a })
+        . mapping _Nat
 
 -- | The service endpoint for requesting search results from a search domain.
 dsSearchService :: Lens' DomainStatus (Maybe ServiceEndpoint)
@@ -906,8 +908,8 @@ instance ToQuery AnalysisScheme
 
 data ScalingParameters = ScalingParameters
     { _spDesiredInstanceType     :: Maybe Text
-    , _spDesiredPartitionCount   :: Maybe Natural
-    , _spDesiredReplicationCount :: Maybe Natural
+    , _spDesiredPartitionCount   :: Maybe Nat
+    , _spDesiredReplicationCount :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ScalingParameters' constructor.
@@ -938,12 +940,14 @@ spDesiredInstanceType =
 spDesiredPartitionCount :: Lens' ScalingParameters (Maybe Natural)
 spDesiredPartitionCount =
     lens _spDesiredPartitionCount (\s a -> s { _spDesiredPartitionCount = a })
+        . mapping _Nat
 
 -- | The number of replicas you want to preconfigure for each index partition.
 spDesiredReplicationCount :: Lens' ScalingParameters (Maybe Natural)
 spDesiredReplicationCount =
     lens _spDesiredReplicationCount
         (\s a -> s { _spDesiredReplicationCount = a })
+            . mapping _Nat
 
 instance FromXML ScalingParameters where
     fromXMLOptions = xmlOptions
@@ -1324,8 +1328,8 @@ instance FromXML ServiceEndpoint where
 instance ToQuery ServiceEndpoint
 
 data Limits = Limits
-    { _lMaximumPartitionCount   :: Natural
-    , _lMaximumReplicationCount :: Natural
+    { _lMaximumPartitionCount   :: Nat
+    , _lMaximumReplicationCount :: Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Limits' constructor.
@@ -1340,18 +1344,20 @@ limits :: Natural -- ^ 'lMaximumReplicationCount'
        -> Natural -- ^ 'lMaximumPartitionCount'
        -> Limits
 limits p1 p2 = Limits
-    { _lMaximumReplicationCount = p1
-    , _lMaximumPartitionCount   = p2
+    { _lMaximumReplicationCount = withIso _Nat (const id) p1
+    , _lMaximumPartitionCount   = withIso _Nat (const id) p2
     }
 
 lMaximumPartitionCount :: Lens' Limits Natural
 lMaximumPartitionCount =
     lens _lMaximumPartitionCount (\s a -> s { _lMaximumPartitionCount = a })
+        . _Nat
 
 lMaximumReplicationCount :: Lens' Limits Natural
 lMaximumReplicationCount =
     lens _lMaximumReplicationCount
         (\s a -> s { _lMaximumReplicationCount = a })
+            . _Nat
 
 instance FromXML Limits where
     fromXMLOptions = xmlOptions
@@ -1545,7 +1551,7 @@ data OptionStatus = OptionStatus
     , _osPendingDeletion :: Maybe Bool
     , _osState           :: Text
     , _osUpdateDate      :: RFC822
-    , _osUpdateVersion   :: Maybe Natural
+    , _osUpdateVersion   :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'OptionStatus' constructor.
@@ -1603,6 +1609,7 @@ osUpdateDate = lens _osUpdateDate (\s a -> s { _osUpdateDate = a })
 -- | A unique integer that indicates when this option was last updated.
 osUpdateVersion :: Lens' OptionStatus (Maybe Natural)
 osUpdateVersion = lens _osUpdateVersion (\s a -> s { _osUpdateVersion = a })
+    . mapping _Nat
 
 instance FromXML OptionStatus where
     fromXMLOptions = xmlOptions

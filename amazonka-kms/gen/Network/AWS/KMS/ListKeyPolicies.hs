@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 data ListKeyPolicies = ListKeyPolicies
     { _lkpKeyId  :: Text
-    , _lkpLimit  :: Maybe Natural
+    , _lkpLimit  :: Maybe Nat
     , _lkpMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -80,6 +80,7 @@ lkpKeyId = lens _lkpKeyId (\s a -> s { _lkpKeyId = a })
 -- response element will be set to true.
 lkpLimit :: Lens' ListKeyPolicies (Maybe Natural)
 lkpLimit = lens _lkpLimit (\s a -> s { _lkpLimit = a })
+    . mapping _Nat
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.

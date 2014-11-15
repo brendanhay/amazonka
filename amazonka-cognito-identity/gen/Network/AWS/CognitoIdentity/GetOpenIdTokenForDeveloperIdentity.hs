@@ -61,7 +61,7 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity
     { _goitfdiIdentityId     :: Maybe Text
     , _goitfdiIdentityPoolId :: Text
     , _goitfdiLogins         :: Map Text Text
-    , _goitfdiTokenDuration  :: Maybe Natural
+    , _goitfdiTokenDuration  :: Maybe Nat
     } deriving (Eq, Show, Generic)
 
 -- | 'GetOpenIdTokenForDeveloperIdentity' constructor.
@@ -120,6 +120,7 @@ goitfdiLogins = lens _goitfdiLogins (\s a -> s { _goitfdiLogins = a })
 goitfdiTokenDuration :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Natural)
 goitfdiTokenDuration =
     lens _goitfdiTokenDuration (\s a -> s { _goitfdiTokenDuration = a })
+        . mapping _Nat
 
 instance ToPath GetOpenIdTokenForDeveloperIdentity where
     toPath = const "/"

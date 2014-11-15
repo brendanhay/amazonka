@@ -54,12 +54,12 @@ import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
 data UpdateHealthCheck = UpdateHealthCheck
-    { _uhcFailureThreshold         :: Maybe Natural
+    { _uhcFailureThreshold         :: Maybe Nat
     , _uhcFullyQualifiedDomainName :: Maybe Text
     , _uhcHealthCheckId            :: Text
-    , _uhcHealthCheckVersion       :: Maybe Natural
+    , _uhcHealthCheckVersion       :: Maybe Nat
     , _uhcIPAddress                :: Maybe Text
-    , _uhcPort                     :: Maybe Natural
+    , _uhcPort                     :: Maybe Nat
     , _uhcResourcePath             :: Maybe Text
     , _uhcSearchString             :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -106,6 +106,7 @@ updateHealthCheck p1 = UpdateHealthCheck
 uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcFailureThreshold =
     lens _uhcFailureThreshold (\s a -> s { _uhcFailureThreshold = a })
+        . mapping _Nat
 
 -- | Fully qualified domain name of the instance to be health checked. Specify
 -- this value only if you want to change it.
@@ -126,6 +127,7 @@ uhcHealthCheckId = lens _uhcHealthCheckId (\s a -> s { _uhcHealthCheckId = a })
 uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcHealthCheckVersion =
     lens _uhcHealthCheckVersion (\s a -> s { _uhcHealthCheckVersion = a })
+        . mapping _Nat
 
 -- | The IP address of the resource that you want to check. Specify this value
 -- only if you want to change it.
@@ -136,6 +138,7 @@ uhcIPAddress = lens _uhcIPAddress (\s a -> s { _uhcIPAddress = a })
 -- health checks. Specify this value only if you want to change it.
 uhcPort :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcPort = lens _uhcPort (\s a -> s { _uhcPort = a })
+    . mapping _Nat
 
 -- | The path that you want Amazon Route 53 to request when performing health
 -- checks. The path can be any value for which your endpoint will return an

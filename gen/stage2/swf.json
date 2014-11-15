@@ -972,8 +972,8 @@
                 "ctor": "workflowExecutionCount",
                 "payload": {
                     "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_Nat",
+                    "lensMapping": "_Nat",
                     "default": "\u003cerror\u003e",
                     "required": true,
                     "lens": "wecCount",
@@ -982,13 +982,13 @@
                     "locationName": "count",
                     "documentation": "\u003cp\u003e The number of workflow executions. \u003c/p\u003e",
                     "typeExposed": "Natural",
-                    "type": "Natural"
+                    "type": "Nat"
                 },
                 "required": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "wecCount",
@@ -997,7 +997,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of workflow executions. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "name": "WorkflowExecutionCount",
@@ -1021,8 +1021,8 @@
                 "fields": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "wecCount",
@@ -1031,7 +1031,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of workflow executions. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -2345,8 +2345,8 @@
                 "ctor": "workflowExecutionOpenCounts",
                 "payload": {
                     "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_Nat",
+                    "lensMapping": "_Nat",
                     "default": "\u003cerror\u003e",
                     "required": true,
                     "lens": "weocOpenActivityTasks",
@@ -2355,13 +2355,13 @@
                     "locationName": "openActivityTasks",
                     "documentation": "\u003cp\u003e The count of activity tasks whose status is OPEN. \u003c/p\u003e",
                     "typeExposed": "Natural",
-                    "type": "Natural"
+                    "type": "Nat"
                 },
                 "required": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "weocOpenActivityTasks",
@@ -2370,12 +2370,12 @@
                         "locationName": "openActivityTasks",
                         "documentation": "\u003cp\u003e The count of activity tasks whose status is OPEN. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "weocOpenDecisionTasks",
@@ -2384,12 +2384,12 @@
                         "locationName": "openDecisionTasks",
                         "documentation": "\u003cp\u003e The count of decision tasks whose status is OPEN. A workflow execution can have at most one open decision task. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "weocOpenTimers",
@@ -2398,12 +2398,12 @@
                         "locationName": "openTimers",
                         "documentation": "\u003cp\u003e The count of timers started by this workflow execution that have not fired yet. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "weocOpenChildWorkflowExecutions",
@@ -2412,7 +2412,7 @@
                         "locationName": "openChildWorkflowExecutions",
                         "documentation": "\u003cp\u003e The count of child workflow executions whose status is OPEN. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "name": "WorkflowExecutionOpenCounts",
@@ -2421,8 +2421,8 @@
                 "fields": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "weocOpenActivityTasks",
@@ -2431,12 +2431,12 @@
                         "locationName": "openActivityTasks",
                         "documentation": "\u003cp\u003e The count of activity tasks whose status is OPEN. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "weocOpenChildWorkflowExecutions",
@@ -2445,12 +2445,12 @@
                         "locationName": "openChildWorkflowExecutions",
                         "documentation": "\u003cp\u003e The count of child workflow executions whose status is OPEN. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "weocOpenDecisionTasks",
@@ -2459,12 +2459,12 @@
                         "locationName": "openDecisionTasks",
                         "documentation": "\u003cp\u003e The count of decision tasks whose status is OPEN. A workflow execution can have at most one open decision task. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "weocOpenTimers",
@@ -2473,7 +2473,7 @@
                         "locationName": "openTimers",
                         "documentation": "\u003cp\u003e The count of timers started by this workflow execution that have not fired yet. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ]
             },
@@ -12747,8 +12747,8 @@
                 "ctor": "pendingTaskCount",
                 "payload": {
                     "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_Nat",
+                    "lensMapping": "_Nat",
                     "default": "\u003cerror\u003e",
                     "required": true,
                     "lens": "ptcCount",
@@ -12757,13 +12757,13 @@
                     "locationName": "count",
                     "documentation": "\u003cp\u003e The number of tasks in the task list. \u003c/p\u003e",
                     "typeExposed": "Natural",
-                    "type": "Natural"
+                    "type": "Nat"
                 },
                 "required": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ptcCount",
@@ -12772,7 +12772,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of tasks in the task list. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "name": "PendingTaskCount",
@@ -12796,8 +12796,8 @@
                 "fields": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ptcCount",
@@ -12806,7 +12806,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of tasks in the task list. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -13126,8 +13126,8 @@
                 "wrapper": false,
                 "payload": {
                     "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_Nat",
+                    "lensMapping": "_Nat",
                     "default": "\u003cerror\u003e",
                     "required": true,
                     "lens": "ccwerCount",
@@ -13136,13 +13136,13 @@
                     "locationName": "count",
                     "documentation": "\u003cp\u003e The number of workflow executions. \u003c/p\u003e",
                     "typeExposed": "Natural",
-                    "type": "Natural"
+                    "type": "Nat"
                 },
                 "required": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ccwerCount",
@@ -13151,7 +13151,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of workflow executions. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "shared": false,
@@ -13177,8 +13177,8 @@
                 "fields": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ccwerCount",
@@ -13187,7 +13187,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of workflow executions. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -13469,8 +13469,8 @@
                 "wrapper": false,
                 "payload": {
                     "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_Nat",
+                    "lensMapping": "_Nat",
                     "default": "\u003cerror\u003e",
                     "required": true,
                     "lens": "cowerCount",
@@ -13479,13 +13479,13 @@
                     "locationName": "count",
                     "documentation": "\u003cp\u003e The number of workflow executions. \u003c/p\u003e",
                     "typeExposed": "Natural",
-                    "type": "Natural"
+                    "type": "Nat"
                 },
                 "required": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "cowerCount",
@@ -13494,7 +13494,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of workflow executions. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "shared": false,
@@ -13520,8 +13520,8 @@
                 "fields": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "cowerCount",
@@ -13530,7 +13530,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of workflow executions. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -13756,8 +13756,8 @@
                 "wrapper": false,
                 "payload": {
                     "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_Nat",
+                    "lensMapping": "_Nat",
                     "default": "\u003cerror\u003e",
                     "required": true,
                     "lens": "cpatrCount",
@@ -13766,13 +13766,13 @@
                     "locationName": "count",
                     "documentation": "\u003cp\u003e The number of tasks in the task list. \u003c/p\u003e",
                     "typeExposed": "Natural",
-                    "type": "Natural"
+                    "type": "Nat"
                 },
                 "required": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "cpatrCount",
@@ -13781,7 +13781,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of tasks in the task list. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "shared": false,
@@ -13807,8 +13807,8 @@
                 "fields": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "cpatrCount",
@@ -13817,7 +13817,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of tasks in the task list. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -13958,8 +13958,8 @@
                 "wrapper": false,
                 "payload": {
                     "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_Nat",
+                    "lensMapping": "_Nat",
                     "default": "\u003cerror\u003e",
                     "required": true,
                     "lens": "cpdtrCount",
@@ -13968,13 +13968,13 @@
                     "locationName": "count",
                     "documentation": "\u003cp\u003e The number of tasks in the task list. \u003c/p\u003e",
                     "typeExposed": "Natural",
-                    "type": "Natural"
+                    "type": "Nat"
                 },
                 "required": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "cpdtrCount",
@@ -13983,7 +13983,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of tasks in the task list. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "shared": false,
@@ -14009,8 +14009,8 @@
                 "fields": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "cpdtrCount",
@@ -14019,7 +14019,7 @@
                         "locationName": "count",
                         "documentation": "\u003cp\u003e The number of tasks in the task list. \u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -15590,7 +15590,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gwehMaximumPageSize",
@@ -15599,7 +15599,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e Specifies the maximum number of history events returned in one page. The next page in the result is identified by the \u003ccode\u003eNextPageToken\u003c/code\u003e returned. By default 100 history events are returned in a page but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size larger than 100. Note that the number of events may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -15648,7 +15648,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gwehMaximumPageSize",
@@ -15657,7 +15657,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e Specifies the maximum number of history events returned in one page. The next page in the result is identified by the \u003ccode\u003eNextPageToken\u003c/code\u003e returned. By default 100 history events are returned in a page but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size larger than 100. Note that the number of events may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -15898,7 +15898,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "latMaximumPageSize",
@@ -15907,7 +15907,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of results returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of types may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -15942,7 +15942,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "latMaximumPageSize",
@@ -15951,7 +15951,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of results returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of types may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -16275,7 +16275,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lcweMaximumPageSize",
@@ -16284,7 +16284,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of results returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of executions may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -16361,7 +16361,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lcweMaximumPageSize",
@@ -16370,7 +16370,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of results returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of executions may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -16625,7 +16625,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ldMaximumPageSize",
@@ -16634,7 +16634,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of results returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of domains may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -16655,7 +16655,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ldMaximumPageSize",
@@ -16664,7 +16664,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of results returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of domains may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -16932,7 +16932,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "loweMaximumPageSize",
@@ -16941,7 +16941,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of results returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of executions may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -17004,7 +17004,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "loweMaximumPageSize",
@@ -17013,7 +17013,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of results returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of executions may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -17296,7 +17296,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lwtMaximumPageSize",
@@ -17305,7 +17305,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of results returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of types may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -17340,7 +17340,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lwtMaximumPageSize",
@@ -17349,7 +17349,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of results returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of types may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -18100,7 +18100,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "pfdtMaximumPageSize",
@@ -18109,7 +18109,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of history events returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of events may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -18158,7 +18158,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "pfdtMaximumPageSize",
@@ -18167,7 +18167,7 @@
                         "locationName": "maximumPageSize",
                         "documentation": "\u003cp\u003e The maximum number of history events returned in each page. The default is 100, but the caller can override this value to a page size \u003ci\u003esmaller\u003c/i\u003e than the default. You cannot specify a page size greater than 100. Note that the number of events may be less than the maxiumum page size, in which case, the returned page will have fewer results than the maximumPageSize specified. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",

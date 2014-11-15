@@ -78,10 +78,10 @@ instance ToBody DescribeMaintenanceStartTime where
     toBody = toBody . encode . _dmstGatewayARN
 
 data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
-    { _dmstrDayOfWeek    :: Maybe Natural
+    { _dmstrDayOfWeek    :: Maybe Nat
     , _dmstrGatewayARN   :: Maybe Text
-    , _dmstrHourOfDay    :: Maybe Natural
-    , _dmstrMinuteOfHour :: Maybe Natural
+    , _dmstrHourOfDay    :: Maybe Nat
+    , _dmstrMinuteOfHour :: Maybe Nat
     , _dmstrTimezone     :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -110,16 +110,19 @@ describeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
 
 dmstrDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrDayOfWeek = lens _dmstrDayOfWeek (\s a -> s { _dmstrDayOfWeek = a })
+    . mapping _Nat
 
 dmstrGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrGatewayARN = lens _dmstrGatewayARN (\s a -> s { _dmstrGatewayARN = a })
 
 dmstrHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrHourOfDay = lens _dmstrHourOfDay (\s a -> s { _dmstrHourOfDay = a })
+    . mapping _Nat
 
 dmstrMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrMinuteOfHour =
     lens _dmstrMinuteOfHour (\s a -> s { _dmstrMinuteOfHour = a })
+        . mapping _Nat
 
 dmstrTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrTimezone = lens _dmstrTimezone (\s a -> s { _dmstrTimezone = a })

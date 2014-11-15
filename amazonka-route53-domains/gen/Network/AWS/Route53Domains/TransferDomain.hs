@@ -72,7 +72,7 @@ data TransferDomain = TransferDomain
     , _tdAuthCode                        :: Maybe (Sensitive Text)
     , _tdAutoRenew                       :: Maybe Bool
     , _tdDomainName                      :: Text
-    , _tdDurationInYears                 :: Natural
+    , _tdDurationInYears                 :: Nat
     , _tdIdnLangCode                     :: Maybe Text
     , _tdNameservers                     :: [Nameserver]
     , _tdPrivacyProtectAdminContact      :: Maybe Bool
@@ -118,7 +118,7 @@ transferDomain :: Text -- ^ 'tdDomainName'
                -> TransferDomain
 transferDomain p1 p2 p3 p4 p5 = TransferDomain
     { _tdDomainName                      = p1
-    , _tdDurationInYears                 = p2
+    , _tdDurationInYears                 = withIso _Nat (const id) p2
     , _tdAdminContact                    = p3
     , _tdRegistrantContact               = p4
     , _tdTechContact                     = p5
@@ -164,6 +164,7 @@ tdDomainName = lens _tdDomainName (\s a -> s { _tdDomainName = a })
 tdDurationInYears :: Lens' TransferDomain Natural
 tdDurationInYears =
     lens _tdDurationInYears (\s a -> s { _tdDurationInYears = a })
+        . _Nat
 
 -- | Reserved for future use.
 tdIdnLangCode :: Lens' TransferDomain (Maybe Text)

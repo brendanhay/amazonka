@@ -403,11 +403,11 @@ instance FromXML PolicyAttributeTypeDescription where
 instance ToQuery PolicyAttributeTypeDescription
 
 data HealthCheck = HealthCheck
-    { _hcHealthyThreshold   :: Natural
-    , _hcInterval           :: Natural
+    { _hcHealthyThreshold   :: Nat
+    , _hcInterval           :: Nat
     , _hcTarget             :: Text
-    , _hcTimeout            :: Natural
-    , _hcUnhealthyThreshold :: Natural
+    , _hcTimeout            :: Nat
+    , _hcUnhealthyThreshold :: Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'HealthCheck' constructor.
@@ -432,10 +432,10 @@ healthCheck :: Text -- ^ 'hcTarget'
             -> HealthCheck
 healthCheck p1 p2 p3 p4 p5 = HealthCheck
     { _hcTarget             = p1
-    , _hcInterval           = p2
-    , _hcTimeout            = p3
-    , _hcUnhealthyThreshold = p4
-    , _hcHealthyThreshold   = p5
+    , _hcInterval           = withIso _Nat (const id) p2
+    , _hcTimeout            = withIso _Nat (const id) p3
+    , _hcUnhealthyThreshold = withIso _Nat (const id) p4
+    , _hcHealthyThreshold   = withIso _Nat (const id) p5
     }
 
 -- | Specifies the number of consecutive health probe successes required
@@ -443,11 +443,13 @@ healthCheck p1 p2 p3 p4 p5 = HealthCheck
 hcHealthyThreshold :: Lens' HealthCheck Natural
 hcHealthyThreshold =
     lens _hcHealthyThreshold (\s a -> s { _hcHealthyThreshold = a })
+        . _Nat
 
 -- | Specifies the approximate interval, in seconds, between health checks of
 -- an individual instance.
 hcInterval :: Lens' HealthCheck Natural
 hcInterval = lens _hcInterval (\s a -> s { _hcInterval = a })
+    . _Nat
 
 -- | Specifies the instance being checked. The protocol is either TCP, HTTP,
 -- HTTPS, or SSL. The range of valid ports is one (1) through 65535. TCP is
@@ -470,12 +472,14 @@ hcTarget = lens _hcTarget (\s a -> s { _hcTarget = a })
 -- a failed health probe. This value must be less than the Interval value.
 hcTimeout :: Lens' HealthCheck Natural
 hcTimeout = lens _hcTimeout (\s a -> s { _hcTimeout = a })
+    . _Nat
 
 -- | Specifies the number of consecutive health probe failures required before
 -- moving the instance to the Unhealthy state.
 hcUnhealthyThreshold :: Lens' HealthCheck Natural
 hcUnhealthyThreshold =
     lens _hcUnhealthyThreshold (\s a -> s { _hcUnhealthyThreshold = a })
+        . _Nat
 
 instance FromXML HealthCheck where
     fromXMLOptions = xmlOptions
@@ -996,7 +1000,7 @@ instance FromXML LoadBalancerDescription where
 instance ToQuery LoadBalancerDescription
 
 data BackendServerDescription = BackendServerDescription
-    { _bsdInstancePort :: Maybe Natural
+    { _bsdInstancePort :: Maybe Nat
     , _bsdPolicyNames  :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1017,6 +1021,7 @@ backendServerDescription = BackendServerDescription
 -- | Provides the port on which the back-end server is listening.
 bsdInstancePort :: Lens' BackendServerDescription (Maybe Natural)
 bsdInstancePort = lens _bsdInstancePort (\s a -> s { _bsdInstancePort = a })
+    . mapping _Nat
 
 -- | Provides a list of policy names enabled for the back-end server.
 bsdPolicyNames :: Lens' BackendServerDescription [Text]
@@ -1094,7 +1099,7 @@ instance FromXML AdditionalAttribute where
 instance ToQuery AdditionalAttribute
 
 newtype ConnectionSettings = ConnectionSettings
-    { _csIdleTimeout :: Natural
+    { _csIdleTimeout :: Nat
     } deriving (Eq, Ord, Show, Generic, Enum, Num, Integral, Whole, Real)
 
 -- | 'ConnectionSettings' constructor.
@@ -1106,7 +1111,7 @@ newtype ConnectionSettings = ConnectionSettings
 connectionSettings :: Natural -- ^ 'csIdleTimeout'
                    -> ConnectionSettings
 connectionSettings p1 = ConnectionSettings
-    { _csIdleTimeout = p1
+    { _csIdleTimeout = withIso _Nat (const id) p1
     }
 
 -- | Specifies the time (in seconds) the connection is allowed to be idle (no
@@ -1114,6 +1119,7 @@ connectionSettings p1 = ConnectionSettings
 -- balancer.
 csIdleTimeout :: Lens' ConnectionSettings Natural
 csIdleTimeout = lens _csIdleTimeout (\s a -> s { _csIdleTimeout = a })
+    . _Nat
 
 instance FromXML ConnectionSettings where
     fromXMLOptions = xmlOptions
@@ -1214,7 +1220,7 @@ instance FromXML Policies where
 instance ToQuery Policies
 
 data Listener = Listener
-    { _lInstancePort     :: Natural
+    { _lInstancePort     :: Nat
     , _lInstanceProtocol :: Maybe Text
     , _lLoadBalancerPort :: Int
     , _lProtocol         :: Text
@@ -1242,7 +1248,7 @@ listener :: Text -- ^ 'lProtocol'
 listener p1 p2 p3 = Listener
     { _lProtocol         = p1
     , _lLoadBalancerPort = p2
-    , _lInstancePort     = p3
+    , _lInstancePort     = withIso _Nat (const id) p3
     , _lInstanceProtocol = Nothing
     , _lSSLCertificateId = Nothing
     }
@@ -1251,6 +1257,7 @@ listener p1 p2 p3 = Listener
 -- property cannot be modified for the life of the load balancer.
 lInstancePort :: Lens' Listener Natural
 lInstancePort = lens _lInstancePort (\s a -> s { _lInstancePort = a })
+    . _Nat
 
 -- | Specifies the protocol to use for routing traffic to back-end instances -
 -- HTTP, HTTPS, TCP, or SSL. This property cannot be modified for the life

@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data GetGroup = GetGroup
     { _ggGroupName :: Text
     , _ggMarker    :: Maybe Text
-    , _ggMaxItems  :: Maybe Natural
+    , _ggMaxItems  :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetGroup' constructor.
@@ -87,6 +87,7 @@ ggMarker = lens _ggMarker (\s a -> s { _ggMarker = a })
 -- parameter is optional. If you do not include it, it defaults to 100.
 ggMaxItems :: Lens' GetGroup (Maybe Natural)
 ggMaxItems = lens _ggMaxItems (\s a -> s { _ggMaxItems = a })
+    . mapping _Nat
 
 instance ToQuery GetGroup
 

@@ -51,7 +51,7 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
     { _dafmDimensions :: [Dimension]
     , _dafmMetricName :: Text
     , _dafmNamespace  :: Text
-    , _dafmPeriod     :: Maybe Natural
+    , _dafmPeriod     :: Maybe Nat
     , _dafmStatistic  :: Maybe Text
     , _dafmUnit       :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -99,6 +99,7 @@ dafmNamespace = lens _dafmNamespace (\s a -> s { _dafmNamespace = a })
 -- | The period in seconds over which the statistic is applied.
 dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
 dafmPeriod = lens _dafmPeriod (\s a -> s { _dafmPeriod = a })
+    . mapping _Nat
 
 -- | The statistic for the metric.
 dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Text)

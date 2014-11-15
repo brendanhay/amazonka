@@ -76,14 +76,14 @@ data Scan = Scan
     , _sExpressionAttributeNames  :: Map Text Text
     , _sExpressionAttributeValues :: Map Text AttributeValue
     , _sFilterExpression          :: Maybe Text
-    , _sLimit                     :: Maybe Natural
+    , _sLimit                     :: Maybe Nat
     , _sProjectionExpression      :: Maybe Text
     , _sReturnConsumedCapacity    :: Maybe Text
     , _sScanFilter                :: Map Text Condition
-    , _sSegment                   :: Maybe Natural
+    , _sSegment                   :: Maybe Nat
     , _sSelect                    :: Maybe Text
     , _sTableName                 :: Text
-    , _sTotalSegments             :: Maybe Natural
+    , _sTotalSegments             :: Maybe Nat
     } deriving (Eq, Show, Generic)
 
 -- | 'Scan' constructor.
@@ -227,6 +227,7 @@ sFilterExpression =
 -- Query and Scan in the Amazon DynamoDB Developer Guide.
 sLimit :: Lens' Scan (Maybe Natural)
 sLimit = lens _sLimit (\s a -> s { _sLimit = a })
+    . mapping _Nat
 
 -- | One or more attributes to retrieve from the table. These attributes can
 -- include scalars, sets, or elements of a JSON document. The attributes in
@@ -284,6 +285,7 @@ sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a })
 -- you must also specify TotalSegments.
 sSegment :: Lens' Scan (Maybe Natural)
 sSegment = lens _sSegment (\s a -> s { _sSegment = a })
+    . mapping _Nat
 
 -- | The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, or the count of matching items.
@@ -315,6 +317,7 @@ sTableName = lens _sTableName (\s a -> s { _sTableName = a })
 -- TotalSegments, you must also specify Segment.
 sTotalSegments :: Lens' Scan (Maybe Natural)
 sTotalSegments = lens _sTotalSegments (\s a -> s { _sTotalSegments = a })
+    . mapping _Nat
 
 instance ToPath Scan where
     toPath = const "/"

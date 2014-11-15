@@ -375,7 +375,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arrPackedPolicySize",
@@ -384,7 +384,7 @@
                         "locationName": "PackedPolicySize",
                         "documentation": "\u003cp\u003eA percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -419,7 +419,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arrPackedPolicySize",
@@ -428,7 +428,7 @@
                         "locationName": "PackedPolicySize",
                         "documentation": "\u003cp\u003eA percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             },
@@ -549,7 +549,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arDurationSeconds",
@@ -558,7 +558,7 @@
                         "locationName": "DurationSeconds",
                         "documentation": "\u003cp\u003eThe duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -607,7 +607,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arDurationSeconds",
@@ -616,7 +616,7 @@
                         "locationName": "DurationSeconds",
                         "documentation": "\u003cp\u003eThe duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -755,7 +755,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arwsamlrPackedPolicySize",
@@ -764,7 +764,7 @@
                         "locationName": "PackedPolicySize",
                         "documentation": "\u003cp\u003eA percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -911,7 +911,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arwsamlrPackedPolicySize",
@@ -920,7 +920,7 @@
                         "locationName": "PackedPolicySize",
                         "documentation": "\u003cp\u003eA percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -1073,7 +1073,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arwsamlDurationSeconds",
@@ -1082,14 +1082,14 @@
                         "locationName": "DurationSeconds",
                         "documentation": "\u003cp\u003eThe duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds. An expiration can also be specified in the SAML authentication response's \u003ccode\u003eNotOnOrAfter\u003c/code\u003e value. The actual expiration time is whichever value is shorter. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arwsamlDurationSeconds",
@@ -1098,7 +1098,7 @@
                         "locationName": "DurationSeconds",
                         "documentation": "\u003cp\u003eThe duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds. An expiration can also be specified in the SAML authentication response's \u003ccode\u003eNotOnOrAfter\u003c/code\u003e value. The actual expiration time is whichever value is shorter. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -1223,7 +1223,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arwwirPackedPolicySize",
@@ -1232,7 +1232,7 @@
                         "locationName": "PackedPolicySize",
                         "documentation": "\u003cp\u003eA percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -1309,7 +1309,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arwwirPackedPolicySize",
@@ -1318,7 +1318,7 @@
                         "locationName": "PackedPolicySize",
                         "documentation": "\u003cp\u003eA percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -1490,7 +1490,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arwwiDurationSeconds",
@@ -1499,14 +1499,14 @@
                         "locationName": "DurationSeconds",
                         "documentation": "\u003cp\u003eThe duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "arwwiDurationSeconds",
@@ -1515,7 +1515,7 @@
                         "locationName": "DurationSeconds",
                         "documentation": "\u003cp\u003eThe duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -1799,7 +1799,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gftrPackedPolicySize",
@@ -1808,7 +1808,7 @@
                         "locationName": "PackedPolicySize",
                         "documentation": "\u003cp\u003eA percentage value indicating the size of the policy in packed form. The service rejects policies for which the packed size is greater than 100 percent of the allowed value. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -1843,7 +1843,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gftrPackedPolicySize",
@@ -1852,7 +1852,7 @@
                         "locationName": "PackedPolicySize",
                         "documentation": "\u003cp\u003eA percentage value indicating the size of the policy in packed form. The service rejects policies for which the packed size is greater than 100 percent of the allowed value. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             },
@@ -1939,7 +1939,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gftDurationSeconds",
@@ -1948,14 +1948,14 @@
                         "locationName": "DurationSeconds",
                         "documentation": "\u003cp\u003eThe duration, in seconds, that the session should last. Acceptable durations for federation sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default. Sessions obtained using AWS account (root) credentials are restricted to a maximum of 3600 seconds (one hour). If the specified duration is longer than one hour, the session obtained by using AWS account (root) credentials defaults to one hour. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gftDurationSeconds",
@@ -1964,7 +1964,7 @@
                         "locationName": "DurationSeconds",
                         "documentation": "\u003cp\u003eThe duration, in seconds, that the session should last. Acceptable durations for federation sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default. Sessions obtained using AWS account (root) credentials are restricted to a maximum of 3600 seconds (one hour). If the specified duration is longer than one hour, the session obtained by using AWS account (root) credentials defaults to one hour. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -2117,7 +2117,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gstDurationSeconds",
@@ -2126,7 +2126,7 @@
                         "locationName": "DurationSeconds",
                         "documentation": "\u003cp\u003eThe duration, in seconds, that the credentials should remain valid. Acceptable durations for IAM user sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default. Sessions for AWS account owners are restricted to a maximum of 3600 seconds (one hour). If the duration is longer than one hour, the session for AWS account owners defaults to one hour. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -2161,7 +2161,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gstDurationSeconds",
@@ -2170,7 +2170,7 @@
                         "locationName": "DurationSeconds",
                         "documentation": "\u003cp\u003eThe duration, in seconds, that the credentials should remain valid. Acceptable durations for IAM user sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default. Sessions for AWS account owners are restricted to a maximum of 3600 seconds (one hour). If the duration is longer than one hour, the session for AWS account owners defaults to one hour. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",

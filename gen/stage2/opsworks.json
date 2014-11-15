@@ -2455,7 +2455,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "astThresholdsWaitTime",
@@ -2464,12 +2464,12 @@
                         "locationName": "ThresholdsWaitTime",
                         "documentation": "\u003cp\u003eThe amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "astIgnoreMetricsTime",
@@ -2478,7 +2478,7 @@
                         "locationName": "IgnoreMetricsTime",
                         "documentation": "\u003cp\u003eThe amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should ignore metrics and not raise any additional scaling events. For example, AWS OpsWorks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. \u003ccode\u003eIgnoreMetricsTime\u003c/code\u003e allows you to direct AWS OpsWorks to not raise any scaling events long enough to get the new instances online.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -2541,7 +2541,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "astIgnoreMetricsTime",
@@ -2550,7 +2550,7 @@
                         "locationName": "IgnoreMetricsTime",
                         "documentation": "\u003cp\u003eThe amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should ignore metrics and not raise any additional scaling events. For example, AWS OpsWorks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. \u003ccode\u003eIgnoreMetricsTime\u003c/code\u003e allows you to direct AWS OpsWorks to not raise any scaling events long enough to get the new instances online.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -2597,7 +2597,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "astThresholdsWaitTime",
@@ -2606,7 +2606,7 @@
                         "locationName": "ThresholdsWaitTime",
                         "documentation": "\u003cp\u003eThe amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             },

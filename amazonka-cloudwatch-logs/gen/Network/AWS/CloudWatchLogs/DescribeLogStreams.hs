@@ -51,7 +51,7 @@ import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
 data DescribeLogStreams = DescribeLogStreams
-    { _dls1Limit               :: Maybe Natural
+    { _dls1Limit               :: Maybe Nat
     , _dls1LogGroupName        :: Text
     , _dls1LogStreamNamePrefix :: Maybe Text
     , _dls1NextToken           :: Maybe Text
@@ -82,6 +82,7 @@ describeLogStreams p1 = DescribeLogStreams
 -- specify a value, the request would return up to 50 items.
 dls1Limit :: Lens' DescribeLogStreams (Maybe Natural)
 dls1Limit = lens _dls1Limit (\s a -> s { _dls1Limit = a })
+    . mapping _Nat
 
 dls1LogGroupName :: Lens' DescribeLogStreams Text
 dls1LogGroupName = lens _dls1LogGroupName (\s a -> s { _dls1LogGroupName = a })

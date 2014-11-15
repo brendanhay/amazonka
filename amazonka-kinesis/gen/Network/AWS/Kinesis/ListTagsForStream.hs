@@ -46,7 +46,7 @@ import qualified GHC.Exts
 
 data ListTagsForStream = ListTagsForStream
     { _ltfsExclusiveStartTagKey :: Maybe Text
-    , _ltfsLimit                :: Maybe Natural
+    , _ltfsLimit                :: Maybe Nat
     , _ltfsStreamName           :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -82,6 +82,7 @@ ltfsExclusiveStartTagKey =
 -- response.
 ltfsLimit :: Lens' ListTagsForStream (Maybe Natural)
 ltfsLimit = lens _ltfsLimit (\s a -> s { _ltfsLimit = a })
+    . mapping _Nat
 
 -- | The name of the stream.
 ltfsStreamName :: Lens' ListTagsForStream Text

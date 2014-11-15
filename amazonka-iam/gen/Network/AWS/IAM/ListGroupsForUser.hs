@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 data ListGroupsForUser = ListGroupsForUser
     { _lgfuMarker   :: Maybe Text
-    , _lgfuMaxItems :: Maybe Natural
+    , _lgfuMaxItems :: Maybe Nat
     , _lgfuUserName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -82,6 +82,7 @@ lgfuMarker = lens _lgfuMarker (\s a -> s { _lgfuMarker = a })
 -- parameter is optional. If you do not include it, it defaults to 100.
 lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
 lgfuMaxItems = lens _lgfuMaxItems (\s a -> s { _lgfuMaxItems = a })
+    . mapping _Nat
 
 -- | The name of the user to list groups for.
 lgfuUserName :: Lens' ListGroupsForUser Text

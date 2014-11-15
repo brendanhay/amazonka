@@ -70,7 +70,7 @@ data RegisterDomain = RegisterDomain
     { _rdAdminContact                    :: ContactDetail
     , _rdAutoRenew                       :: Maybe Bool
     , _rdDomainName                      :: Text
-    , _rdDurationInYears                 :: Natural
+    , _rdDurationInYears                 :: Nat
     , _rdIdnLangCode                     :: Maybe Text
     , _rdPrivacyProtectAdminContact      :: Maybe Bool
     , _rdPrivacyProtectRegistrantContact :: Maybe Bool
@@ -111,7 +111,7 @@ registerDomain :: Text -- ^ 'rdDomainName'
                -> RegisterDomain
 registerDomain p1 p2 p3 p4 p5 = RegisterDomain
     { _rdDomainName                      = p1
-    , _rdDurationInYears                 = p2
+    , _rdDurationInYears                 = withIso _Nat (const id) p2
     , _rdAdminContact                    = p3
     , _rdRegistrantContact               = p4
     , _rdTechContact                     = p5
@@ -149,6 +149,7 @@ rdDomainName = lens _rdDomainName (\s a -> s { _rdDomainName = a })
 rdDurationInYears :: Lens' RegisterDomain Natural
 rdDurationInYears =
     lens _rdDurationInYears (\s a -> s { _rdDurationInYears = a })
+        . _Nat
 
 -- | Reserved for future use.
 rdIdnLangCode :: Lens' RegisterDomain (Maybe Text)

@@ -45,7 +45,7 @@ import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
 data ListAliases = ListAliases
-    { _laLimit  :: Maybe Natural
+    { _laLimit  :: Maybe Nat
     , _laMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -69,6 +69,7 @@ listAliases = ListAliases
 -- will be set to true.
 laLimit :: Lens' ListAliases (Maybe Natural)
 laLimit = lens _laLimit (\s a -> s { _laLimit = a })
+    . mapping _Nat
 
 -- | Use this parameter when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.

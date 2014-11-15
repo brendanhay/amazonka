@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 data DescribeTapes = DescribeTapes
     { _dtGatewayARN :: Text
-    , _dtLimit      :: Maybe Natural
+    , _dtLimit      :: Maybe Nat
     , _dtMarker     :: Maybe Text
     , _dtTapeARNs   :: [Text]
     } deriving (Eq, Ord, Show, Generic)
@@ -82,6 +82,7 @@ dtGatewayARN = lens _dtGatewayARN (\s a -> s { _dtGatewayARN = a })
 -- specified number.
 dtLimit :: Lens' DescribeTapes (Maybe Natural)
 dtLimit = lens _dtLimit (\s a -> s { _dtLimit = a })
+    . mapping _Nat
 
 -- | A marker value, obtained in a previous call to DescribeTapes. This marker
 -- indicates which page of results to retrieve. If not specified, the first

@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
     { _dtrpGatewayARN :: Text
-    , _dtrpLimit      :: Maybe Natural
+    , _dtrpLimit      :: Maybe Nat
     , _dtrpMarker     :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -80,6 +80,7 @@ dtrpGatewayARN = lens _dtrpGatewayARN (\s a -> s { _dtrpGatewayARN = a })
 -- described be limited to the specified number.
 dtrpLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Natural)
 dtrpLimit = lens _dtrpLimit (\s a -> s { _dtrpLimit = a })
+    . mapping _Nat
 
 -- | An opaque string that indicates the position at which to begin describing
 -- the virtual tape recovery points.

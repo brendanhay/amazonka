@@ -71,7 +71,7 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
     , _lcweCloseTimeFilter   :: Maybe ExecutionTimeFilter
     , _lcweDomain            :: Text
     , _lcweExecutionFilter   :: Maybe WorkflowExecutionFilter
-    , _lcweMaximumPageSize   :: Maybe Natural
+    , _lcweMaximumPageSize   :: Maybe Nat
     , _lcweNextPageToken     :: Maybe Text
     , _lcweReverseOrder      :: Maybe Bool
     , _lcweStartTimeFilter   :: Maybe ExecutionTimeFilter
@@ -152,6 +152,7 @@ lcweExecutionFilter =
 lcweMaximumPageSize :: Lens' ListClosedWorkflowExecutions (Maybe Natural)
 lcweMaximumPageSize =
     lens _lcweMaximumPageSize (\s a -> s { _lcweMaximumPageSize = a })
+        . mapping _Nat
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- results are being paginated. To get the next page of results, repeat the

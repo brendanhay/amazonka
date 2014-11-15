@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole
     { _lipfrMarker   :: Maybe Text
-    , _lipfrMaxItems :: Maybe Natural
+    , _lipfrMaxItems :: Maybe Nat
     , _lipfrRoleName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -86,6 +86,7 @@ lipfrMarker = lens _lipfrMarker (\s a -> s { _lipfrMarker = a })
 -- do not include it, it defaults to 100.
 lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Natural)
 lipfrMaxItems = lens _lipfrMaxItems (\s a -> s { _lipfrMaxItems = a })
+    . mapping _Nat
 
 -- | The name of the role to list instance profiles for.
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text

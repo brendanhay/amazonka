@@ -60,7 +60,7 @@ import qualified GHC.Exts
 data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
     { _gwehDomain          :: Text
     , _gwehExecution       :: WorkflowExecution
-    , _gwehMaximumPageSize :: Maybe Natural
+    , _gwehMaximumPageSize :: Maybe Nat
     , _gwehNextPageToken   :: Maybe Text
     , _gwehReverseOrder    :: Maybe Bool
     } deriving (Eq, Show, Generic)
@@ -108,6 +108,7 @@ gwehExecution = lens _gwehExecution (\s a -> s { _gwehExecution = a })
 gwehMaximumPageSize :: Lens' GetWorkflowExecutionHistory (Maybe Natural)
 gwehMaximumPageSize =
     lens _gwehMaximumPageSize (\s a -> s { _gwehMaximumPageSize = a })
+        . mapping _Nat
 
 -- | If a NextPageToken is returned, the result has more than one pages. To
 -- get the next page, repeat the call and specify the nextPageToken with all

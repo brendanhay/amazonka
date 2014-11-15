@@ -52,7 +52,7 @@ data ListEventSources = ListEventSources
     { _lesEventSourceArn :: Maybe Text
     , _lesFunctionName   :: Maybe Text
     , _lesMarker         :: Maybe Text
-    , _lesMaxItems       :: Maybe Natural
+    , _lesMaxItems       :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListEventSources' constructor.
@@ -94,6 +94,7 @@ lesMarker = lens _lesMarker (\s a -> s { _lesMarker = a })
 -- in response. This value must be greater than 0.
 lesMaxItems :: Lens' ListEventSources (Maybe Natural)
 lesMaxItems = lens _lesMaxItems (\s a -> s { _lesMaxItems = a })
+    . mapping _Nat
 
 instance ToPath ListEventSources where
     toPath = const "/2014-11-13/event-source-mappings/"

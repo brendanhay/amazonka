@@ -2973,7 +2973,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gdkNumberOfBytes",
@@ -2982,7 +2982,7 @@
                         "locationName": "NumberOfBytes",
                         "documentation": "\u003cp\u003eInteger that contains the number of bytes to generate. Common values are 128, 256, 512, 1024 and so on. 1024 is the current limit. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -3073,7 +3073,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gdkNumberOfBytes",
@@ -3082,7 +3082,7 @@
                         "locationName": "NumberOfBytes",
                         "documentation": "\u003cp\u003eInteger that contains the number of bytes to generate. Common values are 128, 256, 512, 1024 and so on. 1024 is the current limit. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             }
@@ -3272,7 +3272,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gdkwpNumberOfBytes",
@@ -3281,7 +3281,7 @@
                         "locationName": "NumberOfBytes",
                         "documentation": "\u003cp\u003eInteger that contains the number of bytes to generate. Common values are 128, 256, 512, 1024 and so on. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -3358,7 +3358,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "gdkwpNumberOfBytes",
@@ -3367,7 +3367,7 @@
                         "locationName": "NumberOfBytes",
                         "documentation": "\u003cp\u003eInteger that contains the number of bytes to generate. Common values are 128, 256, 512, 1024 and so on. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             }
@@ -3475,7 +3475,7 @@
                 "field": {
                     "location": "body-json",
                     "iso": null,
-                    "lensMapping": null,
+                    "lensMapping": "mapping _Nat",
                     "default": "Nothing",
                     "required": false,
                     "lens": "grNumberOfBytes",
@@ -3484,7 +3484,7 @@
                     "locationName": "NumberOfBytes",
                     "documentation": "\u003cp\u003eInteger that contains the number of bytes to generate. Common values are 128, 256, 512, 1024 and so on. The current limit is 1024 bytes. \u003c/p\u003e",
                     "typeExposed": "Maybe Natural",
-                    "type": "Maybe Natural"
+                    "type": "Maybe Nat"
                 },
                 "path": [
                     {
@@ -3495,7 +3495,7 @@
                 "payload": {
                     "location": "body-json",
                     "iso": null,
-                    "lensMapping": null,
+                    "lensMapping": "mapping _Nat",
                     "default": "Nothing",
                     "required": false,
                     "lens": "grNumberOfBytes",
@@ -3504,7 +3504,7 @@
                     "locationName": "NumberOfBytes",
                     "documentation": "\u003cp\u003eInteger that contains the number of bytes to generate. Common values are 128, 256, 512, 1024 and so on. The current limit is 1024 bytes. \u003c/p\u003e",
                     "typeExposed": "Maybe Natural",
-                    "type": "Maybe Natural"
+                    "type": "Maybe Nat"
                 },
                 "required": [],
                 "shared": false,
@@ -3517,7 +3517,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "grNumberOfBytes",
@@ -3526,14 +3526,14 @@
                         "locationName": "NumberOfBytes",
                         "documentation": "\u003cp\u003eInteger that contains the number of bytes to generate. Common values are 128, 256, 512, 1024 and so on. The current limit is 1024 bytes. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "grNumberOfBytes",
@@ -3542,7 +3542,7 @@
                         "locationName": "NumberOfBytes",
                         "documentation": "\u003cp\u003eInteger that contains the number of bytes to generate. Common values are 128, 256, 512, 1024 and so on. The current limit is 1024 bytes. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             }
@@ -4064,7 +4064,7 @@
                 "payload": {
                     "location": "body-json",
                     "iso": null,
-                    "lensMapping": null,
+                    "lensMapping": "mapping _Nat",
                     "default": "Nothing",
                     "required": false,
                     "lens": "laLimit",
@@ -4073,7 +4073,7 @@
                     "locationName": "Limit",
                     "documentation": "\u003cp\u003eSpecify this parameter when paginating results to indicate the maximum number of aliases you want in each response. If there are additional aliases beyond the maximum you specify, the \u003ccode\u003eTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue.\u003c/code\u003e \u003c/p\u003e",
                     "typeExposed": "Maybe Natural",
-                    "type": "Maybe Natural"
+                    "type": "Maybe Nat"
                 },
                 "required": [],
                 "shared": false,
@@ -4086,7 +4086,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "laLimit",
@@ -4095,7 +4095,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecify this parameter when paginating results to indicate the maximum number of aliases you want in each response. If there are additional aliases beyond the maximum you specify, the \u003ccode\u003eTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue.\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -4116,7 +4116,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "laLimit",
@@ -4125,7 +4125,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecify this parameter when paginating results to indicate the maximum number of aliases you want in each response. If there are additional aliases beyond the maximum you specify, the \u003ccode\u003eTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue.\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -4330,7 +4330,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lgLimit",
@@ -4339,7 +4339,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecify this parameter only when paginating results to indicate the maximum number of grants you want listed in the response. If there are additional grants beyond the maximum you specify, the \u003ccode\u003eTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue.\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -4374,7 +4374,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lgLimit",
@@ -4383,7 +4383,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecify this parameter only when paginating results to indicate the maximum number of grants you want listed in the response. If there are additional grants beyond the maximum you specify, the \u003ccode\u003eTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue.\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -4589,7 +4589,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lkpLimit",
@@ -4598,7 +4598,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecify this parameter only when paginating results to indicate the maximum number of policies you want listed in the response. If there are additional policies beyond the maximum you specify, the \u003ccode\u003eTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue.\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -4633,7 +4633,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lkpLimit",
@@ -4642,7 +4642,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecify this parameter only when paginating results to indicate the maximum number of policies you want listed in the response. If there are additional policies beyond the maximum you specify, the \u003ccode\u003eTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue.\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -4810,7 +4810,7 @@
                 "payload": {
                     "location": "body-json",
                     "iso": null,
-                    "lensMapping": null,
+                    "lensMapping": "mapping _Nat",
                     "default": "Nothing",
                     "required": false,
                     "lens": "lkLimit",
@@ -4819,7 +4819,7 @@
                     "locationName": "Limit",
                     "documentation": "\u003cp\u003eSpecify this parameter only when paginating results to indicate the maximum number of keys you want listed in the response. If there are additional keys beyond the maximum you specify, the \u003ccode\u003eTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue.\u003c/code\u003e \u003c/p\u003e",
                     "typeExposed": "Maybe Natural",
-                    "type": "Maybe Natural"
+                    "type": "Maybe Nat"
                 },
                 "required": [],
                 "shared": false,
@@ -4832,7 +4832,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lkLimit",
@@ -4841,7 +4841,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecify this parameter only when paginating results to indicate the maximum number of keys you want listed in the response. If there are additional keys beyond the maximum you specify, the \u003ccode\u003eTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue.\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -4862,7 +4862,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lkLimit",
@@ -4871,7 +4871,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecify this parameter only when paginating results to indicate the maximum number of keys you want listed in the response. If there are additional keys beyond the maximum you specify, the \u003ccode\u003eTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue.\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",

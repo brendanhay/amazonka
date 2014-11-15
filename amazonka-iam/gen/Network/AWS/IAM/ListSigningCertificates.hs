@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 data ListSigningCertificates = ListSigningCertificates
     { _lsc1Marker   :: Maybe Text
-    , _lsc1MaxItems :: Maybe Natural
+    , _lsc1MaxItems :: Maybe Nat
     , _lsc1UserName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -89,6 +89,7 @@ lsc1Marker = lens _lsc1Marker (\s a -> s { _lsc1Marker = a })
 -- defaults to 100.
 lsc1MaxItems :: Lens' ListSigningCertificates (Maybe Natural)
 lsc1MaxItems = lens _lsc1MaxItems (\s a -> s { _lsc1MaxItems = a })
+    . mapping _Nat
 
 -- | The name of the user.
 lsc1UserName :: Lens' ListSigningCertificates (Maybe Text)

@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 data ListRolePolicies = ListRolePolicies
     { _lrpMarker   :: Maybe Text
-    , _lrpMaxItems :: Maybe Natural
+    , _lrpMaxItems :: Maybe Nat
     , _lrpRoleName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -85,6 +85,7 @@ lrpMarker = lens _lrpMarker (\s a -> s { _lrpMarker = a })
 -- defaults to 100.
 lrpMaxItems :: Lens' ListRolePolicies (Maybe Natural)
 lrpMaxItems = lens _lrpMaxItems (\s a -> s { _lrpMaxItems = a })
+    . mapping _Nat
 
 -- | The name of the role to list policies for.
 lrpRoleName :: Lens' ListRolePolicies Text

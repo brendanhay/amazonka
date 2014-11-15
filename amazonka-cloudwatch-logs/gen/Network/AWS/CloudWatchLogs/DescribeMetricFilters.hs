@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 data DescribeMetricFilters = DescribeMetricFilters
     { _dmfFilterNamePrefix :: Maybe Text
-    , _dmfLimit            :: Maybe Natural
+    , _dmfLimit            :: Maybe Nat
     , _dmfLogGroupName     :: Text
     , _dmfNextToken        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -86,6 +86,7 @@ dmfFilterNamePrefix =
 -- specify a value, the request would return up to 50 items.
 dmfLimit :: Lens' DescribeMetricFilters (Maybe Natural)
 dmfLimit = lens _dmfLimit (\s a -> s { _dmfLimit = a })
+    . mapping _Nat
 
 dmfLogGroupName :: Lens' DescribeMetricFilters Text
 dmfLogGroupName = lens _dmfLogGroupName (\s a -> s { _dmfLogGroupName = a })

@@ -65,12 +65,12 @@ data PutMetricAlarm = PutMetricAlarm
     , _pmaAlarmName               :: Text
     , _pmaComparisonOperator      :: Text
     , _pmaDimensions              :: [Dimension]
-    , _pmaEvaluationPeriods       :: Natural
+    , _pmaEvaluationPeriods       :: Nat
     , _pmaInsufficientDataActions :: [Text]
     , _pmaMetricName              :: Text
     , _pmaNamespace               :: Text
     , _pmaOKActions               :: [Text]
-    , _pmaPeriod                  :: Natural
+    , _pmaPeriod                  :: Nat
     , _pmaStatistic               :: Text
     , _pmaThreshold               :: Double
     , _pmaUnit                    :: Maybe Text
@@ -124,8 +124,8 @@ putMetricAlarm p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarm
     , _pmaMetricName              = p2
     , _pmaNamespace               = p3
     , _pmaStatistic               = p4
-    , _pmaPeriod                  = p5
-    , _pmaEvaluationPeriods       = p6
+    , _pmaPeriod                  = withIso _Nat (const id) p5
+    , _pmaEvaluationPeriods       = withIso _Nat (const id) p6
     , _pmaThreshold               = p7
     , _pmaComparisonOperator      = p8
     , _pmaAlarmDescription        = Nothing
@@ -176,6 +176,7 @@ pmaDimensions = lens _pmaDimensions (\s a -> s { _pmaDimensions = a })
 pmaEvaluationPeriods :: Lens' PutMetricAlarm Natural
 pmaEvaluationPeriods =
     lens _pmaEvaluationPeriods (\s a -> s { _pmaEvaluationPeriods = a })
+        . _Nat
 
 -- | The list of actions to execute when this alarm transitions into an
 -- INSUFFICIENT_DATA state from any other state. Each action is specified as
@@ -204,6 +205,7 @@ pmaOKActions = lens _pmaOKActions (\s a -> s { _pmaOKActions = a })
 -- | The period in seconds over which the specified statistic is applied.
 pmaPeriod :: Lens' PutMetricAlarm Natural
 pmaPeriod = lens _pmaPeriod (\s a -> s { _pmaPeriod = a })
+    . _Nat
 
 -- | The statistic to apply to the alarm's associated metric.
 pmaStatistic :: Lens' PutMetricAlarm Text

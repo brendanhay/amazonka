@@ -74,7 +74,7 @@ data GetMetricStatistics = GetMetricStatistics
     , _gmsEndTime    :: RFC822
     , _gmsMetricName :: Text
     , _gmsNamespace  :: Text
-    , _gmsPeriod     :: Natural
+    , _gmsPeriod     :: Nat
     , _gmsStartTime  :: RFC822
     , _gmsStatistics :: List1 Text
     , _gmsUnit       :: Maybe Text
@@ -112,7 +112,7 @@ getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatistics
     , _gmsMetricName = p2
     , _gmsStartTime  = withIso _Time (const id) p3
     , _gmsEndTime    = withIso _Time (const id) p4
-    , _gmsPeriod     = p5
+    , _gmsPeriod     = withIso _Nat (const id) p5
     , _gmsStatistics = withIso _List1 (const id) p6
     , _gmsDimensions = mempty
     , _gmsUnit       = Nothing
@@ -142,6 +142,7 @@ gmsNamespace = lens _gmsNamespace (\s a -> s { _gmsNamespace = a })
 -- 60.
 gmsPeriod :: Lens' GetMetricStatistics Natural
 gmsPeriod = lens _gmsPeriod (\s a -> s { _gmsPeriod = a })
+    . _Nat
 
 -- | The time stamp to use for determining the first datapoint to return. The
 -- value specified is inclusive; results include datapoints with the time

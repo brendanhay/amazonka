@@ -42,7 +42,7 @@ import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
 newtype GenerateRandom = GenerateRandom
-    { _grNumberOfBytes :: Maybe Natural
+    { _grNumberOfBytes :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GenerateRandom' constructor.
@@ -60,6 +60,7 @@ generateRandom = GenerateRandom
 -- 128, 256, 512, 1024 and so on. The current limit is 1024 bytes.
 grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
 grNumberOfBytes = lens _grNumberOfBytes (\s a -> s { _grNumberOfBytes = a })
+    . mapping _Nat
 
 instance ToPath GenerateRandom where
     toPath = const "/"

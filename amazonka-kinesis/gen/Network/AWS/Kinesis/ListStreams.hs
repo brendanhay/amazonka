@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 data ListStreams = ListStreams
     { _lsExclusiveStartStreamName :: Maybe Text
-    , _lsLimit                    :: Maybe Natural
+    , _lsLimit                    :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListStreams' constructor.
@@ -82,6 +82,7 @@ lsExclusiveStartStreamName =
 -- | The maximum number of streams to list.
 lsLimit :: Lens' ListStreams (Maybe Natural)
 lsLimit = lens _lsLimit (\s a -> s { _lsLimit = a })
+    . mapping _Nat
 
 instance ToPath ListStreams where
     toPath = const "/"

@@ -202,7 +202,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ptdNumberOfDecreasesToday",
@@ -211,12 +211,12 @@
                         "locationName": "NumberOfDecreasesToday",
                         "documentation": "\u003cp\u003eThe number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html\"\u003eLimits\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ptdReadCapacityUnits",
@@ -225,12 +225,12 @@
                         "locationName": "ReadCapacityUnits",
                         "documentation": "\u003cp\u003eThe maximum number of strongly consistent reads consumed per second before DynamoDB returns a \u003ci\u003eThrottlingException\u003c/i\u003e. Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 \u003ci\u003eReadCapacityUnits\u003c/i\u003e per second provides 100 eventually consistent \u003ci\u003eReadCapacityUnits\u003c/i\u003e per second.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ptdWriteCapacityUnits",
@@ -239,7 +239,7 @@
                         "locationName": "WriteCapacityUnits",
                         "documentation": "\u003cp\u003eThe maximum number of writes consumed per second before DynamoDB returns a \u003ci\u003eThrottlingException\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -274,7 +274,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ptdNumberOfDecreasesToday",
@@ -283,12 +283,12 @@
                         "locationName": "NumberOfDecreasesToday",
                         "documentation": "\u003cp\u003eThe number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html\"\u003eLimits\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ptdReadCapacityUnits",
@@ -297,12 +297,12 @@
                         "locationName": "ReadCapacityUnits",
                         "documentation": "\u003cp\u003eThe maximum number of strongly consistent reads consumed per second before DynamoDB returns a \u003ci\u003eThrottlingException\u003c/i\u003e. Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 \u003ci\u003eReadCapacityUnits\u003c/i\u003e per second provides 100 eventually consistent \u003ci\u003eReadCapacityUnits\u003c/i\u003e per second.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ptdWriteCapacityUnits",
@@ -311,7 +311,7 @@
                         "locationName": "WriteCapacityUnits",
                         "documentation": "\u003cp\u003eThe maximum number of writes consumed per second before DynamoDB returns a \u003ci\u003eThrottlingException\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             },
@@ -672,8 +672,8 @@
                 "ctor": "provisionedThroughput",
                 "payload": {
                     "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_Nat",
+                    "lensMapping": "_Nat",
                     "default": "\u003cerror\u003e",
                     "required": true,
                     "lens": "ptReadCapacityUnits",
@@ -682,13 +682,13 @@
                     "locationName": "ReadCapacityUnits",
                     "documentation": "\u003cp\u003eThe maximum number of strongly consistent reads consumed per second before DynamoDB returns a \u003ci\u003eThrottlingException\u003c/i\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput\"\u003eSpecifying Read and Write Requirements\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                     "typeExposed": "Natural",
-                    "type": "Natural"
+                    "type": "Nat"
                 },
                 "required": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ptReadCapacityUnits",
@@ -697,12 +697,12 @@
                         "locationName": "ReadCapacityUnits",
                         "documentation": "\u003cp\u003eThe maximum number of strongly consistent reads consumed per second before DynamoDB returns a \u003ci\u003eThrottlingException\u003c/i\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput\"\u003eSpecifying Read and Write Requirements\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ptWriteCapacityUnits",
@@ -711,7 +711,7 @@
                         "locationName": "WriteCapacityUnits",
                         "documentation": "\u003cp\u003eThe maximum number of writes consumed per second before DynamoDB returns a \u003ci\u003eThrottlingException\u003c/i\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput\"\u003eSpecifying Read and Write Requirements\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "name": "ProvisionedThroughput",
@@ -720,8 +720,8 @@
                 "fields": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ptReadCapacityUnits",
@@ -730,12 +730,12 @@
                         "locationName": "ReadCapacityUnits",
                         "documentation": "\u003cp\u003eThe maximum number of strongly consistent reads consumed per second before DynamoDB returns a \u003ci\u003eThrottlingException\u003c/i\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput\"\u003eSpecifying Read and Write Requirements\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ptWriteCapacityUnits",
@@ -744,7 +744,7 @@
                         "locationName": "WriteCapacityUnits",
                         "documentation": "\u003cp\u003eThe maximum number of writes consumed per second before DynamoDB returns a \u003ci\u003eThrottlingException\u003c/i\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput\"\u003eSpecifying Read and Write Requirements\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ]
             },
@@ -5394,7 +5394,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ltLimit",
@@ -5403,7 +5403,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003e A maximum number of table names to return. If this parameter is not specified, the limit is 100.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -5424,7 +5424,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ltLimit",
@@ -5433,7 +5433,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003e A maximum number of table names to return. If this parameter is not specified, the limit is 100.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             }
@@ -6182,7 +6182,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "qLimit",
@@ -6191,7 +6191,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in \u003ci\u003eLastEvaluatedKey\u003c/i\u003e to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in \u003ci\u003eLastEvaluatedKey\u003c/i\u003e to apply in a subsequent operation to continue the operation. For more information, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html\" \u003eQuery and Scan\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -6478,7 +6478,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "qLimit",
@@ -6487,7 +6487,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in \u003ci\u003eLastEvaluatedKey\u003c/i\u003e to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in \u003ci\u003eLastEvaluatedKey\u003c/i\u003e to apply in a subsequent operation to continue the operation. For more information, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html\" \u003eQuery and Scan\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -6839,7 +6839,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "sLimit",
@@ -6848,7 +6848,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in \u003ci\u003eLastEvaluatedKey\u003c/i\u003e to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in \u003ci\u003eLastEvaluatedKey\u003c/i\u003e to apply in a subsequent operation to continue the operation. For more information, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html\" \u003eQuery and Scan\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -6923,7 +6923,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "sTotalSegments",
@@ -6932,12 +6932,12 @@
                         "locationName": "TotalSegments",
                         "documentation": "\u003cp\u003eFor a parallel \u003ci\u003eScan\u003c/i\u003e request, \u003ci\u003eTotalSegments\u003c/i\u003e represents the total number of segments into which the \u003ci\u003eScan\u003c/i\u003e operation will be divided. The value of \u003ci\u003eTotalSegments\u003c/i\u003e corresponds to the number of application workers that will perform the parallel scan. For example, if you want to scan a table using four application threads, specify a \u003ci\u003eTotalSegments\u003c/i\u003e value of 4.\u003c/p\u003e \u003cp\u003eThe value for \u003ci\u003eTotalSegments\u003c/i\u003e must be greater than or equal to 1, and less than or equal to 1000000. If you specify a \u003ci\u003eTotalSegments\u003c/i\u003e value of 1, the \u003ci\u003eScan\u003c/i\u003e operation will be sequential rather than parallel.\u003c/p\u003e \u003cp\u003eIf you specify \u003ci\u003eTotalSegments\u003c/i\u003e, you must also specify \u003ci\u003eSegment\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "sSegment",
@@ -6946,7 +6946,7 @@
                         "locationName": "Segment",
                         "documentation": "\u003cp\u003eFor a parallel \u003ci\u003eScan\u003c/i\u003e request, \u003ci\u003eSegment\u003c/i\u003e identifies an individual segment to be scanned by an application worker.\u003c/p\u003e \u003cp\u003eSegment IDs are zero-based, so the first segment is always 0. For example, if you want to scan a table using four application threads, the first thread specifies a \u003ci\u003eSegment\u003c/i\u003e value of 0, the second thread specifies 1, and so on.\u003c/p\u003e \u003cp\u003eThe value of \u003ci\u003eLastEvaluatedKey\u003c/i\u003e returned from a parallel \u003ci\u003eScan\u003c/i\u003e request must be used as \u003ci\u003eExclusiveStartKey\u003c/i\u003e with the same segment ID in a subsequent \u003ci\u003eScan\u003c/i\u003e operation.\u003c/p\u003e \u003cp\u003eThe value for \u003ci\u003eSegment\u003c/i\u003e must be greater than or equal to 0, and less than the value provided for \u003ci\u003eTotalSegments\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eIf you specify \u003ci\u003eSegment\u003c/i\u003e, you must also specify \u003ci\u003eTotalSegments\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -7093,7 +7093,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "sLimit",
@@ -7102,7 +7102,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in \u003ci\u003eLastEvaluatedKey\u003c/i\u003e to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in \u003ci\u003eLastEvaluatedKey\u003c/i\u003e to apply in a subsequent operation to continue the operation. For more information, see \u003ca href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html\" \u003eQuery and Scan\u003c/a\u003e in the \u003ci\u003eAmazon DynamoDB Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -7149,7 +7149,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "sSegment",
@@ -7158,7 +7158,7 @@
                         "locationName": "Segment",
                         "documentation": "\u003cp\u003eFor a parallel \u003ci\u003eScan\u003c/i\u003e request, \u003ci\u003eSegment\u003c/i\u003e identifies an individual segment to be scanned by an application worker.\u003c/p\u003e \u003cp\u003eSegment IDs are zero-based, so the first segment is always 0. For example, if you want to scan a table using four application threads, the first thread specifies a \u003ci\u003eSegment\u003c/i\u003e value of 0, the second thread specifies 1, and so on.\u003c/p\u003e \u003cp\u003eThe value of \u003ci\u003eLastEvaluatedKey\u003c/i\u003e returned from a parallel \u003ci\u003eScan\u003c/i\u003e request must be used as \u003ci\u003eExclusiveStartKey\u003c/i\u003e with the same segment ID in a subsequent \u003ci\u003eScan\u003c/i\u003e operation.\u003c/p\u003e \u003cp\u003eThe value for \u003ci\u003eSegment\u003c/i\u003e must be greater than or equal to 0, and less than the value provided for \u003ci\u003eTotalSegments\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eIf you specify \u003ci\u003eSegment\u003c/i\u003e, you must also specify \u003ci\u003eTotalSegments\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -7191,7 +7191,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "sTotalSegments",
@@ -7200,7 +7200,7 @@
                         "locationName": "TotalSegments",
                         "documentation": "\u003cp\u003eFor a parallel \u003ci\u003eScan\u003c/i\u003e request, \u003ci\u003eTotalSegments\u003c/i\u003e represents the total number of segments into which the \u003ci\u003eScan\u003c/i\u003e operation will be divided. The value of \u003ci\u003eTotalSegments\u003c/i\u003e corresponds to the number of application workers that will perform the parallel scan. For example, if you want to scan a table using four application threads, specify a \u003ci\u003eTotalSegments\u003c/i\u003e value of 4.\u003c/p\u003e \u003cp\u003eThe value for \u003ci\u003eTotalSegments\u003c/i\u003e must be greater than or equal to 1, and less than or equal to 1000000. If you specify a \u003ci\u003eTotalSegments\u003c/i\u003e value of 1, the \u003ci\u003eScan\u003c/i\u003e operation will be sequential rather than parallel.\u003c/p\u003e \u003cp\u003eIf you specify \u003ci\u003eTotalSegments\u003c/i\u003e, you must also specify \u003ci\u003eSegment\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             }

@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 data ListAccessKeys = ListAccessKeys
     { _lakMarker   :: Maybe Text
-    , _lakMaxItems :: Maybe Natural
+    , _lakMaxItems :: Maybe Nat
     , _lakUserName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -88,6 +88,7 @@ lakMarker = lens _lakMarker (\s a -> s { _lakMarker = a })
 -- This parameter is optional. If you do not include it, it defaults to 100.
 lakMaxItems :: Lens' ListAccessKeys (Maybe Natural)
 lakMaxItems = lens _lakMaxItems (\s a -> s { _lakMaxItems = a })
+    . mapping _Nat
 
 -- | The name of the user.
 lakUserName :: Lens' ListAccessKeys (Maybe Text)

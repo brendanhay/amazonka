@@ -51,8 +51,8 @@ import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
-    { _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Natural
-    , _ubrlAverageUploadRateLimitInBitsPerSec   :: Maybe Natural
+    { _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Nat
+    , _ubrlAverageUploadRateLimitInBitsPerSec   :: Maybe Nat
     , _ubrlGatewayARN                           :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -79,12 +79,14 @@ ubrlAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Mayb
 ubrlAverageDownloadRateLimitInBitsPerSec =
     lens _ubrlAverageDownloadRateLimitInBitsPerSec
         (\s a -> s { _ubrlAverageDownloadRateLimitInBitsPerSec = a })
+            . mapping _Nat
 
 -- | The average upload bandwidth rate limit in bits per second.
 ubrlAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
 ubrlAverageUploadRateLimitInBitsPerSec =
     lens _ubrlAverageUploadRateLimitInBitsPerSec
         (\s a -> s { _ubrlAverageUploadRateLimitInBitsPerSec = a })
+            . mapping _Nat
 
 ubrlGatewayARN :: Lens' UpdateBandwidthRateLimit Text
 ubrlGatewayARN = lens _ubrlGatewayARN (\s a -> s { _ubrlGatewayARN = a })

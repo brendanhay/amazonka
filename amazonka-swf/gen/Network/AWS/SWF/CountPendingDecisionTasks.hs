@@ -96,7 +96,7 @@ instance ToBody CountPendingDecisionTasks where
     toBody = toBody . encode . _cpdtDomain
 
 data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
-    { _cpdtrCount     :: Natural
+    { _cpdtrCount     :: Nat
     , _cpdtrTruncated :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
@@ -111,13 +111,14 @@ data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
 countPendingDecisionTasksResponse :: Natural -- ^ 'cpdtrCount'
                                   -> CountPendingDecisionTasksResponse
 countPendingDecisionTasksResponse p1 = CountPendingDecisionTasksResponse
-    { _cpdtrCount     = p1
+    { _cpdtrCount     = withIso _Nat (const id) p1
     , _cpdtrTruncated = Nothing
     }
 
 -- | The number of tasks in the task list.
 cpdtrCount :: Lens' CountPendingDecisionTasksResponse Natural
 cpdtrCount = lens _cpdtrCount (\s a -> s { _cpdtrCount = a })
+    . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.

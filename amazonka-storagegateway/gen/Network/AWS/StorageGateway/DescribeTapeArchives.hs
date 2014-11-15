@@ -48,7 +48,7 @@ import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
 data DescribeTapeArchives = DescribeTapeArchives
-    { _dtaLimit    :: Maybe Natural
+    { _dtaLimit    :: Maybe Nat
     , _dtaMarker   :: Maybe Text
     , _dtaTapeARNs :: [Text]
     } deriving (Eq, Ord, Show, Generic)
@@ -74,6 +74,7 @@ describeTapeArchives = DescribeTapeArchives
 -- specified number.
 dtaLimit :: Lens' DescribeTapeArchives (Maybe Natural)
 dtaLimit = lens _dtaLimit (\s a -> s { _dtaLimit = a })
+    . mapping _Nat
 
 -- | An opaque string that indicates the position at which to begin describing
 -- virtual tapes.

@@ -49,9 +49,9 @@ import qualified GHC.Exts
 data CreateTapes = CreateTapes
     { _ctClientToken       :: Text
     , _ctGatewayARN        :: Text
-    , _ctNumTapesToCreate  :: Natural
+    , _ctNumTapesToCreate  :: Nat
     , _ctTapeBarcodePrefix :: Text
-    , _ctTapeSizeInBytes   :: Natural
+    , _ctTapeSizeInBytes   :: Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateTapes' constructor.
@@ -76,9 +76,9 @@ createTapes :: Text -- ^ 'ctGatewayARN'
             -> CreateTapes
 createTapes p1 p2 p3 p4 p5 = CreateTapes
     { _ctGatewayARN        = p1
-    , _ctTapeSizeInBytes   = p2
+    , _ctTapeSizeInBytes   = withIso _Nat (const id) p2
     , _ctClientToken       = p3
-    , _ctNumTapesToCreate  = p4
+    , _ctNumTapesToCreate  = withIso _Nat (const id) p4
     , _ctTapeBarcodePrefix = p5
     }
 
@@ -97,6 +97,7 @@ ctGatewayARN = lens _ctGatewayARN (\s a -> s { _ctGatewayARN = a })
 ctNumTapesToCreate :: Lens' CreateTapes Natural
 ctNumTapesToCreate =
     lens _ctNumTapesToCreate (\s a -> s { _ctNumTapesToCreate = a })
+        . _Nat
 
 -- | A prefix you append to the barcode of the virtual tape you are creating.
 -- This makes a barcode unique.
@@ -108,6 +109,7 @@ ctTapeBarcodePrefix =
 ctTapeSizeInBytes :: Lens' CreateTapes Natural
 ctTapeSizeInBytes =
     lens _ctTapeSizeInBytes (\s a -> s { _ctTapeSizeInBytes = a })
+        . _Nat
 
 instance ToPath CreateTapes where
     toPath = const "/"

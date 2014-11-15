@@ -87,7 +87,7 @@ import Network.AWS.STS.Types
 import qualified GHC.Exts
 
 data AssumeRoleWithSAML = AssumeRoleWithSAML
-    { _arwsamlDurationSeconds :: Maybe Natural
+    { _arwsamlDurationSeconds :: Maybe Nat
     , _arwsamlPolicy          :: Maybe Text
     , _arwsamlPrincipalArn    :: Text
     , _arwsamlRoleArn         :: Text
@@ -128,6 +128,7 @@ assumeRoleWithSAML p1 p2 p3 = AssumeRoleWithSAML
 arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Natural)
 arwsamlDurationSeconds =
     lens _arwsamlDurationSeconds (\s a -> s { _arwsamlDurationSeconds = a })
+        . mapping _Nat
 
 -- | An IAM policy in JSON format. The policy parameter is optional. If you
 -- pass a policy, the temporary security credentials that are returned by
@@ -170,7 +171,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     , _arwsamlrCredentials      :: Maybe Credentials
     , _arwsamlrIssuer           :: Maybe Text
     , _arwsamlrNameQualifier    :: Maybe Text
-    , _arwsamlrPackedPolicySize :: Maybe Natural
+    , _arwsamlrPackedPolicySize :: Maybe Nat
     , _arwsamlrSubject          :: Maybe Text
     , _arwsamlrSubjectType      :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -241,6 +242,7 @@ arwsamlrPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Natural)
 arwsamlrPackedPolicySize =
     lens _arwsamlrPackedPolicySize
         (\s a -> s { _arwsamlrPackedPolicySize = a })
+            . mapping _Nat
 
 -- | The value of the NameID element in the Subject element of the SAML
 -- assertion.

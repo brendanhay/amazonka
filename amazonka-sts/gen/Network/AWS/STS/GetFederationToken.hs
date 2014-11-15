@@ -95,7 +95,7 @@ import Network.AWS.STS.Types
 import qualified GHC.Exts
 
 data GetFederationToken = GetFederationToken
-    { _gftDurationSeconds :: Maybe Natural
+    { _gftDurationSeconds :: Maybe Nat
     , _gftName            :: Text
     , _gftPolicy          :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -128,6 +128,7 @@ getFederationToken p1 = GetFederationToken
 gftDurationSeconds :: Lens' GetFederationToken (Maybe Natural)
 gftDurationSeconds =
     lens _gftDurationSeconds (\s a -> s { _gftDurationSeconds = a })
+        . mapping _Nat
 
 -- | The name of the federated user. The name is used as an identifier for the
 -- temporary security credentials (such as Bob). For example, you can
@@ -163,7 +164,7 @@ instance ToPath GetFederationToken where
 data GetFederationTokenResponse = GetFederationTokenResponse
     { _gftrCredentials      :: Maybe Credentials
     , _gftrFederatedUser    :: Maybe FederatedUser
-    , _gftrPackedPolicySize :: Maybe Natural
+    , _gftrPackedPolicySize :: Maybe Nat
     } deriving (Eq, Show, Generic)
 
 -- | 'GetFederationTokenResponse' constructor.
@@ -201,6 +202,7 @@ gftrFederatedUser =
 gftrPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
 gftrPackedPolicySize =
     lens _gftrPackedPolicySize (\s a -> s { _gftrPackedPolicySize = a })
+        . mapping _Nat
 
 instance AWSRequest GetFederationToken where
     type Sv GetFederationToken = STS

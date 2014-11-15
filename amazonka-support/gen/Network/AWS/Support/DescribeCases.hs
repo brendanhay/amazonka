@@ -65,7 +65,7 @@ data DescribeCases = DescribeCases
     , _dcIncludeCommunications :: Maybe Bool
     , _dcIncludeResolvedCases  :: Maybe Bool
     , _dcLanguage              :: Maybe Text
-    , _dcMaxResults            :: Maybe Natural
+    , _dcMaxResults            :: Maybe Nat
     , _dcNextToken             :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -144,6 +144,7 @@ dcLanguage = lens _dcLanguage (\s a -> s { _dcLanguage = a })
 -- | The maximum number of results to return before paginating.
 dcMaxResults :: Lens' DescribeCases (Maybe Natural)
 dcMaxResults = lens _dcMaxResults (\s a -> s { _dcMaxResults = a })
+    . mapping _Nat
 
 -- | A resumption point for pagination.
 dcNextToken :: Lens' DescribeCases (Maybe Text)

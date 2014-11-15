@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data DescribeLoadBalancers = DescribeLoadBalancers
     { _dlbLoadBalancerNames :: [Text]
     , _dlbMarker            :: Maybe Text
-    , _dlbPageSize          :: Maybe Natural
+    , _dlbPageSize          :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeLoadBalancers' constructor.
@@ -85,6 +85,7 @@ dlbMarker = lens _dlbMarker (\s a -> s { _dlbMarker = a })
 -- cannot specify a page size greater than 400 or less than 1.
 dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
 dlbPageSize = lens _dlbPageSize (\s a -> s { _dlbPageSize = a })
+    . mapping _Nat
 
 instance ToQuery DescribeLoadBalancers
 

@@ -66,7 +66,7 @@ data CreateStack = CreateStack
     , _csTags             :: [Tag]
     , _csTemplateBody     :: Maybe Text
     , _csTemplateURL      :: Maybe Text
-    , _csTimeoutInMinutes :: Maybe Natural
+    , _csTimeoutInMinutes :: Maybe Nat
     } deriving (Eq, Show, Generic)
 
 -- | 'CreateStack' constructor.
@@ -205,6 +205,7 @@ csTemplateURL = lens _csTemplateURL (\s a -> s { _csTemplateURL = a })
 csTimeoutInMinutes :: Lens' CreateStack (Maybe Natural)
 csTimeoutInMinutes =
     lens _csTimeoutInMinutes (\s a -> s { _csTimeoutInMinutes = a })
+        . mapping _Nat
 
 instance ToQuery CreateStack
 

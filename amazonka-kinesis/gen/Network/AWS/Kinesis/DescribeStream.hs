@@ -60,7 +60,7 @@ import qualified GHC.Exts
 
 data DescribeStream = DescribeStream
     { _ds1ExclusiveStartShardId :: Maybe Text
-    , _ds1Limit                 :: Maybe Natural
+    , _ds1Limit                 :: Maybe Nat
     , _ds1StreamName            :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -91,6 +91,7 @@ ds1ExclusiveStartShardId =
 -- | The maximum number of shards to return.
 ds1Limit :: Lens' DescribeStream (Maybe Natural)
 ds1Limit = lens _ds1Limit (\s a -> s { _ds1Limit = a })
+    . mapping _Nat
 
 -- | The name of the stream to describe.
 ds1StreamName :: Lens' DescribeStream Text

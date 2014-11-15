@@ -405,7 +405,7 @@ instance ToXML GeoLocationDetails where
 data HealthCheck = HealthCheck
     { _hcCallerReference    :: Text
     , _hcHealthCheckConfig  :: HealthCheckConfig
-    , _hcHealthCheckVersion :: Natural
+    , _hcHealthCheckVersion :: Nat
     , _hcId                 :: Text
     } deriving (Eq, Show, Generic)
 
@@ -430,7 +430,7 @@ healthCheck p1 p2 p3 p4 = HealthCheck
     { _hcId                 = p1
     , _hcCallerReference    = p2
     , _hcHealthCheckConfig  = p3
-    , _hcHealthCheckVersion = p4
+    , _hcHealthCheckVersion = withIso _Nat (const id) p4
     }
 
 -- | A unique string that identifies the request to create the health check.
@@ -449,6 +449,7 @@ hcHealthCheckConfig =
 hcHealthCheckVersion :: Lens' HealthCheck Natural
 hcHealthCheckVersion =
     lens _hcHealthCheckVersion (\s a -> s { _hcHealthCheckVersion = a })
+        . _Nat
 
 -- | The ID of the specified health check.
 hcId :: Lens' HealthCheck Text
@@ -558,11 +559,11 @@ instance ToXML TagResourceType where
     toXMLRoot    = toRoot "TagResourceType"
 
 data HealthCheckConfig = HealthCheckConfig
-    { _hccFailureThreshold         :: Maybe Natural
+    { _hccFailureThreshold         :: Maybe Nat
     , _hccFullyQualifiedDomainName :: Maybe Text
     , _hccIPAddress                :: Maybe Text
-    , _hccPort                     :: Maybe Natural
-    , _hccRequestInterval          :: Maybe Natural
+    , _hccPort                     :: Maybe Nat
+    , _hccRequestInterval          :: Maybe Nat
     , _hccResourcePath             :: Maybe Text
     , _hccSearchString             :: Maybe Text
     , _hccType                     :: Text
@@ -609,6 +610,7 @@ healthCheckConfig p1 = HealthCheckConfig
 hccFailureThreshold :: Lens' HealthCheckConfig (Maybe Natural)
 hccFailureThreshold =
     lens _hccFailureThreshold (\s a -> s { _hccFailureThreshold = a })
+        . mapping _Nat
 
 -- | Fully qualified domain name of the instance to be health checked.
 hccFullyQualifiedDomainName :: Lens' HealthCheckConfig (Maybe Text)
@@ -626,6 +628,7 @@ hccIPAddress = lens _hccIPAddress (\s a -> s { _hccIPAddress = a })
 -- is not specified.
 hccPort :: Lens' HealthCheckConfig (Maybe Natural)
 hccPort = lens _hccPort (\s a -> s { _hccPort = a })
+    . mapping _Nat
 
 -- | The number of seconds between the time that Route 53 gets a response from
 -- your endpoint and the time that it sends the next health-check request.
@@ -634,6 +637,7 @@ hccPort = lens _hccPort (\s a -> s { _hccPort = a })
 hccRequestInterval :: Lens' HealthCheckConfig (Maybe Natural)
 hccRequestInterval =
     lens _hccRequestInterval (\s a -> s { _hccRequestInterval = a })
+        . mapping _Nat
 
 -- | Path to ping on the instance to check the health. Required for HTTP,
 -- HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks, HTTP request is
@@ -1052,9 +1056,9 @@ data ResourceRecordSet = ResourceRecordSet
     , _rrsRegion          :: Maybe Text
     , _rrsResourceRecords :: List1 ResourceRecord
     , _rrsSetIdentifier   :: Maybe Text
-    , _rrsTTL             :: Maybe Natural
+    , _rrsTTL             :: Maybe Nat
     , _rrsType            :: Text
-    , _rrsWeight          :: Maybe Natural
+    , _rrsWeight          :: Maybe Nat
     } deriving (Eq, Show, Generic)
 
 -- | 'ResourceRecordSet' constructor.
@@ -1162,6 +1166,7 @@ rrsSetIdentifier = lens _rrsSetIdentifier (\s a -> s { _rrsSetIdentifier = a })
 -- | The cache time to live for the current resource record set.
 rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
 rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a })
+    . mapping _Nat
 
 -- | The type of the current resource record set.
 rrsType :: Lens' ResourceRecordSet Text
@@ -1173,6 +1178,7 @@ rrsType = lens _rrsType (\s a -> s { _rrsType = a })
 -- associated location.
 rrsWeight :: Lens' ResourceRecordSet (Maybe Natural)
 rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a })
+    . mapping _Nat
 
 instance FromXML ResourceRecordSet where
     fromXMLOptions = xmlOptions

@@ -52,9 +52,9 @@ import qualified GHC.Exts
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     { _uappAllowUsersToChangePassword :: Maybe Bool
     , _uappHardExpiry                 :: Maybe Bool
-    , _uappMaxPasswordAge             :: Maybe Natural
-    , _uappMinimumPasswordLength      :: Maybe Natural
-    , _uappPasswordReusePrevention    :: Maybe Natural
+    , _uappMaxPasswordAge             :: Maybe Nat
+    , _uappMinimumPasswordLength      :: Maybe Nat
+    , _uappPasswordReusePrevention    :: Maybe Nat
     , _uappRequireLowercaseCharacters :: Maybe Bool
     , _uappRequireNumbers             :: Maybe Bool
     , _uappRequireSymbols             :: Maybe Bool
@@ -114,6 +114,7 @@ uappHardExpiry = lens _uappHardExpiry (\s a -> s { _uappHardExpiry = a })
 uappMaxPasswordAge :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
 uappMaxPasswordAge =
     lens _uappMaxPasswordAge (\s a -> s { _uappMaxPasswordAge = a })
+        . mapping _Nat
 
 -- | The minimum number of characters allowed in an IAM user password. Default
 -- value: 6.
@@ -121,6 +122,7 @@ uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
 uappMinimumPasswordLength =
     lens _uappMinimumPasswordLength
         (\s a -> s { _uappMinimumPasswordLength = a })
+            . mapping _Nat
 
 -- | Specifies the number of previous passwords that IAM users are prevented
 -- from reusing. The default value of 0 means IAM users are not prevented
@@ -129,6 +131,7 @@ uappPasswordReusePrevention :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
 uappPasswordReusePrevention =
     lens _uappPasswordReusePrevention
         (\s a -> s { _uappPasswordReusePrevention = a })
+            . mapping _Nat
 
 -- | Specifies whether IAM user passwords must contain at least one lowercase
 -- character from the ISO basic Latin alphabet (a to z). Default value:

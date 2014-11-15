@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 data ListAccountAliases = ListAccountAliases
     { _laaMarker   :: Maybe Text
-    , _laaMaxItems :: Maybe Natural
+    , _laaMaxItems :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListAccountAliases' constructor.
@@ -79,6 +79,7 @@ laaMarker = lens _laaMarker (\s a -> s { _laaMarker = a })
 -- defaults to 100.
 laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
 laaMaxItems = lens _laaMaxItems (\s a -> s { _laaMaxItems = a })
+    . mapping _Nat
 
 instance ToQuery ListAccountAliases
 

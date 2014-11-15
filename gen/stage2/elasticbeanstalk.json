@@ -8002,7 +8002,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "deMaxRecords",
@@ -8011,7 +8011,7 @@
                         "locationName": "MaxRecords",
                         "documentation": "\u003cp\u003e Specifies the maximum number of events that can be returned, beginning with the most recent event. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -8088,7 +8088,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "deMaxRecords",
@@ -8097,7 +8097,7 @@
                         "locationName": "MaxRecords",
                         "documentation": "\u003cp\u003e Specifies the maximum number of events that can be returned, beginning with the most recent event. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",

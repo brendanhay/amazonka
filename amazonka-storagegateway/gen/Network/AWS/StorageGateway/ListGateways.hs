@@ -51,7 +51,7 @@ import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
 data ListGateways = ListGateways
-    { _lgLimit  :: Maybe Natural
+    { _lgLimit  :: Maybe Nat
     , _lgMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -73,6 +73,7 @@ listGateways = ListGateways
 -- number of items.
 lgLimit :: Lens' ListGateways (Maybe Natural)
 lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a })
+    . mapping _Nat
 
 -- | An opaque string that indicates the position at which to begin the
 -- returned list of gateways.

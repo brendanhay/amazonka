@@ -105,7 +105,7 @@ instance AWSService CloudWatchLogs where
     handle = jsonError alwaysFail
 
 data MetricFilter = MetricFilter
-    { _mfCreationTime          :: Maybe Natural
+    { _mfCreationTime          :: Maybe Nat
     , _mfFilterName            :: Maybe Text
     , _mfFilterPattern         :: Maybe Text
     , _mfMetricTransformations :: List1 MetricTransformation
@@ -134,6 +134,7 @@ metricFilter p1 = MetricFilter
 
 mfCreationTime :: Lens' MetricFilter (Maybe Natural)
 mfCreationTime = lens _mfCreationTime (\s a -> s { _mfCreationTime = a })
+    . mapping _Nat
 
 mfFilterName :: Lens' MetricFilter (Maybe Text)
 mfFilterName = lens _mfFilterName (\s a -> s { _mfFilterName = a })
@@ -230,12 +231,12 @@ instance ToJSON MetricTransformation
 
 data LogStream = LogStream
     { _lsArn                 :: Maybe Text
-    , _lsCreationTime        :: Maybe Natural
-    , _lsFirstEventTimestamp :: Maybe Natural
-    , _lsLastEventTimestamp  :: Maybe Natural
-    , _lsLastIngestionTime   :: Maybe Natural
+    , _lsCreationTime        :: Maybe Nat
+    , _lsFirstEventTimestamp :: Maybe Nat
+    , _lsLastEventTimestamp  :: Maybe Nat
+    , _lsLastIngestionTime   :: Maybe Nat
     , _lsLogStreamName       :: Maybe Text
-    , _lsStoredBytes         :: Maybe Natural
+    , _lsStoredBytes         :: Maybe Nat
     , _lsUploadSequenceToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -276,24 +277,29 @@ lsArn = lens _lsArn (\s a -> s { _lsArn = a })
 
 lsCreationTime :: Lens' LogStream (Maybe Natural)
 lsCreationTime = lens _lsCreationTime (\s a -> s { _lsCreationTime = a })
+    . mapping _Nat
 
 lsFirstEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsFirstEventTimestamp =
     lens _lsFirstEventTimestamp (\s a -> s { _lsFirstEventTimestamp = a })
+        . mapping _Nat
 
 lsLastEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsLastEventTimestamp =
     lens _lsLastEventTimestamp (\s a -> s { _lsLastEventTimestamp = a })
+        . mapping _Nat
 
 lsLastIngestionTime :: Lens' LogStream (Maybe Natural)
 lsLastIngestionTime =
     lens _lsLastIngestionTime (\s a -> s { _lsLastIngestionTime = a })
+        . mapping _Nat
 
 lsLogStreamName :: Lens' LogStream (Maybe Text)
 lsLogStreamName = lens _lsLogStreamName (\s a -> s { _lsLogStreamName = a })
 
 lsStoredBytes :: Lens' LogStream (Maybe Natural)
 lsStoredBytes = lens _lsStoredBytes (\s a -> s { _lsStoredBytes = a })
+    . mapping _Nat
 
 lsUploadSequenceToken :: Lens' LogStream (Maybe Text)
 lsUploadSequenceToken =
@@ -305,11 +311,11 @@ instance ToJSON LogStream
 
 data LogGroup = LogGroup
     { _lgArn               :: Maybe Text
-    , _lgCreationTime      :: Maybe Natural
+    , _lgCreationTime      :: Maybe Nat
     , _lgLogGroupName      :: Maybe Text
     , _lgMetricFilterCount :: Maybe Int
     , _lgRetentionInDays   :: Maybe Int
-    , _lgStoredBytes       :: Maybe Natural
+    , _lgStoredBytes       :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'LogGroup' constructor.
@@ -343,6 +349,7 @@ lgArn = lens _lgArn (\s a -> s { _lgArn = a })
 
 lgCreationTime :: Lens' LogGroup (Maybe Natural)
 lgCreationTime = lens _lgCreationTime (\s a -> s { _lgCreationTime = a })
+    . mapping _Nat
 
 lgLogGroupName :: Lens' LogGroup (Maybe Text)
 lgLogGroupName = lens _lgLogGroupName (\s a -> s { _lgLogGroupName = a })
@@ -357,6 +364,7 @@ lgRetentionInDays =
 
 lgStoredBytes :: Lens' LogGroup (Maybe Natural)
 lgStoredBytes = lens _lgStoredBytes (\s a -> s { _lgStoredBytes = a })
+    . mapping _Nat
 
 instance FromJSON LogGroup
 
@@ -364,7 +372,7 @@ instance ToJSON LogGroup
 
 data InputLogEvent = InputLogEvent
     { _ileMessage   :: Text
-    , _ileTimestamp :: Natural
+    , _ileTimestamp :: Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'InputLogEvent' constructor.
@@ -379,7 +387,7 @@ inputLogEvent :: Natural -- ^ 'ileTimestamp'
               -> Text -- ^ 'ileMessage'
               -> InputLogEvent
 inputLogEvent p1 p2 = InputLogEvent
-    { _ileTimestamp = p1
+    { _ileTimestamp = withIso _Nat (const id) p1
     , _ileMessage   = p2
     }
 
@@ -388,15 +396,16 @@ ileMessage = lens _ileMessage (\s a -> s { _ileMessage = a })
 
 ileTimestamp :: Lens' InputLogEvent Natural
 ileTimestamp = lens _ileTimestamp (\s a -> s { _ileTimestamp = a })
+    . _Nat
 
 instance FromJSON InputLogEvent
 
 instance ToJSON InputLogEvent
 
 data OutputLogEvent = OutputLogEvent
-    { _oleIngestionTime :: Maybe Natural
+    { _oleIngestionTime :: Maybe Nat
     , _oleMessage       :: Maybe Text
-    , _oleTimestamp     :: Maybe Natural
+    , _oleTimestamp     :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'OutputLogEvent' constructor.
@@ -418,12 +427,14 @@ outputLogEvent = OutputLogEvent
 
 oleIngestionTime :: Lens' OutputLogEvent (Maybe Natural)
 oleIngestionTime = lens _oleIngestionTime (\s a -> s { _oleIngestionTime = a })
+    . mapping _Nat
 
 oleMessage :: Lens' OutputLogEvent (Maybe Text)
 oleMessage = lens _oleMessage (\s a -> s { _oleMessage = a })
 
 oleTimestamp :: Lens' OutputLogEvent (Maybe Natural)
 oleTimestamp = lens _oleTimestamp (\s a -> s { _oleTimestamp = a })
+    . mapping _Nat
 
 instance FromJSON OutputLogEvent
 

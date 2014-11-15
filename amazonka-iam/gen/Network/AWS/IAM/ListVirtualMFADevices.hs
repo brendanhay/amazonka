@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus :: Maybe Text
     , _lvmfadMarker           :: Maybe Text
-    , _lvmfadMaxItems         :: Maybe Natural
+    , _lvmfadMaxItems         :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListVirtualMFADevices' constructor.
@@ -92,6 +92,7 @@ lvmfadMarker = lens _lvmfadMarker (\s a -> s { _lvmfadMarker = a })
 -- defaults to 100.
 lvmfadMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
 lvmfadMaxItems = lens _lvmfadMaxItems (\s a -> s { _lvmfadMaxItems = a })
+    . mapping _Nat
 
 instance ToQuery ListVirtualMFADevices
 

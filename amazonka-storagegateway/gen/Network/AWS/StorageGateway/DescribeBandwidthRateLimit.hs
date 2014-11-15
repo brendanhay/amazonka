@@ -80,8 +80,8 @@ instance ToBody DescribeBandwidthRateLimit where
     toBody = toBody . encode . _dbrlGatewayARN
 
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
-    { _dbrlrAverageDownloadRateLimitInBitsPerSec :: Maybe Natural
-    , _dbrlrAverageUploadRateLimitInBitsPerSec   :: Maybe Natural
+    { _dbrlrAverageDownloadRateLimitInBitsPerSec :: Maybe Nat
+    , _dbrlrAverageUploadRateLimitInBitsPerSec   :: Maybe Nat
     , _dbrlrGatewayARN                           :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -108,6 +108,7 @@ dbrlrAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitRes
 dbrlrAverageDownloadRateLimitInBitsPerSec =
     lens _dbrlrAverageDownloadRateLimitInBitsPerSec
         (\s a -> s { _dbrlrAverageDownloadRateLimitInBitsPerSec = a })
+            . mapping _Nat
 
 -- | The average upload bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the upload rate limit is not set.
@@ -115,6 +116,7 @@ dbrlrAverageUploadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitRespo
 dbrlrAverageUploadRateLimitInBitsPerSec =
     lens _dbrlrAverageUploadRateLimitInBitsPerSec
         (\s a -> s { _dbrlrAverageUploadRateLimitInBitsPerSec = a })
+            . mapping _Nat
 
 dbrlrGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
 dbrlrGatewayARN = lens _dbrlrGatewayARN (\s a -> s { _dbrlrGatewayARN = a })

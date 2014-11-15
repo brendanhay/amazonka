@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 data DescribeVTLDevices = DescribeVTLDevices
     { _dvtldGatewayARN    :: Text
-    , _dvtldLimit         :: Maybe Natural
+    , _dvtldLimit         :: Maybe Nat
     , _dvtldMarker        :: Maybe Text
     , _dvtldVTLDeviceARNs :: [Text]
     } deriving (Eq, Ord, Show, Generic)
@@ -83,6 +83,7 @@ dvtldGatewayARN = lens _dvtldGatewayARN (\s a -> s { _dvtldGatewayARN = a })
 -- specified number.
 dvtldLimit :: Lens' DescribeVTLDevices (Maybe Natural)
 dvtldLimit = lens _dvtldLimit (\s a -> s { _dvtldLimit = a })
+    . mapping _Nat
 
 -- | An opaque string that indicates the position at which to begin describing
 -- the VTL devices.

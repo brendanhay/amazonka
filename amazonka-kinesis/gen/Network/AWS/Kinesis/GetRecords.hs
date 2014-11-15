@@ -81,7 +81,7 @@ import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
 data GetRecords = GetRecords
-    { _grLimit         :: Maybe Natural
+    { _grLimit         :: Maybe Nat
     , _grShardIterator :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -105,6 +105,7 @@ getRecords p1 = GetRecords
 -- InvalidArgumentException.
 grLimit :: Lens' GetRecords (Maybe Natural)
 grLimit = lens _grLimit (\s a -> s { _grLimit = a })
+    . mapping _Nat
 
 -- | The position in the shard from which you want to start sequentially
 -- reading data records. A shard iterator specifies this position using the

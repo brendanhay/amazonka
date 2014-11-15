@@ -2892,7 +2892,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "grchLimit",
@@ -2901,7 +2901,7 @@
                         "locationName": "limit",
                         "documentation": "\u003cp\u003eThe maximum number of configuration items returned in each page. The default is 10. You cannot specify a limit greater than 100.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -2964,7 +2964,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "grchLimit",
@@ -2973,7 +2973,7 @@
                         "locationName": "limit",
                         "documentation": "\u003cp\u003eThe maximum number of configuration items returned in each page. The default is 10. You cannot specify a limit greater than 100.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",

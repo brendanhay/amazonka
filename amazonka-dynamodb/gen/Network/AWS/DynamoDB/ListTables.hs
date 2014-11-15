@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 data ListTables = ListTables
     { _ltExclusiveStartTableName :: Maybe Text
-    , _ltLimit                   :: Maybe Natural
+    , _ltLimit                   :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListTables' constructor.
@@ -76,6 +76,7 @@ ltExclusiveStartTableName =
 -- specified, the limit is 100.
 ltLimit :: Lens' ListTables (Maybe Natural)
 ltLimit = lens _ltLimit (\s a -> s { _ltLimit = a })
+    . mapping _Nat
 
 instance ToPath ListTables where
     toPath = const "/"

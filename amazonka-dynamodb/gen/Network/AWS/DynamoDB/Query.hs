@@ -87,7 +87,7 @@ data Query = Query
     , _qFilterExpression          :: Maybe Text
     , _qIndexName                 :: Maybe Text
     , _qKeyConditions             :: Map Text Condition
-    , _qLimit                     :: Maybe Natural
+    , _qLimit                     :: Maybe Nat
     , _qProjectionExpression      :: Maybe Text
     , _qQueryFilter               :: Map Text Condition
     , _qReturnConsumedCapacity    :: Maybe Text
@@ -332,6 +332,7 @@ qKeyConditions = lens _qKeyConditions (\s a -> s { _qKeyConditions = a })
 -- Query and Scan in the Amazon DynamoDB Developer Guide.
 qLimit :: Lens' Query (Maybe Natural)
 qLimit = lens _qLimit (\s a -> s { _qLimit = a })
+    . mapping _Nat
 
 -- | One or more attributes to retrieve from the table. These attributes can
 -- include scalars, sets, or elements of a JSON document. The attributes in

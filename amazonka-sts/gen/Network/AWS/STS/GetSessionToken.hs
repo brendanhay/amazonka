@@ -66,7 +66,7 @@ import Network.AWS.STS.Types
 import qualified GHC.Exts
 
 data GetSessionToken = GetSessionToken
-    { _gstDurationSeconds :: Maybe Natural
+    { _gstDurationSeconds :: Maybe Nat
     , _gstSerialNumber    :: Maybe Text
     , _gstTokenCode       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -97,6 +97,7 @@ getSessionToken = GetSessionToken
 gstDurationSeconds :: Lens' GetSessionToken (Maybe Natural)
 gstDurationSeconds =
     lens _gstDurationSeconds (\s a -> s { _gstDurationSeconds = a })
+        . mapping _Nat
 
 -- | The identification number of the MFA device that is associated with the
 -- IAM user who is making the GetSessionToken call. Specify this value if

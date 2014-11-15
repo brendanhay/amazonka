@@ -67,7 +67,7 @@ import qualified GHC.Exts
 data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions
     { _loweDomain          :: Text
     , _loweExecutionFilter :: Maybe WorkflowExecutionFilter
-    , _loweMaximumPageSize :: Maybe Natural
+    , _loweMaximumPageSize :: Maybe Nat
     , _loweNextPageToken   :: Maybe Text
     , _loweReverseOrder    :: Maybe Bool
     , _loweStartTimeFilter :: ExecutionTimeFilter
@@ -128,6 +128,7 @@ loweExecutionFilter =
 loweMaximumPageSize :: Lens' ListOpenWorkflowExecutions (Maybe Natural)
 loweMaximumPageSize =
     lens _loweMaximumPageSize (\s a -> s { _loweMaximumPageSize = a })
+        . mapping _Nat
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- results are being paginated. To get the next page of results, repeat the

@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 data ListInstanceProfiles = ListInstanceProfiles
     { _lipMarker     :: Maybe Text
-    , _lipMaxItems   :: Maybe Natural
+    , _lipMaxItems   :: Maybe Nat
     , _lipPathPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -85,6 +85,7 @@ lipMarker = lens _lipMarker (\s a -> s { _lipMarker = a })
 -- do not include it, it defaults to 100.
 lipMaxItems :: Lens' ListInstanceProfiles (Maybe Natural)
 lipMaxItems = lens _lipMaxItems (\s a -> s { _lipMaxItems = a })
+    . mapping _Nat
 
 -- | The path prefix for filtering the results. For example, the prefix
 -- /application_abc/component_xyz/ gets all instance profiles whose path

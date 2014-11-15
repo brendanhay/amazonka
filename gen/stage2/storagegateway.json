@@ -341,7 +341,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "vscsiaLunNumber",
@@ -350,7 +350,7 @@
                         "locationName": "LunNumber",
                         "documentation": "\u003cp\u003eThe logical disk number.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -385,7 +385,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "vscsiaLunNumber",
@@ -394,7 +394,7 @@
                         "locationName": "LunNumber",
                         "documentation": "\u003cp\u003eThe logical disk number.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -926,7 +926,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "tTapeSizeInBytes",
@@ -935,7 +935,7 @@
                         "locationName": "TapeSizeInBytes",
                         "documentation": "\u003cp\u003eThe size, in bytes, of the virtual tape.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -1026,7 +1026,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "tTapeSizeInBytes",
@@ -1035,7 +1035,7 @@
                         "locationName": "TapeSizeInBytes",
                         "documentation": "\u003cp\u003eThe size, in bytes, of the virtual tape.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -1410,7 +1410,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "trpiTapeSizeInBytes",
@@ -1419,7 +1419,7 @@
                         "locationName": "TapeSizeInBytes",
                         "documentation": "\u003cp\u003eThe size, in bytes, of the virtual tapes to recover.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -1468,7 +1468,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "trpiTapeSizeInBytes",
@@ -1477,7 +1477,7 @@
                         "locationName": "TapeSizeInBytes",
                         "documentation": "\u003cp\u003eThe size, in bytes, of the virtual tapes to recover.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -1696,7 +1696,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "taTapeSizeInBytes",
@@ -1705,7 +1705,7 @@
                         "locationName": "TapeSizeInBytes",
                         "documentation": "\u003cp\u003eThe size, in bytes, of the archived virtual tape.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -1810,7 +1810,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "taTapeSizeInBytes",
@@ -1819,7 +1819,7 @@
                         "locationName": "TapeSizeInBytes",
                         "documentation": "\u003cp\u003eThe size, in bytes, of the archived virtual tape.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -5196,8 +5196,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ctTapeSizeInBytes",
@@ -5206,7 +5206,7 @@
                         "locationName": "TapeSizeInBytes",
                         "documentation": "\u003cp\u003eThe size, in bytes, of the virtual tapes you want to create.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -5224,8 +5224,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ctNumTapesToCreate",
@@ -5234,7 +5234,7 @@
                         "locationName": "NumTapesToCreate",
                         "documentation": "\u003cp\u003eThe number of virtual tapes you want to create.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -5289,8 +5289,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ctNumTapesToCreate",
@@ -5299,7 +5299,7 @@
                         "locationName": "NumTapesToCreate",
                         "documentation": "\u003cp\u003eThe number of virtual tapes you want to create.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -5317,8 +5317,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ctTapeSizeInBytes",
@@ -5327,7 +5327,7 @@
                         "locationName": "TapeSizeInBytes",
                         "documentation": "\u003cp\u003eThe size, in bytes, of the virtual tapes you want to create.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ]
             }
@@ -6680,7 +6680,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dbrlrAverageUploadRateLimitInBitsPerSec",
@@ -6689,12 +6689,12 @@
                         "locationName": "AverageUploadRateLimitInBitsPerSec",
                         "documentation": "\u003cp\u003eThe average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dbrlrAverageDownloadRateLimitInBitsPerSec",
@@ -6703,14 +6703,14 @@
                         "locationName": "AverageDownloadRateLimitInBitsPerSec",
                         "documentation": "\u003cp\u003eThe average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dbrlrAverageDownloadRateLimitInBitsPerSec",
@@ -6719,12 +6719,12 @@
                         "locationName": "AverageDownloadRateLimitInBitsPerSec",
                         "documentation": "\u003cp\u003eThe average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dbrlrAverageUploadRateLimitInBitsPerSec",
@@ -6733,7 +6733,7 @@
                         "locationName": "AverageUploadRateLimitInBitsPerSec",
                         "documentation": "\u003cp\u003eThe average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -7918,7 +7918,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dmstrHourOfDay",
@@ -7927,12 +7927,12 @@
                         "locationName": "HourOfDay",
                         "documentation": null,
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dmstrMinuteOfHour",
@@ -7941,12 +7941,12 @@
                         "locationName": "MinuteOfHour",
                         "documentation": null,
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dmstrDayOfWeek",
@@ -7955,7 +7955,7 @@
                         "locationName": "DayOfWeek",
                         "documentation": null,
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -7976,7 +7976,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dmstrDayOfWeek",
@@ -7985,7 +7985,7 @@
                         "locationName": "DayOfWeek",
                         "documentation": null,
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -8004,7 +8004,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dmstrHourOfDay",
@@ -8013,12 +8013,12 @@
                         "locationName": "HourOfDay",
                         "documentation": null,
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dmstrMinuteOfHour",
@@ -8027,7 +8027,7 @@
                         "locationName": "MinuteOfHour",
                         "documentation": null,
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -8193,7 +8193,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dssrStartAt",
@@ -8202,12 +8202,12 @@
                         "locationName": "StartAt",
                         "documentation": null,
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dssrRecurrenceInHours",
@@ -8216,7 +8216,7 @@
                         "locationName": "RecurrenceInHours",
                         "documentation": null,
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -8265,7 +8265,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dssrRecurrenceInHours",
@@ -8274,12 +8274,12 @@
                         "locationName": "RecurrenceInHours",
                         "documentation": null,
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dssrStartAt",
@@ -8288,7 +8288,7 @@
                         "locationName": "StartAt",
                         "documentation": null,
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -8776,7 +8776,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dtaLimit",
@@ -8785,14 +8785,14 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the number of virtual tapes descried be limited to the specified number.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dtaLimit",
@@ -8801,7 +8801,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the number of virtual tapes descried be limited to the specified number.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -9042,7 +9042,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dtrpLimit",
@@ -9051,7 +9051,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the number of virtual tape recovery points that are described be limited to the specified number.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -9072,7 +9072,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dtrpLimit",
@@ -9081,7 +9081,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the number of virtual tape recovery points that are described be limited to the specified number.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -9294,7 +9294,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dtLimit",
@@ -9303,7 +9303,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the number of virtual tapes described be limited to the specified number.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -9324,7 +9324,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dtLimit",
@@ -9333,7 +9333,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the number of virtual tapes described be limited to the specified number.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -9835,7 +9835,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dvtldLimit",
@@ -9844,7 +9844,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the number of VTL devices described be limited to the specified number.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -9865,7 +9865,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dvtldLimit",
@@ -9874,7 +9874,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the number of VTL devices described be limited to the specified number.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -10498,7 +10498,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lgLimit",
@@ -10507,14 +10507,14 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the list of gateways returned be limited to the specified number of items.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lgLimit",
@@ -10523,7 +10523,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the list of gateways returned be limited to the specified number of items.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -11130,7 +11130,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lvLimit",
@@ -11139,7 +11139,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the list of volumes returned be limited to the specified number of items.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -11160,7 +11160,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lvLimit",
@@ -11169,7 +11169,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eSpecifies that the list of volumes returned be limited to the specified number of items.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -12073,7 +12073,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ubrlAverageUploadRateLimitInBitsPerSec",
@@ -12082,12 +12082,12 @@
                         "locationName": "AverageUploadRateLimitInBitsPerSec",
                         "documentation": "\u003cp\u003eThe average upload bandwidth rate limit in bits per second.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ubrlAverageDownloadRateLimitInBitsPerSec",
@@ -12096,14 +12096,14 @@
                         "locationName": "AverageDownloadRateLimitInBitsPerSec",
                         "documentation": "\u003cp\u003eThe average download bandwidth rate limit in bits per second.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ubrlAverageDownloadRateLimitInBitsPerSec",
@@ -12112,12 +12112,12 @@
                         "locationName": "AverageDownloadRateLimitInBitsPerSec",
                         "documentation": "\u003cp\u003eThe average download bandwidth rate limit in bits per second.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ubrlAverageUploadRateLimitInBitsPerSec",
@@ -12126,7 +12126,7 @@
                         "locationName": "AverageUploadRateLimitInBitsPerSec",
                         "documentation": "\u003cp\u003eThe average upload bandwidth rate limit in bits per second.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -12940,8 +12940,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "umstHourOfDay",
@@ -12950,12 +12950,12 @@
                         "locationName": "HourOfDay",
                         "documentation": "\u003cp\u003eThe hour component of the maintenance start time represented as \u003cemphasis\u003ehh\u003c/emphasis\u003e, where \u003ci\u003ehh\u003c/i\u003e is the hour (00 to 23). The hour of the day is in the time zone of the gateway.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "umstMinuteOfHour",
@@ -12964,12 +12964,12 @@
                         "locationName": "MinuteOfHour",
                         "documentation": "\u003cp\u003eThe minute component of the maintenance start time represented as \u003ci\u003emm\u003c/i\u003e, where \u003ci\u003emm\u003c/i\u003e is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "umstDayOfWeek",
@@ -12978,7 +12978,7 @@
                         "locationName": "DayOfWeek",
                         "documentation": "\u003cp\u003eThe maintenance start time day of the week.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "shared": false,
@@ -12991,8 +12991,8 @@
                 "fields": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "umstDayOfWeek",
@@ -13001,7 +13001,7 @@
                         "locationName": "DayOfWeek",
                         "documentation": "\u003cp\u003eThe maintenance start time day of the week.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -13019,8 +13019,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "umstHourOfDay",
@@ -13029,12 +13029,12 @@
                         "locationName": "HourOfDay",
                         "documentation": "\u003cp\u003eThe hour component of the maintenance start time represented as \u003cemphasis\u003ehh\u003c/emphasis\u003e, where \u003ci\u003ehh\u003c/i\u003e is the hour (00 to 23). The hour of the day is in the time zone of the gateway.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "umstMinuteOfHour",
@@ -13043,7 +13043,7 @@
                         "locationName": "MinuteOfHour",
                         "documentation": "\u003cp\u003eThe minute component of the maintenance start time represented as \u003ci\u003emm\u003c/i\u003e, where \u003ci\u003emm\u003c/i\u003e is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ]
             }
@@ -13186,8 +13186,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ussStartAt",
@@ -13196,12 +13196,12 @@
                         "locationName": "StartAt",
                         "documentation": "\u003cp\u003eThe hour of the day at which the snapshot schedule begins represented as \u003ci\u003ehh\u003c/i\u003e, where \u003ci\u003ehh\u003c/i\u003e is the hour (0 to 23). The hour of the day is in the time zone of the gateway.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ussRecurrenceInHours",
@@ -13210,7 +13210,7 @@
                         "locationName": "RecurrenceInHours",
                         "documentation": "\u003cp\u003eFrequency of snapshots. Specify the number of hours between snapshots.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "shared": false,
@@ -13252,8 +13252,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ussRecurrenceInHours",
@@ -13262,12 +13262,12 @@
                         "locationName": "RecurrenceInHours",
                         "documentation": "\u003cp\u003eFrequency of snapshots. Specify the number of hours between snapshots.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "ussStartAt",
@@ -13276,7 +13276,7 @@
                         "locationName": "StartAt",
                         "documentation": "\u003cp\u003eThe hour of the day at which the snapshot schedule begins represented as \u003ci\u003ehh\u003c/i\u003e, where \u003ci\u003ehh\u003c/i\u003e is the hour (0 to 23). The hour of the day is in the time zone of the gateway.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",

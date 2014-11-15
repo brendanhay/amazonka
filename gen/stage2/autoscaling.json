@@ -2447,7 +2447,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ebsVolumeSize",
@@ -2456,7 +2456,7 @@
                         "locationName": "VolumeSize",
                         "documentation": "\u003cp\u003eThe volume size, in gigabytes.\u003c/p\u003e \u003cp\u003eValid values: If the volume type is \u003ccode\u003eio1\u003c/code\u003e, the minimum size of the volume is 10.\u003c/p\u003e \u003cp\u003eDefault: If you're creating the volume from a snapshot, and you don't specify a volume size, the default is the snapshot size.\u003c/p\u003e \u003cp\u003eRequired: Required when the volume type is \u003ccode\u003eio1\u003c/code\u003e. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -2489,7 +2489,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ebsIops",
@@ -2498,7 +2498,7 @@
                         "locationName": "Iops",
                         "documentation": "\u003cp\u003eThe number of I/O operations per second (IOPS) that the volume supports.\u003c/p\u003e \u003cp\u003eThe maximum ratio of IOPS to volume size is 30.0\u003c/p\u003e \u003cp\u003eValid Values: Range is 100 to 4000.\u003c/p\u003e \u003cp\u003eDefault: None.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -2519,7 +2519,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ebsIops",
@@ -2528,7 +2528,7 @@
                         "locationName": "Iops",
                         "documentation": "\u003cp\u003eThe number of I/O operations per second (IOPS) that the volume supports.\u003c/p\u003e \u003cp\u003eThe maximum ratio of IOPS to volume size is 30.0\u003c/p\u003e \u003cp\u003eValid Values: Range is 100 to 4000.\u003c/p\u003e \u003cp\u003eDefault: None.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -2547,7 +2547,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ebsVolumeSize",
@@ -2556,7 +2556,7 @@
                         "locationName": "VolumeSize",
                         "documentation": "\u003cp\u003eThe volume size, in gigabytes.\u003c/p\u003e \u003cp\u003eValid values: If the volume type is \u003ccode\u003eio1\u003c/code\u003e, the minimum size of the volume is 10.\u003c/p\u003e \u003cp\u003eDefault: If you're creating the volume from a snapshot, and you don't specify a volume size, the default is the snapshot size.\u003c/p\u003e \u003cp\u003eRequired: Required when the volume type is \u003ccode\u003eio1\u003c/code\u003e. \u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",

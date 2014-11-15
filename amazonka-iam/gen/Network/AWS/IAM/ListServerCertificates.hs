@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 data ListServerCertificates = ListServerCertificates
     { _lscMarker     :: Maybe Text
-    , _lscMaxItems   :: Maybe Natural
+    , _lscMaxItems   :: Maybe Nat
     , _lscPathPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -83,6 +83,7 @@ lscMarker = lens _lscMarker (\s a -> s { _lscMarker = a })
 -- do not include it, it defaults to 100.
 lscMaxItems :: Lens' ListServerCertificates (Maybe Natural)
 lscMaxItems = lens _lscMaxItems (\s a -> s { _lscMaxItems = a })
+    . mapping _Nat
 
 -- | The path prefix for filtering the results. For example:
 -- /company/servercerts would get all server certificates for which the path

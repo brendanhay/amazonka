@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 data ListGroups = ListGroups
     { _lgMarker     :: Maybe Text
-    , _lgMaxItems   :: Maybe Natural
+    , _lgMaxItems   :: Maybe Nat
     , _lgPathPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -81,6 +81,7 @@ lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 -- parameter is optional. If you do not include it, it defaults to 100.
 lgMaxItems :: Lens' ListGroups (Maybe Natural)
 lgMaxItems = lens _lgMaxItems (\s a -> s { _lgMaxItems = a })
+    . mapping _Nat
 
 -- | The path prefix for filtering the results. For example, the prefix
 -- /division_abc/subdivision_xyz/ gets all groups whose path starts with

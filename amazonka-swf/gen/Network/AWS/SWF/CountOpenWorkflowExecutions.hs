@@ -129,7 +129,7 @@ instance ToBody CountOpenWorkflowExecutions where
     toBody = toBody . encode . _coweDomain
 
 data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
-    { _cowerCount     :: Natural
+    { _cowerCount     :: Nat
     , _cowerTruncated :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
@@ -144,13 +144,14 @@ data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
 countOpenWorkflowExecutionsResponse :: Natural -- ^ 'cowerCount'
                                     -> CountOpenWorkflowExecutionsResponse
 countOpenWorkflowExecutionsResponse p1 = CountOpenWorkflowExecutionsResponse
-    { _cowerCount     = p1
+    { _cowerCount     = withIso _Nat (const id) p1
     , _cowerTruncated = Nothing
     }
 
 -- | The number of workflow executions.
 cowerCount :: Lens' CountOpenWorkflowExecutionsResponse Natural
 cowerCount = lens _cowerCount (\s a -> s { _cowerCount = a })
+    . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.

@@ -236,7 +236,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dsSearchPartitionCount",
@@ -245,12 +245,12 @@
                         "locationName": "SearchPartitionCount",
                         "documentation": "\u003cp\u003eThe number of partitions across which the search index is spread.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dsSearchInstanceCount",
@@ -259,7 +259,7 @@
                         "locationName": "SearchInstanceCount",
                         "documentation": "\u003cp\u003eThe number of search instances that are available to process search requests.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -406,7 +406,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dsSearchInstanceCount",
@@ -415,7 +415,7 @@
                         "locationName": "SearchInstanceCount",
                         "documentation": "\u003cp\u003eThe number of search instances that are available to process search requests.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -434,7 +434,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dsSearchPartitionCount",
@@ -443,7 +443,7 @@
                         "locationName": "SearchPartitionCount",
                         "documentation": "\u003cp\u003eThe number of partitions across which the search index is spread.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -1619,7 +1619,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "spDesiredReplicationCount",
@@ -1628,12 +1628,12 @@
                         "locationName": "DesiredReplicationCount",
                         "documentation": "\u003cp\u003eThe number of replicas you want to preconfigure for each index partition.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "spDesiredPartitionCount",
@@ -1642,7 +1642,7 @@
                         "locationName": "DesiredPartitionCount",
                         "documentation": "\u003cp\u003eThe number of partitions you want to preconfigure for your domain. Only valid when you select \u003ccode\u003em2.2xlarge\u003c/code\u003e as the desired instance type.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -1663,7 +1663,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "spDesiredPartitionCount",
@@ -1672,12 +1672,12 @@
                         "locationName": "DesiredPartitionCount",
                         "documentation": "\u003cp\u003eThe number of partitions you want to preconfigure for your domain. Only valid when you select \u003ccode\u003em2.2xlarge\u003c/code\u003e as the desired instance type.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "spDesiredReplicationCount",
@@ -1686,7 +1686,7 @@
                         "locationName": "DesiredReplicationCount",
                         "documentation": "\u003cp\u003eThe number of replicas you want to preconfigure for each index partition.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             },
@@ -2587,8 +2587,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "lMaximumReplicationCount",
@@ -2597,12 +2597,12 @@
                         "locationName": "MaximumReplicationCount",
                         "documentation": null,
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "lMaximumPartitionCount",
@@ -2611,7 +2611,7 @@
                         "locationName": "MaximumPartitionCount",
                         "documentation": null,
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "name": "Limits",
@@ -2620,8 +2620,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "lMaximumPartitionCount",
@@ -2630,12 +2630,12 @@
                         "locationName": "MaximumPartitionCount",
                         "documentation": null,
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "lMaximumReplicationCount",
@@ -2644,7 +2644,7 @@
                         "locationName": "MaximumReplicationCount",
                         "documentation": null,
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ]
             },
@@ -3066,7 +3066,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "osUpdateVersion",
@@ -3075,7 +3075,7 @@
                         "locationName": "UpdateVersion",
                         "documentation": "\u003cp\u003eA unique integer that indicates when this option was last updated.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "querystring",
@@ -3152,7 +3152,7 @@
                     {
                         "location": "querystring",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "osUpdateVersion",
@@ -3161,7 +3161,7 @@
                         "locationName": "UpdateVersion",
                         "documentation": "\u003cp\u003eA unique integer that indicates when this option was last updated.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             },

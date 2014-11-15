@@ -59,7 +59,7 @@ data LookupDeveloperIdentity = LookupDeveloperIdentity
     { _ldiDeveloperUserIdentifier :: Maybe Text
     , _ldiIdentityId              :: Maybe Text
     , _ldiIdentityPoolId          :: Text
-    , _ldiMaxResults              :: Maybe Natural
+    , _ldiMaxResults              :: Maybe Nat
     , _ldiNextToken               :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -107,6 +107,7 @@ ldiIdentityPoolId =
 -- | The maximum number of identities to return.
 ldiMaxResults :: Lens' LookupDeveloperIdentity (Maybe Natural)
 ldiMaxResults = lens _ldiMaxResults (\s a -> s { _ldiMaxResults = a })
+    . mapping _Nat
 
 -- | A pagination token. The first call you make will have NextToken set to
 -- null. After that the service will return NextToken values as needed. For

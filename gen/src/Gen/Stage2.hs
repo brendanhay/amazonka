@@ -146,20 +146,22 @@ data Prim
     | PTime !Timestamp
       deriving (Eq, Ord, Show)
 
--- | Primitives are rendered according to their unwrapped Iso' mappings.
 primitive :: Bool -> Prim -> Text
 primitive int = \case
-    PBlob                -> "Base64"
-    PReq                 -> "RqBody"
-    PRes                 -> "RsBody"
-    PBool                -> "Bool"
-    PText                -> "Text"
-    PInt                 -> "Int"
-    PInteger             -> "Integer"
-    PDouble              -> "Double"
-    PNatural             -> "Natural"
-    PTime ts | int       -> timestamp ts
-             | otherwise -> "UTCTime"
+    PBlob           -> "Base64"
+    PReq            -> "RqBody"
+    PRes            -> "RsBody"
+    PBool           -> "Bool"
+    PText           -> "Text"
+    PInt            -> "Int"
+    PInteger        -> "Integer"
+    PDouble         -> "Double"
+    PNatural
+        | int       -> "Nat"
+        | otherwise -> "Natural"
+    PTime ts
+        | int       -> timestamp ts
+        | otherwise -> "UTCTime"
 
 data Type
     = TType      !Text
@@ -254,9 +256,9 @@ typeIso = \case
 
 primIso :: Prim -> Maybe Text
 primIso = \case
-    PTime _ -> Just "_Time"
---    PBool   -> Just "_Boolean"
-    _       -> Nothing
+    PTime _  -> Just "_Time"
+    PNatural -> Just "_Nat"
+    _        -> Nothing
 
 typeDefault :: Type -> Text
 typeDefault t

@@ -1025,8 +1025,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "csShardCount",
@@ -1035,7 +1035,7 @@
                         "locationName": "ShardCount",
                         "documentation": "\u003cp\u003eThe number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e The default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\"\u003econtact AWS Support\u003c/a\u003e to increase the limit on your account.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "shared": false,
@@ -1048,8 +1048,8 @@
                 "fields": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "csShardCount",
@@ -1058,7 +1058,7 @@
                         "locationName": "ShardCount",
                         "documentation": "\u003cp\u003eThe number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e The default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\"\u003econtact AWS Support\u003c/a\u003e to increase the limit on your account.\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -1349,7 +1349,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ds1Limit",
@@ -1358,7 +1358,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe maximum number of shards to return.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -1393,7 +1393,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ds1Limit",
@@ -1402,7 +1402,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe maximum number of shards to return.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -1579,7 +1579,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "grLimit",
@@ -1588,14 +1588,14 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, \u003ccode\u003eGetRecords\u003c/code\u003e throws \u003ccode\u003eInvalidArgumentException\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "grLimit",
@@ -1604,7 +1604,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, \u003ccode\u003eGetRecords\u003c/code\u003e throws \u003ccode\u003eInvalidArgumentException\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -2001,7 +2001,7 @@
                 "payload": {
                     "location": "body-json",
                     "iso": null,
-                    "lensMapping": null,
+                    "lensMapping": "mapping _Nat",
                     "default": "Nothing",
                     "required": false,
                     "lens": "lsLimit",
@@ -2010,7 +2010,7 @@
                     "locationName": "Limit",
                     "documentation": "\u003cp\u003eThe maximum number of streams to list.\u003c/p\u003e",
                     "typeExposed": "Maybe Natural",
-                    "type": "Maybe Natural"
+                    "type": "Maybe Nat"
                 },
                 "required": [],
                 "shared": false,
@@ -2023,7 +2023,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lsLimit",
@@ -2032,7 +2032,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe maximum number of streams to list.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -2067,7 +2067,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "lsLimit",
@@ -2076,7 +2076,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe maximum number of streams to list.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             }
@@ -2254,7 +2254,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ltfsLimit",
@@ -2263,7 +2263,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe number of tags to return. If this number is less than the total number of tags associated with the stream, \u003ccode\u003eHasMoreTags\u003c/code\u003e is set to \u003ccode\u003etrue\u003c/code\u003e. To list additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the last key in the response.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -2284,7 +2284,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ltfsLimit",
@@ -2293,7 +2293,7 @@
                         "locationName": "Limit",
                         "documentation": "\u003cp\u003eThe number of tags to return. If this number is less than the total number of tags associated with the stream, \u003ccode\u003eHasMoreTags\u003c/code\u003e is set to \u003ccode\u003etrue\u003c/code\u003e. To list additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the last key in the response.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",

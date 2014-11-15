@@ -96,11 +96,11 @@ data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
     , _gfcrFunctionName    :: Maybe Text
     , _gfcrHandler         :: Maybe Text
     , _gfcrLastModified    :: Maybe RFC822
-    , _gfcrMemorySize      :: Maybe Natural
+    , _gfcrMemorySize      :: Maybe Nat
     , _gfcrMode            :: Maybe Text
     , _gfcrRole            :: Maybe Text
     , _gfcrRuntime         :: Maybe Text
-    , _gfcrTimeout         :: Maybe Natural
+    , _gfcrTimeout         :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetFunctionConfigurationResponse' constructor.
@@ -182,6 +182,7 @@ gfcrLastModified = lens _gfcrLastModified (\s a -> s { _gfcrLastModified = a })
 -- multiple of 64 MB.
 gfcrMemorySize :: Lens' GetFunctionConfigurationResponse (Maybe Natural)
 gfcrMemorySize = lens _gfcrMemorySize (\s a -> s { _gfcrMemorySize = a })
+    . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
 gfcrMode :: Lens' GetFunctionConfigurationResponse (Maybe Text)
@@ -203,6 +204,7 @@ gfcrRuntime = lens _gfcrRuntime (\s a -> s { _gfcrRuntime = a })
 -- 3 seconds.
 gfcrTimeout :: Lens' GetFunctionConfigurationResponse (Maybe Natural)
 gfcrTimeout = lens _gfcrTimeout (\s a -> s { _gfcrTimeout = a })
+    . mapping _Nat
 
 instance AWSRequest GetFunctionConfiguration where
     type Sv GetFunctionConfiguration = Lambda

@@ -1023,7 +1023,7 @@ data Stack = Stack
     , _sStackStatus       :: Text
     , _sStackStatusReason :: Maybe Text
     , _sTags              :: [Tag]
-    , _sTimeoutInMinutes  :: Maybe Natural
+    , _sTimeoutInMinutes  :: Maybe Nat
     } deriving (Eq, Show, Generic)
 
 -- | 'Stack' constructor.
@@ -1141,6 +1141,7 @@ sTags = lens _sTags (\s a -> s { _sTags = a })
 sTimeoutInMinutes :: Lens' Stack (Maybe Natural)
 sTimeoutInMinutes =
     lens _sTimeoutInMinutes (\s a -> s { _sTimeoutInMinutes = a })
+        . mapping _Nat
 
 instance FromXML Stack where
     fromXMLOptions = xmlOptions

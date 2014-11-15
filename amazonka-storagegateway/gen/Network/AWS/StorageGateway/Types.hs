@@ -238,7 +238,7 @@ instance ToJSON ChapInfo
 
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes
     { _vscsiaChapEnabled          :: Maybe Bool
-    , _vscsiaLunNumber            :: Maybe Natural
+    , _vscsiaLunNumber            :: Maybe Nat
     , _vscsiaNetworkInterfaceId   :: Maybe Text
     , _vscsiaNetworkInterfacePort :: Maybe Int
     , _vscsiaTargetARN            :: Maybe Text
@@ -275,6 +275,7 @@ vscsiaChapEnabled =
 -- | The logical disk number.
 vscsiaLunNumber :: Lens' VolumeiSCSIAttributes (Maybe Natural)
 vscsiaLunNumber = lens _vscsiaLunNumber (\s a -> s { _vscsiaLunNumber = a })
+    . mapping _Nat
 
 -- | The network interface identifier.
 vscsiaNetworkInterfaceId :: Lens' VolumeiSCSIAttributes (Maybe Text)
@@ -444,7 +445,7 @@ data Tape = Tape
     { _tProgress        :: Maybe Double
     , _tTapeARN         :: Maybe Text
     , _tTapeBarcode     :: Maybe Text
-    , _tTapeSizeInBytes :: Maybe Natural
+    , _tTapeSizeInBytes :: Maybe Nat
     , _tTapeStatus      :: Maybe Text
     , _tVTLDevice       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -492,6 +493,7 @@ tTapeBarcode = lens _tTapeBarcode (\s a -> s { _tTapeBarcode = a })
 -- | The size, in bytes, of the virtual tape.
 tTapeSizeInBytes :: Lens' Tape (Maybe Natural)
 tTapeSizeInBytes = lens _tTapeSizeInBytes (\s a -> s { _tTapeSizeInBytes = a })
+    . mapping _Nat
 
 -- | The current state of the virtual tape.
 tTapeStatus :: Lens' Tape (Maybe Text)
@@ -608,7 +610,7 @@ instance ToJSON VTLDevice
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo
     { _trpiTapeARN               :: Maybe Text
     , _trpiTapeRecoveryPointTime :: Maybe RFC822
-    , _trpiTapeSizeInBytes       :: Maybe Natural
+    , _trpiTapeSizeInBytes       :: Maybe Nat
     , _trpiTapeStatus            :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -649,6 +651,7 @@ trpiTapeRecoveryPointTime =
 trpiTapeSizeInBytes :: Lens' TapeRecoveryPointInfo (Maybe Natural)
 trpiTapeSizeInBytes =
     lens _trpiTapeSizeInBytes (\s a -> s { _trpiTapeSizeInBytes = a })
+        . mapping _Nat
 
 trpiTapeStatus :: Lens' TapeRecoveryPointInfo (Maybe Text)
 trpiTapeStatus = lens _trpiTapeStatus (\s a -> s { _trpiTapeStatus = a })
@@ -709,7 +712,7 @@ data TapeArchive = TapeArchive
     , _taRetrievedTo     :: Maybe Text
     , _taTapeARN         :: Maybe Text
     , _taTapeBarcode     :: Maybe Text
-    , _taTapeSizeInBytes :: Maybe Natural
+    , _taTapeSizeInBytes :: Maybe Nat
     , _taTapeStatus      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -764,6 +767,7 @@ taTapeBarcode = lens _taTapeBarcode (\s a -> s { _taTapeBarcode = a })
 taTapeSizeInBytes :: Lens' TapeArchive (Maybe Natural)
 taTapeSizeInBytes =
     lens _taTapeSizeInBytes (\s a -> s { _taTapeSizeInBytes = a })
+        . mapping _Nat
 
 -- | The current state of the archived virtual tape.
 taTapeStatus :: Lens' TapeArchive (Maybe Text)

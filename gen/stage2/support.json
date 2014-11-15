@@ -3553,7 +3553,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dcMaxResults",
@@ -3562,7 +3562,7 @@
                         "locationName": "maxResults",
                         "documentation": "\u003cp\u003eThe maximum number of results to return before paginating.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -3695,7 +3695,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dcMaxResults",
@@ -3704,7 +3704,7 @@
                         "locationName": "maxResults",
                         "documentation": "\u003cp\u003eThe maximum number of results to return before paginating.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -3931,7 +3931,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dc1MaxResults",
@@ -3940,7 +3940,7 @@
                         "locationName": "maxResults",
                         "documentation": "\u003cp\u003eThe maximum number of results to return before paginating.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -3989,7 +3989,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "dc1MaxResults",
@@ -3998,7 +3998,7 @@
                         "locationName": "maxResults",
                         "documentation": "\u003cp\u003eThe maximum number of results to return before paginating.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",

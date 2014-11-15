@@ -82,7 +82,7 @@ import qualified GHC.Exts
 data PollForDecisionTask = PollForDecisionTask
     { _pfdtDomain          :: Text
     , _pfdtIdentity        :: Maybe Text
-    , _pfdtMaximumPageSize :: Maybe Natural
+    , _pfdtMaximumPageSize :: Maybe Nat
     , _pfdtNextPageToken   :: Maybe Text
     , _pfdtReverseOrder    :: Maybe Bool
     , _pfdtTaskList        :: TaskList
@@ -136,6 +136,7 @@ pfdtIdentity = lens _pfdtIdentity (\s a -> s { _pfdtIdentity = a })
 pfdtMaximumPageSize :: Lens' PollForDecisionTask (Maybe Natural)
 pfdtMaximumPageSize =
     lens _pfdtMaximumPageSize (\s a -> s { _pfdtMaximumPageSize = a })
+        . mapping _Nat
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- results are being paginated. To get the next page of results, repeat the

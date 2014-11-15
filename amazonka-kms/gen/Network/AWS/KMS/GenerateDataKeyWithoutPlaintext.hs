@@ -52,7 +52,7 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext
     , _gdkwpGrantTokens       :: [Text]
     , _gdkwpKeyId             :: Text
     , _gdkwpKeySpec           :: Maybe Text
-    , _gdkwpNumberOfBytes     :: Maybe Natural
+    , _gdkwpNumberOfBytes     :: Maybe Nat
     } deriving (Eq, Show, Generic)
 
 -- | 'GenerateDataKeyWithoutPlaintext' constructor.
@@ -106,6 +106,7 @@ gdkwpKeySpec = lens _gdkwpKeySpec (\s a -> s { _gdkwpKeySpec = a })
 gdkwpNumberOfBytes :: Lens' GenerateDataKeyWithoutPlaintext (Maybe Natural)
 gdkwpNumberOfBytes =
     lens _gdkwpNumberOfBytes (\s a -> s { _gdkwpNumberOfBytes = a })
+        . mapping _Nat
 
 instance ToPath GenerateDataKeyWithoutPlaintext where
     toPath = const "/"

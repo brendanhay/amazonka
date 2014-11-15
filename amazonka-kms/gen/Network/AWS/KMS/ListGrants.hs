@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 data ListGrants = ListGrants
     { _lgKeyId  :: Text
-    , _lgLimit  :: Maybe Natural
+    , _lgLimit  :: Maybe Nat
     , _lgMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -80,6 +80,7 @@ lgKeyId = lens _lgKeyId (\s a -> s { _lgKeyId = a })
 -- element will be set to true.
 lgLimit :: Lens' ListGrants (Maybe Natural)
 lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a })
+    . mapping _Nat
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.

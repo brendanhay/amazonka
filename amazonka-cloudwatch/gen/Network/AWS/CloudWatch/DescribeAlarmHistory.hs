@@ -53,7 +53,7 @@ data DescribeAlarmHistory = DescribeAlarmHistory
     { _dahAlarmName       :: Maybe Text
     , _dahEndDate         :: Maybe RFC822
     , _dahHistoryItemType :: Maybe Text
-    , _dahMaxRecords      :: Maybe Natural
+    , _dahMaxRecords      :: Maybe Nat
     , _dahNextToken       :: Maybe Text
     , _dahStartDate       :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
@@ -101,6 +101,7 @@ dahHistoryItemType =
 -- | The maximum number of alarm history records to retrieve.
 dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
 dahMaxRecords = lens _dahMaxRecords (\s a -> s { _dahMaxRecords = a })
+    . mapping _Nat
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.

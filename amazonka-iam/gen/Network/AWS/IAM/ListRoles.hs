@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 data ListRoles = ListRoles
     { _lrMarker     :: Maybe Text
-    , _lrMaxItems   :: Maybe Natural
+    , _lrMaxItems   :: Maybe Nat
     , _lrPathPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -86,6 +86,7 @@ lrMarker = lens _lrMarker (\s a -> s { _lrMarker = a })
 -- This parameter is optional. If you do not include it, it defaults to 100.
 lrMaxItems :: Lens' ListRoles (Maybe Natural)
 lrMaxItems = lens _lrMaxItems (\s a -> s { _lrMaxItems = a })
+    . mapping _Nat
 
 -- | The path prefix for filtering the results. For example, the prefix
 -- /application_abc/component_xyz/ gets all roles whose path starts with

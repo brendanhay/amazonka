@@ -1861,7 +1861,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "goitfdiTokenDuration",
@@ -1870,7 +1870,7 @@
                         "locationName": "TokenDuration",
                         "documentation": "\u003cp\u003eThe expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ],
                 "fields": [
@@ -1919,7 +1919,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "goitfdiTokenDuration",
@@ -1928,7 +1928,7 @@
                         "locationName": "TokenDuration",
                         "documentation": "\u003cp\u003eThe expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     }
                 ]
             }
@@ -2110,8 +2110,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "liMaxResults",
@@ -2120,7 +2120,7 @@
                         "locationName": "MaxResults",
                         "documentation": "The maximum number of identities to return.",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "shared": false,
@@ -2162,8 +2162,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "liMaxResults",
@@ -2172,7 +2172,7 @@
                         "locationName": "MaxResults",
                         "documentation": "The maximum number of identities to return.",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -2311,8 +2311,8 @@
                 ],
                 "payload": {
                     "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_Nat",
+                    "lensMapping": "_Nat",
                     "default": "\u003cerror\u003e",
                     "required": true,
                     "lens": "lipMaxResults",
@@ -2321,13 +2321,13 @@
                     "locationName": "MaxResults",
                     "documentation": "The maximum number of identities to return.",
                     "typeExposed": "Natural",
-                    "type": "Natural"
+                    "type": "Nat"
                 },
                 "required": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "lipMaxResults",
@@ -2336,7 +2336,7 @@
                         "locationName": "MaxResults",
                         "documentation": "The maximum number of identities to return.",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     }
                 ],
                 "shared": false,
@@ -2364,8 +2364,8 @@
                 "fields": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "lipMaxResults",
@@ -2374,7 +2374,7 @@
                         "locationName": "MaxResults",
                         "documentation": "The maximum number of identities to return.",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -2608,7 +2608,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ldiMaxResults",
@@ -2617,7 +2617,7 @@
                         "locationName": "MaxResults",
                         "documentation": "\u003cp\u003eThe maximum number of identities to return.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",
@@ -2680,7 +2680,7 @@
                     {
                         "location": "body-json",
                         "iso": null,
-                        "lensMapping": null,
+                        "lensMapping": "mapping _Nat",
                         "default": "Nothing",
                         "required": false,
                         "lens": "ldiMaxResults",
@@ -2689,7 +2689,7 @@
                         "locationName": "MaxResults",
                         "documentation": "\u003cp\u003eThe maximum number of identities to return.\u003c/p\u003e",
                         "typeExposed": "Maybe Natural",
-                        "type": "Maybe Natural"
+                        "type": "Maybe Nat"
                     },
                     {
                         "location": "body-json",

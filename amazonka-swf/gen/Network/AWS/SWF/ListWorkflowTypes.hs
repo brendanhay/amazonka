@@ -59,7 +59,7 @@ import qualified GHC.Exts
 
 data ListWorkflowTypes = ListWorkflowTypes
     { _lwtDomain             :: Text
-    , _lwtMaximumPageSize    :: Maybe Natural
+    , _lwtMaximumPageSize    :: Maybe Nat
     , _lwtName               :: Maybe Text
     , _lwtNextPageToken      :: Maybe Text
     , _lwtRegistrationStatus :: Text
@@ -107,6 +107,7 @@ lwtDomain = lens _lwtDomain (\s a -> s { _lwtDomain = a })
 lwtMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Natural)
 lwtMaximumPageSize =
     lens _lwtMaximumPageSize (\s a -> s { _lwtMaximumPageSize = a })
+        . mapping _Nat
 
 -- | If specified, lists the workflow type with this name.
 lwtName :: Lens' ListWorkflowTypes (Maybe Text)

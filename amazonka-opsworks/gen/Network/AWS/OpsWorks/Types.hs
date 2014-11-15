@@ -1247,11 +1247,11 @@ instance ToJSON LayerType
 
 data AutoScalingThresholds = AutoScalingThresholds
     { _astCpuThreshold       :: Maybe Double
-    , _astIgnoreMetricsTime  :: Maybe Natural
+    , _astIgnoreMetricsTime  :: Maybe Nat
     , _astInstanceCount      :: Maybe Int
     , _astLoadThreshold      :: Maybe Double
     , _astMemoryThreshold    :: Maybe Double
-    , _astThresholdsWaitTime :: Maybe Natural
+    , _astThresholdsWaitTime :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AutoScalingThresholds' constructor.
@@ -1295,6 +1295,7 @@ astCpuThreshold = lens _astCpuThreshold (\s a -> s { _astCpuThreshold = a })
 astIgnoreMetricsTime :: Lens' AutoScalingThresholds (Maybe Natural)
 astIgnoreMetricsTime =
     lens _astIgnoreMetricsTime (\s a -> s { _astIgnoreMetricsTime = a })
+        . mapping _Nat
 
 -- | The number of instances to add or remove when the load exceeds a
 -- threshold.
@@ -1316,6 +1317,7 @@ astMemoryThreshold =
 astThresholdsWaitTime :: Lens' AutoScalingThresholds (Maybe Natural)
 astThresholdsWaitTime =
     lens _astThresholdsWaitTime (\s a -> s { _astThresholdsWaitTime = a })
+        . mapping _Nat
 
 instance FromJSON AutoScalingThresholds
 

@@ -229,9 +229,9 @@ data PasswordPolicy = PasswordPolicy
     { _ppAllowUsersToChangePassword :: Maybe Bool
     , _ppExpirePasswords            :: Maybe Bool
     , _ppHardExpiry                 :: Maybe Bool
-    , _ppMaxPasswordAge             :: Maybe Natural
-    , _ppMinimumPasswordLength      :: Maybe Natural
-    , _ppPasswordReusePrevention    :: Maybe Natural
+    , _ppMaxPasswordAge             :: Maybe Nat
+    , _ppMinimumPasswordLength      :: Maybe Nat
+    , _ppPasswordReusePrevention    :: Maybe Nat
     , _ppRequireLowercaseCharacters :: Maybe Bool
     , _ppRequireNumbers             :: Maybe Bool
     , _ppRequireSymbols             :: Maybe Bool
@@ -296,11 +296,13 @@ ppHardExpiry = lens _ppHardExpiry (\s a -> s { _ppHardExpiry = a })
 -- | The number of days that an IAM user password is valid.
 ppMaxPasswordAge :: Lens' PasswordPolicy (Maybe Natural)
 ppMaxPasswordAge = lens _ppMaxPasswordAge (\s a -> s { _ppMaxPasswordAge = a })
+    . mapping _Nat
 
 -- | Minimum length to require for IAM user passwords.
 ppMinimumPasswordLength :: Lens' PasswordPolicy (Maybe Natural)
 ppMinimumPasswordLength =
     lens _ppMinimumPasswordLength (\s a -> s { _ppMinimumPasswordLength = a })
+        . mapping _Nat
 
 -- | Specifies the number of previous passwords that IAM users are prevented
 -- from reusing.
@@ -308,6 +310,7 @@ ppPasswordReusePrevention :: Lens' PasswordPolicy (Maybe Natural)
 ppPasswordReusePrevention =
     lens _ppPasswordReusePrevention
         (\s a -> s { _ppPasswordReusePrevention = a })
+            . mapping _Nat
 
 -- | Specifies whether to require lowercase characters for IAM user passwords.
 ppRequireLowercaseCharacters :: Lens' PasswordPolicy (Maybe Bool)

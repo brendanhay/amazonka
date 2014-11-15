@@ -96,7 +96,7 @@ instance ToBody CountPendingActivityTasks where
     toBody = toBody . encode . _cpatDomain
 
 data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
-    { _cpatrCount     :: Natural
+    { _cpatrCount     :: Nat
     , _cpatrTruncated :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
@@ -111,13 +111,14 @@ data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
 countPendingActivityTasksResponse :: Natural -- ^ 'cpatrCount'
                                   -> CountPendingActivityTasksResponse
 countPendingActivityTasksResponse p1 = CountPendingActivityTasksResponse
-    { _cpatrCount     = p1
+    { _cpatrCount     = withIso _Nat (const id) p1
     , _cpatrTruncated = Nothing
     }
 
 -- | The number of tasks in the task list.
 cpatrCount :: Lens' CountPendingActivityTasksResponse Natural
 cpatrCount = lens _cpatrCount (\s a -> s { _cpatrCount = a })
+    . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.

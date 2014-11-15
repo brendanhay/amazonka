@@ -58,7 +58,7 @@ data DescribeEvents = DescribeEvents
     , _deEndTime         :: Maybe RFC822
     , _deEnvironmentId   :: Maybe Text
     , _deEnvironmentName :: Maybe Text
-    , _deMaxRecords      :: Maybe Natural
+    , _deMaxRecords      :: Maybe Nat
     , _deNextToken       :: Maybe Text
     , _deRequestId       :: Maybe Text
     , _deSeverity        :: Maybe Text
@@ -135,6 +135,7 @@ deEnvironmentName =
 -- with the most recent event.
 deMaxRecords :: Lens' DescribeEvents (Maybe Natural)
 deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
+    . mapping _Nat
 
 -- | Pagination token. If specified, the events return the next batch of
 -- results.

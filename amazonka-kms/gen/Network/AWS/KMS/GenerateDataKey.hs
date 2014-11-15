@@ -53,7 +53,7 @@ data GenerateDataKey = GenerateDataKey
     , _gdkGrantTokens       :: [Text]
     , _gdkKeyId             :: Text
     , _gdkKeySpec           :: Maybe Text
-    , _gdkNumberOfBytes     :: Maybe Natural
+    , _gdkNumberOfBytes     :: Maybe Nat
     } deriving (Eq, Show, Generic)
 
 -- | 'GenerateDataKey' constructor.
@@ -108,6 +108,7 @@ gdkKeySpec = lens _gdkKeySpec (\s a -> s { _gdkKeySpec = a })
 -- 128, 256, 512, 1024 and so on. 1024 is the current limit.
 gdkNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
 gdkNumberOfBytes = lens _gdkNumberOfBytes (\s a -> s { _gdkNumberOfBytes = a })
+    . mapping _Nat
 
 instance ToPath GenerateDataKey where
     toPath = const "/"

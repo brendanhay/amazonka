@@ -104,7 +104,7 @@ import Network.AWS.STS.Types
 import qualified GHC.Exts
 
 data AssumeRole = AssumeRole
-    { _arDurationSeconds :: Maybe Natural
+    { _arDurationSeconds :: Maybe Nat
     , _arExternalId      :: Maybe Text
     , _arPolicy          :: Maybe Text
     , _arRoleArn         :: Text
@@ -150,6 +150,7 @@ assumeRole p1 p2 = AssumeRole
 arDurationSeconds :: Lens' AssumeRole (Maybe Natural)
 arDurationSeconds =
     lens _arDurationSeconds (\s a -> s { _arDurationSeconds = a })
+        . mapping _Nat
 
 -- | A unique identifier that is used by third parties to assume a role in
 -- their customers' accounts. For each role that the third party can assume,
@@ -209,7 +210,7 @@ instance ToPath AssumeRole where
 data AssumeRoleResponse = AssumeRoleResponse
     { _arrAssumedRoleUser  :: Maybe AssumedRoleUser
     , _arrCredentials      :: Maybe Credentials
-    , _arrPackedPolicySize :: Maybe Natural
+    , _arrPackedPolicySize :: Maybe Nat
     } deriving (Eq, Show, Generic)
 
 -- | 'AssumeRoleResponse' constructor.
@@ -250,6 +251,7 @@ arrCredentials = lens _arrCredentials (\s a -> s { _arrCredentials = a })
 arrPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Natural)
 arrPackedPolicySize =
     lens _arrPackedPolicySize (\s a -> s { _arrPackedPolicySize = a })
+        . mapping _Nat
 
 instance AWSRequest AssumeRole where
     type Sv AssumeRole = STS

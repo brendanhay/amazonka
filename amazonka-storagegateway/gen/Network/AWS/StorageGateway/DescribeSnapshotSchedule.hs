@@ -81,8 +81,8 @@ instance ToBody DescribeSnapshotSchedule where
 
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
     { _dssrDescription       :: Maybe Text
-    , _dssrRecurrenceInHours :: Maybe Natural
-    , _dssrStartAt           :: Maybe Natural
+    , _dssrRecurrenceInHours :: Maybe Nat
+    , _dssrStartAt           :: Maybe Nat
     , _dssrTimezone          :: Maybe Text
     , _dssrVolumeARN         :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -116,9 +116,11 @@ dssrDescription = lens _dssrDescription (\s a -> s { _dssrDescription = a })
 dssrRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
 dssrRecurrenceInHours =
     lens _dssrRecurrenceInHours (\s a -> s { _dssrRecurrenceInHours = a })
+        . mapping _Nat
 
 dssrStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
 dssrStartAt = lens _dssrStartAt (\s a -> s { _dssrStartAt = a })
+    . mapping _Nat
 
 dssrTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrTimezone = lens _dssrTimezone (\s a -> s { _dssrTimezone = a })

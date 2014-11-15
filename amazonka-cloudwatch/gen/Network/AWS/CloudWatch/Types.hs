@@ -213,12 +213,12 @@ data MetricAlarm = MetricAlarm
     , _maAlarmName                          :: Maybe Text
     , _maComparisonOperator                 :: Maybe Text
     , _maDimensions                         :: [Dimension]
-    , _maEvaluationPeriods                  :: Maybe Natural
+    , _maEvaluationPeriods                  :: Maybe Nat
     , _maInsufficientDataActions            :: [Text]
     , _maMetricName                         :: Maybe Text
     , _maNamespace                          :: Maybe Text
     , _maOKActions                          :: [Text]
-    , _maPeriod                             :: Maybe Natural
+    , _maPeriod                             :: Maybe Nat
     , _maStateReason                        :: Maybe Text
     , _maStateReasonData                    :: Maybe Text
     , _maStateUpdatedTimestamp              :: Maybe RFC822
@@ -351,6 +351,7 @@ maDimensions = lens _maDimensions (\s a -> s { _maDimensions = a })
 maEvaluationPeriods :: Lens' MetricAlarm (Maybe Natural)
 maEvaluationPeriods =
     lens _maEvaluationPeriods (\s a -> s { _maEvaluationPeriods = a })
+        . mapping _Nat
 
 -- | The list of actions to execute when this alarm transitions into an
 -- INSUFFICIENT_DATA state from any other state. Each action is specified as
@@ -380,6 +381,7 @@ maOKActions = lens _maOKActions (\s a -> s { _maOKActions = a })
 -- | The period in seconds over which the statistic is applied.
 maPeriod :: Lens' MetricAlarm (Maybe Natural)
 maPeriod = lens _maPeriod (\s a -> s { _maPeriod = a })
+    . mapping _Nat
 
 -- | A human-readable explanation for the alarm's state.
 maStateReason :: Lens' MetricAlarm (Maybe Text)

@@ -67,7 +67,7 @@ import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
 data CreateStream = CreateStream
-    { _csShardCount :: Natural
+    { _csShardCount :: Nat
     , _csStreamName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -84,7 +84,7 @@ createStream :: Text -- ^ 'csStreamName'
              -> CreateStream
 createStream p1 p2 = CreateStream
     { _csStreamName = p1
-    , _csShardCount = p2
+    , _csShardCount = withIso _Nat (const id) p2
     }
 
 -- | The number of shards that the stream will use. The throughput of the
@@ -95,6 +95,7 @@ createStream p1 p2 = CreateStream
 -- account.
 csShardCount :: Lens' CreateStream Natural
 csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a })
+    . _Nat
 
 -- | A name to identify the stream. The stream name is scoped to the AWS
 -- account used by the application that creates the stream. It is also

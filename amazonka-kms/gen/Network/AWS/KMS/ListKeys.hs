@@ -45,7 +45,7 @@ import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
 data ListKeys = ListKeys
-    { _lkLimit  :: Maybe Natural
+    { _lkLimit  :: Maybe Nat
     , _lkMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -69,6 +69,7 @@ listKeys = ListKeys
 -- element will be set to true.
 lkLimit :: Lens' ListKeys (Maybe Natural)
 lkLimit = lens _lkLimit (\s a -> s { _lkLimit = a })
+    . mapping _Nat
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.

@@ -50,7 +50,7 @@ import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
 data DescribeLogGroups = DescribeLogGroups
-    { _dlgLimit              :: Maybe Natural
+    { _dlgLimit              :: Maybe Nat
     , _dlgLogGroupNamePrefix :: Maybe Text
     , _dlgNextToken          :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -76,6 +76,7 @@ describeLogGroups = DescribeLogGroups
 -- specify a value, the request would return up to 50 items.
 dlgLimit :: Lens' DescribeLogGroups (Maybe Natural)
 dlgLimit = lens _dlgLimit (\s a -> s { _dlgLimit = a })
+    . mapping _Nat
 
 dlgLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
 dlgLogGroupNamePrefix =

@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 data ListUserPolicies = ListUserPolicies
     { _lupMarker   :: Maybe Text
-    , _lupMaxItems :: Maybe Natural
+    , _lupMaxItems :: Maybe Nat
     , _lupUserName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -84,6 +84,7 @@ lupMarker = lens _lupMarker (\s a -> s { _lupMarker = a })
 -- to 100.
 lupMaxItems :: Lens' ListUserPolicies (Maybe Natural)
 lupMaxItems = lens _lupMaxItems (\s a -> s { _lupMaxItems = a })
+    . mapping _Nat
 
 -- | The name of the user to list policies for.
 lupUserName :: Lens' ListUserPolicies Text

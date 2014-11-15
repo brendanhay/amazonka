@@ -58,13 +58,13 @@ import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
 data GetLogEvents = GetLogEvents
-    { _gleEndTime       :: Maybe Natural
-    , _gleLimit         :: Maybe Natural
+    { _gleEndTime       :: Maybe Nat
+    , _gleLimit         :: Maybe Nat
     , _gleLogGroupName  :: Text
     , _gleLogStreamName :: Text
     , _gleNextToken     :: Maybe Text
     , _gleStartFromHead :: Maybe Bool
-    , _gleStartTime     :: Maybe Natural
+    , _gleStartTime     :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetLogEvents' constructor.
@@ -100,12 +100,14 @@ getLogEvents p1 p2 = GetLogEvents
 
 gleEndTime :: Lens' GetLogEvents (Maybe Natural)
 gleEndTime = lens _gleEndTime (\s a -> s { _gleEndTime = a })
+    . mapping _Nat
 
 -- | The maximum number of log events returned in the response. If you don't
 -- specify a value, the request would return as much log events as can fit
 -- in a response size of 1MB, up to 10,000 log events.
 gleLimit :: Lens' GetLogEvents (Maybe Natural)
 gleLimit = lens _gleLimit (\s a -> s { _gleLimit = a })
+    . mapping _Nat
 
 gleLogGroupName :: Lens' GetLogEvents Text
 gleLogGroupName = lens _gleLogGroupName (\s a -> s { _gleLogGroupName = a })
@@ -127,6 +129,7 @@ gleStartFromHead = lens _gleStartFromHead (\s a -> s { _gleStartFromHead = a })
 
 gleStartTime :: Lens' GetLogEvents (Maybe Natural)
 gleStartTime = lens _gleStartTime (\s a -> s { _gleStartTime = a })
+    . mapping _Nat
 
 instance ToPath GetLogEvents where
     toPath = const "/"

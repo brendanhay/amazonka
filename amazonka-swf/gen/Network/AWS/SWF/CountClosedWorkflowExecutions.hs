@@ -152,7 +152,7 @@ instance ToBody CountClosedWorkflowExecutions where
     toBody = toBody . encode . _ccweDomain
 
 data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsResponse
-    { _ccwerCount     :: Natural
+    { _ccwerCount     :: Nat
     , _ccwerTruncated :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
@@ -167,13 +167,14 @@ data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsRespon
 countClosedWorkflowExecutionsResponse :: Natural -- ^ 'ccwerCount'
                                       -> CountClosedWorkflowExecutionsResponse
 countClosedWorkflowExecutionsResponse p1 = CountClosedWorkflowExecutionsResponse
-    { _ccwerCount     = p1
+    { _ccwerCount     = withIso _Nat (const id) p1
     , _ccwerTruncated = Nothing
     }
 
 -- | The number of workflow executions.
 ccwerCount :: Lens' CountClosedWorkflowExecutionsResponse Natural
 ccwerCount = lens _ccwerCount (\s a -> s { _ccwerCount = a })
+    . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.

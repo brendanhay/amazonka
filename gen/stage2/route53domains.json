@@ -3666,8 +3666,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "rdDurationInYears",
@@ -3676,7 +3676,7 @@
                         "locationName": "DurationInYears",
                         "documentation": "\u003cp\u003eThe number of years the domain will be registered. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain.\u003c/p\u003e \u003cp\u003eType: Integer\u003c/p\u003e \u003cp\u003eDefault: 1\u003c/p\u003e \u003cp\u003eValid values: Integer from 1 to 10\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -3844,8 +3844,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "rdDurationInYears",
@@ -3854,7 +3854,7 @@
                         "locationName": "DurationInYears",
                         "documentation": "\u003cp\u003eThe number of years the domain will be registered. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain.\u003c/p\u003e \u003cp\u003eType: Integer\u003c/p\u003e \u003cp\u003eDefault: 1\u003c/p\u003e \u003cp\u003eValid values: Integer from 1 to 10\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -4261,8 +4261,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "tdDurationInYears",
@@ -4271,7 +4271,7 @@
                         "locationName": "DurationInYears",
                         "documentation": "\u003cp\u003eThe number of years the domain will be registered. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain.\u003c/p\u003e \u003cp\u003eType: Integer\u003c/p\u003e \u003cp\u003eDefault: 1\u003c/p\u003e \u003cp\u003eValid values: Integer from 1 to 10\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",
@@ -4481,8 +4481,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "tdDurationInYears",
@@ -4491,7 +4491,7 @@
                         "locationName": "DurationInYears",
                         "documentation": "\u003cp\u003eThe number of years the domain will be registered. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain.\u003c/p\u003e \u003cp\u003eType: Integer\u003c/p\u003e \u003cp\u003eDefault: 1\u003c/p\u003e \u003cp\u003eValid values: Integer from 1 to 10\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
                         "typeExposed": "Natural",
-                        "type": "Natural"
+                        "type": "Nat"
                     },
                     {
                         "location": "body-json",

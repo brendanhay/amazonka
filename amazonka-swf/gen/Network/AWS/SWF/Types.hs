@@ -1151,7 +1151,7 @@ instance FromJSON RecordMarkerFailedEventAttributes
 instance ToJSON RecordMarkerFailedEventAttributes
 
 data WorkflowExecutionCount = WorkflowExecutionCount
-    { _wecCount     :: Natural
+    { _wecCount     :: Nat
     , _wecTruncated :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1166,13 +1166,14 @@ data WorkflowExecutionCount = WorkflowExecutionCount
 workflowExecutionCount :: Natural -- ^ 'wecCount'
                        -> WorkflowExecutionCount
 workflowExecutionCount p1 = WorkflowExecutionCount
-    { _wecCount     = p1
+    { _wecCount     = withIso _Nat (const id) p1
     , _wecTruncated = Nothing
     }
 
 -- | The number of workflow executions.
 wecCount :: Lens' WorkflowExecutionCount Natural
 wecCount = lens _wecCount (\s a -> s { _wecCount = a })
+    . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
@@ -1730,10 +1731,10 @@ instance FromJSON ChildWorkflowExecutionCompletedEventAttributes
 instance ToJSON ChildWorkflowExecutionCompletedEventAttributes
 
 data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts
-    { _weocOpenActivityTasks           :: Natural
-    , _weocOpenChildWorkflowExecutions :: Natural
-    , _weocOpenDecisionTasks           :: Natural
-    , _weocOpenTimers                  :: Natural
+    { _weocOpenActivityTasks           :: Nat
+    , _weocOpenChildWorkflowExecutions :: Nat
+    , _weocOpenDecisionTasks           :: Nat
+    , _weocOpenTimers                  :: Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'WorkflowExecutionOpenCounts' constructor.
@@ -1754,33 +1755,37 @@ workflowExecutionOpenCounts :: Natural -- ^ 'weocOpenActivityTasks'
                             -> Natural -- ^ 'weocOpenChildWorkflowExecutions'
                             -> WorkflowExecutionOpenCounts
 workflowExecutionOpenCounts p1 p2 p3 p4 = WorkflowExecutionOpenCounts
-    { _weocOpenActivityTasks           = p1
-    , _weocOpenDecisionTasks           = p2
-    , _weocOpenTimers                  = p3
-    , _weocOpenChildWorkflowExecutions = p4
+    { _weocOpenActivityTasks           = withIso _Nat (const id) p1
+    , _weocOpenDecisionTasks           = withIso _Nat (const id) p2
+    , _weocOpenTimers                  = withIso _Nat (const id) p3
+    , _weocOpenChildWorkflowExecutions = withIso _Nat (const id) p4
     }
 
 -- | The count of activity tasks whose status is OPEN.
 weocOpenActivityTasks :: Lens' WorkflowExecutionOpenCounts Natural
 weocOpenActivityTasks =
     lens _weocOpenActivityTasks (\s a -> s { _weocOpenActivityTasks = a })
+        . _Nat
 
 -- | The count of child workflow executions whose status is OPEN.
 weocOpenChildWorkflowExecutions :: Lens' WorkflowExecutionOpenCounts Natural
 weocOpenChildWorkflowExecutions =
     lens _weocOpenChildWorkflowExecutions
         (\s a -> s { _weocOpenChildWorkflowExecutions = a })
+            . _Nat
 
 -- | The count of decision tasks whose status is OPEN. A workflow execution
 -- can have at most one open decision task.
 weocOpenDecisionTasks :: Lens' WorkflowExecutionOpenCounts Natural
 weocOpenDecisionTasks =
     lens _weocOpenDecisionTasks (\s a -> s { _weocOpenDecisionTasks = a })
+        . _Nat
 
 -- | The count of timers started by this workflow execution that have not
 -- fired yet.
 weocOpenTimers :: Lens' WorkflowExecutionOpenCounts Natural
 weocOpenTimers = lens _weocOpenTimers (\s a -> s { _weocOpenTimers = a })
+    . _Nat
 
 instance FromJSON WorkflowExecutionOpenCounts
 
@@ -6513,7 +6518,7 @@ instance FromJSON ExternalWorkflowExecutionCancelRequestedEventAttributes
 instance ToJSON ExternalWorkflowExecutionCancelRequestedEventAttributes
 
 data PendingTaskCount = PendingTaskCount
-    { _ptcCount     :: Natural
+    { _ptcCount     :: Nat
     , _ptcTruncated :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
@@ -6528,13 +6533,14 @@ data PendingTaskCount = PendingTaskCount
 pendingTaskCount :: Natural -- ^ 'ptcCount'
                  -> PendingTaskCount
 pendingTaskCount p1 = PendingTaskCount
-    { _ptcCount     = p1
+    { _ptcCount     = withIso _Nat (const id) p1
     , _ptcTruncated = Nothing
     }
 
 -- | The number of tasks in the task list.
 ptcCount :: Lens' PendingTaskCount Natural
 ptcCount = lens _ptcCount (\s a -> s { _ptcCount = a })
+    . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.

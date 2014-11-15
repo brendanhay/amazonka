@@ -56,7 +56,7 @@ data GetResourceConfigHistory = GetResourceConfigHistory
     { _grchChronologicalOrder :: Maybe Text
     , _grchEarlierTime        :: Maybe RFC822
     , _grchLaterTime          :: Maybe RFC822
-    , _grchLimit              :: Maybe Natural
+    , _grchLimit              :: Maybe Nat
     , _grchNextToken          :: Maybe Text
     , _grchResourceId         :: Text
     , _grchResourceType       :: Text
@@ -116,6 +116,7 @@ grchLaterTime = lens _grchLaterTime (\s a -> s { _grchLaterTime = a })
 -- default is 10. You cannot specify a limit greater than 100.
 grchLimit :: Lens' GetResourceConfigHistory (Maybe Natural)
 grchLimit = lens _grchLimit (\s a -> s { _grchLimit = a })
+    . mapping _Nat
 
 -- | An optional parameter used for pagination of the results.
 grchNextToken :: Lens' GetResourceConfigHistory (Maybe Text)

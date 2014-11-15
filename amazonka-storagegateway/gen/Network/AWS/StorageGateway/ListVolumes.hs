@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 data ListVolumes = ListVolumes
     { _lvGatewayARN :: Text
-    , _lvLimit      :: Maybe Natural
+    , _lvLimit      :: Maybe Nat
     , _lvMarker     :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -84,6 +84,7 @@ lvGatewayARN = lens _lvGatewayARN (\s a -> s { _lvGatewayARN = a })
 -- number of items.
 lvLimit :: Lens' ListVolumes (Maybe Natural)
 lvLimit = lens _lvLimit (\s a -> s { _lvLimit = a })
+    . mapping _Nat
 
 -- | A string that indicates the position at which to begin the returned list
 -- of volumes. Obtain the marker from the response of a previous List iSCSI

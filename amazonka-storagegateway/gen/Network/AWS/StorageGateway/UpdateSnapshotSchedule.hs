@@ -52,8 +52,8 @@ import qualified GHC.Exts
 
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule
     { _ussDescription       :: Maybe Text
-    , _ussRecurrenceInHours :: Natural
-    , _ussStartAt           :: Natural
+    , _ussRecurrenceInHours :: Nat
+    , _ussStartAt           :: Nat
     , _ussVolumeARN         :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -75,8 +75,8 @@ updateSnapshotSchedule :: Text -- ^ 'ussVolumeARN'
                        -> UpdateSnapshotSchedule
 updateSnapshotSchedule p1 p2 p3 = UpdateSnapshotSchedule
     { _ussVolumeARN         = p1
-    , _ussStartAt           = p2
-    , _ussRecurrenceInHours = p3
+    , _ussStartAt           = withIso _Nat (const id) p2
+    , _ussRecurrenceInHours = withIso _Nat (const id) p3
     , _ussDescription       = Nothing
     }
 
@@ -89,12 +89,14 @@ ussDescription = lens _ussDescription (\s a -> s { _ussDescription = a })
 ussRecurrenceInHours :: Lens' UpdateSnapshotSchedule Natural
 ussRecurrenceInHours =
     lens _ussRecurrenceInHours (\s a -> s { _ussRecurrenceInHours = a })
+        . _Nat
 
 -- | The hour of the day at which the snapshot schedule begins represented as
 -- hh, where hh is the hour (0 to 23). The hour of the day is in the time
 -- zone of the gateway.
 ussStartAt :: Lens' UpdateSnapshotSchedule Natural
 ussStartAt = lens _ussStartAt (\s a -> s { _ussStartAt = a })
+    . _Nat
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.

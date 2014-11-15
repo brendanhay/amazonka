@@ -70,11 +70,11 @@ data UploadFunction = UploadFunction
     , _ufFunctionName :: Text
     , _ufFunctionZip  :: Base64
     , _ufHandler      :: Text
-    , _ufMemorySize   :: Maybe Natural
+    , _ufMemorySize   :: Maybe Nat
     , _ufMode         :: Text
     , _ufRole         :: Text
     , _ufRuntime      :: Text
-    , _ufTimeout      :: Maybe Natural
+    , _ufTimeout      :: Maybe Nat
     } deriving (Eq, Show, Generic)
 
 -- | 'UploadFunction' constructor.
@@ -149,6 +149,7 @@ ufHandler = lens _ufHandler (\s a -> s { _ufHandler = a })
 -- multiple of 64 MB.
 ufMemorySize :: Lens' UploadFunction (Maybe Natural)
 ufMemorySize = lens _ufMemorySize (\s a -> s { _ufMemorySize = a })
+    . mapping _Nat
 
 -- | How the Lambda function will be invoked. Lambda supports only the "event"
 -- mode.
@@ -172,6 +173,7 @@ ufRuntime = lens _ufRuntime (\s a -> s { _ufRuntime = a })
 -- 3 seconds.
 ufTimeout :: Lens' UploadFunction (Maybe Natural)
 ufTimeout = lens _ufTimeout (\s a -> s { _ufTimeout = a })
+    . mapping _Nat
 
 instance ToPath UploadFunction where
     toPath UploadFunction{..} = mconcat
@@ -203,11 +205,11 @@ data UploadFunctionResponse = UploadFunctionResponse
     , _ufrFunctionName    :: Maybe Text
     , _ufrHandler         :: Maybe Text
     , _ufrLastModified    :: Maybe RFC822
-    , _ufrMemorySize      :: Maybe Natural
+    , _ufrMemorySize      :: Maybe Nat
     , _ufrMode            :: Maybe Text
     , _ufrRole            :: Maybe Text
     , _ufrRuntime         :: Maybe Text
-    , _ufrTimeout         :: Maybe Natural
+    , _ufrTimeout         :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UploadFunctionResponse' constructor.
@@ -289,6 +291,7 @@ ufrLastModified = lens _ufrLastModified (\s a -> s { _ufrLastModified = a })
 -- multiple of 64 MB.
 ufrMemorySize :: Lens' UploadFunctionResponse (Maybe Natural)
 ufrMemorySize = lens _ufrMemorySize (\s a -> s { _ufrMemorySize = a })
+    . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
 ufrMode :: Lens' UploadFunctionResponse (Maybe Text)
@@ -310,6 +313,7 @@ ufrRuntime = lens _ufrRuntime (\s a -> s { _ufrRuntime = a })
 -- 3 seconds.
 ufrTimeout :: Lens' UploadFunctionResponse (Maybe Natural)
 ufrTimeout = lens _ufrTimeout (\s a -> s { _ufrTimeout = a })
+    . mapping _Nat
 
 instance AWSRequest UploadFunction where
     type Sv UploadFunction = Lambda

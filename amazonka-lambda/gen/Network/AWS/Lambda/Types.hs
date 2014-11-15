@@ -161,11 +161,11 @@ data FunctionConfiguration = FunctionConfiguration
     , _fcFunctionName    :: Maybe Text
     , _fcHandler         :: Maybe Text
     , _fcLastModified    :: Maybe RFC822
-    , _fcMemorySize      :: Maybe Natural
+    , _fcMemorySize      :: Maybe Nat
     , _fcMode            :: Maybe Text
     , _fcRole            :: Maybe Text
     , _fcRuntime         :: Maybe Text
-    , _fcTimeout         :: Maybe Natural
+    , _fcTimeout         :: Maybe Nat
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'FunctionConfiguration' constructor.
@@ -247,6 +247,7 @@ fcLastModified = lens _fcLastModified (\s a -> s { _fcLastModified = a })
 -- multiple of 64 MB.
 fcMemorySize :: Lens' FunctionConfiguration (Maybe Natural)
 fcMemorySize = lens _fcMemorySize (\s a -> s { _fcMemorySize = a })
+    . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
 fcMode :: Lens' FunctionConfiguration (Maybe Text)
@@ -268,6 +269,7 @@ fcRuntime = lens _fcRuntime (\s a -> s { _fcRuntime = a })
 -- 3 seconds.
 fcTimeout :: Lens' FunctionConfiguration (Maybe Natural)
 fcTimeout = lens _fcTimeout (\s a -> s { _fcTimeout = a })
+    . mapping _Nat
 
 instance FromJSON FunctionConfiguration
 

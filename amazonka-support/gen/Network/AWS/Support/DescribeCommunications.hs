@@ -57,7 +57,7 @@ data DescribeCommunications = DescribeCommunications
     { _dc1AfterTime  :: Maybe Text
     , _dc1BeforeTime :: Maybe Text
     , _dc1CaseId     :: Text
-    , _dc1MaxResults :: Maybe Natural
+    , _dc1MaxResults :: Maybe Nat
     , _dc1NextToken  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -104,6 +104,7 @@ dc1CaseId = lens _dc1CaseId (\s a -> s { _dc1CaseId = a })
 -- | The maximum number of results to return before paginating.
 dc1MaxResults :: Lens' DescribeCommunications (Maybe Natural)
 dc1MaxResults = lens _dc1MaxResults (\s a -> s { _dc1MaxResults = a })
+    . mapping _Nat
 
 -- | A resumption point for pagination.
 dc1NextToken :: Lens' DescribeCommunications (Maybe Text)

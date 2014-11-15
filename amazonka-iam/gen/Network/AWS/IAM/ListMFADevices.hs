@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 data ListMFADevices = ListMFADevices
     { _lmfadMarker   :: Maybe Text
-    , _lmfadMaxItems :: Maybe Natural
+    , _lmfadMaxItems :: Maybe Nat
     , _lmfadUserName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -84,6 +84,7 @@ lmfadMarker = lens _lmfadMarker (\s a -> s { _lmfadMarker = a })
 -- This parameter is optional. If you do not include it, it defaults to 100.
 lmfadMaxItems :: Lens' ListMFADevices (Maybe Natural)
 lmfadMaxItems = lens _lmfadMaxItems (\s a -> s { _lmfadMaxItems = a })
+    . mapping _Nat
 
 -- | The name of the user whose MFA devices you want to list.
 lmfadUserName :: Lens' ListMFADevices (Maybe Text)

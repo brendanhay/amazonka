@@ -53,7 +53,7 @@ data DescribeAlarms = DescribeAlarms
     { _daActionPrefix    :: Maybe Text
     , _daAlarmNamePrefix :: Maybe Text
     , _daAlarmNames      :: [Text]
-    , _daMaxRecords      :: Maybe Natural
+    , _daMaxRecords      :: Maybe Nat
     , _daNextToken       :: Maybe Text
     , _daStateValue      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -101,6 +101,7 @@ daAlarmNames = lens _daAlarmNames (\s a -> s { _daAlarmNames = a })
 -- | The maximum number of alarm descriptions to retrieve.
 daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
 daMaxRecords = lens _daMaxRecords (\s a -> s { _daMaxRecords = a })
+    . mapping _Nat
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.

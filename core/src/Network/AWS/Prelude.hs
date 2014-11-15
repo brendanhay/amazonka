@@ -20,14 +20,12 @@ module Network.AWS.Prelude
     , Typeable
 
     -- * Primitives
-    , Base64
     , ByteString
     , ClientRequest
     , ClientResponse
     , Exception
     , HashMap
     , HttpException
-    , LazyByteString
     , Natural
     , NonEmpty
     , RequestBody
@@ -55,9 +53,7 @@ module Network.AWS.Prelude
 
     -- * Shared
     , Empty           (..)
-    , Sensitive       (..)
     , Service         (..)
-    , _Sensitive
 
     -- * Errors
     , ServiceError    (..)

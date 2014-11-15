@@ -14,12 +14,19 @@ module Network.AWS.Data
     (
     -- * ByteString
       module Network.AWS.Data.Internal.ByteString
+    , module Network.AWS.Data.Internal.Base64
 
     -- * Text
     , module Network.AWS.Data.Internal.Text
 
+    -- * Numeric
+    , module Network.AWS.Data.Internal.Numeric
+
     -- * Time
     , module Network.AWS.Data.Internal.Time
+
+    -- * Sensitive
+    , module Network.AWS.Data.Internal.Sensitive
 
     -- * HTTP
     -- ** Body
@@ -50,14 +57,17 @@ module Network.AWS.Data
     , module Network.AWS.Data.Internal.Map
     ) where
 
+import Network.AWS.Data.Internal.Base64
 import Network.AWS.Data.Internal.Body
 import Network.AWS.Data.Internal.ByteString
 import Network.AWS.Data.Internal.Header
 import Network.AWS.Data.Internal.JSON
 import Network.AWS.Data.Internal.List1      (List1, _List1, list1)
 import Network.AWS.Data.Internal.Map
+import Network.AWS.Data.Internal.Numeric
 import Network.AWS.Data.Internal.Path
 import Network.AWS.Data.Internal.Query
+import Network.AWS.Data.Internal.Sensitive
 import Network.AWS.Data.Internal.Text
 import Network.AWS.Data.Internal.Time
 import Network.AWS.Data.Internal.URI

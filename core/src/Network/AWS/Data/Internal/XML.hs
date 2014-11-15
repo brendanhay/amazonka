@@ -21,21 +21,22 @@ module Network.AWS.Data.Internal.XML where
 
 import           Control.Applicative
 import           Control.Monad
-import qualified Data.ByteString                as BS
-import           Data.ByteString.Lazy.Char8     (ByteString)
+import qualified Data.ByteString                      as BS
+import           Data.ByteString.Lazy.Char8           (ByteString)
 import           Data.Default.Class
-import           Data.Foldable                  (foldr', foldrM)
-import           Data.HashMap.Strict            (HashMap)
-import qualified Data.HashMap.Strict            as Map
+import           Data.Foldable                        (foldr', foldrM)
+import           Data.HashMap.Strict                  (HashMap)
+import qualified Data.HashMap.Strict                  as Map
 import           Data.Hashable
-import           Data.List.NonEmpty             (NonEmpty(..))
-import qualified Data.List.NonEmpty             as NonEmpty
+import           Data.List.NonEmpty                   (NonEmpty(..))
+import qualified Data.List.NonEmpty                   as NonEmpty
 import           Data.Monoid
 import           Data.Tagged
-import           Data.Text                      (Text)
-import qualified Data.Text                      as Text
-import qualified Data.Text.Encoding             as Text
+import           Data.Text                            (Text)
+import qualified Data.Text                            as Text
+import qualified Data.Text.Encoding                   as Text
 import           GHC.Generics
+import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Numeric.Natural
 import           Text.XML

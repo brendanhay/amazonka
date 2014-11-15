@@ -43,14 +43,17 @@ library
         , Network.AWS.Types
 
     other-modules:
-          Network.AWS.Data.Internal.Body
+          Network.AWS.Data.Internal.Base64
+        , Network.AWS.Data.Internal.Body
         , Network.AWS.Data.Internal.ByteString
         , Network.AWS.Data.Internal.Header
         , Network.AWS.Data.Internal.JSON
         , Network.AWS.Data.Internal.List1
         , Network.AWS.Data.Internal.Map
+        , Network.AWS.Data.Internal.Numeric
         , Network.AWS.Data.Internal.Path
         , Network.AWS.Data.Internal.Query
+        , Network.AWS.Data.Internal.Sensitive
         , Network.AWS.Data.Internal.Text
         , Network.AWS.Data.Internal.Time
         , Network.AWS.Data.Internal.URI

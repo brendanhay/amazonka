@@ -91,12 +91,7 @@ module Network.AWS.Types
     , zSuffix
 
     -- * Shared
-    , LazyByteString
-    , Base64
-    , base64
     , Action        (..)
-    , Sensitive     (..)
-    , _Sensitive
 
     -- * Convenience
     , ClientRequest
@@ -135,8 +130,6 @@ import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           Network.HTTP.Types.Status    (Status)
 import           System.Locale
-
-type LazyByteString = LBS.ByteString
 
 -- | Abbreviated service name.
 type Abbrev = Text
@@ -449,39 +442,6 @@ newtype Action = Action Text
 instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)
 
--- newtype Boolean = Boolean Bool
---     deriving (Eq, Ord, Show)
-
--- | Base64 encoded binary date.
-newtype Base64 = Base64 ByteString
-    deriving (Eq, Ord, Show, Generic, FromXML, ToByteString, ToQuery)
-
-base64 :: ByteString -> Base64
-base64 = Base64 . Base64.encode
-
--- instance ToByteString Base64 where
---     toBS (Base64 bs) = bs
-
--- instance FromJSON Base64 where
---     parseJSON = withText "Base64" $
---         return . Base64 . Base64.decodeLenient . Text.encodeUtf8
-
-instance ToJSON Base64 where
-    toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
-
--- instance FromXML Base64
-
--- instance ToQuery Base64
-
-newtype Sensitive a = Sensitive { unSensitive :: a }
-    deriving (Eq, Ord, Generic, FromText, FromXML, ToXML, ToQuery)
-
-instance Show (Sensitive a) where
-    show = const "******"
-
-instance ToByteString a => ToByteString (Sensitive a) where
-    toBS = toBS . unSensitive
-
 data Empty = Empty
     deriving (Eq, Show)
 
@@ -506,4 +466,3 @@ clientRequest = def
 makePrisms ''ServiceError
 makeLenses ''Request
 makeLenses ''Zone
-makePrisms ''Sensitive

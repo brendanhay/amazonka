@@ -38,12 +38,7 @@ module Network.AWS.Prelude
     , AWSRequest      (..)
     , AWSService      (..)
     , IsString        (..)
-    , MonadCatch      (..)
-    , MonadError      (..)
-    , MonadReader     (..)
-    , MonadResource   (..)
     , Semigroup
-    , State
     , Whole
 
     -- * Endpoints
@@ -60,43 +55,36 @@ module Network.AWS.Prelude
 
     -- * HTTP
     , Status
-
-    -- * Lenses
-    , module Lens
     ) where
 
-import Control.Applicative          as Export
-import Control.Exception            (Exception)
-import Control.Monad.Catch          (MonadCatch(..))
-import Control.Monad.Except         (MonadError(..))
-import Control.Monad.Identity       as Export
-import Control.Monad.Reader         (MonadReader(..))
-import Control.Monad.State          (State)
-import Control.Monad.Trans.Resource (MonadResource(..))
-import Data.Bifunctor               as Export
-import Data.ByteString              (ByteString)
-import Data.Default.Class           as Export
-import Data.HashMap.Strict          (HashMap)
-import Data.Hashable                as Export
-import Data.List.NonEmpty           (NonEmpty)
-import Data.Maybe                   as Export
-import Data.Monoid                  as Export hiding (All, Any, Sum)
-import Data.Semigroup               (Semigroup)
-import Data.String                  (IsString(..))
-import Data.Tagged                  as Export
-import Data.Text                    (Text)
-import Data.Typeable                (Typeable)
-import GHC.Generics                 (Generic)
-import Network.AWS.Data             as Export hiding (Query)
-import Network.AWS.Pagination       as Export
-import Network.AWS.Response         as Export
 import Network.AWS.Types
-import Network.HTTP.Client          (HttpException, RequestBody)
-import Network.HTTP.Types.Status    (Status)
-import Numeric.Natural              (Natural, Whole)
-import Prelude                      as Export hiding (head, error)
 
-import Control.Lens                 as Lens
+import Control.Exception         (Exception)
+import Data.ByteString           (ByteString)
+import Data.HashMap.Strict       (HashMap)
+import Data.List.NonEmpty        (NonEmpty)
+import Data.Semigroup            (Semigroup)
+import Data.String               (IsString(..))
+import Data.Text                 (Text)
+import Data.Typeable             (Typeable)
+import GHC.Generics              (Generic)
+import Network.HTTP.Client       (HttpException, RequestBody)
+import Network.HTTP.Types.Status (Status)
+import Numeric.Natural           (Natural, Whole)
+
+import Control.Applicative       as Export
+import Data.Bifunctor            as Export
+import Data.Default.Class        as Export
+import Data.Hashable             as Export
+import Data.Maybe                as Export
+import Data.Monoid               as Export hiding (All, Any, Sum)
+import Data.Tagged               as Export
+import Network.AWS.Data          as Export hiding (Query)
+import Network.AWS.Pagination    as Export
+import Network.AWS.Response      as Export
+import Prelude                   as Export hiding (head, error)
+
+import Control.Lens              as Export
     ( Lens'
     , Prism'
     , (<&>)

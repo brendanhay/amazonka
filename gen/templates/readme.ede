@@ -1,0 +1,5 @@
+# {{ name }}
+
+{{ description }}
+
+> See: [Hackage](hackage.haskell.org/package/{{ library }})

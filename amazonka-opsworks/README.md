@@ -1,0 +1,5 @@
+# Amazon OpsWorks
+
+AWS OpsWorks provides a simple and flexible way to create and manage stacks and applications. With AWS OpsWorks, you can provision AWS resources, manage their configuration, deploy applications to those resources, and monitor their health.
+
+> See: [Hackage](hackage.haskell.org/package/amazonka-opsworks)

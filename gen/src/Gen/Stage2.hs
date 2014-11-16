@@ -717,6 +717,9 @@ render d Templates{..} Stage2{..} = do
     renderFile "Render Cabal" _tCabal lib _s2Cabal
         =<< toEnv _s2Cabal
 
+    renderFile "Render README" _tReadme lib "README.md"
+        =<< toEnv _s2Cabal
+
     return lib
   where
     (typ, op) = _tProtocol (_svProtocol _s2Service)

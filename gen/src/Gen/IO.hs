@@ -48,6 +48,7 @@ loadTemplates d = do
     f  <- Templates
         <$> load "cabal"
         <*> load "service"
+        <*> load "readme"
 
     !x <- (,)
         <$> load "types-xml"

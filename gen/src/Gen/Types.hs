@@ -451,6 +451,7 @@ instance Ord Model where
 data Templates = Templates
     { _tCabal    :: Template
     , _tService  :: Template
+    , _tReadme   :: Template
     , _tProtocol :: Protocol -> (Template, Template)
     }
 

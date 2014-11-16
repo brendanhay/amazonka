@@ -13,7 +13,7 @@ install-%:
 	make -C $* install
 
 clean: $(addprefix clean-,$(DEPS))
-	rm -rf .cabal-sandbox cabal.sandbox.config
+#	rm -rf .cabal-sandbox cabal.sandbox.config
 
 clean-%:
 	make -C $* clean

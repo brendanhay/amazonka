@@ -1,3 +1,5 @@
+{-# LANGUAGE RankNTypes #-}
+
 -- Module      : Network.AWS.Pagination
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -27,8 +29,8 @@ instance AWSMore a => AWSMore (Maybe a) where
     more (Just x) = more x
     more Nothing  = False
 
-index :: ToText c => Getting [b] a [b] -> Getting c b c -> a -> Maybe Text
-index g f = fmap (toText . view f) . lastMay . view g
+index :: ToText c => Getter a [b] -> Getter b c -> Getter a (Maybe Text)
+index f g = f . to lastMay . to (fmap (toText . view g))
 
 choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
 choice f g x = f x <|> g x

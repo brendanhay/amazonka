@@ -17,4 +17,4 @@ For any problems, comments or feedback please create an issue [here on GitHub](h
 
 ## Licence
 
-Amazonka is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
+`amazonka-gen` is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).

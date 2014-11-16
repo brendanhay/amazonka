@@ -10,7 +10,7 @@
 
 module Network.AWS.Request.Body
     ( get
-    , Network.AWS.Internal.Request.head
+    , Network.AWS.Request.Internal.head
     , delete
     , post
     , put
@@ -18,7 +18,7 @@ module Network.AWS.Request.Body
 
 import Control.Lens
 import Network.AWS.Data
-import Network.AWS.Internal.Request
+import Network.AWS.Request.Internal
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 

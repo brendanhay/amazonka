@@ -109,8 +109,6 @@ import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
-import qualified Data.ByteString.Base64       as Base64
-import qualified Data.ByteString.Lazy         as LBS
 import           Data.Char
 import           Data.Conduit
 import           Data.Default.Class

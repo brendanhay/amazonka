@@ -32,7 +32,7 @@ import qualified Data.ByteString.Char8        as BS
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data
-import           Network.AWS.Request
+import           Network.AWS.Request.Internal
 import           Network.AWS.Signing.Internal
 import           Network.AWS.Types
 import           Network.HTTP.Types           hiding (renderQuery, toQuery)

@@ -34,7 +34,8 @@ library
         , Network.AWS.Error
         , Network.AWS.Pagination
         , Network.AWS.Prelude
-        , Network.AWS.Request
+        , Network.AWS.Request.JSON
+        , Network.AWS.Request.XML
         , Network.AWS.Request.Query
         , Network.AWS.Response
         , Network.AWS.Signing.V2
@@ -58,6 +59,7 @@ library
         , Network.AWS.Data.Internal.Time
         , Network.AWS.Data.Internal.URI
         , Network.AWS.Data.Internal.XML
+        , Network.AWS.Request.Internal
         , Network.AWS.Signing.Internal
 
     build-depends:

@@ -12,7 +12,7 @@ Core data types, signing, (de)serialisation routines, and HTTP plumbing for all
 
 ## Contribute
 
-For any problems, comments or feedback please create an issue [here on GitHub](github.com/brendanhay/amazonka/issues).
+For any problems, comments or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
 
 
 ## Licence

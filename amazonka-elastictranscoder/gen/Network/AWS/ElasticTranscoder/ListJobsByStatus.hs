@@ -103,17 +103,17 @@ instance ToQuery ListJobsByStatus where
 instance ToHeaders ListJobsByStatus
 
 data ListJobsByStatusResponse = ListJobsByStatusResponse
-    { _ljbsrJobs          :: [Job]
-    , _ljbsrNextPageToken :: Maybe Text
+    { _ljbsrJobs          :: [Job']
+    , _ljbsrNextPageToken :: Maybe Job'
     } deriving (Eq, Show, Generic)
 
 -- | 'ListJobsByStatusResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljbsrJobs' @::@ ['Job']
+-- * 'ljbsrJobs' @::@ ['Job'']
 --
--- * 'ljbsrNextPageToken' @::@ 'Maybe' 'Text'
+-- * 'ljbsrNextPageToken' @::@ 'Maybe' 'Job''
 --
 listJobsByStatusResponse :: ListJobsByStatusResponse
 listJobsByStatusResponse = ListJobsByStatusResponse
@@ -122,14 +122,14 @@ listJobsByStatusResponse = ListJobsByStatusResponse
     }
 
 -- | An array of Job objects that have the specified status.
-ljbsrJobs :: Lens' ListJobsByStatusResponse [Job]
+ljbsrJobs :: Lens' ListJobsByStatusResponse [Job']
 ljbsrJobs = lens _ljbsrJobs (\s a -> s { _ljbsrJobs = a })
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
 -- or when you've reached the last page of results, the value of
 -- NextPageToken is null.
-ljbsrNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
+ljbsrNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Job')
 ljbsrNextPageToken =
     lens _ljbsrNextPageToken (\s a -> s { _ljbsrNextPageToken = a })
 

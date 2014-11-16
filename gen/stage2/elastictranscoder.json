@@ -936,6 +936,288 @@
             {
                 "deriving": [
                     "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 17,
+                "ctor": "job",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "jId",
+                    "name": "_jId",
+                    "shape": "Id",
+                    "locationName": "Id",
+                    "documentation": "\u003cp\u003e The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job. \u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "Job'",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jId",
+                        "name": "_jId",
+                        "shape": "Id",
+                        "locationName": "Id",
+                        "documentation": "\u003cp\u003e The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jArn",
+                        "name": "_jArn",
+                        "shape": "String",
+                        "locationName": "Arn",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) for the job.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jPipelineId",
+                        "name": "_jPipelineId",
+                        "shape": "Id",
+                        "locationName": "PipelineId",
+                        "documentation": "\u003cp\u003e The \u003ccode\u003eId\u003c/code\u003e of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jInput",
+                        "name": "_jInput",
+                        "shape": "JobInput",
+                        "locationName": "Input",
+                        "documentation": "\u003cp\u003e A section of the request or response body that provides information about the file that is being transcoded.\u003c/p\u003e",
+                        "typeExposed": "Maybe JobInput",
+                        "type": "Maybe JobInput"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jOutput",
+                        "name": "_jOutput",
+                        "shape": "JobOutput",
+                        "locationName": "Output",
+                        "documentation": "\u003cp\u003eIf you specified one output for a job, information about that output. If you specified multiple outputs for a job, the Output object lists information about the first output. This duplicates the information that is listed for the first output in the Outputs object.\u003c/p\u003e \u003cp\u003e\u003cimportant\u003eOutputs recommended instead.\u003c/important\u003e A section of the request or response body that provides information about the transcoded (target) file. \u003c/p\u003e",
+                        "typeExposed": "Maybe JobOutput",
+                        "type": "Maybe JobOutput"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "jOutputs",
+                        "name": "_jOutputs",
+                        "shape": "JobOutputs",
+                        "locationName": "Outputs",
+                        "documentation": "\u003cp\u003eInformation about the output files. We recommend that you use the \u003ccode\u003eOutputs\u003c/code\u003e syntax for all jobs, even when you want Elastic Transcoder to transcode a file into only one format. Do not use both the \u003ccode\u003eOutputs\u003c/code\u003e and \u003ccode\u003eOutput\u003c/code\u003e syntaxes in the same request. You can create a maximum of 30 outputs per job. \u003c/p\u003e \u003cp\u003e If you specify more than one output for a job, Elastic Transcoder creates the files for each output in the order in which you specify them in the job.\u003c/p\u003e",
+                        "typeExposed": "[JobOutput]",
+                        "type": "[JobOutput]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jOutputKeyPrefix",
+                        "name": "_jOutputKeyPrefix",
+                        "shape": "Key",
+                        "locationName": "OutputKeyPrefix",
+                        "documentation": "\u003cp\u003eThe value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists. We recommend that you add a / or some other delimiter to the end of the \u003ccode\u003eOutputKeyPrefix\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "jPlaylists",
+                        "name": "_jPlaylists",
+                        "shape": "Playlists",
+                        "locationName": "Playlists",
+                        "documentation": "\u003cp\u003e\u003cimportant\u003eOutputs in Fragmented MP4 or MPEG-TS format only.\u003c/important\u003eIf you specify a preset in \u003ccode\u003ePresetId\u003c/code\u003e for which the value of \u003ccode\u003eContainer\u003c/code\u003e is fmp4 (Fragmented MP4) or ts (MPEG-TS), \u003ccode\u003ePlaylists\u003c/code\u003e contains information about the master playlists that you want Elastic Transcoder to create.\u003c/p\u003e \u003cp\u003eThe maximum number of master playlists in a job is 30. \u003c/p\u003e",
+                        "typeExposed": "[Playlist]",
+                        "type": "[Playlist]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jStatus",
+                        "name": "_jStatus",
+                        "shape": "JobStatus",
+                        "locationName": "Status",
+                        "documentation": "\u003cp\u003e The status of the job: \u003ccode\u003eSubmitted\u003c/code\u003e, \u003ccode\u003eProgressing\u003c/code\u003e, \u003ccode\u003eComplete\u003c/code\u003e, \u003ccode\u003eCanceled\u003c/code\u003e, or \u003ccode\u003eError\u003c/code\u003e. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jArn",
+                        "name": "_jArn",
+                        "shape": "String",
+                        "locationName": "Arn",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) for the job.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jId",
+                        "name": "_jId",
+                        "shape": "Id",
+                        "locationName": "Id",
+                        "documentation": "\u003cp\u003e The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jInput",
+                        "name": "_jInput",
+                        "shape": "JobInput",
+                        "locationName": "Input",
+                        "documentation": "\u003cp\u003e A section of the request or response body that provides information about the file that is being transcoded.\u003c/p\u003e",
+                        "typeExposed": "Maybe JobInput",
+                        "type": "Maybe JobInput"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jOutput",
+                        "name": "_jOutput",
+                        "shape": "JobOutput",
+                        "locationName": "Output",
+                        "documentation": "\u003cp\u003eIf you specified one output for a job, information about that output. If you specified multiple outputs for a job, the Output object lists information about the first output. This duplicates the information that is listed for the first output in the Outputs object.\u003c/p\u003e \u003cp\u003e\u003cimportant\u003eOutputs recommended instead.\u003c/important\u003e A section of the request or response body that provides information about the transcoded (target) file. \u003c/p\u003e",
+                        "typeExposed": "Maybe JobOutput",
+                        "type": "Maybe JobOutput"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jOutputKeyPrefix",
+                        "name": "_jOutputKeyPrefix",
+                        "shape": "Key",
+                        "locationName": "OutputKeyPrefix",
+                        "documentation": "\u003cp\u003eThe value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists. We recommend that you add a / or some other delimiter to the end of the \u003ccode\u003eOutputKeyPrefix\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "jOutputs",
+                        "name": "_jOutputs",
+                        "shape": "JobOutputs",
+                        "locationName": "Outputs",
+                        "documentation": "\u003cp\u003eInformation about the output files. We recommend that you use the \u003ccode\u003eOutputs\u003c/code\u003e syntax for all jobs, even when you want Elastic Transcoder to transcode a file into only one format. Do not use both the \u003ccode\u003eOutputs\u003c/code\u003e and \u003ccode\u003eOutput\u003c/code\u003e syntaxes in the same request. You can create a maximum of 30 outputs per job. \u003c/p\u003e \u003cp\u003e If you specify more than one output for a job, Elastic Transcoder creates the files for each output in the order in which you specify them in the job.\u003c/p\u003e",
+                        "typeExposed": "[JobOutput]",
+                        "type": "[JobOutput]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jPipelineId",
+                        "name": "_jPipelineId",
+                        "shape": "Id",
+                        "locationName": "PipelineId",
+                        "documentation": "\u003cp\u003e The \u003ccode\u003eId\u003c/code\u003e of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "jPlaylists",
+                        "name": "_jPlaylists",
+                        "shape": "Playlists",
+                        "locationName": "Playlists",
+                        "documentation": "\u003cp\u003e\u003cimportant\u003eOutputs in Fragmented MP4 or MPEG-TS format only.\u003c/important\u003eIf you specify a preset in \u003ccode\u003ePresetId\u003c/code\u003e for which the value of \u003ccode\u003eContainer\u003c/code\u003e is fmp4 (Fragmented MP4) or ts (MPEG-TS), \u003ccode\u003ePlaylists\u003c/code\u003e contains information about the master playlists that you want Elastic Transcoder to create.\u003c/p\u003e \u003cp\u003eThe maximum number of master playlists in a job is 30. \u003c/p\u003e",
+                        "typeExposed": "[Playlist]",
+                        "type": "[Playlist]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "jStatus",
+                        "name": "_jStatus",
+                        "shape": "JobStatus",
+                        "locationName": "Status",
+                        "documentation": "\u003cp\u003e The status of the job: \u003ccode\u003eSubmitted\u003c/code\u003e, \u003ccode\u003eProgressing\u003c/code\u003e, \u003ccode\u003eComplete\u003c/code\u003e, \u003ccode\u003eCanceled\u003c/code\u003e, or \u003ccode\u003eError\u003c/code\u003e. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
                     "Ord",
                     "Show",
                     "Generic"
@@ -2150,288 +2432,6 @@
                         "shape": "MergePolicy",
                         "locationName": "MergePolicy",
                         "documentation": "\u003cp\u003eA policy that determines how Elastic Transcoder will handle the existence of multiple album artwork files.\u003c/p\u003e \u003cp\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eReplace:\u003c/code\u003e The specified album art will replace any existing album art.\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePrepend:\u003c/code\u003e The specified album art will be placed in front of any existing album art.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAppend:\u003c/code\u003e The specified album art will be placed after any existing album art.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eFallback:\u003c/code\u003e If the original input file contains artwork, Elastic Transcoder will use that artwork for the output. If the original input does not contain artwork, Elastic Transcoder will use the specified album art file.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 19,
-                "ctor": "job",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "jobId",
-                    "name": "_jobId",
-                    "shape": "Id",
-                    "locationName": "Id",
-                    "documentation": "\u003cp\u003e The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job. \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "Job",
-                "type": "record",
-                "optional": [
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobId",
-                        "name": "_jobId",
-                        "shape": "Id",
-                        "locationName": "Id",
-                        "documentation": "\u003cp\u003e The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobArn",
-                        "name": "_jobArn",
-                        "shape": "String",
-                        "locationName": "Arn",
-                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) for the job.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobPipelineId",
-                        "name": "_jobPipelineId",
-                        "shape": "Id",
-                        "locationName": "PipelineId",
-                        "documentation": "\u003cp\u003e The \u003ccode\u003eId\u003c/code\u003e of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobInput",
-                        "name": "_jobInput",
-                        "shape": "JobInput",
-                        "locationName": "Input",
-                        "documentation": "\u003cp\u003e A section of the request or response body that provides information about the file that is being transcoded.\u003c/p\u003e",
-                        "typeExposed": "Maybe JobInput",
-                        "type": "Maybe JobInput"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobOutput",
-                        "name": "_jobOutput",
-                        "shape": "JobOutput",
-                        "locationName": "Output",
-                        "documentation": "\u003cp\u003eIf you specified one output for a job, information about that output. If you specified multiple outputs for a job, the Output object lists information about the first output. This duplicates the information that is listed for the first output in the Outputs object.\u003c/p\u003e \u003cp\u003e\u003cimportant\u003eOutputs recommended instead.\u003c/important\u003e A section of the request or response body that provides information about the transcoded (target) file. \u003c/p\u003e",
-                        "typeExposed": "Maybe JobOutput",
-                        "type": "Maybe JobOutput"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "mempty",
-                        "required": true,
-                        "lens": "jobOutputs",
-                        "name": "_jobOutputs",
-                        "shape": "JobOutputs",
-                        "locationName": "Outputs",
-                        "documentation": "\u003cp\u003eInformation about the output files. We recommend that you use the \u003ccode\u003eOutputs\u003c/code\u003e syntax for all jobs, even when you want Elastic Transcoder to transcode a file into only one format. Do not use both the \u003ccode\u003eOutputs\u003c/code\u003e and \u003ccode\u003eOutput\u003c/code\u003e syntaxes in the same request. You can create a maximum of 30 outputs per job. \u003c/p\u003e \u003cp\u003e If you specify more than one output for a job, Elastic Transcoder creates the files for each output in the order in which you specify them in the job.\u003c/p\u003e",
-                        "typeExposed": "[JobOutput]",
-                        "type": "[JobOutput]"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobOutputKeyPrefix",
-                        "name": "_jobOutputKeyPrefix",
-                        "shape": "Key",
-                        "locationName": "OutputKeyPrefix",
-                        "documentation": "\u003cp\u003eThe value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists. We recommend that you add a / or some other delimiter to the end of the \u003ccode\u003eOutputKeyPrefix\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "mempty",
-                        "required": true,
-                        "lens": "jobPlaylists",
-                        "name": "_jobPlaylists",
-                        "shape": "Playlists",
-                        "locationName": "Playlists",
-                        "documentation": "\u003cp\u003e\u003cimportant\u003eOutputs in Fragmented MP4 or MPEG-TS format only.\u003c/important\u003eIf you specify a preset in \u003ccode\u003ePresetId\u003c/code\u003e for which the value of \u003ccode\u003eContainer\u003c/code\u003e is fmp4 (Fragmented MP4) or ts (MPEG-TS), \u003ccode\u003ePlaylists\u003c/code\u003e contains information about the master playlists that you want Elastic Transcoder to create.\u003c/p\u003e \u003cp\u003eThe maximum number of master playlists in a job is 30. \u003c/p\u003e",
-                        "typeExposed": "[Playlist]",
-                        "type": "[Playlist]"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobStatus",
-                        "name": "_jobStatus",
-                        "shape": "JobStatus",
-                        "locationName": "Status",
-                        "documentation": "\u003cp\u003e The status of the job: \u003ccode\u003eSubmitted\u003c/code\u003e, \u003ccode\u003eProgressing\u003c/code\u003e, \u003ccode\u003eComplete\u003c/code\u003e, \u003ccode\u003eCanceled\u003c/code\u003e, or \u003ccode\u003eError\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobArn",
-                        "name": "_jobArn",
-                        "shape": "String",
-                        "locationName": "Arn",
-                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) for the job.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobId",
-                        "name": "_jobId",
-                        "shape": "Id",
-                        "locationName": "Id",
-                        "documentation": "\u003cp\u003e The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobInput",
-                        "name": "_jobInput",
-                        "shape": "JobInput",
-                        "locationName": "Input",
-                        "documentation": "\u003cp\u003e A section of the request or response body that provides information about the file that is being transcoded.\u003c/p\u003e",
-                        "typeExposed": "Maybe JobInput",
-                        "type": "Maybe JobInput"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobOutput",
-                        "name": "_jobOutput",
-                        "shape": "JobOutput",
-                        "locationName": "Output",
-                        "documentation": "\u003cp\u003eIf you specified one output for a job, information about that output. If you specified multiple outputs for a job, the Output object lists information about the first output. This duplicates the information that is listed for the first output in the Outputs object.\u003c/p\u003e \u003cp\u003e\u003cimportant\u003eOutputs recommended instead.\u003c/important\u003e A section of the request or response body that provides information about the transcoded (target) file. \u003c/p\u003e",
-                        "typeExposed": "Maybe JobOutput",
-                        "type": "Maybe JobOutput"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobOutputKeyPrefix",
-                        "name": "_jobOutputKeyPrefix",
-                        "shape": "Key",
-                        "locationName": "OutputKeyPrefix",
-                        "documentation": "\u003cp\u003eThe value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists. We recommend that you add a / or some other delimiter to the end of the \u003ccode\u003eOutputKeyPrefix\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "mempty",
-                        "required": true,
-                        "lens": "jobOutputs",
-                        "name": "_jobOutputs",
-                        "shape": "JobOutputs",
-                        "locationName": "Outputs",
-                        "documentation": "\u003cp\u003eInformation about the output files. We recommend that you use the \u003ccode\u003eOutputs\u003c/code\u003e syntax for all jobs, even when you want Elastic Transcoder to transcode a file into only one format. Do not use both the \u003ccode\u003eOutputs\u003c/code\u003e and \u003ccode\u003eOutput\u003c/code\u003e syntaxes in the same request. You can create a maximum of 30 outputs per job. \u003c/p\u003e \u003cp\u003e If you specify more than one output for a job, Elastic Transcoder creates the files for each output in the order in which you specify them in the job.\u003c/p\u003e",
-                        "typeExposed": "[JobOutput]",
-                        "type": "[JobOutput]"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobPipelineId",
-                        "name": "_jobPipelineId",
-                        "shape": "Id",
-                        "locationName": "PipelineId",
-                        "documentation": "\u003cp\u003e The \u003ccode\u003eId\u003c/code\u003e of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "mempty",
-                        "required": true,
-                        "lens": "jobPlaylists",
-                        "name": "_jobPlaylists",
-                        "shape": "Playlists",
-                        "locationName": "Playlists",
-                        "documentation": "\u003cp\u003e\u003cimportant\u003eOutputs in Fragmented MP4 or MPEG-TS format only.\u003c/important\u003eIf you specify a preset in \u003ccode\u003ePresetId\u003c/code\u003e for which the value of \u003ccode\u003eContainer\u003c/code\u003e is fmp4 (Fragmented MP4) or ts (MPEG-TS), \u003ccode\u003ePlaylists\u003c/code\u003e contains information about the master playlists that you want Elastic Transcoder to create.\u003c/p\u003e \u003cp\u003eThe maximum number of master playlists in a job is 30. \u003c/p\u003e",
-                        "typeExposed": "[Playlist]",
-                        "type": "[Playlist]"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "jobStatus",
-                        "name": "_jobStatus",
-                        "shape": "JobStatus",
-                        "locationName": "Status",
-                        "documentation": "\u003cp\u003e The status of the job: \u003ccode\u003eSubmitted\u003c/code\u003e, \u003ccode\u003eProgressing\u003c/code\u003e, \u003ccode\u003eComplete\u003c/code\u003e, \u003ccode\u003eCanceled\u003c/code\u003e, or \u003ccode\u003eError\u003c/code\u003e. \u003c/p\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4802,8 +4802,8 @@
                     "shape": "Job",
                     "locationName": "Job",
                     "documentation": "\u003cp\u003e A section of the response body that provides information about the job that is created. \u003c/p\u003e",
-                    "typeExposed": "Maybe Job",
-                    "type": "Maybe Job"
+                    "typeExposed": "Maybe Job'",
+                    "type": "Maybe Job'"
                 },
                 "wrapper": false,
                 "payload": {
@@ -4817,8 +4817,8 @@
                     "shape": "Job",
                     "locationName": "Job",
                     "documentation": "\u003cp\u003e A section of the response body that provides information about the job that is created. \u003c/p\u003e",
-                    "typeExposed": "Maybe Job",
-                    "type": "Maybe Job"
+                    "typeExposed": "Maybe Job'",
+                    "type": "Maybe Job'"
                 },
                 "required": [],
                 "shared": false,
@@ -4837,8 +4837,8 @@
                         "shape": "Job",
                         "locationName": "Job",
                         "documentation": "\u003cp\u003e A section of the response body that provides information about the job that is created. \u003c/p\u003e",
-                        "typeExposed": "Maybe Job",
-                        "type": "Maybe Job"
+                        "typeExposed": "Maybe Job'",
+                        "type": "Maybe Job'"
                     }
                 ],
                 "fields": [
@@ -4853,8 +4853,8 @@
                         "shape": "Job",
                         "locationName": "Job",
                         "documentation": "\u003cp\u003e A section of the response body that provides information about the job that is created. \u003c/p\u003e",
-                        "typeExposed": "Maybe Job",
-                        "type": "Maybe Job"
+                        "typeExposed": "Maybe Job'",
+                        "type": "Maybe Job'"
                     }
                 ]
             },
@@ -5963,8 +5963,8 @@
                     "shape": "Jobs",
                     "locationName": "Jobs",
                     "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that are in the specified pipeline.\u003c/p\u003e",
-                    "typeExposed": "[Job]",
-                    "type": "[Job]"
+                    "typeExposed": "[Job']",
+                    "type": "[Job']"
                 },
                 "required": [],
                 "shared": false,
@@ -5983,8 +5983,8 @@
                         "shape": "Jobs",
                         "locationName": "Jobs",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that are in the specified pipeline.\u003c/p\u003e",
-                        "typeExposed": "[Job]",
-                        "type": "[Job]"
+                        "typeExposed": "[Job']",
+                        "type": "[Job']"
                     },
                     {
                         "location": "body-json",
@@ -5997,8 +5997,8 @@
                         "shape": "Id",
                         "locationName": "NextPageToken",
                         "documentation": "\u003cp\u003e A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of \u003ccode\u003eNextPageToken\u003c/code\u003e is \u003ccode\u003enull\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Job'",
+                        "type": "Maybe Job'"
                     }
                 ],
                 "fields": [
@@ -6013,8 +6013,8 @@
                         "shape": "Jobs",
                         "locationName": "Jobs",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that are in the specified pipeline.\u003c/p\u003e",
-                        "typeExposed": "[Job]",
-                        "type": "[Job]"
+                        "typeExposed": "[Job']",
+                        "type": "[Job']"
                     },
                     {
                         "location": "body-json",
@@ -6027,8 +6027,8 @@
                         "shape": "Id",
                         "locationName": "NextPageToken",
                         "documentation": "\u003cp\u003e A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of \u003ccode\u003eNextPageToken\u003c/code\u003e is \u003ccode\u003enull\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Job'",
+                        "type": "Maybe Job'"
                     }
                 ]
             },
@@ -6203,8 +6203,8 @@
                     "shape": "Jobs",
                     "locationName": "Jobs",
                     "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that have the specified status.\u003c/p\u003e",
-                    "typeExposed": "[Job]",
-                    "type": "[Job]"
+                    "typeExposed": "[Job']",
+                    "type": "[Job']"
                 },
                 "required": [],
                 "shared": false,
@@ -6223,8 +6223,8 @@
                         "shape": "Jobs",
                         "locationName": "Jobs",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that have the specified status.\u003c/p\u003e",
-                        "typeExposed": "[Job]",
-                        "type": "[Job]"
+                        "typeExposed": "[Job']",
+                        "type": "[Job']"
                     },
                     {
                         "location": "body-json",
@@ -6237,8 +6237,8 @@
                         "shape": "Id",
                         "locationName": "NextPageToken",
                         "documentation": "\u003cp\u003e A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of \u003ccode\u003eNextPageToken\u003c/code\u003e is \u003ccode\u003enull\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Job'",
+                        "type": "Maybe Job'"
                     }
                 ],
                 "fields": [
@@ -6253,8 +6253,8 @@
                         "shape": "Jobs",
                         "locationName": "Jobs",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that have the specified status.\u003c/p\u003e",
-                        "typeExposed": "[Job]",
-                        "type": "[Job]"
+                        "typeExposed": "[Job']",
+                        "type": "[Job']"
                     },
                     {
                         "location": "body-json",
@@ -6267,8 +6267,8 @@
                         "shape": "Id",
                         "locationName": "NextPageToken",
                         "documentation": "\u003cp\u003e A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of \u003ccode\u003eNextPageToken\u003c/code\u003e is \u003ccode\u003enull\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Job'",
+                        "type": "Maybe Job'"
                     }
                 ]
             },
@@ -6857,8 +6857,8 @@
                     "shape": "Job",
                     "locationName": "Job",
                     "documentation": "\u003cp\u003eA section of the response body that provides information about the job.\u003c/p\u003e",
-                    "typeExposed": "Maybe Job",
-                    "type": "Maybe Job"
+                    "typeExposed": "Maybe Job'",
+                    "type": "Maybe Job'"
                 },
                 "wrapper": false,
                 "payload": {
@@ -6872,8 +6872,8 @@
                     "shape": "Job",
                     "locationName": "Job",
                     "documentation": "\u003cp\u003eA section of the response body that provides information about the job.\u003c/p\u003e",
-                    "typeExposed": "Maybe Job",
-                    "type": "Maybe Job"
+                    "typeExposed": "Maybe Job'",
+                    "type": "Maybe Job'"
                 },
                 "required": [],
                 "shared": false,
@@ -6892,8 +6892,8 @@
                         "shape": "Job",
                         "locationName": "Job",
                         "documentation": "\u003cp\u003eA section of the response body that provides information about the job.\u003c/p\u003e",
-                        "typeExposed": "Maybe Job",
-                        "type": "Maybe Job"
+                        "typeExposed": "Maybe Job'",
+                        "type": "Maybe Job'"
                     }
                 ],
                 "fields": [
@@ -6908,8 +6908,8 @@
                         "shape": "Job",
                         "locationName": "Job",
                         "documentation": "\u003cp\u003eA section of the response body that provides information about the job.\u003c/p\u003e",
-                        "typeExposed": "Maybe Job",
-                        "type": "Maybe Job"
+                        "typeExposed": "Maybe Job'",
+                        "type": "Maybe Job'"
                     }
                 ]
             },

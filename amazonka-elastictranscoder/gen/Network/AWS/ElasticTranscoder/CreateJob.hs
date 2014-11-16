@@ -136,14 +136,14 @@ instance ToBody CreateJob where
     toBody = toBody . encode . _cjPipelineId
 
 newtype CreateJobResponse = CreateJobResponse
-    { _cjrJob :: Maybe Job
+    { _cjrJob :: Maybe Job'
     } deriving (Eq, Show, Generic)
 
 -- | 'CreateJobResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjrJob' @::@ 'Maybe' 'Job'
+-- * 'cjrJob' @::@ 'Maybe' 'Job''
 --
 createJobResponse :: CreateJobResponse
 createJobResponse = CreateJobResponse
@@ -152,7 +152,7 @@ createJobResponse = CreateJobResponse
 
 -- | A section of the response body that provides information about the job
 -- that is created.
-cjrJob :: Lens' CreateJobResponse (Maybe Job)
+cjrJob :: Lens' CreateJobResponse (Maybe Job')
 cjrJob = lens _cjrJob (\s a -> s { _cjrJob = a })
 
 instance AWSRequest CreateJob where

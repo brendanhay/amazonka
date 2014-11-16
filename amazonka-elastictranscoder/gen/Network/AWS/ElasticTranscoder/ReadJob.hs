@@ -73,14 +73,14 @@ instance ToQuery ReadJob where
 instance ToHeaders ReadJob
 
 newtype ReadJobResponse = ReadJobResponse
-    { _rjrJob :: Maybe Job
+    { _rjrJob :: Maybe Job'
     } deriving (Eq, Show, Generic)
 
 -- | 'ReadJobResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rjrJob' @::@ 'Maybe' 'Job'
+-- * 'rjrJob' @::@ 'Maybe' 'Job''
 --
 readJobResponse :: ReadJobResponse
 readJobResponse = ReadJobResponse
@@ -88,7 +88,7 @@ readJobResponse = ReadJobResponse
     }
 
 -- | A section of the response body that provides information about the job.
-rjrJob :: Lens' ReadJobResponse (Maybe Job)
+rjrJob :: Lens' ReadJobResponse (Maybe Job')
 rjrJob = lens _rjrJob (\s a -> s { _rjrJob = a })
 
 instance AWSRequest ReadJob where

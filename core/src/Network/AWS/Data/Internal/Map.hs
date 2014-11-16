@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RoleAnnotations            #-}
 {-# LANGUAGE TupleSections              #-}
 
 -- Module      : Network.AWS.Data.Internal.Map
@@ -14,17 +15,17 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Data.Internal.Map
-    ( Map
+    ( Map (..)
     , _Map
-    , nullMap
     , (~::)
     ) where
 
 import           Control.Applicative
-import           Control.Lens
+import           Control.Lens                         hiding (coerce)
 import           Data.Aeson
 import           Data.Bifunctor
 import qualified Data.CaseInsensitive                 as CI
+import           Data.Coerce
 import           Data.Foldable                        (Foldable)
 import           Data.HashMap.Strict                  (HashMap)
 import qualified Data.HashMap.Strict                  as Map
@@ -54,11 +55,10 @@ newtype Map k v = Map { toHashMap :: HashMap k v }
         , Semigroup
         )
 
-_Map :: Iso' (Map k v) (HashMap k v)
-_Map = iso toHashMap Map
+type role Map nominal representational
 
-nullMap :: Map k v -> Bool
-nullMap = Map.null . toHashMap
+_Map :: (Coercible a b, Coercible b a) => Iso' (Map k a) (HashMap k b)
+_Map = iso (coerce . toHashMap) (Map . coerce)
 
 infixl 6 ~::
 

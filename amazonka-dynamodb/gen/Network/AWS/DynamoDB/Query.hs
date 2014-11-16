@@ -486,6 +486,7 @@ qrCount = lens _qrCount (\s a -> s { _qrCount = a })
 -- attribute.
 qrItems :: Lens' QueryResponse ([(HashMap Text AttributeValue)])
 qrItems = lens _qrItems (\s a -> s { _qrItems = a })
+    . mapping _Map
 
 -- | The primary key of the item where the operation stopped, inclusive of the
 -- previous result set. Use this value to start a new operation, excluding

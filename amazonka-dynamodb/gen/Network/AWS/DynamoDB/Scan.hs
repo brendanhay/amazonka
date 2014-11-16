@@ -378,6 +378,7 @@ srCount = lens _srCount (\s a -> s { _srCount = a })
 -- attribute.
 srItems :: Lens' ScanResponse ([(HashMap Text AttributeValue)])
 srItems = lens _srItems (\s a -> s { _srItems = a })
+    . mapping _Map
 
 -- | The primary key of the item where the operation stopped, inclusive of the
 -- previous result set. Use this value to start a new operation, excluding

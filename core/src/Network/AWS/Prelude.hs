@@ -74,6 +74,7 @@ import Numeric.Natural           (Natural, Whole)
 
 import Control.Applicative       as Export
 import Data.Bifunctor            as Export
+import Data.Coerce               as Export
 import Data.Default.Class        as Export
 import Data.Hashable             as Export
 import Data.Maybe                as Export

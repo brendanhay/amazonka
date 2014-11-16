@@ -169,10 +169,7 @@ bgirConsumedCapacity =
 -- data type and attribute value.
 bgirResponses :: Lens' BatchGetItemResponse (HashMap Text ([(HashMap Text AttributeValue)]))
 bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a })
-    . (mapping _Map . _Map)
-
-how to create the correct lens for this nested map-value type?
-
+    . _Map
 
 -- | A map of tables and their respective keys that were not processed with
 -- the current response. The UnprocessedKeys value is in the same form as

@@ -62,7 +62,7 @@ import Network.AWS.Data.Internal.Body
 import Network.AWS.Data.Internal.ByteString
 import Network.AWS.Data.Internal.Header
 import Network.AWS.Data.Internal.JSON
-import Network.AWS.Data.Internal.List1      (List1, _List1, list1)
+import Network.AWS.Data.Internal.List1
 import Network.AWS.Data.Internal.Map
 import Network.AWS.Data.Internal.Numeric
 import Network.AWS.Data.Internal.Path

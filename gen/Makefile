@@ -48,7 +48,7 @@ JSON := \
  cloudsearchdomain \
  lambda
 
-MODELS ?= opsworks # $(QUERY) $(XML) $(JSON)
+MODELS ?= kinesis # $(QUERY) $(XML) $(JSON)
 
 .PHONY: gen
 

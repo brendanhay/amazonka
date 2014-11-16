@@ -125,7 +125,7 @@ dataTypes o a s1 = (sort . Map.elems) `first` runState run ds
 
     ss = evalState (shared s1) datas
 
-    datas = overriden (o ^. oOverrides) $ shapes proto (s1 ^. s1Shapes)
+    datas = overriden (o ^. oOverrides) (shapes (s1 ^. s1Shapes))
 
     proto = s1 ^. mProtocol
 
@@ -196,7 +196,7 @@ operation a proto ns ss pgs n o = do
         , _opPager            = pg
         }
 
-    request = go (\x k s d -> Request (prefixURI x d) k s d) True
+    request = go (\x k s d -> Request proto (prefixURI x d) k s d) True
 
     prefixURI k d = o ^. oHttp.hRequestUri & uriSegments %~ f
       where
@@ -207,7 +207,7 @@ operation a proto ns ss pgs n o = do
 
         ls = fieldLocations d
 
-    response r = go (const (Response w k)) False r
+    response r = go (const (Response proto w k)) False r
       where
         w = fromMaybe False (join (_refWrapper <$> r))
         k = join (_refResultWrapper <$> r)
@@ -439,8 +439,8 @@ overriden = flip (Map.foldlWithKey' run)
 
     renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
 
-shapes :: Protocol -> HashMap Text S1.Shape -> HashMap Text Data
-shapes p m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
+shapes :: HashMap Text S1.Shape -> HashMap Text Data
+shapes m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
   where
     skip (Struct' x)
         | Just True <- x ^. scException = False
@@ -470,20 +470,14 @@ shapes p m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
           -> State (HashMap Text Type) Field
     field pay req (k, r) = do
         t <- require req k <$> ref r
-
-        let l = r ^. refLocation
-            n = r ^. refLocationName
-            d = r ^. refDocumentation
-            s = fromMaybe False (r ^. refStreaming)
-
         return $ Field
             { _fName          = k
             , _fShape         = r ^. refShape
             , _fType          = t
-            , _fLocation      = location p s l
-            , _fLocationName  = fromMaybe k n
+            , _fLocation      = r ^. refLocation
+            , _fLocationName  = fromMaybe k (r ^. refLocationName)
             , _fPayload       = Just k == pay
-            , _fDocumentation = Doc <$> d
+            , _fDocumentation = Doc <$> (r ^. refDocumentation)
             }
 
     require :: [Text] -> Text -> Type -> Type

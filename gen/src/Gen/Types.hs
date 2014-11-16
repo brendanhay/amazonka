@@ -157,8 +157,6 @@ data Location
     | Uri
     | Querystring
     | StatusCode
-    | BodyXml
-    | BodyJson
     | Body
       deriving (Eq, Ord, Show)
 
@@ -172,17 +170,6 @@ instance FromJSON Location where
         e             -> fail ("Unknown Location: " ++ Text.unpack e)
 
 nullary stage2 ''Location
-
-location :: Protocol -> Bool -> Maybe Location -> Location
-location _ True = const Body
-location p _    = fromMaybe $
-    case p of
-        Json     -> BodyJson
-        RestJson -> BodyJson
-        Xml      -> BodyXml
-        RestXml  -> BodyXml
-        Query    -> Querystring
-        Ec2      -> Querystring
 
 data Seg
     = Seg Text

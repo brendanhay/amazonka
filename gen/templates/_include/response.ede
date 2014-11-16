@@ -1,3 +1,5 @@
+{{ response.style }}
+
 {% case response.type %}
 {% when "empty" %}
     response = nullaryResponse {{ response.name }}
@@ -10,7 +12,7 @@
 {% include "response-fields.ede" %}
   {% else %}
     {% if response.shared %}
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse (const decodeCursor)
     {% else %}
     response = xmlResponse $ \h x -> {{ response.name }}
 {% include "response-fields.ede" %}

@@ -288,7 +288,7 @@ data Field = Field
     { _fName          :: !Text
     , _fShape         :: !Text
     , _fType          :: !Type
-    , _fLocation      :: !Location
+    , _fLocation      :: Maybe Location
     , _fLocationName  :: !Text
     , _fPayload       :: !Bool
     , _fDocumentation :: Maybe Doc
@@ -315,6 +315,12 @@ instance ToJSON Field where
         , "iso"           .= typeIso _fType
         ]
 
+instance HasName Field where
+    nameOf = fName
+
+instance HasType Field where
+    typeOf = fType
+
 parameters :: [Field] -> ([Field], [Field])
 parameters = partition (f . view typeOf)
   where
@@ -323,21 +329,26 @@ parameters = partition (f . view typeOf)
 isHeader :: Field -> Bool
 isHeader = f . view fLocation
   where
-    f Header  = True
-    f Headers = True
-    f _       = False
+    f (Just Header)  = True
+    f (Just Headers) = True
+    f _              = False
 
 isQuery :: Field -> Bool
 isQuery = f . view fLocation
   where
-    f Querystring = True
-    f _           = False
+    f (Just Querystring) = True
+    f _                  = False
 
-instance HasName Field where
-    nameOf = fName
+fieldLocation :: Field -> Value
+fieldLocation f = object
+    [ "type"         .= "field"
+    , "field"        .= fieldName (_fName f)
+    , "locationName" .= _fLocationName f
+    ]
 
-instance HasType Field where
-    typeOf = fType
+fieldPad :: [Field] -> Int
+fieldPad [] = 0
+fieldPad xs = (+1) . maximum $ map (Text.length . _fLocationName) xs
 
 data Data
     = Nullary !Text (HashMap Text Text)
@@ -458,12 +469,12 @@ setStreaming rq = dataFields %~ go
   where
     go x = x & typeOf %~ transform (body (x ^. fLocation))
 
-    body :: Location -> Type -> Type
-    body Body (TMaybe x@(TPrim y))
+    body :: Maybe Location -> Type -> Type
+    body (Just Body) (TMaybe x@(TPrim y))
         | PReq <- y = x
         | PRes <- y = x
-        | otherwise = body Body x
-    body Body (TPrim _)
+        | otherwise = body (Just Body) x
+    body (Just Body) (TPrim _)
         | rq         = TPrim PReq
         | otherwise  = TPrim PRes
     body _    x      = x
@@ -534,40 +545,28 @@ instance DerivingOf Data where
               ]
 
 data Request = Request
-    { _rqUri    :: !URI
+    { _rqProto  :: !Protocol
+    , _rqUri    :: !URI
     , _rqName   :: !Text
     , _rqShared :: !Bool
     , _rqData   :: !Data
     } deriving (Eq, Show)
 
 instance ToJSON Request where
-    toJSON Request{..} = Object (operationJSON _rqName _rqData <> x)
+    toJSON Request{..} = Object (operationJSON _rqProto _rqName _rqData <> x)
       where
         Object x = object
             [ "path"      .= _uriPath _rqUri
-            , "headers"   .= map pair hdr
-            , "headerPad" .= pad hdr
-            , "query"     .= (map toJSON (_uriQuery _rqUri) ++ map pair qry)
-            , "queryPad"  .= pad qry
+            , "query"     .= (map toJSON (_uriQuery _rqUri) ++ map fieldLocation qry)
+            , "queryPad"  .= fieldPad qry
             , "shared"    .= _rqShared
             ]
 
-        pad [] = 0
-        pad xs = (+1) . maximum $ map (Text.length . _fLocationName) xs
-
-        hdr = locations isHeader
-        qry = locations isQuery
-
-        locations p = filter p (toListOf dataFields _rqData)
-
-        pair f = object
-            [ "type"         .= "field"
-            , "field"        .= fieldName (_fName f)
-            , "locationName" .= _fLocationName f
-            ]
+        qry = filter isQuery (toListOf dataFields _rqData)
 
 data Response = Response
-    { _rsWrapper       :: !Bool
+    { _rsProto         :: !Protocol
+    , _rsWrapper       :: !Bool
     , _rsResultWrapper :: Maybe Text
     , _rsName          :: !Text
     , _rsShared        :: !Bool
@@ -575,7 +574,7 @@ data Response = Response
     } deriving (Eq, Show)
 
 instance ToJSON Response where
-    toJSON Response{..} = Object (operationJSON _rsName _rsData <> x)
+    toJSON Response{..} = Object (operationJSON _rsProto _rsName _rsData <> x)
       where
         Object x = object
             [ "resultWrapper" .= _rsResultWrapper
@@ -583,20 +582,45 @@ instance ToJSON Response where
             , "shared"        .= _rsShared
             ]
 
-operationJSON :: Text -> Data -> Object
-operationJSON n d = y <> x
+operationJSON :: Protocol -> Text -> Data -> Object
+operationJSON p n d = y <> x
   where
     Object x = toJSON d
     Object y = object
         [ "ctor"      .= constructor n
         , "streaming" .= stream
+        , "headers"   .= map fieldLocation hdr
+        , "headerPad" .= fieldPad hdr
+        , "style"     .= style
         ]
 
-    stream = any ((== Body) . view fLocation) $
+    stream :: Bool
+    stream = any ((== Just Body) . view fLocation) $
         case d of
             Newtype _ f  -> [f]
             Record  _ fs -> fs
             _            -> []
+
+    style :: Text
+    style | Empty{} <- d = "nullary"
+          | otherwise    = h
+      where
+        h | null hdr  = b
+          | otherwise = b <> "-headers"
+
+        b | stream    = k <> "-body"
+          | otherwise = k
+
+        k = case p of
+            Json     -> "json"
+            RestJson -> "json"
+            Xml      -> "xml"
+            RestXml  -> "xml"
+            Query    -> "xml"
+            Ec2      -> "xml"
+
+    hdr :: [Field]
+    hdr = filter isHeader (toListOf dataFields d)
 
 data Operation = Operation
     { _opName             :: !Text

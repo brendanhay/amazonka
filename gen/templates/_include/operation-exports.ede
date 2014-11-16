@@ -6,8 +6,6 @@
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TypeFamilies               #-}
 
-{-# OPTIONS_GHC -w                      #-}
-
 {% include "license.ede" %}
 
 {% if documentation %}

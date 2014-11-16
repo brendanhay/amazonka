@@ -1,21 +1,24 @@
-{{ response.style }}
-
-{% case response.type %}
-{% when "empty" %}
-    response = nullaryResponse {{ response.name }}
-{% else %}
-  {% if response.streaming %}
+{% case response.style %}
+{% when "nullary" %}
+    response = nullResponse {{ response.name }}
+{% when "body" %}
+    response = bodyResponse . const $ \b -> {{ response.name }}
+{% include "response-fields.ede" %}
+{% when "body-headers" %}
     response = bodyResponse $ \h b -> {{ response.name }}
 {% include "response-fields.ede" %}
-  {% elif protocol == "json" || protocol == "rest-json" || protocol == "status-code" %}
-    response = jsonResponse $ \h o -> {{ response.name }}
+{% when "json" %}
+    response = jsonResponse
+
+{% include "json-from.ede" with type = response %}
+{% when "json-headers" %}
+    response = jsonHeaderResponse $ \h o -> {{ response.name }}
 {% include "response-fields.ede" %}
-  {% else %}
-    {% if response.shared %}
-    response = xmlResponse (const decodeCursor)
-    {% else %}
-    response = xmlResponse $ \h x -> {{ response.name }}
+{% when "xml" %}
+    response = xmlResponse
+
+{% include "xml-from.ede" with type = response %}
+{% when "xml-headers" %}
+    response = xmlHeaderResponse $ \h x -> {{ response.name }}
 {% include "response-fields.ede" %}
-    {% endif %}
-  {% endif %}
 {% endcase %}

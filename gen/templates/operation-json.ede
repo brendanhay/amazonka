@@ -6,12 +6,6 @@ import qualified GHC.Exts
 
 {% include "_include/datatype.ede" with type = request %}
 
-{% include "_include/json-to.ede" with type = request %}
-
-{% include "_include/path.ede" %}
-{% include "_include/query.ede" %}
-{% include "_include/headers.ede" %}
-{% include "_include/body.ede" %}
 {% include "_include/datatype.ede" with type = response %}
 
 instance AWSRequest {{ request.name }} where
@@ -20,3 +14,5 @@ instance AWSRequest {{ request.name }} where
 
     request  = {{ method }}
 {% include "_include/response.ede" %}
+
+{% include "_include/request.ede" %}

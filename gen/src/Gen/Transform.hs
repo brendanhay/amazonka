@@ -34,7 +34,6 @@ import           Data.HashSet               (HashSet)
 import qualified Data.HashSet               as Set
 import           Data.List                  (find, sort, group)
 import           Data.Monoid                hiding (Product)
-import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
@@ -477,6 +476,7 @@ shapes m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
             , _fLocation      = r ^. refLocation
             , _fLocationName  = fromMaybe k (r ^. refLocationName)
             , _fPayload       = Just k == pay
+            , _fStream        = fromMaybe False (r ^. refStreaming)
             , _fDocumentation = Doc <$> (r ^. refDocumentation)
             }
 

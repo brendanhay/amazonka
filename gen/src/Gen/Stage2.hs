@@ -291,6 +291,7 @@ data Field = Field
     , _fLocation      :: Maybe Location
     , _fLocationName  :: !Text
     , _fPayload       :: !Bool
+    , _fStream        :: !Bool
     , _fDocumentation :: Maybe Doc
     } deriving (Eq, Show)
 
@@ -553,7 +554,8 @@ data Request = Request
     } deriving (Eq, Show)
 
 instance ToJSON Request where
-    toJSON Request{..} = Object (operationJSON _rqProto _rqName _rqData <> x)
+    toJSON Request{..} =
+        Object (operationJSON _rqProto _rqShared _rqName _rqData <> x)
       where
         Object x = object
             [ "path"      .= _uriPath _rqUri
@@ -574,7 +576,8 @@ data Response = Response
     } deriving (Eq, Show)
 
 instance ToJSON Response where
-    toJSON Response{..} = Object (operationJSON _rsProto _rsName _rsData <> x)
+    toJSON Response{..} =
+        Object (operationJSON _rsProto _rsShared _rsName _rsData <> x)
       where
         Object x = object
             [ "resultWrapper" .= _rsResultWrapper
@@ -582,8 +585,8 @@ instance ToJSON Response where
             , "shared"        .= _rsShared
             ]
 
-operationJSON :: Protocol -> Text -> Data -> Object
-operationJSON p n d = y <> x
+operationJSON :: Protocol -> Bool -> Text -> Data -> Object
+operationJSON p s n d = y <> x
   where
     Object x = toJSON d
     Object y = object
@@ -595,21 +598,23 @@ operationJSON p n d = y <> x
         ]
 
     stream :: Bool
-    stream = any ((== Just Body) . view fLocation) $
+    stream = any (view fStream) $
         case d of
             Newtype _ f  -> [f]
             Record  _ fs -> fs
             _            -> []
 
     style :: Text
-    style | Empty{} <- d = "nullary"
-          | otherwise    = h
+    style | Empty   {} <- d = "nullary"
+          | s {- shared -}  = k
+          | stream          = h "body"
+          | otherwise       = h (b k)
       where
-        h | null hdr  = b
-          | otherwise = b <> "-headers"
+        h | null hdr  = id
+          | otherwise = (<> "-headers")
 
-        b | stream    = k <> "-body"
-          | otherwise = k
+        b | stream    = (<> "-body")
+          | otherwise = id
 
         k = case p of
             Json     -> "json"

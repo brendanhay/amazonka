@@ -1106,8 +1106,8 @@
                 "ctor": "keysAndAttributes",
                 "payload": {
                     "location": "body-json",
-                    "iso": "(_List1 . mapping _Map)",
-                    "lensMapping": "(_List1 . mapping _Map)",
+                    "iso": "_List1",
+                    "lensMapping": "_List1",
                     "default": "\u003cerror\u003e",
                     "required": true,
                     "lens": "kaaKeys",
@@ -1121,8 +1121,8 @@
                 "required": [
                     {
                         "location": "body-json",
-                        "iso": "(_List1 . mapping _Map)",
-                        "lensMapping": "(_List1 . mapping _Map)",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "kaaKeys",
@@ -1239,8 +1239,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": "(_List1 . mapping _Map)",
-                        "lensMapping": "(_List1 . mapping _Map)",
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "kaaKeys",
@@ -5905,8 +5905,8 @@
                 "wrapper": false,
                 "payload": {
                     "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "mapping _Map",
+                    "lensMapping": "mapping _Map",
                     "default": "mempty",
                     "required": true,
                     "lens": "qrItems",
@@ -5925,8 +5925,8 @@
                 "optional": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "mapping _Map",
+                        "lensMapping": "mapping _Map",
                         "default": "mempty",
                         "required": true,
                         "lens": "qrItems",
@@ -6025,8 +6025,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "mapping _Map",
+                        "lensMapping": "mapping _Map",
                         "default": "mempty",
                         "required": true,
                         "lens": "qrItems",
@@ -6590,8 +6590,8 @@
                 "wrapper": false,
                 "payload": {
                     "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "mapping _Map",
+                    "lensMapping": "mapping _Map",
                     "default": "mempty",
                     "required": true,
                     "lens": "srItems",
@@ -6610,8 +6610,8 @@
                 "optional": [
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "mapping _Map",
+                        "lensMapping": "mapping _Map",
                         "default": "mempty",
                         "required": true,
                         "lens": "srItems",
@@ -6710,8 +6710,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "mapping _Map",
+                        "lensMapping": "mapping _Map",
                         "default": "mempty",
                         "required": true,
                         "lens": "srItems",

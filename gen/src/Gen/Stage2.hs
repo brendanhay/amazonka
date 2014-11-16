@@ -236,7 +236,7 @@ typeMapping t
     go y = case y of
         TType      _   -> []
         TPrim      p   -> maybeToList (primIso p)
-        TList      _   -> []
+        TList      _   -> maybeToList (typeIso y)
         TList1     _   -> maybeToList (typeIso y)
         TMap       _ _ -> maybeToList (typeIso y)
         TMaybe     x   -> wrap (go x)
@@ -249,10 +249,11 @@ typeMapping t
 typeIso :: Type -> Maybe Text
 typeIso = \case
     TPrim      p              -> primIso p
-    TList1     x
-        | Just y <- typeIso x -> Just ("(_List1 . mapping " <> y <> ")")
-        | otherwise           -> Just "_List1"
-    TMap       _ _            -> Just "_Map"
+    TList      x
+        | Just y <- typeIso x -> Just ("mapping " <> y)
+        | otherwise           -> Nothing
+    TList1     _              -> Just "_List1" -- No nested mappings, since it's Coercible.
+    TMap       _ _            -> Just "_Map"   -- No nested mappings, since it's Coercible.
     TSensitive _              -> Just "_Sensitive"
     _                         -> Nothing
 

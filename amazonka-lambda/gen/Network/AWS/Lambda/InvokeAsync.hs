@@ -115,4 +115,4 @@ instance AWSRequest InvokeAsync where
 
     request  = post
     response = jsonResponse $ \h o -> InvokeAsyncResponse
-        <$> x %| "Status"
+        <$> o .: "Status"

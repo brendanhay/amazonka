@@ -6,9 +6,11 @@
         {% include "applicative.ede" %} h {% if field.value.required %}~:{% else %}~:?{% endif %} "{{ field.value.locationName }}"
   {% when "body-json" %}
         {% include "applicative.ede" %} o .: "{{ field.value.locationName }}"
+  {% when "status-code" %}
+        {% include "applicative.ede" %} o .: "{{ field.value.locationName }}"
   {% when "body" %}
         {% include "applicative.ede" %} pure (RsBody b)
-   {% else %}
+  {% else %}
         {% include "applicative.ede" %} x %| "{{ field.value.locationName }}"
   {% endcase %}
 {% endfor %}

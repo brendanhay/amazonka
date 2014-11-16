@@ -41,6 +41,7 @@ import           Data.Jason.Types     hiding (Parser)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
+import           Data.SemVer
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Traversable     (Traversable, traverse)
@@ -418,6 +419,7 @@ instance FromJSON Override where
 
 data Overrides = Overrides
     { _oLibrary           :: !Library
+    , _oVersion           :: !Version
     , _oOperationsModules :: [NS]
     , _oTypesModules      :: [NS]
     , _oOverrides         :: HashMap Text Override
@@ -428,6 +430,7 @@ makeLenses ''Overrides
 instance FromJSON Overrides where
     parseJSON = withObject "overrides" $ \o -> Overrides
         <$> o .:  "library"
+        <*> o .:? "version"           .!= initial
         <*> o .:? "operationsModules" .!= mempty
         <*> o .:? "typesModules"      .!= mempty
         <*> o .:? "overrides"         .!= mempty

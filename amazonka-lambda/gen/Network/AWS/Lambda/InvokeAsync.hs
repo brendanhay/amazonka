@@ -91,22 +91,23 @@ instance ToBody InvokeAsync where
     toBody = toBody . encode . _iaInvokeArgs
 
 newtype InvokeAsyncResponse = InvokeAsyncResponse
-    { _iarStatus :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    { _iarStatus :: Int
+    } deriving (Eq, Ord, Show, Generic, Enum, Num, Integral, Real)
 
 -- | 'InvokeAsyncResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iarStatus' @::@ 'Maybe' 'Int'
+-- * 'iarStatus' @::@ 'Int'
 --
-invokeAsyncResponse :: InvokeAsyncResponse
-invokeAsyncResponse = InvokeAsyncResponse
-    { _iarStatus = Nothing
+invokeAsyncResponse :: Int -- ^ 'iarStatus'
+                    -> InvokeAsyncResponse
+invokeAsyncResponse p1 = InvokeAsyncResponse
+    { _iarStatus = p1
     }
 
 -- | It will be 202 upon success.
-iarStatus :: Lens' InvokeAsyncResponse (Maybe Int)
+iarStatus :: Lens' InvokeAsyncResponse Int
 iarStatus = lens _iarStatus (\s a -> s { _iarStatus = a })
 
 instance AWSRequest InvokeAsync where

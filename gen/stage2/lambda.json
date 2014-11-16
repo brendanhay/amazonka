@@ -2447,7 +2447,11 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum",
+                    "Num",
+                    "Integral",
+                    "Real"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -2457,53 +2461,53 @@
                     "location": "status-code",
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
                     "lens": "iarStatus",
                     "name": "_iarStatus",
                     "shape": "HttpStatus",
                     "locationName": "Status",
                     "documentation": "\u003cp\u003eIt will be 202 upon success.\u003c/p\u003e",
-                    "typeExposed": "Maybe Int",
-                    "type": "Maybe Int"
+                    "typeExposed": "Int",
+                    "type": "Int"
                 },
                 "wrapper": false,
                 "payload": null,
-                "required": [],
-                "shared": false,
-                "name": "InvokeAsyncResponse",
-                "resultWrapper": null,
-                "type": "newtype",
-                "optional": [
+                "required": [
                     {
                         "location": "status-code",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
                         "lens": "iarStatus",
                         "name": "_iarStatus",
                         "shape": "HttpStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eIt will be 202 upon success.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Int",
+                        "type": "Int"
                     }
                 ],
+                "shared": false,
+                "name": "InvokeAsyncResponse",
+                "resultWrapper": null,
+                "type": "newtype",
+                "optional": [],
                 "fields": [
                     {
                         "location": "status-code",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
                         "lens": "iarStatus",
                         "name": "_iarStatus",
                         "shape": "HttpStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eIt will be 202 upon success.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Int",
+                        "type": "Int"
                     }
                 ]
             },

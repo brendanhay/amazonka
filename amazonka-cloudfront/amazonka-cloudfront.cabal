@@ -25,6 +25,9 @@ description:
     Amazon S3 bucket or an HTTP server (for example, a web server) that you
     have identified as the source for the definitive version of your
     content.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

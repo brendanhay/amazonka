@@ -23,6 +23,9 @@ description:
     gain system-wide visibility into resource utilization, application
     performance, and operational health. You can use these insights to
     react and keep your application running smoothly.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

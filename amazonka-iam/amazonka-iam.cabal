@@ -17,6 +17,9 @@ description:
     control access to AWS services and resources for your users. Using IAM,
     you can create and manage AWS users and groups and use permissions to
     allow and deny their access to AWS resources.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

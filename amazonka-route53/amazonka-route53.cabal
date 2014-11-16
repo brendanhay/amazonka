@@ -19,6 +19,9 @@ description:
     Cloud (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage
     Service (Amazon S3). You can also use Amazon Route 53 to route users to
     your infrastructure outside of AWS.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

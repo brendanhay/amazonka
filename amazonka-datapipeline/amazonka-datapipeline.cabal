@@ -17,6 +17,9 @@ description:
     movement and transformation of data. With AWS Data Pipeline, you can
     define data-driven workflows, so that tasks can be dependent on the
     successful completion of previous tasks.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

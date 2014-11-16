@@ -23,6 +23,9 @@ description:
     choose to support unauthenticated access from your application. Your
     users are provided with Cognito tokens that uniquely identify their
     device and any information provided about third-party logins.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

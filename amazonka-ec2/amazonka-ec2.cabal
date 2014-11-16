@@ -26,6 +26,9 @@ description:
     only for capacity that you actually use. Amazon EC2 provides developers
     the tools to build failure resilient applications and isolate
     themselves from common failure scenarios.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

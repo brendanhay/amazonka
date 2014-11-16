@@ -18,6 +18,9 @@ description:
     Hadoop processing combined with several AWS products to do such tasks
     as web indexing, data mining, log file analysis, machine learning,
     scientific simulation, and data warehousing.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

@@ -21,6 +21,9 @@ description:
     a sufficient number of servers to handle the request capacity specified
     by the customer and the amount of data stored, while maintaining
     consistent and fast performance.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

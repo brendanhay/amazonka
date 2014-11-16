@@ -17,6 +17,9 @@ description:
     to request temporary, limited-privilege credentials for AWS Identity
     and Access Management (IAM) users or for users that you authenticate
     (federated users).
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

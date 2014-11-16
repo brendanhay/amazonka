@@ -21,6 +21,9 @@ description:
     determine how a resource was configured at any point in time. These
     capabilities enable compliance auditing, security analysis, resource
     change tracking, and troubleshooting.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

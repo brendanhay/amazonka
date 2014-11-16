@@ -21,6 +21,9 @@ description:
     need for error-prone manual operations, and the service scales with
     your infrastructure so you can easily deploy to one EC2 instance or
     thousands.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

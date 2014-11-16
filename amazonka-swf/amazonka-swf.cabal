@@ -22,6 +22,9 @@ description:
     Amazon SWF gives you full control over implementing tasks and
     coordinating them without worrying about underlying complexities such
     as tracking their progress and maintaining their state.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

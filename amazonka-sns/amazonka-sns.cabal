@@ -24,6 +24,9 @@ description:
     Queue Service (SQS) queues, or to any HTTP endpoint. To prevent
     messages from being lost, all messages published to Amazon SNS are
     stored redundantly across multiple availability zones.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

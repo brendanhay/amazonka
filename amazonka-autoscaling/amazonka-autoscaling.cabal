@@ -22,6 +22,9 @@ description:
     hourly, daily, or weekly variability in usage. Auto Scaling is enabled
     by Amazon CloudWatch and available at no additional charge beyond
     Amazon CloudWatch fees.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

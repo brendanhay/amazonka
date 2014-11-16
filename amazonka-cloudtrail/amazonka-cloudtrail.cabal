@@ -18,6 +18,9 @@ description:
     information includes the identity of the user, the start time of the
     AWS API call, the source IP address, the request parameters, and the
     response elements returned by the service.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

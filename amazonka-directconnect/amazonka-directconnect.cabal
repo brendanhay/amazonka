@@ -20,6 +20,9 @@ description:
     create virtual interfaces directly to the AWS cloud and Amazon Virtual
     Private Cloud, bypassing Internet service providers in your network
     path.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

@@ -20,6 +20,9 @@ description:
     inexpensive data storage infrastructure that Amazon uses to run its own
     global network of web sites. The service aims to maximize benefits of
     scale and to pass those benefits on to developers.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

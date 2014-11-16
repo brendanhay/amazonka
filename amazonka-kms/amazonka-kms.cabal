@@ -21,6 +21,9 @@ description:
     Redshift. Amazon Key Management Service is also integrated with Amazon
     CloudTrail to provide you with logs of all key usage to help meet your
     regulatory and compliance needs.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

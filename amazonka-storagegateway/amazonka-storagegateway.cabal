@@ -17,6 +17,9 @@ description:
     appliance with cloud-based storage to provide seamless and secure
     integration between your on-premises IT environment and AWS's storage
     infrastructure.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

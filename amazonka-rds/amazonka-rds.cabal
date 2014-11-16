@@ -18,6 +18,9 @@ description:
     the cloud. It provides cost-efficient and resizable capacity while
     managing time-consuming database administration tasks, freeing you up
     to focus on your applications and business.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

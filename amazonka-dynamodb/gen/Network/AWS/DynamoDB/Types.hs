@@ -797,7 +797,7 @@ keysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -- ^ 'kaaKeys'
                   -> NonEmpty Text -- ^ 'kaaAttributesToGet'
                   -> KeysAndAttributes
 keysAndAttributes p1 p2 = KeysAndAttributes
-    { _kaaKeys                     = withIso _List1 (const id) p1
+    { _kaaKeys                     = withIso (_List1 . mapping _Map) (const id) p1
     , _kaaAttributesToGet          = withIso _List1 (const id) p2
     , _kaaConsistentRead           = Nothing
     , _kaaProjectionExpression     = Nothing
@@ -842,7 +842,7 @@ kaaExpressionAttributeNames =
 -- associated with the items.
 kaaKeys :: Lens' KeysAndAttributes (NonEmpty (HashMap Text AttributeValue))
 kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a })
-    . _List1
+    . (_List1 . mapping _Map)
 
 -- | One or more attributes to retrieve from the table. These attributes can
 -- include scalars, sets, or elements of a JSON document. The attributes in

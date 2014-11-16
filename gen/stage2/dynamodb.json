@@ -1106,8 +1106,8 @@
                 "ctor": "keysAndAttributes",
                 "payload": {
                     "location": "body-json",
-                    "iso": "_List1",
-                    "lensMapping": "_List1",
+                    "iso": "(_List1 . mapping _Map)",
+                    "lensMapping": "(_List1 . mapping _Map)",
                     "default": "\u003cerror\u003e",
                     "required": true,
                     "lens": "kaaKeys",
@@ -1121,8 +1121,8 @@
                 "required": [
                     {
                         "location": "body-json",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": "(_List1 . mapping _Map)",
+                        "lensMapping": "(_List1 . mapping _Map)",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "kaaKeys",
@@ -1239,8 +1239,8 @@
                     },
                     {
                         "location": "body-json",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": "(_List1 . mapping _Map)",
+                        "lensMapping": "(_List1 . mapping _Map)",
                         "default": "\u003cerror\u003e",
                         "required": true,
                         "lens": "kaaKeys",

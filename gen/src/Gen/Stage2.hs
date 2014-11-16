@@ -248,11 +248,13 @@ typeMapping t
 
 typeIso :: Type -> Maybe Text
 typeIso = \case
-    TPrim      p   -> primIso p
-    TList1     _   -> Just "_List1"
-    TMap       _ _ -> Just "_Map"
-    TSensitive _   -> Just "_Sensitive"
-    _              -> Nothing
+    TPrim      p              -> primIso p
+    TList1     x
+        | Just y <- typeIso x -> Just ("(_List1 . mapping " <> y <> ")")
+        | otherwise           -> Just "_List1"
+    TMap       _ _            -> Just "_Map"
+    TSensitive _              -> Just "_Sensitive"
+    _                         -> Nothing
 
 primIso :: Prim -> Maybe Text
 primIso = \case

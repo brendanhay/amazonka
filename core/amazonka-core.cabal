@@ -63,7 +63,7 @@ library
     build-depends:
           aeson                 == 0.8.*
         , attoparsec            == 0.12.*
-        , base                  >= 4.6     && < 5
+        , base                  >= 4.7     && < 5
         , base16-bytestring
         , base64-bytestring
         , bifunctors

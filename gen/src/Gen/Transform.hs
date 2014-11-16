@@ -53,7 +53,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         , _cLibrary      = overrides ^. oLibrary
         , _cVersion      = overrides ^. oVersion
         , _cDescription  = help
-        , _cDependencies = []
+        , _cProtocol     = protocol
         , _cExposed      = sort $
             service ^. svNamespace : typesNamespace : operationNamespaces
         , _cOther        = sort $
@@ -468,7 +468,7 @@ shapes p m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
           -> [Text]
           -> (Text, Ref)
           -> State (HashMap Text Type) Field
-    field _ req (k, r) = do
+    field pay req (k, r) = do
         t <- require req k <$> ref r
 
         let l = r ^. refLocation
@@ -482,6 +482,7 @@ shapes p m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
             , _fType          = t
             , _fLocation      = location p s l
             , _fLocationName  = fromMaybe k n
+            , _fPayload       = Just k == pay
             , _fDocumentation = Doc <$> d
             }
 

@@ -269,9 +269,15 @@ operationNS :: Abbrev -> Text -> NS
 operationNS (Abbrev a) o = namespace [a, Text.dropWhileEnd (not . isAlpha) o]
 
 requestNS :: Protocol -> NS
-requestNS p
-    | p == Ec2 || p == Query = NS ["Network", "AWS", "Request", "Query"]
-    | otherwise              = NS ["Network", "AWS", "Request"]
+requestNS p = NS ["Network", "AWS", "Request", s]
+  where
+    s = case p of
+        Json     -> "JSON"
+        RestJson -> "JSON"
+        Xml      -> "XML"
+        RestXml  -> "XML"
+        Query    -> "Query"
+        Ec2      -> "Query"
 
 data Key
     = NoKey

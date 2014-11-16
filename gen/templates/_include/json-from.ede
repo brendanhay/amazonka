@@ -1,1 +1,2 @@
-instance FromJSON {{ type.name }}
+instance FromJSON {{ type.name }} where
+    parseJSON = genericParseJSON jsonOptions

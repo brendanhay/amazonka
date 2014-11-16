@@ -18,13 +18,13 @@ module {{ namespace }}
       {{ service.abbrev }}
     -- ** Error
     , {{ service.error }}
-{% case service.protocol %}
-{% when "json" %}
-{% when "rest-json" %}
+{% if service.protocol == "json" || service.protocol == "rest-json" %}
+    -- ** JSON
+    , jsonOptions
 {% else %}
     -- ** XML
     , xmlOptions
-{% endcase %}
+{% endif %}
 
 {% for type in types %}
     -- * {{ type.value.name }}

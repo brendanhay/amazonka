@@ -144,7 +144,7 @@
             "Network.AWS.OpsWorks.UpdateUserProfile",
             "Network.AWS.OpsWorks.UpdateVolume"
         ],
-        "dependencies": [],
+        "protocol": "json",
         "name": "Amazon OpsWorks",
         "version": "0.0.0",
         "description": "AWS OpsWorks provides a simple and flexible way to create and manage stacks and applications. With AWS OpsWorks, you can provision AWS resources, manage their configuration, deploy applications to those resources, and monitor their health."
@@ -161,20 +161,7 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "sslConfiguration",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "scCertificate",
-                    "name": "_scCertificate",
-                    "shape": "String",
-                    "locationName": "Certificate",
-                    "documentation": "\u003cp\u003eThe contents of the certificate's domain.crt file.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -277,20 +264,7 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "command",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cCommandId",
-                    "name": "_cCommandId",
-                    "shape": "String",
-                    "locationName": "CommandId",
-                    "documentation": "\u003cp\u003eThe command ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Command",
                 "type": "record",
@@ -588,20 +562,7 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "raidArray",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "raRaidArrayId",
-                    "name": "_raRaidArrayId",
-                    "shape": "String",
-                    "locationName": "RaidArrayId",
-                    "documentation": "\u003cp\u003eThe array ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "RaidArray",
                 "type": "record",
@@ -955,20 +916,7 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "elasticLoadBalancer",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "elbElasticLoadBalancerName",
-                    "name": "_elbElasticLoadBalancerName",
-                    "shape": "String",
-                    "locationName": "ElasticLoadBalancerName",
-                    "documentation": "\u003cp\u003eThe Elastic Load Balancing instance's name.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "ElasticLoadBalancer",
                 "type": "record",
@@ -1238,20 +1186,7 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "rdsDbInstance",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "rdiRdsDbInstanceArn",
-                    "name": "_rdiRdsDbInstanceArn",
-                    "shape": "String",
-                    "locationName": "RdsDbInstanceArn",
-                    "documentation": "\u003cp\u003eThe instance's ARN.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "RdsDbInstance",
                 "type": "record",
@@ -1533,25 +1468,198 @@
             {
                 "deriving": [
                     "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 17,
+                "ctor": "serviceError'",
+                "payload": null,
+                "required": [],
+                "name": "ServiceError'",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seServiceErrorId",
+                        "name": "_seServiceErrorId",
+                        "shape": "String",
+                        "locationName": "ServiceErrorId",
+                        "documentation": "\u003cp\u003eThe error ID.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seStackId",
+                        "name": "_seStackId",
+                        "shape": "String",
+                        "locationName": "StackId",
+                        "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seInstanceId",
+                        "name": "_seInstanceId",
+                        "shape": "String",
+                        "locationName": "InstanceId",
+                        "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seType",
+                        "name": "_seType",
+                        "shape": "String",
+                        "locationName": "Type",
+                        "documentation": "\u003cp\u003eThe error type.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seMessage",
+                        "name": "_seMessage",
+                        "shape": "String",
+                        "locationName": "Message",
+                        "documentation": "\u003cp\u003eA message that describes the error.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seCreatedAt",
+                        "name": "_seCreatedAt",
+                        "shape": "DateTime",
+                        "locationName": "CreatedAt",
+                        "documentation": "\u003cp\u003eWhen the error occurred.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seCreatedAt",
+                        "name": "_seCreatedAt",
+                        "shape": "DateTime",
+                        "locationName": "CreatedAt",
+                        "documentation": "\u003cp\u003eWhen the error occurred.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seInstanceId",
+                        "name": "_seInstanceId",
+                        "shape": "String",
+                        "locationName": "InstanceId",
+                        "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seMessage",
+                        "name": "_seMessage",
+                        "shape": "String",
+                        "locationName": "Message",
+                        "documentation": "\u003cp\u003eA message that describes the error.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seServiceErrorId",
+                        "name": "_seServiceErrorId",
+                        "shape": "String",
+                        "locationName": "ServiceErrorId",
+                        "documentation": "\u003cp\u003eThe error ID.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seStackId",
+                        "name": "_seStackId",
+                        "shape": "String",
+                        "locationName": "StackId",
+                        "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "seType",
+                        "name": "_seType",
+                        "shape": "String",
+                        "locationName": "Type",
+                        "documentation": "\u003cp\u003eThe error type.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
                     "Show",
                     "Generic"
                 ],
                 "fieldPad": 17,
                 "ctor": "stackSummary",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ssStackId",
-                    "name": "_ssStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "StackSummary",
                 "type": "record",
@@ -1752,20 +1860,7 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "loadBasedAutoScalingConfiguration",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "lbascLayerId",
-                    "name": "_lbascLayerId",
-                    "shape": "String",
-                    "locationName": "LayerId",
-                    "documentation": "\u003cp\u003eThe layer ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "LoadBasedAutoScalingConfiguration",
                 "type": "record",
@@ -1914,20 +2009,7 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "volume",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "vVolumeId",
-                    "name": "_vVolumeId",
-                    "shape": "String",
-                    "locationName": "VolumeId",
-                    "documentation": "\u003cp\u003eThe volume ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Volume",
                 "type": "record",
@@ -2309,20 +2391,7 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "chefConfiguration",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ccManageBerkshelf",
-                    "name": "_ccManageBerkshelf",
-                    "shape": "Boolean",
-                    "locationName": "ManageBerkshelf",
-                    "documentation": "\u003cp\u003eWhether to enable Berkshelf.\u003c/p\u003e",
-                    "typeExposed": "Maybe Bool",
-                    "type": "Maybe Bool"
-                },
+                "payload": null,
                 "required": [],
                 "name": "ChefConfiguration",
                 "type": "record",
@@ -2420,20 +2489,7 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "autoScalingThresholds",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "astInstanceCount",
-                    "name": "_astInstanceCount",
-                    "shape": "Integer",
-                    "locationName": "InstanceCount",
-                    "documentation": "\u003cp\u003eThe number of instances to add or remove when the load exceeds a threshold.\u003c/p\u003e",
-                    "typeExposed": "Maybe Int",
-                    "type": "Maybe Int"
-                },
+                "payload": null,
                 "required": [],
                 "name": "AutoScalingThresholds",
                 "type": "record",
@@ -2618,20 +2674,7 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "app",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "appAppId",
-                    "name": "_appAppId",
-                    "shape": "String",
-                    "locationName": "AppId",
-                    "documentation": "\u003cp\u003eThe app ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "App",
                 "type": "record",
@@ -3013,20 +3056,7 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "elasticIp",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "eiIp",
-                    "name": "_eiIp",
-                    "shape": "String",
-                    "locationName": "Ip",
-                    "documentation": "\u003cp\u003eThe IP address.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "ElasticIp",
                 "type": "record",
@@ -3184,20 +3214,7 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "userProfile",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "upIamUserArn",
-                    "name": "_upIamUserArn",
-                    "shape": "String",
-                    "locationName": "IamUserArn",
-                    "documentation": "\u003cp\u003eThe user's IAM ARN.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "UserProfile",
                 "type": "record",
@@ -3372,20 +3389,7 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "source",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "sType",
-                    "name": "_sType",
-                    "shape": "SourceType",
-                    "locationName": "Type",
-                    "documentation": "\u003cp\u003eThe repository type.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Source",
                 "type": "record",
@@ -3571,20 +3575,7 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "dataSource",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dsType",
-                    "name": "_dsType",
-                    "shape": "String",
-                    "locationName": "Type",
-                    "documentation": "\u003cp\u003eThe data source's type, \u003ccode\u003eAutoSelectOpsworksMysqlInstance\u003c/code\u003e, \u003ccode\u003eOpsworksMysqlInstance\u003c/code\u003e, or \u003ccode\u003eRdsDbInstance\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "DataSource",
                 "type": "record",
@@ -3703,20 +3694,7 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "stackConfigurationManager",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "scmName",
-                    "name": "_scmName",
-                    "shape": "String",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe name. This parameter must be set to \"Chef\".\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "StackConfigurationManager",
                 "type": "record",
@@ -3786,205 +3764,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
-                ],
-                "fieldPad": 17,
-                "ctor": "serviceError",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "seServiceErrorId",
-                    "name": "_seServiceErrorId",
-                    "shape": "String",
-                    "locationName": "ServiceErrorId",
-                    "documentation": "\u003cp\u003eThe error ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "ServiceError",
-                "type": "record",
-                "optional": [
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seServiceErrorId",
-                        "name": "_seServiceErrorId",
-                        "shape": "String",
-                        "locationName": "ServiceErrorId",
-                        "documentation": "\u003cp\u003eThe error ID.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seStackId",
-                        "name": "_seStackId",
-                        "shape": "String",
-                        "locationName": "StackId",
-                        "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seInstanceId",
-                        "name": "_seInstanceId",
-                        "shape": "String",
-                        "locationName": "InstanceId",
-                        "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seType",
-                        "name": "_seType",
-                        "shape": "String",
-                        "locationName": "Type",
-                        "documentation": "\u003cp\u003eThe error type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seMessage",
-                        "name": "_seMessage",
-                        "shape": "String",
-                        "locationName": "Message",
-                        "documentation": "\u003cp\u003eA message that describes the error.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seCreatedAt",
-                        "name": "_seCreatedAt",
-                        "shape": "DateTime",
-                        "locationName": "CreatedAt",
-                        "documentation": "\u003cp\u003eWhen the error occurred.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seCreatedAt",
-                        "name": "_seCreatedAt",
-                        "shape": "DateTime",
-                        "locationName": "CreatedAt",
-                        "documentation": "\u003cp\u003eWhen the error occurred.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seInstanceId",
-                        "name": "_seInstanceId",
-                        "shape": "String",
-                        "locationName": "InstanceId",
-                        "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seMessage",
-                        "name": "_seMessage",
-                        "shape": "String",
-                        "locationName": "Message",
-                        "documentation": "\u003cp\u003eA message that describes the error.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seServiceErrorId",
-                        "name": "_seServiceErrorId",
-                        "shape": "String",
-                        "locationName": "ServiceErrorId",
-                        "documentation": "\u003cp\u003eThe error ID.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seStackId",
-                        "name": "_seStackId",
-                        "shape": "String",
-                        "locationName": "StackId",
-                        "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "body-json",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "seType",
-                        "name": "_seType",
-                        "shape": "String",
-                        "locationName": "Type",
-                        "documentation": "\u003cp\u003eThe error type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
                     "Generic",
                     "Enum"
                 ],
@@ -4028,20 +3807,7 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "volumeConfiguration",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "vcMountPoint",
-                    "name": "_vcMountPoint",
-                    "shape": "String",
-                    "locationName": "MountPoint",
-                    "documentation": "\u003cp\u003eThe volume mount point. For example \"/dev/sdh\".\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -4228,20 +3994,7 @@
                 ],
                 "fieldPad": 12,
                 "ctor": "permission",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "pStackId",
-                    "name": "_pStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eA stack ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Permission",
                 "type": "record",
@@ -4398,20 +4151,7 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "layer",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "lStackId",
-                    "name": "_lStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe layer stack ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Layer",
                 "type": "record",
@@ -4961,20 +4701,7 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "recipes",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "rSetup",
-                    "name": "_rSetup",
-                    "shape": "Strings",
-                    "locationName": "Setup",
-                    "documentation": "\u003cp\u003eAn array of custom recipe names to be run following a \u003ccode\u003esetup\u003c/code\u003e event.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Recipes",
                 "type": "record",
@@ -5131,20 +4858,7 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "timeBasedAutoScalingConfiguration",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tbascInstanceId",
-                    "name": "_tbascInstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "TimeBasedAutoScalingConfiguration",
                 "type": "record",
@@ -5218,20 +4932,7 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "selfUserProfile",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "supIamUserArn",
-                    "name": "_supIamUserArn",
-                    "shape": "String",
-                    "locationName": "IamUserArn",
-                    "documentation": "\u003cp\u003eThe user's IAM ARN.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "SelfUserProfile",
                 "type": "record",
@@ -5377,20 +5078,7 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "stack",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "sStackId",
-                    "name": "_sStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Stack",
                 "type": "record",
@@ -5995,20 +5683,7 @@
                 ],
                 "fieldPad": 7,
                 "ctor": "deploymentCommand",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dcName",
-                    "name": "_dcName",
-                    "shape": "DeploymentCommandName",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eSpecifies the operation. You can specify only one command.\u003c/p\u003e \u003cp\u003eFor stacks, the following commands are available:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eexecute_recipes\u003c/code\u003e: Execute one or more recipes. To specify the recipes, set an \u003ccode\u003eArgs\u003c/code\u003e parameter named \u003ccode\u003erecipes\u003c/code\u003e to the list of recipes to be executed. For example, to execute \u003ccode\u003ephpapp::appsetup\u003c/code\u003e, set \u003ccode\u003eArgs\u003c/code\u003e to \u003ccode\u003e{\"recipes\":[\"phpapp::appsetup\"]}\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003einstall_dependencies\u003c/code\u003e: Install the stack's dependencies.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eupdate_custom_cookbooks\u003c/code\u003e: Update the stack's custom cookbooks.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eupdate_dependencies\u003c/code\u003e: Update the stack's dependencies.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor apps, the following commands are available:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003edeploy\u003c/code\u003e: Deploy an app. Rails apps have an optional \u003ccode\u003eArgs\u003c/code\u003e parameter named \u003ccode\u003emigrate\u003c/code\u003e. Set \u003ccode\u003eArgs\u003c/code\u003e to {\"migrate\":[\"true\"]} to migrate the database. The default setting is {\"migrate\":[\"false\"]}.\u003c/li\u003e \u003cli\u003e \u003ccode\u003erollback\u003c/code\u003e Roll the app back to the previous version. When you update an app, AWS OpsWorks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.\u003c/li\u003e \u003cli\u003e \u003ccode\u003estart\u003c/code\u003e: Start the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003estop\u003c/code\u003e: Stop the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003erestart\u003c/code\u003e: Restart the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eundeploy\u003c/code\u003e: Undeploy the app.\u003c/li\u003e \u003c/ul\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -6082,20 +5757,7 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "weeklyAutoScalingSchedule",
-                "payload": {
-                    "location": "body-json",
-                    "iso": "_Map",
-                    "lensMapping": "_Map",
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "wassMonday",
-                    "name": "_wassMonday",
-                    "shape": "DailyAutoScalingSchedule",
-                    "locationName": "Monday",
-                    "documentation": "\u003cp\u003eThe schedule for Monday.\u003c/p\u003e",
-                    "typeExposed": "HashMap Text Text",
-                    "type": "Map Text Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "WeeklyAutoScalingSchedule",
                 "type": "record",
@@ -6334,20 +5996,7 @@
                 ],
                 "fieldPad": 26,
                 "ctor": "instance'",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "iInstanceId",
-                    "name": "_iInstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Instance",
                 "type": "record",
@@ -7204,20 +6853,7 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "deployment",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dDeploymentId",
-                    "name": "_dDeploymentId",
-                    "shape": "String",
-                    "locationName": "DeploymentId",
-                    "documentation": "\u003cp\u003eThe deployment ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Deployment",
                 "type": "record",
@@ -7571,20 +7207,7 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "instancesCount",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "icBooting",
-                    "name": "_icBooting",
-                    "shape": "Integer",
-                    "locationName": "Booting",
-                    "documentation": "\u003cp\u003eThe number of instances with \u003ccode\u003ebooting\u003c/code\u003e status.\u003c/p\u003e",
-                    "typeExposed": "Maybe Int",
-                    "type": "Maybe Int"
-                },
+                "payload": null,
                 "required": [],
                 "name": "InstancesCount",
                 "type": "record",
@@ -8033,7 +7656,7 @@
             "namespace": "Network.AWS.OpsWorks.AssignVolume",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "AssignVolume",
@@ -8056,20 +7679,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "avVolumeId",
-                    "name": "_avVolumeId",
-                    "shape": "String",
-                    "locationName": "VolumeId",
-                    "documentation": "\u003cp\u003eThe volume ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -8164,7 +7774,7 @@
             "namespace": "Network.AWS.OpsWorks.AssociateElasticIp",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "AssociateElasticIp",
@@ -8187,20 +7797,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "aeiElasticIp",
-                    "name": "_aeiElasticIp",
-                    "shape": "String",
-                    "locationName": "ElasticIp",
-                    "documentation": "\u003cp\u003eThe Elastic IP address.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -8295,7 +7892,7 @@
             "namespace": "Network.AWS.OpsWorks.AttachElasticLoadBalancer",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "AttachElasticLoadBalancer",
@@ -8318,20 +7915,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "aelbElasticLoadBalancerName",
-                    "name": "_aelbElasticLoadBalancerName",
-                    "shape": "String",
-                    "locationName": "ElasticLoadBalancerName",
-                    "documentation": "\u003cp\u003eThe Elastic Load Balancing instance's name.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -8430,20 +8014,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "csrStackId",
-                    "name": "_csrStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe cloned stack ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "CloneStackResponse",
@@ -8485,7 +8056,7 @@
             "namespace": "Network.AWS.OpsWorks.CloneStack",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "CloneStack",
@@ -8507,20 +8078,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "cs1SourceStackId",
-                    "name": "_cs1SourceStackId",
-                    "shape": "String",
-                    "locationName": "SourceStackId",
-                    "documentation": "\u003cp\u003eThe source stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -9152,20 +8710,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "carAppId",
-                    "name": "_carAppId",
-                    "shape": "String",
-                    "locationName": "AppId",
-                    "documentation": "\u003cp\u003eThe app ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "CreateAppResponse",
@@ -9207,7 +8752,7 @@
             "namespace": "Network.AWS.OpsWorks.CreateApp",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "CreateApp",
@@ -9229,20 +8774,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "caStackId",
-                    "name": "_caStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -9594,20 +9126,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cdrDeploymentId",
-                    "name": "_cdrDeploymentId",
-                    "shape": "String",
-                    "locationName": "DeploymentId",
-                    "documentation": "\u003cp\u003eThe deployment ID, which can be used with other requests to identify the deployment.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "CreateDeploymentResponse",
@@ -9649,7 +9168,7 @@
             "namespace": "Network.AWS.OpsWorks.CreateDeployment",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "CreateDeployment",
@@ -9671,20 +9190,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "cdStackId",
-                    "name": "_cdStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -9896,20 +9402,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cirInstanceId",
-                    "name": "_cirInstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "CreateInstanceResponse",
@@ -9951,7 +9444,7 @@
             "namespace": "Network.AWS.OpsWorks.CreateInstance",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "CreateInstance",
@@ -9974,20 +9467,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ciStackId",
-                    "name": "_ciStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -10451,20 +9931,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "clrLayerId",
-                    "name": "_clrLayerId",
-                    "shape": "String",
-                    "locationName": "LayerId",
-                    "documentation": "\u003cp\u003eThe layer ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "CreateLayerResponse",
@@ -10506,7 +9973,7 @@
             "namespace": "Network.AWS.OpsWorks.CreateLayer",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "CreateLayer",
@@ -10528,20 +9995,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "clStackId",
-                    "name": "_clStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe layer stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -11005,20 +10459,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "csr1StackId",
-                    "name": "_csr1StackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID, which is an opaque string that you use to identify the stack when performing actions such as \u003ccode\u003eDescribeStacks\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "CreateStackResponse",
@@ -11060,7 +10501,7 @@
             "namespace": "Network.AWS.OpsWorks.CreateStack",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "CreateStack",
@@ -11082,20 +10523,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "csName",
-                    "name": "_csName",
-                    "shape": "String",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe stack name.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -11643,20 +11071,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cuprIamUserArn",
-                    "name": "_cuprIamUserArn",
-                    "shape": "String",
-                    "locationName": "IamUserArn",
-                    "documentation": "\u003cp\u003eThe user's IAM ARN.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "CreateUserProfileResponse",
@@ -11698,7 +11113,7 @@
             "namespace": "Network.AWS.OpsWorks.CreateUserProfile",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "CreateUserProfile",
@@ -11721,20 +11136,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "cupIamUserArn",
-                    "name": "_cupIamUserArn",
-                    "shape": "String",
-                    "locationName": "IamUserArn",
-                    "documentation": "\u003cp\u003eThe user's IAM ARN.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -11885,7 +11287,7 @@
             "namespace": "Network.AWS.OpsWorks.DeleteApp",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DeleteApp",
@@ -11925,20 +11327,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "daAppId",
-                    "name": "_daAppId",
-                    "shape": "String",
-                    "locationName": "AppId",
-                    "documentation": "\u003cp\u003eThe app ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -12004,7 +11393,7 @@
             "namespace": "Network.AWS.OpsWorks.DeleteInstance",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DeleteInstance",
@@ -12027,20 +11416,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "diInstanceId",
-                    "name": "_diInstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -12163,7 +11539,7 @@
             "namespace": "Network.AWS.OpsWorks.DeleteLayer",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DeleteLayer",
@@ -12203,20 +11579,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dlLayerId",
-                    "name": "_dlLayerId",
-                    "shape": "String",
-                    "locationName": "LayerId",
-                    "documentation": "\u003cp\u003eThe layer ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -12282,7 +11645,7 @@
             "namespace": "Network.AWS.OpsWorks.DeleteStack",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DeleteStack",
@@ -12322,20 +11685,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dsStackId",
-                    "name": "_dsStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -12401,7 +11751,7 @@
             "namespace": "Network.AWS.OpsWorks.DeleteUserProfile",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DeleteUserProfile",
@@ -12441,20 +11791,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dupIamUserArn",
-                    "name": "_dupIamUserArn",
-                    "shape": "String",
-                    "locationName": "IamUserArn",
-                    "documentation": "\u003cp\u003eThe user's IAM ARN.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -12520,7 +11857,7 @@
             "namespace": "Network.AWS.OpsWorks.DeregisterElasticIp",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DeregisterElasticIp",
@@ -12560,20 +11897,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dei1ElasticIp",
-                    "name": "_dei1ElasticIp",
-                    "shape": "String",
-                    "locationName": "ElasticIp",
-                    "documentation": "\u003cp\u003eThe Elastic IP address.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -12639,7 +11963,7 @@
             "namespace": "Network.AWS.OpsWorks.DeregisterRdsDbInstance",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DeregisterRdsDbInstance",
@@ -12679,20 +12003,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "drdiRdsDbInstanceArn",
-                    "name": "_drdiRdsDbInstanceArn",
-                    "shape": "String",
-                    "locationName": "RdsDbInstanceArn",
-                    "documentation": "\u003cp\u003eThe Amazon RDS instance's ARN.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -12758,7 +12069,7 @@
             "namespace": "Network.AWS.OpsWorks.DeregisterVolume",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DeregisterVolume",
@@ -12798,20 +12109,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dvVolumeId",
-                    "name": "_dvVolumeId",
-                    "shape": "String",
-                    "locationName": "VolumeId",
-                    "documentation": "\u003cp\u003eThe volume ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -12882,20 +12180,7 @@
                     "type": "[App]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "darApps",
-                    "name": "_darApps",
-                    "shape": "Apps",
-                    "locationName": "Apps",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003eApp\u003c/code\u003e objects that describe the specified apps. \u003c/p\u003e",
-                    "typeExposed": "[App]",
-                    "type": "[App]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeAppsResponse",
@@ -12937,7 +12222,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeApps",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeApps",
@@ -12960,20 +12245,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "daStackId",
-                    "name": "_daStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe app stack ID. If you use this parameter, \u003ccode\u003eDescribeApps\u003c/code\u003e returns a description of the apps in the specified stack.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -13072,20 +12344,7 @@
                     "type": "[Command]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dcrCommands",
-                    "name": "_dcrCommands",
-                    "shape": "Commands",
-                    "locationName": "Commands",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003eCommand\u003c/code\u003e objects that describe each of the specified commands.\u003c/p\u003e",
-                    "typeExposed": "[Command]",
-                    "type": "[Command]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeCommandsResponse",
@@ -13127,7 +12386,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeCommands",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeCommands",
@@ -13150,20 +12409,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dcDeploymentId",
-                    "name": "_dcDeploymentId",
-                    "shape": "String",
-                    "locationName": "DeploymentId",
-                    "documentation": "\u003cp\u003eThe deployment ID. If you include this parameter, \u003ccode\u003eDescribeCommands\u003c/code\u003e returns a description of the commands associated with the specified deployment.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -13290,20 +12536,7 @@
                     "type": "[Deployment]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "ddrDeployments",
-                    "name": "_ddrDeployments",
-                    "shape": "Deployments",
-                    "locationName": "Deployments",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003eDeployment\u003c/code\u003e objects that describe the deployments.\u003c/p\u003e",
-                    "typeExposed": "[Deployment]",
-                    "type": "[Deployment]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeDeploymentsResponse",
@@ -13345,7 +12578,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeDeployments",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeDeployments",
@@ -13368,20 +12601,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ddStackId",
-                    "name": "_ddStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID. If you include this parameter, \u003ccode\u003eDescribeDeployments\u003c/code\u003e returns a description of the commands associated with the specified stack.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -13508,20 +12728,7 @@
                     "type": "[ElasticIp]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "deirElasticIps",
-                    "name": "_deirElasticIps",
-                    "shape": "ElasticIps",
-                    "locationName": "ElasticIps",
-                    "documentation": "\u003cp\u003eAn \u003ccode\u003eElasticIps\u003c/code\u003e object that describes the specified Elastic IP addresses.\u003c/p\u003e",
-                    "typeExposed": "[ElasticIp]",
-                    "type": "[ElasticIp]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeElasticIpsResponse",
@@ -13563,7 +12770,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeElasticIps",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeElasticIps",
@@ -13586,20 +12793,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "deiInstanceId",
-                    "name": "_deiInstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID. If you include this parameter, \u003ccode\u003eDescribeElasticIps\u003c/code\u003e returns a description of the Elastic IP addresses associated with the specified instance.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -13726,20 +12920,7 @@
                     "type": "[ElasticLoadBalancer]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "delbrElasticLoadBalancers",
-                    "name": "_delbrElasticLoadBalancers",
-                    "shape": "ElasticLoadBalancers",
-                    "locationName": "ElasticLoadBalancers",
-                    "documentation": "\u003cp\u003eA list of \u003ccode\u003eElasticLoadBalancer\u003c/code\u003e objects that describe the specified Elastic Load Balancing instances.\u003c/p\u003e",
-                    "typeExposed": "[ElasticLoadBalancer]",
-                    "type": "[ElasticLoadBalancer]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeElasticLoadBalancersResponse",
@@ -13781,7 +12962,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeElasticLoadBalancers",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeElasticLoadBalancers",
@@ -13804,20 +12985,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "delbStackId",
-                    "name": "_delbStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eA stack ID. The action describes the stack's Elastic Load Balancing instances.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -13916,20 +13084,7 @@
                     "type": "[Instance]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dirInstances",
-                    "name": "_dirInstances",
-                    "shape": "Instances",
-                    "locationName": "Instances",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003eInstance\u003c/code\u003e objects that describe the instances.\u003c/p\u003e",
-                    "typeExposed": "[Instance]",
-                    "type": "[Instance]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeInstancesResponse",
@@ -13971,7 +13126,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeInstances",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeInstances",
@@ -13994,20 +13149,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "diStackId",
-                    "name": "_diStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eA stack ID. If you use this parameter, \u003ccode\u003eDescribeInstances\u003c/code\u003e returns descriptions of the instances associated with the specified stack.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -14134,20 +13276,7 @@
                     "type": "[Layer]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dlrLayers",
-                    "name": "_dlrLayers",
-                    "shape": "Layers",
-                    "locationName": "Layers",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003eLayer\u003c/code\u003e objects that describe the layers.\u003c/p\u003e",
-                    "typeExposed": "[Layer]",
-                    "type": "[Layer]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeLayersResponse",
@@ -14189,7 +13318,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeLayers",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeLayers",
@@ -14212,20 +13341,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dlStackId",
-                    "name": "_dlStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -14324,20 +13440,7 @@
                     "type": "[LoadBasedAutoScalingConfiguration]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dlbasrLoadBasedAutoScalingConfigurations",
-                    "name": "_dlbasrLoadBasedAutoScalingConfigurations",
-                    "shape": "LoadBasedAutoScalingConfigurations",
-                    "locationName": "LoadBasedAutoScalingConfigurations",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003eLoadBasedAutoScalingConfiguration\u003c/code\u003e objects that describe each layer's configuration.\u003c/p\u003e",
-                    "typeExposed": "[LoadBasedAutoScalingConfiguration]",
-                    "type": "[LoadBasedAutoScalingConfiguration]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeLoadBasedAutoScalingResponse",
@@ -14379,7 +13482,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeLoadBasedAutoScaling",
@@ -14419,20 +13522,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dlbasLayerIds",
-                    "name": "_dlbasLayerIds",
-                    "shape": "Strings",
-                    "locationName": "LayerIds",
-                    "documentation": "\u003cp\u003eAn array of layer IDs.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -14501,20 +13591,7 @@
                     "type": "Maybe SelfUserProfile"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dmuprUserProfile",
-                    "name": "_dmuprUserProfile",
-                    "shape": "SelfUserProfile",
-                    "locationName": "UserProfile",
-                    "documentation": "\u003cp\u003eA \u003ccode\u003eUserProfile\u003c/code\u003e object that describes the user's SSH information.\u003c/p\u003e",
-                    "typeExposed": "Maybe SelfUserProfile",
-                    "type": "Maybe SelfUserProfile"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeMyUserProfileResponse",
@@ -14556,7 +13633,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeMyUserProfile",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeMyUserProfile",
@@ -14619,20 +13696,7 @@
                     "type": "[Permission]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dprPermissions",
-                    "name": "_dprPermissions",
-                    "shape": "Permissions",
-                    "locationName": "Permissions",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003ePermission\u003c/code\u003e objects that describe the stack permissions.\u003c/p\u003e \u003cul\u003e \u003cli\u003eIf the request object contains only a stack ID, the array contains a \u003ccode\u003ePermission\u003c/code\u003e object with permissions for each of the stack IAM ARNs.\u003c/li\u003e \u003cli\u003eIf the request object contains only an IAM ARN, the array contains a \u003ccode\u003ePermission\u003c/code\u003e object with permissions for each of the user's stack IDs.\u003c/li\u003e \u003cli\u003eIf the request contains a stack ID and an IAM ARN, the array contains a single \u003ccode\u003ePermission\u003c/code\u003e object with permissions for the specified stack and IAM ARN.\u003c/li\u003e \u003c/ul\u003e",
-                    "typeExposed": "[Permission]",
-                    "type": "[Permission]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribePermissionsResponse",
@@ -14674,7 +13738,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribePermissions",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribePermissions",
@@ -14697,20 +13761,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dpIamUserArn",
-                    "name": "_dpIamUserArn",
-                    "shape": "String",
-                    "locationName": "IamUserArn",
-                    "documentation": "\u003cp\u003eThe user's IAM ARN. For more information about IAM ARNs, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\"\u003eUsing Identifiers\u003c/a\u003e.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -14809,20 +13860,7 @@
                     "type": "[RaidArray]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "drarRaidArrays",
-                    "name": "_drarRaidArrays",
-                    "shape": "RaidArrays",
-                    "locationName": "RaidArrays",
-                    "documentation": "\u003cp\u003eA \u003ccode\u003eRaidArrays\u003c/code\u003e object that describes the specified RAID arrays.\u003c/p\u003e",
-                    "typeExposed": "[RaidArray]",
-                    "type": "[RaidArray]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeRaidArraysResponse",
@@ -14864,7 +13902,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeRaidArrays",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeRaidArrays",
@@ -14887,20 +13925,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "draInstanceId",
-                    "name": "_draInstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID. If you use this parameter, \u003ccode\u003eDescribeRaidArrays\u003c/code\u003e returns descriptions of the RAID arrays associated with the specified instance. \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -14999,20 +14024,7 @@
                     "type": "[RdsDbInstance]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "drdirRdsDbInstances",
-                    "name": "_drdirRdsDbInstances",
-                    "shape": "RdsDbInstances",
-                    "locationName": "RdsDbInstances",
-                    "documentation": "\u003cp\u003eAn a array of \u003ccode\u003eRdsDbInstance\u003c/code\u003e objects that describe the instances.\u003c/p\u003e",
-                    "typeExposed": "[RdsDbInstance]",
-                    "type": "[RdsDbInstance]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeRdsDbInstancesResponse",
@@ -15054,7 +14066,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeRdsDbInstances",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeRdsDbInstances",
@@ -15077,20 +14089,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "drdiStackId",
-                    "name": "_drdiStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID that the instances are registered with. The operation returns descriptions of all registered Amazon RDS instances.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -15172,7 +14171,7 @@
                     "Semigroup"
                 ],
                 "streaming": false,
-                "listElement": "ServiceError",
+                "listElement": "ServiceError'",
                 "fieldPad": 0,
                 "ctor": "describeServiceErrorsResponse",
                 "field": {
@@ -15186,24 +14185,11 @@
                     "shape": "ServiceErrors",
                     "locationName": "ServiceErrors",
                     "documentation": "\u003cp\u003eAn array of \u003ccode\u003eServiceError\u003c/code\u003e objects that describe the specified service errors.\u003c/p\u003e",
-                    "typeExposed": "[ServiceError]",
-                    "type": "[ServiceError]"
+                    "typeExposed": "[ServiceError']",
+                    "type": "[ServiceError']"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dserServiceErrors",
-                    "name": "_dserServiceErrors",
-                    "shape": "ServiceErrors",
-                    "locationName": "ServiceErrors",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003eServiceError\u003c/code\u003e objects that describe the specified service errors.\u003c/p\u003e",
-                    "typeExposed": "[ServiceError]",
-                    "type": "[ServiceError]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeServiceErrorsResponse",
@@ -15221,8 +14207,8 @@
                         "shape": "ServiceErrors",
                         "locationName": "ServiceErrors",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eServiceError\u003c/code\u003e objects that describe the specified service errors.\u003c/p\u003e",
-                        "typeExposed": "[ServiceError]",
-                        "type": "[ServiceError]"
+                        "typeExposed": "[ServiceError']",
+                        "type": "[ServiceError']"
                     }
                 ],
                 "fields": [
@@ -15237,15 +14223,15 @@
                         "shape": "ServiceErrors",
                         "locationName": "ServiceErrors",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eServiceError\u003c/code\u003e objects that describe the specified service errors.\u003c/p\u003e",
-                        "typeExposed": "[ServiceError]",
-                        "type": "[ServiceError]"
+                        "typeExposed": "[ServiceError']",
+                        "type": "[ServiceError']"
                     }
                 ]
             },
             "namespace": "Network.AWS.OpsWorks.DescribeServiceErrors",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeServiceErrors",
@@ -15268,20 +14254,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dseStackId",
-                    "name": "_dseStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID. If you use this parameter, \u003ccode\u003eDescribeServiceErrors\u003c/code\u003e returns descriptions of the errors associated with the specified stack.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -15406,20 +14379,7 @@
                     "type": "Maybe StackSummary"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dssrStackSummary",
-                    "name": "_dssrStackSummary",
-                    "shape": "StackSummary",
-                    "locationName": "StackSummary",
-                    "documentation": "\u003cp\u003eA \u003ccode\u003eStackSummary\u003c/code\u003e object that contains the results.\u003c/p\u003e",
-                    "typeExposed": "Maybe StackSummary",
-                    "type": "Maybe StackSummary"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeStackSummaryResponse",
@@ -15461,7 +14421,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeStackSummary",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeStackSummary",
@@ -15501,20 +14461,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dssStackId",
-                    "name": "_dssStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -15585,20 +14532,7 @@
                     "type": "[Stack]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dsrStacks",
-                    "name": "_dsrStacks",
-                    "shape": "Stacks",
-                    "locationName": "Stacks",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003eStack\u003c/code\u003e objects that describe the stacks.\u003c/p\u003e",
-                    "typeExposed": "[Stack]",
-                    "type": "[Stack]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeStacksResponse",
@@ -15640,7 +14574,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeStacks",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeStacks",
@@ -15680,20 +14614,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dsStackIds",
-                    "name": "_dsStackIds",
-                    "shape": "Strings",
-                    "locationName": "StackIds",
-                    "documentation": "\u003cp\u003eAn array of stack IDs that specify the stacks to be described. If you omit this parameter, \u003ccode\u003eDescribeStacks\u003c/code\u003e returns a description of every stack.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -15764,20 +14685,7 @@
                     "type": "[TimeBasedAutoScalingConfiguration]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dtbasrTimeBasedAutoScalingConfigurations",
-                    "name": "_dtbasrTimeBasedAutoScalingConfigurations",
-                    "shape": "TimeBasedAutoScalingConfigurations",
-                    "locationName": "TimeBasedAutoScalingConfigurations",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003eTimeBasedAutoScalingConfiguration\u003c/code\u003e objects that describe the configuration for the specified instances.\u003c/p\u003e",
-                    "typeExposed": "[TimeBasedAutoScalingConfiguration]",
-                    "type": "[TimeBasedAutoScalingConfiguration]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeTimeBasedAutoScalingResponse",
@@ -15819,7 +14727,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeTimeBasedAutoScaling",
@@ -15859,20 +14767,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dtbasInstanceIds",
-                    "name": "_dtbasInstanceIds",
-                    "shape": "Strings",
-                    "locationName": "InstanceIds",
-                    "documentation": "\u003cp\u003eAn array of instance IDs.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -15943,20 +14838,7 @@
                     "type": "[UserProfile]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "duprUserProfiles",
-                    "name": "_duprUserProfiles",
-                    "shape": "UserProfiles",
-                    "locationName": "UserProfiles",
-                    "documentation": "\u003cp\u003eA \u003ccode\u003eUsers\u003c/code\u003e object that describes the specified users.\u003c/p\u003e",
-                    "typeExposed": "[UserProfile]",
-                    "type": "[UserProfile]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeUserProfilesResponse",
@@ -15998,7 +14880,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeUserProfiles",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeUserProfiles",
@@ -16038,20 +14920,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dupIamUserArns",
-                    "name": "_dupIamUserArns",
-                    "shape": "Strings",
-                    "locationName": "IamUserArns",
-                    "documentation": "\u003cp\u003eAn array of IAM user ARNs that identify the users to be described. \u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -16122,20 +14991,7 @@
                     "type": "[Volume]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dvrVolumes",
-                    "name": "_dvrVolumes",
-                    "shape": "Volumes",
-                    "locationName": "Volumes",
-                    "documentation": "\u003cp\u003eAn array of volume IDs.\u003c/p\u003e",
-                    "typeExposed": "[Volume]",
-                    "type": "[Volume]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "DescribeVolumesResponse",
@@ -16177,7 +15033,7 @@
             "namespace": "Network.AWS.OpsWorks.DescribeVolumes",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DescribeVolumes",
@@ -16200,20 +15056,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dvInstanceId",
-                    "name": "_dvInstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID. If you use this parameter, \u003ccode\u003eDescribeVolumes\u003c/code\u003e returns descriptions of the volumes associated with the specified instance.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -16363,7 +15206,7 @@
             "namespace": "Network.AWS.OpsWorks.DetachElasticLoadBalancer",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DetachElasticLoadBalancer",
@@ -16386,20 +15229,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "delbElasticLoadBalancerName",
-                    "name": "_delbElasticLoadBalancerName",
-                    "shape": "String",
-                    "locationName": "ElasticLoadBalancerName",
-                    "documentation": "\u003cp\u003eThe Elastic Load Balancing instance's name.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -16493,7 +15323,7 @@
             "namespace": "Network.AWS.OpsWorks.DisassociateElasticIp",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "DisassociateElasticIp",
@@ -16533,20 +15363,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "deiElasticIp",
-                    "name": "_deiElasticIp",
-                    "shape": "String",
-                    "locationName": "ElasticIp",
-                    "documentation": "\u003cp\u003eThe Elastic IP address.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -16601,20 +15418,7 @@
                 "fieldPad": 13,
                 "ctor": "getHostnameSuggestionResponse",
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ghsrLayerId",
-                    "name": "_ghsrLayerId",
-                    "shape": "String",
-                    "locationName": "LayerId",
-                    "documentation": "\u003cp\u003eThe layer ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "GetHostnameSuggestionResponse",
@@ -16684,7 +15488,7 @@
             "namespace": "Network.AWS.OpsWorks.GetHostnameSuggestion",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "GetHostnameSuggestion",
@@ -16724,20 +15528,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ghsLayerId",
-                    "name": "_ghsLayerId",
-                    "shape": "String",
-                    "locationName": "LayerId",
-                    "documentation": "\u003cp\u003eThe layer ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -16803,7 +15594,7 @@
             "namespace": "Network.AWS.OpsWorks.RebootInstance",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "RebootInstance",
@@ -16843,20 +15634,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "riInstanceId",
-                    "name": "_riInstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -16927,20 +15705,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "reirElasticIp",
-                    "name": "_reirElasticIp",
-                    "shape": "String",
-                    "locationName": "ElasticIp",
-                    "documentation": "\u003cp\u003eThe Elastic IP address.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "RegisterElasticIpResponse",
@@ -16982,7 +15747,7 @@
             "namespace": "Network.AWS.OpsWorks.RegisterElasticIp",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "RegisterElasticIp",
@@ -17005,20 +15770,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "reiElasticIp",
-                    "name": "_reiElasticIp",
-                    "shape": "String",
-                    "locationName": "ElasticIp",
-                    "documentation": "\u003cp\u003eThe Elastic IP address.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -17112,7 +15864,7 @@
             "namespace": "Network.AWS.OpsWorks.RegisterRdsDbInstance",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "RegisterRdsDbInstance",
@@ -17135,20 +15887,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "rrdiStackId",
-                    "name": "_rrdiStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -17303,20 +16042,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "rvrVolumeId",
-                    "name": "_rvrVolumeId",
-                    "shape": "String",
-                    "locationName": "VolumeId",
-                    "documentation": "\u003cp\u003eThe volume ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "name": "RegisterVolumeResponse",
@@ -17358,7 +16084,7 @@
             "namespace": "Network.AWS.OpsWorks.RegisterVolume",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "RegisterVolume",
@@ -17381,20 +16107,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "rvEc2VolumeId",
-                    "name": "_rvEc2VolumeId",
-                    "shape": "String",
-                    "locationName": "Ec2VolumeId",
-                    "documentation": "\u003cp\u003eThe Amazon EBS volume ID.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -17489,7 +16202,7 @@
             "namespace": "Network.AWS.OpsWorks.SetLoadBasedAutoScaling",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "SetLoadBasedAutoScaling",
@@ -17511,20 +16224,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "slbasLayerId",
-                    "name": "_slbasLayerId",
-                    "shape": "String",
-                    "locationName": "LayerId",
-                    "documentation": "\u003cp\u003eThe layer ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -17675,7 +16375,7 @@
             "namespace": "Network.AWS.OpsWorks.SetPermission",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "SetPermission",
@@ -17698,20 +16398,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "spStackId",
-                    "name": "_spStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -17890,7 +16577,7 @@
             "namespace": "Network.AWS.OpsWorks.SetTimeBasedAutoScaling",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "SetTimeBasedAutoScaling",
@@ -17912,20 +16599,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "stbasInstanceId",
-                    "name": "_stbasInstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -18020,7 +16694,7 @@
             "namespace": "Network.AWS.OpsWorks.StartInstance",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "StartInstance",
@@ -18060,20 +16734,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "si1InstanceId",
-                    "name": "_si1InstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -18139,7 +16800,7 @@
             "namespace": "Network.AWS.OpsWorks.StartStack",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "StartStack",
@@ -18179,20 +16840,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ss2StackId",
-                    "name": "_ss2StackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -18258,7 +16906,7 @@
             "namespace": "Network.AWS.OpsWorks.StopInstance",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "StopInstance",
@@ -18298,20 +16946,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "siInstanceId",
-                    "name": "_siInstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -18377,7 +17012,7 @@
             "namespace": "Network.AWS.OpsWorks.StopStack",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "StopStack",
@@ -18417,20 +17052,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ss1StackId",
-                    "name": "_ss1StackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -18496,7 +17118,7 @@
             "namespace": "Network.AWS.OpsWorks.UnassignVolume",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "UnassignVolume",
@@ -18536,20 +17158,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "uvVolumeId",
-                    "name": "_uvVolumeId",
-                    "shape": "String",
-                    "locationName": "VolumeId",
-                    "documentation": "\u003cp\u003eThe volume ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -18615,7 +17224,7 @@
             "namespace": "Network.AWS.OpsWorks.UpdateApp",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "UpdateApp",
@@ -18637,20 +17246,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "uaAppId",
-                    "name": "_uaAppId",
-                    "shape": "String",
-                    "locationName": "AppId",
-                    "documentation": "\u003cp\u003eThe app ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -18969,7 +17565,7 @@
             "namespace": "Network.AWS.OpsWorks.UpdateElasticIp",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "UpdateElasticIp",
@@ -18992,20 +17588,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ueiElasticIp",
-                    "name": "_ueiElasticIp",
-                    "shape": "String",
-                    "locationName": "ElasticIp",
-                    "documentation": "\u003cp\u003eThe address.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -19100,7 +17683,7 @@
             "namespace": "Network.AWS.OpsWorks.UpdateInstance",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "UpdateInstance",
@@ -19123,20 +17706,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "uiInstanceId",
-                    "name": "_uiInstanceId",
-                    "shape": "String",
-                    "locationName": "InstanceId",
-                    "documentation": "\u003cp\u003eThe instance ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -19483,7 +18053,7 @@
             "namespace": "Network.AWS.OpsWorks.UpdateLayer",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "UpdateLayer",
@@ -19505,20 +18075,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ulLayerId",
-                    "name": "_ulLayerId",
-                    "shape": "String",
-                    "locationName": "LayerId",
-                    "documentation": "\u003cp\u003eThe layer ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -19949,7 +18506,7 @@
             "namespace": "Network.AWS.OpsWorks.UpdateMyUserProfile",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "UpdateMyUserProfile",
@@ -19988,20 +18545,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "umupSshPublicKey",
-                    "name": "_umupSshPublicKey",
-                    "shape": "String",
-                    "locationName": "SshPublicKey",
-                    "documentation": "\u003cp\u003eThe user's SSH public key.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -20067,7 +18611,7 @@
             "namespace": "Network.AWS.OpsWorks.UpdateRdsDbInstance",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "UpdateRdsDbInstance",
@@ -20090,20 +18634,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "urdiRdsDbInstanceArn",
-                    "name": "_urdiRdsDbInstanceArn",
-                    "shape": "String",
-                    "locationName": "RdsDbInstanceArn",
-                    "documentation": "\u003cp\u003eThe Amazon RDS instance's ARN.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -20226,7 +18757,7 @@
             "namespace": "Network.AWS.OpsWorks.UpdateStack",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "UpdateStack",
@@ -20248,20 +18779,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "usStackId",
-                    "name": "_usStackId",
-                    "shape": "String",
-                    "locationName": "StackId",
-                    "documentation": "\u003cp\u003eThe stack ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -20776,7 +19294,7 @@
             "namespace": "Network.AWS.OpsWorks.UpdateUserProfile",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "UpdateUserProfile",
@@ -20799,20 +19317,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "uupIamUserArn",
-                    "name": "_uupIamUserArn",
-                    "shape": "String",
-                    "locationName": "IamUserArn",
-                    "documentation": "\u003cp\u003eThe user IAM ARN.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",
@@ -20963,7 +19468,7 @@
             "namespace": "Network.AWS.OpsWorks.UpdateVolume",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
             "name": "UpdateVolume",
@@ -20986,20 +19491,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "uv1VolumeId",
-                    "name": "_uv1VolumeId",
-                    "shape": "String",
-                    "locationName": "VolumeId",
-                    "documentation": "\u003cp\u003eThe volume ID.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "body-json",

@@ -290,6 +290,7 @@ data Field = Field
     , _fType          :: !Type
     , _fLocation      :: !Location
     , _fLocationName  :: !Text
+    , _fPayload       :: !Bool
     , _fDocumentation :: Maybe Doc
     } deriving (Eq, Show)
 
@@ -331,14 +332,6 @@ isQuery = f . view fLocation
   where
     f Querystring = True
     f _           = False
-
-isPayload :: Field -> Bool
-isPayload f =
-    case _fLocation f of
-        BodyXml  -> True
-        BodyJson -> True
-        Body     -> True
-        _        -> False
 
 instance HasName Field where
     nameOf = fName
@@ -406,12 +399,11 @@ instance ToJSON Data where
                 , "fieldPad"    .= (0 :: Int)
                 , "required"    .= req
                 , "optional"    .= opt
-                , "payload"     .= pay
+                , "payload"     .= if _fPayload f then Just f else Nothing
                 , "listElement" .= fmap Internal (listElement (f ^. typeOf))
                 ]
               where
                 (req, opt) = parameters [f]
-                pay        = find isPayload [f]
 
             Record  n fs -> object
                 [ "type"        .= "record"
@@ -421,11 +413,10 @@ instance ToJSON Data where
                 , "fieldPad"    .= (maximum (map (Text.length . view nameOf) fs) + 1)
                 , "required"    .= req
                 , "optional"    .= opt
-                , "payload"     .= pay
+                , "payload"     .= find _fPayload fs
                 ]
               where
                 (req, opt) = parameters fs
-                pay        = find isPayload fs
 
 nestedTypes :: Data -> [Type]
 nestedTypes = concatMap universe . toListOf (dataFields . typesOf)
@@ -663,8 +654,8 @@ data Cabal = Cabal
     { _cName         :: !Text
     , _cLibrary      :: !Library
     , _cVersion      :: !Version
+    , _cProtocol     :: !Protocol
     , _cDescription  :: !Doc
-    , _cDependencies :: [Version]
     , _cExposed      :: [NS]
     , _cOther        :: [NS]
     } deriving (Eq, Show)

@@ -1,5 +1,6 @@
 {% include "_include/types-exports.ede" %}
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.{{ service.signature }}
@@ -7,6 +8,11 @@ import Network.AWS.Signing.{{ service.signature }}
 import qualified GHC.Exts
 
 {% include "_include/service.ede" %}
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 {% for type in types %}
 {% include "_include/datatype.ede" with type = type.value %}

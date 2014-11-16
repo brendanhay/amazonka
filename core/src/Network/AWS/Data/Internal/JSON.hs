@@ -18,13 +18,18 @@ module Network.AWS.Data.Internal.JSON
 
     -- * Re-exported
     , FromJSON (..)
+    , genericParseJSON
+
     , ToJSON   (..)
+    , genericToJSON
     , encode
+
+    , Options  (..)
+    , defaultOptions
     ) where
 
-import qualified Data.Aeson          as Aeson
-import           Data.Aeson          hiding ((.:), (.:?))
-import           Data.Aeson.Types    (parseEither)
+import           Data.Aeson          (encode)
+import           Data.Aeson.Types    hiding ((.:), (.:?))
 import           Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
 import           Data.Text           (Text)

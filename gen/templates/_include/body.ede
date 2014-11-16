@@ -10,8 +10,5 @@ instance ToBody {{ request.name }} where
     toBody = toBody . encode . {{ request.payload.name }}
     {% endcase %}
 
-  {% else %}
-instance ToBody {{ request.name }}
-
   {% endif %}
 {% endif %}

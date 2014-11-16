@@ -1,1 +1,2 @@
-instance ToJSON {{ type.name }}
+instance ToJSON {{ type.name }} where
+    toJSON = genericToJSON jsonOptions

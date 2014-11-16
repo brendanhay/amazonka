@@ -1,10 +1,10 @@
 # Amazonka
 
-* [Introduction](#introduction)
+* [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
-## Introduction
+## Description
 
 A comprehensive Amazon Web Services SDK for Haskell.
 

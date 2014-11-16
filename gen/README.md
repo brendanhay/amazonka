@@ -1,10 +1,10 @@
 # Amazonka Generator
 
-* [Introduction](#introduction)
+* [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
-## Introduction
+## Description
 
 AST transformations and templating to generate per-service cabal packages for
 each Amazon Web Service model description.

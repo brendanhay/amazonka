@@ -1,3 +1,3 @@
 # Amazonka
 
-Comprehensive AWS SDK
+Comprehensive AWS Haskell SDK

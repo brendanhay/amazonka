@@ -1,5 +1,25 @@
-# Amazon Identity and Access Management
+# Amazon Identity and Access Management SDK
+
+> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
+
+* [description](#description)
+* [Contribute](#contribute)
+* [Licence](#licence)
+
+## Description
 
 AWS Identity and Access Management (IAM) enables you to securely control access to AWS services and resources for your users. Using IAM, you can create and manage AWS users and groups and use permissions to allow and deny their access to AWS resources.
 
-> See: [Hackage](hackage.haskell.org/package/amazonka-iam)
+Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-iam).
+
+
+## Contribute
+
+For any problems, comments or feedback please create an issue [here on GitHub](github.com/brendanhay/amazonka/issues).
+
+> _Note:_ this library is an auto-generated Haskell package. Please see [amazonka-gen](https://github.com/brendanhay/amazonka/tree/gen) for more information.
+
+
+## Licence
+
+amazonka-iam is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).

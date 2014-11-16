@@ -1,5 +1,25 @@
-# Amazon Elastic MapReduce
+# Amazon Elastic MapReduce SDK
+
+> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
+
+* [description](#description)
+* [Contribute](#contribute)
+* [Licence](#licence)
+
+## Description
 
 Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do such tasks as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.
 
-> See: [Hackage](hackage.haskell.org/package/amazonka-emr)
+Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-emr).
+
+
+## Contribute
+
+For any problems, comments or feedback please create an issue [here on GitHub](github.com/brendanhay/amazonka/issues).
+
+> _Note:_ this library is an auto-generated Haskell package. Please see [amazonka-gen](https://github.com/brendanhay/amazonka/tree/gen) for more information.
+
+
+## Licence
+
+amazonka-emr is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).

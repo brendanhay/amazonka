@@ -11,7 +11,7 @@ A comprehensive Amazon Web Services SDK for Haskell.
 
 ## Contribute
 
-For any problems, comments or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
+For any problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
 
 
 ## Licence

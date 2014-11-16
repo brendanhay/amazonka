@@ -1,6 +1,6 @@
-SHELL    := /usr/bin/env bash
-FLAGS    := -j --disable-documentation --disable-library-coverage
-DEPS     := vendor/botocore vendor/jason
+SHELL := /usr/bin/env bash
+FLAGS := -j --disable-documentation --disable-library-coverage
+DEPS  := vendor/botocore vendor/jason
 
 XML := \
  s3 \

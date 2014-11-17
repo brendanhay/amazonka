@@ -24,8 +24,13 @@ module Network.AWS.Data.Internal.JSON
     , genericToJSON
     , encode
 
-    , AesonOptions (..)
+    , AesonOptions
     , defaultOptions
+    , fieldLabelModifier
+    , constructorTagModifier
+    , allNullaryToStringTag
+    , omitNothingFields
+    , sumEncoding
     ) where
 
 import           Data.Aeson          (encode)

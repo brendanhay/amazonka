@@ -114,9 +114,11 @@ instance ToQuery CreateCloudFrontOriginAccessIdentity where
     toQuery = const mempty
 
 instance ToHeaders CreateCloudFrontOriginAccessIdentity
+
 instance ToXML CreateCloudFrontOriginAccessIdentity where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateCloudFrontOriginAccessIdentity"
+    toXML CreateCloudFrontOriginAccessIdentity{..} = node "CreateCloudFrontOriginAccessIdentity"
+        [ "CloudFrontOriginAccessIdentityConfig" .= _ccfoaiCloudFrontOriginAccessIdentityConfig
+        ]
 
 instance AWSRequest CreateCloudFrontOriginAccessIdentity where
     type Sv CreateCloudFrontOriginAccessIdentity = CloudFront

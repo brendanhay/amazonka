@@ -77,8 +77,11 @@ instance ToQuery DeleteIdentityPool where
     toQuery = const mempty
 
 instance ToHeaders DeleteIdentityPool
+
 instance ToJSON DeleteIdentityPool where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteIdentityPool{..} = object
+        [ "IdentityPoolId" .= _dip1IdentityPoolId
+        ]
 
 instance AWSRequest DeleteIdentityPool where
     type Sv DeleteIdentityPool = CognitoIdentity

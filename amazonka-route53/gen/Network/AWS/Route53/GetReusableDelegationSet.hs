@@ -97,9 +97,9 @@ instance ToQuery GetReusableDelegationSet where
     toQuery = const mempty
 
 instance ToHeaders GetReusableDelegationSet
+
 instance ToXML GetReusableDelegationSet where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetReusableDelegationSet"
+    toXML = const (node "GetReusableDelegationSet" [])
 
 instance AWSRequest GetReusableDelegationSet where
     type Sv GetReusableDelegationSet = Route53
@@ -109,5 +109,5 @@ instance AWSRequest GetReusableDelegationSet where
     response = xmlResponse
 
 instance FromXML GetReusableDelegationSetResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetReusableDelegationSetResponse"
+    parseXML c = GetReusableDelegationSetResponse
+        <$> c .: "DelegationSet"

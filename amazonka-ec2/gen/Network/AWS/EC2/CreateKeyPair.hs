@@ -132,5 +132,7 @@ instance AWSRequest CreateKeyPair where
     response = xmlResponse
 
 instance FromXML CreateKeyPairResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateKeyPairResponse"
+    parseXML c = CreateKeyPairResponse
+        <$> c .: "keyFingerprint"
+        <*> c .: "keyMaterial"
+        <*> c .: "keyName"

@@ -25,8 +25,6 @@ module Network.AWS.AutoScaling.Types
       AutoScaling
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * TagDescription
     , TagDescription
@@ -272,11 +270,6 @@ instance AWSService AutoScaling where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "http://autoscaling.amazonaws.com/doc/2011-01-01/"
-    }
-
 data TagDescription = TagDescription
     { _tdKey               :: Text
     , _tdPropagateAtLaunch :: Bool
@@ -339,8 +332,12 @@ tdValue :: Lens' TagDescription Text
 tdValue = lens _tdValue (\s a -> s { _tdValue = a })
 
 instance FromXML TagDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TagDescription"
+    parseXML c = TagDescription
+        <$> c .: "Key"
+        <*> c .: "PropagateAtLaunch"
+        <*> c .: "ResourceId"
+        <*> c .: "ResourceType"
+        <*> c .: "Value"
 
 instance ToQuery TagDescription
 
@@ -406,8 +403,12 @@ tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Tag"
+    parseXML c = Tag
+        <$> c .: "Key"
+        <*> c .: "PropagateAtLaunch"
+        <*> c .: "ResourceId"
+        <*> c .: "ResourceType"
+        <*> c .: "Value"
 
 instance ToQuery Tag
 
@@ -450,8 +451,10 @@ ncTopicARN :: Lens' NotificationConfiguration (Maybe Text)
 ncTopicARN = lens _ncTopicARN (\s a -> s { _ncTopicARN = a })
 
 instance FromXML NotificationConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NotificationConfiguration"
+    parseXML c = NotificationConfiguration
+        <$> c .: "AutoScalingGroupName"
+        <*> c .: "NotificationType"
+        <*> c .: "TopicARN"
 
 instance ToQuery NotificationConfiguration
 
@@ -500,8 +503,11 @@ bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
 bdmVirtualName = lens _bdmVirtualName (\s a -> s { _bdmVirtualName = a })
 
 instance FromXML BlockDeviceMapping where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BlockDeviceMapping"
+    parseXML c = BlockDeviceMapping
+        <$> c .: "DeviceName"
+        <*> c .: "Ebs"
+        <*> c .: "NoDevice"
+        <*> c .: "VirtualName"
 
 instance ToQuery BlockDeviceMapping
 
@@ -678,8 +684,24 @@ lcUserData :: Lens' LaunchConfiguration (Maybe Text)
 lcUserData = lens _lcUserData (\s a -> s { _lcUserData = a })
 
 instance FromXML LaunchConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LaunchConfiguration"
+    parseXML c = LaunchConfiguration
+        <$> c .: "AssociatePublicIpAddress"
+        <*> c .: "BlockDeviceMappings"
+        <*> c .: "CreatedTime"
+        <*> c .: "EbsOptimized"
+        <*> c .: "IamInstanceProfile"
+        <*> c .: "ImageId"
+        <*> c .: "InstanceMonitoring"
+        <*> c .: "InstanceType"
+        <*> c .: "KernelId"
+        <*> c .: "KeyName"
+        <*> c .: "LaunchConfigurationARN"
+        <*> c .: "LaunchConfigurationName"
+        <*> c .: "PlacementTenancy"
+        <*> c .: "RamdiskId"
+        <*> c .: "SecurityGroups"
+        <*> c .: "SpotPrice"
+        <*> c .: "UserData"
 
 instance ToQuery LaunchConfiguration
 
@@ -892,8 +914,27 @@ asgVPCZoneIdentifier =
     lens _asgVPCZoneIdentifier (\s a -> s { _asgVPCZoneIdentifier = a })
 
 instance FromXML AutoScalingGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AutoScalingGroup"
+    parseXML c = AutoScalingGroup
+        <$> c .: "AutoScalingGroupARN"
+        <*> c .: "AutoScalingGroupName"
+        <*> c .: "AvailabilityZones"
+        <*> c .: "CreatedTime"
+        <*> c .: "DefaultCooldown"
+        <*> c .: "DesiredCapacity"
+        <*> c .: "EnabledMetrics"
+        <*> c .: "HealthCheckGracePeriod"
+        <*> c .: "HealthCheckType"
+        <*> c .: "Instances"
+        <*> c .: "LaunchConfigurationName"
+        <*> c .: "LoadBalancerNames"
+        <*> c .: "MaxSize"
+        <*> c .: "MinSize"
+        <*> c .: "PlacementGroup"
+        <*> c .: "Status"
+        <*> c .: "SuspendedProcesses"
+        <*> c .: "Tags"
+        <*> c .: "TerminationPolicies"
+        <*> c .: "VPCZoneIdentifier"
 
 instance ToQuery AutoScalingGroup
 
@@ -983,8 +1024,15 @@ sp1ScalingAdjustment =
     lens _sp1ScalingAdjustment (\s a -> s { _sp1ScalingAdjustment = a })
 
 instance FromXML ScalingPolicy where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ScalingPolicy"
+    parseXML c = ScalingPolicy
+        <$> c .: "AdjustmentType"
+        <*> c .: "Alarms"
+        <*> c .: "AutoScalingGroupName"
+        <*> c .: "Cooldown"
+        <*> c .: "MinAdjustmentStep"
+        <*> c .: "PolicyARN"
+        <*> c .: "PolicyName"
+        <*> c .: "ScalingAdjustment"
 
 instance ToQuery ScalingPolicy
 
@@ -1008,8 +1056,8 @@ imEnabled :: Lens' InstanceMonitoring (Maybe Bool)
 imEnabled = lens _imEnabled (\s a -> s { _imEnabled = a })
 
 instance FromXML InstanceMonitoring where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceMonitoring"
+    parseXML c = InstanceMonitoring
+        <$> c .: "Enabled"
 
 instance ToQuery InstanceMonitoring
 
@@ -1119,8 +1167,17 @@ sugaTime = lens _sugaTime (\s a -> s { _sugaTime = a })
     . mapping _Time
 
 instance FromXML ScheduledUpdateGroupAction where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ScheduledUpdateGroupAction"
+    parseXML c = ScheduledUpdateGroupAction
+        <$> c .: "AutoScalingGroupName"
+        <*> c .: "DesiredCapacity"
+        <*> c .: "EndTime"
+        <*> c .: "MaxSize"
+        <*> c .: "MinSize"
+        <*> c .: "Recurrence"
+        <*> c .: "ScheduledActionARN"
+        <*> c .: "ScheduledActionName"
+        <*> c .: "StartTime"
+        <*> c .: "Time"
 
 instance ToQuery ScheduledUpdateGroupAction
 
@@ -1158,8 +1215,9 @@ spqScalingProcesses =
     lens _spqScalingProcesses (\s a -> s { _spqScalingProcesses = a })
 
 instance FromXML ScalingProcessQuery where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ScalingProcessQuery"
+    parseXML c = ScalingProcessQuery
+        <$> c .: "AutoScalingGroupName"
+        <*> c .: "ScalingProcesses"
 
 instance ToQuery ScalingProcessQuery
 
@@ -1224,8 +1282,12 @@ ebsVolumeType :: Lens' Ebs (Maybe Text)
 ebsVolumeType = lens _ebsVolumeType (\s a -> s { _ebsVolumeType = a })
 
 instance FromXML Ebs where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Ebs"
+    parseXML c = Ebs
+        <$> c .: "DeleteOnTermination"
+        <*> c .: "Iops"
+        <*> c .: "SnapshotId"
+        <*> c .: "VolumeSize"
+        <*> c .: "VolumeType"
 
 instance ToQuery Ebs
 
@@ -1250,8 +1312,8 @@ atAdjustmentType :: Lens' AdjustmentType (Maybe Text)
 atAdjustmentType = lens _atAdjustmentType (\s a -> s { _atAdjustmentType = a })
 
 instance FromXML AdjustmentType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AdjustmentType"
+    parseXML c = AdjustmentType
+        <$> c .: "AdjustmentType"
 
 instance ToQuery AdjustmentType
 
@@ -1274,8 +1336,8 @@ mctMetric :: Lens' MetricCollectionType (Maybe Text)
 mctMetric = lens _mctMetric (\s a -> s { _mctMetric = a })
 
 instance FromXML MetricCollectionType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MetricCollectionType"
+    parseXML c = MetricCollectionType
+        <$> c .: "Metric"
 
 instance ToQuery MetricCollectionType
 
@@ -1385,8 +1447,16 @@ lhRoleARN :: Lens' LifecycleHook (Maybe Text)
 lhRoleARN = lens _lhRoleARN (\s a -> s { _lhRoleARN = a })
 
 instance FromXML LifecycleHook where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LifecycleHook"
+    parseXML c = LifecycleHook
+        <$> c .: "AutoScalingGroupName"
+        <*> c .: "DefaultResult"
+        <*> c .: "GlobalTimeout"
+        <*> c .: "HeartbeatTimeout"
+        <*> c .: "LifecycleHookName"
+        <*> c .: "LifecycleTransition"
+        <*> c .: "NotificationMetadata"
+        <*> c .: "NotificationTargetARN"
+        <*> c .: "RoleARN"
 
 instance ToQuery LifecycleHook
 
@@ -1491,8 +1561,17 @@ aStatusMessage :: Lens' Activity (Maybe Text)
 aStatusMessage = lens _aStatusMessage (\s a -> s { _aStatusMessage = a })
 
 instance FromXML Activity where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Activity"
+    parseXML c = Activity
+        <$> c .: "ActivityId"
+        <*> c .: "AutoScalingGroupName"
+        <*> c .: "Cause"
+        <*> c .: "Description"
+        <*> c .: "Details"
+        <*> c .: "EndTime"
+        <*> c .: "Progress"
+        <*> c .: "StartTime"
+        <*> c .: "StatusCode"
+        <*> c .: "StatusMessage"
 
 instance ToQuery Activity
 
@@ -1525,8 +1604,9 @@ spSuspensionReason =
     lens _spSuspensionReason (\s a -> s { _spSuspensionReason = a })
 
 instance FromXML SuspendedProcess where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SuspendedProcess"
+    parseXML c = SuspendedProcess
+        <$> c .: "ProcessName"
+        <*> c .: "SuspensionReason"
 
 instance ToQuery SuspendedProcess
 
@@ -1550,8 +1630,8 @@ mgtGranularity :: Lens' MetricGranularityType (Maybe Text)
 mgtGranularity = lens _mgtGranularity (\s a -> s { _mgtGranularity = a })
 
 instance FromXML MetricGranularityType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MetricGranularityType"
+    parseXML c = MetricGranularityType
+        <$> c .: "Granularity"
 
 instance ToQuery MetricGranularityType
 
@@ -1585,8 +1665,9 @@ fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\s a -> s { _fValues = a })
 
 instance FromXML Filter where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Filter"
+    parseXML c = Filter
+        <$> c .: "Name"
+        <*> c .: "Values"
 
 instance ToQuery Filter
 
@@ -1611,8 +1692,8 @@ ptProcessName :: Lens' ProcessType Text
 ptProcessName = lens _ptProcessName (\s a -> s { _ptProcessName = a })
 
 instance FromXML ProcessType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ProcessType"
+    parseXML c = ProcessType
+        <$> c .: "ProcessName"
 
 instance ToQuery ProcessType
 
@@ -1644,8 +1725,9 @@ aAlarmName :: Lens' Alarm (Maybe Text)
 aAlarmName = lens _aAlarmName (\s a -> s { _aAlarmName = a })
 
 instance FromXML Alarm where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Alarm"
+    parseXML c = Alarm
+        <$> c .: "AlarmARN"
+        <*> c .: "AlarmName"
 
 instance ToQuery Alarm
 
@@ -1677,8 +1759,9 @@ emMetric :: Lens' EnabledMetric (Maybe Text)
 emMetric = lens _emMetric (\s a -> s { _emMetric = a })
 
 instance FromXML EnabledMetric where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnabledMetric"
+    parseXML c = EnabledMetric
+        <$> c .: "Granularity"
+        <*> c .: "Metric"
 
 instance ToQuery EnabledMetric
 
@@ -1742,8 +1825,12 @@ iLifecycleState :: Lens' Instance Text
 iLifecycleState = lens _iLifecycleState (\s a -> s { _iLifecycleState = a })
 
 instance FromXML Instance where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Instance"
+    parseXML c = Instance
+        <$> c .: "AvailabilityZone"
+        <*> c .: "HealthStatus"
+        <*> c .: "InstanceId"
+        <*> c .: "LaunchConfigurationName"
+        <*> c .: "LifecycleState"
 
 instance ToQuery Instance
 
@@ -1797,8 +1884,7 @@ instance ToText LifecycleState where
         TerminatingWait    -> "Terminating:Wait"
 
 instance FromXML LifecycleState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LifecycleState"
+    parseXML = fromXMLText "LifecycleState"
 
 instance ToQuery LifecycleState
 
@@ -1877,8 +1963,13 @@ asidLifecycleState =
     lens _asidLifecycleState (\s a -> s { _asidLifecycleState = a })
 
 instance FromXML AutoScalingInstanceDetails where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AutoScalingInstanceDetails"
+    parseXML c = AutoScalingInstanceDetails
+        <$> c .: "AutoScalingGroupName"
+        <*> c .: "AvailabilityZone"
+        <*> c .: "HealthStatus"
+        <*> c .: "InstanceId"
+        <*> c .: "LaunchConfigurationName"
+        <*> c .: "LifecycleState"
 
 instance ToQuery AutoScalingInstanceDetails
 
@@ -1923,7 +2014,6 @@ instance ToText ScalingActivityStatusCode where
         WaitingForSpotInstanceRequestId -> "WaitingForSpotInstanceRequestId"
 
 instance FromXML ScalingActivityStatusCode where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ScalingActivityStatusCode"
+    parseXML = fromXMLText "ScalingActivityStatusCode"
 
 instance ToQuery ScalingActivityStatusCode

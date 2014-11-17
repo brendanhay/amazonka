@@ -129,8 +129,12 @@ instance ToQuery CreateSnapshotFromVolumeRecoveryPoint where
     toQuery = const mempty
 
 instance ToHeaders CreateSnapshotFromVolumeRecoveryPoint
+
 instance ToJSON CreateSnapshotFromVolumeRecoveryPoint where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateSnapshotFromVolumeRecoveryPoint{..} = object
+        [ "VolumeARN"           .= _csfvrpVolumeARN
+        , "SnapshotDescription" .= _csfvrpSnapshotDescription
+        ]
 
 instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
     type Sv CreateSnapshotFromVolumeRecoveryPoint = StorageGateway
@@ -140,4 +144,7 @@ instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
     response = jsonResponse
 
 instance FromJSON CreateSnapshotFromVolumeRecoveryPointResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateSnapshotFromVolumeRecoveryPointResponse" $ \o -> CreateSnapshotFromVolumeRecoveryPointResponse
+        <$> o .: "SnapshotId"
+        <*> o .: "VolumeARN"
+        <*> o .: "VolumeRecoveryPointTime"

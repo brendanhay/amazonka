@@ -115,8 +115,14 @@ instance ToQuery UnlinkDeveloperIdentity where
     toQuery = const mempty
 
 instance ToHeaders UnlinkDeveloperIdentity
+
 instance ToJSON UnlinkDeveloperIdentity where
-    toJSON = genericToJSON jsonOptions
+    toJSON UnlinkDeveloperIdentity{..} = object
+        [ "IdentityId"              .= _udiIdentityId
+        , "IdentityPoolId"          .= _udiIdentityPoolId
+        , "DeveloperProviderName"   .= _udiDeveloperProviderName
+        , "DeveloperUserIdentifier" .= _udiDeveloperUserIdentifier
+        ]
 
 instance AWSRequest UnlinkDeveloperIdentity where
     type Sv UnlinkDeveloperIdentity = CognitoIdentity

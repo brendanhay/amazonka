@@ -100,8 +100,11 @@ instance ToQuery DescribeTrustedAdvisorChecks where
     toQuery = const mempty
 
 instance ToHeaders DescribeTrustedAdvisorChecks
+
 instance ToJSON DescribeTrustedAdvisorChecks where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeTrustedAdvisorChecks{..} = object
+        [ "language" .= _dtacLanguage
+        ]
 
 instance AWSRequest DescribeTrustedAdvisorChecks where
     type Sv DescribeTrustedAdvisorChecks = Support
@@ -111,4 +114,5 @@ instance AWSRequest DescribeTrustedAdvisorChecks where
     response = jsonResponse
 
 instance FromJSON DescribeTrustedAdvisorChecksResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeTrustedAdvisorChecksResponse" $ \o -> DescribeTrustedAdvisorChecksResponse
+        <$> o .: "checks"

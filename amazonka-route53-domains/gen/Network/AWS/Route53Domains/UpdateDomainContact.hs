@@ -137,8 +137,14 @@ instance ToQuery UpdateDomainContact where
     toQuery = const mempty
 
 instance ToHeaders UpdateDomainContact
+
 instance ToJSON UpdateDomainContact where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateDomainContact{..} = object
+        [ "DomainName"        .= _udcDomainName
+        , "AdminContact"      .= _udcAdminContact
+        , "RegistrantContact" .= _udcRegistrantContact
+        , "TechContact"       .= _udcTechContact
+        ]
 
 instance AWSRequest UpdateDomainContact where
     type Sv UpdateDomainContact = Route53Domains
@@ -148,4 +154,5 @@ instance AWSRequest UpdateDomainContact where
     response = jsonResponse
 
 instance FromJSON UpdateDomainContactResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateDomainContactResponse" $ \o -> UpdateDomainContactResponse
+        <$> o .: "OperationId"

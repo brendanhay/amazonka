@@ -94,8 +94,11 @@ instance ToQuery DescribeAttachment where
     toQuery = const mempty
 
 instance ToHeaders DescribeAttachment
+
 instance ToJSON DescribeAttachment where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeAttachment{..} = object
+        [ "attachmentId" .= _daAttachmentId
+        ]
 
 instance AWSRequest DescribeAttachment where
     type Sv DescribeAttachment = Support
@@ -105,4 +108,5 @@ instance AWSRequest DescribeAttachment where
     response = jsonResponse
 
 instance FromJSON DescribeAttachmentResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeAttachmentResponse" $ \o -> DescribeAttachmentResponse
+        <$> o .: "attachment"

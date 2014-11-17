@@ -78,8 +78,11 @@ instance ToQuery DeleteApp where
     toQuery = const mempty
 
 instance ToHeaders DeleteApp
+
 instance ToJSON DeleteApp where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteApp{..} = object
+        [ "AppId" .= _daAppId
+        ]
 
 instance AWSRequest DeleteApp where
     type Sv DeleteApp = OpsWorks

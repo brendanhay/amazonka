@@ -299,5 +299,5 @@ instance AWSRequest ModifyReplicationGroup where
     response = xmlResponse
 
 instance FromXML ModifyReplicationGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyReplicationGroupResponse"
+    parseXML c = ModifyReplicationGroupResponse
+        <$> c .: "ReplicationGroup"

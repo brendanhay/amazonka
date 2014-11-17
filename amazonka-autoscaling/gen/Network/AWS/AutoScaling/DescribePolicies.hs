@@ -142,5 +142,6 @@ instance AWSRequest DescribePolicies where
     response = xmlResponse
 
 instance FromXML DescribePoliciesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribePoliciesResponse"
+    parseXML c = DescribePoliciesResponse
+        <$> c .: "NextToken"
+        <*> c .: "ScalingPolicies"

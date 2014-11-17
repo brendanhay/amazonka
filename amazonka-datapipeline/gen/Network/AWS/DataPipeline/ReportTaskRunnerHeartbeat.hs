@@ -123,8 +123,13 @@ instance ToQuery ReportTaskRunnerHeartbeat where
     toQuery = const mempty
 
 instance ToHeaders ReportTaskRunnerHeartbeat
+
 instance ToJSON ReportTaskRunnerHeartbeat where
-    toJSON = genericToJSON jsonOptions
+    toJSON ReportTaskRunnerHeartbeat{..} = object
+        [ "taskrunnerId" .= _rtrhTaskrunnerId
+        , "workerGroup"  .= _rtrhWorkerGroup
+        , "hostname"     .= _rtrhHostname
+        ]
 
 instance AWSRequest ReportTaskRunnerHeartbeat where
     type Sv ReportTaskRunnerHeartbeat = DataPipeline
@@ -134,4 +139,5 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
     response = jsonResponse
 
 instance FromJSON ReportTaskRunnerHeartbeatResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ReportTaskRunnerHeartbeatResponse" $ \o -> ReportTaskRunnerHeartbeatResponse
+        <$> o .: "terminate"

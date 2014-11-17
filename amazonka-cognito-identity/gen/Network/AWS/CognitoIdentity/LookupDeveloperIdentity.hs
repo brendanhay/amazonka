@@ -171,8 +171,15 @@ instance ToQuery LookupDeveloperIdentity where
     toQuery = const mempty
 
 instance ToHeaders LookupDeveloperIdentity
+
 instance ToJSON LookupDeveloperIdentity where
-    toJSON = genericToJSON jsonOptions
+    toJSON LookupDeveloperIdentity{..} = object
+        [ "IdentityPoolId"          .= _ldiIdentityPoolId
+        , "IdentityId"              .= _ldiIdentityId
+        , "DeveloperUserIdentifier" .= _ldiDeveloperUserIdentifier
+        , "MaxResults"              .= _ldiMaxResults
+        , "NextToken"               .= _ldiNextToken
+        ]
 
 instance AWSRequest LookupDeveloperIdentity where
     type Sv LookupDeveloperIdentity = CognitoIdentity
@@ -182,4 +189,7 @@ instance AWSRequest LookupDeveloperIdentity where
     response = jsonResponse
 
 instance FromJSON LookupDeveloperIdentityResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "LookupDeveloperIdentityResponse" $ \o -> LookupDeveloperIdentityResponse
+        <$> o .: "DeveloperUserIdentifierList"
+        <*> o .: "IdentityId"
+        <*> o .: "NextToken"

@@ -81,8 +81,9 @@ instance ToQuery DescribeLocations where
     toQuery = const mempty
 
 instance ToHeaders DescribeLocations
+
 instance ToJSON DescribeLocations where
-    toJSON = genericToJSON jsonOptions
+    toXML = const Null
 
 instance AWSRequest DescribeLocations where
     type Sv DescribeLocations = DirectConnect
@@ -92,4 +93,5 @@ instance AWSRequest DescribeLocations where
     response = jsonResponse
 
 instance FromJSON DescribeLocationsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeLocationsResponse" $ \o -> DescribeLocationsResponse
+        <$> o .: "locations"

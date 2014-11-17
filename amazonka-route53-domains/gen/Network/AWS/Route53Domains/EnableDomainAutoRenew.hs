@@ -82,8 +82,11 @@ instance ToQuery EnableDomainAutoRenew where
     toQuery = const mempty
 
 instance ToHeaders EnableDomainAutoRenew
+
 instance ToJSON EnableDomainAutoRenew where
-    toJSON = genericToJSON jsonOptions
+    toJSON EnableDomainAutoRenew{..} = object
+        [ "DomainName" .= _edarDomainName
+        ]
 
 instance AWSRequest EnableDomainAutoRenew where
     type Sv EnableDomainAutoRenew = Route53Domains

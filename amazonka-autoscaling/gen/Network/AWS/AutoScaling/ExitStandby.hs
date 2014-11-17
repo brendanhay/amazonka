@@ -118,5 +118,5 @@ instance AWSRequest ExitStandby where
     response = xmlResponse
 
 instance FromXML ExitStandbyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ExitStandbyResponse"
+    parseXML c = ExitStandbyResponse
+        <$> c .: "Activities"

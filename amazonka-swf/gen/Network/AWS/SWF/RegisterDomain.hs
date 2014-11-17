@@ -114,8 +114,13 @@ instance ToQuery RegisterDomain where
     toQuery = const mempty
 
 instance ToHeaders RegisterDomain
+
 instance ToJSON RegisterDomain where
-    toJSON = genericToJSON jsonOptions
+    toJSON RegisterDomain{..} = object
+        [ "name"                                   .= _rdName
+        , "description"                            .= _rdDescription
+        , "workflowExecutionRetentionPeriodInDays" .= _rdWorkflowExecutionRetentionPeriodInDays
+        ]
 
 instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = SWF

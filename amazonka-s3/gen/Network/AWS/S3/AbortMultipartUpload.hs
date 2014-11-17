@@ -99,9 +99,9 @@ instance ToQuery AbortMultipartUpload where
     toQuery rq = "uploadId" =? _amuUploadId rq
 
 instance ToHeaders AbortMultipartUpload
+
 instance ToXML AbortMultipartUpload where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AbortMultipartUpload"
+    toXML = const (node "AbortMultipartUpload" [])
 
 instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3

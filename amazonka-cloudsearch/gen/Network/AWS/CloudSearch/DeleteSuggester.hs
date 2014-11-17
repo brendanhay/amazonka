@@ -108,5 +108,5 @@ instance AWSRequest DeleteSuggester where
     response = xmlResponse
 
 instance FromXML DeleteSuggesterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteSuggesterResponse"
+    parseXML c = DeleteSuggesterResponse
+        <$> c .: "Suggester"

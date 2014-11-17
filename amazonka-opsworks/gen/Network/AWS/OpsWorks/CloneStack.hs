@@ -357,8 +357,31 @@ instance ToQuery CloneStack where
     toQuery = const mempty
 
 instance ToHeaders CloneStack
+
 instance ToJSON CloneStack where
-    toJSON = genericToJSON jsonOptions
+    toJSON CloneStack{..} = object
+        [ "SourceStackId"             .= _cs1SourceStackId
+        , "Name"                      .= _cs1Name
+        , "Region"                    .= _cs1Region
+        , "VpcId"                     .= _cs1VpcId
+        , "Attributes"                .= _cs1Attributes
+        , "ServiceRoleArn"            .= _cs1ServiceRoleArn
+        , "DefaultInstanceProfileArn" .= _cs1DefaultInstanceProfileArn
+        , "DefaultOs"                 .= _cs1DefaultOs
+        , "HostnameTheme"             .= _cs1HostnameTheme
+        , "DefaultAvailabilityZone"   .= _cs1DefaultAvailabilityZone
+        , "DefaultSubnetId"           .= _cs1DefaultSubnetId
+        , "CustomJson"                .= _cs1CustomJson
+        , "ConfigurationManager"      .= _cs1ConfigurationManager
+        , "ChefConfiguration"         .= _cs1ChefConfiguration
+        , "UseCustomCookbooks"        .= _cs1UseCustomCookbooks
+        , "UseOpsworksSecurityGroups" .= _cs1UseOpsworksSecurityGroups
+        , "CustomCookbooksSource"     .= _cs1CustomCookbooksSource
+        , "DefaultSshKeyName"         .= _cs1DefaultSshKeyName
+        , "ClonePermissions"          .= _cs1ClonePermissions
+        , "CloneAppIds"               .= _cs1CloneAppIds
+        , "DefaultRootDeviceType"     .= _cs1DefaultRootDeviceType
+        ]
 
 instance AWSRequest CloneStack where
     type Sv CloneStack = OpsWorks
@@ -368,4 +391,5 @@ instance AWSRequest CloneStack where
     response = jsonResponse
 
 instance FromJSON CloneStackResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CloneStackResponse" $ \o -> CloneStackResponse
+        <$> o .: "StackId"

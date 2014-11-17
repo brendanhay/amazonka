@@ -224,5 +224,6 @@ instance AWSRequest DescribeInstanceStatus where
     response = xmlResponse
 
 instance FromXML DescribeInstanceStatusResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeInstanceStatusResponse"
+    parseXML c = DescribeInstanceStatusResponse
+        <$> c .: "instanceStatusSet"
+        <*> c .: "nextToken"

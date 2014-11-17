@@ -101,8 +101,12 @@ instance ToQuery CancelArchival where
     toQuery = const mempty
 
 instance ToHeaders CancelArchival
+
 instance ToJSON CancelArchival where
-    toJSON = genericToJSON jsonOptions
+    toJSON CancelArchival{..} = object
+        [ "GatewayARN" .= _caGatewayARN
+        , "TapeARN"    .= _caTapeARN
+        ]
 
 instance AWSRequest CancelArchival where
     type Sv CancelArchival = StorageGateway
@@ -112,4 +116,5 @@ instance AWSRequest CancelArchival where
     response = jsonResponse
 
 instance FromJSON CancelArchivalResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CancelArchivalResponse" $ \o -> CancelArchivalResponse
+        <$> o .: "TapeARN"

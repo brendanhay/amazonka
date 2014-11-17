@@ -25,8 +25,6 @@ module Network.AWS.EMR.Types
       EMR
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * MarketType
     , MarketType (..)
@@ -432,11 +430,6 @@ instance AWSService EMR where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data MarketType
     = OnDemand -- ^ ON_DEMAND
     | Spot     -- ^ SPOT
@@ -454,10 +447,10 @@ instance ToText MarketType where
         Spot     -> "SPOT"
 
 instance FromJSON MarketType where
-    parseJSON = withFromText "MarketType"
+    parseJSON = fromJSONText "MarketType"
 
 instance ToJSON MarketType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data InstanceGroupConfig = InstanceGroupConfig
     { _igcBidPrice      :: Maybe Text
@@ -523,10 +516,23 @@ igcName :: Lens' InstanceGroupConfig (Maybe Text)
 igcName = lens _igcName (\s a -> s { _igcName = a })
 
 instance FromJSON InstanceGroupConfig where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceGroupConfig" $ \o -> InstanceGroupConfig
+        <$> o .: "BidPrice"
+        <*> o .: "InstanceCount"
+        <*> o .: "InstanceRole"
+        <*> o .: "InstanceType"
+        <*> o .: "Market"
+        <*> o .: "Name"
 
 instance ToJSON InstanceGroupConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceGroupConfig{..} = object
+        [ "Name"          .= _igcName
+        , "Market"        .= _igcMarket
+        , "InstanceRole"  .= _igcInstanceRole
+        , "BidPrice"      .= _igcBidPrice
+        , "InstanceType"  .= _igcInstanceType
+        , "InstanceCount" .= _igcInstanceCount
+        ]
 
 data InstanceStateChangeReason = InstanceStateChangeReason
     { _iscrCode    :: Maybe Text
@@ -556,10 +562,15 @@ iscrMessage :: Lens' InstanceStateChangeReason (Maybe Text)
 iscrMessage = lens _iscrMessage (\s a -> s { _iscrMessage = a })
 
 instance FromJSON InstanceStateChangeReason where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceStateChangeReason" $ \o -> InstanceStateChangeReason
+        <$> o .: "Code"
+        <*> o .: "Message"
 
 instance ToJSON InstanceStateChangeReason where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceStateChangeReason{..} = object
+        [ "Code"    .= _iscrCode
+        , "Message" .= _iscrMessage
+        ]
 
 data JobFlowDetail = JobFlowDetail
     { _jfdAmiVersion            :: Maybe Text
@@ -690,10 +701,35 @@ jfdVisibleToAllUsers =
     lens _jfdVisibleToAllUsers (\s a -> s { _jfdVisibleToAllUsers = a })
 
 instance FromJSON JobFlowDetail where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "JobFlowDetail" $ \o -> JobFlowDetail
+        <$> o .: "AmiVersion"
+        <*> o .: "BootstrapActions"
+        <*> o .: "ExecutionStatusDetail"
+        <*> o .: "Instances"
+        <*> o .: "JobFlowId"
+        <*> o .: "JobFlowRole"
+        <*> o .: "LogUri"
+        <*> o .: "Name"
+        <*> o .: "ServiceRole"
+        <*> o .: "Steps"
+        <*> o .: "SupportedProducts"
+        <*> o .: "VisibleToAllUsers"
 
 instance ToJSON JobFlowDetail where
-    toJSON = genericToJSON jsonOptions
+    toJSON JobFlowDetail{..} = object
+        [ "JobFlowId"             .= _jfdJobFlowId
+        , "Name"                  .= _jfdName
+        , "LogUri"                .= _jfdLogUri
+        , "AmiVersion"            .= _jfdAmiVersion
+        , "ExecutionStatusDetail" .= _jfdExecutionStatusDetail
+        , "Instances"             .= _jfdInstances
+        , "Steps"                 .= _jfdSteps
+        , "BootstrapActions"      .= _jfdBootstrapActions
+        , "SupportedProducts"     .= _jfdSupportedProducts
+        , "VisibleToAllUsers"     .= _jfdVisibleToAllUsers
+        , "JobFlowRole"           .= _jfdJobFlowRole
+        , "ServiceRole"           .= _jfdServiceRole
+        ]
 
 data KeyValue = KeyValue
     { _kvKey   :: Maybe Text
@@ -723,10 +759,15 @@ kvValue :: Lens' KeyValue (Maybe Text)
 kvValue = lens _kvValue (\s a -> s { _kvValue = a })
 
 instance FromJSON KeyValue where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "KeyValue" $ \o -> KeyValue
+        <$> o .: "Key"
+        <*> o .: "Value"
 
 instance ToJSON KeyValue where
-    toJSON = genericToJSON jsonOptions
+    toJSON KeyValue{..} = object
+        [ "Key"   .= _kvKey
+        , "Value" .= _kvValue
+        ]
 
 data SupportedProductConfig = SupportedProductConfig
     { _spcArgs :: [Text]
@@ -756,10 +797,15 @@ spcName :: Lens' SupportedProductConfig (Maybe Text)
 spcName = lens _spcName (\s a -> s { _spcName = a })
 
 instance FromJSON SupportedProductConfig where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "SupportedProductConfig" $ \o -> SupportedProductConfig
+        <$> o .: "Args"
+        <*> o .: "Name"
 
 instance ToJSON SupportedProductConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON SupportedProductConfig{..} = object
+        [ "Name" .= _spcName
+        , "Args" .= _spcArgs
+        ]
 
 data Command = Command
     { _cArgs       :: [Text]
@@ -797,10 +843,17 @@ cScriptPath :: Lens' Command (Maybe Text)
 cScriptPath = lens _cScriptPath (\s a -> s { _cScriptPath = a })
 
 instance FromJSON Command where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Command" $ \o -> Command
+        <$> o .: "Args"
+        <*> o .: "Name"
+        <*> o .: "ScriptPath"
 
 instance ToJSON Command where
-    toJSON = genericToJSON jsonOptions
+    toJSON Command{..} = object
+        [ "Name"       .= _cName
+        , "ScriptPath" .= _cScriptPath
+        , "Args"       .= _cArgs
+        ]
 
 data StepExecutionState
     = Cancelled   -- ^ CANCELLED
@@ -834,10 +887,10 @@ instance ToText StepExecutionState where
         Running     -> "RUNNING"
 
 instance FromJSON StepExecutionState where
-    parseJSON = withFromText "StepExecutionState"
+    parseJSON = fromJSONText "StepExecutionState"
 
 instance ToJSON StepExecutionState where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ActionOnFailure
     = AOFCancelAndWait    -- ^ CANCEL_AND_WAIT
@@ -862,10 +915,10 @@ instance ToText ActionOnFailure where
         AOFTerminateJobFlow -> "TERMINATE_JOB_FLOW"
 
 instance FromJSON ActionOnFailure where
-    parseJSON = withFromText "ActionOnFailure"
+    parseJSON = fromJSONText "ActionOnFailure"
 
 instance ToJSON ActionOnFailure where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ClusterStateChangeReason = ClusterStateChangeReason
     { _cscrCode    :: Maybe Text
@@ -895,10 +948,15 @@ cscrMessage :: Lens' ClusterStateChangeReason (Maybe Text)
 cscrMessage = lens _cscrMessage (\s a -> s { _cscrMessage = a })
 
 instance FromJSON ClusterStateChangeReason where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ClusterStateChangeReason" $ \o -> ClusterStateChangeReason
+        <$> o .: "Code"
+        <*> o .: "Message"
 
 instance ToJSON ClusterStateChangeReason where
-    toJSON = genericToJSON jsonOptions
+    toJSON ClusterStateChangeReason{..} = object
+        [ "Code"    .= _cscrCode
+        , "Message" .= _cscrMessage
+        ]
 
 data Tag = Tag
     { _tagKey   :: Maybe Text
@@ -930,10 +988,15 @@ tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromJSON Tag where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Tag" $ \o -> Tag
+        <$> o .: "Key"
+        <*> o .: "Value"
 
 instance ToJSON Tag where
-    toJSON = genericToJSON jsonOptions
+    toJSON Tag{..} = object
+        [ "Key"   .= _tagKey
+        , "Value" .= _tagValue
+        ]
 
 data Application = Application
     { _aAdditionalInfo :: Map Text Text
@@ -982,10 +1045,19 @@ aVersion :: Lens' Application (Maybe Text)
 aVersion = lens _aVersion (\s a -> s { _aVersion = a })
 
 instance FromJSON Application where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Application" $ \o -> Application
+        <$> o .: "AdditionalInfo"
+        <*> o .: "Args"
+        <*> o .: "Name"
+        <*> o .: "Version"
 
 instance ToJSON Application where
-    toJSON = genericToJSON jsonOptions
+    toJSON Application{..} = object
+        [ "Name"           .= _aName
+        , "Version"        .= _aVersion
+        , "Args"           .= _aArgs
+        , "AdditionalInfo" .= _aAdditionalInfo
+        ]
 
 data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
     { _jfesdCreationDateTime      :: RFC822
@@ -1059,10 +1131,23 @@ jfesdState :: Lens' JobFlowExecutionStatusDetail Text
 jfesdState = lens _jfesdState (\s a -> s { _jfesdState = a })
 
 instance FromJSON JobFlowExecutionStatusDetail where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "JobFlowExecutionStatusDetail" $ \o -> JobFlowExecutionStatusDetail
+        <$> o .: "CreationDateTime"
+        <*> o .: "EndDateTime"
+        <*> o .: "LastStateChangeReason"
+        <*> o .: "ReadyDateTime"
+        <*> o .: "StartDateTime"
+        <*> o .: "State"
 
 instance ToJSON JobFlowExecutionStatusDetail where
-    toJSON = genericToJSON jsonOptions
+    toJSON JobFlowExecutionStatusDetail{..} = object
+        [ "State"                 .= _jfesdState
+        , "CreationDateTime"      .= _jfesdCreationDateTime
+        , "StartDateTime"         .= _jfesdStartDateTime
+        , "ReadyDateTime"         .= _jfesdReadyDateTime
+        , "EndDateTime"           .= _jfesdEndDateTime
+        , "LastStateChangeReason" .= _jfesdLastStateChangeReason
+        ]
 
 data InstanceGroupStatus = InstanceGroupStatus
     { _igsState             :: Maybe Text
@@ -1101,10 +1186,17 @@ igsTimeline :: Lens' InstanceGroupStatus (Maybe InstanceGroupTimeline)
 igsTimeline = lens _igsTimeline (\s a -> s { _igsTimeline = a })
 
 instance FromJSON InstanceGroupStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceGroupStatus" $ \o -> InstanceGroupStatus
+        <$> o .: "State"
+        <*> o .: "StateChangeReason"
+        <*> o .: "Timeline"
 
 instance ToJSON InstanceGroupStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceGroupStatus{..} = object
+        [ "State"             .= _igsState
+        , "StateChangeReason" .= _igsStateChangeReason
+        , "Timeline"          .= _igsTimeline
+        ]
 
 data Cluster = Cluster
     { _c1Applications          :: [Application]
@@ -1238,10 +1330,37 @@ c1VisibleToAllUsers =
     lens _c1VisibleToAllUsers (\s a -> s { _c1VisibleToAllUsers = a })
 
 instance FromJSON Cluster where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Cluster" $ \o -> Cluster
+        <$> o .: "Applications"
+        <*> o .: "AutoTerminate"
+        <*> o .: "Ec2InstanceAttributes"
+        <*> o .: "Id"
+        <*> o .: "LogUri"
+        <*> o .: "Name"
+        <*> o .: "RequestedAmiVersion"
+        <*> o .: "RunningAmiVersion"
+        <*> o .: "ServiceRole"
+        <*> o .: "Status"
+        <*> o .: "Tags"
+        <*> o .: "TerminationProtected"
+        <*> o .: "VisibleToAllUsers"
 
 instance ToJSON Cluster where
-    toJSON = genericToJSON jsonOptions
+    toJSON Cluster{..} = object
+        [ "Id"                    .= _c1Id
+        , "Name"                  .= _c1Name
+        , "Status"                .= _c1Status
+        , "Ec2InstanceAttributes" .= _c1Ec2InstanceAttributes
+        , "LogUri"                .= _c1LogUri
+        , "RequestedAmiVersion"   .= _c1RequestedAmiVersion
+        , "RunningAmiVersion"     .= _c1RunningAmiVersion
+        , "AutoTerminate"         .= _c1AutoTerminate
+        , "TerminationProtected"  .= _c1TerminationProtected
+        , "VisibleToAllUsers"     .= _c1VisibleToAllUsers
+        , "Applications"          .= _c1Applications
+        , "Tags"                  .= _c1Tags
+        , "ServiceRole"           .= _c1ServiceRole
+        ]
 
 data InstanceTimeline = InstanceTimeline
     { _itCreationDateTime :: Maybe RFC822
@@ -1283,10 +1402,17 @@ itReadyDateTime = lens _itReadyDateTime (\s a -> s { _itReadyDateTime = a })
     . mapping _Time
 
 instance FromJSON InstanceTimeline where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceTimeline" $ \o -> InstanceTimeline
+        <$> o .: "CreationDateTime"
+        <*> o .: "EndDateTime"
+        <*> o .: "ReadyDateTime"
 
 instance ToJSON InstanceTimeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceTimeline{..} = object
+        [ "CreationDateTime" .= _itCreationDateTime
+        , "ReadyDateTime"    .= _itReadyDateTime
+        , "EndDateTime"      .= _itEndDateTime
+        ]
 
 data Ec2InstanceAttributes = Ec2InstanceAttributes
     { _eiaEc2AvailabilityZone :: Maybe Text
@@ -1342,10 +1468,19 @@ eiaIamInstanceProfile =
     lens _eiaIamInstanceProfile (\s a -> s { _eiaIamInstanceProfile = a })
 
 instance FromJSON Ec2InstanceAttributes where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Ec2InstanceAttributes" $ \o -> Ec2InstanceAttributes
+        <$> o .: "Ec2AvailabilityZone"
+        <*> o .: "Ec2KeyName"
+        <*> o .: "Ec2SubnetId"
+        <*> o .: "IamInstanceProfile"
 
 instance ToJSON Ec2InstanceAttributes where
-    toJSON = genericToJSON jsonOptions
+    toJSON Ec2InstanceAttributes{..} = object
+        [ "Ec2KeyName"          .= _eiaEc2KeyName
+        , "Ec2SubnetId"         .= _eiaEc2SubnetId
+        , "Ec2AvailabilityZone" .= _eiaEc2AvailabilityZone
+        , "IamInstanceProfile"  .= _eiaIamInstanceProfile
+        ]
 
 data StepStateChangeReasonCode
     = None -- ^ NONE
@@ -1360,10 +1495,10 @@ instance ToText StepStateChangeReasonCode where
     toText None = "NONE"
 
 instance FromJSON StepStateChangeReasonCode where
-    parseJSON = withFromText "StepStateChangeReasonCode"
+    parseJSON = fromJSONText "StepStateChangeReasonCode"
 
 instance ToJSON StepStateChangeReasonCode where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ClusterState
     = CSBootstrapping        -- ^ BOOTSTRAPPING
@@ -1397,10 +1532,10 @@ instance ToText ClusterState where
         CSWaiting              -> "WAITING"
 
 instance FromJSON ClusterState where
-    parseJSON = withFromText "ClusterState"
+    parseJSON = fromJSONText "ClusterState"
 
 instance ToJSON ClusterState where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data HadoopStepConfig = HadoopStepConfig
     { _hscArgs       :: [Text]
@@ -1450,10 +1585,19 @@ hscProperties = lens _hscProperties (\s a -> s { _hscProperties = a })
     . _Map
 
 instance FromJSON HadoopStepConfig where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "HadoopStepConfig" $ \o -> HadoopStepConfig
+        <$> o .: "Args"
+        <*> o .: "Jar"
+        <*> o .: "MainClass"
+        <*> o .: "Properties"
 
 instance ToJSON HadoopStepConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON HadoopStepConfig{..} = object
+        [ "Jar"        .= _hscJar
+        , "Properties" .= _hscProperties
+        , "MainClass"  .= _hscMainClass
+        , "Args"       .= _hscArgs
+        ]
 
 data JobFlowExecutionState
     = JFESBootstrapping -- ^ BOOTSTRAPPING
@@ -1490,10 +1634,10 @@ instance ToText JobFlowExecutionState where
         JFESWaiting       -> "WAITING"
 
 instance FromJSON JobFlowExecutionState where
-    parseJSON = withFromText "JobFlowExecutionState"
+    parseJSON = fromJSONText "JobFlowExecutionState"
 
 instance ToJSON JobFlowExecutionState where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data StepDetail = StepDetail
     { _sdExecutionStatusDetail :: StepExecutionStatusDetail
@@ -1526,10 +1670,15 @@ sdStepConfig :: Lens' StepDetail StepConfig
 sdStepConfig = lens _sdStepConfig (\s a -> s { _sdStepConfig = a })
 
 instance FromJSON StepDetail where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "StepDetail" $ \o -> StepDetail
+        <$> o .: "ExecutionStatusDetail"
+        <*> o .: "StepConfig"
 
 instance ToJSON StepDetail where
-    toJSON = genericToJSON jsonOptions
+    toJSON StepDetail{..} = object
+        [ "StepConfig"            .= _sdStepConfig
+        , "ExecutionStatusDetail" .= _sdExecutionStatusDetail
+        ]
 
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason
     { _igscrCode    :: Maybe Text
@@ -1559,10 +1708,15 @@ igscrMessage :: Lens' InstanceGroupStateChangeReason (Maybe Text)
 igscrMessage = lens _igscrMessage (\s a -> s { _igscrMessage = a })
 
 instance FromJSON InstanceGroupStateChangeReason where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceGroupStateChangeReason" $ \o -> InstanceGroupStateChangeReason
+        <$> o .: "Code"
+        <*> o .: "Message"
 
 instance ToJSON InstanceGroupStateChangeReason where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceGroupStateChangeReason{..} = object
+        [ "Code"    .= _igscrCode
+        , "Message" .= _igscrMessage
+        ]
 
 data InstanceGroupType
     = Core   -- ^ CORE
@@ -1584,10 +1738,10 @@ instance ToText InstanceGroupType where
         Task   -> "TASK"
 
 instance FromJSON InstanceGroupType where
-    parseJSON = withFromText "InstanceGroupType"
+    parseJSON = fromJSONText "InstanceGroupType"
 
 instance ToJSON InstanceGroupType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data InstanceGroupStateChangeReasonCode
     = ClusterTerminated -- ^ CLUSTER_TERMINATED
@@ -1612,10 +1766,10 @@ instance ToText InstanceGroupStateChangeReasonCode where
         ValidationError   -> "VALIDATION_ERROR"
 
 instance FromJSON InstanceGroupStateChangeReasonCode where
-    parseJSON = withFromText "InstanceGroupStateChangeReasonCode"
+    parseJSON = fromJSONText "InstanceGroupStateChangeReasonCode"
 
 instance ToJSON InstanceGroupStateChangeReasonCode where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data StepStatus = StepStatus
     { _ssState             :: Maybe Text
@@ -1654,10 +1808,17 @@ ssTimeline :: Lens' StepStatus (Maybe StepTimeline)
 ssTimeline = lens _ssTimeline (\s a -> s { _ssTimeline = a })
 
 instance FromJSON StepStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "StepStatus" $ \o -> StepStatus
+        <$> o .: "State"
+        <*> o .: "StateChangeReason"
+        <*> o .: "Timeline"
 
 instance ToJSON StepStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON StepStatus{..} = object
+        [ "State"             .= _ssState
+        , "StateChangeReason" .= _ssStateChangeReason
+        , "Timeline"          .= _ssTimeline
+        ]
 
 data StepSummary = StepSummary
     { _ssId     :: Maybe Text
@@ -1695,10 +1856,17 @@ ssStatus :: Lens' StepSummary (Maybe StepStatus)
 ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
 
 instance FromJSON StepSummary where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "StepSummary" $ \o -> StepSummary
+        <$> o .: "Id"
+        <*> o .: "Name"
+        <*> o .: "Status"
 
 instance ToJSON StepSummary where
-    toJSON = genericToJSON jsonOptions
+    toJSON StepSummary{..} = object
+        [ "Id"     .= _ssId
+        , "Name"   .= _ssName
+        , "Status" .= _ssStatus
+        ]
 
 data InstanceGroupState
     = IGSArrested      -- ^ ARRESTED
@@ -1741,10 +1909,10 @@ instance ToText InstanceGroupState where
         IGSTerminating   -> "TERMINATING"
 
 instance FromJSON InstanceGroupState where
-    parseJSON = withFromText "InstanceGroupState"
+    parseJSON = fromJSONText "InstanceGroupState"
 
 instance ToJSON InstanceGroupState where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data StepTimeline = StepTimeline
     { _stCreationDateTime :: Maybe RFC822
@@ -1786,10 +1954,17 @@ stStartDateTime = lens _stStartDateTime (\s a -> s { _stStartDateTime = a })
     . mapping _Time
 
 instance FromJSON StepTimeline where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "StepTimeline" $ \o -> StepTimeline
+        <$> o .: "CreationDateTime"
+        <*> o .: "EndDateTime"
+        <*> o .: "StartDateTime"
 
 instance ToJSON StepTimeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON StepTimeline{..} = object
+        [ "CreationDateTime" .= _stCreationDateTime
+        , "StartDateTime"    .= _stStartDateTime
+        , "EndDateTime"      .= _stEndDateTime
+        ]
 
 newtype PlacementType = PlacementType
     { _ptAvailabilityZone :: Text
@@ -1813,10 +1988,13 @@ ptAvailabilityZone =
     lens _ptAvailabilityZone (\s a -> s { _ptAvailabilityZone = a })
 
 instance FromJSON PlacementType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PlacementType" $ \o -> PlacementType
+        <$> o .: "AvailabilityZone"
 
 instance ToJSON PlacementType where
-    toJSON = genericToJSON jsonOptions
+    toJSON PlacementType{..} = object
+        [ "AvailabilityZone" .= _ptAvailabilityZone
+        ]
 
 data HadoopJarStepConfig = HadoopJarStepConfig
     { _hjscArgs       :: [Text]
@@ -1866,10 +2044,19 @@ hjscProperties :: Lens' HadoopJarStepConfig [KeyValue]
 hjscProperties = lens _hjscProperties (\s a -> s { _hjscProperties = a })
 
 instance FromJSON HadoopJarStepConfig where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "HadoopJarStepConfig" $ \o -> HadoopJarStepConfig
+        <$> o .: "Args"
+        <*> o .: "Jar"
+        <*> o .: "MainClass"
+        <*> o .: "Properties"
 
 instance ToJSON HadoopJarStepConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON HadoopJarStepConfig{..} = object
+        [ "Properties" .= _hjscProperties
+        , "Jar"        .= _hjscJar
+        , "MainClass"  .= _hjscMainClass
+        , "Args"       .= _hjscArgs
+        ]
 
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig
     { _igmcEC2InstanceIdsToTerminate :: [Text]
@@ -1914,10 +2101,17 @@ igmcInstanceGroupId =
     lens _igmcInstanceGroupId (\s a -> s { _igmcInstanceGroupId = a })
 
 instance FromJSON InstanceGroupModifyConfig where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceGroupModifyConfig" $ \o -> InstanceGroupModifyConfig
+        <$> o .: "EC2InstanceIdsToTerminate"
+        <*> o .: "InstanceCount"
+        <*> o .: "InstanceGroupId"
 
 instance ToJSON InstanceGroupModifyConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceGroupModifyConfig{..} = object
+        [ "InstanceGroupId"           .= _igmcInstanceGroupId
+        , "InstanceCount"             .= _igmcInstanceCount
+        , "EC2InstanceIdsToTerminate" .= _igmcEC2InstanceIdsToTerminate
+        ]
 
 data InstanceGroupDetail = InstanceGroupDetail
     { _igdBidPrice              :: Maybe Text
@@ -2062,10 +2256,39 @@ igdState :: Lens' InstanceGroupDetail Text
 igdState = lens _igdState (\s a -> s { _igdState = a })
 
 instance FromJSON InstanceGroupDetail where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceGroupDetail" $ \o -> InstanceGroupDetail
+        <$> o .: "BidPrice"
+        <*> o .: "CreationDateTime"
+        <*> o .: "EndDateTime"
+        <*> o .: "InstanceGroupId"
+        <*> o .: "InstanceRequestCount"
+        <*> o .: "InstanceRole"
+        <*> o .: "InstanceRunningCount"
+        <*> o .: "InstanceType"
+        <*> o .: "LastStateChangeReason"
+        <*> o .: "Market"
+        <*> o .: "Name"
+        <*> o .: "ReadyDateTime"
+        <*> o .: "StartDateTime"
+        <*> o .: "State"
 
 instance ToJSON InstanceGroupDetail where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceGroupDetail{..} = object
+        [ "InstanceGroupId"       .= _igdInstanceGroupId
+        , "Name"                  .= _igdName
+        , "Market"                .= _igdMarket
+        , "InstanceRole"          .= _igdInstanceRole
+        , "BidPrice"              .= _igdBidPrice
+        , "InstanceType"          .= _igdInstanceType
+        , "InstanceRequestCount"  .= _igdInstanceRequestCount
+        , "InstanceRunningCount"  .= _igdInstanceRunningCount
+        , "State"                 .= _igdState
+        , "LastStateChangeReason" .= _igdLastStateChangeReason
+        , "CreationDateTime"      .= _igdCreationDateTime
+        , "StartDateTime"         .= _igdStartDateTime
+        , "ReadyDateTime"         .= _igdReadyDateTime
+        , "EndDateTime"           .= _igdEndDateTime
+        ]
 
 data StepStateChangeReason = StepStateChangeReason
     { _sscrCode    :: Maybe Text
@@ -2095,10 +2318,15 @@ sscrMessage :: Lens' StepStateChangeReason (Maybe Text)
 sscrMessage = lens _sscrMessage (\s a -> s { _sscrMessage = a })
 
 instance FromJSON StepStateChangeReason where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "StepStateChangeReason" $ \o -> StepStateChangeReason
+        <$> o .: "Code"
+        <*> o .: "Message"
 
 instance ToJSON StepStateChangeReason where
-    toJSON = genericToJSON jsonOptions
+    toJSON StepStateChangeReason{..} = object
+        [ "Code"    .= _sscrCode
+        , "Message" .= _sscrMessage
+        ]
 
 data ClusterStateChangeReasonCode
     = CSCRCAllStepsCompleted -- ^ ALL_STEPS_COMPLETED
@@ -2132,10 +2360,10 @@ instance ToText ClusterStateChangeReasonCode where
         CSCRCValidationError   -> "VALIDATION_ERROR"
 
 instance FromJSON ClusterStateChangeReasonCode where
-    parseJSON = withFromText "ClusterStateChangeReasonCode"
+    parseJSON = fromJSONText "ClusterStateChangeReasonCode"
 
 instance ToJSON ClusterStateChangeReasonCode where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data Step = Step
     { _sActionOnFailure :: Maybe Text
@@ -2190,10 +2418,21 @@ sStatus :: Lens' Step (Maybe StepStatus)
 sStatus = lens _sStatus (\s a -> s { _sStatus = a })
 
 instance FromJSON Step where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Step" $ \o -> Step
+        <$> o .: "ActionOnFailure"
+        <*> o .: "Config"
+        <*> o .: "Id"
+        <*> o .: "Name"
+        <*> o .: "Status"
 
 instance ToJSON Step where
-    toJSON = genericToJSON jsonOptions
+    toJSON Step{..} = object
+        [ "Id"              .= _sId
+        , "Name"            .= _sName
+        , "Config"          .= _sConfig
+        , "ActionOnFailure" .= _sActionOnFailure
+        , "Status"          .= _sStatus
+        ]
 
 data StepState
     = SSCancelled   -- ^ CANCELLED
@@ -2224,10 +2463,10 @@ instance ToText StepState where
         SSRunning     -> "RUNNING"
 
 instance FromJSON StepState where
-    parseJSON = withFromText "StepState"
+    parseJSON = fromJSONText "StepState"
 
 instance ToJSON StepState where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data InstanceGroupTimeline = InstanceGroupTimeline
     { _igtCreationDateTime :: Maybe RFC822
@@ -2269,10 +2508,17 @@ igtReadyDateTime = lens _igtReadyDateTime (\s a -> s { _igtReadyDateTime = a })
     . mapping _Time
 
 instance FromJSON InstanceGroupTimeline where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceGroupTimeline" $ \o -> InstanceGroupTimeline
+        <$> o .: "CreationDateTime"
+        <*> o .: "EndDateTime"
+        <*> o .: "ReadyDateTime"
 
 instance ToJSON InstanceGroupTimeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceGroupTimeline{..} = object
+        [ "CreationDateTime" .= _igtCreationDateTime
+        , "ReadyDateTime"    .= _igtReadyDateTime
+        , "EndDateTime"      .= _igtEndDateTime
+        ]
 
 newtype BootstrapActionDetail = BootstrapActionDetail
     { _badBootstrapActionConfig :: Maybe BootstrapActionConfig
@@ -2296,10 +2542,13 @@ badBootstrapActionConfig =
         (\s a -> s { _badBootstrapActionConfig = a })
 
 instance FromJSON BootstrapActionDetail where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "BootstrapActionDetail" $ \o -> BootstrapActionDetail
+        <$> o .: "BootstrapActionConfig"
 
 instance ToJSON BootstrapActionDetail where
-    toJSON = genericToJSON jsonOptions
+    toJSON BootstrapActionDetail{..} = object
+        [ "BootstrapActionConfig" .= _badBootstrapActionConfig
+        ]
 
 data StepExecutionStatusDetail = StepExecutionStatusDetail
     { _sesdCreationDateTime      :: RFC822
@@ -2362,10 +2611,21 @@ sesdState :: Lens' StepExecutionStatusDetail Text
 sesdState = lens _sesdState (\s a -> s { _sesdState = a })
 
 instance FromJSON StepExecutionStatusDetail where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "StepExecutionStatusDetail" $ \o -> StepExecutionStatusDetail
+        <$> o .: "CreationDateTime"
+        <*> o .: "EndDateTime"
+        <*> o .: "LastStateChangeReason"
+        <*> o .: "StartDateTime"
+        <*> o .: "State"
 
 instance ToJSON StepExecutionStatusDetail where
-    toJSON = genericToJSON jsonOptions
+    toJSON StepExecutionStatusDetail{..} = object
+        [ "State"                 .= _sesdState
+        , "CreationDateTime"      .= _sesdCreationDateTime
+        , "StartDateTime"         .= _sesdStartDateTime
+        , "EndDateTime"           .= _sesdEndDateTime
+        , "LastStateChangeReason" .= _sesdLastStateChangeReason
+        ]
 
 data InstanceStatus = InstanceStatus
     { _isState             :: Maybe Text
@@ -2404,10 +2664,17 @@ isTimeline :: Lens' InstanceStatus (Maybe InstanceTimeline)
 isTimeline = lens _isTimeline (\s a -> s { _isTimeline = a })
 
 instance FromJSON InstanceStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceStatus" $ \o -> InstanceStatus
+        <$> o .: "State"
+        <*> o .: "StateChangeReason"
+        <*> o .: "Timeline"
 
 instance ToJSON InstanceStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceStatus{..} = object
+        [ "State"             .= _isState
+        , "StateChangeReason" .= _isStateChangeReason
+        , "Timeline"          .= _isTimeline
+        ]
 
 data InstanceRoleType
     = IRTCore   -- ^ CORE
@@ -2429,10 +2696,10 @@ instance ToText InstanceRoleType where
         IRTTask   -> "TASK"
 
 instance FromJSON InstanceRoleType where
-    parseJSON = withFromText "InstanceRoleType"
+    parseJSON = fromJSONText "InstanceRoleType"
 
 instance ToJSON InstanceRoleType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data JobFlowInstancesConfig = JobFlowInstancesConfig
     { _jficEc2KeyName                  :: Maybe Text
@@ -2549,10 +2816,31 @@ jficTerminationProtected =
         (\s a -> s { _jficTerminationProtected = a })
 
 instance FromJSON JobFlowInstancesConfig where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "JobFlowInstancesConfig" $ \o -> JobFlowInstancesConfig
+        <$> o .: "Ec2KeyName"
+        <*> o .: "Ec2SubnetId"
+        <*> o .: "HadoopVersion"
+        <*> o .: "InstanceCount"
+        <*> o .: "InstanceGroups"
+        <*> o .: "KeepJobFlowAliveWhenNoSteps"
+        <*> o .: "MasterInstanceType"
+        <*> o .: "Placement"
+        <*> o .: "SlaveInstanceType"
+        <*> o .: "TerminationProtected"
 
 instance ToJSON JobFlowInstancesConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON JobFlowInstancesConfig{..} = object
+        [ "MasterInstanceType"          .= _jficMasterInstanceType
+        , "SlaveInstanceType"           .= _jficSlaveInstanceType
+        , "InstanceCount"               .= _jficInstanceCount
+        , "InstanceGroups"              .= _jficInstanceGroups
+        , "Ec2KeyName"                  .= _jficEc2KeyName
+        , "Placement"                   .= _jficPlacement
+        , "KeepJobFlowAliveWhenNoSteps" .= _jficKeepJobFlowAliveWhenNoSteps
+        , "TerminationProtected"        .= _jficTerminationProtected
+        , "HadoopVersion"               .= _jficHadoopVersion
+        , "Ec2SubnetId"                 .= _jficEc2SubnetId
+        ]
 
 data StepConfig = StepConfig
     { _scActionOnFailure :: Maybe Text
@@ -2593,10 +2881,17 @@ scName :: Lens' StepConfig Text
 scName = lens _scName (\s a -> s { _scName = a })
 
 instance FromJSON StepConfig where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "StepConfig" $ \o -> StepConfig
+        <$> o .: "ActionOnFailure"
+        <*> o .: "HadoopJarStep"
+        <*> o .: "Name"
 
 instance ToJSON StepConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON StepConfig{..} = object
+        [ "Name"            .= _scName
+        , "ActionOnFailure" .= _scActionOnFailure
+        , "HadoopJarStep"   .= _scHadoopJarStep
+        ]
 
 data InstanceGroup = InstanceGroup
     { _igBidPrice               :: Maybe Text
@@ -2688,10 +2983,29 @@ igStatus :: Lens' InstanceGroup (Maybe InstanceGroupStatus)
 igStatus = lens _igStatus (\s a -> s { _igStatus = a })
 
 instance FromJSON InstanceGroup where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceGroup" $ \o -> InstanceGroup
+        <$> o .: "BidPrice"
+        <*> o .: "Id"
+        <*> o .: "InstanceGroupType"
+        <*> o .: "InstanceType"
+        <*> o .: "Market"
+        <*> o .: "Name"
+        <*> o .: "RequestedInstanceCount"
+        <*> o .: "RunningInstanceCount"
+        <*> o .: "Status"
 
 instance ToJSON InstanceGroup where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceGroup{..} = object
+        [ "Id"                     .= _igId
+        , "Name"                   .= _igName
+        , "Market"                 .= _igMarket
+        , "InstanceGroupType"      .= _igInstanceGroupType
+        , "BidPrice"               .= _igBidPrice
+        , "InstanceType"           .= _igInstanceType
+        , "RequestedInstanceCount" .= _igRequestedInstanceCount
+        , "RunningInstanceCount"   .= _igRunningInstanceCount
+        , "Status"                 .= _igStatus
+        ]
 
 data BootstrapActionConfig = BootstrapActionConfig
     { _bacName                  :: Text
@@ -2725,10 +3039,15 @@ bacScriptBootstrapAction =
         (\s a -> s { _bacScriptBootstrapAction = a })
 
 instance FromJSON BootstrapActionConfig where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "BootstrapActionConfig" $ \o -> BootstrapActionConfig
+        <$> o .: "Name"
+        <*> o .: "ScriptBootstrapAction"
 
 instance ToJSON BootstrapActionConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON BootstrapActionConfig{..} = object
+        [ "Name"                  .= _bacName
+        , "ScriptBootstrapAction" .= _bacScriptBootstrapAction
+        ]
 
 data ClusterSummary = ClusterSummary
     { _csId     :: Maybe Text
@@ -2766,10 +3085,17 @@ csStatus :: Lens' ClusterSummary (Maybe ClusterStatus)
 csStatus = lens _csStatus (\s a -> s { _csStatus = a })
 
 instance FromJSON ClusterSummary where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ClusterSummary" $ \o -> ClusterSummary
+        <$> o .: "Id"
+        <*> o .: "Name"
+        <*> o .: "Status"
 
 instance ToJSON ClusterSummary where
-    toJSON = genericToJSON jsonOptions
+    toJSON ClusterSummary{..} = object
+        [ "Id"     .= _csId
+        , "Name"   .= _csName
+        , "Status" .= _csStatus
+        ]
 
 data JobFlowInstancesDetail = JobFlowInstancesDetail
     { _jfidEc2KeyName                  :: Maybe Text
@@ -2916,10 +3242,37 @@ jfidTerminationProtected =
         (\s a -> s { _jfidTerminationProtected = a })
 
 instance FromJSON JobFlowInstancesDetail where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "JobFlowInstancesDetail" $ \o -> JobFlowInstancesDetail
+        <$> o .: "Ec2KeyName"
+        <*> o .: "Ec2SubnetId"
+        <*> o .: "HadoopVersion"
+        <*> o .: "InstanceCount"
+        <*> o .: "InstanceGroups"
+        <*> o .: "KeepJobFlowAliveWhenNoSteps"
+        <*> o .: "MasterInstanceId"
+        <*> o .: "MasterInstanceType"
+        <*> o .: "MasterPublicDnsName"
+        <*> o .: "NormalizedInstanceHours"
+        <*> o .: "Placement"
+        <*> o .: "SlaveInstanceType"
+        <*> o .: "TerminationProtected"
 
 instance ToJSON JobFlowInstancesDetail where
-    toJSON = genericToJSON jsonOptions
+    toJSON JobFlowInstancesDetail{..} = object
+        [ "MasterInstanceType"          .= _jfidMasterInstanceType
+        , "MasterPublicDnsName"         .= _jfidMasterPublicDnsName
+        , "MasterInstanceId"            .= _jfidMasterInstanceId
+        , "SlaveInstanceType"           .= _jfidSlaveInstanceType
+        , "InstanceCount"               .= _jfidInstanceCount
+        , "InstanceGroups"              .= _jfidInstanceGroups
+        , "NormalizedInstanceHours"     .= _jfidNormalizedInstanceHours
+        , "Ec2KeyName"                  .= _jfidEc2KeyName
+        , "Ec2SubnetId"                 .= _jfidEc2SubnetId
+        , "Placement"                   .= _jfidPlacement
+        , "KeepJobFlowAliveWhenNoSteps" .= _jfidKeepJobFlowAliveWhenNoSteps
+        , "TerminationProtected"        .= _jfidTerminationProtected
+        , "HadoopVersion"               .= _jfidHadoopVersion
+        ]
 
 data ClusterStatus = ClusterStatus
     { _csState             :: Maybe Text
@@ -2959,10 +3312,17 @@ csTimeline :: Lens' ClusterStatus (Maybe ClusterTimeline)
 csTimeline = lens _csTimeline (\s a -> s { _csTimeline = a })
 
 instance FromJSON ClusterStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ClusterStatus" $ \o -> ClusterStatus
+        <$> o .: "State"
+        <*> o .: "StateChangeReason"
+        <*> o .: "Timeline"
 
 instance ToJSON ClusterStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON ClusterStatus{..} = object
+        [ "State"             .= _csState
+        , "StateChangeReason" .= _csStateChangeReason
+        , "Timeline"          .= _csTimeline
+        ]
 
 data InstanceState
     = ISAwaitingFulfillment -- ^ AWAITING_FULFILLMENT
@@ -2990,10 +3350,10 @@ instance ToText InstanceState where
         ISTerminated          -> "TERMINATED"
 
 instance FromJSON InstanceState where
-    parseJSON = withFromText "InstanceState"
+    parseJSON = fromJSONText "InstanceState"
 
 instance ToJSON InstanceState where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ClusterTimeline = ClusterTimeline
     { _ctCreationDateTime :: Maybe RFC822
@@ -3035,10 +3395,17 @@ ctReadyDateTime = lens _ctReadyDateTime (\s a -> s { _ctReadyDateTime = a })
     . mapping _Time
 
 instance FromJSON ClusterTimeline where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ClusterTimeline" $ \o -> ClusterTimeline
+        <$> o .: "CreationDateTime"
+        <*> o .: "EndDateTime"
+        <*> o .: "ReadyDateTime"
 
 instance ToJSON ClusterTimeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON ClusterTimeline{..} = object
+        [ "CreationDateTime" .= _ctCreationDateTime
+        , "ReadyDateTime"    .= _ctReadyDateTime
+        , "EndDateTime"      .= _ctEndDateTime
+        ]
 
 data InstanceStateChangeReasonCode
     = ISCRCBootstrapFailure  -- ^ BOOTSTRAP_FAILURE
@@ -3066,10 +3433,10 @@ instance ToText InstanceStateChangeReasonCode where
         ISCRCValidationError   -> "VALIDATION_ERROR"
 
 instance FromJSON InstanceStateChangeReasonCode where
-    parseJSON = withFromText "InstanceStateChangeReasonCode"
+    parseJSON = fromJSONText "InstanceStateChangeReasonCode"
 
 instance ToJSON InstanceStateChangeReasonCode where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data Instance = Instance
     { _iEc2InstanceId    :: Maybe Text
@@ -3140,10 +3507,25 @@ iStatus :: Lens' Instance (Maybe InstanceStatus)
 iStatus = lens _iStatus (\s a -> s { _iStatus = a })
 
 instance FromJSON Instance where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Instance" $ \o -> Instance
+        <$> o .: "Ec2InstanceId"
+        <*> o .: "Id"
+        <*> o .: "PrivateDnsName"
+        <*> o .: "PrivateIpAddress"
+        <*> o .: "PublicDnsName"
+        <*> o .: "PublicIpAddress"
+        <*> o .: "Status"
 
 instance ToJSON Instance where
-    toJSON = genericToJSON jsonOptions
+    toJSON Instance{..} = object
+        [ "Id"               .= _iId
+        , "Ec2InstanceId"    .= _iEc2InstanceId
+        , "PublicDnsName"    .= _iPublicDnsName
+        , "PublicIpAddress"  .= _iPublicIpAddress
+        , "PrivateDnsName"   .= _iPrivateDnsName
+        , "PrivateIpAddress" .= _iPrivateIpAddress
+        , "Status"           .= _iStatus
+        ]
 
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig
     { _sbacArgs :: [Text]
@@ -3175,7 +3557,12 @@ sbacPath :: Lens' ScriptBootstrapActionConfig Text
 sbacPath = lens _sbacPath (\s a -> s { _sbacPath = a })
 
 instance FromJSON ScriptBootstrapActionConfig where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ScriptBootstrapActionConfig" $ \o -> ScriptBootstrapActionConfig
+        <$> o .: "Args"
+        <*> o .: "Path"
 
 instance ToJSON ScriptBootstrapActionConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON ScriptBootstrapActionConfig{..} = object
+        [ "Path" .= _sbacPath
+        , "Args" .= _sbacArgs
+        ]

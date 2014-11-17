@@ -123,5 +123,5 @@ instance AWSRequest ModifyReservedInstances where
     response = xmlResponse
 
 instance FromXML ModifyReservedInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyReservedInstancesResponse"
+    parseXML c = ModifyReservedInstancesResponse
+        <$> c .: "reservedInstancesModificationId"

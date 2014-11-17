@@ -86,8 +86,12 @@ instance ToQuery PutRetentionPolicy where
     toQuery = const mempty
 
 instance ToHeaders PutRetentionPolicy
+
 instance ToJSON PutRetentionPolicy where
-    toJSON = genericToJSON jsonOptions
+    toJSON PutRetentionPolicy{..} = object
+        [ "logGroupName"    .= _prpLogGroupName
+        , "retentionInDays" .= _prpRetentionInDays
+        ]
 
 instance AWSRequest PutRetentionPolicy where
     type Sv PutRetentionPolicy = CloudWatchLogs

@@ -97,8 +97,13 @@ instance ToQuery PutKeyPolicy where
     toQuery = const mempty
 
 instance ToHeaders PutKeyPolicy
+
 instance ToJSON PutKeyPolicy where
-    toJSON = genericToJSON jsonOptions
+    toJSON PutKeyPolicy{..} = object
+        [ "KeyId"      .= _pkpKeyId
+        , "PolicyName" .= _pkpPolicyName
+        , "Policy"     .= _pkpPolicy
+        ]
 
 instance AWSRequest PutKeyPolicy where
     type Sv PutKeyPolicy = KMS

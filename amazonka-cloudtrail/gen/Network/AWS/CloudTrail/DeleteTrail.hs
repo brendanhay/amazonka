@@ -75,8 +75,11 @@ instance ToQuery DeleteTrail where
     toQuery = const mempty
 
 instance ToHeaders DeleteTrail
+
 instance ToJSON DeleteTrail where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteTrail{..} = object
+        [ "Name" .= _dtName
+        ]
 
 instance AWSRequest DeleteTrail where
     type Sv DeleteTrail = CloudTrail

@@ -150,5 +150,7 @@ instance AWSRequest ListAccessKeys where
     response = xmlResponse
 
 instance FromXML ListAccessKeysResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListAccessKeysResponse"
+    parseXML c = ListAccessKeysResponse
+        <$> c .: "AccessKeyMetadata"
+        <*> c .: "IsTruncated"
+        <*> c .: "Marker"

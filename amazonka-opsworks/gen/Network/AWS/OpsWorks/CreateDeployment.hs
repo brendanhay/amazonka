@@ -150,8 +150,16 @@ instance ToQuery CreateDeployment where
     toQuery = const mempty
 
 instance ToHeaders CreateDeployment
+
 instance ToJSON CreateDeployment where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateDeployment{..} = object
+        [ "StackId"     .= _cdStackId
+        , "AppId"       .= _cdAppId
+        , "InstanceIds" .= _cdInstanceIds
+        , "Command"     .= _cdCommand
+        , "Comment"     .= _cdComment
+        , "CustomJson"  .= _cdCustomJson
+        ]
 
 instance AWSRequest CreateDeployment where
     type Sv CreateDeployment = OpsWorks
@@ -161,4 +169,5 @@ instance AWSRequest CreateDeployment where
     response = jsonResponse
 
 instance FromJSON CreateDeploymentResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateDeploymentResponse" $ \o -> CreateDeploymentResponse
+        <$> o .: "DeploymentId"

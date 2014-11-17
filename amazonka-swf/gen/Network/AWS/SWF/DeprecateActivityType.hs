@@ -99,8 +99,12 @@ instance ToQuery DeprecateActivityType where
     toQuery = const mempty
 
 instance ToHeaders DeprecateActivityType
+
 instance ToJSON DeprecateActivityType where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeprecateActivityType{..} = object
+        [ "domain"       .= _dat1Domain
+        , "activityType" .= _dat1ActivityType
+        ]
 
 instance AWSRequest DeprecateActivityType where
     type Sv DeprecateActivityType = SWF

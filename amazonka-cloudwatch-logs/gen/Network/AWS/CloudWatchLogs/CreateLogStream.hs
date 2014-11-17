@@ -87,8 +87,12 @@ instance ToQuery CreateLogStream where
     toQuery = const mempty
 
 instance ToHeaders CreateLogStream
+
 instance ToJSON CreateLogStream where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateLogStream{..} = object
+        [ "logGroupName"  .= _clsLogGroupName
+        , "logStreamName" .= _clsLogStreamName
+        ]
 
 instance AWSRequest CreateLogStream where
     type Sv CreateLogStream = CloudWatchLogs

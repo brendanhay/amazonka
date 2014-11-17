@@ -88,8 +88,12 @@ instance ToQuery UpdateElasticIp where
     toQuery = const mempty
 
 instance ToHeaders UpdateElasticIp
+
 instance ToJSON UpdateElasticIp where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateElasticIp{..} = object
+        [ "ElasticIp" .= _ueiElasticIp
+        , "Name"      .= _ueiName
+        ]
 
 instance AWSRequest UpdateElasticIp where
     type Sv UpdateElasticIp = OpsWorks

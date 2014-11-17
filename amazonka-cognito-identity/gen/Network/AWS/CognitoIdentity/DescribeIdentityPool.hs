@@ -149,8 +149,11 @@ instance ToQuery DescribeIdentityPool where
     toQuery = const mempty
 
 instance ToHeaders DescribeIdentityPool
+
 instance ToJSON DescribeIdentityPool where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeIdentityPool{..} = object
+        [ "IdentityPoolId" .= _dipIdentityPoolId
+        ]
 
 instance AWSRequest DescribeIdentityPool where
     type Sv DescribeIdentityPool = CognitoIdentity
@@ -160,4 +163,10 @@ instance AWSRequest DescribeIdentityPool where
     response = jsonResponse
 
 instance FromJSON DescribeIdentityPoolResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeIdentityPoolResponse" $ \o -> DescribeIdentityPoolResponse
+        <$> o .: "AllowUnauthenticatedIdentities"
+        <*> o .: "DeveloperProviderName"
+        <*> o .: "IdentityPoolId"
+        <*> o .: "IdentityPoolName"
+        <*> o .: "OpenIdConnectProviderARNs"
+        <*> o .: "SupportedLoginProviders"

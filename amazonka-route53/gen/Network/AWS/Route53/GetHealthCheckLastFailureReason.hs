@@ -107,9 +107,9 @@ instance ToQuery GetHealthCheckLastFailureReason where
     toQuery = const mempty
 
 instance ToHeaders GetHealthCheckLastFailureReason
+
 instance ToXML GetHealthCheckLastFailureReason where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHealthCheckLastFailureReason"
+    toXML = const (node "GetHealthCheckLastFailureReason" [])
 
 instance AWSRequest GetHealthCheckLastFailureReason where
     type Sv GetHealthCheckLastFailureReason = Route53
@@ -119,5 +119,5 @@ instance AWSRequest GetHealthCheckLastFailureReason where
     response = xmlResponse
 
 instance FromXML GetHealthCheckLastFailureReasonResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetHealthCheckLastFailureReasonResponse"
+    parseXML c = GetHealthCheckLastFailureReasonResponse
+        <$> c .: "HealthCheckObservations"

@@ -255,8 +255,25 @@ instance ToQuery CreateInstance where
     toQuery = const mempty
 
 instance ToHeaders CreateInstance
+
 instance ToJSON CreateInstance where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateInstance{..} = object
+        [ "StackId"              .= _ciStackId
+        , "LayerIds"             .= _ciLayerIds
+        , "InstanceType"         .= _ciInstanceType
+        , "AutoScalingType"      .= _ciAutoScalingType
+        , "Hostname"             .= _ciHostname
+        , "Os"                   .= _ciOs
+        , "AmiId"                .= _ciAmiId
+        , "SshKeyName"           .= _ciSshKeyName
+        , "AvailabilityZone"     .= _ciAvailabilityZone
+        , "VirtualizationType"   .= _ciVirtualizationType
+        , "SubnetId"             .= _ciSubnetId
+        , "Architecture"         .= _ciArchitecture
+        , "RootDeviceType"       .= _ciRootDeviceType
+        , "InstallUpdatesOnBoot" .= _ciInstallUpdatesOnBoot
+        , "EbsOptimized"         .= _ciEbsOptimized
+        ]
 
 instance AWSRequest CreateInstance where
     type Sv CreateInstance = OpsWorks
@@ -266,4 +283,5 @@ instance AWSRequest CreateInstance where
     response = jsonResponse
 
 instance FromJSON CreateInstanceResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateInstanceResponse" $ \o -> CreateInstanceResponse
+        <$> o .: "InstanceId"

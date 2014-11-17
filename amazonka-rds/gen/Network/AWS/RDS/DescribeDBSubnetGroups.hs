@@ -145,5 +145,6 @@ instance AWSRequest DescribeDBSubnetGroups where
     response = xmlResponse
 
 instance FromXML DescribeDBSubnetGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBSubnetGroupsResponse"
+    parseXML c = DescribeDBSubnetGroupsResponse
+        <$> c .: "DBSubnetGroups"
+        <*> c .: "Marker"

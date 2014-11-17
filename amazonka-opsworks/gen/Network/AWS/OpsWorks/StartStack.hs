@@ -78,8 +78,11 @@ instance ToQuery StartStack where
     toQuery = const mempty
 
 instance ToHeaders StartStack
+
 instance ToJSON StartStack where
-    toJSON = genericToJSON jsonOptions
+    toJSON StartStack{..} = object
+        [ "StackId" .= _ss2StackId
+        ]
 
 instance AWSRequest StartStack where
     type Sv StartStack = OpsWorks

@@ -9,14 +9,12 @@
 {% include "response-body.ede" %}
 {% when "json" %}
     response = jsonResponse
-
 {% include "json-from.ede" with type = response %}
 {% when "json-headers" %}
     response = jsonHeaderResponse $ \h o -> {{ response.name }}
 {% include "response-json.ede" %}
 {% when "xml" %}
     response = xmlResponse
-
 {% include "xml-from.ede" with type = response %}
 {% when "xml-headers" %}
     response = xmlHeaderResponse $ \h x -> {{ response.name }}

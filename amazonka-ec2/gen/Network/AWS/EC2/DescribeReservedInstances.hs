@@ -157,5 +157,5 @@ instance AWSRequest DescribeReservedInstances where
     response = xmlResponse
 
 instance FromXML DescribeReservedInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedInstancesResponse"
+    parseXML c = DescribeReservedInstancesResponse
+        <$> c .: "reservedInstancesSet"

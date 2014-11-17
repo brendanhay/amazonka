@@ -100,8 +100,13 @@ instance ToQuery SetStatus where
     toQuery = const mempty
 
 instance ToHeaders SetStatus
+
 instance ToJSON SetStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON SetStatus{..} = object
+        [ "pipelineId" .= _ssPipelineId
+        , "objectIds"  .= _ssObjectIds
+        , "status"     .= _ssStatus
+        ]
 
 instance AWSRequest SetStatus where
     type Sv SetStatus = DataPipeline

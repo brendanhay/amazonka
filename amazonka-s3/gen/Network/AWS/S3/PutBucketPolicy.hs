@@ -99,9 +99,11 @@ instance ToHeaders PutBucketPolicy where
     toHeaders PutBucketPolicy{..} = mconcat
         [ "Content-MD5" =: _pbpContentMD5
         ]
+
 instance ToXML PutBucketPolicy where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PutBucketPolicy"
+    toXML PutBucketPolicy{..} = node "PutBucketPolicy"
+        [ "Policy" .= _pbpPolicy
+        ]
 
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3

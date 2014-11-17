@@ -271,8 +271,9 @@ instance ToQuery UpdateFunctionConfiguration where
         ]
 
 instance ToHeaders UpdateFunctionConfiguration
+
 instance ToJSON UpdateFunctionConfiguration where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest UpdateFunctionConfiguration where
     type Sv UpdateFunctionConfiguration = Lambda
@@ -282,4 +283,16 @@ instance AWSRequest UpdateFunctionConfiguration where
     response = jsonResponse
 
 instance FromJSON UpdateFunctionConfigurationResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateFunctionConfigurationResponse" $ \o -> UpdateFunctionConfigurationResponse
+        <$> o .: "CodeSize"
+        <*> o .: "ConfigurationId"
+        <*> o .: "Description"
+        <*> o .: "FunctionARN"
+        <*> o .: "FunctionName"
+        <*> o .: "Handler"
+        <*> o .: "LastModified"
+        <*> o .: "MemorySize"
+        <*> o .: "Mode"
+        <*> o .: "Role"
+        <*> o .: "Runtime"
+        <*> o .: "Timeout"

@@ -121,9 +121,9 @@ instance ToQuery ListInvalidations where
         ]
 
 instance ToHeaders ListInvalidations
+
 instance ToXML ListInvalidations where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListInvalidations"
+    toXML = const (node "ListInvalidations" [])
 
 instance AWSRequest ListInvalidations where
     type Sv ListInvalidations = CloudFront
@@ -133,5 +133,5 @@ instance AWSRequest ListInvalidations where
     response = xmlResponse
 
 instance FromXML ListInvalidationsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListInvalidationsResponse"
+    parseXML c = ListInvalidationsResponse
+        <$> c .: "InvalidationList"

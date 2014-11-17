@@ -133,5 +133,5 @@ instance AWSRequest EnterStandby where
     response = xmlResponse
 
 instance FromXML EnterStandbyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnterStandbyResponse"
+    parseXML c = EnterStandbyResponse
+        <$> c .: "Activities"

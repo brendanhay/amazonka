@@ -107,8 +107,11 @@ instance ToQuery DescribeLoadBasedAutoScaling where
     toQuery = const mempty
 
 instance ToHeaders DescribeLoadBasedAutoScaling
+
 instance ToJSON DescribeLoadBasedAutoScaling where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeLoadBasedAutoScaling{..} = object
+        [ "LayerIds" .= _dlbasLayerIds
+        ]
 
 instance AWSRequest DescribeLoadBasedAutoScaling where
     type Sv DescribeLoadBasedAutoScaling = OpsWorks
@@ -118,4 +121,5 @@ instance AWSRequest DescribeLoadBasedAutoScaling where
     response = jsonResponse
 
 instance FromJSON DescribeLoadBasedAutoScalingResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeLoadBasedAutoScalingResponse" $ \o -> DescribeLoadBasedAutoScalingResponse
+        <$> o .: "LoadBasedAutoScalingConfigurations"

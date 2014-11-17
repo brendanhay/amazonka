@@ -88,8 +88,11 @@ instance ToQuery DeprecateDomain where
     toQuery = const mempty
 
 instance ToHeaders DeprecateDomain
+
 instance ToJSON DeprecateDomain where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeprecateDomain{..} = object
+        [ "name" .= _dd1Name
+        ]
 
 instance AWSRequest DeprecateDomain where
     type Sv DeprecateDomain = SWF

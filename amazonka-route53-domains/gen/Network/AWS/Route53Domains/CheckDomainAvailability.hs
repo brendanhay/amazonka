@@ -112,8 +112,12 @@ instance ToQuery CheckDomainAvailability where
     toQuery = const mempty
 
 instance ToHeaders CheckDomainAvailability
+
 instance ToJSON CheckDomainAvailability where
-    toJSON = genericToJSON jsonOptions
+    toJSON CheckDomainAvailability{..} = object
+        [ "DomainName"  .= _cdaDomainName
+        , "IdnLangCode" .= _cdaIdnLangCode
+        ]
 
 instance AWSRequest CheckDomainAvailability where
     type Sv CheckDomainAvailability = Route53Domains
@@ -123,4 +127,5 @@ instance AWSRequest CheckDomainAvailability where
     response = jsonResponse
 
 instance FromJSON CheckDomainAvailabilityResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CheckDomainAvailabilityResponse" $ \o -> CheckDomainAvailabilityResponse
+        <$> o .: "Availability"

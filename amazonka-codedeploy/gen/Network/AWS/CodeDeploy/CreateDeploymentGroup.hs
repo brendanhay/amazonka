@@ -172,8 +172,16 @@ instance ToQuery CreateDeploymentGroup where
     toQuery = const mempty
 
 instance ToHeaders CreateDeploymentGroup
+
 instance ToJSON CreateDeploymentGroup where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateDeploymentGroup{..} = object
+        [ "applicationName"      .= _cdgApplicationName
+        , "deploymentGroupName"  .= _cdgDeploymentGroupName
+        , "deploymentConfigName" .= _cdgDeploymentConfigName
+        , "ec2TagFilters"        .= _cdgEc2TagFilters
+        , "autoScalingGroups"    .= _cdgAutoScalingGroups
+        , "serviceRoleArn"       .= _cdgServiceRoleArn
+        ]
 
 instance AWSRequest CreateDeploymentGroup where
     type Sv CreateDeploymentGroup = CodeDeploy
@@ -183,4 +191,5 @@ instance AWSRequest CreateDeploymentGroup where
     response = jsonResponse
 
 instance FromJSON CreateDeploymentGroupResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateDeploymentGroupResponse" $ \o -> CreateDeploymentGroupResponse
+        <$> o .: "deploymentGroupId"

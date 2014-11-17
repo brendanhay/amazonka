@@ -127,5 +127,5 @@ instance AWSRequest RebootDBInstance where
     response = xmlResponse
 
 instance FromXML RebootDBInstanceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RebootDBInstanceResponse"
+    parseXML c = RebootDBInstanceResponse
+        <$> c .: "DBInstance"

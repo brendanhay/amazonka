@@ -25,8 +25,6 @@ module Network.AWS.CloudSearchDomains.Types
       CloudSearchDomains
     -- ** Error
     , RESTError
-    -- ** JSON
-    , jsonOptions
 
     -- * SearchStatus
     , SearchStatus
@@ -116,11 +114,6 @@ instance AWSService CloudSearchDomains where
 
     handle = restError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data SearchStatus = SearchStatus
     { _ssRid    :: Maybe Text
     , _ssTimems :: Maybe Integer
@@ -149,10 +142,15 @@ ssTimems :: Lens' SearchStatus (Maybe Integer)
 ssTimems = lens _ssTimems (\s a -> s { _ssTimems = a })
 
 instance FromJSON SearchStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "SearchStatus" $ \o -> SearchStatus
+        <$> o .: "rid"
+        <*> o .: "timems"
 
 instance ToJSON SearchStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON SearchStatus{..} = object
+        [ "timems" .= _ssTimems
+        , "rid"    .= _ssRid
+        ]
 
 data QueryParser
     = Dismax     -- ^ dismax
@@ -177,10 +175,10 @@ instance ToText QueryParser where
         Structured -> "structured"
 
 instance FromJSON QueryParser where
-    parseJSON = withFromText "QueryParser"
+    parseJSON = fromJSONText "QueryParser"
 
 instance ToJSON QueryParser where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data Hit = Hit
     { _hitFields     :: Map Text [Text]
@@ -220,10 +218,17 @@ hitId :: Lens' Hit (Maybe Text)
 hitId = lens _hitId (\s a -> s { _hitId = a })
 
 instance FromJSON Hit where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Hit" $ \o -> Hit
+        <$> o .: "fields"
+        <*> o .: "highlights"
+        <*> o .: "id"
 
 instance ToJSON Hit where
-    toJSON = genericToJSON jsonOptions
+    toJSON Hit{..} = object
+        [ "id"         .= _hitId
+        , "fields"     .= _hitFields
+        , "highlights" .= _hitHighlights
+        ]
 
 data SuggestStatus = SuggestStatus
     { _ss1Rid    :: Maybe Text
@@ -253,10 +258,15 @@ ss1Timems :: Lens' SuggestStatus (Maybe Integer)
 ss1Timems = lens _ss1Timems (\s a -> s { _ss1Timems = a })
 
 instance FromJSON SuggestStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "SuggestStatus" $ \o -> SuggestStatus
+        <$> o .: "rid"
+        <*> o .: "timems"
 
 instance ToJSON SuggestStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON SuggestStatus{..} = object
+        [ "timems" .= _ss1Timems
+        , "rid"    .= _ss1Rid
+        ]
 
 data Bucket = Bucket
     { _bCount :: Maybe Integer
@@ -287,10 +297,15 @@ bValue :: Lens' Bucket (Maybe Text)
 bValue = lens _bValue (\s a -> s { _bValue = a })
 
 instance FromJSON Bucket where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Bucket" $ \o -> Bucket
+        <$> o .: "count"
+        <*> o .: "value"
 
 instance ToJSON Bucket where
-    toJSON = genericToJSON jsonOptions
+    toJSON Bucket{..} = object
+        [ "value" .= _bValue
+        , "count" .= _bCount
+        ]
 
 data SuggestionMatch = SuggestionMatch
     { _smId         :: Maybe Text
@@ -328,10 +343,17 @@ smSuggestion :: Lens' SuggestionMatch (Maybe Text)
 smSuggestion = lens _smSuggestion (\s a -> s { _smSuggestion = a })
 
 instance FromJSON SuggestionMatch where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "SuggestionMatch" $ \o -> SuggestionMatch
+        <$> o .: "id"
+        <*> o .: "score"
+        <*> o .: "suggestion"
 
 instance ToJSON SuggestionMatch where
-    toJSON = genericToJSON jsonOptions
+    toJSON SuggestionMatch{..} = object
+        [ "suggestion" .= _smSuggestion
+        , "score"      .= _smScore
+        , "id"         .= _smId
+        ]
 
 newtype BucketInfo = BucketInfo
     { _biBuckets :: [Bucket]
@@ -359,10 +381,13 @@ biBuckets :: Lens' BucketInfo [Bucket]
 biBuckets = lens _biBuckets (\s a -> s { _biBuckets = a })
 
 instance FromJSON BucketInfo where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "BucketInfo" $ \o -> BucketInfo
+        <$> o .: "buckets"
 
 instance ToJSON BucketInfo where
-    toJSON = genericToJSON jsonOptions
+    toJSON BucketInfo{..} = object
+        [ "buckets" .= _biBuckets
+        ]
 
 newtype DocumentServiceWarning = DocumentServiceWarning
     { _dswMessage :: Maybe Text
@@ -384,10 +409,13 @@ dswMessage :: Lens' DocumentServiceWarning (Maybe Text)
 dswMessage = lens _dswMessage (\s a -> s { _dswMessage = a })
 
 instance FromJSON DocumentServiceWarning where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DocumentServiceWarning" $ \o -> DocumentServiceWarning
+        <$> o .: "message"
 
 instance ToJSON DocumentServiceWarning where
-    toJSON = genericToJSON jsonOptions
+    toJSON DocumentServiceWarning{..} = object
+        [ "message" .= _dswMessage
+        ]
 
 data SuggestModel = SuggestModel
     { _smFound       :: Maybe Integer
@@ -425,10 +453,17 @@ smSuggestions :: Lens' SuggestModel [SuggestionMatch]
 smSuggestions = lens _smSuggestions (\s a -> s { _smSuggestions = a })
 
 instance FromJSON SuggestModel where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "SuggestModel" $ \o -> SuggestModel
+        <$> o .: "found"
+        <*> o .: "query"
+        <*> o .: "suggestions"
 
 instance ToJSON SuggestModel where
-    toJSON = genericToJSON jsonOptions
+    toJSON SuggestModel{..} = object
+        [ "query"       .= _smQuery
+        , "found"       .= _smFound
+        , "suggestions" .= _smSuggestions
+        ]
 
 data Hits = Hits
     { _hCursor :: Maybe Text
@@ -475,10 +510,19 @@ hStart :: Lens' Hits (Maybe Integer)
 hStart = lens _hStart (\s a -> s { _hStart = a })
 
 instance FromJSON Hits where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Hits" $ \o -> Hits
+        <$> o .: "cursor"
+        <*> o .: "found"
+        <*> o .: "hit"
+        <*> o .: "start"
 
 instance ToJSON Hits where
-    toJSON = genericToJSON jsonOptions
+    toJSON Hits{..} = object
+        [ "found"  .= _hFound
+        , "start"  .= _hStart
+        , "cursor" .= _hCursor
+        , "hit"    .= _hHit
+        ]
 
 data ContentType
     = ApplicationJson -- ^ application/json
@@ -497,7 +541,7 @@ instance ToText ContentType where
         ApplicationXml  -> "application/xml"
 
 instance FromJSON ContentType where
-    parseJSON = withFromText "ContentType"
+    parseJSON = fromJSONText "ContentType"
 
 instance ToJSON ContentType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText

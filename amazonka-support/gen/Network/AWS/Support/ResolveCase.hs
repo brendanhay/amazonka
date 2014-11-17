@@ -102,8 +102,11 @@ instance ToQuery ResolveCase where
     toQuery = const mempty
 
 instance ToHeaders ResolveCase
+
 instance ToJSON ResolveCase where
-    toJSON = genericToJSON jsonOptions
+    toJSON ResolveCase{..} = object
+        [ "caseId" .= _rcCaseId
+        ]
 
 instance AWSRequest ResolveCase where
     type Sv ResolveCase = Support
@@ -113,4 +116,6 @@ instance AWSRequest ResolveCase where
     response = jsonResponse
 
 instance FromJSON ResolveCaseResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ResolveCaseResponse" $ \o -> ResolveCaseResponse
+        <$> o .: "finalCaseStatus"
+        <*> o .: "initialCaseStatus"

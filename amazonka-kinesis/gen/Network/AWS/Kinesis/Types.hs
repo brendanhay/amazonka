@@ -25,8 +25,6 @@ module Network.AWS.Kinesis.Types
       Kinesis
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * Shard
     , Shard
@@ -102,11 +100,6 @@ instance AWSService Kinesis where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data Shard = Shard
     { _sAdjacentParentShardId :: Maybe Text
     , _sHashKeyRange          :: HashKeyRange
@@ -165,10 +158,21 @@ sShardId :: Lens' Shard Text
 sShardId = lens _sShardId (\s a -> s { _sShardId = a })
 
 instance FromJSON Shard where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Shard" $ \o -> Shard
+        <$> o .: "AdjacentParentShardId"
+        <*> o .: "HashKeyRange"
+        <*> o .: "ParentShardId"
+        <*> o .: "SequenceNumberRange"
+        <*> o .: "ShardId"
 
 instance ToJSON Shard where
-    toJSON = genericToJSON jsonOptions
+    toJSON Shard{..} = object
+        [ "ShardId"               .= _sShardId
+        , "ParentShardId"         .= _sParentShardId
+        , "AdjacentParentShardId" .= _sAdjacentParentShardId
+        , "HashKeyRange"          .= _sHashKeyRange
+        , "SequenceNumberRange"   .= _sSequenceNumberRange
+        ]
 
 data Tag = Tag
     { _tagKey   :: Text
@@ -202,10 +206,15 @@ tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromJSON Tag where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Tag" $ \o -> Tag
+        <$> o .: "Key"
+        <*> o .: "Value"
 
 instance ToJSON Tag where
-    toJSON = genericToJSON jsonOptions
+    toJSON Tag{..} = object
+        [ "Key"   .= _tagKey
+        , "Value" .= _tagValue
+        ]
 
 data StreamDescription = StreamDescription
     { _sdHasMoreShards :: Bool
@@ -271,10 +280,21 @@ sdStreamStatus :: Lens' StreamDescription Text
 sdStreamStatus = lens _sdStreamStatus (\s a -> s { _sdStreamStatus = a })
 
 instance FromJSON StreamDescription where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "StreamDescription" $ \o -> StreamDescription
+        <$> o .: "HasMoreShards"
+        <*> o .: "Shards"
+        <*> o .: "StreamARN"
+        <*> o .: "StreamName"
+        <*> o .: "StreamStatus"
 
 instance ToJSON StreamDescription where
-    toJSON = genericToJSON jsonOptions
+    toJSON StreamDescription{..} = object
+        [ "StreamName"    .= _sdStreamName
+        , "StreamARN"     .= _sdStreamARN
+        , "StreamStatus"  .= _sdStreamStatus
+        , "Shards"        .= _sdShards
+        , "HasMoreShards" .= _sdHasMoreShards
+        ]
 
 data StreamStatus
     = Active   -- ^ ACTIVE
@@ -299,10 +319,10 @@ instance ToText StreamStatus where
         Updating -> "UPDATING"
 
 instance FromJSON StreamStatus where
-    parseJSON = withFromText "StreamStatus"
+    parseJSON = fromJSONText "StreamStatus"
 
 instance ToJSON StreamStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data HashKeyRange = HashKeyRange
     { _hkrEndingHashKey   :: Text
@@ -335,10 +355,15 @@ hkrStartingHashKey =
     lens _hkrStartingHashKey (\s a -> s { _hkrStartingHashKey = a })
 
 instance FromJSON HashKeyRange where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "HashKeyRange" $ \o -> HashKeyRange
+        <$> o .: "EndingHashKey"
+        <*> o .: "StartingHashKey"
 
 instance ToJSON HashKeyRange where
-    toJSON = genericToJSON jsonOptions
+    toJSON HashKeyRange{..} = object
+        [ "StartingHashKey" .= _hkrStartingHashKey
+        , "EndingHashKey"   .= _hkrEndingHashKey
+        ]
 
 data Record = Record
     { _rData           :: Base64
@@ -382,10 +407,17 @@ rSequenceNumber :: Lens' Record Text
 rSequenceNumber = lens _rSequenceNumber (\s a -> s { _rSequenceNumber = a })
 
 instance FromJSON Record where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Record" $ \o -> Record
+        <$> o .: "Data"
+        <*> o .: "PartitionKey"
+        <*> o .: "SequenceNumber"
 
 instance ToJSON Record where
-    toJSON = genericToJSON jsonOptions
+    toJSON Record{..} = object
+        [ "SequenceNumber" .= _rSequenceNumber
+        , "Data"           .= _rData
+        , "PartitionKey"   .= _rPartitionKey
+        ]
 
 data SequenceNumberRange = SequenceNumberRange
     { _snrEndingSequenceNumber   :: Maybe Text
@@ -420,10 +452,15 @@ snrStartingSequenceNumber =
         (\s a -> s { _snrStartingSequenceNumber = a })
 
 instance FromJSON SequenceNumberRange where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "SequenceNumberRange" $ \o -> SequenceNumberRange
+        <$> o .: "EndingSequenceNumber"
+        <*> o .: "StartingSequenceNumber"
 
 instance ToJSON SequenceNumberRange where
-    toJSON = genericToJSON jsonOptions
+    toJSON SequenceNumberRange{..} = object
+        [ "StartingSequenceNumber" .= _snrStartingSequenceNumber
+        , "EndingSequenceNumber"   .= _snrEndingSequenceNumber
+        ]
 
 data ShardIteratorType
     = AfterSequenceNumber -- ^ AFTER_SEQUENCE_NUMBER
@@ -448,7 +485,7 @@ instance ToText ShardIteratorType where
         TrimHorizon         -> "TRIM_HORIZON"
 
 instance FromJSON ShardIteratorType where
-    parseJSON = withFromText "ShardIteratorType"
+    parseJSON = fromJSONText "ShardIteratorType"
 
 instance ToJSON ShardIteratorType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText

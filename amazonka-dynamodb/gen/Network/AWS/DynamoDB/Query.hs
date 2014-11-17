@@ -506,8 +506,26 @@ instance ToQuery Query where
     toQuery = const mempty
 
 instance ToHeaders Query
+
 instance ToJSON Query where
-    toJSON = genericToJSON jsonOptions
+    toJSON Query{..} = object
+        [ "TableName"                 .= _qTableName
+        , "IndexName"                 .= _qIndexName
+        , "Select"                    .= _qSelect
+        , "AttributesToGet"           .= _qAttributesToGet
+        , "Limit"                     .= _qLimit
+        , "ConsistentRead"            .= _qConsistentRead
+        , "KeyConditions"             .= _qKeyConditions
+        , "QueryFilter"               .= _qQueryFilter
+        , "ConditionalOperator"       .= _qConditionalOperator
+        , "ScanIndexForward"          .= _qScanIndexForward
+        , "ExclusiveStartKey"         .= _qExclusiveStartKey
+        , "ReturnConsumedCapacity"    .= _qReturnConsumedCapacity
+        , "ProjectionExpression"      .= _qProjectionExpression
+        , "FilterExpression"          .= _qFilterExpression
+        , "ExpressionAttributeNames"  .= _qExpressionAttributeNames
+        , "ExpressionAttributeValues" .= _qExpressionAttributeValues
+        ]
 
 instance AWSRequest Query where
     type Sv Query = DynamoDB
@@ -517,4 +535,9 @@ instance AWSRequest Query where
     response = jsonResponse
 
 instance FromJSON QueryResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "QueryResponse" $ \o -> QueryResponse
+        <$> o .: "ConsumedCapacity"
+        <*> o .: "Count"
+        <*> o .: "Items"
+        <*> o .: "LastEvaluatedKey"
+        <*> o .: "ScannedCount"

@@ -108,5 +108,5 @@ instance AWSRequest CreateSnapshot where
     response = xmlResponse
 
 instance FromXML CreateSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSnapshotResponse"
+    parseXML c = CreateSnapshotResponse
+        <$> c .: "Snapshot"

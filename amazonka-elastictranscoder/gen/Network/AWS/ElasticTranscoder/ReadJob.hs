@@ -92,8 +92,9 @@ instance ToQuery ReadJob where
     toQuery = const mempty
 
 instance ToHeaders ReadJob
+
 instance ToJSON ReadJob where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ReadJob where
     type Sv ReadJob = ElasticTranscoder
@@ -103,4 +104,5 @@ instance AWSRequest ReadJob where
     response = jsonResponse
 
 instance FromJSON ReadJobResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ReadJobResponse" $ \o -> ReadJobResponse
+        <$> o .: "Job"

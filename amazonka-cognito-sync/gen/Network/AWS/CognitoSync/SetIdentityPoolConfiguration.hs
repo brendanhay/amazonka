@@ -117,8 +117,11 @@ instance ToQuery SetIdentityPoolConfiguration where
     toQuery = const mempty
 
 instance ToHeaders SetIdentityPoolConfiguration
+
 instance ToJSON SetIdentityPoolConfiguration where
-    toJSON = genericToJSON jsonOptions
+    toJSON SetIdentityPoolConfiguration{..} = object
+        [ "PushSync" .= _sipcPushSync
+        ]
 
 instance AWSRequest SetIdentityPoolConfiguration where
     type Sv SetIdentityPoolConfiguration = CognitoSync
@@ -128,4 +131,6 @@ instance AWSRequest SetIdentityPoolConfiguration where
     response = jsonResponse
 
 instance FromJSON SetIdentityPoolConfigurationResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "SetIdentityPoolConfigurationResponse" $ \o -> SetIdentityPoolConfigurationResponse
+        <$> o .: "IdentityPoolId"
+        <*> o .: "PushSync"

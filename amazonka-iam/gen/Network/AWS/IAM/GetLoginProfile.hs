@@ -100,5 +100,5 @@ instance AWSRequest GetLoginProfile where
     response = xmlResponse
 
 instance FromXML GetLoginProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetLoginProfileResponse"
+    parseXML c = GetLoginProfileResponse
+        <$> c .: "LoginProfile"

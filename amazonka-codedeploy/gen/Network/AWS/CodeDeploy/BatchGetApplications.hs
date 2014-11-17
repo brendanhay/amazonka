@@ -103,8 +103,11 @@ instance ToQuery BatchGetApplications where
     toQuery = const mempty
 
 instance ToHeaders BatchGetApplications
+
 instance ToJSON BatchGetApplications where
-    toJSON = genericToJSON jsonOptions
+    toJSON BatchGetApplications{..} = object
+        [ "applicationNames" .= _bgaApplicationNames
+        ]
 
 instance AWSRequest BatchGetApplications where
     type Sv BatchGetApplications = CodeDeploy
@@ -114,4 +117,5 @@ instance AWSRequest BatchGetApplications where
     response = jsonResponse
 
 instance FromJSON BatchGetApplicationsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "BatchGetApplicationsResponse" $ \o -> BatchGetApplicationsResponse
+        <$> o .: "applicationsInfo"

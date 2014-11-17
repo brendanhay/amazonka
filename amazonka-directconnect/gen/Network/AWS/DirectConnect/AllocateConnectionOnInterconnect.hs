@@ -206,8 +206,15 @@ instance ToQuery AllocateConnectionOnInterconnect where
     toQuery = const mempty
 
 instance ToHeaders AllocateConnectionOnInterconnect
+
 instance ToJSON AllocateConnectionOnInterconnect where
-    toJSON = genericToJSON jsonOptions
+    toJSON AllocateConnectionOnInterconnect{..} = object
+        [ "bandwidth"      .= _acoiBandwidth
+        , "connectionName" .= _acoiConnectionName
+        , "ownerAccount"   .= _acoiOwnerAccount
+        , "interconnectId" .= _acoiInterconnectId
+        , "vlan"           .= _acoiVlan
+        ]
 
 instance AWSRequest AllocateConnectionOnInterconnect where
     type Sv AllocateConnectionOnInterconnect = DirectConnect
@@ -217,4 +224,13 @@ instance AWSRequest AllocateConnectionOnInterconnect where
     response = jsonResponse
 
 instance FromJSON AllocateConnectionOnInterconnectResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AllocateConnectionOnInterconnectResponse" $ \o -> AllocateConnectionOnInterconnectResponse
+        <$> o .: "bandwidth"
+        <*> o .: "connectionId"
+        <*> o .: "connectionName"
+        <*> o .: "connectionState"
+        <*> o .: "location"
+        <*> o .: "ownerAccount"
+        <*> o .: "partnerName"
+        <*> o .: "region"
+        <*> o .: "vlan"

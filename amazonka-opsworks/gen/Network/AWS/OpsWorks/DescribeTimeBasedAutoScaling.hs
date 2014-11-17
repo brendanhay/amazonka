@@ -107,8 +107,11 @@ instance ToQuery DescribeTimeBasedAutoScaling where
     toQuery = const mempty
 
 instance ToHeaders DescribeTimeBasedAutoScaling
+
 instance ToJSON DescribeTimeBasedAutoScaling where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeTimeBasedAutoScaling{..} = object
+        [ "InstanceIds" .= _dtbasInstanceIds
+        ]
 
 instance AWSRequest DescribeTimeBasedAutoScaling where
     type Sv DescribeTimeBasedAutoScaling = OpsWorks
@@ -118,4 +121,5 @@ instance AWSRequest DescribeTimeBasedAutoScaling where
     response = jsonResponse
 
 instance FromJSON DescribeTimeBasedAutoScalingResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeTimeBasedAutoScalingResponse" $ \o -> DescribeTimeBasedAutoScalingResponse
+        <$> o .: "TimeBasedAutoScalingConfigurations"

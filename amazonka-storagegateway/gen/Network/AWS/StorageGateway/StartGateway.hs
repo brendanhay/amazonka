@@ -92,8 +92,11 @@ instance ToQuery StartGateway where
     toQuery = const mempty
 
 instance ToHeaders StartGateway
+
 instance ToJSON StartGateway where
-    toJSON = genericToJSON jsonOptions
+    toJSON StartGateway{..} = object
+        [ "GatewayARN" .= _sgGatewayARN
+        ]
 
 instance AWSRequest StartGateway where
     type Sv StartGateway = StorageGateway
@@ -103,4 +106,5 @@ instance AWSRequest StartGateway where
     response = jsonResponse
 
 instance FromJSON StartGatewayResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "StartGatewayResponse" $ \o -> StartGatewayResponse
+        <$> o .: "GatewayARN"

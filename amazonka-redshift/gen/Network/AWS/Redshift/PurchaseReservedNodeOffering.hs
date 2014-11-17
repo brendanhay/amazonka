@@ -114,5 +114,5 @@ instance AWSRequest PurchaseReservedNodeOffering where
     response = xmlResponse
 
 instance FromXML PurchaseReservedNodeOfferingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PurchaseReservedNodeOfferingResponse"
+    parseXML c = PurchaseReservedNodeOfferingResponse
+        <$> c .: "ReservedNode"

@@ -111,8 +111,11 @@ instance ToQuery UpdatePipelineStatus where
     toQuery = const mempty
 
 instance ToHeaders UpdatePipelineStatus
+
 instance ToJSON UpdatePipelineStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdatePipelineStatus{..} = object
+        [ "Status" .= _upsStatus
+        ]
 
 instance AWSRequest UpdatePipelineStatus where
     type Sv UpdatePipelineStatus = ElasticTranscoder
@@ -122,4 +125,5 @@ instance AWSRequest UpdatePipelineStatus where
     response = jsonResponse
 
 instance FromJSON UpdatePipelineStatusResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdatePipelineStatusResponse" $ \o -> UpdatePipelineStatusResponse
+        <$> o .: "Pipeline"

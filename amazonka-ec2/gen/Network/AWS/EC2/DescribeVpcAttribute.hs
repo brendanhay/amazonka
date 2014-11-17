@@ -139,5 +139,7 @@ instance AWSRequest DescribeVpcAttribute where
     response = xmlResponse
 
 instance FromXML DescribeVpcAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpcAttributeResponse"
+    parseXML c = DescribeVpcAttributeResponse
+        <$> c .: "enableDnsHostnames"
+        <*> c .: "enableDnsSupport"
+        <*> c .: "vpcId"

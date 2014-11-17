@@ -118,8 +118,9 @@ instance ToQuery UnsubscribeFromDataset where
     toQuery = const mempty
 
 instance ToHeaders UnsubscribeFromDataset
+
 instance ToJSON UnsubscribeFromDataset where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest UnsubscribeFromDataset where
     type Sv UnsubscribeFromDataset = CognitoSync

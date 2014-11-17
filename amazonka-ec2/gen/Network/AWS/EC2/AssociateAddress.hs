@@ -173,5 +173,5 @@ instance AWSRequest AssociateAddress where
     response = xmlResponse
 
 instance FromXML AssociateAddressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssociateAddressResponse"
+    parseXML c = AssociateAddressResponse
+        <$> c .: "associationId"

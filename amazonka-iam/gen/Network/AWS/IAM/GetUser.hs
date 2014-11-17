@@ -102,5 +102,5 @@ instance AWSRequest GetUser where
     response = xmlResponse
 
 instance FromXML GetUserResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetUserResponse"
+    parseXML c = GetUserResponse
+        <$> c .: "User"

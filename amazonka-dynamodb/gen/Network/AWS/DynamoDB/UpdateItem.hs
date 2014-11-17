@@ -487,8 +487,22 @@ instance ToQuery UpdateItem where
     toQuery = const mempty
 
 instance ToHeaders UpdateItem
+
 instance ToJSON UpdateItem where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateItem{..} = object
+        [ "TableName"                   .= _uiTableName
+        , "Key"                         .= _uiKey
+        , "AttributeUpdates"            .= _uiAttributeUpdates
+        , "Expected"                    .= _uiExpected
+        , "ConditionalOperator"         .= _uiConditionalOperator
+        , "ReturnValues"                .= _uiReturnValues
+        , "ReturnConsumedCapacity"      .= _uiReturnConsumedCapacity
+        , "ReturnItemCollectionMetrics" .= _uiReturnItemCollectionMetrics
+        , "UpdateExpression"            .= _uiUpdateExpression
+        , "ConditionExpression"         .= _uiConditionExpression
+        , "ExpressionAttributeNames"    .= _uiExpressionAttributeNames
+        , "ExpressionAttributeValues"   .= _uiExpressionAttributeValues
+        ]
 
 instance AWSRequest UpdateItem where
     type Sv UpdateItem = DynamoDB
@@ -498,4 +512,7 @@ instance AWSRequest UpdateItem where
     response = jsonResponse
 
 instance FromJSON UpdateItemResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateItemResponse" $ \o -> UpdateItemResponse
+        <$> o .: "Attributes"
+        <*> o .: "ConsumedCapacity"
+        <*> o .: "ItemCollectionMetrics"

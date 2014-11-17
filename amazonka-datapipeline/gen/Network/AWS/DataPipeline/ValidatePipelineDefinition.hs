@@ -124,8 +124,12 @@ instance ToQuery ValidatePipelineDefinition where
     toQuery = const mempty
 
 instance ToHeaders ValidatePipelineDefinition
+
 instance ToJSON ValidatePipelineDefinition where
-    toJSON = genericToJSON jsonOptions
+    toJSON ValidatePipelineDefinition{..} = object
+        [ "pipelineId"      .= _vpdPipelineId
+        , "pipelineObjects" .= _vpdPipelineObjects
+        ]
 
 instance AWSRequest ValidatePipelineDefinition where
     type Sv ValidatePipelineDefinition = DataPipeline
@@ -135,4 +139,7 @@ instance AWSRequest ValidatePipelineDefinition where
     response = jsonResponse
 
 instance FromJSON ValidatePipelineDefinitionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ValidatePipelineDefinitionResponse" $ \o -> ValidatePipelineDefinitionResponse
+        <$> o .: "errored"
+        <*> o .: "validationErrors"
+        <*> o .: "validationWarnings"

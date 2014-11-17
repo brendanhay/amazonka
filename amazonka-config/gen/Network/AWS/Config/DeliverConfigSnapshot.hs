@@ -96,8 +96,11 @@ instance ToQuery DeliverConfigSnapshot where
     toQuery = const mempty
 
 instance ToHeaders DeliverConfigSnapshot
+
 instance ToJSON DeliverConfigSnapshot where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeliverConfigSnapshot{..} = object
+        [ "deliveryChannelName" .= _dcsDeliveryChannelName
+        ]
 
 instance AWSRequest DeliverConfigSnapshot where
     type Sv DeliverConfigSnapshot = Config
@@ -107,4 +110,5 @@ instance AWSRequest DeliverConfigSnapshot where
     response = jsonResponse
 
 instance FromJSON DeliverConfigSnapshotResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeliverConfigSnapshotResponse" $ \o -> DeliverConfigSnapshotResponse
+        <$> o .: "configSnapshotId"

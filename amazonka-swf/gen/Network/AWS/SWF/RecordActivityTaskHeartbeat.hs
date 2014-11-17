@@ -127,8 +127,12 @@ instance ToQuery RecordActivityTaskHeartbeat where
     toQuery = const mempty
 
 instance ToHeaders RecordActivityTaskHeartbeat
+
 instance ToJSON RecordActivityTaskHeartbeat where
-    toJSON = genericToJSON jsonOptions
+    toJSON RecordActivityTaskHeartbeat{..} = object
+        [ "taskToken" .= _rathTaskToken
+        , "details"   .= _rathDetails
+        ]
 
 instance AWSRequest RecordActivityTaskHeartbeat where
     type Sv RecordActivityTaskHeartbeat = SWF
@@ -138,4 +142,5 @@ instance AWSRequest RecordActivityTaskHeartbeat where
     response = jsonResponse
 
 instance FromJSON RecordActivityTaskHeartbeatResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RecordActivityTaskHeartbeatResponse" $ \o -> RecordActivityTaskHeartbeatResponse
+        <$> o .: "cancelRequested"

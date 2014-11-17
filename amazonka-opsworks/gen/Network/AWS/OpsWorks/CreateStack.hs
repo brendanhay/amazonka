@@ -327,8 +327,28 @@ instance ToQuery CreateStack where
     toQuery = const mempty
 
 instance ToHeaders CreateStack
+
 instance ToJSON CreateStack where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateStack{..} = object
+        [ "Name"                      .= _csName
+        , "Region"                    .= _csRegion
+        , "VpcId"                     .= _csVpcId
+        , "Attributes"                .= _csAttributes
+        , "ServiceRoleArn"            .= _csServiceRoleArn
+        , "DefaultInstanceProfileArn" .= _csDefaultInstanceProfileArn
+        , "DefaultOs"                 .= _csDefaultOs
+        , "HostnameTheme"             .= _csHostnameTheme
+        , "DefaultAvailabilityZone"   .= _csDefaultAvailabilityZone
+        , "DefaultSubnetId"           .= _csDefaultSubnetId
+        , "CustomJson"                .= _csCustomJson
+        , "ConfigurationManager"      .= _csConfigurationManager
+        , "ChefConfiguration"         .= _csChefConfiguration
+        , "UseCustomCookbooks"        .= _csUseCustomCookbooks
+        , "UseOpsworksSecurityGroups" .= _csUseOpsworksSecurityGroups
+        , "CustomCookbooksSource"     .= _csCustomCookbooksSource
+        , "DefaultSshKeyName"         .= _csDefaultSshKeyName
+        , "DefaultRootDeviceType"     .= _csDefaultRootDeviceType
+        ]
 
 instance AWSRequest CreateStack where
     type Sv CreateStack = OpsWorks
@@ -338,4 +358,5 @@ instance AWSRequest CreateStack where
     response = jsonResponse
 
 instance FromJSON CreateStackResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateStackResponse" $ \o -> CreateStackResponse
+        <$> o .: "StackId"

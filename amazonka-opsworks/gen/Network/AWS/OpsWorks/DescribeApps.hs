@@ -110,8 +110,12 @@ instance ToQuery DescribeApps where
     toQuery = const mempty
 
 instance ToHeaders DescribeApps
+
 instance ToJSON DescribeApps where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeApps{..} = object
+        [ "StackId" .= _daStackId
+        , "AppIds"  .= _daAppIds
+        ]
 
 instance AWSRequest DescribeApps where
     type Sv DescribeApps = OpsWorks
@@ -121,4 +125,5 @@ instance AWSRequest DescribeApps where
     response = jsonResponse
 
 instance FromJSON DescribeAppsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeAppsResponse" $ \o -> DescribeAppsResponse
+        <$> o .: "Apps"

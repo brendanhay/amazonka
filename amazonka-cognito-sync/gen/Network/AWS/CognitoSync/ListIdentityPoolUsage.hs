@@ -124,8 +124,9 @@ instance ToPath ListIdentityPoolUsage where
 instance ToQuery ListIdentityPoolUsage
 
 instance ToHeaders ListIdentityPoolUsage
+
 instance ToJSON ListIdentityPoolUsage where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ListIdentityPoolUsage where
     type Sv ListIdentityPoolUsage = CognitoSync
@@ -135,4 +136,8 @@ instance AWSRequest ListIdentityPoolUsage where
     response = jsonResponse
 
 instance FromJSON ListIdentityPoolUsageResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListIdentityPoolUsageResponse" $ \o -> ListIdentityPoolUsageResponse
+        <$> o .: "Count"
+        <*> o .: "IdentityPoolUsages"
+        <*> o .: "MaxResults"
+        <*> o .: "NextToken"

@@ -121,9 +121,9 @@ instance ToQuery GetHostedZone where
     toQuery = const mempty
 
 instance ToHeaders GetHostedZone
+
 instance ToXML GetHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHostedZone"
+    toXML = const (node "GetHostedZone" [])
 
 instance AWSRequest GetHostedZone where
     type Sv GetHostedZone = Route53
@@ -133,5 +133,7 @@ instance AWSRequest GetHostedZone where
     response = xmlResponse
 
 instance FromXML GetHostedZoneResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetHostedZoneResponse"
+    parseXML c = GetHostedZoneResponse
+        <$> c .: "DelegationSet"
+        <*> c .: "HostedZone"
+        <*> c .: "VPCs"

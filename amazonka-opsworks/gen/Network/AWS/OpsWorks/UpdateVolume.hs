@@ -97,8 +97,13 @@ instance ToQuery UpdateVolume where
     toQuery = const mempty
 
 instance ToHeaders UpdateVolume
+
 instance ToJSON UpdateVolume where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateVolume{..} = object
+        [ "VolumeId"   .= _uv1VolumeId
+        , "Name"       .= _uv1Name
+        , "MountPoint" .= _uv1MountPoint
+        ]
 
 instance AWSRequest UpdateVolume where
     type Sv UpdateVolume = OpsWorks

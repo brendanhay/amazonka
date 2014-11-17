@@ -91,9 +91,9 @@ instance ToQuery GetBucketPolicy where
     toQuery = const "policy"
 
 instance ToHeaders GetBucketPolicy
+
 instance ToXML GetBucketPolicy where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketPolicy"
+    toXML = const (node "GetBucketPolicy" [])
 
 instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
@@ -103,5 +103,5 @@ instance AWSRequest GetBucketPolicy where
     response = xmlResponse
 
 instance FromXML GetBucketPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketPolicyResponse"
+    parseXML c = GetBucketPolicyResponse
+        <$> c .: "Policy"

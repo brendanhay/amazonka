@@ -91,8 +91,11 @@ instance ToQuery ConfirmConnection where
     toQuery = const mempty
 
 instance ToHeaders ConfirmConnection
+
 instance ToJSON ConfirmConnection where
-    toJSON = genericToJSON jsonOptions
+    toJSON ConfirmConnection{..} = object
+        [ "connectionId" .= _ccConnectionId
+        ]
 
 instance AWSRequest ConfirmConnection where
     type Sv ConfirmConnection = DirectConnect
@@ -102,4 +105,5 @@ instance AWSRequest ConfirmConnection where
     response = jsonResponse
 
 instance FromJSON ConfirmConnectionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ConfirmConnectionResponse" $ \o -> ConfirmConnectionResponse
+        <$> o .: "connectionState"

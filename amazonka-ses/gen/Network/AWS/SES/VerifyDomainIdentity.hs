@@ -100,5 +100,5 @@ instance AWSRequest VerifyDomainIdentity where
     response = xmlResponse
 
 instance FromXML VerifyDomainIdentityResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VerifyDomainIdentityResponse"
+    parseXML c = VerifyDomainIdentityResponse
+        <$> c .: "VerificationToken"

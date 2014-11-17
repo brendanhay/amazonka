@@ -101,5 +101,5 @@ instance AWSRequest DescribeLoadBalancerAttributes where
     response = xmlResponse
 
 instance FromXML DescribeLoadBalancerAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLoadBalancerAttributesResponse"
+    parseXML c = DescribeLoadBalancerAttributesResponse
+        <$> c .: "LoadBalancerAttributes"

@@ -121,8 +121,12 @@ instance ToQuery GetApplicationRevision where
     toQuery = const mempty
 
 instance ToHeaders GetApplicationRevision
+
 instance ToJSON GetApplicationRevision where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetApplicationRevision{..} = object
+        [ "applicationName" .= _garApplicationName
+        , "revision"        .= _garRevision
+        ]
 
 instance AWSRequest GetApplicationRevision where
     type Sv GetApplicationRevision = CodeDeploy
@@ -132,4 +136,7 @@ instance AWSRequest GetApplicationRevision where
     response = jsonResponse
 
 instance FromJSON GetApplicationRevisionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetApplicationRevisionResponse" $ \o -> GetApplicationRevisionResponse
+        <$> o .: "applicationName"
+        <*> o .: "revision"
+        <*> o .: "revisionInfo"

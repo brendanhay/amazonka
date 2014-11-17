@@ -25,8 +25,6 @@ module Network.AWS.Route53Domains.Types
       Route53Domains
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * DomainSummary
     , DomainSummary
@@ -117,11 +115,6 @@ instance AWSService Route53Domains where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data DomainSummary = DomainSummary
     { _dsAutoRenew    :: Maybe Bool
     , _dsDomainName   :: Text
@@ -171,10 +164,19 @@ dsTransferLock :: Lens' DomainSummary (Maybe Bool)
 dsTransferLock = lens _dsTransferLock (\s a -> s { _dsTransferLock = a })
 
 instance FromJSON DomainSummary where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DomainSummary" $ \o -> DomainSummary
+        <$> o .: "AutoRenew"
+        <*> o .: "DomainName"
+        <*> o .: "Expiry"
+        <*> o .: "TransferLock"
 
 instance ToJSON DomainSummary where
-    toJSON = genericToJSON jsonOptions
+    toJSON DomainSummary{..} = object
+        [ "DomainName"   .= _dsDomainName
+        , "AutoRenew"    .= _dsAutoRenew
+        , "TransferLock" .= _dsTransferLock
+        , "Expiry"       .= _dsExpiry
+        ]
 
 data ExtraParamName
     = AuIdNumber          -- ^ AU_ID_NUMBER
@@ -238,10 +240,10 @@ instance ToText ExtraParamName where
         VatNumber           -> "VAT_NUMBER"
 
 instance FromJSON ExtraParamName where
-    parseJSON = withFromText "ExtraParamName"
+    parseJSON = fromJSONText "ExtraParamName"
 
 instance ToJSON ExtraParamName where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data Nameserver = Nameserver
     { _nGlueIps :: [Text]
@@ -278,10 +280,15 @@ nName :: Lens' Nameserver Text
 nName = lens _nName (\s a -> s { _nName = a })
 
 instance FromJSON Nameserver where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Nameserver" $ \o -> Nameserver
+        <$> o .: "GlueIps"
+        <*> o .: "Name"
 
 instance ToJSON Nameserver where
-    toJSON = genericToJSON jsonOptions
+    toJSON Nameserver{..} = object
+        [ "Name"    .= _nName
+        , "GlueIps" .= _nGlueIps
+        ]
 
 data OperationStatus
     = Error      -- ^ ERROR
@@ -309,10 +316,10 @@ instance ToText OperationStatus where
         Successful -> "SUCCESSFUL"
 
 instance FromJSON OperationStatus where
-    parseJSON = withFromText "OperationStatus"
+    parseJSON = fromJSONText "OperationStatus"
 
 instance ToJSON OperationStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data DomainAvailability
     = Available             -- ^ AVAILABLE
@@ -346,10 +353,10 @@ instance ToText DomainAvailability where
         UnavailableRestricted -> "UNAVAILABLE_RESTRICTED"
 
 instance FromJSON DomainAvailability where
-    parseJSON = withFromText "DomainAvailability"
+    parseJSON = fromJSONText "DomainAvailability"
 
 instance ToJSON DomainAvailability where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data OperationType
     = OTChangePrivacyProtection -- ^ CHANGE_PRIVACY_PROTECTION
@@ -383,10 +390,10 @@ instance ToText OperationType where
         OTUpdateNameserver        -> "UPDATE_NAMESERVER"
 
 instance FromJSON OperationType where
-    parseJSON = withFromText "OperationType"
+    parseJSON = fromJSONText "OperationType"
 
 instance ToJSON OperationType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data CountryCode
     = Ad  -- ^ AD
@@ -1086,10 +1093,10 @@ instance ToText CountryCode where
         Zw  -> "ZW"
 
 instance FromJSON CountryCode where
-    parseJSON = withFromText "CountryCode"
+    parseJSON = fromJSONText "CountryCode"
 
 instance ToJSON CountryCode where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ExtraParam = ExtraParam
     { _epName  :: Text
@@ -1129,10 +1136,15 @@ epValue :: Lens' ExtraParam Text
 epValue = lens _epValue (\s a -> s { _epValue = a })
 
 instance FromJSON ExtraParam where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ExtraParam" $ \o -> ExtraParam
+        <$> o .: "Name"
+        <*> o .: "Value"
 
 instance ToJSON ExtraParam where
-    toJSON = genericToJSON jsonOptions
+    toJSON ExtraParam{..} = object
+        [ "Name"  .= _epName
+        , "Value" .= _epValue
+        ]
 
 data ContactType
     = CTAssociation -- ^ ASSOCIATION
@@ -1160,10 +1172,10 @@ instance ToText ContactType where
         CTReseller    -> "RESELLER"
 
 instance FromJSON ContactType where
-    parseJSON = withFromText "ContactType"
+    parseJSON = fromJSONText "ContactType"
 
 instance ToJSON ContactType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ContactDetail = ContactDetail
     { _cdAddressLine1     :: Maybe Text
@@ -1326,10 +1338,39 @@ cdZipCode :: Lens' ContactDetail (Maybe Text)
 cdZipCode = lens _cdZipCode (\s a -> s { _cdZipCode = a })
 
 instance FromJSON ContactDetail where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ContactDetail" $ \o -> ContactDetail
+        <$> o .: "AddressLine1"
+        <*> o .: "AddressLine2"
+        <*> o .: "City"
+        <*> o .: "ContactType"
+        <*> o .: "CountryCode"
+        <*> o .: "Email"
+        <*> o .: "ExtraParams"
+        <*> o .: "Fax"
+        <*> o .: "FirstName"
+        <*> o .: "LastName"
+        <*> o .: "OrganizationName"
+        <*> o .: "PhoneNumber"
+        <*> o .: "State"
+        <*> o .: "ZipCode"
 
 instance ToJSON ContactDetail where
-    toJSON = genericToJSON jsonOptions
+    toJSON ContactDetail{..} = object
+        [ "FirstName"        .= _cdFirstName
+        , "LastName"         .= _cdLastName
+        , "ContactType"      .= _cdContactType
+        , "OrganizationName" .= _cdOrganizationName
+        , "AddressLine1"     .= _cdAddressLine1
+        , "AddressLine2"     .= _cdAddressLine2
+        , "City"             .= _cdCity
+        , "State"            .= _cdState
+        , "CountryCode"      .= _cdCountryCode
+        , "ZipCode"          .= _cdZipCode
+        , "PhoneNumber"      .= _cdPhoneNumber
+        , "Email"            .= _cdEmail
+        , "Fax"              .= _cdFax
+        , "ExtraParams"      .= _cdExtraParams
+        ]
 
 data OperationSummary = OperationSummary
     { _osOperationId   :: Text
@@ -1383,7 +1424,16 @@ osType :: Lens' OperationSummary Text
 osType = lens _osType (\s a -> s { _osType = a })
 
 instance FromJSON OperationSummary where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "OperationSummary" $ \o -> OperationSummary
+        <$> o .: "OperationId"
+        <*> o .: "Status"
+        <*> o .: "SubmittedDate"
+        <*> o .: "Type"
 
 instance ToJSON OperationSummary where
-    toJSON = genericToJSON jsonOptions
+    toJSON OperationSummary{..} = object
+        [ "OperationId"   .= _osOperationId
+        , "Status"        .= _osStatus
+        , "Type"          .= _osType
+        , "SubmittedDate" .= _osSubmittedDate
+        ]

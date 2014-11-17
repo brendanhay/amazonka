@@ -148,5 +148,5 @@ instance AWSRequest CreateVpnConnection where
     response = xmlResponse
 
 instance FromXML CreateVpnConnectionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVpnConnectionResponse"
+    parseXML c = CreateVpnConnectionResponse
+        <$> c .: "vpnConnection"

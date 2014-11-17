@@ -181,8 +181,13 @@ instance ToQuery CreateConnection where
     toQuery = const mempty
 
 instance ToHeaders CreateConnection
+
 instance ToJSON CreateConnection where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateConnection{..} = object
+        [ "location"       .= _ccLocation
+        , "bandwidth"      .= _ccBandwidth
+        , "connectionName" .= _ccConnectionName
+        ]
 
 instance AWSRequest CreateConnection where
     type Sv CreateConnection = DirectConnect
@@ -192,4 +197,13 @@ instance AWSRequest CreateConnection where
     response = jsonResponse
 
 instance FromJSON CreateConnectionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateConnectionResponse" $ \o -> CreateConnectionResponse
+        <$> o .: "bandwidth"
+        <*> o .: "connectionId"
+        <*> o .: "connectionName"
+        <*> o .: "connectionState"
+        <*> o .: "location"
+        <*> o .: "ownerAccount"
+        <*> o .: "partnerName"
+        <*> o .: "region"
+        <*> o .: "vlan"

@@ -101,9 +101,9 @@ instance ToQuery GetChange where
     toQuery = const mempty
 
 instance ToHeaders GetChange
+
 instance ToXML GetChange where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetChange"
+    toXML = const (node "GetChange" [])
 
 instance AWSRequest GetChange where
     type Sv GetChange = Route53
@@ -113,5 +113,5 @@ instance AWSRequest GetChange where
     response = xmlResponse
 
 instance FromXML GetChangeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetChangeResponse"
+    parseXML c = GetChangeResponse
+        <$> c .: "ChangeInfo"

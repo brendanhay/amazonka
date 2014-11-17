@@ -282,8 +282,27 @@ instance ToQuery UpdateStack where
     toQuery = const mempty
 
 instance ToHeaders UpdateStack
+
 instance ToJSON UpdateStack where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateStack{..} = object
+        [ "StackId"                   .= _usStackId
+        , "Name"                      .= _usName
+        , "Attributes"                .= _usAttributes
+        , "ServiceRoleArn"            .= _usServiceRoleArn
+        , "DefaultInstanceProfileArn" .= _usDefaultInstanceProfileArn
+        , "DefaultOs"                 .= _usDefaultOs
+        , "HostnameTheme"             .= _usHostnameTheme
+        , "DefaultAvailabilityZone"   .= _usDefaultAvailabilityZone
+        , "DefaultSubnetId"           .= _usDefaultSubnetId
+        , "CustomJson"                .= _usCustomJson
+        , "ConfigurationManager"      .= _usConfigurationManager
+        , "ChefConfiguration"         .= _usChefConfiguration
+        , "UseCustomCookbooks"        .= _usUseCustomCookbooks
+        , "CustomCookbooksSource"     .= _usCustomCookbooksSource
+        , "DefaultSshKeyName"         .= _usDefaultSshKeyName
+        , "DefaultRootDeviceType"     .= _usDefaultRootDeviceType
+        , "UseOpsworksSecurityGroups" .= _usUseOpsworksSecurityGroups
+        ]
 
 instance AWSRequest UpdateStack where
     type Sv UpdateStack = OpsWorks

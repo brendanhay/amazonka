@@ -147,8 +147,15 @@ instance ToQuery DescribeCommunications where
     toQuery = const mempty
 
 instance ToHeaders DescribeCommunications
+
 instance ToJSON DescribeCommunications where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeCommunications{..} = object
+        [ "caseId"     .= _dc1CaseId
+        , "beforeTime" .= _dc1BeforeTime
+        , "afterTime"  .= _dc1AfterTime
+        , "nextToken"  .= _dc1NextToken
+        , "maxResults" .= _dc1MaxResults
+        ]
 
 instance AWSRequest DescribeCommunications where
     type Sv DescribeCommunications = Support
@@ -158,4 +165,6 @@ instance AWSRequest DescribeCommunications where
     response = jsonResponse
 
 instance FromJSON DescribeCommunicationsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeCommunicationsResponse" $ \o -> DescribeCommunicationsResponse
+        <$> o .: "communications"
+        <*> o .: "nextToken"

@@ -126,9 +126,11 @@ instance ToQuery ChangeResourceRecordSets where
     toQuery = const mempty
 
 instance ToHeaders ChangeResourceRecordSets
+
 instance ToXML ChangeResourceRecordSets where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeResourceRecordSets"
+    toXML ChangeResourceRecordSets{..} = node "ChangeResourceRecordSets"
+        [ "ChangeBatch" .= _crrsChangeBatch
+        ]
 
 instance AWSRequest ChangeResourceRecordSets where
     type Sv ChangeResourceRecordSets = Route53
@@ -138,5 +140,5 @@ instance AWSRequest ChangeResourceRecordSets where
     response = xmlResponse
 
 instance FromXML ChangeResourceRecordSetsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeResourceRecordSetsResponse"
+    parseXML c = ChangeResourceRecordSetsResponse
+        <$> c .: "ChangeInfo"

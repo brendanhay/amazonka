@@ -127,8 +127,14 @@ instance ToQuery PutLogEvents where
     toQuery = const mempty
 
 instance ToHeaders PutLogEvents
+
 instance ToJSON PutLogEvents where
-    toJSON = genericToJSON jsonOptions
+    toJSON PutLogEvents{..} = object
+        [ "logGroupName"  .= _pleLogGroupName
+        , "logStreamName" .= _pleLogStreamName
+        , "logEvents"     .= _pleLogEvents
+        , "sequenceToken" .= _pleSequenceToken
+        ]
 
 instance AWSRequest PutLogEvents where
     type Sv PutLogEvents = CloudWatchLogs
@@ -138,4 +144,5 @@ instance AWSRequest PutLogEvents where
     response = jsonResponse
 
 instance FromJSON PutLogEventsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PutLogEventsResponse" $ \o -> PutLogEventsResponse
+        <$> o .: "nextSequenceToken"

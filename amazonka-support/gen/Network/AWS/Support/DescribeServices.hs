@@ -115,8 +115,12 @@ instance ToQuery DescribeServices where
     toQuery = const mempty
 
 instance ToHeaders DescribeServices
+
 instance ToJSON DescribeServices where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeServices{..} = object
+        [ "serviceCodeList" .= _dsServiceCodeList
+        , "language"        .= _dsLanguage
+        ]
 
 instance AWSRequest DescribeServices where
     type Sv DescribeServices = Support
@@ -126,4 +130,5 @@ instance AWSRequest DescribeServices where
     response = jsonResponse
 
 instance FromJSON DescribeServicesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeServicesResponse" $ \o -> DescribeServicesResponse
+        <$> o .: "services"

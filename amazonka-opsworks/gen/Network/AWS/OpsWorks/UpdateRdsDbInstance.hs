@@ -94,8 +94,13 @@ instance ToQuery UpdateRdsDbInstance where
     toQuery = const mempty
 
 instance ToHeaders UpdateRdsDbInstance
+
 instance ToJSON UpdateRdsDbInstance where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateRdsDbInstance{..} = object
+        [ "RdsDbInstanceArn" .= _urdiRdsDbInstanceArn
+        , "DbUser"           .= _urdiDbUser
+        , "DbPassword"       .= _urdiDbPassword
+        ]
 
 instance AWSRequest UpdateRdsDbInstance where
     type Sv UpdateRdsDbInstance = OpsWorks

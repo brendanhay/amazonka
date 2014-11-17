@@ -25,8 +25,6 @@ module Network.AWS.ELB.Types
       ELB
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * SourceSecurityGroup
     , SourceSecurityGroup
@@ -231,11 +229,6 @@ instance AWSService ELB where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/"
-    }
-
 data SourceSecurityGroup = SourceSecurityGroup
     { _ssgGroupName  :: Maybe Text
     , _ssgOwnerAlias :: Maybe Text
@@ -268,8 +261,9 @@ ssgOwnerAlias :: Lens' SourceSecurityGroup (Maybe Text)
 ssgOwnerAlias = lens _ssgOwnerAlias (\s a -> s { _ssgOwnerAlias = a })
 
 instance FromXML SourceSecurityGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SourceSecurityGroup"
+    parseXML c = SourceSecurityGroup
+        <$> c .: "GroupName"
+        <*> c .: "OwnerAlias"
 
 instance ToQuery SourceSecurityGroup
 
@@ -304,8 +298,9 @@ tdTags = lens _tdTags (\s a -> s { _tdTags = a })
     . _List1
 
 instance FromXML TagDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TagDescription"
+    parseXML c = TagDescription
+        <$> c .: "LoadBalancerName"
+        <*> c .: "Tags"
 
 instance ToQuery TagDescription
 
@@ -338,8 +333,9 @@ tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Tag"
+    parseXML c = Tag
+        <$> c .: "Key"
+        <*> c .: "Value"
 
 instance ToQuery Tag
 
@@ -400,8 +396,12 @@ patdDescription :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 patdDescription = lens _patdDescription (\s a -> s { _patdDescription = a })
 
 instance FromXML PolicyAttributeTypeDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PolicyAttributeTypeDescription"
+    parseXML c = PolicyAttributeTypeDescription
+        <$> c .: "AttributeName"
+        <*> c .: "AttributeType"
+        <*> c .: "Cardinality"
+        <*> c .: "DefaultValue"
+        <*> c .: "Description"
 
 instance ToQuery PolicyAttributeTypeDescription
 
@@ -485,8 +485,12 @@ hcUnhealthyThreshold =
         . _Nat
 
 instance FromXML HealthCheck where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HealthCheck"
+    parseXML c = HealthCheck
+        <$> c .: "HealthyThreshold"
+        <*> c .: "Interval"
+        <*> c .: "Target"
+        <*> c .: "Timeout"
+        <*> c .: "UnhealthyThreshold"
 
 instance ToQuery HealthCheck
 
@@ -512,8 +516,8 @@ czlbEnabled :: Lens' CrossZoneLoadBalancing Bool
 czlbEnabled = lens _czlbEnabled (\s a -> s { _czlbEnabled = a })
 
 instance FromXML CrossZoneLoadBalancing where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CrossZoneLoadBalancing"
+    parseXML c = CrossZoneLoadBalancing
+        <$> c .: "Enabled"
 
 instance ToQuery CrossZoneLoadBalancing
 
@@ -588,8 +592,12 @@ lbaCrossZoneLoadBalancing =
         (\s a -> s { _lbaCrossZoneLoadBalancing = a })
 
 instance FromXML LoadBalancerAttributes where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LoadBalancerAttributes"
+    parseXML c = LoadBalancerAttributes
+        <$> c .: "AccessLog"
+        <*> c .: "AdditionalAttributes"
+        <*> c .: "ConnectionDraining"
+        <*> c .: "ConnectionSettings"
+        <*> c .: "CrossZoneLoadBalancing"
 
 instance ToQuery LoadBalancerAttributes
 
@@ -641,8 +649,11 @@ alS3BucketPrefix :: Lens' AccessLog (Maybe Text)
 alS3BucketPrefix = lens _alS3BucketPrefix (\s a -> s { _alS3BucketPrefix = a })
 
 instance FromXML AccessLog where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AccessLog"
+    parseXML c = AccessLog
+        <$> c .: "EmitInterval"
+        <*> c .: "Enabled"
+        <*> c .: "S3BucketName"
+        <*> c .: "S3BucketPrefix"
 
 instance ToQuery AccessLog
 
@@ -674,8 +685,9 @@ ldPolicyNames :: Lens' ListenerDescription [Text]
 ldPolicyNames = lens _ldPolicyNames (\s a -> s { _ldPolicyNames = a })
 
 instance FromXML ListenerDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListenerDescription"
+    parseXML c = ListenerDescription
+        <$> c .: "Listener"
+        <*> c .: "PolicyNames"
 
 instance ToQuery ListenerDescription
 
@@ -712,8 +724,9 @@ lbcspPolicyName :: Lens' LBCookieStickinessPolicy (Maybe Text)
 lbcspPolicyName = lens _lbcspPolicyName (\s a -> s { _lbcspPolicyName = a })
 
 instance FromXML LBCookieStickinessPolicy where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LBCookieStickinessPolicy"
+    parseXML c = LBCookieStickinessPolicy
+        <$> c .: "CookieExpirationPeriod"
+        <*> c .: "PolicyName"
 
 instance ToQuery LBCookieStickinessPolicy
 
@@ -755,8 +768,10 @@ pdPolicyTypeName :: Lens' PolicyDescription (Maybe Text)
 pdPolicyTypeName = lens _pdPolicyTypeName (\s a -> s { _pdPolicyTypeName = a })
 
 instance FromXML PolicyDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PolicyDescription"
+    parseXML c = PolicyDescription
+        <$> c .: "PolicyAttributeDescriptions"
+        <*> c .: "PolicyName"
+        <*> c .: "PolicyTypeName"
 
 instance ToQuery PolicyDescription
 
@@ -789,8 +804,9 @@ acspPolicyName :: Lens' AppCookieStickinessPolicy (Maybe Text)
 acspPolicyName = lens _acspPolicyName (\s a -> s { _acspPolicyName = a })
 
 instance FromXML AppCookieStickinessPolicy where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AppCookieStickinessPolicy"
+    parseXML c = AppCookieStickinessPolicy
+        <$> c .: "CookieName"
+        <*> c .: "PolicyName"
 
 instance ToQuery AppCookieStickinessPolicy
 
@@ -822,8 +838,9 @@ paAttributeValue :: Lens' PolicyAttribute (Maybe Text)
 paAttributeValue = lens _paAttributeValue (\s a -> s { _paAttributeValue = a })
 
 instance FromXML PolicyAttribute where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PolicyAttribute"
+    parseXML c = PolicyAttribute
+        <$> c .: "AttributeName"
+        <*> c .: "AttributeValue"
 
 instance ToQuery PolicyAttribute
 
@@ -997,8 +1014,23 @@ lbdVPCId :: Lens' LoadBalancerDescription (Maybe Text)
 lbdVPCId = lens _lbdVPCId (\s a -> s { _lbdVPCId = a })
 
 instance FromXML LoadBalancerDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LoadBalancerDescription"
+    parseXML c = LoadBalancerDescription
+        <$> c .: "AvailabilityZones"
+        <*> c .: "BackendServerDescriptions"
+        <*> c .: "CanonicalHostedZoneName"
+        <*> c .: "CanonicalHostedZoneNameID"
+        <*> c .: "CreatedTime"
+        <*> c .: "DNSName"
+        <*> c .: "HealthCheck"
+        <*> c .: "Instances"
+        <*> c .: "ListenerDescriptions"
+        <*> c .: "LoadBalancerName"
+        <*> c .: "Policies"
+        <*> c .: "Scheme"
+        <*> c .: "SecurityGroups"
+        <*> c .: "SourceSecurityGroup"
+        <*> c .: "Subnets"
+        <*> c .: "VPCId"
 
 instance ToQuery LoadBalancerDescription
 
@@ -1031,8 +1063,9 @@ bsdPolicyNames :: Lens' BackendServerDescription [Text]
 bsdPolicyNames = lens _bsdPolicyNames (\s a -> s { _bsdPolicyNames = a })
 
 instance FromXML BackendServerDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BackendServerDescription"
+    parseXML c = BackendServerDescription
+        <$> c .: "InstancePort"
+        <*> c .: "PolicyNames"
 
 instance ToQuery BackendServerDescription
 
@@ -1065,8 +1098,9 @@ padAttributeValue =
     lens _padAttributeValue (\s a -> s { _padAttributeValue = a })
 
 instance FromXML PolicyAttributeDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PolicyAttributeDescription"
+    parseXML c = PolicyAttributeDescription
+        <$> c .: "AttributeName"
+        <*> c .: "AttributeValue"
 
 instance ToQuery PolicyAttributeDescription
 
@@ -1096,8 +1130,9 @@ aaValue :: Lens' AdditionalAttribute (Maybe Text)
 aaValue = lens _aaValue (\s a -> s { _aaValue = a })
 
 instance FromXML AdditionalAttribute where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AdditionalAttribute"
+    parseXML c = AdditionalAttribute
+        <$> c .: "Key"
+        <*> c .: "Value"
 
 instance ToQuery AdditionalAttribute
 
@@ -1125,8 +1160,8 @@ csIdleTimeout = lens _csIdleTimeout (\s a -> s { _csIdleTimeout = a })
     . _Nat
 
 instance FromXML ConnectionSettings where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConnectionSettings"
+    parseXML c = ConnectionSettings
+        <$> c .: "IdleTimeout"
 
 instance ToQuery ConnectionSettings
 
@@ -1170,8 +1205,10 @@ ptdPolicyTypeName =
     lens _ptdPolicyTypeName (\s a -> s { _ptdPolicyTypeName = a })
 
 instance FromXML PolicyTypeDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PolicyTypeDescription"
+    parseXML c = PolicyTypeDescription
+        <$> c .: "Description"
+        <*> c .: "PolicyAttributeTypeDescriptions"
+        <*> c .: "PolicyTypeName"
 
 instance ToQuery PolicyTypeDescription
 
@@ -1217,8 +1254,10 @@ pOtherPolicies :: Lens' Policies [Text]
 pOtherPolicies = lens _pOtherPolicies (\s a -> s { _pOtherPolicies = a })
 
 instance FromXML Policies where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Policies"
+    parseXML c = Policies
+        <$> c .: "AppCookieStickinessPolicies"
+        <*> c .: "LBCookieStickinessPolicies"
+        <*> c .: "OtherPolicies"
 
 instance ToQuery Policies
 
@@ -1297,8 +1336,12 @@ lSSLCertificateId =
     lens _lSSLCertificateId (\s a -> s { _lSSLCertificateId = a })
 
 instance FromXML Listener where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Listener"
+    parseXML c = Listener
+        <$> c .: "InstancePort"
+        <*> c .: "InstanceProtocol"
+        <*> c .: "LoadBalancerPort"
+        <*> c .: "Protocol"
+        <*> c .: "SSLCertificateId"
 
 instance ToQuery Listener
 
@@ -1332,8 +1375,9 @@ cdTimeout :: Lens' ConnectionDraining (Maybe Int)
 cdTimeout = lens _cdTimeout (\s a -> s { _cdTimeout = a })
 
 instance FromXML ConnectionDraining where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConnectionDraining"
+    parseXML c = ConnectionDraining
+        <$> c .: "Enabled"
+        <*> c .: "Timeout"
 
 instance ToQuery ConnectionDraining
 
@@ -1384,8 +1428,11 @@ isState :: Lens' InstanceState (Maybe Text)
 isState = lens _isState (\s a -> s { _isState = a })
 
 instance FromXML InstanceState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceState"
+    parseXML c = InstanceState
+        <$> c .: "Description"
+        <*> c .: "InstanceId"
+        <*> c .: "ReasonCode"
+        <*> c .: "State"
 
 instance ToQuery InstanceState
 
@@ -1409,8 +1456,8 @@ tkoKey :: Lens' TagKeyOnly (Maybe Text)
 tkoKey = lens _tkoKey (\s a -> s { _tkoKey = a })
 
 instance FromXML TagKeyOnly where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TagKeyOnly"
+    parseXML c = TagKeyOnly
+        <$> c .: "Key"
 
 instance ToQuery TagKeyOnly
 
@@ -1434,7 +1481,7 @@ iInstanceId :: Lens' Instance (Maybe Text)
 iInstanceId = lens _iInstanceId (\s a -> s { _iInstanceId = a })
 
 instance FromXML Instance where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Instance"
+    parseXML c = Instance
+        <$> c .: "InstanceId"
 
 instance ToQuery Instance

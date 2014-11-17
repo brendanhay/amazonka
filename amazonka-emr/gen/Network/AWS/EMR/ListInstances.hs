@@ -131,8 +131,14 @@ instance ToQuery ListInstances where
     toQuery = const mempty
 
 instance ToHeaders ListInstances
+
 instance ToJSON ListInstances where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListInstances{..} = object
+        [ "ClusterId"          .= _liClusterId
+        , "InstanceGroupId"    .= _liInstanceGroupId
+        , "InstanceGroupTypes" .= _liInstanceGroupTypes
+        , "Marker"             .= _liMarker
+        ]
 
 instance AWSRequest ListInstances where
     type Sv ListInstances = EMR
@@ -142,4 +148,6 @@ instance AWSRequest ListInstances where
     response = jsonResponse
 
 instance FromJSON ListInstancesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListInstancesResponse" $ \o -> ListInstancesResponse
+        <$> o .: "Instances"
+        <*> o .: "Marker"

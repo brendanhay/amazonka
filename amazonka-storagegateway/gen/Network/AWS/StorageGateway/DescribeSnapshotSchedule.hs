@@ -126,8 +126,11 @@ instance ToQuery DescribeSnapshotSchedule where
     toQuery = const mempty
 
 instance ToHeaders DescribeSnapshotSchedule
+
 instance ToJSON DescribeSnapshotSchedule where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeSnapshotSchedule{..} = object
+        [ "VolumeARN" .= _dssVolumeARN
+        ]
 
 instance AWSRequest DescribeSnapshotSchedule where
     type Sv DescribeSnapshotSchedule = StorageGateway
@@ -137,4 +140,9 @@ instance AWSRequest DescribeSnapshotSchedule where
     response = jsonResponse
 
 instance FromJSON DescribeSnapshotScheduleResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeSnapshotScheduleResponse" $ \o -> DescribeSnapshotScheduleResponse
+        <$> o .: "Description"
+        <*> o .: "RecurrenceInHours"
+        <*> o .: "StartAt"
+        <*> o .: "Timezone"
+        <*> o .: "VolumeARN"

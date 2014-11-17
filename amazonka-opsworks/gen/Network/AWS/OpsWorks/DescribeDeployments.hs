@@ -120,8 +120,13 @@ instance ToQuery DescribeDeployments where
     toQuery = const mempty
 
 instance ToHeaders DescribeDeployments
+
 instance ToJSON DescribeDeployments where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeDeployments{..} = object
+        [ "StackId"       .= _ddStackId
+        , "AppId"         .= _ddAppId
+        , "DeploymentIds" .= _ddDeploymentIds
+        ]
 
 instance AWSRequest DescribeDeployments where
     type Sv DescribeDeployments = OpsWorks
@@ -131,4 +136,5 @@ instance AWSRequest DescribeDeployments where
     response = jsonResponse
 
 instance FromJSON DescribeDeploymentsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeDeploymentsResponse" $ \o -> DescribeDeploymentsResponse
+        <$> o .: "Deployments"

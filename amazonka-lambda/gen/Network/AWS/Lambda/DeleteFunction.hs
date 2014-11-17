@@ -79,8 +79,9 @@ instance ToQuery DeleteFunction where
     toQuery = const mempty
 
 instance ToHeaders DeleteFunction
+
 instance ToJSON DeleteFunction where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest DeleteFunction where
     type Sv DeleteFunction = Lambda

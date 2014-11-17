@@ -126,9 +126,12 @@ instance ToQuery CreateReusableDelegationSet where
     toQuery = const mempty
 
 instance ToHeaders CreateReusableDelegationSet
+
 instance ToXML CreateReusableDelegationSet where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateReusableDelegationSet"
+    toXML CreateReusableDelegationSet{..} = node "CreateReusableDelegationSet"
+        [ "CallerReference" .= _crdsCallerReference
+        , "HostedZoneId"    .= _crdsHostedZoneId
+        ]
 
 instance AWSRequest CreateReusableDelegationSet where
     type Sv CreateReusableDelegationSet = Route53

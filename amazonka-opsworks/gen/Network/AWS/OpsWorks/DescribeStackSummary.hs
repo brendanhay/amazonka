@@ -94,8 +94,11 @@ instance ToQuery DescribeStackSummary where
     toQuery = const mempty
 
 instance ToHeaders DescribeStackSummary
+
 instance ToJSON DescribeStackSummary where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeStackSummary{..} = object
+        [ "StackId" .= _dssStackId
+        ]
 
 instance AWSRequest DescribeStackSummary where
     type Sv DescribeStackSummary = OpsWorks
@@ -105,4 +108,5 @@ instance AWSRequest DescribeStackSummary where
     response = jsonResponse
 
 instance FromJSON DescribeStackSummaryResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeStackSummaryResponse" $ \o -> DescribeStackSummaryResponse
+        <$> o .: "StackSummary"

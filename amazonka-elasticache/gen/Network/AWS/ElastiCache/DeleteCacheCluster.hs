@@ -117,5 +117,5 @@ instance AWSRequest DeleteCacheCluster where
     response = xmlResponse
 
 instance FromXML DeleteCacheClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteCacheClusterResponse"
+    parseXML c = DeleteCacheClusterResponse
+        <$> c .: "CacheCluster"

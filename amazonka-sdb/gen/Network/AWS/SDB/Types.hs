@@ -25,8 +25,6 @@ module Network.AWS.SDB.Types
       SDB
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * Attribute
     , Attribute
@@ -93,11 +91,6 @@ instance AWSService SDB where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "http://sdb.amazonaws.com/doc/2009-04-15/"
-    }
-
 data Attribute = Attribute
     { _aAlternateNameEncoding  :: Maybe Text
     , _aAlternateValueEncoding :: Maybe Text
@@ -146,8 +139,11 @@ aValue :: Lens' Attribute Text
 aValue = lens _aValue (\s a -> s { _aValue = a })
 
 instance FromXML Attribute where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Attribute"
+    parseXML c = Attribute
+        <$> c .: "AlternateNameEncoding"
+        <*> c .: "AlternateValueEncoding"
+        <*> c .: "Name"
+        <*> c .: "Value"
 
 instance ToQuery Attribute
 
@@ -178,8 +174,9 @@ diName :: Lens' DeletableItem Text
 diName = lens _diName (\s a -> s { _diName = a })
 
 instance FromXML DeletableItem where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeletableItem"
+    parseXML c = DeletableItem
+        <$> c .: "Attributes"
+        <*> c .: "ItemName"
 
 instance ToQuery DeletableItem
 
@@ -212,8 +209,9 @@ riName :: Lens' ReplaceableItem Text
 riName = lens _riName (\s a -> s { _riName = a })
 
 instance FromXML ReplaceableItem where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReplaceableItem"
+    parseXML c = ReplaceableItem
+        <$> c .: "Attributes"
+        <*> c .: "ItemName"
 
 instance ToQuery ReplaceableItem
 
@@ -258,8 +256,10 @@ ucValue :: Lens' UpdateCondition (Maybe Text)
 ucValue = lens _ucValue (\s a -> s { _ucValue = a })
 
 instance FromXML UpdateCondition where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateCondition"
+    parseXML c = UpdateCondition
+        <$> c .: "Exists"
+        <*> c .: "Name"
+        <*> c .: "Value"
 
 instance ToQuery UpdateCondition
 
@@ -302,8 +302,10 @@ raValue :: Lens' ReplaceableAttribute Text
 raValue = lens _raValue (\s a -> s { _raValue = a })
 
 instance FromXML ReplaceableAttribute where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReplaceableAttribute"
+    parseXML c = ReplaceableAttribute
+        <$> c .: "Name"
+        <*> c .: "Replace"
+        <*> c .: "Value"
 
 instance ToQuery ReplaceableAttribute
 
@@ -345,7 +347,9 @@ iName :: Lens' Item Text
 iName = lens _iName (\s a -> s { _iName = a })
 
 instance FromXML Item where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Item"
+    parseXML c = Item
+        <$> c .: "AlternateNameEncoding"
+        <*> c .: "Attributes"
+        <*> c .: "Name"
 
 instance ToQuery Item

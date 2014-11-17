@@ -272,5 +272,12 @@ instance AWSRequest AssumeRoleWithSAML where
     response = xmlResponse
 
 instance FromXML AssumeRoleWithSAMLResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssumeRoleWithSAMLResponse"
+    parseXML c = AssumeRoleWithSAMLResponse
+        <$> c .: "AssumedRoleUser"
+        <*> c .: "Audience"
+        <*> c .: "Credentials"
+        <*> c .: "Issuer"
+        <*> c .: "NameQualifier"
+        <*> c .: "PackedPolicySize"
+        <*> c .: "Subject"
+        <*> c .: "SubjectType"

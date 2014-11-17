@@ -173,8 +173,17 @@ instance ToQuery ListApplicationRevisions where
     toQuery = const mempty
 
 instance ToHeaders ListApplicationRevisions
+
 instance ToJSON ListApplicationRevisions where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListApplicationRevisions{..} = object
+        [ "applicationName" .= _larApplicationName
+        , "sortBy"          .= _larSortBy
+        , "sortOrder"       .= _larSortOrder
+        , "s3Bucket"        .= _larS3Bucket
+        , "s3KeyPrefix"     .= _larS3KeyPrefix
+        , "deployed"        .= _larDeployed
+        , "nextToken"       .= _larNextToken
+        ]
 
 instance AWSRequest ListApplicationRevisions where
     type Sv ListApplicationRevisions = CodeDeploy
@@ -184,4 +193,6 @@ instance AWSRequest ListApplicationRevisions where
     response = jsonResponse
 
 instance FromJSON ListApplicationRevisionsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListApplicationRevisionsResponse" $ \o -> ListApplicationRevisionsResponse
+        <$> o .: "nextToken"
+        <*> o .: "revisions"

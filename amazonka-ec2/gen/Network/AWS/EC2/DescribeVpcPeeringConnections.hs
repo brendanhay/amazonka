@@ -144,5 +144,5 @@ instance AWSRequest DescribeVpcPeeringConnections where
     response = xmlResponse
 
 instance FromXML DescribeVpcPeeringConnectionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpcPeeringConnectionsResponse"
+    parseXML c = DescribeVpcPeeringConnectionsResponse
+        <$> c .: "vpcPeeringConnectionSet"

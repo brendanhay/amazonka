@@ -122,8 +122,13 @@ instance ToQuery DescribeLogGroups where
     toQuery = const mempty
 
 instance ToHeaders DescribeLogGroups
+
 instance ToJSON DescribeLogGroups where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeLogGroups{..} = object
+        [ "logGroupNamePrefix" .= _dlgLogGroupNamePrefix
+        , "nextToken"          .= _dlgNextToken
+        , "limit"              .= _dlgLimit
+        ]
 
 instance AWSRequest DescribeLogGroups where
     type Sv DescribeLogGroups = CloudWatchLogs
@@ -133,4 +138,6 @@ instance AWSRequest DescribeLogGroups where
     response = jsonResponse
 
 instance FromJSON DescribeLogGroupsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeLogGroupsResponse" $ \o -> DescribeLogGroupsResponse
+        <$> o .: "logGroups"
+        <*> o .: "nextToken"

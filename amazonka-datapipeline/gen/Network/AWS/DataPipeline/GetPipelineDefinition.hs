@@ -110,8 +110,12 @@ instance ToQuery GetPipelineDefinition where
     toQuery = const mempty
 
 instance ToHeaders GetPipelineDefinition
+
 instance ToJSON GetPipelineDefinition where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetPipelineDefinition{..} = object
+        [ "pipelineId" .= _gpdPipelineId
+        , "version"    .= _gpdVersion
+        ]
 
 instance AWSRequest GetPipelineDefinition where
     type Sv GetPipelineDefinition = DataPipeline
@@ -121,4 +125,5 @@ instance AWSRequest GetPipelineDefinition where
     response = jsonResponse
 
 instance FromJSON GetPipelineDefinitionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetPipelineDefinitionResponse" $ \o -> GetPipelineDefinitionResponse
+        <$> o .: "pipelineObjects"

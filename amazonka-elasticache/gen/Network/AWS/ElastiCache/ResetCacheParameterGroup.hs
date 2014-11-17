@@ -129,5 +129,5 @@ instance AWSRequest ResetCacheParameterGroup where
     response = xmlResponse
 
 instance FromXML ResetCacheParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResetCacheParameterGroupResponse"
+    parseXML c = ResetCacheParameterGroupResponse
+        <$> c .: "CacheParameterGroupName"

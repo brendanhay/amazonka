@@ -164,5 +164,5 @@ instance AWSRequest CreateHsmConfiguration where
     response = xmlResponse
 
 instance FromXML CreateHsmConfigurationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateHsmConfigurationResponse"
+    parseXML c = CreateHsmConfigurationResponse
+        <$> c .: "HsmConfiguration"

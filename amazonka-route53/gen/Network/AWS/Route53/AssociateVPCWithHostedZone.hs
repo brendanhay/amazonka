@@ -126,9 +126,12 @@ instance ToQuery AssociateVPCWithHostedZone where
     toQuery = const mempty
 
 instance ToHeaders AssociateVPCWithHostedZone
+
 instance ToXML AssociateVPCWithHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AssociateVPCWithHostedZone"
+    toXML AssociateVPCWithHostedZone{..} = node "AssociateVPCWithHostedZone"
+        [ "VPC"     .= _avpcwhzVPC
+        , "Comment" .= _avpcwhzComment
+        ]
 
 instance AWSRequest AssociateVPCWithHostedZone where
     type Sv AssociateVPCWithHostedZone = Route53
@@ -138,5 +141,5 @@ instance AWSRequest AssociateVPCWithHostedZone where
     response = xmlResponse
 
 instance FromXML AssociateVPCWithHostedZoneResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssociateVPCWithHostedZoneResponse"
+    parseXML c = AssociateVPCWithHostedZoneResponse
+        <$> c .: "ChangeInfo"

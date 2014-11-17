@@ -133,8 +133,12 @@ instance ToQuery PutPipelineDefinition where
     toQuery = const mempty
 
 instance ToHeaders PutPipelineDefinition
+
 instance ToJSON PutPipelineDefinition where
-    toJSON = genericToJSON jsonOptions
+    toJSON PutPipelineDefinition{..} = object
+        [ "pipelineId"      .= _ppdPipelineId
+        , "pipelineObjects" .= _ppdPipelineObjects
+        ]
 
 instance AWSRequest PutPipelineDefinition where
     type Sv PutPipelineDefinition = DataPipeline
@@ -144,4 +148,7 @@ instance AWSRequest PutPipelineDefinition where
     response = jsonResponse
 
 instance FromJSON PutPipelineDefinitionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PutPipelineDefinitionResponse" $ \o -> PutPipelineDefinitionResponse
+        <$> o .: "errored"
+        <*> o .: "validationErrors"
+        <*> o .: "validationWarnings"

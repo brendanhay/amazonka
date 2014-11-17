@@ -137,9 +137,9 @@ instance ToHeaders DeleteObject where
     toHeaders DeleteObject{..} = mconcat
         [ "x-amz-mfa" =: _doMFA
         ]
+
 instance ToXML DeleteObject where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteObject"
+    toXML = const (node "DeleteObject" [])
 
 instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3

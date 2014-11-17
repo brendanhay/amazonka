@@ -133,8 +133,9 @@ instance ToQuery ListJobsByPipeline where
         ]
 
 instance ToHeaders ListJobsByPipeline
+
 instance ToJSON ListJobsByPipeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ListJobsByPipeline where
     type Sv ListJobsByPipeline = ElasticTranscoder
@@ -144,4 +145,6 @@ instance AWSRequest ListJobsByPipeline where
     response = jsonResponse
 
 instance FromJSON ListJobsByPipelineResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListJobsByPipelineResponse" $ \o -> ListJobsByPipelineResponse
+        <$> o .: "Jobs"
+        <*> o .: "NextPageToken"

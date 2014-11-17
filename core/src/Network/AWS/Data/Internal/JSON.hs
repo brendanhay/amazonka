@@ -19,19 +19,12 @@ module Network.AWS.Data.Internal.JSON
     -- * Re-exported
     , FromJSON     (..)
     , genericParseJSON
-    , withFromText
+    , fromJSONText
 
     , ToJSON       (..)
     , genericToJSON
+    , toJSONText
     , encode
-
-    , AesonOptions
-    , defaultOptions
-    , fieldLabelModifier
-    , constructorTagModifier
-    , allNullaryToStringTag
-    , omitNothingFields
-    , sumEncoding
     ) where
 
 import           Data.Aeson                     (encode, withText)
@@ -41,10 +34,11 @@ import qualified Data.HashMap.Strict            as Map
 import           Data.Text                      (Text)
 import           Network.AWS.Data.Internal.Text
 
-type AesonOptions = Options
+fromJSONText :: FromText a => String -> Value -> Parser a
+fromJSONText n = withText n (either fail fromText)
 
-withFromText :: FromText a => String -> Value -> Parser a
-withFromText n = withText n (either fail fromText)
+toJSONText :: ToText a => a -> Value
+toJSONText = String . toText
 
 (.:) :: FromJSON a => Object -> Text -> Either String a
 o .: k =

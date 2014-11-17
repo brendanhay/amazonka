@@ -120,8 +120,13 @@ instance ToQuery DescribeInstances where
     toQuery = const mempty
 
 instance ToHeaders DescribeInstances
+
 instance ToJSON DescribeInstances where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeInstances{..} = object
+        [ "StackId"     .= _diStackId
+        , "LayerId"     .= _diLayerId
+        , "InstanceIds" .= _diInstanceIds
+        ]
 
 instance AWSRequest DescribeInstances where
     type Sv DescribeInstances = OpsWorks
@@ -131,4 +136,5 @@ instance AWSRequest DescribeInstances where
     response = jsonResponse
 
 instance FromJSON DescribeInstancesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeInstancesResponse" $ \o -> DescribeInstancesResponse
+        <$> o .: "Instances"

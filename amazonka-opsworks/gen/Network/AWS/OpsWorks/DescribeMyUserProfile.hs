@@ -77,8 +77,9 @@ instance ToQuery DescribeMyUserProfile where
     toQuery = const mempty
 
 instance ToHeaders DescribeMyUserProfile
+
 instance ToJSON DescribeMyUserProfile where
-    toJSON = genericToJSON jsonOptions
+    toXML = const Null
 
 instance AWSRequest DescribeMyUserProfile where
     type Sv DescribeMyUserProfile = OpsWorks
@@ -88,4 +89,5 @@ instance AWSRequest DescribeMyUserProfile where
     response = jsonResponse
 
 instance FromJSON DescribeMyUserProfileResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeMyUserProfileResponse" $ \o -> DescribeMyUserProfileResponse
+        <$> o .: "UserProfile"

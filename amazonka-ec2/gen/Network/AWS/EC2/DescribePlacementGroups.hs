@@ -125,5 +125,5 @@ instance AWSRequest DescribePlacementGroups where
     response = xmlResponse
 
 instance FromXML DescribePlacementGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribePlacementGroupsResponse"
+    parseXML c = DescribePlacementGroupsResponse
+        <$> c .: "placementGroupSet"

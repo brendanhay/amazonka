@@ -104,9 +104,9 @@ instance ToQuery GetStreamingDistribution where
     toQuery = const mempty
 
 instance ToHeaders GetStreamingDistribution
+
 instance ToXML GetStreamingDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetStreamingDistribution"
+    toXML = const (node "GetStreamingDistribution" [])
 
 instance AWSRequest GetStreamingDistribution where
     type Sv GetStreamingDistribution = CloudFront

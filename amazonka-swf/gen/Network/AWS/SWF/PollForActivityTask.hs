@@ -191,8 +191,13 @@ instance ToQuery PollForActivityTask where
     toQuery = const mempty
 
 instance ToHeaders PollForActivityTask
+
 instance ToJSON PollForActivityTask where
-    toJSON = genericToJSON jsonOptions
+    toJSON PollForActivityTask{..} = object
+        [ "domain"   .= _pfatDomain
+        , "taskList" .= _pfatTaskList
+        , "identity" .= _pfatIdentity
+        ]
 
 instance AWSRequest PollForActivityTask where
     type Sv PollForActivityTask = SWF
@@ -202,4 +207,10 @@ instance AWSRequest PollForActivityTask where
     response = jsonResponse
 
 instance FromJSON PollForActivityTaskResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PollForActivityTaskResponse" $ \o -> PollForActivityTaskResponse
+        <$> o .: "activityId"
+        <*> o .: "activityType"
+        <*> o .: "input"
+        <*> o .: "startedEventId"
+        <*> o .: "taskToken"
+        <*> o .: "workflowExecution"

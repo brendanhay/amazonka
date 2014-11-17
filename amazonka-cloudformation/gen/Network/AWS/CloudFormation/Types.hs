@@ -25,8 +25,6 @@ module Network.AWS.CloudFormation.Types
       CloudFormation
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * Tag
     , Tag
@@ -185,11 +183,6 @@ instance AWSService CloudFormation where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "http://cloudformation.amazonaws.com/doc/2010-05-15/"
-    }
-
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
@@ -221,8 +214,9 @@ tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Tag"
+    parseXML c = Tag
+        <$> c .: "Key"
+        <*> c .: "Value"
 
 instance ToQuery Tag
 
@@ -285,8 +279,7 @@ instance ToText StackStatus where
         UpdateRollbackInProgress                -> "UPDATE_ROLLBACK_IN_PROGRESS"
 
 instance FromXML StackStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StackStatus"
+    parseXML = fromXMLText "StackStatus"
 
 instance ToQuery StackStatus
 
@@ -393,8 +386,17 @@ seTimestamp = lens _seTimestamp (\s a -> s { _seTimestamp = a })
     . _Time
 
 instance FromXML StackEvent where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StackEvent"
+    parseXML c = StackEvent
+        <$> c .: "EventId"
+        <*> c .: "LogicalResourceId"
+        <*> c .: "PhysicalResourceId"
+        <*> c .: "ResourceProperties"
+        <*> c .: "ResourceStatus"
+        <*> c .: "ResourceStatusReason"
+        <*> c .: "ResourceType"
+        <*> c .: "StackId"
+        <*> c .: "StackName"
+        <*> c .: "Timestamp"
 
 instance ToQuery StackEvent
 
@@ -484,8 +486,15 @@ ssTemplateDescription =
     lens _ssTemplateDescription (\s a -> s { _ssTemplateDescription = a })
 
 instance FromXML StackSummary where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StackSummary"
+    parseXML c = StackSummary
+        <$> c .: "CreationTime"
+        <*> c .: "DeletionTime"
+        <*> c .: "LastUpdatedTime"
+        <*> c .: "StackId"
+        <*> c .: "StackName"
+        <*> c .: "StackStatus"
+        <*> c .: "StackStatusReason"
+        <*> c .: "TemplateDescription"
 
 instance ToQuery StackSummary
 
@@ -595,8 +604,17 @@ srdStackName :: Lens' StackResourceDetail (Maybe Text)
 srdStackName = lens _srdStackName (\s a -> s { _srdStackName = a })
 
 instance FromXML StackResourceDetail where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StackResourceDetail"
+    parseXML c = StackResourceDetail
+        <$> c .: "Description"
+        <*> c .: "LastUpdatedTimestamp"
+        <*> c .: "LogicalResourceId"
+        <*> c .: "Metadata"
+        <*> c .: "PhysicalResourceId"
+        <*> c .: "ResourceStatus"
+        <*> c .: "ResourceStatusReason"
+        <*> c .: "ResourceType"
+        <*> c .: "StackId"
+        <*> c .: "StackName"
 
 instance ToQuery StackResourceDetail
 
@@ -641,8 +659,7 @@ instance ToText ResourceStatus where
         RSUpdateInProgress -> "UPDATE_IN_PROGRESS"
 
 instance FromXML ResourceStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResourceStatus"
+    parseXML = fromXMLText "ResourceStatus"
 
 instance ToQuery ResourceStatus
 
@@ -691,8 +708,11 @@ tpParameterKey :: Lens' TemplateParameter (Maybe Text)
 tpParameterKey = lens _tpParameterKey (\s a -> s { _tpParameterKey = a })
 
 instance FromXML TemplateParameter where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TemplateParameter"
+    parseXML c = TemplateParameter
+        <$> c .: "DefaultValue"
+        <*> c .: "Description"
+        <*> c .: "NoEcho"
+        <*> c .: "ParameterKey"
 
 instance ToQuery TemplateParameter
 
@@ -749,8 +769,12 @@ pdParameterType :: Lens' ParameterDeclaration (Maybe Text)
 pdParameterType = lens _pdParameterType (\s a -> s { _pdParameterType = a })
 
 instance FromXML ParameterDeclaration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ParameterDeclaration"
+    parseXML c = ParameterDeclaration
+        <$> c .: "DefaultValue"
+        <*> c .: "Description"
+        <*> c .: "NoEcho"
+        <*> c .: "ParameterKey"
+        <*> c .: "ParameterType"
 
 instance ToQuery ParameterDeclaration
 
@@ -849,8 +873,16 @@ sr1Timestamp = lens _sr1Timestamp (\s a -> s { _sr1Timestamp = a })
     . _Time
 
 instance FromXML StackResource where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StackResource"
+    parseXML c = StackResource
+        <$> c .: "Description"
+        <*> c .: "LogicalResourceId"
+        <*> c .: "PhysicalResourceId"
+        <*> c .: "ResourceStatus"
+        <*> c .: "ResourceStatusReason"
+        <*> c .: "ResourceType"
+        <*> c .: "StackId"
+        <*> c .: "StackName"
+        <*> c .: "Timestamp"
 
 instance ToQuery StackResource
 
@@ -890,8 +922,10 @@ oOutputValue :: Lens' Output (Maybe Text)
 oOutputValue = lens _oOutputValue (\s a -> s { _oOutputValue = a })
 
 instance FromXML Output where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Output"
+    parseXML c = Output
+        <$> c .: "Description"
+        <*> c .: "OutputKey"
+        <*> c .: "OutputValue"
 
 instance ToQuery Output
 
@@ -967,8 +1001,13 @@ srsResourceType :: Lens' StackResourceSummary Text
 srsResourceType = lens _srsResourceType (\s a -> s { _srsResourceType = a })
 
 instance FromXML StackResourceSummary where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StackResourceSummary"
+    parseXML c = StackResourceSummary
+        <$> c .: "LastUpdatedTimestamp"
+        <*> c .: "LogicalResourceId"
+        <*> c .: "PhysicalResourceId"
+        <*> c .: "ResourceStatus"
+        <*> c .: "ResourceStatusReason"
+        <*> c .: "ResourceType"
 
 instance ToQuery StackResourceSummary
 
@@ -985,8 +1024,7 @@ instance ToText Capability where
     toText CapabilityIam = "CAPABILITY_IAM"
 
 instance FromXML Capability where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Capability"
+    parseXML = fromXMLText "Capability"
 
 instance ToQuery Capability
 
@@ -1007,8 +1045,7 @@ instance ToText ResourceSignalStatus where
         Success -> "SUCCESS"
 
 instance FromXML ResourceSignalStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResourceSignalStatus"
+    parseXML = fromXMLText "ResourceSignalStatus"
 
 instance ToQuery ResourceSignalStatus
 
@@ -1147,8 +1184,21 @@ sTimeoutInMinutes =
         . mapping _Nat
 
 instance FromXML Stack where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Stack"
+    parseXML c = Stack
+        <$> c .: "Capabilities"
+        <*> c .: "CreationTime"
+        <*> c .: "Description"
+        <*> c .: "DisableRollback"
+        <*> c .: "LastUpdatedTime"
+        <*> c .: "NotificationARNs"
+        <*> c .: "Outputs"
+        <*> c .: "Parameters"
+        <*> c .: "StackId"
+        <*> c .: "StackName"
+        <*> c .: "StackStatus"
+        <*> c .: "StackStatusReason"
+        <*> c .: "Tags"
+        <*> c .: "TimeoutInMinutes"
 
 instance ToQuery Stack
 
@@ -1172,8 +1222,7 @@ instance ToText OnFailure where
         Rollback  -> "ROLLBACK"
 
 instance FromXML OnFailure where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OnFailure"
+    parseXML = fromXMLText "OnFailure"
 
 instance ToQuery OnFailure
 
@@ -1215,7 +1264,9 @@ pUsePreviousValue =
     lens _pUsePreviousValue (\s a -> s { _pUsePreviousValue = a })
 
 instance FromXML Parameter where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Parameter"
+    parseXML c = Parameter
+        <$> c .: "ParameterKey"
+        <*> c .: "ParameterValue"
+        <*> c .: "UsePreviousValue"
 
 instance ToQuery Parameter

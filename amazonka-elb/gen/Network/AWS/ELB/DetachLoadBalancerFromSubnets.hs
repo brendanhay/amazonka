@@ -119,5 +119,5 @@ instance AWSRequest DetachLoadBalancerFromSubnets where
     response = xmlResponse
 
 instance FromXML DetachLoadBalancerFromSubnetsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DetachLoadBalancerFromSubnetsResponse"
+    parseXML c = DetachLoadBalancerFromSubnetsResponse
+        <$> c .: "Subnets"

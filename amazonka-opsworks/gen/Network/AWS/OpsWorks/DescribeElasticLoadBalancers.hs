@@ -112,8 +112,12 @@ instance ToQuery DescribeElasticLoadBalancers where
     toQuery = const mempty
 
 instance ToHeaders DescribeElasticLoadBalancers
+
 instance ToJSON DescribeElasticLoadBalancers where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeElasticLoadBalancers{..} = object
+        [ "StackId"  .= _delbStackId
+        , "LayerIds" .= _delbLayerIds
+        ]
 
 instance AWSRequest DescribeElasticLoadBalancers where
     type Sv DescribeElasticLoadBalancers = OpsWorks
@@ -123,4 +127,5 @@ instance AWSRequest DescribeElasticLoadBalancers where
     response = jsonResponse
 
 instance FromJSON DescribeElasticLoadBalancersResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeElasticLoadBalancersResponse" $ \o -> DescribeElasticLoadBalancersResponse
+        <$> o .: "ElasticLoadBalancers"

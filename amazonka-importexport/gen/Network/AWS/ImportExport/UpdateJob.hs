@@ -135,5 +135,6 @@ instance AWSRequest UpdateJob where
     response = xmlResponse
 
 instance FromXML UpdateJobResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateJobResponse"
+    parseXML c = UpdateJobResponse
+        <$> c .: "Success"
+        <*> c .: "WarningMessage"

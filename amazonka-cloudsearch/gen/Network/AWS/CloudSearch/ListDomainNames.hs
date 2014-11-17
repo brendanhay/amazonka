@@ -84,5 +84,5 @@ instance AWSRequest ListDomainNames where
     response = xmlResponse
 
 instance FromXML ListDomainNamesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListDomainNamesResponse"
+    parseXML c = ListDomainNamesResponse
+        <$> c .: "DomainNames"

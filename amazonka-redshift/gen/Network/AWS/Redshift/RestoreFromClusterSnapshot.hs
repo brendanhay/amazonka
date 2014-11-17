@@ -309,5 +309,5 @@ instance AWSRequest RestoreFromClusterSnapshot where
     response = xmlResponse
 
 instance FromXML RestoreFromClusterSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RestoreFromClusterSnapshotResponse"
+    parseXML c = RestoreFromClusterSnapshotResponse
+        <$> c .: "Cluster"

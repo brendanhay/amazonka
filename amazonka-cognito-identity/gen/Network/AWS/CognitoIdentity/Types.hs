@@ -25,8 +25,6 @@ module Network.AWS.CognitoIdentity.Types
       CognitoIdentity
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * IdentityDescription
     , IdentityDescription
@@ -75,11 +73,6 @@ instance AWSService CognitoIdentity where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data IdentityDescription = IdentityDescription
     { _idIdentityId :: Maybe Text
     , _idLogins     :: [Text]
@@ -109,10 +102,15 @@ idLogins :: Lens' IdentityDescription [Text]
 idLogins = lens _idLogins (\s a -> s { _idLogins = a })
 
 instance FromJSON IdentityDescription where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "IdentityDescription" $ \o -> IdentityDescription
+        <$> o .: "IdentityId"
+        <*> o .: "Logins"
 
 instance ToJSON IdentityDescription where
-    toJSON = genericToJSON jsonOptions
+    toJSON IdentityDescription{..} = object
+        [ "IdentityId" .= _idIdentityId
+        , "Logins"     .= _idLogins
+        ]
 
 data IdentityPool = IdentityPool
     { _ipAllowUnauthenticatedIdentities :: Bool
@@ -185,10 +183,23 @@ ipSupportedLoginProviders =
             . _Map
 
 instance FromJSON IdentityPool where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "IdentityPool" $ \o -> IdentityPool
+        <$> o .: "AllowUnauthenticatedIdentities"
+        <*> o .: "DeveloperProviderName"
+        <*> o .: "IdentityPoolId"
+        <*> o .: "IdentityPoolName"
+        <*> o .: "OpenIdConnectProviderARNs"
+        <*> o .: "SupportedLoginProviders"
 
 instance ToJSON IdentityPool where
-    toJSON = genericToJSON jsonOptions
+    toJSON IdentityPool{..} = object
+        [ "IdentityPoolId"                 .= _ipIdentityPoolId
+        , "IdentityPoolName"               .= _ipIdentityPoolName
+        , "AllowUnauthenticatedIdentities" .= _ipAllowUnauthenticatedIdentities
+        , "SupportedLoginProviders"        .= _ipSupportedLoginProviders
+        , "DeveloperProviderName"          .= _ipDeveloperProviderName
+        , "OpenIdConnectProviderARNs"      .= _ipOpenIdConnectProviderARNs
+        ]
 
 data IdentityPoolShortDescription = IdentityPoolShortDescription
     { _ipsdIdentityPoolId   :: Maybe Text
@@ -220,7 +231,12 @@ ipsdIdentityPoolName =
     lens _ipsdIdentityPoolName (\s a -> s { _ipsdIdentityPoolName = a })
 
 instance FromJSON IdentityPoolShortDescription where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "IdentityPoolShortDescription" $ \o -> IdentityPoolShortDescription
+        <$> o .: "IdentityPoolId"
+        <*> o .: "IdentityPoolName"
 
 instance ToJSON IdentityPoolShortDescription where
-    toJSON = genericToJSON jsonOptions
+    toJSON IdentityPoolShortDescription{..} = object
+        [ "IdentityPoolId"   .= _ipsdIdentityPoolId
+        , "IdentityPoolName" .= _ipsdIdentityPoolName
+        ]

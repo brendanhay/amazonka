@@ -140,5 +140,5 @@ instance AWSRequest GetAttributes where
     response = xmlResponse
 
 instance FromXML GetAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetAttributesResponse"
+    parseXML c = GetAttributesResponse
+        <$> c .: "Attributes"

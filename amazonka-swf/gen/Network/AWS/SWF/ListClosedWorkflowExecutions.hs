@@ -224,8 +224,20 @@ instance ToQuery ListClosedWorkflowExecutions where
     toQuery = const mempty
 
 instance ToHeaders ListClosedWorkflowExecutions
+
 instance ToJSON ListClosedWorkflowExecutions where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListClosedWorkflowExecutions{..} = object
+        [ "domain"            .= _lcweDomain
+        , "startTimeFilter"   .= _lcweStartTimeFilter
+        , "closeTimeFilter"   .= _lcweCloseTimeFilter
+        , "executionFilter"   .= _lcweExecutionFilter
+        , "closeStatusFilter" .= _lcweCloseStatusFilter
+        , "typeFilter"        .= _lcweTypeFilter
+        , "tagFilter"         .= _lcweTagFilter
+        , "nextPageToken"     .= _lcweNextPageToken
+        , "maximumPageSize"   .= _lcweMaximumPageSize
+        , "reverseOrder"      .= _lcweReverseOrder
+        ]
 
 instance AWSRequest ListClosedWorkflowExecutions where
     type Sv ListClosedWorkflowExecutions = SWF
@@ -235,4 +247,6 @@ instance AWSRequest ListClosedWorkflowExecutions where
     response = jsonResponse
 
 instance FromJSON ListClosedWorkflowExecutionsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListClosedWorkflowExecutionsResponse" $ \o -> ListClosedWorkflowExecutionsResponse
+        <$> o .: "executionInfos"
+        <*> o .: "nextPageToken"

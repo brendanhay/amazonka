@@ -99,8 +99,11 @@ instance ToQuery ListLocalDisks where
     toQuery = const mempty
 
 instance ToHeaders ListLocalDisks
+
 instance ToJSON ListLocalDisks where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListLocalDisks{..} = object
+        [ "GatewayARN" .= _lldGatewayARN
+        ]
 
 instance AWSRequest ListLocalDisks where
     type Sv ListLocalDisks = StorageGateway
@@ -110,4 +113,6 @@ instance AWSRequest ListLocalDisks where
     response = jsonResponse
 
 instance FromJSON ListLocalDisksResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListLocalDisksResponse" $ \o -> ListLocalDisksResponse
+        <$> o .: "Disks"
+        <*> o .: "GatewayARN"

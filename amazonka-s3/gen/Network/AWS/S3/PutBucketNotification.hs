@@ -99,9 +99,11 @@ instance ToHeaders PutBucketNotification where
     toHeaders PutBucketNotification{..} = mconcat
         [ "Content-MD5" =: _pbnContentMD5
         ]
+
 instance ToXML PutBucketNotification where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PutBucketNotification"
+    toXML PutBucketNotification{..} = node "PutBucketNotification"
+        [ "NotificationConfiguration" .= _pbnNotificationConfiguration
+        ]
 
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3

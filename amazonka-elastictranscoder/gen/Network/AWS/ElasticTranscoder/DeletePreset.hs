@@ -80,8 +80,9 @@ instance ToQuery DeletePreset where
     toQuery = const mempty
 
 instance ToHeaders DeletePreset
+
 instance ToJSON DeletePreset where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest DeletePreset where
     type Sv DeletePreset = ElasticTranscoder

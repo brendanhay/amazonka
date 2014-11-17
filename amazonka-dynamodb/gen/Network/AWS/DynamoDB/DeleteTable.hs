@@ -97,8 +97,11 @@ instance ToQuery DeleteTable where
     toQuery = const mempty
 
 instance ToHeaders DeleteTable
+
 instance ToJSON DeleteTable where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteTable{..} = object
+        [ "TableName" .= _dtTableName
+        ]
 
 instance AWSRequest DeleteTable where
     type Sv DeleteTable = DynamoDB
@@ -108,4 +111,5 @@ instance AWSRequest DeleteTable where
     response = jsonResponse
 
 instance FromJSON DeleteTableResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteTableResponse" $ \o -> DeleteTableResponse
+        <$> o .: "TableDescription"

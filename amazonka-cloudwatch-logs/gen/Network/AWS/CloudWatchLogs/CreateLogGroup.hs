@@ -79,8 +79,11 @@ instance ToQuery CreateLogGroup where
     toQuery = const mempty
 
 instance ToHeaders CreateLogGroup
+
 instance ToJSON CreateLogGroup where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateLogGroup{..} = object
+        [ "logGroupName" .= _clgLogGroupName
+        ]
 
 instance AWSRequest CreateLogGroup where
     type Sv CreateLogGroup = CloudWatchLogs

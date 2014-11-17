@@ -114,9 +114,11 @@ instance ToQuery CreateStreamingDistribution where
     toQuery = const mempty
 
 instance ToHeaders CreateStreamingDistribution
+
 instance ToXML CreateStreamingDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateStreamingDistribution"
+    toXML CreateStreamingDistribution{..} = node "CreateStreamingDistribution"
+        [ "StreamingDistributionConfig" .= _csdStreamingDistributionConfig
+        ]
 
 instance AWSRequest CreateStreamingDistribution where
     type Sv CreateStreamingDistribution = CloudFront

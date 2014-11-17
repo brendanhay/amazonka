@@ -96,5 +96,5 @@ instance AWSRequest CancelJob where
     response = xmlResponse
 
 instance FromXML CancelJobResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelJobResponse"
+    parseXML c = CancelJobResponse
+        <$> c .: "Success"

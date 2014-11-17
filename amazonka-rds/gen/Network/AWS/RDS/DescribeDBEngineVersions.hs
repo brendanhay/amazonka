@@ -187,5 +187,6 @@ instance AWSRequest DescribeDBEngineVersions where
     response = xmlResponse
 
 instance FromXML DescribeDBEngineVersionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBEngineVersionsResponse"
+    parseXML c = DescribeDBEngineVersionsResponse
+        <$> c .: "DBEngineVersions"
+        <*> c .: "Marker"

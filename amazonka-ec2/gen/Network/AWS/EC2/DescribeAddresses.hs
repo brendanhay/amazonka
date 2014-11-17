@@ -142,5 +142,5 @@ instance AWSRequest DescribeAddresses where
     response = xmlResponse
 
 instance FromXML DescribeAddressesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAddressesResponse"
+    parseXML c = DescribeAddressesResponse
+        <$> c .: "addressesSet"

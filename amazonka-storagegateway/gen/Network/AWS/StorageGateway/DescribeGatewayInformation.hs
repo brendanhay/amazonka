@@ -153,8 +153,11 @@ instance ToQuery DescribeGatewayInformation where
     toQuery = const mempty
 
 instance ToHeaders DescribeGatewayInformation
+
 instance ToJSON DescribeGatewayInformation where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeGatewayInformation{..} = object
+        [ "GatewayARN" .= _dgiGatewayARN
+        ]
 
 instance AWSRequest DescribeGatewayInformation where
     type Sv DescribeGatewayInformation = StorageGateway
@@ -164,4 +167,11 @@ instance AWSRequest DescribeGatewayInformation where
     response = jsonResponse
 
 instance FromJSON DescribeGatewayInformationResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeGatewayInformationResponse" $ \o -> DescribeGatewayInformationResponse
+        <$> o .: "GatewayARN"
+        <*> o .: "GatewayId"
+        <*> o .: "GatewayNetworkInterfaces"
+        <*> o .: "GatewayState"
+        <*> o .: "GatewayTimezone"
+        <*> o .: "GatewayType"
+        <*> o .: "NextUpdateAvailabilityDate"

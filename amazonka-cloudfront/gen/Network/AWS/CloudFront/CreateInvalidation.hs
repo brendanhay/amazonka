@@ -114,9 +114,11 @@ instance ToQuery CreateInvalidation where
     toQuery = const mempty
 
 instance ToHeaders CreateInvalidation
+
 instance ToXML CreateInvalidation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateInvalidation"
+    toXML CreateInvalidation{..} = node "CreateInvalidation"
+        [ "InvalidationBatch" .= _ciInvalidationBatch
+        ]
 
 instance AWSRequest CreateInvalidation where
     type Sv CreateInvalidation = CloudFront

@@ -100,8 +100,11 @@ instance ToQuery DeleteGateway where
     toQuery = const mempty
 
 instance ToHeaders DeleteGateway
+
 instance ToJSON DeleteGateway where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteGateway{..} = object
+        [ "GatewayARN" .= _dgGatewayARN
+        ]
 
 instance AWSRequest DeleteGateway where
     type Sv DeleteGateway = StorageGateway
@@ -111,4 +114,5 @@ instance AWSRequest DeleteGateway where
     response = jsonResponse
 
 instance FromJSON DeleteGatewayResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteGatewayResponse" $ \o -> DeleteGatewayResponse
+        <$> o .: "GatewayARN"

@@ -279,5 +279,19 @@ instance AWSRequest TerminateEnvironment where
     response = xmlResponse
 
 instance FromXML TerminateEnvironmentResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TerminateEnvironmentResponse"
+    parseXML c = TerminateEnvironmentResponse
+        <$> c .: "ApplicationName"
+        <*> c .: "CNAME"
+        <*> c .: "DateCreated"
+        <*> c .: "DateUpdated"
+        <*> c .: "Description"
+        <*> c .: "EndpointURL"
+        <*> c .: "EnvironmentId"
+        <*> c .: "EnvironmentName"
+        <*> c .: "Health"
+        <*> c .: "Resources"
+        <*> c .: "SolutionStackName"
+        <*> c .: "Status"
+        <*> c .: "TemplateName"
+        <*> c .: "Tier"
+        <*> c .: "VersionLabel"

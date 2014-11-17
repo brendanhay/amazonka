@@ -90,5 +90,5 @@ instance AWSRequest DescribeAdjustmentTypes where
     response = xmlResponse
 
 instance FromXML DescribeAdjustmentTypesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAdjustmentTypesResponse"
+    parseXML c = DescribeAdjustmentTypesResponse
+        <$> c .: "AdjustmentTypes"

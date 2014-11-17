@@ -138,5 +138,7 @@ instance AWSRequest DescribeSnapshotAttribute where
     response = xmlResponse
 
 instance FromXML DescribeSnapshotAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSnapshotAttributeResponse"
+    parseXML c = DescribeSnapshotAttributeResponse
+        <$> c .: "createVolumePermission"
+        <*> c .: "productCodes"
+        <*> c .: "snapshotId"

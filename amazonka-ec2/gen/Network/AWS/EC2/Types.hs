@@ -25,8 +25,6 @@ module Network.AWS.EC2.Types
       EC2
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * ImageAttributeName
     , ImageAttributeName (..)
@@ -1417,11 +1415,6 @@ instance AWSService EC2 where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "http://ec2.amazonaws.com/doc/2014-09-01"
-    }
-
 data ImageAttributeName
     = ImageBlockDeviceMapping -- ^ blockDeviceMapping
     | ImageDescription        -- ^ description
@@ -1451,8 +1444,7 @@ instance ToText ImageAttributeName where
         ImageRamdisk            -> "ramdisk"
 
 instance FromXML ImageAttributeName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImageAttributeName"
+    parseXML = fromXMLText "ImageAttributeName"
 
 instance ToQuery ImageAttributeName
 
@@ -1469,8 +1461,7 @@ instance ToText PermissionGroup where
     toText All = "all"
 
 instance FromXML PermissionGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PermissionGroup"
+    parseXML = fromXMLText "PermissionGroup"
 
 instance ToQuery PermissionGroup
 
@@ -1544,8 +1535,14 @@ naeRuleNumber :: Lens' NetworkAclEntry (Maybe Int)
 naeRuleNumber = lens _naeRuleNumber (\s a -> s { _naeRuleNumber = a })
 
 instance FromXML NetworkAclEntry where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NetworkAclEntry"
+    parseXML c = NetworkAclEntry
+        <$> c .: "cidrBlock"
+        <*> c .: "egress"
+        <*> c .: "icmpTypeCode"
+        <*> c .: "portRange"
+        <*> c .: "protocol"
+        <*> c .: "ruleAction"
+        <*> c .: "ruleNumber"
 
 instance ToQuery NetworkAclEntry
 
@@ -1568,8 +1565,8 @@ bavValue :: Lens' BlobAttributeValue (Maybe Base64)
 bavValue = lens _bavValue (\s a -> s { _bavValue = a })
 
 instance FromXML BlobAttributeValue where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BlobAttributeValue"
+    parseXML c = BlobAttributeValue
+        <$> c .: "value"
 
 instance ToQuery BlobAttributeValue
 
@@ -1677,8 +1674,18 @@ iilsUserData :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsUserData = lens _iilsUserData (\s a -> s { _iilsUserData = a })
 
 instance FromXML ImportInstanceLaunchSpecification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImportInstanceLaunchSpecification"
+    parseXML c = ImportInstanceLaunchSpecification
+        <$> c .: "additionalInfo"
+        <*> c .: "architecture"
+        <*> c .: "GroupId"
+        <*> c .: "GroupName"
+        <*> c .: "instanceInitiatedShutdownBehavior"
+        <*> c .: "instanceType"
+        <*> c .: "monitoring"
+        <*> c .: "placement"
+        <*> c .: "privateIpAddress"
+        <*> c .: "subnetId"
+        <*> c .: "userData"
 
 instance ToQuery ImportInstanceLaunchSpecification
 
@@ -1784,8 +1791,18 @@ sVolumeSize :: Lens' Snapshot (Maybe Int)
 sVolumeSize = lens _sVolumeSize (\s a -> s { _sVolumeSize = a })
 
 instance FromXML Snapshot where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Snapshot"
+    parseXML c = Snapshot
+        <$> c .: "description"
+        <*> c .: "encrypted"
+        <*> c .: "ownerAlias"
+        <*> c .: "ownerId"
+        <*> c .: "progress"
+        <*> c .: "snapshotId"
+        <*> c .: "startTime"
+        <*> c .: "status"
+        <*> c .: "tagSet"
+        <*> c .: "volumeId"
+        <*> c .: "volumeSize"
 
 instance ToQuery Snapshot
 
@@ -1817,8 +1834,9 @@ sisfMessage :: Lens' SpotInstanceStateFault (Maybe Text)
 sisfMessage = lens _sisfMessage (\s a -> s { _sisfMessage = a })
 
 instance FromXML SpotInstanceStateFault where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SpotInstanceStateFault"
+    parseXML c = SpotInstanceStateFault
+        <$> c .: "code"
+        <*> c .: "message"
 
 instance ToQuery SpotInstanceStateFault
 
@@ -1870,8 +1888,11 @@ tdValue :: Lens' TagDescription Text
 tdValue = lens _tdValue (\s a -> s { _tdValue = a })
 
 instance FromXML TagDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TagDescription"
+    parseXML c = TagDescription
+        <$> c .: "key"
+        <*> c .: "resourceId"
+        <*> c .: "resourceType"
+        <*> c .: "value"
 
 instance ToQuery TagDescription
 
@@ -1903,8 +1924,9 @@ giGroupName :: Lens' GroupIdentifier (Maybe Text)
 giGroupName = lens _giGroupName (\s a -> s { _giGroupName = a })
 
 instance FromXML GroupIdentifier where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GroupIdentifier"
+    parseXML c = GroupIdentifier
+        <$> c .: "groupId"
+        <*> c .: "groupName"
 
 instance ToQuery GroupIdentifier
 
@@ -1921,8 +1943,7 @@ instance ToText VpnStaticRouteSource where
     toText Static = "Static"
 
 instance FromXML VpnStaticRouteSource where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpnStaticRouteSource"
+    parseXML = fromXMLText "VpnStaticRouteSource"
 
 instance ToQuery VpnStaticRouteSource
 
@@ -2026,8 +2047,17 @@ rilUpdateDate = lens _rilUpdateDate (\s a -> s { _rilUpdateDate = a })
     . mapping _Time
 
 instance FromXML ReservedInstancesListing where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedInstancesListing"
+    parseXML c = ReservedInstancesListing
+        <$> c .: "clientToken"
+        <*> c .: "createDate"
+        <*> c .: "instanceCounts"
+        <*> c .: "priceSchedules"
+        <*> c .: "reservedInstancesId"
+        <*> c .: "reservedInstancesListingId"
+        <*> c .: "status"
+        <*> c .: "statusMessage"
+        <*> c .: "tagSet"
+        <*> c .: "updateDate"
 
 instance ToQuery ReservedInstancesListing
 
@@ -2044,8 +2074,7 @@ instance ToText InstanceLifecycleType where
     toText Spot = "spot"
 
 instance FromXML InstanceLifecycleType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceLifecycleType"
+    parseXML = fromXMLText "InstanceLifecycleType"
 
 instance ToQuery InstanceLifecycleType
 
@@ -2066,8 +2095,7 @@ instance ToText VirtualizationType where
         Paravirtual -> "paravirtual"
 
 instance FromXML VirtualizationType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VirtualizationType"
+    parseXML = fromXMLText "VirtualizationType"
 
 instance ToQuery VirtualizationType
 
@@ -2094,8 +2122,7 @@ instance ToText NetworkInterfaceStatus where
         InUse     -> "in-use"
 
 instance FromXML NetworkInterfaceStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NetworkInterfaceStatus"
+    parseXML = fromXMLText "NetworkInterfaceStatus"
 
 instance ToQuery NetworkInterfaceStatus
 
@@ -2112,8 +2139,7 @@ instance ToText PlatformValues where
     toText Windows = "Windows"
 
 instance FromXML PlatformValues where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PlatformValues"
+    parseXML = fromXMLText "PlatformValues"
 
 instance ToQuery PlatformValues
 
@@ -2147,8 +2173,9 @@ cvpUserId :: Lens' CreateVolumePermission (Maybe Text)
 cvpUserId = lens _cvpUserId (\s a -> s { _cvpUserId = a })
 
 instance FromXML CreateVolumePermission where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVolumePermission"
+    parseXML c = CreateVolumePermission
+        <$> c .: "group"
+        <*> c .: "userId"
 
 instance ToQuery CreateVolumePermission
 
@@ -2182,8 +2209,9 @@ niacDeleteOnTermination =
     lens _niacDeleteOnTermination (\s a -> s { _niacDeleteOnTermination = a })
 
 instance FromXML NetworkInterfaceAttachmentChanges where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NetworkInterfaceAttachmentChanges"
+    parseXML c = NetworkInterfaceAttachmentChanges
+        <$> c .: "attachmentId"
+        <*> c .: "deleteOnTermination"
 
 instance ToQuery NetworkInterfaceAttachmentChanges
 
@@ -2200,8 +2228,7 @@ instance ToText RecurringChargeFrequency where
     toText Hourly = "Hourly"
 
 instance FromXML RecurringChargeFrequency where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RecurringChargeFrequency"
+    parseXML = fromXMLText "RecurringChargeFrequency"
 
 instance ToQuery RecurringChargeFrequency
 
@@ -2242,8 +2269,10 @@ doTags :: Lens' DhcpOptions [Tag]
 doTags = lens _doTags (\s a -> s { _doTags = a })
 
 instance FromXML DhcpOptions where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DhcpOptions"
+    parseXML c = DhcpOptions
+        <$> c .: "dhcpConfigurationSet"
+        <*> c .: "dhcpOptionsId"
+        <*> c .: "tagSet"
 
 instance ToQuery DhcpOptions
 
@@ -2363,8 +2392,17 @@ inisSubnetId :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisSubnetId = lens _inisSubnetId (\s a -> s { _inisSubnetId = a })
 
 instance FromXML InstanceNetworkInterfaceSpecification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceNetworkInterfaceSpecification"
+    parseXML c = InstanceNetworkInterfaceSpecification
+        <$> c .: "associatePublicIpAddress"
+        <*> c .: "deleteOnTermination"
+        <*> c .: "description"
+        <*> c .: "deviceIndex"
+        <*> c .: "SecurityGroupId"
+        <*> c .: "networkInterfaceId"
+        <*> c .: "privateIpAddress"
+        <*> c .: "privateIpAddressesSet"
+        <*> c .: "secondaryPrivateIpAddressCount"
+        <*> c .: "subnetId"
 
 instance ToQuery InstanceNetworkInterfaceSpecification
 
@@ -2397,8 +2435,7 @@ instance ToText VolumeState where
         VSInUse     -> "in-use"
 
 instance FromXML VolumeState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeState"
+    parseXML = fromXMLText "VolumeState"
 
 instance ToQuery VolumeState
 
@@ -2421,8 +2458,8 @@ avValue :: Lens' AttributeValue (Maybe Text)
 avValue = lens _avValue (\s a -> s { _avValue = a })
 
 instance FromXML AttributeValue where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttributeValue"
+    parseXML c = AttributeValue
+        <$> c .: "value"
 
 instance ToQuery AttributeValue
 
@@ -2457,8 +2494,9 @@ piasPrivateIpAddress =
     lens _piasPrivateIpAddress (\s a -> s { _piasPrivateIpAddress = a })
 
 instance FromXML PrivateIpAddressSpecification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PrivateIpAddressSpecification"
+    parseXML c = PrivateIpAddressSpecification
+        <$> c .: "primary"
+        <*> c .: "privateIpAddress"
 
 instance ToQuery PrivateIpAddressSpecification
 
@@ -2670,8 +2708,29 @@ iVirtualizationType =
     lens _iVirtualizationType (\s a -> s { _iVirtualizationType = a })
 
 instance FromXML Image where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Image"
+    parseXML c = Image
+        <$> c .: "architecture"
+        <*> c .: "blockDeviceMapping"
+        <*> c .: "description"
+        <*> c .: "hypervisor"
+        <*> c .: "imageId"
+        <*> c .: "imageLocation"
+        <*> c .: "imageOwnerAlias"
+        <*> c .: "imageType"
+        <*> c .: "kernelId"
+        <*> c .: "name"
+        <*> c .: "imageOwnerId"
+        <*> c .: "platform"
+        <*> c .: "productCodes"
+        <*> c .: "isPublic"
+        <*> c .: "ramdiskId"
+        <*> c .: "rootDeviceName"
+        <*> c .: "rootDeviceType"
+        <*> c .: "sriovNetSupport"
+        <*> c .: "imageState"
+        <*> c .: "stateReason"
+        <*> c .: "tagSet"
+        <*> c .: "virtualizationType"
 
 instance ToQuery Image
 
@@ -2703,8 +2762,9 @@ dcValues :: Lens' DhcpConfiguration [AttributeValue]
 dcValues = lens _dcValues (\s a -> s { _dcValues = a })
 
 instance FromXML DhcpConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DhcpConfiguration"
+    parseXML c = DhcpConfiguration
+        <$> c .: "key"
+        <*> c .: "valueSet"
 
 instance ToQuery DhcpConfiguration
 
@@ -2740,8 +2800,9 @@ tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Tag"
+    parseXML c = Tag
+        <$> c .: "key"
+        <*> c .: "value"
 
 instance ToQuery Tag
 
@@ -2762,8 +2823,7 @@ instance ToText AccountAttributeName where
         SupportedPlatforms -> "supported-platforms"
 
 instance FromXML AccountAttributeName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AccountAttributeName"
+    parseXML = fromXMLText "AccountAttributeName"
 
 instance ToQuery AccountAttributeName
 
@@ -2839,8 +2899,14 @@ niaStatus :: Lens' NetworkInterfaceAttachment (Maybe Text)
 niaStatus = lens _niaStatus (\s a -> s { _niaStatus = a })
 
 instance FromXML NetworkInterfaceAttachment where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NetworkInterfaceAttachment"
+    parseXML c = NetworkInterfaceAttachment
+        <$> c .: "attachTime"
+        <*> c .: "attachmentId"
+        <*> c .: "deleteOnTermination"
+        <*> c .: "deviceIndex"
+        <*> c .: "instanceId"
+        <*> c .: "instanceOwnerId"
+        <*> c .: "status"
 
 instance ToQuery NetworkInterfaceAttachment
 
@@ -2865,8 +2931,8 @@ rimeEnabled :: Lens' RunInstancesMonitoringEnabled Bool
 rimeEnabled = lens _rimeEnabled (\s a -> s { _rimeEnabled = a })
 
 instance FromXML RunInstancesMonitoringEnabled where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RunInstancesMonitoringEnabled"
+    parseXML c = RunInstancesMonitoringEnabled
+        <$> c .: "enabled"
 
 instance ToQuery RunInstancesMonitoringEnabled
 
@@ -2898,8 +2964,9 @@ vsiStatus :: Lens' VolumeStatusInfo (Maybe Text)
 vsiStatus = lens _vsiStatus (\s a -> s { _vsiStatus = a })
 
 instance FromXML VolumeStatusInfo where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeStatusInfo"
+    parseXML c = VolumeStatusInfo
+        <$> c .: "details"
+        <*> c .: "status"
 
 instance ToQuery VolumeStatusInfo
 
@@ -2955,8 +3022,12 @@ niaPublicIp :: Lens' NetworkInterfaceAssociation (Maybe Text)
 niaPublicIp = lens _niaPublicIp (\s a -> s { _niaPublicIp = a })
 
 instance FromXML NetworkInterfaceAssociation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NetworkInterfaceAssociation"
+    parseXML c = NetworkInterfaceAssociation
+        <$> c .: "allocationId"
+        <*> c .: "associationId"
+        <*> c .: "ipOwnerId"
+        <*> c .: "publicDnsName"
+        <*> c .: "publicIp"
 
 instance ToQuery NetworkInterfaceAssociation
 
@@ -2990,8 +3061,9 @@ cvpmRemove :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
 cvpmRemove = lens _cvpmRemove (\s a -> s { _cvpmRemove = a })
 
 instance FromXML CreateVolumePermissionModifications where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVolumePermissionModifications"
+    parseXML c = CreateVolumePermissionModifications
+        <$> c .: "Add"
+        <*> c .: "Remove"
 
 instance ToQuery CreateVolumePermissionModifications
 
@@ -3012,8 +3084,7 @@ instance ToText VpcState where
         VpcStatePending   -> "pending"
 
 instance FromXML VpcState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpcState"
+    parseXML = fromXMLText "VpcState"
 
 instance ToQuery VpcState
 
@@ -3079,8 +3150,7 @@ instance ToText ResourceType where
         RTVpnGateway           -> "vpn-gateway"
 
 instance FromXML ResourceType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResourceType"
+    parseXML = fromXMLText "ResourceType"
 
 instance ToQuery ResourceType
 
@@ -3101,8 +3171,7 @@ instance ToText ReportStatusType where
         Ok       -> "ok"
 
 instance FromXML ReportStatusType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReportStatusType"
+    parseXML = fromXMLText "ReportStatusType"
 
 instance ToQuery ReportStatusType
 
@@ -3119,8 +3188,7 @@ instance ToText CurrencyCodeValues where
     toText Usd = "USD"
 
 instance FromXML CurrencyCodeValues where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CurrencyCodeValues"
+    parseXML = fromXMLText "CurrencyCodeValues"
 
 instance ToQuery CurrencyCodeValues
 
@@ -3152,8 +3220,9 @@ itcType :: Lens' IcmpTypeCode (Maybe Int)
 itcType = lens _itcType (\s a -> s { _itcType = a })
 
 instance FromXML IcmpTypeCode where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IcmpTypeCode"
+    parseXML c = IcmpTypeCode
+        <$> c .: "code"
+        <*> c .: "type"
 
 instance ToQuery IcmpTypeCode
 
@@ -3186,8 +3255,9 @@ icState :: Lens' InstanceCount (Maybe Text)
 icState = lens _icState (\s a -> s { _icState = a })
 
 instance FromXML InstanceCount where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceCount"
+    parseXML c = InstanceCount
+        <$> c .: "instanceCount"
+        <*> c .: "state"
 
 instance ToQuery InstanceCount
 
@@ -3239,8 +3309,11 @@ etstS3Key :: Lens' ExportToS3Task (Maybe Text)
 etstS3Key = lens _etstS3Key (\s a -> s { _etstS3Key = a })
 
 instance FromXML ExportToS3Task where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ExportToS3Task"
+    parseXML c = ExportToS3Task
+        <$> c .: "containerFormat"
+        <*> c .: "diskImageFormat"
+        <*> c .: "s3Bucket"
+        <*> c .: "s3Key"
 
 instance ToQuery ExportToS3Task
 
@@ -3296,8 +3369,11 @@ bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
 bdmVirtualName = lens _bdmVirtualName (\s a -> s { _bdmVirtualName = a })
 
 instance FromXML BlockDeviceMapping where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BlockDeviceMapping"
+    parseXML c = BlockDeviceMapping
+        <$> c .: "deviceName"
+        <*> c .: "ebs"
+        <*> c .: "noDevice"
+        <*> c .: "virtualName"
 
 instance ToQuery BlockDeviceMapping
 
@@ -3374,8 +3450,14 @@ ctTags :: Lens' ConversionTask [Tag]
 ctTags = lens _ctTags (\s a -> s { _ctTags = a })
 
 instance FromXML ConversionTask where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConversionTask"
+    parseXML c = ConversionTask
+        <$> c .: "conversionTaskId"
+        <*> c .: "expirationTime"
+        <*> c .: "importInstance"
+        <*> c .: "importVolume"
+        <*> c .: "state"
+        <*> c .: "statusMessage"
+        <*> c .: "tagSet"
 
 instance ToQuery ConversionTask
 
@@ -3402,8 +3484,7 @@ instance ToText AttachmentStatus where
         ASDetaching -> "detaching"
 
 instance FromXML AttachmentStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttachmentStatus"
+    parseXML = fromXMLText "AttachmentStatus"
 
 instance ToQuery AttachmentStatus
 
@@ -3427,8 +3508,7 @@ instance ToText RouteOrigin where
         OriginEnableVgwRoutePropagation -> "EnableVgwRoutePropagation"
 
 instance FromXML RouteOrigin where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RouteOrigin"
+    parseXML = fromXMLText "RouteOrigin"
 
 instance ToQuery RouteOrigin
 
@@ -3455,8 +3535,7 @@ instance ToText ListingState where
         LSSold      -> "sold"
 
 instance FromXML ListingState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListingState"
+    parseXML = fromXMLText "ListingState"
 
 instance ToQuery ListingState
 
@@ -3515,8 +3594,12 @@ spTimestamp = lens _spTimestamp (\s a -> s { _spTimestamp = a })
     . mapping _Time
 
 instance FromXML SpotPrice where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SpotPrice"
+    parseXML c = SpotPrice
+        <$> c .: "availabilityZone"
+        <*> c .: "instanceType"
+        <*> c .: "productDescription"
+        <*> c .: "spotPrice"
+        <*> c .: "timestamp"
 
 instance ToQuery SpotPrice
 
@@ -3548,8 +3631,9 @@ imMonitoring :: Lens' InstanceMonitoring (Maybe Monitoring)
 imMonitoring = lens _imMonitoring (\s a -> s { _imMonitoring = a })
 
 instance FromXML InstanceMonitoring where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceMonitoring"
+    parseXML c = InstanceMonitoring
+        <$> c .: "instanceId"
+        <*> c .: "monitoring"
 
 instance ToQuery InstanceMonitoring
 
@@ -3591,8 +3675,10 @@ pssTerm :: Lens' PriceScheduleSpecification (Maybe Integer)
 pssTerm = lens _pssTerm (\s a -> s { _pssTerm = a })
 
 instance FromXML PriceScheduleSpecification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PriceScheduleSpecification"
+    parseXML c = PriceScheduleSpecification
+        <$> c .: "currencyCode"
+        <*> c .: "price"
+        <*> c .: "term"
 
 instance ToQuery PriceScheduleSpecification
 
@@ -3633,8 +3719,10 @@ sisUpdateTime = lens _sisUpdateTime (\s a -> s { _sisUpdateTime = a })
     . mapping _Time
 
 instance FromXML SpotInstanceStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SpotInstanceStatus"
+    parseXML c = SpotInstanceStatus
+        <$> c .: "code"
+        <*> c .: "message"
+        <*> c .: "updateTime"
 
 instance ToQuery SpotInstanceStatus
 
@@ -3651,8 +3739,7 @@ instance ToText AvailabilityZoneState where
     toText AZSAvailable = "available"
 
 instance FromXML AvailabilityZoneState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AvailabilityZoneState"
+    parseXML = fromXMLText "AvailabilityZoneState"
 
 instance ToQuery AvailabilityZoneState
 
@@ -3820,8 +3907,23 @@ siValidUntil = lens _siValidUntil (\s a -> s { _siValidUntil = a })
     . mapping _Time
 
 instance FromXML SpotInstanceRequest where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SpotInstanceRequest"
+    parseXML c = SpotInstanceRequest
+        <$> c .: "availabilityZoneGroup"
+        <*> c .: "createTime"
+        <*> c .: "fault"
+        <*> c .: "instanceId"
+        <*> c .: "launchGroup"
+        <*> c .: "launchSpecification"
+        <*> c .: "launchedAvailabilityZone"
+        <*> c .: "productDescription"
+        <*> c .: "spotInstanceRequestId"
+        <*> c .: "spotPrice"
+        <*> c .: "state"
+        <*> c .: "status"
+        <*> c .: "tagSet"
+        <*> c .: "type"
+        <*> c .: "validFrom"
+        <*> c .: "validUntil"
 
 instance ToQuery SpotInstanceRequest
 
@@ -3966,8 +4068,22 @@ lsUserData :: Lens' LaunchSpecification (Maybe Text)
 lsUserData = lens _lsUserData (\s a -> s { _lsUserData = a })
 
 instance FromXML LaunchSpecification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LaunchSpecification"
+    parseXML c = LaunchSpecification
+        <$> c .: "addressingType"
+        <*> c .: "blockDeviceMapping"
+        <*> c .: "ebsOptimized"
+        <*> c .: "iamInstanceProfile"
+        <*> c .: "imageId"
+        <*> c .: "instanceType"
+        <*> c .: "kernelId"
+        <*> c .: "keyName"
+        <*> c .: "monitoring"
+        <*> c .: "networkInterfaceSet"
+        <*> c .: "placement"
+        <*> c .: "ramdiskId"
+        <*> c .: "groupSet"
+        <*> c .: "subnetId"
+        <*> c .: "userData"
 
 instance ToQuery LaunchSpecification
 
@@ -4025,8 +4141,12 @@ vseNotBefore = lens _vseNotBefore (\s a -> s { _vseNotBefore = a })
     . mapping _Time
 
 instance FromXML VolumeStatusEvent where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeStatusEvent"
+    parseXML c = VolumeStatusEvent
+        <$> c .: "description"
+        <*> c .: "eventId"
+        <*> c .: "eventType"
+        <*> c .: "notAfter"
+        <*> c .: "notBefore"
 
 instance ToQuery VolumeStatusEvent
 
@@ -4142,8 +4262,18 @@ vVolumeType :: Lens' Volume (Maybe Text)
 vVolumeType = lens _vVolumeType (\s a -> s { _vVolumeType = a })
 
 instance FromXML Volume where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Volume"
+    parseXML c = Volume
+        <$> c .: "attachmentSet"
+        <*> c .: "availabilityZone"
+        <*> c .: "createTime"
+        <*> c .: "encrypted"
+        <*> c .: "iops"
+        <*> c .: "size"
+        <*> c .: "snapshotId"
+        <*> c .: "status"
+        <*> c .: "tagSet"
+        <*> c .: "volumeId"
+        <*> c .: "volumeType"
 
 instance ToQuery Volume
 
@@ -4200,8 +4330,12 @@ rReservationId :: Lens' Reservation (Maybe Text)
 rReservationId = lens _rReservationId (\s a -> s { _rReservationId = a })
 
 instance FromXML Reservation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Reservation"
+    parseXML c = Reservation
+        <$> c .: "groupSet"
+        <*> c .: "instancesSet"
+        <*> c .: "ownerId"
+        <*> c .: "requesterId"
+        <*> c .: "reservationId"
 
 instance ToQuery Reservation
 
@@ -4280,8 +4414,14 @@ iivdiVolume :: Lens' ImportInstanceVolumeDetailItem DiskImageVolumeDescription
 iivdiVolume = lens _iivdiVolume (\s a -> s { _iivdiVolume = a })
 
 instance FromXML ImportInstanceVolumeDetailItem where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImportInstanceVolumeDetailItem"
+    parseXML c = ImportInstanceVolumeDetailItem
+        <$> c .: "availabilityZone"
+        <*> c .: "bytesConverted"
+        <*> c .: "description"
+        <*> c .: "image"
+        <*> c .: "status"
+        <*> c .: "statusMessage"
+        <*> c .: "volume"
 
 instance ToQuery ImportInstanceVolumeDetailItem
 
@@ -4308,8 +4448,7 @@ instance ToText SummaryStatus where
         SSOk               -> "ok"
 
 instance FromXML SummaryStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SummaryStatus"
+    parseXML = fromXMLText "SummaryStatus"
 
 instance ToQuery SummaryStatus
 
@@ -4406,8 +4545,16 @@ rimUpdateDate = lens _rimUpdateDate (\s a -> s { _rimUpdateDate = a })
     . mapping _Time
 
 instance FromXML ReservedInstancesModification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedInstancesModification"
+    parseXML c = ReservedInstancesModification
+        <$> c .: "clientToken"
+        <*> c .: "createDate"
+        <*> c .: "effectiveDate"
+        <*> c .: "modificationResultSet"
+        <*> c .: "reservedInstancesSet"
+        <*> c .: "reservedInstancesModificationId"
+        <*> c .: "status"
+        <*> c .: "statusMessage"
+        <*> c .: "updateDate"
 
 instance ToQuery ReservedInstancesModification
 
@@ -4428,8 +4575,7 @@ instance ToText RuleAction where
         Deny  -> "deny"
 
 instance FromXML RuleAction where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RuleAction"
+    parseXML = fromXMLText "RuleAction"
 
 instance ToQuery RuleAction
 
@@ -4597,8 +4743,25 @@ niVpcId :: Lens' NetworkInterface (Maybe Text)
 niVpcId = lens _niVpcId (\s a -> s { _niVpcId = a })
 
 instance FromXML NetworkInterface where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NetworkInterface"
+    parseXML c = NetworkInterface
+        <$> c .: "association"
+        <*> c .: "attachment"
+        <*> c .: "availabilityZone"
+        <*> c .: "description"
+        <*> c .: "groupSet"
+        <*> c .: "macAddress"
+        <*> c .: "networkInterfaceId"
+        <*> c .: "ownerId"
+        <*> c .: "privateDnsName"
+        <*> c .: "privateIpAddress"
+        <*> c .: "privateIpAddressesSet"
+        <*> c .: "requesterId"
+        <*> c .: "requesterManaged"
+        <*> c .: "sourceDestCheck"
+        <*> c .: "status"
+        <*> c .: "subnetId"
+        <*> c .: "tagSet"
+        <*> c .: "vpcId"
 
 instance ToQuery NetworkInterface
 
@@ -4619,8 +4782,7 @@ instance ToText TelemetryStatus where
         Up   -> "UP"
 
 instance FromXML TelemetryStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TelemetryStatus"
+    parseXML = fromXMLText "TelemetryStatus"
 
 instance ToQuery TelemetryStatus
 
@@ -4714,8 +4876,16 @@ s1VpcId :: Lens' Subnet (Maybe Text)
 s1VpcId = lens _s1VpcId (\s a -> s { _s1VpcId = a })
 
 instance FromXML Subnet where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Subnet"
+    parseXML c = Subnet
+        <$> c .: "availabilityZone"
+        <*> c .: "availableIpAddressCount"
+        <*> c .: "cidrBlock"
+        <*> c .: "defaultForAz"
+        <*> c .: "mapPublicIpOnLaunch"
+        <*> c .: "state"
+        <*> c .: "subnetId"
+        <*> c .: "tagSet"
+        <*> c .: "vpcId"
 
 instance ToQuery Subnet
 
@@ -4751,8 +4921,9 @@ kpiKeyName :: Lens' KeyPairInfo (Maybe Text)
 kpiKeyName = lens _kpiKeyName (\s a -> s { _kpiKeyName = a })
 
 instance FromXML KeyPairInfo where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "KeyPairInfo"
+    parseXML c = KeyPairInfo
+        <$> c .: "keyFingerprint"
+        <*> c .: "keyName"
 
 instance ToQuery KeyPairInfo
 
@@ -4785,8 +4956,9 @@ lpmRemove :: Lens' LaunchPermissionModifications [LaunchPermission]
 lpmRemove = lens _lpmRemove (\s a -> s { _lpmRemove = a })
 
 instance FromXML LaunchPermissionModifications where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LaunchPermissionModifications"
+    parseXML c = LaunchPermissionModifications
+        <$> c .: "Add"
+        <*> c .: "Remove"
 
 instance ToQuery LaunchPermissionModifications
 
@@ -4810,8 +4982,7 @@ instance ToText SnapshotState where
         Pending   -> "pending"
 
 instance FromXML SnapshotState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SnapshotState"
+    parseXML = fromXMLText "SnapshotState"
 
 instance ToQuery SnapshotState
 
@@ -4853,8 +5024,10 @@ iniaPublicIp :: Lens' InstanceNetworkInterfaceAssociation (Maybe Text)
 iniaPublicIp = lens _iniaPublicIp (\s a -> s { _iniaPublicIp = a })
 
 instance FromXML InstanceNetworkInterfaceAssociation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceNetworkInterfaceAssociation"
+    parseXML c = InstanceNetworkInterfaceAssociation
+        <$> c .: "ipOwnerId"
+        <*> c .: "publicDnsName"
+        <*> c .: "publicIp"
 
 instance ToQuery InstanceNetworkInterfaceAssociation
 
@@ -4901,8 +5074,10 @@ didImportManifestUrl =
     lens _didImportManifestUrl (\s a -> s { _didImportManifestUrl = a })
 
 instance FromXML DiskImageDetail where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DiskImageDetail"
+    parseXML c = DiskImageDetail
+        <$> c .: "bytes"
+        <*> c .: "format"
+        <*> c .: "importManifestUrl"
 
 instance ToQuery DiskImageDetail
 
@@ -4954,8 +5129,11 @@ ipiaPrivateIpAddress =
     lens _ipiaPrivateIpAddress (\s a -> s { _ipiaPrivateIpAddress = a })
 
 instance FromXML InstancePrivateIpAddress where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstancePrivateIpAddress"
+    parseXML c = InstancePrivateIpAddress
+        <$> c .: "association"
+        <*> c .: "primary"
+        <*> c .: "privateDnsName"
+        <*> c .: "privateIpAddress"
 
 instance ToQuery InstancePrivateIpAddress
 
@@ -4989,8 +5167,9 @@ csiState :: Lens' CancelledSpotInstanceRequest (Maybe Text)
 csiState = lens _csiState (\s a -> s { _csiState = a })
 
 instance FromXML CancelledSpotInstanceRequest where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelledSpotInstanceRequest"
+    parseXML c = CancelledSpotInstanceRequest
+        <$> c .: "spotInstanceRequestId"
+        <*> c .: "state"
 
 instance ToQuery CancelledSpotInstanceRequest
 
@@ -5016,8 +5195,8 @@ vcosStaticRoutesOnly =
     lens _vcosStaticRoutesOnly (\s a -> s { _vcosStaticRoutesOnly = a })
 
 instance FromXML VpnConnectionOptionsSpecification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpnConnectionOptionsSpecification"
+    parseXML c = VpnConnectionOptionsSpecification
+        <$> c .: "staticRoutesOnly"
 
 instance ToQuery VpnConnectionOptionsSpecification
 
@@ -5103,8 +5282,15 @@ aPublicIp :: Lens' Address (Maybe Text)
 aPublicIp = lens _aPublicIp (\s a -> s { _aPublicIp = a })
 
 instance FromXML Address where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Address"
+    parseXML c = Address
+        <$> c .: "allocationId"
+        <*> c .: "associationId"
+        <*> c .: "domain"
+        <*> c .: "instanceId"
+        <*> c .: "networkInterfaceId"
+        <*> c .: "networkInterfaceOwnerId"
+        <*> c .: "privateIpAddress"
+        <*> c .: "publicIp"
 
 instance ToQuery Address
 
@@ -5131,8 +5317,7 @@ instance ToText VolumeAttachmentState where
         VASDetaching -> "detaching"
 
 instance FromXML VolumeAttachmentState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeAttachmentState"
+    parseXML = fromXMLText "VolumeAttachmentState"
 
 instance ToQuery VolumeAttachmentState
 
@@ -5164,8 +5349,9 @@ lpUserId :: Lens' LaunchPermission (Maybe Text)
 lpUserId = lens _lpUserId (\s a -> s { _lpUserId = a })
 
 instance FromXML LaunchPermission where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LaunchPermission"
+    parseXML c = LaunchPermission
+        <$> c .: "group"
+        <*> c .: "userId"
 
 instance ToQuery LaunchPermission
 
@@ -5186,8 +5372,7 @@ instance ToText RouteState where
         Blackhole -> "blackhole"
 
 instance FromXML RouteState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RouteState"
+    parseXML = fromXMLText "RouteState"
 
 instance ToQuery RouteState
 
@@ -5237,8 +5422,11 @@ rtaSubnetId :: Lens' RouteTableAssociation (Maybe Text)
 rtaSubnetId = lens _rtaSubnetId (\s a -> s { _rtaSubnetId = a })
 
 instance FromXML RouteTableAssociation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RouteTableAssociation"
+    parseXML c = RouteTableAssociation
+        <$> c .: "main"
+        <*> c .: "routeTableAssociationId"
+        <*> c .: "routeTableId"
+        <*> c .: "subnetId"
 
 instance ToQuery RouteTableAssociation
 
@@ -5274,8 +5462,7 @@ instance ToText BundleTaskState where
         BTSWaitingForShutdown -> "waiting-for-shutdown"
 
 instance FromXML BundleTaskState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BundleTaskState"
+    parseXML = fromXMLText "BundleTaskState"
 
 instance ToQuery BundleTaskState
 
@@ -5307,8 +5494,9 @@ prTo :: Lens' PortRange (Maybe Int)
 prTo = lens _prTo (\s a -> s { _prTo = a })
 
 instance FromXML PortRange where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PortRange"
+    parseXML c = PortRange
+        <$> c .: "from"
+        <*> c .: "to"
 
 instance ToQuery PortRange
 
@@ -5329,8 +5517,7 @@ instance ToText VpcAttributeName where
         EnableDnsSupport   -> "enableDnsSupport"
 
 instance FromXML VpcAttributeName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpcAttributeName"
+    parseXML = fromXMLText "VpcAttributeName"
 
 instance ToQuery VpcAttributeName
 
@@ -5380,8 +5567,11 @@ ricPlatform :: Lens' ReservedInstancesConfiguration (Maybe Text)
 ricPlatform = lens _ricPlatform (\s a -> s { _ricPlatform = a })
 
 instance FromXML ReservedInstancesConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedInstancesConfiguration"
+    parseXML c = ReservedInstancesConfiguration
+        <$> c .: "availabilityZone"
+        <*> c .: "instanceCount"
+        <*> c .: "instanceType"
+        <*> c .: "platform"
 
 instance ToQuery ReservedInstancesConfiguration
 
@@ -5413,8 +5603,9 @@ vsdStatus :: Lens' VolumeStatusDetails (Maybe Text)
 vsdStatus = lens _vsdStatus (\s a -> s { _vsdStatus = a })
 
 instance FromXML VolumeStatusDetails where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeStatusDetails"
+    parseXML c = VolumeStatusDetails
+        <$> c .: "name"
+        <*> c .: "status"
 
 instance ToQuery VolumeStatusDetails
 
@@ -5444,8 +5635,7 @@ instance ToText SpotInstanceState where
         SISOpen      -> "open"
 
 instance FromXML SpotInstanceState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SpotInstanceState"
+    parseXML = fromXMLText "SpotInstanceState"
 
 instance ToQuery SpotInstanceState
 
@@ -5471,8 +5661,8 @@ vcoStaticRoutesOnly =
     lens _vcoStaticRoutesOnly (\s a -> s { _vcoStaticRoutesOnly = a })
 
 instance FromXML VpnConnectionOptions where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpnConnectionOptions"
+    parseXML c = VpnConnectionOptions
+        <$> c .: "staticRoutesOnly"
 
 instance ToQuery VpnConnectionOptions
 
@@ -5512,8 +5702,10 @@ uigpUserId :: Lens' UserIdGroupPair (Maybe Text)
 uigpUserId = lens _uigpUserId (\s a -> s { _uigpUserId = a })
 
 instance FromXML UserIdGroupPair where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UserIdGroupPair"
+    parseXML c = UserIdGroupPair
+        <$> c .: "groupId"
+        <*> c .: "groupName"
+        <*> c .: "userId"
 
 instance ToQuery UserIdGroupPair
 
@@ -5545,8 +5737,9 @@ issStatus :: Lens' InstanceStatusSummary (Maybe Text)
 issStatus = lens _issStatus (\s a -> s { _issStatus = a })
 
 instance FromXML InstanceStatusSummary where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceStatusSummary"
+    parseXML c = InstanceStatusSummary
+        <$> c .: "details"
+        <*> c .: "status"
 
 instance ToQuery InstanceStatusSummary
 
@@ -5579,8 +5772,9 @@ sp1GroupName :: Lens' SpotPlacement (Maybe Text)
 sp1GroupName = lens _sp1GroupName (\s a -> s { _sp1GroupName = a })
 
 instance FromXML SpotPlacement where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SpotPlacement"
+    parseXML c = SpotPlacement
+        <$> c .: "availabilityZone"
+        <*> c .: "groupName"
 
 instance ToQuery SpotPlacement
 
@@ -5614,8 +5808,9 @@ eibdsVolumeId :: Lens' EbsInstanceBlockDeviceSpecification (Maybe Text)
 eibdsVolumeId = lens _eibdsVolumeId (\s a -> s { _eibdsVolumeId = a })
 
 instance FromXML EbsInstanceBlockDeviceSpecification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EbsInstanceBlockDeviceSpecification"
+    parseXML c = EbsInstanceBlockDeviceSpecification
+        <$> c .: "deleteOnTermination"
+        <*> c .: "volumeId"
 
 instance ToQuery EbsInstanceBlockDeviceSpecification
 
@@ -5657,8 +5852,10 @@ naaSubnetId :: Lens' NetworkAclAssociation (Maybe Text)
 naaSubnetId = lens _naaSubnetId (\s a -> s { _naaSubnetId = a })
 
 instance FromXML NetworkAclAssociation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NetworkAclAssociation"
+    parseXML c = NetworkAclAssociation
+        <$> c .: "networkAclAssociationId"
+        <*> c .: "networkAclId"
+        <*> c .: "subnetId"
 
 instance ToQuery NetworkAclAssociation
 
@@ -5741,8 +5938,15 @@ btUpdateTime = lens _btUpdateTime (\s a -> s { _btUpdateTime = a })
     . mapping _Time
 
 instance FromXML BundleTask where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BundleTask"
+    parseXML c = BundleTask
+        <$> c .: "bundleId"
+        <*> c .: "error"
+        <*> c .: "instanceId"
+        <*> c .: "progress"
+        <*> c .: "startTime"
+        <*> c .: "state"
+        <*> c .: "storage"
+        <*> c .: "updateTime"
 
 instance ToQuery BundleTask
 
@@ -5792,8 +5996,11 @@ iseNotBefore = lens _iseNotBefore (\s a -> s { _iseNotBefore = a })
     . mapping _Time
 
 instance FromXML InstanceStatusEvent where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceStatusEvent"
+    parseXML c = InstanceStatusEvent
+        <$> c .: "code"
+        <*> c .: "description"
+        <*> c .: "notAfter"
+        <*> c .: "notBefore"
 
 instance ToQuery InstanceStatusEvent
 
@@ -5922,8 +6129,7 @@ instance ToText InstanceType where
         T2Small    -> "t2.small"
 
 instance FromXML InstanceType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceType"
+    parseXML = fromXMLText "InstanceType"
 
 instance ToQuery InstanceType
 
@@ -6012,8 +6218,15 @@ rVpcPeeringConnectionId =
     lens _rVpcPeeringConnectionId (\s a -> s { _rVpcPeeringConnectionId = a })
 
 instance FromXML Route where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Route"
+    parseXML c = Route
+        <$> c .: "destinationCidrBlock"
+        <*> c .: "gatewayId"
+        <*> c .: "instanceId"
+        <*> c .: "instanceOwnerId"
+        <*> c .: "networkInterfaceId"
+        <*> c .: "origin"
+        <*> c .: "state"
+        <*> c .: "vpcPeeringConnectionId"
 
 instance ToQuery Route
 
@@ -6069,8 +6282,12 @@ sdsState :: Lens' SpotDatafeedSubscription (Maybe Text)
 sdsState = lens _sdsState (\s a -> s { _sdsState = a })
 
 instance FromXML SpotDatafeedSubscription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SpotDatafeedSubscription"
+    parseXML c = SpotDatafeedSubscription
+        <$> c .: "bucket"
+        <*> c .: "fault"
+        <*> c .: "ownerId"
+        <*> c .: "prefix"
+        <*> c .: "state"
 
 instance ToQuery SpotDatafeedSubscription
 
@@ -6094,8 +6311,8 @@ sS3 :: Lens' Storage (Maybe S3Storage)
 sS3 = lens _sS3 (\s a -> s { _sS3 = a })
 
 instance FromXML Storage where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Storage"
+    parseXML c = Storage
+        <$> c .: "S3"
 
 instance ToQuery Storage
 
@@ -6180,8 +6397,15 @@ sgVpcId :: Lens' SecurityGroup (Maybe Text)
 sgVpcId = lens _sgVpcId (\s a -> s { _sgVpcId = a })
 
 instance FromXML SecurityGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SecurityGroup"
+    parseXML c = SecurityGroup
+        <$> c .: "groupDescription"
+        <*> c .: "groupId"
+        <*> c .: "groupName"
+        <*> c .: "ipPermissions"
+        <*> c .: "ipPermissionsEgress"
+        <*> c .: "ownerId"
+        <*> c .: "tagSet"
+        <*> c .: "vpcId"
 
 instance ToQuery SecurityGroup
 
@@ -6211,8 +6435,7 @@ instance ToText CancelSpotInstanceRequestState where
         CSIRSOpen      -> "open"
 
 instance FromXML CancelSpotInstanceRequestState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelSpotInstanceRequestState"
+    parseXML = fromXMLText "CancelSpotInstanceRequestState"
 
 instance ToQuery CancelSpotInstanceRequestState
 
@@ -6239,8 +6462,7 @@ instance ToText PlacementGroupState where
         PGSPending   -> "pending"
 
 instance FromXML PlacementGroupState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PlacementGroupState"
+    parseXML = fromXMLText "PlacementGroupState"
 
 instance ToQuery PlacementGroupState
 
@@ -6277,8 +6499,9 @@ rimrTargetConfiguration =
     lens _rimrTargetConfiguration (\s a -> s { _rimrTargetConfiguration = a })
 
 instance FromXML ReservedInstancesModificationResult where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedInstancesModificationResult"
+    parseXML c = ReservedInstancesModificationResult
+        <$> c .: "reservedInstancesId"
+        <*> c .: "targetConfiguration"
 
 instance ToQuery ReservedInstancesModificationResult
 
@@ -6327,8 +6550,11 @@ ibdmsVirtualName :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
 ibdmsVirtualName = lens _ibdmsVirtualName (\s a -> s { _ibdmsVirtualName = a })
 
 instance FromXML InstanceBlockDeviceMappingSpecification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceBlockDeviceMappingSpecification"
+    parseXML c = InstanceBlockDeviceMappingSpecification
+        <$> c .: "deviceName"
+        <*> c .: "ebs"
+        <*> c .: "noDevice"
+        <*> c .: "virtualName"
 
 instance ToQuery InstanceBlockDeviceMappingSpecification
 
@@ -6352,8 +6578,7 @@ instance ToText ExportEnvironment where
         Vmware    -> "vmware"
 
 instance FromXML ExportEnvironment where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ExportEnvironment"
+    parseXML = fromXMLText "ExportEnvironment"
 
 instance ToQuery ExportEnvironment
 
@@ -6420,8 +6645,13 @@ vaVolumeId :: Lens' VolumeAttachment (Maybe Text)
 vaVolumeId = lens _vaVolumeId (\s a -> s { _vaVolumeId = a })
 
 instance FromXML VolumeAttachment where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeAttachment"
+    parseXML c = VolumeAttachment
+        <$> c .: "attachTime"
+        <*> c .: "deleteOnTermination"
+        <*> c .: "device"
+        <*> c .: "instanceId"
+        <*> c .: "status"
+        <*> c .: "volumeId"
 
 instance ToQuery VolumeAttachment
 
@@ -6489,8 +6719,13 @@ cgType :: Lens' CustomerGateway (Maybe Text)
 cgType = lens _cgType (\s a -> s { _cgType = a })
 
 instance FromXML CustomerGateway where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CustomerGateway"
+    parseXML c = CustomerGateway
+        <$> c .: "bgpAsn"
+        <*> c .: "customerGatewayId"
+        <*> c .: "ipAddress"
+        <*> c .: "state"
+        <*> c .: "tagSet"
+        <*> c .: "type"
 
 instance ToQuery CustomerGateway
 
@@ -6540,8 +6775,11 @@ eibdVolumeId :: Lens' EbsInstanceBlockDevice (Maybe Text)
 eibdVolumeId = lens _eibdVolumeId (\s a -> s { _eibdVolumeId = a })
 
 instance FromXML EbsInstanceBlockDevice where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EbsInstanceBlockDevice"
+    parseXML c = EbsInstanceBlockDevice
+        <$> c .: "attachTime"
+        <*> c .: "deleteOnTermination"
+        <*> c .: "status"
+        <*> c .: "volumeId"
 
 instance ToQuery EbsInstanceBlockDevice
 
@@ -6562,8 +6800,7 @@ instance ToText ShutdownBehavior where
         Terminate -> "terminate"
 
 instance FromXML ShutdownBehavior where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ShutdownBehavior"
+    parseXML = fromXMLText "ShutdownBehavior"
 
 instance ToQuery ShutdownBehavior
 
@@ -6619,8 +6856,11 @@ did1Size :: Lens' DiskImageDescription Integer
 did1Size = lens _did1Size (\s a -> s { _did1Size = a })
 
 instance FromXML DiskImageDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DiskImageDescription"
+    parseXML c = DiskImageDescription
+        <$> c .: "checksum"
+        <*> c .: "format"
+        <*> c .: "importManifestUrl"
+        <*> c .: "size"
 
 instance ToQuery DiskImageDescription
 
@@ -6653,8 +6893,9 @@ divdSize :: Lens' DiskImageVolumeDescription (Maybe Integer)
 divdSize = lens _divdSize (\s a -> s { _divdSize = a })
 
 instance FromXML DiskImageVolumeDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DiskImageVolumeDescription"
+    parseXML c = DiskImageVolumeDescription
+        <$> c .: "id"
+        <*> c .: "size"
 
 instance ToQuery DiskImageVolumeDescription
 
@@ -6678,8 +6919,8 @@ mState :: Lens' Monitoring (Maybe Text)
 mState = lens _mState (\s a -> s { _mState = a })
 
 instance FromXML Monitoring where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Monitoring"
+    parseXML c = Monitoring
+        <$> c .: "state"
 
 instance ToQuery Monitoring
 
@@ -6700,8 +6941,7 @@ instance ToText SubnetState where
         SSPending   -> "pending"
 
 instance FromXML SubnetState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SubnetState"
+    parseXML = fromXMLText "SubnetState"
 
 instance ToQuery SubnetState
 
@@ -6718,8 +6958,7 @@ instance ToText ContainerFormat where
     toText Ova = "ova"
 
 instance FromXML ContainerFormat where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ContainerFormat"
+    parseXML = fromXMLText "ContainerFormat"
 
 instance ToQuery ContainerFormat
 
@@ -6743,8 +6982,8 @@ azmMessage :: Lens' AvailabilityZoneMessage (Maybe Text)
 azmMessage = lens _azmMessage (\s a -> s { _azmMessage = a })
 
 instance FromXML AvailabilityZoneMessage where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AvailabilityZoneMessage"
+    parseXML c = AvailabilityZoneMessage
+        <$> c .: "message"
 
 instance ToQuery AvailabilityZoneMessage
 
@@ -6776,8 +7015,9 @@ va1VpcId :: Lens' VpcAttachment (Maybe Text)
 va1VpcId = lens _va1VpcId (\s a -> s { _va1VpcId = a })
 
 instance FromXML VpcAttachment where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpcAttachment"
+    parseXML c = VpcAttachment
+        <$> c .: "state"
+        <*> c .: "vpcId"
 
 instance ToQuery VpcAttachment
 
@@ -6810,8 +7050,9 @@ ibdmEbs :: Lens' InstanceBlockDeviceMapping (Maybe EbsInstanceBlockDevice)
 ibdmEbs = lens _ibdmEbs (\s a -> s { _ibdmEbs = a })
 
 instance FromXML InstanceBlockDeviceMapping where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceBlockDeviceMapping"
+    parseXML c = InstanceBlockDeviceMapping
+        <$> c .: "deviceName"
+        <*> c .: "ebs"
 
 instance ToQuery InstanceBlockDeviceMapping
 
@@ -6835,8 +7076,7 @@ instance ToText StatusType where
         Passed           -> "passed"
 
 instance FromXML StatusType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StatusType"
+    parseXML = fromXMLText "StatusType"
 
 instance ToQuery StatusType
 
@@ -6884,8 +7124,11 @@ etstsS3Prefix :: Lens' ExportToS3TaskSpecification (Maybe Text)
 etstsS3Prefix = lens _etstsS3Prefix (\s a -> s { _etstsS3Prefix = a })
 
 instance FromXML ExportToS3TaskSpecification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ExportToS3TaskSpecification"
+    parseXML c = ExportToS3TaskSpecification
+        <$> c .: "containerFormat"
+        <*> c .: "diskImageFormat"
+        <*> c .: "s3Bucket"
+        <*> c .: "s3Prefix"
 
 instance ToQuery ExportToS3TaskSpecification
 
@@ -6912,8 +7155,7 @@ instance ToText NetworkInterfaceAttribute where
         SourceDestCheck -> "sourceDestCheck"
 
 instance FromXML NetworkInterfaceAttribute where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NetworkInterfaceAttribute"
+    parseXML = fromXMLText "NetworkInterfaceAttribute"
 
 instance ToQuery NetworkInterfaceAttribute
 
@@ -6937,8 +7179,7 @@ instance ToText ImageTypeValues where
         Ramdisk -> "ramdisk"
 
 instance FromXML ImageTypeValues where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImageTypeValues"
+    parseXML = fromXMLText "ImageTypeValues"
 
 instance ToQuery ImageTypeValues
 
@@ -6971,8 +7212,9 @@ iedTargetEnvironment =
     lens _iedTargetEnvironment (\s a -> s { _iedTargetEnvironment = a })
 
 instance FromXML InstanceExportDetails where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceExportDetails"
+    parseXML c = InstanceExportDetails
+        <$> c .: "instanceId"
+        <*> c .: "targetEnvironment"
 
 instance ToQuery InstanceExportDetails
 
@@ -6993,8 +7235,7 @@ instance ToText SnapshotAttributeName where
         SANProductCodes           -> "productCodes"
 
 instance FromXML SnapshotAttributeName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SnapshotAttributeName"
+    parseXML = fromXMLText "SnapshotAttributeName"
 
 instance ToQuery SnapshotAttributeName
 
@@ -7042,8 +7283,11 @@ azZoneName :: Lens' AvailabilityZone (Maybe Text)
 azZoneName = lens _azZoneName (\s a -> s { _azZoneName = a })
 
 instance FromXML AvailabilityZone where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AvailabilityZone"
+    parseXML c = AvailabilityZone
+        <$> c .: "messageSet"
+        <*> c .: "regionName"
+        <*> c .: "zoneState"
+        <*> c .: "zoneName"
 
 instance ToQuery AvailabilityZone
 
@@ -7070,8 +7314,7 @@ instance ToText VpnState where
         VpnStatePending   -> "pending"
 
 instance FromXML VpnState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpnState"
+    parseXML = fromXMLText "VpnState"
 
 instance ToQuery VpnState
 
@@ -7136,8 +7379,13 @@ rtVpcId :: Lens' RouteTable (Maybe Text)
 rtVpcId = lens _rtVpcId (\s a -> s { _rtVpcId = a })
 
 instance FromXML RouteTable where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RouteTable"
+    parseXML c = RouteTable
+        <$> c .: "associationSet"
+        <*> c .: "propagatingVgwSet"
+        <*> c .: "routeTableId"
+        <*> c .: "routeSet"
+        <*> c .: "tagSet"
+        <*> c .: "vpcId"
 
 instance ToQuery RouteTable
 
@@ -7158,8 +7406,7 @@ instance ToText HypervisorType where
         Xen -> "xen"
 
 instance FromXML HypervisorType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HypervisorType"
+    parseXML = fromXMLText "HypervisorType"
 
 instance ToQuery HypervisorType
 
@@ -7201,8 +7448,10 @@ isdStatus :: Lens' InstanceStatusDetails (Maybe Text)
 isdStatus = lens _isdStatus (\s a -> s { _isdStatus = a })
 
 instance FromXML InstanceStatusDetails where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceStatusDetails"
+    parseXML c = InstanceStatusDetails
+        <$> c .: "impairedSince"
+        <*> c .: "name"
+        <*> c .: "status"
 
 instance ToQuery InstanceStatusDetails
 
@@ -7234,8 +7483,9 @@ iipId :: Lens' IamInstanceProfile (Maybe Text)
 iipId = lens _iipId (\s a -> s { _iipId = a })
 
 instance FromXML IamInstanceProfile where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IamInstanceProfile"
+    parseXML c = IamInstanceProfile
+        <$> c .: "arn"
+        <*> c .: "id"
 
 instance ToQuery IamInstanceProfile
 
@@ -7269,8 +7519,9 @@ igaVpcId :: Lens' InternetGatewayAttachment Text
 igaVpcId = lens _igaVpcId (\s a -> s { _igaVpcId = a })
 
 instance FromXML InternetGatewayAttachment where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InternetGatewayAttachment"
+    parseXML c = InternetGatewayAttachment
+        <$> c .: "state"
+        <*> c .: "vpcId"
 
 instance ToQuery InternetGatewayAttachment
 
@@ -7297,8 +7548,7 @@ instance ToText ReservedInstanceState where
         RISRetired        -> "retired"
 
 instance FromXML ReservedInstanceState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedInstanceState"
+    parseXML = fromXMLText "ReservedInstanceState"
 
 instance ToQuery ReservedInstanceState
 
@@ -7352,8 +7602,7 @@ instance ToText InstanceAttributeName where
         IANInstanceUserData                          -> "userData"
 
 instance FromXML InstanceAttributeName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceAttributeName"
+    parseXML = fromXMLText "InstanceAttributeName"
 
 instance ToQuery InstanceAttributeName
 
@@ -7418,8 +7667,12 @@ ipUserIdGroupPairs =
     lens _ipUserIdGroupPairs (\s a -> s { _ipUserIdGroupPairs = a })
 
 instance FromXML IpPermission where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IpPermission"
+    parseXML c = IpPermission
+        <$> c .: "fromPort"
+        <*> c .: "ipProtocol"
+        <*> c .: "ipRanges"
+        <*> c .: "toPort"
+        <*> c .: "groups"
 
 instance ToQuery IpPermission
 
@@ -7446,8 +7699,7 @@ instance ToText ConversionTaskState where
         CTSCompleted  -> "completed"
 
 instance FromXML ConversionTaskState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConversionTaskState"
+    parseXML = fromXMLText "ConversionTaskState"
 
 instance ToQuery ConversionTaskState
 
@@ -7484,8 +7736,10 @@ diVolume :: Lens' DiskImage (Maybe VolumeDetail)
 diVolume = lens _diVolume (\s a -> s { _diVolume = a })
 
 instance FromXML DiskImage where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DiskImage"
+    parseXML c = DiskImage
+        <$> c .: "Description"
+        <*> c .: "Image"
+        <*> c .: "Volume"
 
 instance ToQuery DiskImage
 
@@ -7506,8 +7760,7 @@ instance ToText Tenancy where
         Default'  -> "default"
 
 instance FromXML Tenancy where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Tenancy"
+    parseXML = fromXMLText "Tenancy"
 
 instance ToQuery Tenancy
 
@@ -7539,8 +7792,9 @@ vpcsrMessage :: Lens' VpcPeeringConnectionStateReason (Maybe Text)
 vpcsrMessage = lens _vpcsrMessage (\s a -> s { _vpcsrMessage = a })
 
 instance FromXML VpcPeeringConnectionStateReason where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpcPeeringConnectionStateReason"
+    parseXML c = VpcPeeringConnectionStateReason
+        <$> c .: "code"
+        <*> c .: "message"
 
 instance ToQuery VpcPeeringConnectionStateReason
 
@@ -7572,8 +7826,9 @@ iipsName :: Lens' IamInstanceProfileSpecification (Maybe Text)
 iipsName = lens _iipsName (\s a -> s { _iipsName = a })
 
 instance FromXML IamInstanceProfileSpecification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IamInstanceProfileSpecification"
+    parseXML c = IamInstanceProfileSpecification
+        <$> c .: "arn"
+        <*> c .: "name"
 
 instance ToQuery IamInstanceProfileSpecification
 
@@ -7635,8 +7890,12 @@ ivtdVolume :: Lens' ImportVolumeTaskDetails DiskImageVolumeDescription
 ivtdVolume = lens _ivtdVolume (\s a -> s { _ivtdVolume = a })
 
 instance FromXML ImportVolumeTaskDetails where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImportVolumeTaskDetails"
+    parseXML c = ImportVolumeTaskDetails
+        <$> c .: "availabilityZone"
+        <*> c .: "bytesConverted"
+        <*> c .: "description"
+        <*> c .: "image"
+        <*> c .: "volume"
 
 instance ToQuery ImportVolumeTaskDetails
 
@@ -7653,8 +7912,7 @@ instance ToText PlacementStrategy where
     toText Cluster = "cluster"
 
 instance FromXML PlacementStrategy where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PlacementStrategy"
+    parseXML = fromXMLText "PlacementStrategy"
 
 instance ToQuery PlacementStrategy
 
@@ -7789,8 +8047,21 @@ iniVpcId :: Lens' InstanceNetworkInterface (Maybe Text)
 iniVpcId = lens _iniVpcId (\s a -> s { _iniVpcId = a })
 
 instance FromXML InstanceNetworkInterface where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceNetworkInterface"
+    parseXML c = InstanceNetworkInterface
+        <$> c .: "association"
+        <*> c .: "attachment"
+        <*> c .: "description"
+        <*> c .: "groupSet"
+        <*> c .: "macAddress"
+        <*> c .: "networkInterfaceId"
+        <*> c .: "ownerId"
+        <*> c .: "privateDnsName"
+        <*> c .: "privateIpAddress"
+        <*> c .: "privateIpAddressesSet"
+        <*> c .: "sourceDestCheck"
+        <*> c .: "status"
+        <*> c .: "subnetId"
+        <*> c .: "vpcId"
 
 instance ToQuery InstanceNetworkInterface
 
@@ -7838,8 +8109,11 @@ vsaEventType :: Lens' VolumeStatusAction (Maybe Text)
 vsaEventType = lens _vsaEventType (\s a -> s { _vsaEventType = a })
 
 instance FromXML VolumeStatusAction where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeStatusAction"
+    parseXML c = VolumeStatusAction
+        <$> c .: "code"
+        <*> c .: "description"
+        <*> c .: "eventId"
+        <*> c .: "eventType"
 
 instance ToQuery VolumeStatusAction
 
@@ -7879,8 +8153,10 @@ vpcviVpcId :: Lens' VpcPeeringConnectionVpcInfo (Maybe Text)
 vpcviVpcId = lens _vpcviVpcId (\s a -> s { _vpcviVpcId = a })
 
 instance FromXML VpcPeeringConnectionVpcInfo where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpcPeeringConnectionVpcInfo"
+    parseXML c = VpcPeeringConnectionVpcInfo
+        <$> c .: "cidrBlock"
+        <*> c .: "ownerId"
+        <*> c .: "vpcId"
 
 instance ToQuery VpcPeeringConnectionVpcInfo
 
@@ -7914,8 +8190,9 @@ rilpCurrencyCode :: Lens' ReservedInstanceLimitPrice (Maybe Text)
 rilpCurrencyCode = lens _rilpCurrencyCode (\s a -> s { _rilpCurrencyCode = a })
 
 instance FromXML ReservedInstanceLimitPrice where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedInstanceLimitPrice"
+    parseXML c = ReservedInstanceLimitPrice
+        <$> c .: "amount"
+        <*> c .: "currencyCode"
 
 instance ToQuery ReservedInstanceLimitPrice
 
@@ -7989,8 +8266,14 @@ vpcVpcId :: Lens' Vpc (Maybe Text)
 vpcVpcId = lens _vpcVpcId (\s a -> s { _vpcVpcId = a })
 
 instance FromXML Vpc where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Vpc"
+    parseXML c = Vpc
+        <$> c .: "cidrBlock"
+        <*> c .: "dhcpOptionsId"
+        <*> c .: "instanceTenancy"
+        <*> c .: "isDefault"
+        <*> c .: "state"
+        <*> c .: "tagSet"
+        <*> c .: "vpcId"
 
 instance ToQuery Vpc
 
@@ -8059,8 +8342,13 @@ isSystemStatus :: Lens' InstanceStatus (Maybe InstanceStatusSummary)
 isSystemStatus = lens _isSystemStatus (\s a -> s { _isSystemStatus = a })
 
 instance FromXML InstanceStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceStatus"
+    parseXML c = InstanceStatus
+        <$> c .: "availabilityZone"
+        <*> c .: "eventsSet"
+        <*> c .: "instanceId"
+        <*> c .: "instanceState"
+        <*> c .: "instanceStatus"
+        <*> c .: "systemStatus"
 
 instance ToQuery InstanceStatus
 
@@ -8081,8 +8369,7 @@ instance ToText ArchitectureValues where
         X8664 -> "x86_64"
 
 instance FromXML ArchitectureValues where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ArchitectureValues"
+    parseXML = fromXMLText "ArchitectureValues"
 
 instance ToQuery ArchitectureValues
 
@@ -8124,8 +8411,7 @@ instance ToText ReportInstanceReasonCodes where
         Unresponsive             -> "unresponsive"
 
 instance FromXML ReportInstanceReasonCodes where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReportInstanceReasonCodes"
+    parseXML = fromXMLText "ReportInstanceReasonCodes"
 
 instance ToQuery ReportInstanceReasonCodes
 
@@ -8210,8 +8496,13 @@ ebdVolumeType :: Lens' EbsBlockDevice (Maybe Text)
 ebdVolumeType = lens _ebdVolumeType (\s a -> s { _ebdVolumeType = a })
 
 instance FromXML EbsBlockDevice where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EbsBlockDevice"
+    parseXML c = EbsBlockDevice
+        <$> c .: "deleteOnTermination"
+        <*> c .: "encrypted"
+        <*> c .: "iops"
+        <*> c .: "snapshotId"
+        <*> c .: "volumeSize"
+        <*> c .: "volumeType"
 
 instance ToQuery EbsBlockDevice
 
@@ -8244,8 +8535,9 @@ aaAttributeValues =
     lens _aaAttributeValues (\s a -> s { _aaAttributeValues = a })
 
 instance FromXML AccountAttribute where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AccountAttribute"
+    parseXML c = AccountAttribute
+        <$> c .: "attributeName"
+        <*> c .: "attributeValueSet"
 
 instance ToQuery AccountAttribute
 
@@ -8303,8 +8595,11 @@ psTerm :: Lens' PriceSchedule (Maybe Integer)
 psTerm = lens _psTerm (\s a -> s { _psTerm = a })
 
 instance FromXML PriceSchedule where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PriceSchedule"
+    parseXML c = PriceSchedule
+        <$> c .: "active"
+        <*> c .: "currencyCode"
+        <*> c .: "price"
+        <*> c .: "term"
 
 instance ToQuery PriceSchedule
 
@@ -8325,8 +8620,7 @@ instance ToText DeviceType where
         InstanceStore -> "instance-store"
 
 instance FromXML DeviceType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeviceType"
+    parseXML = fromXMLText "DeviceType"
 
 instance ToQuery DeviceType
 
@@ -8347,8 +8641,7 @@ instance ToText DomainType where
         DTVpc      -> "vpc"
 
 instance FromXML DomainType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DomainType"
+    parseXML = fromXMLText "DomainType"
 
 instance ToQuery DomainType
 
@@ -8380,8 +8673,9 @@ rRegionName :: Lens' Region (Maybe Text)
 rRegionName = lens _rRegionName (\s a -> s { _rRegionName = a })
 
 instance FromXML Region where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Region"
+    parseXML c = Region
+        <$> c .: "regionEndpoint"
+        <*> c .: "regionName"
 
 instance ToQuery Region
 
@@ -8405,8 +8699,8 @@ pvGatewayId :: Lens' PropagatingVgw (Maybe Text)
 pvGatewayId = lens _pvGatewayId (\s a -> s { _pvGatewayId = a })
 
 instance FromXML PropagatingVgw where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PropagatingVgw"
+    parseXML c = PropagatingVgw
+        <$> c .: "gatewayId"
 
 instance ToQuery PropagatingVgw
 
@@ -8430,8 +8724,7 @@ instance ToText OfferingTypeValues where
         MediumUtilization -> "Medium Utilization"
 
 instance FromXML OfferingTypeValues where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OfferingTypeValues"
+    parseXML = fromXMLText "OfferingTypeValues"
 
 instance ToQuery OfferingTypeValues
 
@@ -8496,8 +8789,13 @@ vgVpnGatewayId :: Lens' VpnGateway (Maybe Text)
 vgVpnGatewayId = lens _vgVpnGatewayId (\s a -> s { _vgVpnGatewayId = a })
 
 instance FromXML VpnGateway where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpnGateway"
+    parseXML c = VpnGateway
+        <$> c .: "availabilityZone"
+        <*> c .: "state"
+        <*> c .: "tagSet"
+        <*> c .: "type"
+        <*> c .: "attachments"
+        <*> c .: "vpnGatewayId"
 
 instance ToQuery VpnGateway
 
@@ -8530,8 +8828,9 @@ fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\s a -> s { _fValues = a })
 
 instance FromXML Filter where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Filter"
+    parseXML c = Filter
+        <$> c .: "Name"
+        <*> c .: "Value"
 
 instance ToQuery Filter
 
@@ -8555,8 +8854,7 @@ instance ToText VolumeType where
         Standard -> "standard"
 
 instance FromXML VolumeType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeType"
+    parseXML = fromXMLText "VolumeType"
 
 instance ToQuery VolumeType
 
@@ -8596,8 +8894,10 @@ iscPreviousState :: Lens' InstanceStateChange (Maybe InstanceState)
 iscPreviousState = lens _iscPreviousState (\s a -> s { _iscPreviousState = a })
 
 instance FromXML InstanceStateChange where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceStateChange"
+    parseXML c = InstanceStateChange
+        <$> c .: "currentState"
+        <*> c .: "instanceId"
+        <*> c .: "previousState"
 
 instance ToQuery InstanceStateChange
 
@@ -8661,8 +8961,13 @@ naVpcId :: Lens' NetworkAcl (Maybe Text)
 naVpcId = lens _naVpcId (\s a -> s { _naVpcId = a })
 
 instance FromXML NetworkAcl where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NetworkAcl"
+    parseXML c = NetworkAcl
+        <$> c .: "associationSet"
+        <*> c .: "entrySet"
+        <*> c .: "default"
+        <*> c .: "networkAclId"
+        <*> c .: "tagSet"
+        <*> c .: "vpcId"
 
 instance ToQuery NetworkAcl
 
@@ -8683,8 +8988,7 @@ instance ToText ImageState where
         ISDeregistered -> "deregistered"
 
 instance FromXML ImageState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImageState"
+    parseXML = fromXMLText "ImageState"
 
 instance ToQuery ImageState
 
@@ -8701,8 +9005,7 @@ instance ToText GatewayType where
     toText Ipsec1 = "ipsec.1"
 
 instance FromXML GatewayType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GatewayType"
+    parseXML = fromXMLText "GatewayType"
 
 instance ToQuery GatewayType
 
@@ -8762,8 +9065,12 @@ iniaStatus :: Lens' InstanceNetworkInterfaceAttachment (Maybe Text)
 iniaStatus = lens _iniaStatus (\s a -> s { _iniaStatus = a })
 
 instance FromXML InstanceNetworkInterfaceAttachment where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceNetworkInterfaceAttachment"
+    parseXML c = InstanceNetworkInterfaceAttachment
+        <$> c .: "attachTime"
+        <*> c .: "attachmentId"
+        <*> c .: "deleteOnTermination"
+        <*> c .: "deviceIndex"
+        <*> c .: "status"
 
 instance ToQuery InstanceNetworkInterfaceAttachment
 
@@ -8786,8 +9093,8 @@ abvValue :: Lens' AttributeBooleanValue (Maybe Bool)
 abvValue = lens _abvValue (\s a -> s { _abvValue = a })
 
 instance FromXML AttributeBooleanValue where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttributeBooleanValue"
+    parseXML c = AttributeBooleanValue
+        <$> c .: "value"
 
 instance ToQuery AttributeBooleanValue
 
@@ -8819,8 +9126,9 @@ rcFrequency :: Lens' RecurringCharge (Maybe Text)
 rcFrequency = lens _rcFrequency (\s a -> s { _rcFrequency = a })
 
 instance FromXML RecurringCharge where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RecurringCharge"
+    parseXML c = RecurringCharge
+        <$> c .: "amount"
+        <*> c .: "frequency"
 
 instance ToQuery RecurringCharge
 
@@ -8850,8 +9158,9 @@ ndcValues :: Lens' NewDhcpConfiguration [Text]
 ndcValues = lens _ndcValues (\s a -> s { _ndcValues = a })
 
 instance FromXML NewDhcpConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NewDhcpConfiguration"
+    parseXML c = NewDhcpConfiguration
+        <$> c .: "key"
+        <*> c .: "Value"
 
 instance ToQuery NewDhcpConfiguration
 
@@ -8893,8 +9202,9 @@ srMessage :: Lens' StateReason (Maybe Text)
 srMessage = lens _srMessage (\s a -> s { _srMessage = a })
 
 instance FromXML StateReason where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StateReason"
+    parseXML c = StateReason
+        <$> c .: "code"
+        <*> c .: "message"
 
 instance ToQuery StateReason
 
@@ -8918,8 +9228,7 @@ instance ToText MonitoringState where
         MSPending  -> "pending"
 
 instance FromXML MonitoringState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MonitoringState"
+    parseXML = fromXMLText "MonitoringState"
 
 instance ToQuery MonitoringState
 
@@ -8944,8 +9253,8 @@ riiReservedInstancesId =
     lens _riiReservedInstancesId (\s a -> s { _riiReservedInstancesId = a })
 
 instance FromXML ReservedInstancesId where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedInstancesId"
+    parseXML c = ReservedInstancesId
+        <$> c .: "reservedInstancesId"
 
 instance ToQuery ReservedInstancesId
 
@@ -8962,8 +9271,7 @@ instance ToText StatusName where
     toText Reachability = "reachability"
 
 instance FromXML StatusName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StatusName"
+    parseXML = fromXMLText "StatusName"
 
 instance ToQuery StatusName
 
@@ -9005,8 +9313,10 @@ igTags :: Lens' InternetGateway [Tag]
 igTags = lens _igTags (\s a -> s { _igTags = a })
 
 instance FromXML InternetGateway where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InternetGateway"
+    parseXML c = InternetGateway
+        <$> c .: "attachmentSet"
+        <*> c .: "internetGatewayId"
+        <*> c .: "tagSet"
 
 instance ToQuery InternetGateway
 
@@ -9027,8 +9337,7 @@ instance ToText VolumeStatusName where
         IoPerformance -> "io-performance"
 
 instance FromXML VolumeStatusName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeStatusName"
+    parseXML = fromXMLText "VolumeStatusName"
 
 instance ToQuery VolumeStatusName
 
@@ -9049,8 +9358,7 @@ instance ToText VolumeAttributeName where
         ProductCodes -> "productCodes"
 
 instance FromXML VolumeAttributeName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeAttributeName"
+    parseXML = fromXMLText "VolumeAttributeName"
 
 instance ToQuery VolumeAttributeName
 
@@ -9095,8 +9403,11 @@ iitdVolumes :: Lens' ImportInstanceTaskDetails [ImportInstanceVolumeDetailItem]
 iitdVolumes = lens _iitdVolumes (\s a -> s { _iitdVolumes = a })
 
 instance FromXML ImportInstanceTaskDetails where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImportInstanceTaskDetails"
+    parseXML c = ImportInstanceTaskDetails
+        <$> c .: "description"
+        <*> c .: "instanceId"
+        <*> c .: "platform"
+        <*> c .: "volumes"
 
 instance ToQuery ImportInstanceTaskDetails
 
@@ -9136,8 +9447,10 @@ pgStrategy :: Lens' PlacementGroup (Maybe Text)
 pgStrategy = lens _pgStrategy (\s a -> s { _pgStrategy = a })
 
 instance FromXML PlacementGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PlacementGroup"
+    parseXML c = PlacementGroup
+        <$> c .: "groupName"
+        <*> c .: "state"
+        <*> c .: "strategy"
 
 instance ToQuery PlacementGroup
 
@@ -9170,8 +9483,9 @@ pcProductCodeType =
     lens _pcProductCodeType (\s a -> s { _pcProductCodeType = a })
 
 instance FromXML ProductCode where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ProductCode"
+    parseXML c = ProductCode
+        <$> c .: "productCode"
+        <*> c .: "type"
 
 instance ToQuery ProductCode
 
@@ -9198,8 +9512,7 @@ instance ToText ListingStatus where
         ListingStatusPending   -> "pending"
 
 instance FromXML ListingStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListingStatus"
+    parseXML = fromXMLText "ListingStatus"
 
 instance ToQuery ListingStatus
 
@@ -9225,8 +9538,8 @@ irCidrIp :: Lens' IpRange Text
 irCidrIp = lens _irCidrIp (\s a -> s { _irCidrIp = a })
 
 instance FromXML IpRange where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IpRange"
+    parseXML c = IpRange
+        <$> c .: "cidrIp"
 
 instance ToQuery IpRange
 
@@ -9250,8 +9563,7 @@ instance ToText VolumeStatusInfoStatus where
         VSISOk               -> "ok"
 
 instance FromXML VolumeStatusInfoStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeStatusInfoStatus"
+    parseXML = fromXMLText "VolumeStatusInfoStatus"
 
 instance ToQuery VolumeStatusInfoStatus
 
@@ -9276,8 +9588,8 @@ aavAttributeValue =
     lens _aavAttributeValue (\s a -> s { _aavAttributeValue = a })
 
 instance FromXML AccountAttributeValue where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AccountAttributeValue"
+    parseXML c = AccountAttributeValue
+        <$> c .: "attributeValue"
 
 instance ToQuery AccountAttributeValue
 
@@ -9304,8 +9616,7 @@ instance ToText RIProductDescription where
         RIPDWindowsAmazonVPC   -> "Windows (Amazon VPC)"
 
 instance FromXML RIProductDescription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RIProductDescription"
+    parseXML = fromXMLText "RIProductDescription"
 
 instance ToQuery RIProductDescription
 
@@ -9436,8 +9747,20 @@ rioUsagePrice :: Lens' ReservedInstancesOffering (Maybe Double)
 rioUsagePrice = lens _rioUsagePrice (\s a -> s { _rioUsagePrice = a })
 
 instance FromXML ReservedInstancesOffering where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedInstancesOffering"
+    parseXML c = ReservedInstancesOffering
+        <$> c .: "availabilityZone"
+        <*> c .: "currencyCode"
+        <*> c .: "duration"
+        <*> c .: "fixedPrice"
+        <*> c .: "instanceTenancy"
+        <*> c .: "instanceType"
+        <*> c .: "marketplace"
+        <*> c .: "offeringType"
+        <*> c .: "pricingDetailsSet"
+        <*> c .: "productDescription"
+        <*> c .: "recurringCharges"
+        <*> c .: "reservedInstancesOfferingId"
+        <*> c .: "usagePrice"
 
 instance ToQuery ReservedInstancesOffering
 
@@ -9590,8 +9913,23 @@ ri1UsagePrice :: Lens' ReservedInstances (Maybe Double)
 ri1UsagePrice = lens _ri1UsagePrice (\s a -> s { _ri1UsagePrice = a })
 
 instance FromXML ReservedInstances where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedInstances"
+    parseXML c = ReservedInstances
+        <$> c .: "availabilityZone"
+        <*> c .: "currencyCode"
+        <*> c .: "duration"
+        <*> c .: "end"
+        <*> c .: "fixedPrice"
+        <*> c .: "instanceCount"
+        <*> c .: "instanceTenancy"
+        <*> c .: "instanceType"
+        <*> c .: "offeringType"
+        <*> c .: "productDescription"
+        <*> c .: "recurringCharges"
+        <*> c .: "reservedInstancesId"
+        <*> c .: "start"
+        <*> c .: "state"
+        <*> c .: "tagSet"
+        <*> c .: "usagePrice"
 
 instance ToQuery ReservedInstances
 
@@ -9612,8 +9950,7 @@ instance ToText DatafeedSubscriptionState where
         DSSInactive -> "Inactive"
 
 instance FromXML DatafeedSubscriptionState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DatafeedSubscriptionState"
+    parseXML = fromXMLText "DatafeedSubscriptionState"
 
 instance ToQuery DatafeedSubscriptionState
 
@@ -9640,8 +9977,7 @@ instance ToText ExportTaskState where
         ETSCompleted  -> "completed"
 
 instance FromXML ExportTaskState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ExportTaskState"
+    parseXML = fromXMLText "ExportTaskState"
 
 instance ToQuery ExportTaskState
 
@@ -9662,8 +9998,7 @@ instance ToText ProductCodeValues where
         Marketplace -> "marketplace"
 
 instance FromXML ProductCodeValues where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ProductCodeValues"
+    parseXML = fromXMLText "ProductCodeValues"
 
 instance ToQuery ProductCodeValues
 
@@ -9768,8 +10103,17 @@ vcVpnGatewayId :: Lens' VpnConnection (Maybe Text)
 vcVpnGatewayId = lens _vcVpnGatewayId (\s a -> s { _vcVpnGatewayId = a })
 
 instance FromXML VpnConnection where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpnConnection"
+    parseXML c = VpnConnection
+        <$> c .: "customerGatewayConfiguration"
+        <*> c .: "customerGatewayId"
+        <*> c .: "options"
+        <*> c .: "routes"
+        <*> c .: "state"
+        <*> c .: "tagSet"
+        <*> c .: "type"
+        <*> c .: "vgwTelemetry"
+        <*> c .: "vpnConnectionId"
+        <*> c .: "vpnGatewayId"
 
 instance ToQuery VpnConnection
 
@@ -9805,8 +10149,9 @@ isName :: Lens' InstanceState Text
 isName = lens _isName (\s a -> s { _isName = a })
 
 instance FromXML InstanceState where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceState"
+    parseXML c = InstanceState
+        <$> c .: "code"
+        <*> c .: "name"
 
 instance ToQuery InstanceState
 
@@ -9849,8 +10194,10 @@ pTenancy :: Lens' Placement (Maybe Text)
 pTenancy = lens _pTenancy (\s a -> s { _pTenancy = a })
 
 instance FromXML Placement where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Placement"
+    parseXML c = Placement
+        <$> c .: "availabilityZone"
+        <*> c .: "groupName"
+        <*> c .: "tenancy"
 
 instance ToQuery Placement
 
@@ -9880,8 +10227,7 @@ instance ToText EventCode where
         SystemReboot       -> "system-reboot"
 
 instance FromXML EventCode where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EventCode"
+    parseXML = fromXMLText "EventCode"
 
 instance ToQuery EventCode
 
@@ -9902,8 +10248,7 @@ instance ToText SpotInstanceType where
         Persistent -> "persistent"
 
 instance FromXML SpotInstanceType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SpotInstanceType"
+    parseXML = fromXMLText "SpotInstanceType"
 
 instance ToQuery SpotInstanceType
 
@@ -9973,8 +10318,13 @@ vpc1VpcPeeringConnectionId =
         (\s a -> s { _vpc1VpcPeeringConnectionId = a })
 
 instance FromXML VpcPeeringConnection where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpcPeeringConnection"
+    parseXML c = VpcPeeringConnection
+        <$> c .: "accepterVpcInfo"
+        <*> c .: "expirationTime"
+        <*> c .: "requesterVpcInfo"
+        <*> c .: "status"
+        <*> c .: "tagSet"
+        <*> c .: "vpcPeeringConnectionId"
 
 instance ToQuery VpcPeeringConnection
 
@@ -10037,8 +10387,12 @@ ssUploadPolicySignature =
     lens _ssUploadPolicySignature (\s a -> s { _ssUploadPolicySignature = a })
 
 instance FromXML S3Storage where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "S3Storage"
+    parseXML c = S3Storage
+        <$> c .: "AWSAccessKeyId"
+        <*> c .: "bucket"
+        <*> c .: "prefix"
+        <*> c .: "uploadPolicy"
+        <*> c .: "uploadPolicySignature"
 
 instance ToQuery S3Storage
 
@@ -10099,8 +10453,12 @@ vtStatusMessage :: Lens' VgwTelemetry (Maybe Text)
 vtStatusMessage = lens _vtStatusMessage (\s a -> s { _vtStatusMessage = a })
 
 instance FromXML VgwTelemetry where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VgwTelemetry"
+    parseXML c = VgwTelemetry
+        <$> c .: "acceptedRouteCount"
+        <*> c .: "lastStatusChange"
+        <*> c .: "outsideIpAddress"
+        <*> c .: "status"
+        <*> c .: "statusMessage"
 
 instance ToQuery VgwTelemetry
 
@@ -10142,8 +10500,10 @@ vsrState :: Lens' VpnStaticRoute (Maybe Text)
 vsrState = lens _vsrState (\s a -> s { _vsrState = a })
 
 instance FromXML VpnStaticRoute where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpnStaticRoute"
+    parseXML c = VpnStaticRoute
+        <$> c .: "destinationCidrBlock"
+        <*> c .: "source"
+        <*> c .: "state"
 
 instance ToQuery VpnStaticRoute
 
@@ -10176,8 +10536,7 @@ instance ToText InstanceStateName where
         ISNTerminated   -> "terminated"
 
 instance FromXML InstanceStateName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceStateName"
+    parseXML = fromXMLText "InstanceStateName"
 
 instance ToQuery InstanceStateName
 
@@ -10517,8 +10876,44 @@ i1VpcId :: Lens' Instance (Maybe Text)
 i1VpcId = lens _i1VpcId (\s a -> s { _i1VpcId = a })
 
 instance FromXML Instance where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Instance"
+    parseXML c = Instance
+        <$> c .: "amiLaunchIndex"
+        <*> c .: "architecture"
+        <*> c .: "blockDeviceMapping"
+        <*> c .: "clientToken"
+        <*> c .: "ebsOptimized"
+        <*> c .: "hypervisor"
+        <*> c .: "iamInstanceProfile"
+        <*> c .: "imageId"
+        <*> c .: "instanceId"
+        <*> c .: "instanceLifecycle"
+        <*> c .: "instanceType"
+        <*> c .: "kernelId"
+        <*> c .: "keyName"
+        <*> c .: "launchTime"
+        <*> c .: "monitoring"
+        <*> c .: "networkInterfaceSet"
+        <*> c .: "placement"
+        <*> c .: "platform"
+        <*> c .: "privateDnsName"
+        <*> c .: "privateIpAddress"
+        <*> c .: "productCodes"
+        <*> c .: "dnsName"
+        <*> c .: "ipAddress"
+        <*> c .: "ramdiskId"
+        <*> c .: "rootDeviceName"
+        <*> c .: "rootDeviceType"
+        <*> c .: "groupSet"
+        <*> c .: "sourceDestCheck"
+        <*> c .: "spotInstanceRequestId"
+        <*> c .: "sriovNetSupport"
+        <*> c .: "instanceState"
+        <*> c .: "stateReason"
+        <*> c .: "reason"
+        <*> c .: "subnetId"
+        <*> c .: "tagSet"
+        <*> c .: "virtualizationType"
+        <*> c .: "vpcId"
 
 instance ToQuery Instance
 
@@ -10582,8 +10977,13 @@ etStatusMessage :: Lens' ExportTask (Maybe Text)
 etStatusMessage = lens _etStatusMessage (\s a -> s { _etStatusMessage = a })
 
 instance FromXML ExportTask where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ExportTask"
+    parseXML c = ExportTask
+        <$> c .: "description"
+        <*> c .: "exportTaskId"
+        <*> c .: "exportToS3"
+        <*> c .: "instanceExport"
+        <*> c .: "state"
+        <*> c .: "statusMessage"
 
 instance ToQuery ExportTask
 
@@ -10600,8 +11000,7 @@ instance ToText ResetImageAttributeName where
     toText RIANLaunchPermission = "launchPermission"
 
 instance FromXML ResetImageAttributeName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResetImageAttributeName"
+    parseXML = fromXMLText "ResetImageAttributeName"
 
 instance ToQuery ResetImageAttributeName
 
@@ -10752,8 +11151,23 @@ rslsUserData :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsUserData = lens _rslsUserData (\s a -> s { _rslsUserData = a })
 
 instance FromXML RequestSpotLaunchSpecification where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RequestSpotLaunchSpecification"
+    parseXML c = RequestSpotLaunchSpecification
+        <$> c .: "addressingType"
+        <*> c .: "blockDeviceMapping"
+        <*> c .: "ebsOptimized"
+        <*> c .: "iamInstanceProfile"
+        <*> c .: "imageId"
+        <*> c .: "instanceType"
+        <*> c .: "kernelId"
+        <*> c .: "keyName"
+        <*> c .: "monitoring"
+        <*> c .: "NetworkInterface"
+        <*> c .: "placement"
+        <*> c .: "ramdiskId"
+        <*> c .: "SecurityGroupId"
+        <*> c .: "SecurityGroup"
+        <*> c .: "subnetId"
+        <*> c .: "userData"
 
 instance ToQuery RequestSpotLaunchSpecification
 
@@ -10778,8 +11192,8 @@ vdSize :: Lens' VolumeDetail Integer
 vdSize = lens _vdSize (\s a -> s { _vdSize = a })
 
 instance FromXML VolumeDetail where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeDetail"
+    parseXML c = VolumeDetail
+        <$> c .: "size"
 
 instance ToQuery VolumeDetail
 
@@ -10811,8 +11225,9 @@ pdPrice :: Lens' PricingDetail (Maybe Double)
 pdPrice = lens _pdPrice (\s a -> s { _pdPrice = a })
 
 instance FromXML PricingDetail where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PricingDetail"
+    parseXML c = PricingDetail
+        <$> c .: "count"
+        <*> c .: "price"
 
 instance ToQuery PricingDetail
 
@@ -10864,8 +11279,11 @@ nipiaPrivateIpAddress =
     lens _nipiaPrivateIpAddress (\s a -> s { _nipiaPrivateIpAddress = a })
 
 instance FromXML NetworkInterfacePrivateIpAddress where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NetworkInterfacePrivateIpAddress"
+    parseXML c = NetworkInterfacePrivateIpAddress
+        <$> c .: "association"
+        <*> c .: "primary"
+        <*> c .: "privateDnsName"
+        <*> c .: "privateIpAddress"
 
 instance ToQuery NetworkInterfacePrivateIpAddress
 
@@ -10889,8 +11307,7 @@ instance ToText DiskImageFormat where
         Vmdk -> "VMDK"
 
 instance FromXML DiskImageFormat where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DiskImageFormat"
+    parseXML = fromXMLText "DiskImageFormat"
 
 instance ToQuery DiskImageFormat
 
@@ -10922,8 +11339,9 @@ bteMessage :: Lens' BundleTaskError (Maybe Text)
 bteMessage = lens _bteMessage (\s a -> s { _bteMessage = a })
 
 instance FromXML BundleTaskError where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BundleTaskError"
+    parseXML c = BundleTaskError
+        <$> c .: "code"
+        <*> c .: "message"
 
 instance ToQuery BundleTaskError
 
@@ -10980,7 +11398,11 @@ vsiVolumeStatus :: Lens' VolumeStatusItem (Maybe VolumeStatusInfo)
 vsiVolumeStatus = lens _vsiVolumeStatus (\s a -> s { _vsiVolumeStatus = a })
 
 instance FromXML VolumeStatusItem where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VolumeStatusItem"
+    parseXML c = VolumeStatusItem
+        <$> c .: "actionsSet"
+        <*> c .: "availabilityZone"
+        <*> c .: "eventsSet"
+        <*> c .: "volumeId"
+        <*> c .: "volumeStatus"
 
 instance ToQuery VolumeStatusItem

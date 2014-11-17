@@ -110,5 +110,5 @@ instance AWSRequest DefineSuggester where
     response = xmlResponse
 
 instance FromXML DefineSuggesterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DefineSuggesterResponse"
+    parseXML c = DefineSuggesterResponse
+        <$> c .: "Suggester"

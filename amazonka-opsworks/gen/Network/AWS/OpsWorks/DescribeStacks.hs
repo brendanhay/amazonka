@@ -105,8 +105,11 @@ instance ToQuery DescribeStacks where
     toQuery = const mempty
 
 instance ToHeaders DescribeStacks
+
 instance ToJSON DescribeStacks where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeStacks{..} = object
+        [ "StackIds" .= _dsStackIds
+        ]
 
 instance AWSRequest DescribeStacks where
     type Sv DescribeStacks = OpsWorks
@@ -116,4 +119,5 @@ instance AWSRequest DescribeStacks where
     response = jsonResponse
 
 instance FromJSON DescribeStacksResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeStacksResponse" $ \o -> DescribeStacksResponse
+        <$> o .: "Stacks"

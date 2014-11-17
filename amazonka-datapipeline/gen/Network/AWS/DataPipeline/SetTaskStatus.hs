@@ -128,8 +128,15 @@ instance ToQuery SetTaskStatus where
     toQuery = const mempty
 
 instance ToHeaders SetTaskStatus
+
 instance ToJSON SetTaskStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON SetTaskStatus{..} = object
+        [ "taskId"          .= _stsTaskId
+        , "taskStatus"      .= _stsTaskStatus
+        , "errorId"         .= _stsErrorId
+        , "errorMessage"    .= _stsErrorMessage
+        , "errorStackTrace" .= _stsErrorStackTrace
+        ]
 
 instance AWSRequest SetTaskStatus where
     type Sv SetTaskStatus = DataPipeline

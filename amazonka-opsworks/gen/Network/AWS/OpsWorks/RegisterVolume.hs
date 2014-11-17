@@ -104,8 +104,12 @@ instance ToQuery RegisterVolume where
     toQuery = const mempty
 
 instance ToHeaders RegisterVolume
+
 instance ToJSON RegisterVolume where
-    toJSON = genericToJSON jsonOptions
+    toJSON RegisterVolume{..} = object
+        [ "Ec2VolumeId" .= _rvEc2VolumeId
+        , "StackId"     .= _rvStackId
+        ]
 
 instance AWSRequest RegisterVolume where
     type Sv RegisterVolume = OpsWorks
@@ -115,4 +119,5 @@ instance AWSRequest RegisterVolume where
     response = jsonResponse
 
 instance FromJSON RegisterVolumeResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RegisterVolumeResponse" $ \o -> RegisterVolumeResponse
+        <$> o .: "VolumeId"

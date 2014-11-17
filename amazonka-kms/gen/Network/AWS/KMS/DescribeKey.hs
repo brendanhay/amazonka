@@ -90,8 +90,11 @@ instance ToQuery DescribeKey where
     toQuery = const mempty
 
 instance ToHeaders DescribeKey
+
 instance ToJSON DescribeKey where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeKey{..} = object
+        [ "KeyId" .= _dk1KeyId
+        ]
 
 instance AWSRequest DescribeKey where
     type Sv DescribeKey = KMS
@@ -101,4 +104,5 @@ instance AWSRequest DescribeKey where
     response = jsonResponse
 
 instance FromJSON DescribeKeyResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeKeyResponse" $ \o -> DescribeKeyResponse
+        <$> o .: "KeyMetadata"

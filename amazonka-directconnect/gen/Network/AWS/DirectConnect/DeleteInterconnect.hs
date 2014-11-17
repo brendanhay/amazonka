@@ -89,8 +89,11 @@ instance ToQuery DeleteInterconnect where
     toQuery = const mempty
 
 instance ToHeaders DeleteInterconnect
+
 instance ToJSON DeleteInterconnect where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteInterconnect{..} = object
+        [ "interconnectId" .= _di1InterconnectId
+        ]
 
 instance AWSRequest DeleteInterconnect where
     type Sv DeleteInterconnect = DirectConnect
@@ -100,4 +103,5 @@ instance AWSRequest DeleteInterconnect where
     response = jsonResponse
 
 instance FromJSON DeleteInterconnectResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteInterconnectResponse" $ \o -> DeleteInterconnectResponse
+        <$> o .: "interconnectState"

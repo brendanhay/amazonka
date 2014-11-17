@@ -99,9 +99,11 @@ instance ToHeaders PutBucketLifecycle where
     toHeaders PutBucketLifecycle{..} = mconcat
         [ "Content-MD5" =: _pbl1ContentMD5
         ]
+
 instance ToXML PutBucketLifecycle where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PutBucketLifecycle"
+    toXML PutBucketLifecycle{..} = node "PutBucketLifecycle"
+        [ "LifecycleConfiguration" .= _pbl1LifecycleConfiguration
+        ]
 
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3

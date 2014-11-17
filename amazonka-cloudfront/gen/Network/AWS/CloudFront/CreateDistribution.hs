@@ -110,9 +110,11 @@ instance ToQuery CreateDistribution where
     toQuery = const mempty
 
 instance ToHeaders CreateDistribution
+
 instance ToXML CreateDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateDistribution"
+    toXML CreateDistribution{..} = node "CreateDistribution"
+        [ "DistributionConfig" .= _cdDistributionConfig
+        ]
 
 instance AWSRequest CreateDistribution where
     type Sv CreateDistribution = CloudFront

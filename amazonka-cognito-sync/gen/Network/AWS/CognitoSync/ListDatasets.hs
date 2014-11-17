@@ -152,8 +152,9 @@ instance ToQuery ListDatasets where
         ]
 
 instance ToHeaders ListDatasets
+
 instance ToJSON ListDatasets where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ListDatasets where
     type Sv ListDatasets = CognitoSync
@@ -163,4 +164,7 @@ instance AWSRequest ListDatasets where
     response = jsonResponse
 
 instance FromJSON ListDatasetsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListDatasetsResponse" $ \o -> ListDatasetsResponse
+        <$> o .: "Count"
+        <*> o .: "Datasets"
+        <*> o .: "NextToken"

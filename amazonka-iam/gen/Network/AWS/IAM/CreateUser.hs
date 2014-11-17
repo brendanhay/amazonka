@@ -110,5 +110,5 @@ instance AWSRequest CreateUser where
     response = xmlResponse
 
 instance FromXML CreateUserResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateUserResponse"
+    parseXML c = CreateUserResponse
+        <$> c .: "User"

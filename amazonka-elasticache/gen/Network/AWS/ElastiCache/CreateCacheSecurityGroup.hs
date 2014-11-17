@@ -116,5 +116,5 @@ instance AWSRequest CreateCacheSecurityGroup where
     response = xmlResponse
 
 instance FromXML CreateCacheSecurityGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCacheSecurityGroupResponse"
+    parseXML c = CreateCacheSecurityGroupResponse
+        <$> c .: "CacheSecurityGroup"

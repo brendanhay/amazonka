@@ -79,8 +79,11 @@ instance ToQuery DeleteDeliveryChannel where
     toQuery = const mempty
 
 instance ToHeaders DeleteDeliveryChannel
+
 instance ToJSON DeleteDeliveryChannel where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteDeliveryChannel{..} = object
+        [ "DeliveryChannelName" .= _ddcDeliveryChannelName
+        ]
 
 instance AWSRequest DeleteDeliveryChannel where
     type Sv DeleteDeliveryChannel = Config

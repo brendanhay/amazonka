@@ -165,8 +165,16 @@ instance ToQuery CreatePreset where
     toQuery = const mempty
 
 instance ToHeaders CreatePreset
+
 instance ToJSON CreatePreset where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreatePreset{..} = object
+        [ "Name"        .= _cpName
+        , "Description" .= _cpDescription
+        , "Container"   .= _cpContainer
+        , "Video"       .= _cpVideo
+        , "Audio"       .= _cpAudio
+        , "Thumbnails"  .= _cpThumbnails
+        ]
 
 instance AWSRequest CreatePreset where
     type Sv CreatePreset = ElasticTranscoder
@@ -176,4 +184,6 @@ instance AWSRequest CreatePreset where
     response = jsonResponse
 
 instance FromJSON CreatePresetResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreatePresetResponse" $ \o -> CreatePresetResponse
+        <$> o .: "Preset"
+        <*> o .: "Warning"

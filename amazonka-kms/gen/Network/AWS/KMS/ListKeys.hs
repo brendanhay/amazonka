@@ -124,8 +124,12 @@ instance ToQuery ListKeys where
     toQuery = const mempty
 
 instance ToHeaders ListKeys
+
 instance ToJSON ListKeys where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListKeys{..} = object
+        [ "Limit"  .= _lkLimit
+        , "Marker" .= _lkMarker
+        ]
 
 instance AWSRequest ListKeys where
     type Sv ListKeys = KMS
@@ -135,4 +139,7 @@ instance AWSRequest ListKeys where
     response = jsonResponse
 
 instance FromJSON ListKeysResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListKeysResponse" $ \o -> ListKeysResponse
+        <$> o .: "Keys"
+        <*> o .: "NextMarker"
+        <*> o .: "Truncated"

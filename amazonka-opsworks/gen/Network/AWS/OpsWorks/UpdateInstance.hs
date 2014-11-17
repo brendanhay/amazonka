@@ -193,8 +193,21 @@ instance ToQuery UpdateInstance where
     toQuery = const mempty
 
 instance ToHeaders UpdateInstance
+
 instance ToJSON UpdateInstance where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateInstance{..} = object
+        [ "InstanceId"           .= _uiInstanceId
+        , "LayerIds"             .= _uiLayerIds
+        , "InstanceType"         .= _uiInstanceType
+        , "AutoScalingType"      .= _uiAutoScalingType
+        , "Hostname"             .= _uiHostname
+        , "Os"                   .= _uiOs
+        , "AmiId"                .= _uiAmiId
+        , "SshKeyName"           .= _uiSshKeyName
+        , "Architecture"         .= _uiArchitecture
+        , "InstallUpdatesOnBoot" .= _uiInstallUpdatesOnBoot
+        , "EbsOptimized"         .= _uiEbsOptimized
+        ]
 
 instance AWSRequest UpdateInstance where
     type Sv UpdateInstance = OpsWorks

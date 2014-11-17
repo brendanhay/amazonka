@@ -122,8 +122,13 @@ instance ToQuery DescribeServiceErrors where
     toQuery = const mempty
 
 instance ToHeaders DescribeServiceErrors
+
 instance ToJSON DescribeServiceErrors where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeServiceErrors{..} = object
+        [ "StackId"         .= _dseStackId
+        , "InstanceId"      .= _dseInstanceId
+        , "ServiceErrorIds" .= _dseServiceErrorIds
+        ]
 
 instance AWSRequest DescribeServiceErrors where
     type Sv DescribeServiceErrors = OpsWorks
@@ -133,4 +138,5 @@ instance AWSRequest DescribeServiceErrors where
     response = jsonResponse
 
 instance FromJSON DescribeServiceErrorsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeServiceErrorsResponse" $ \o -> DescribeServiceErrorsResponse
+        <$> o .: "ServiceErrors"

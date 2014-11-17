@@ -191,8 +191,11 @@ instance ToQuery GetTrailStatus where
     toQuery = const mempty
 
 instance ToHeaders GetTrailStatus
+
 instance ToJSON GetTrailStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetTrailStatus{..} = object
+        [ "Name" .= _gtsName
+        ]
 
 instance AWSRequest GetTrailStatus where
     type Sv GetTrailStatus = CloudTrail
@@ -202,4 +205,13 @@ instance AWSRequest GetTrailStatus where
     response = jsonResponse
 
 instance FromJSON GetTrailStatusResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetTrailStatusResponse" $ \o -> GetTrailStatusResponse
+        <$> o .: "IsLogging"
+        <*> o .: "LatestCloudWatchLogsDeliveryError"
+        <*> o .: "LatestCloudWatchLogsDeliveryTime"
+        <*> o .: "LatestDeliveryError"
+        <*> o .: "LatestDeliveryTime"
+        <*> o .: "LatestNotificationError"
+        <*> o .: "LatestNotificationTime"
+        <*> o .: "StartLoggingTime"
+        <*> o .: "StopLoggingTime"

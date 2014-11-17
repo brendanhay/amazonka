@@ -130,8 +130,13 @@ instance ToQuery DescribeTapeArchives where
     toQuery = const mempty
 
 instance ToHeaders DescribeTapeArchives
+
 instance ToJSON DescribeTapeArchives where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeTapeArchives{..} = object
+        [ "TapeARNs" .= _dtaTapeARNs
+        , "Marker"   .= _dtaMarker
+        , "Limit"    .= _dtaLimit
+        ]
 
 instance AWSRequest DescribeTapeArchives where
     type Sv DescribeTapeArchives = StorageGateway
@@ -141,4 +146,6 @@ instance AWSRequest DescribeTapeArchives where
     response = jsonResponse
 
 instance FromJSON DescribeTapeArchivesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeTapeArchivesResponse" $ \o -> DescribeTapeArchivesResponse
+        <$> o .: "Marker"
+        <*> o .: "TapeArchives"

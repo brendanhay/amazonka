@@ -100,8 +100,11 @@ instance ToQuery ListApplications where
     toQuery = const mempty
 
 instance ToHeaders ListApplications
+
 instance ToJSON ListApplications where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListApplications{..} = object
+        [ "nextToken" .= _laNextToken
+        ]
 
 instance AWSRequest ListApplications where
     type Sv ListApplications = CodeDeploy
@@ -111,4 +114,6 @@ instance AWSRequest ListApplications where
     response = jsonResponse
 
 instance FromJSON ListApplicationsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListApplicationsResponse" $ \o -> ListApplicationsResponse
+        <$> o .: "applications"
+        <*> o .: "nextToken"

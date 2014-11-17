@@ -75,8 +75,11 @@ instance ToQuery DisableDomainAutoRenew where
     toQuery = const mempty
 
 instance ToHeaders DisableDomainAutoRenew
+
 instance ToJSON DisableDomainAutoRenew where
-    toJSON = genericToJSON jsonOptions
+    toJSON DisableDomainAutoRenew{..} = object
+        [ "DomainName" .= _ddarDomainName
+        ]
 
 instance AWSRequest DisableDomainAutoRenew where
     type Sv DisableDomainAutoRenew = Route53Domains

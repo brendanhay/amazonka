@@ -137,5 +137,5 @@ instance AWSRequest CreateQueue where
     response = xmlResponse
 
 instance FromXML CreateQueueResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateQueueResponse"
+    parseXML c = CreateQueueResponse
+        <$> c .: "QueueUrl"

@@ -103,5 +103,5 @@ instance AWSRequest CreateTopic where
     response = xmlResponse
 
 instance FromXML CreateTopicResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateTopicResponse"
+    parseXML c = CreateTopicResponse
+        <$> c .: "TopicArn"

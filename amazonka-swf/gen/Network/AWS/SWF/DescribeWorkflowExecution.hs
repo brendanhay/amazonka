@@ -163,8 +163,12 @@ instance ToQuery DescribeWorkflowExecution where
     toQuery = const mempty
 
 instance ToHeaders DescribeWorkflowExecution
+
 instance ToJSON DescribeWorkflowExecution where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeWorkflowExecution{..} = object
+        [ "domain"    .= _dweDomain
+        , "execution" .= _dweExecution
+        ]
 
 instance AWSRequest DescribeWorkflowExecution where
     type Sv DescribeWorkflowExecution = SWF
@@ -174,4 +178,9 @@ instance AWSRequest DescribeWorkflowExecution where
     response = jsonResponse
 
 instance FromJSON DescribeWorkflowExecutionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeWorkflowExecutionResponse" $ \o -> DescribeWorkflowExecutionResponse
+        <$> o .: "executionConfiguration"
+        <*> o .: "executionInfo"
+        <*> o .: "latestActivityTaskTimestamp"
+        <*> o .: "latestExecutionContext"
+        <*> o .: "openCounts"

@@ -89,8 +89,12 @@ instance ToQuery RemoveTags where
     toQuery = const mempty
 
 instance ToHeaders RemoveTags
+
 instance ToJSON RemoveTags where
-    toJSON = genericToJSON jsonOptions
+    toJSON RemoveTags{..} = object
+        [ "ResourceId" .= _rtResourceId
+        , "TagKeys"    .= _rtTagKeys
+        ]
 
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = EMR

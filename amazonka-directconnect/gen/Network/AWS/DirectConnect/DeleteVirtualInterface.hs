@@ -90,8 +90,11 @@ instance ToQuery DeleteVirtualInterface where
     toQuery = const mempty
 
 instance ToHeaders DeleteVirtualInterface
+
 instance ToJSON DeleteVirtualInterface where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteVirtualInterface{..} = object
+        [ "virtualInterfaceId" .= _dvi1VirtualInterfaceId
+        ]
 
 instance AWSRequest DeleteVirtualInterface where
     type Sv DeleteVirtualInterface = DirectConnect
@@ -101,4 +104,5 @@ instance AWSRequest DeleteVirtualInterface where
     response = jsonResponse
 
 instance FromJSON DeleteVirtualInterfaceResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteVirtualInterfaceResponse" $ \o -> DeleteVirtualInterfaceResponse
+        <$> o .: "virtualInterfaceState"

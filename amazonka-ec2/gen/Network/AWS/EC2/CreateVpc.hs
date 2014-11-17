@@ -128,5 +128,5 @@ instance AWSRequest CreateVpc where
     response = xmlResponse
 
 instance FromXML CreateVpcResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVpcResponse"
+    parseXML c = CreateVpcResponse
+        <$> c .: "vpc"

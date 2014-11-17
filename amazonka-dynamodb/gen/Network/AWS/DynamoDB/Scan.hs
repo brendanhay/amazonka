@@ -398,8 +398,24 @@ instance ToQuery Scan where
     toQuery = const mempty
 
 instance ToHeaders Scan
+
 instance ToJSON Scan where
-    toJSON = genericToJSON jsonOptions
+    toJSON Scan{..} = object
+        [ "TableName"                 .= _sTableName
+        , "AttributesToGet"           .= _sAttributesToGet
+        , "Limit"                     .= _sLimit
+        , "Select"                    .= _sSelect
+        , "ScanFilter"                .= _sScanFilter
+        , "ConditionalOperator"       .= _sConditionalOperator
+        , "ExclusiveStartKey"         .= _sExclusiveStartKey
+        , "ReturnConsumedCapacity"    .= _sReturnConsumedCapacity
+        , "TotalSegments"             .= _sTotalSegments
+        , "Segment"                   .= _sSegment
+        , "ProjectionExpression"      .= _sProjectionExpression
+        , "FilterExpression"          .= _sFilterExpression
+        , "ExpressionAttributeNames"  .= _sExpressionAttributeNames
+        , "ExpressionAttributeValues" .= _sExpressionAttributeValues
+        ]
 
 instance AWSRequest Scan where
     type Sv Scan = DynamoDB
@@ -409,4 +425,9 @@ instance AWSRequest Scan where
     response = jsonResponse
 
 instance FromJSON ScanResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ScanResponse" $ \o -> ScanResponse
+        <$> o .: "ConsumedCapacity"
+        <*> o .: "Count"
+        <*> o .: "Items"
+        <*> o .: "LastEvaluatedKey"
+        <*> o .: "ScannedCount"

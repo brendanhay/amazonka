@@ -156,8 +156,16 @@ instance ToQuery CreateCachediSCSIVolume where
     toQuery = const mempty
 
 instance ToHeaders CreateCachediSCSIVolume
+
 instance ToJSON CreateCachediSCSIVolume where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateCachediSCSIVolume{..} = object
+        [ "GatewayARN"         .= _ccscsivGatewayARN
+        , "VolumeSizeInBytes"  .= _ccscsivVolumeSizeInBytes
+        , "SnapshotId"         .= _ccscsivSnapshotId
+        , "TargetName"         .= _ccscsivTargetName
+        , "NetworkInterfaceId" .= _ccscsivNetworkInterfaceId
+        , "ClientToken"        .= _ccscsivClientToken
+        ]
 
 instance AWSRequest CreateCachediSCSIVolume where
     type Sv CreateCachediSCSIVolume = StorageGateway
@@ -167,4 +175,6 @@ instance AWSRequest CreateCachediSCSIVolume where
     response = jsonResponse
 
 instance FromJSON CreateCachediSCSIVolumeResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateCachediSCSIVolumeResponse" $ \o -> CreateCachediSCSIVolumeResponse
+        <$> o .: "TargetARN"
+        <*> o .: "VolumeARN"

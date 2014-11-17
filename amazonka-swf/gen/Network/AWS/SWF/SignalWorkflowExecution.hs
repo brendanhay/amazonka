@@ -127,8 +127,15 @@ instance ToQuery SignalWorkflowExecution where
     toQuery = const mempty
 
 instance ToHeaders SignalWorkflowExecution
+
 instance ToJSON SignalWorkflowExecution where
-    toJSON = genericToJSON jsonOptions
+    toJSON SignalWorkflowExecution{..} = object
+        [ "domain"     .= _sweDomain
+        , "workflowId" .= _sweWorkflowId
+        , "runId"      .= _sweRunId
+        , "signalName" .= _sweSignalName
+        , "input"      .= _sweInput
+        ]
 
 instance AWSRequest SignalWorkflowExecution where
     type Sv SignalWorkflowExecution = SWF

@@ -109,8 +109,12 @@ instance ToQuery RetrieveTapeArchive where
     toQuery = const mempty
 
 instance ToHeaders RetrieveTapeArchive
+
 instance ToJSON RetrieveTapeArchive where
-    toJSON = genericToJSON jsonOptions
+    toJSON RetrieveTapeArchive{..} = object
+        [ "TapeARN"    .= _rtaTapeARN
+        , "GatewayARN" .= _rtaGatewayARN
+        ]
 
 instance AWSRequest RetrieveTapeArchive where
     type Sv RetrieveTapeArchive = StorageGateway
@@ -120,4 +124,5 @@ instance AWSRequest RetrieveTapeArchive where
     response = jsonResponse
 
 instance FromJSON RetrieveTapeArchiveResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RetrieveTapeArchiveResponse" $ \o -> RetrieveTapeArchiveResponse
+        <$> o .: "TapeARN"

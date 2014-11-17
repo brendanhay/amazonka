@@ -130,5 +130,6 @@ instance AWSRequest SendMessageBatch where
     response = xmlResponse
 
 instance FromXML SendMessageBatchResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SendMessageBatchResponse"
+    parseXML c = SendMessageBatchResponse
+        <$> c .: "Failed"
+        <*> c .: "Successful"

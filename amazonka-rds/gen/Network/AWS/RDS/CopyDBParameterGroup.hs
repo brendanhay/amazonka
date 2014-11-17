@@ -140,5 +140,5 @@ instance AWSRequest CopyDBParameterGroup where
     response = xmlResponse
 
 instance FromXML CopyDBParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyDBParameterGroupResponse"
+    parseXML c = CopyDBParameterGroupResponse
+        <$> c .: "DBParameterGroup"

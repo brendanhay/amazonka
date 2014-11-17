@@ -97,8 +97,11 @@ instance ToQuery ShutdownGateway where
     toQuery = const mempty
 
 instance ToHeaders ShutdownGateway
+
 instance ToJSON ShutdownGateway where
-    toJSON = genericToJSON jsonOptions
+    toJSON ShutdownGateway{..} = object
+        [ "GatewayARN" .= _sg1GatewayARN
+        ]
 
 instance AWSRequest ShutdownGateway where
     type Sv ShutdownGateway = StorageGateway
@@ -108,4 +111,5 @@ instance AWSRequest ShutdownGateway where
     response = jsonResponse
 
 instance FromJSON ShutdownGatewayResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ShutdownGatewayResponse" $ \o -> ShutdownGatewayResponse
+        <$> o .: "GatewayARN"

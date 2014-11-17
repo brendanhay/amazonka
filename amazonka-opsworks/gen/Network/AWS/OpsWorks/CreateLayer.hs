@@ -254,8 +254,25 @@ instance ToQuery CreateLayer where
     toQuery = const mempty
 
 instance ToHeaders CreateLayer
+
 instance ToJSON CreateLayer where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateLayer{..} = object
+        [ "StackId"                  .= _clStackId
+        , "Type"                     .= _clType
+        , "Name"                     .= _clName
+        , "Shortname"                .= _clShortname
+        , "Attributes"               .= _clAttributes
+        , "CustomInstanceProfileArn" .= _clCustomInstanceProfileArn
+        , "CustomSecurityGroupIds"   .= _clCustomSecurityGroupIds
+        , "Packages"                 .= _clPackages
+        , "VolumeConfigurations"     .= _clVolumeConfigurations
+        , "EnableAutoHealing"        .= _clEnableAutoHealing
+        , "AutoAssignElasticIps"     .= _clAutoAssignElasticIps
+        , "AutoAssignPublicIps"      .= _clAutoAssignPublicIps
+        , "CustomRecipes"            .= _clCustomRecipes
+        , "InstallUpdatesOnBoot"     .= _clInstallUpdatesOnBoot
+        , "UseEbsOptimizedInstances" .= _clUseEbsOptimizedInstances
+        ]
 
 instance AWSRequest CreateLayer where
     type Sv CreateLayer = OpsWorks
@@ -265,4 +282,5 @@ instance AWSRequest CreateLayer where
     response = jsonResponse
 
 instance FromJSON CreateLayerResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateLayerResponse" $ \o -> CreateLayerResponse
+        <$> o .: "LayerId"

@@ -90,8 +90,11 @@ instance ToQuery DescribeTable where
     toQuery = const mempty
 
 instance ToHeaders DescribeTable
+
 instance ToJSON DescribeTable where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeTable{..} = object
+        [ "TableName" .= _dt1TableName
+        ]
 
 instance AWSRequest DescribeTable where
     type Sv DescribeTable = DynamoDB
@@ -101,4 +104,5 @@ instance AWSRequest DescribeTable where
     response = jsonResponse
 
 instance FromJSON DescribeTableResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeTableResponse" $ \o -> DescribeTableResponse
+        <$> o .: "Table"

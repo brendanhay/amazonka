@@ -131,8 +131,13 @@ instance ToQuery ListDeploymentInstances where
     toQuery = const mempty
 
 instance ToHeaders ListDeploymentInstances
+
 instance ToJSON ListDeploymentInstances where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListDeploymentInstances{..} = object
+        [ "deploymentId"         .= _ldiDeploymentId
+        , "nextToken"            .= _ldiNextToken
+        , "instanceStatusFilter" .= _ldiInstanceStatusFilter
+        ]
 
 instance AWSRequest ListDeploymentInstances where
     type Sv ListDeploymentInstances = CodeDeploy
@@ -142,4 +147,6 @@ instance AWSRequest ListDeploymentInstances where
     response = jsonResponse
 
 instance FromJSON ListDeploymentInstancesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListDeploymentInstancesResponse" $ \o -> ListDeploymentInstancesResponse
+        <$> o .: "instancesList"
+        <*> o .: "nextToken"

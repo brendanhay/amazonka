@@ -118,5 +118,5 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes where
     response = xmlResponse
 
 instance FromXML DescribeLoadBalancerPolicyTypesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLoadBalancerPolicyTypesResponse"
+    parseXML c = DescribeLoadBalancerPolicyTypesResponse
+        <$> c .: "PolicyTypeDescriptions"

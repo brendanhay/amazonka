@@ -80,8 +80,9 @@ instance ToQuery CancelJob where
     toQuery = const mempty
 
 instance ToHeaders CancelJob
+
 instance ToJSON CancelJob where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest CancelJob where
     type Sv CancelJob = ElasticTranscoder

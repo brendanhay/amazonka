@@ -77,9 +77,9 @@ instance ToQuery DeleteBucketLifecycle where
     toQuery = const "lifecycle"
 
 instance ToHeaders DeleteBucketLifecycle
+
 instance ToXML DeleteBucketLifecycle where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteBucketLifecycle"
+    toXML = const (node "DeleteBucketLifecycle" [])
 
 instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3

@@ -116,5 +116,5 @@ instance AWSRequest DescribeStackResource where
     response = xmlResponse
 
 instance FromXML DescribeStackResourceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeStackResourceResponse"
+    parseXML c = DescribeStackResourceResponse
+        <$> c .: "StackResourceDetail"

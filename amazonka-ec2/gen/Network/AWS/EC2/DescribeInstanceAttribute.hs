@@ -252,5 +252,18 @@ instance AWSRequest DescribeInstanceAttribute where
     response = xmlResponse
 
 instance FromXML DescribeInstanceAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeInstanceAttributeResponse"
+    parseXML c = DescribeInstanceAttributeResponse
+        <$> c .: "blockDeviceMapping"
+        <*> c .: "disableApiTermination"
+        <*> c .: "ebsOptimized"
+        <*> c .: "groupSet"
+        <*> c .: "instanceId"
+        <*> c .: "instanceInitiatedShutdownBehavior"
+        <*> c .: "instanceType"
+        <*> c .: "kernel"
+        <*> c .: "productCodes"
+        <*> c .: "ramdisk"
+        <*> c .: "rootDeviceName"
+        <*> c .: "sourceDestCheck"
+        <*> c .: "sriovNetSupport"
+        <*> c .: "userData"

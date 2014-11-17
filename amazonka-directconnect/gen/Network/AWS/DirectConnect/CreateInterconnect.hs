@@ -166,8 +166,13 @@ instance ToQuery CreateInterconnect where
     toQuery = const mempty
 
 instance ToHeaders CreateInterconnect
+
 instance ToJSON CreateInterconnect where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateInterconnect{..} = object
+        [ "interconnectName" .= _ciInterconnectName
+        , "bandwidth"        .= _ciBandwidth
+        , "location"         .= _ciLocation
+        ]
 
 instance AWSRequest CreateInterconnect where
     type Sv CreateInterconnect = DirectConnect
@@ -177,4 +182,10 @@ instance AWSRequest CreateInterconnect where
     response = jsonResponse
 
 instance FromJSON CreateInterconnectResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateInterconnectResponse" $ \o -> CreateInterconnectResponse
+        <$> o .: "bandwidth"
+        <*> o .: "interconnectId"
+        <*> o .: "interconnectName"
+        <*> o .: "interconnectState"
+        <*> o .: "location"
+        <*> o .: "region"

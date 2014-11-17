@@ -25,8 +25,6 @@ module Network.AWS.CloudWatch.Types
       CloudWatch
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * StatisticSet
     , StatisticSet
@@ -149,11 +147,6 @@ instance AWSService CloudWatch where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "http://monitoring.amazonaws.com/doc/2010-08-01/"
-    }
-
 data StatisticSet = StatisticSet
     { _ssMaximum     :: Double
     , _ssMinimum     :: Double
@@ -202,8 +195,11 @@ ssSum :: Lens' StatisticSet Double
 ssSum = lens _ssSum (\s a -> s { _ssSum = a })
 
 instance FromXML StatisticSet where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StatisticSet"
+    parseXML c = StatisticSet
+        <$> c .: "Maximum"
+        <*> c .: "Minimum"
+        <*> c .: "SampleCount"
+        <*> c .: "Sum"
 
 instance ToQuery StatisticSet
 
@@ -422,8 +418,28 @@ maUnit :: Lens' MetricAlarm (Maybe Text)
 maUnit = lens _maUnit (\s a -> s { _maUnit = a })
 
 instance FromXML MetricAlarm where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MetricAlarm"
+    parseXML c = MetricAlarm
+        <$> c .: "ActionsEnabled"
+        <*> c .: "AlarmActions"
+        <*> c .: "AlarmArn"
+        <*> c .: "AlarmConfigurationUpdatedTimestamp"
+        <*> c .: "AlarmDescription"
+        <*> c .: "AlarmName"
+        <*> c .: "ComparisonOperator"
+        <*> c .: "Dimensions"
+        <*> c .: "EvaluationPeriods"
+        <*> c .: "InsufficientDataActions"
+        <*> c .: "MetricName"
+        <*> c .: "Namespace"
+        <*> c .: "OKActions"
+        <*> c .: "Period"
+        <*> c .: "StateReason"
+        <*> c .: "StateReasonData"
+        <*> c .: "StateUpdatedTimestamp"
+        <*> c .: "StateValue"
+        <*> c .: "Statistic"
+        <*> c .: "Threshold"
+        <*> c .: "Unit"
 
 instance ToQuery MetricAlarm
 
@@ -447,8 +463,7 @@ instance ToText HistoryItemType where
         StateUpdate         -> "StateUpdate"
 
 instance FromXML HistoryItemType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HistoryItemType"
+    parseXML = fromXMLText "HistoryItemType"
 
 instance ToQuery HistoryItemType
 
@@ -525,8 +540,13 @@ mdValue :: Lens' MetricDatum (Maybe Double)
 mdValue = lens _mdValue (\s a -> s { _mdValue = a })
 
 instance FromXML MetricDatum where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MetricDatum"
+    parseXML c = MetricDatum
+        <$> c .: "Dimensions"
+        <*> c .: "MetricName"
+        <*> c .: "StatisticValues"
+        <*> c .: "Timestamp"
+        <*> c .: "Unit"
+        <*> c .: "Value"
 
 instance ToQuery MetricDatum
 
@@ -622,8 +642,7 @@ instance ToText StandardUnit where
         TerabytesSecond -> "Terabytes/Second"
 
 instance FromXML StandardUnit where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StandardUnit"
+    parseXML = fromXMLText "StandardUnit"
 
 instance ToQuery StandardUnit
 
@@ -657,8 +676,9 @@ dValue :: Lens' Dimension Text
 dValue = lens _dValue (\s a -> s { _dValue = a })
 
 instance FromXML Dimension where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Dimension"
+    parseXML c = Dimension
+        <$> c .: "Name"
+        <*> c .: "Value"
 
 instance ToQuery Dimension
 
@@ -685,8 +705,7 @@ instance ToText ComparisonOperator where
         LessThanThreshold             -> "LessThanThreshold"
 
 instance FromXML ComparisonOperator where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ComparisonOperator"
+    parseXML = fromXMLText "ComparisonOperator"
 
 instance ToQuery ComparisonOperator
 
@@ -748,8 +767,12 @@ ahiTimestamp = lens _ahiTimestamp (\s a -> s { _ahiTimestamp = a })
     . mapping _Time
 
 instance FromXML AlarmHistoryItem where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AlarmHistoryItem"
+    parseXML c = AlarmHistoryItem
+        <$> c .: "AlarmName"
+        <*> c .: "HistoryData"
+        <*> c .: "HistoryItemType"
+        <*> c .: "HistorySummary"
+        <*> c .: "Timestamp"
 
 instance ToQuery AlarmHistoryItem
 
@@ -789,8 +812,10 @@ mNamespace :: Lens' Metric (Maybe Text)
 mNamespace = lens _mNamespace (\s a -> s { _mNamespace = a })
 
 instance FromXML Metric where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Metric"
+    parseXML c = Metric
+        <$> c .: "Dimensions"
+        <*> c .: "MetricName"
+        <*> c .: "Namespace"
 
 instance ToQuery Metric
 
@@ -814,8 +839,7 @@ instance ToText StateValue where
         Ok               -> "OK"
 
 instance FromXML StateValue where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StateValue"
+    parseXML = fromXMLText "StateValue"
 
 instance ToQuery StateValue
 
@@ -892,8 +916,14 @@ dUnit :: Lens' Datapoint (Maybe Text)
 dUnit = lens _dUnit (\s a -> s { _dUnit = a })
 
 instance FromXML Datapoint where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Datapoint"
+    parseXML c = Datapoint
+        <$> c .: "Average"
+        <*> c .: "Maximum"
+        <*> c .: "Minimum"
+        <*> c .: "SampleCount"
+        <*> c .: "Sum"
+        <*> c .: "Timestamp"
+        <*> c .: "Unit"
 
 instance ToQuery Datapoint
 
@@ -926,8 +956,9 @@ dfValue :: Lens' DimensionFilter (Maybe Text)
 dfValue = lens _dfValue (\s a -> s { _dfValue = a })
 
 instance FromXML DimensionFilter where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DimensionFilter"
+    parseXML c = DimensionFilter
+        <$> c .: "Name"
+        <*> c .: "Value"
 
 instance ToQuery DimensionFilter
 
@@ -957,7 +988,6 @@ instance ToText Statistic where
         Sum         -> "Sum"
 
 instance FromXML Statistic where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Statistic"
+    parseXML = fromXMLText "Statistic"
 
 instance ToQuery Statistic

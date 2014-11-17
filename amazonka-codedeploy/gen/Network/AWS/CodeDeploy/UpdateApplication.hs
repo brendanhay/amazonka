@@ -85,8 +85,12 @@ instance ToQuery UpdateApplication where
     toQuery = const mempty
 
 instance ToHeaders UpdateApplication
+
 instance ToJSON UpdateApplication where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateApplication{..} = object
+        [ "applicationName"    .= _uaApplicationName
+        , "newApplicationName" .= _uaNewApplicationName
+        ]
 
 instance AWSRequest UpdateApplication where
     type Sv UpdateApplication = CodeDeploy

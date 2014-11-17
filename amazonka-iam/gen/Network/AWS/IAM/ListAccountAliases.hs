@@ -139,5 +139,7 @@ instance AWSRequest ListAccountAliases where
     response = xmlResponse
 
 instance FromXML ListAccountAliasesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListAccountAliasesResponse"
+    parseXML c = ListAccountAliasesResponse
+        <$> c .: "AccountAliases"
+        <*> c .: "IsTruncated"
+        <*> c .: "Marker"

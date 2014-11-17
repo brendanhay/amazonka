@@ -104,9 +104,9 @@ instance ToQuery GetCloudFrontOriginAccessIdentityConfig where
     toQuery = const mempty
 
 instance ToHeaders GetCloudFrontOriginAccessIdentityConfig
+
 instance ToXML GetCloudFrontOriginAccessIdentityConfig where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetCloudFrontOriginAccessIdentityConfig"
+    toXML = const (node "GetCloudFrontOriginAccessIdentityConfig" [])
 
 instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where
     type Sv GetCloudFrontOriginAccessIdentityConfig = CloudFront

@@ -85,9 +85,9 @@ instance ToQuery DeleteReusableDelegationSet where
     toQuery = const mempty
 
 instance ToHeaders DeleteReusableDelegationSet
+
 instance ToXML DeleteReusableDelegationSet where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteReusableDelegationSet"
+    toXML = const (node "DeleteReusableDelegationSet" [])
 
 instance AWSRequest DeleteReusableDelegationSet where
     type Sv DeleteReusableDelegationSet = Route53

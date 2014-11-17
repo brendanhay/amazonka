@@ -112,5 +112,5 @@ instance AWSRequest ConfigureHealthCheck where
     response = xmlResponse
 
 instance FromXML ConfigureHealthCheckResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfigureHealthCheckResponse"
+    parseXML c = ConfigureHealthCheckResponse
+        <$> c .: "HealthCheck"

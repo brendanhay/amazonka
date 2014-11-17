@@ -123,8 +123,12 @@ instance ToQuery AddAttachmentsToSet where
     toQuery = const mempty
 
 instance ToHeaders AddAttachmentsToSet
+
 instance ToJSON AddAttachmentsToSet where
-    toJSON = genericToJSON jsonOptions
+    toJSON AddAttachmentsToSet{..} = object
+        [ "attachmentSetId" .= _aatsAttachmentSetId
+        , "attachments"     .= _aatsAttachments
+        ]
 
 instance AWSRequest AddAttachmentsToSet where
     type Sv AddAttachmentsToSet = Support
@@ -134,4 +138,6 @@ instance AWSRequest AddAttachmentsToSet where
     response = jsonResponse
 
 instance FromJSON AddAttachmentsToSetResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AddAttachmentsToSetResponse" $ \o -> AddAttachmentsToSetResponse
+        <$> o .: "attachmentSetId"
+        <*> o .: "expiryTime"

@@ -85,5 +85,5 @@ instance AWSRequest GetAccountPasswordPolicy where
     response = xmlResponse
 
 instance FromXML GetAccountPasswordPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetAccountPasswordPolicyResponse"
+    parseXML c = GetAccountPasswordPolicyResponse
+        <$> c .: "PasswordPolicy"

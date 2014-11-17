@@ -25,8 +25,6 @@ module Network.AWS.DataPipeline.Types
       DataPipeline
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * PipelineObject
     , PipelineObject
@@ -130,11 +128,6 @@ instance AWSService DataPipeline where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data PipelineObject = PipelineObject
     { _poFields :: [Field]
     , _poId     :: Text
@@ -173,10 +166,17 @@ poName :: Lens' PipelineObject Text
 poName = lens _poName (\s a -> s { _poName = a })
 
 instance FromJSON PipelineObject where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PipelineObject" $ \o -> PipelineObject
+        <$> o .: "fields"
+        <*> o .: "id"
+        <*> o .: "name"
 
 instance ToJSON PipelineObject where
-    toJSON = genericToJSON jsonOptions
+    toJSON PipelineObject{..} = object
+        [ "id"     .= _poId
+        , "name"   .= _poName
+        , "fields" .= _poFields
+        ]
 
 data Field = Field
     { _fKey         :: Text
@@ -215,10 +215,17 @@ fStringValue :: Lens' Field (Maybe Text)
 fStringValue = lens _fStringValue (\s a -> s { _fStringValue = a })
 
 instance FromJSON Field where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Field" $ \o -> Field
+        <$> o .: "key"
+        <*> o .: "refValue"
+        <*> o .: "stringValue"
 
 instance ToJSON Field where
-    toJSON = genericToJSON jsonOptions
+    toJSON Field{..} = object
+        [ "key"         .= _fKey
+        , "stringValue" .= _fStringValue
+        , "refValue"    .= _fRefValue
+        ]
 
 data Selector = Selector
     { _sFieldName :: Maybe Text
@@ -250,10 +257,15 @@ sOperator :: Lens' Selector (Maybe Operator)
 sOperator = lens _sOperator (\s a -> s { _sOperator = a })
 
 instance FromJSON Selector where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Selector" $ \o -> Selector
+        <$> o .: "fieldName"
+        <*> o .: "operator"
 
 instance ToJSON Selector where
-    toJSON = genericToJSON jsonOptions
+    toJSON Selector{..} = object
+        [ "fieldName" .= _sFieldName
+        , "operator"  .= _sOperator
+        ]
 
 data Operator = Operator
     { _oType   :: Maybe Text
@@ -297,10 +309,15 @@ oValues :: Lens' Operator [Text]
 oValues = lens _oValues (\s a -> s { _oValues = a })
 
 instance FromJSON Operator where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Operator" $ \o -> Operator
+        <$> o .: "type"
+        <*> o .: "values"
 
 instance ToJSON Operator where
-    toJSON = genericToJSON jsonOptions
+    toJSON Operator{..} = object
+        [ "type"   .= _oType
+        , "values" .= _oValues
+        ]
 
 data TaskObject = TaskObject
     { _toAttemptId  :: Maybe Text
@@ -350,10 +367,19 @@ toTaskId :: Lens' TaskObject (Maybe Text)
 toTaskId = lens _toTaskId (\s a -> s { _toTaskId = a })
 
 instance FromJSON TaskObject where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TaskObject" $ \o -> TaskObject
+        <$> o .: "attemptId"
+        <*> o .: "objects"
+        <*> o .: "pipelineId"
+        <*> o .: "taskId"
 
 instance ToJSON TaskObject where
-    toJSON = genericToJSON jsonOptions
+    toJSON TaskObject{..} = object
+        [ "taskId"     .= _toTaskId
+        , "pipelineId" .= _toPipelineId
+        , "attemptId"  .= _toAttemptId
+        , "objects"    .= _toObjects
+        ]
 
 data ValidationError = ValidationError
     { _veErrors :: [Text]
@@ -383,10 +409,15 @@ veId :: Lens' ValidationError (Maybe Text)
 veId = lens _veId (\s a -> s { _veId = a })
 
 instance FromJSON ValidationError where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ValidationError" $ \o -> ValidationError
+        <$> o .: "errors"
+        <*> o .: "id"
 
 instance ToJSON ValidationError where
-    toJSON = genericToJSON jsonOptions
+    toJSON ValidationError{..} = object
+        [ "id"     .= _veId
+        , "errors" .= _veErrors
+        ]
 
 data PipelineDescription = PipelineDescription
     { _pdDescription :: Maybe Text
@@ -436,10 +467,19 @@ pdPipelineId :: Lens' PipelineDescription Text
 pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
 
 instance FromJSON PipelineDescription where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PipelineDescription" $ \o -> PipelineDescription
+        <$> o .: "description"
+        <*> o .: "fields"
+        <*> o .: "name"
+        <*> o .: "pipelineId"
 
 instance ToJSON PipelineDescription where
-    toJSON = genericToJSON jsonOptions
+    toJSON PipelineDescription{..} = object
+        [ "pipelineId"  .= _pdPipelineId
+        , "name"        .= _pdName
+        , "fields"      .= _pdFields
+        , "description" .= _pdDescription
+        ]
 
 data InstanceIdentity = InstanceIdentity
     { _iiDocument  :: Maybe Text
@@ -472,10 +512,15 @@ iiSignature :: Lens' InstanceIdentity (Maybe Text)
 iiSignature = lens _iiSignature (\s a -> s { _iiSignature = a })
 
 instance FromJSON InstanceIdentity where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceIdentity" $ \o -> InstanceIdentity
+        <$> o .: "document"
+        <*> o .: "signature"
 
 instance ToJSON InstanceIdentity where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceIdentity{..} = object
+        [ "document"  .= _iiDocument
+        , "signature" .= _iiSignature
+        ]
 
 newtype Query = Query
     { _qSelectors :: [Selector]
@@ -504,10 +549,13 @@ qSelectors :: Lens' Query [Selector]
 qSelectors = lens _qSelectors (\s a -> s { _qSelectors = a })
 
 instance FromJSON Query where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Query" $ \o -> Query
+        <$> o .: "selectors"
 
 instance ToJSON Query where
-    toJSON = genericToJSON jsonOptions
+    toJSON Query{..} = object
+        [ "selectors" .= _qSelectors
+        ]
 
 data OperatorType
     = OperatorBetween -- ^ BETWEEN
@@ -535,10 +583,10 @@ instance ToText OperatorType where
         OperatorRefEq   -> "REF_EQ"
 
 instance FromJSON OperatorType where
-    parseJSON = withFromText "OperatorType"
+    parseJSON = fromJSONText "OperatorType"
 
 instance ToJSON OperatorType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data PipelineIdName = PipelineIdName
     { _pinId   :: Maybe Text
@@ -569,10 +617,15 @@ pinName :: Lens' PipelineIdName (Maybe Text)
 pinName = lens _pinName (\s a -> s { _pinName = a })
 
 instance FromJSON PipelineIdName where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PipelineIdName" $ \o -> PipelineIdName
+        <$> o .: "id"
+        <*> o .: "name"
 
 instance ToJSON PipelineIdName where
-    toJSON = genericToJSON jsonOptions
+    toJSON PipelineIdName{..} = object
+        [ "id"   .= _pinId
+        , "name" .= _pinName
+        ]
 
 data TaskStatus
     = Failed   -- ^ FAILED
@@ -594,10 +647,10 @@ instance ToText TaskStatus where
         Finished -> "FINISHED"
 
 instance FromJSON TaskStatus where
-    parseJSON = withFromText "TaskStatus"
+    parseJSON = fromJSONText "TaskStatus"
 
 instance ToJSON TaskStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ValidationWarning = ValidationWarning
     { _vwId       :: Maybe Text
@@ -627,7 +680,12 @@ vwWarnings :: Lens' ValidationWarning [Text]
 vwWarnings = lens _vwWarnings (\s a -> s { _vwWarnings = a })
 
 instance FromJSON ValidationWarning where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ValidationWarning" $ \o -> ValidationWarning
+        <$> o .: "id"
+        <*> o .: "warnings"
 
 instance ToJSON ValidationWarning where
-    toJSON = genericToJSON jsonOptions
+    toJSON ValidationWarning{..} = object
+        [ "id"       .= _vwId
+        , "warnings" .= _vwWarnings
+        ]

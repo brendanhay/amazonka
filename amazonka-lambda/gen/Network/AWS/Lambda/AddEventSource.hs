@@ -232,8 +232,15 @@ instance ToQuery AddEventSource where
     toQuery = const mempty
 
 instance ToHeaders AddEventSource
+
 instance ToJSON AddEventSource where
-    toJSON = genericToJSON jsonOptions
+    toJSON AddEventSource{..} = object
+        [ "EventSource"  .= _aesEventSource
+        , "FunctionName" .= _aesFunctionName
+        , "Role"         .= _aesRole
+        , "BatchSize"    .= _aesBatchSize
+        , "Parameters"   .= _aesParameters
+        ]
 
 instance AWSRequest AddEventSource where
     type Sv AddEventSource = Lambda
@@ -243,4 +250,13 @@ instance AWSRequest AddEventSource where
     response = jsonResponse
 
 instance FromJSON AddEventSourceResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AddEventSourceResponse" $ \o -> AddEventSourceResponse
+        <$> o .: "BatchSize"
+        <*> o .: "EventSource"
+        <*> o .: "FunctionName"
+        <*> o .: "IsActive"
+        <*> o .: "LastModified"
+        <*> o .: "Parameters"
+        <*> o .: "Role"
+        <*> o .: "Status"
+        <*> o .: "UUID"

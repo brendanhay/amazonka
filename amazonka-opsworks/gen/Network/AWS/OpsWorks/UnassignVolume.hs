@@ -80,8 +80,11 @@ instance ToQuery UnassignVolume where
     toQuery = const mempty
 
 instance ToHeaders UnassignVolume
+
 instance ToJSON UnassignVolume where
-    toJSON = genericToJSON jsonOptions
+    toJSON UnassignVolume{..} = object
+        [ "VolumeId" .= _uvVolumeId
+        ]
 
 instance AWSRequest UnassignVolume where
     type Sv UnassignVolume = OpsWorks

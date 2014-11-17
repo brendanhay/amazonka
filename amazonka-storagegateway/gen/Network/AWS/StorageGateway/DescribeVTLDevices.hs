@@ -143,8 +143,14 @@ instance ToQuery DescribeVTLDevices where
     toQuery = const mempty
 
 instance ToHeaders DescribeVTLDevices
+
 instance ToJSON DescribeVTLDevices where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeVTLDevices{..} = object
+        [ "GatewayARN"    .= _dvtldGatewayARN
+        , "VTLDeviceARNs" .= _dvtldVTLDeviceARNs
+        , "Marker"        .= _dvtldMarker
+        , "Limit"         .= _dvtldLimit
+        ]
 
 instance AWSRequest DescribeVTLDevices where
     type Sv DescribeVTLDevices = StorageGateway
@@ -154,4 +160,7 @@ instance AWSRequest DescribeVTLDevices where
     response = jsonResponse
 
 instance FromJSON DescribeVTLDevicesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeVTLDevicesResponse" $ \o -> DescribeVTLDevicesResponse
+        <$> o .: "GatewayARN"
+        <*> o .: "Marker"
+        <*> o .: "VTLDevices"

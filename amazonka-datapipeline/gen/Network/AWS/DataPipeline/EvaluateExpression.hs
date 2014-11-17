@@ -112,8 +112,13 @@ instance ToQuery EvaluateExpression where
     toQuery = const mempty
 
 instance ToHeaders EvaluateExpression
+
 instance ToJSON EvaluateExpression where
-    toJSON = genericToJSON jsonOptions
+    toJSON EvaluateExpression{..} = object
+        [ "pipelineId" .= _eePipelineId
+        , "objectId"   .= _eeObjectId
+        , "expression" .= _eeExpression
+        ]
 
 instance AWSRequest EvaluateExpression where
     type Sv EvaluateExpression = DataPipeline
@@ -123,4 +128,5 @@ instance AWSRequest EvaluateExpression where
     response = jsonResponse
 
 instance FromJSON EvaluateExpressionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "EvaluateExpressionResponse" $ \o -> EvaluateExpressionResponse
+        <$> o .: "evaluatedExpression"

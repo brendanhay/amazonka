@@ -261,8 +261,17 @@ instance ToQuery CreatePipeline where
     toQuery = const mempty
 
 instance ToHeaders CreatePipeline
+
 instance ToJSON CreatePipeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreatePipeline{..} = object
+        [ "Name"            .= _cp1Name
+        , "InputBucket"     .= _cp1InputBucket
+        , "OutputBucket"    .= _cp1OutputBucket
+        , "Role"            .= _cp1Role
+        , "Notifications"   .= _cp1Notifications
+        , "ContentConfig"   .= _cp1ContentConfig
+        , "ThumbnailConfig" .= _cp1ThumbnailConfig
+        ]
 
 instance AWSRequest CreatePipeline where
     type Sv CreatePipeline = ElasticTranscoder
@@ -272,4 +281,5 @@ instance AWSRequest CreatePipeline where
     response = jsonResponse
 
 instance FromJSON CreatePipelineResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreatePipelineResponse" $ \o -> CreatePipelineResponse
+        <$> o .: "Pipeline"

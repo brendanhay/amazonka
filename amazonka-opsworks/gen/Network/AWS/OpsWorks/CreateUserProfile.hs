@@ -125,8 +125,14 @@ instance ToQuery CreateUserProfile where
     toQuery = const mempty
 
 instance ToHeaders CreateUserProfile
+
 instance ToJSON CreateUserProfile where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateUserProfile{..} = object
+        [ "IamUserArn"          .= _cupIamUserArn
+        , "SshUsername"         .= _cupSshUsername
+        , "SshPublicKey"        .= _cupSshPublicKey
+        , "AllowSelfManagement" .= _cupAllowSelfManagement
+        ]
 
 instance AWSRequest CreateUserProfile where
     type Sv CreateUserProfile = OpsWorks
@@ -136,4 +142,5 @@ instance AWSRequest CreateUserProfile where
     response = jsonResponse
 
 instance FromJSON CreateUserProfileResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateUserProfileResponse" $ \o -> CreateUserProfileResponse
+        <$> o .: "IamUserArn"

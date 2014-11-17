@@ -123,5 +123,5 @@ instance AWSRequest PurchaseReservedCacheNodesOffering where
     response = xmlResponse
 
 instance FromXML PurchaseReservedCacheNodesOfferingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PurchaseReservedCacheNodesOfferingResponse"
+    parseXML c = PurchaseReservedCacheNodesOfferingResponse
+        <$> c .: "ReservedCacheNode"

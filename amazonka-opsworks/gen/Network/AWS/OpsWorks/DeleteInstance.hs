@@ -99,8 +99,13 @@ instance ToQuery DeleteInstance where
     toQuery = const mempty
 
 instance ToHeaders DeleteInstance
+
 instance ToJSON DeleteInstance where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteInstance{..} = object
+        [ "InstanceId"      .= _diInstanceId
+        , "DeleteElasticIp" .= _diDeleteElasticIp
+        , "DeleteVolumes"   .= _diDeleteVolumes
+        ]
 
 instance AWSRequest DeleteInstance where
     type Sv DeleteInstance = OpsWorks

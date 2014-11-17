@@ -135,8 +135,13 @@ instance ToQuery ListGrants where
     toQuery = const mempty
 
 instance ToHeaders ListGrants
+
 instance ToJSON ListGrants where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListGrants{..} = object
+        [ "KeyId"  .= _lgKeyId
+        , "Limit"  .= _lgLimit
+        , "Marker" .= _lgMarker
+        ]
 
 instance AWSRequest ListGrants where
     type Sv ListGrants = KMS
@@ -146,4 +151,7 @@ instance AWSRequest ListGrants where
     response = jsonResponse
 
 instance FromJSON ListGrantsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListGrantsResponse" $ \o -> ListGrantsResponse
+        <$> o .: "Grants"
+        <*> o .: "NextMarker"
+        <*> o .: "Truncated"

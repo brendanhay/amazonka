@@ -138,5 +138,5 @@ instance AWSRequest CopyOptionGroup where
     response = xmlResponse
 
 instance FromXML CopyOptionGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyOptionGroupResponse"
+    parseXML c = CopyOptionGroupResponse
+        <$> c .: "OptionGroup"

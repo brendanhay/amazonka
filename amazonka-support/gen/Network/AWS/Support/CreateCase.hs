@@ -198,8 +198,19 @@ instance ToQuery CreateCase where
     toQuery = const mempty
 
 instance ToHeaders CreateCase
+
 instance ToJSON CreateCase where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateCase{..} = object
+        [ "subject"           .= _ccSubject
+        , "serviceCode"       .= _ccServiceCode
+        , "severityCode"      .= _ccSeverityCode
+        , "categoryCode"      .= _ccCategoryCode
+        , "communicationBody" .= _ccCommunicationBody
+        , "ccEmailAddresses"  .= _ccCcEmailAddresses
+        , "language"          .= _ccLanguage
+        , "issueType"         .= _ccIssueType
+        , "attachmentSetId"   .= _ccAttachmentSetId
+        ]
 
 instance AWSRequest CreateCase where
     type Sv CreateCase = Support
@@ -209,4 +220,5 @@ instance AWSRequest CreateCase where
     response = jsonResponse
 
 instance FromJSON CreateCaseResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateCaseResponse" $ \o -> CreateCaseResponse
+        <$> o .: "caseId"

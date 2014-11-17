@@ -191,8 +191,16 @@ instance ToQuery CreateStorediSCSIVolume where
     toQuery = const mempty
 
 instance ToHeaders CreateStorediSCSIVolume
+
 instance ToJSON CreateStorediSCSIVolume where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateStorediSCSIVolume{..} = object
+        [ "GatewayARN"           .= _csscsivGatewayARN
+        , "DiskId"               .= _csscsivDiskId
+        , "SnapshotId"           .= _csscsivSnapshotId
+        , "PreserveExistingData" .= _csscsivPreserveExistingData
+        , "TargetName"           .= _csscsivTargetName
+        , "NetworkInterfaceId"   .= _csscsivNetworkInterfaceId
+        ]
 
 instance AWSRequest CreateStorediSCSIVolume where
     type Sv CreateStorediSCSIVolume = StorageGateway
@@ -202,4 +210,7 @@ instance AWSRequest CreateStorediSCSIVolume where
     response = jsonResponse
 
 instance FromJSON CreateStorediSCSIVolumeResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateStorediSCSIVolumeResponse" $ \o -> CreateStorediSCSIVolumeResponse
+        <$> o .: "TargetARN"
+        <*> o .: "VolumeARN"
+        <*> o .: "VolumeSizeInBytes"

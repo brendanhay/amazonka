@@ -75,8 +75,11 @@ instance ToQuery DeleteRetentionPolicy where
     toQuery = const mempty
 
 instance ToHeaders DeleteRetentionPolicy
+
 instance ToJSON DeleteRetentionPolicy where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteRetentionPolicy{..} = object
+        [ "logGroupName" .= _drpLogGroupName
+        ]
 
 instance AWSRequest DeleteRetentionPolicy where
     type Sv DeleteRetentionPolicy = CloudWatchLogs

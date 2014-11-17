@@ -167,8 +167,17 @@ instance ToQuery GetResourceConfigHistory where
     toQuery = const mempty
 
 instance ToHeaders GetResourceConfigHistory
+
 instance ToJSON GetResourceConfigHistory where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetResourceConfigHistory{..} = object
+        [ "resourceType"       .= _grchResourceType
+        , "resourceId"         .= _grchResourceId
+        , "laterTime"          .= _grchLaterTime
+        , "earlierTime"        .= _grchEarlierTime
+        , "chronologicalOrder" .= _grchChronologicalOrder
+        , "limit"              .= _grchLimit
+        , "nextToken"          .= _grchNextToken
+        ]
 
 instance AWSRequest GetResourceConfigHistory where
     type Sv GetResourceConfigHistory = Config
@@ -178,4 +187,6 @@ instance AWSRequest GetResourceConfigHistory where
     response = jsonResponse
 
 instance FromJSON GetResourceConfigHistoryResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetResourceConfigHistoryResponse" $ \o -> GetResourceConfigHistoryResponse
+        <$> o .: "configurationItems"
+        <*> o .: "nextToken"

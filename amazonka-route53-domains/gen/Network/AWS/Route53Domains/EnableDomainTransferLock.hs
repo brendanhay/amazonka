@@ -99,8 +99,11 @@ instance ToQuery EnableDomainTransferLock where
     toQuery = const mempty
 
 instance ToHeaders EnableDomainTransferLock
+
 instance ToJSON EnableDomainTransferLock where
-    toJSON = genericToJSON jsonOptions
+    toJSON EnableDomainTransferLock{..} = object
+        [ "DomainName" .= _edtlDomainName
+        ]
 
 instance AWSRequest EnableDomainTransferLock where
     type Sv EnableDomainTransferLock = Route53Domains
@@ -110,4 +113,5 @@ instance AWSRequest EnableDomainTransferLock where
     response = jsonResponse
 
 instance FromJSON EnableDomainTransferLockResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "EnableDomainTransferLockResponse" $ \o -> EnableDomainTransferLockResponse
+        <$> o .: "OperationId"

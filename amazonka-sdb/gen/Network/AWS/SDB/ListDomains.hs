@@ -123,5 +123,6 @@ instance AWSRequest ListDomains where
     response = xmlResponse
 
 instance FromXML ListDomainsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListDomainsResponse"
+    parseXML c = ListDomainsResponse
+        <$> c .: "DomainNames"
+        <*> c .: "NextToken"

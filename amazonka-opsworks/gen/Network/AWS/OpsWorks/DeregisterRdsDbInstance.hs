@@ -76,8 +76,11 @@ instance ToQuery DeregisterRdsDbInstance where
     toQuery = const mempty
 
 instance ToHeaders DeregisterRdsDbInstance
+
 instance ToJSON DeregisterRdsDbInstance where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeregisterRdsDbInstance{..} = object
+        [ "RdsDbInstanceArn" .= _drdiRdsDbInstanceArn
+        ]
 
 instance AWSRequest DeregisterRdsDbInstance where
     type Sv DeregisterRdsDbInstance = OpsWorks

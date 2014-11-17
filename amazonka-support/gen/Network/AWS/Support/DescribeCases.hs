@@ -186,8 +186,19 @@ instance ToQuery DescribeCases where
     toQuery = const mempty
 
 instance ToHeaders DescribeCases
+
 instance ToJSON DescribeCases where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeCases{..} = object
+        [ "caseIdList"            .= _dcCaseIdList
+        , "displayId"             .= _dcDisplayId
+        , "afterTime"             .= _dcAfterTime
+        , "beforeTime"            .= _dcBeforeTime
+        , "includeResolvedCases"  .= _dcIncludeResolvedCases
+        , "nextToken"             .= _dcNextToken
+        , "maxResults"            .= _dcMaxResults
+        , "language"              .= _dcLanguage
+        , "includeCommunications" .= _dcIncludeCommunications
+        ]
 
 instance AWSRequest DescribeCases where
     type Sv DescribeCases = Support
@@ -197,4 +208,6 @@ instance AWSRequest DescribeCases where
     response = jsonResponse
 
 instance FromJSON DescribeCasesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeCasesResponse" $ \o -> DescribeCasesResponse
+        <$> o .: "cases"
+        <*> o .: "nextToken"

@@ -101,8 +101,12 @@ instance ToQuery DeleteTape where
     toQuery = const mempty
 
 instance ToHeaders DeleteTape
+
 instance ToJSON DeleteTape where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteTape{..} = object
+        [ "GatewayARN" .= _dt1GatewayARN
+        , "TapeARN"    .= _dt1TapeARN
+        ]
 
 instance AWSRequest DeleteTape where
     type Sv DeleteTape = StorageGateway
@@ -112,4 +116,5 @@ instance AWSRequest DeleteTape where
     response = jsonResponse
 
 instance FromJSON DeleteTapeResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteTapeResponse" $ \o -> DeleteTapeResponse
+        <$> o .: "TapeARN"

@@ -112,8 +112,9 @@ instance ToPath ListPipelines where
 instance ToQuery ListPipelines
 
 instance ToHeaders ListPipelines
+
 instance ToJSON ListPipelines where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ListPipelines where
     type Sv ListPipelines = ElasticTranscoder
@@ -123,4 +124,6 @@ instance AWSRequest ListPipelines where
     response = jsonResponse
 
 instance FromJSON ListPipelinesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListPipelinesResponse" $ \o -> ListPipelinesResponse
+        <$> o .: "NextPageToken"
+        <*> o .: "Pipelines"

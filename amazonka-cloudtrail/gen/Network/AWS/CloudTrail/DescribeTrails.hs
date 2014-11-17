@@ -101,8 +101,11 @@ instance ToQuery DescribeTrails where
     toQuery = const mempty
 
 instance ToHeaders DescribeTrails
+
 instance ToJSON DescribeTrails where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeTrails{..} = object
+        [ "trailNameList" .= _dtTrailNameList
+        ]
 
 instance AWSRequest DescribeTrails where
     type Sv DescribeTrails = CloudTrail
@@ -112,4 +115,5 @@ instance AWSRequest DescribeTrails where
     response = jsonResponse
 
 instance FromJSON DescribeTrailsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeTrailsResponse" $ \o -> DescribeTrailsResponse
+        <$> o .: "trailList"

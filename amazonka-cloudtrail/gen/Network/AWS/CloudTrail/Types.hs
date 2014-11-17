@@ -25,8 +25,6 @@ module Network.AWS.CloudTrail.Types
       CloudTrail
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * Trail
     , Trail
@@ -63,11 +61,6 @@ instance AWSService CloudTrail where
         }
 
     handle = jsonError alwaysFail
-
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
 
 data Trail = Trail
     { _tCloudWatchLogsLogGroupArn  :: Maybe Text
@@ -147,7 +140,22 @@ tSnsTopicName :: Lens' Trail (Maybe Text)
 tSnsTopicName = lens _tSnsTopicName (\s a -> s { _tSnsTopicName = a })
 
 instance FromJSON Trail where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Trail" $ \o -> Trail
+        <$> o .: "CloudWatchLogsLogGroupArn"
+        <*> o .: "CloudWatchLogsRoleArn"
+        <*> o .: "IncludeGlobalServiceEvents"
+        <*> o .: "Name"
+        <*> o .: "S3BucketName"
+        <*> o .: "S3KeyPrefix"
+        <*> o .: "SnsTopicName"
 
 instance ToJSON Trail where
-    toJSON = genericToJSON jsonOptions
+    toJSON Trail{..} = object
+        [ "Name"                       .= _tName
+        , "S3BucketName"               .= _tS3BucketName
+        , "S3KeyPrefix"                .= _tS3KeyPrefix
+        , "SnsTopicName"               .= _tSnsTopicName
+        , "IncludeGlobalServiceEvents" .= _tIncludeGlobalServiceEvents
+        , "CloudWatchLogsLogGroupArn"  .= _tCloudWatchLogsLogGroupArn
+        , "CloudWatchLogsRoleArn"      .= _tCloudWatchLogsRoleArn
+        ]

@@ -102,8 +102,11 @@ instance ToQuery DescribeUserProfiles where
     toQuery = const mempty
 
 instance ToHeaders DescribeUserProfiles
+
 instance ToJSON DescribeUserProfiles where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeUserProfiles{..} = object
+        [ "IamUserArns" .= _dupIamUserArns
+        ]
 
 instance AWSRequest DescribeUserProfiles where
     type Sv DescribeUserProfiles = OpsWorks
@@ -113,4 +116,5 @@ instance AWSRequest DescribeUserProfiles where
     response = jsonResponse
 
 instance FromJSON DescribeUserProfilesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeUserProfilesResponse" $ \o -> DescribeUserProfilesResponse
+        <$> o .: "UserProfiles"

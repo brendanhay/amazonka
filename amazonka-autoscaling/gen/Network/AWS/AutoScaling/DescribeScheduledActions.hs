@@ -166,5 +166,6 @@ instance AWSRequest DescribeScheduledActions where
     response = xmlResponse
 
 instance FromXML DescribeScheduledActionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeScheduledActionsResponse"
+    parseXML c = DescribeScheduledActionsResponse
+        <$> c .: "NextToken"
+        <*> c .: "ScheduledUpdateGroupActions"

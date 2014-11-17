@@ -209,5 +209,6 @@ instance AWSRequest DescribeSpotPriceHistory where
     response = xmlResponse
 
 instance FromXML DescribeSpotPriceHistoryResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSpotPriceHistoryResponse"
+    parseXML c = DescribeSpotPriceHistoryResponse
+        <$> c .: "nextToken"
+        <*> c .: "spotPriceHistorySet"

@@ -113,8 +113,12 @@ instance ToQuery DescribePermissions where
     toQuery = const mempty
 
 instance ToHeaders DescribePermissions
+
 instance ToJSON DescribePermissions where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribePermissions{..} = object
+        [ "IamUserArn" .= _dpIamUserArn
+        , "StackId"    .= _dpStackId
+        ]
 
 instance AWSRequest DescribePermissions where
     type Sv DescribePermissions = OpsWorks
@@ -124,4 +128,5 @@ instance AWSRequest DescribePermissions where
     response = jsonResponse
 
 instance FromJSON DescribePermissionsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribePermissionsResponse" $ \o -> DescribePermissionsResponse
+        <$> o .: "Permissions"

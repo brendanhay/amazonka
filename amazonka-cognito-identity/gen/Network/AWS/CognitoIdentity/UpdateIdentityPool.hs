@@ -204,8 +204,16 @@ instance ToQuery UpdateIdentityPool where
     toQuery = const mempty
 
 instance ToHeaders UpdateIdentityPool
+
 instance ToJSON UpdateIdentityPool where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateIdentityPool{..} = object
+        [ "IdentityPoolId"                 .= _uipIdentityPoolId
+        , "IdentityPoolName"               .= _uipIdentityPoolName
+        , "AllowUnauthenticatedIdentities" .= _uipAllowUnauthenticatedIdentities
+        , "SupportedLoginProviders"        .= _uipSupportedLoginProviders
+        , "DeveloperProviderName"          .= _uipDeveloperProviderName
+        , "OpenIdConnectProviderARNs"      .= _uipOpenIdConnectProviderARNs
+        ]
 
 instance AWSRequest UpdateIdentityPool where
     type Sv UpdateIdentityPool = CognitoIdentity
@@ -215,4 +223,10 @@ instance AWSRequest UpdateIdentityPool where
     response = jsonResponse
 
 instance FromJSON UpdateIdentityPoolResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateIdentityPoolResponse" $ \o -> UpdateIdentityPoolResponse
+        <$> o .: "AllowUnauthenticatedIdentities"
+        <*> o .: "DeveloperProviderName"
+        <*> o .: "IdentityPoolId"
+        <*> o .: "IdentityPoolName"
+        <*> o .: "OpenIdConnectProviderARNs"
+        <*> o .: "SupportedLoginProviders"

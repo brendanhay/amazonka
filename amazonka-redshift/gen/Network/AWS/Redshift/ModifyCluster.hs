@@ -317,5 +317,5 @@ instance AWSRequest ModifyCluster where
     response = xmlResponse
 
 instance FromXML ModifyClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyClusterResponse"
+    parseXML c = ModifyClusterResponse
+        <$> c .: "Cluster"

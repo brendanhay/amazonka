@@ -25,8 +25,6 @@ module Network.AWS.DynamoDB.Types
       DynamoDB
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * WriteRequest
     , WriteRequest
@@ -261,11 +259,6 @@ instance AWSService DynamoDB where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data WriteRequest = WriteRequest
     { _wDeleteRequest :: Maybe DeleteRequest
     , _wPutRequest    :: Maybe PutRequest
@@ -294,10 +287,15 @@ wPutRequest :: Lens' WriteRequest (Maybe PutRequest)
 wPutRequest = lens _wPutRequest (\s a -> s { _wPutRequest = a })
 
 instance FromJSON WriteRequest where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "WriteRequest" $ \o -> WriteRequest
+        <$> o .: "DeleteRequest"
+        <*> o .: "PutRequest"
 
 instance ToJSON WriteRequest where
-    toJSON = genericToJSON jsonOptions
+    toJSON WriteRequest{..} = object
+        [ "PutRequest"    .= _wPutRequest
+        , "DeleteRequest" .= _wDeleteRequest
+        ]
 
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription
     { _ptdLastDecreaseDateTime   :: Maybe RFC822
@@ -371,10 +369,21 @@ ptdWriteCapacityUnits =
         . mapping _Nat
 
 instance FromJSON ProvisionedThroughputDescription where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ProvisionedThroughputDescription" $ \o -> ProvisionedThroughputDescription
+        <$> o .: "LastDecreaseDateTime"
+        <*> o .: "LastIncreaseDateTime"
+        <*> o .: "NumberOfDecreasesToday"
+        <*> o .: "ReadCapacityUnits"
+        <*> o .: "WriteCapacityUnits"
 
 instance ToJSON ProvisionedThroughputDescription where
-    toJSON = genericToJSON jsonOptions
+    toJSON ProvisionedThroughputDescription{..} = object
+        [ "LastIncreaseDateTime"   .= _ptdLastIncreaseDateTime
+        , "LastDecreaseDateTime"   .= _ptdLastDecreaseDateTime
+        , "NumberOfDecreasesToday" .= _ptdNumberOfDecreasesToday
+        , "ReadCapacityUnits"      .= _ptdReadCapacityUnits
+        , "WriteCapacityUnits"     .= _ptdWriteCapacityUnits
+        ]
 
 data KeyType
     = Hash  -- ^ HASH
@@ -393,10 +402,10 @@ instance ToText KeyType where
         Range -> "RANGE"
 
 instance FromJSON KeyType where
-    parseJSON = withFromText "KeyType"
+    parseJSON = fromJSONText "KeyType"
 
 instance ToJSON KeyType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data AttributeValue = AttributeValue
     { _avB    :: Maybe Base64
@@ -491,10 +500,31 @@ avSS :: Lens' AttributeValue [Text]
 avSS = lens _avSS (\s a -> s { _avSS = a })
 
 instance FromJSON AttributeValue where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AttributeValue" $ \o -> AttributeValue
+        <$> o .: "B"
+        <*> o .: "BOOL"
+        <*> o .: "BS"
+        <*> o .: "L"
+        <*> o .: "M"
+        <*> o .: "N"
+        <*> o .: "NS"
+        <*> o .: "NULL"
+        <*> o .: "S"
+        <*> o .: "SS"
 
 instance ToJSON AttributeValue where
-    toJSON = genericToJSON jsonOptions
+    toJSON AttributeValue{..} = object
+        [ "S"    .= _avS
+        , "N"    .= _avN
+        , "B"    .= _avB
+        , "SS"   .= _avSS
+        , "NS"   .= _avNS
+        , "BS"   .= _avBS
+        , "M"    .= _avM
+        , "L"    .= _avL
+        , "NULL" .= _avNULL
+        , "BOOL" .= _avBOOL
+        ]
 
 data IndexStatus
     = Active   -- ^ ACTIVE
@@ -519,10 +549,10 @@ instance ToText IndexStatus where
         Updating -> "UPDATING"
 
 instance FromJSON IndexStatus where
-    parseJSON = withFromText "IndexStatus"
+    parseJSON = fromJSONText "IndexStatus"
 
 instance ToJSON IndexStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ProvisionedThroughput = ProvisionedThroughput
     { _ptReadCapacityUnits  :: Nat
@@ -563,10 +593,15 @@ ptWriteCapacityUnits =
         . _Nat
 
 instance FromJSON ProvisionedThroughput where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ProvisionedThroughput" $ \o -> ProvisionedThroughput
+        <$> o .: "ReadCapacityUnits"
+        <*> o .: "WriteCapacityUnits"
 
 instance ToJSON ProvisionedThroughput where
-    toJSON = genericToJSON jsonOptions
+    toJSON ProvisionedThroughput{..} = object
+        [ "ReadCapacityUnits"  .= _ptReadCapacityUnits
+        , "WriteCapacityUnits" .= _ptWriteCapacityUnits
+        ]
 
 data TableStatus
     = TSActive   -- ^ ACTIVE
@@ -591,10 +626,10 @@ instance ToText TableStatus where
         TSUpdating -> "UPDATING"
 
 instance FromJSON TableStatus where
-    parseJSON = withFromText "TableStatus"
+    parseJSON = fromJSONText "TableStatus"
 
 instance ToJSON TableStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ProjectionType
     = All      -- ^ ALL
@@ -616,10 +651,10 @@ instance ToText ProjectionType where
         KeysOnly -> "KEYS_ONLY"
 
 instance FromJSON ProjectionType where
-    parseJSON = withFromText "ProjectionType"
+    parseJSON = fromJSONText "ProjectionType"
 
 instance ToJSON ProjectionType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data TableDescription = TableDescription
     { _tdAttributeDefinitions   :: [AttributeDefinition]
@@ -795,10 +830,31 @@ tdTableStatus :: Lens' TableDescription (Maybe Text)
 tdTableStatus = lens _tdTableStatus (\s a -> s { _tdTableStatus = a })
 
 instance FromJSON TableDescription where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TableDescription" $ \o -> TableDescription
+        <$> o .: "AttributeDefinitions"
+        <*> o .: "CreationDateTime"
+        <*> o .: "GlobalSecondaryIndexes"
+        <*> o .: "ItemCount"
+        <*> o .: "KeySchema"
+        <*> o .: "LocalSecondaryIndexes"
+        <*> o .: "ProvisionedThroughput"
+        <*> o .: "TableName"
+        <*> o .: "TableSizeBytes"
+        <*> o .: "TableStatus"
 
 instance ToJSON TableDescription where
-    toJSON = genericToJSON jsonOptions
+    toJSON TableDescription{..} = object
+        [ "AttributeDefinitions"   .= _tdAttributeDefinitions
+        , "TableName"              .= _tdTableName
+        , "KeySchema"              .= _tdKeySchema
+        , "TableStatus"            .= _tdTableStatus
+        , "CreationDateTime"       .= _tdCreationDateTime
+        , "ProvisionedThroughput"  .= _tdProvisionedThroughput
+        , "TableSizeBytes"         .= _tdTableSizeBytes
+        , "ItemCount"              .= _tdItemCount
+        , "LocalSecondaryIndexes"  .= _tdLocalSecondaryIndexes
+        , "GlobalSecondaryIndexes" .= _tdGlobalSecondaryIndexes
+        ]
 
 data KeysAndAttributes = KeysAndAttributes
     { _kaaAttributesToGet          :: List1 Text
@@ -883,10 +939,21 @@ kaaProjectionExpression =
     lens _kaaProjectionExpression (\s a -> s { _kaaProjectionExpression = a })
 
 instance FromJSON KeysAndAttributes where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "KeysAndAttributes" $ \o -> KeysAndAttributes
+        <$> o .: "AttributesToGet"
+        <*> o .: "ConsistentRead"
+        <*> o .: "ExpressionAttributeNames"
+        <*> o .: "Keys"
+        <*> o .: "ProjectionExpression"
 
 instance ToJSON KeysAndAttributes where
-    toJSON = genericToJSON jsonOptions
+    toJSON KeysAndAttributes{..} = object
+        [ "Keys"                     .= _kaaKeys
+        , "AttributesToGet"          .= _kaaAttributesToGet
+        , "ConsistentRead"           .= _kaaConsistentRead
+        , "ProjectionExpression"     .= _kaaProjectionExpression
+        , "ExpressionAttributeNames" .= _kaaExpressionAttributeNames
+        ]
 
 data ReturnConsumedCapacity
     = Indexes -- ^ INDEXES
@@ -908,10 +975,10 @@ instance ToText ReturnConsumedCapacity where
         Total   -> "TOTAL"
 
 instance FromJSON ReturnConsumedCapacity where
-    parseJSON = withFromText "ReturnConsumedCapacity"
+    parseJSON = fromJSONText "ReturnConsumedCapacity"
 
 instance ToJSON ReturnConsumedCapacity where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ReturnItemCollectionMetrics
     = RICMNone -- ^ NONE
@@ -930,10 +997,10 @@ instance ToText ReturnItemCollectionMetrics where
         RICMSize -> "SIZE"
 
 instance FromJSON ReturnItemCollectionMetrics where
-    parseJSON = withFromText "ReturnItemCollectionMetrics"
+    parseJSON = fromJSONText "ReturnItemCollectionMetrics"
 
 instance ToJSON ReturnItemCollectionMetrics where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data AttributeValueUpdate = AttributeValueUpdate
     { _avuAction :: Maybe Text
@@ -995,10 +1062,15 @@ avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
 avuValue = lens _avuValue (\s a -> s { _avuValue = a })
 
 instance FromJSON AttributeValueUpdate where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AttributeValueUpdate" $ \o -> AttributeValueUpdate
+        <$> o .: "Action"
+        <*> o .: "Value"
 
 instance ToJSON AttributeValueUpdate where
-    toJSON = genericToJSON jsonOptions
+    toJSON AttributeValueUpdate{..} = object
+        [ "Value"  .= _avuValue
+        , "Action" .= _avuAction
+        ]
 
 data ExpectedAttributeValue = ExpectedAttributeValue
     { _eavAttributeValueList :: [AttributeValue]
@@ -1149,10 +1221,19 @@ eavValue :: Lens' ExpectedAttributeValue (Maybe AttributeValue)
 eavValue = lens _eavValue (\s a -> s { _eavValue = a })
 
 instance FromJSON ExpectedAttributeValue where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ExpectedAttributeValue" $ \o -> ExpectedAttributeValue
+        <$> o .: "AttributeValueList"
+        <*> o .: "ComparisonOperator"
+        <*> o .: "Exists"
+        <*> o .: "Value"
 
 instance ToJSON ExpectedAttributeValue where
-    toJSON = genericToJSON jsonOptions
+    toJSON ExpectedAttributeValue{..} = object
+        [ "Value"              .= _eavValue
+        , "Exists"             .= _eavExists
+        , "ComparisonOperator" .= _eavComparisonOperator
+        , "AttributeValueList" .= _eavAttributeValueList
+        ]
 
 data AttributeDefinition = AttributeDefinition
     { _adAttributeName :: Text
@@ -1184,10 +1265,15 @@ adAttributeType :: Lens' AttributeDefinition Text
 adAttributeType = lens _adAttributeType (\s a -> s { _adAttributeType = a })
 
 instance FromJSON AttributeDefinition where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AttributeDefinition" $ \o -> AttributeDefinition
+        <$> o .: "AttributeName"
+        <*> o .: "AttributeType"
 
 instance ToJSON AttributeDefinition where
-    toJSON = genericToJSON jsonOptions
+    toJSON AttributeDefinition{..} = object
+        [ "AttributeName" .= _adAttributeName
+        , "AttributeType" .= _adAttributeType
+        ]
 
 data ComparisonOperator
     = BeginsWith  -- ^ BEGINS_WITH
@@ -1239,10 +1325,10 @@ instance ToText ComparisonOperator where
         Null        -> "NULL"
 
 instance FromJSON ComparisonOperator where
-    parseJSON = withFromText "ComparisonOperator"
+    parseJSON = fromJSONText "ComparisonOperator"
 
 instance ToJSON ComparisonOperator where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ReturnValue
     = RVAllNew     -- ^ ALL_NEW
@@ -1270,10 +1356,10 @@ instance ToText ReturnValue where
         RVUpdatedOld -> "UPDATED_OLD"
 
 instance FromJSON ReturnValue where
-    parseJSON = withFromText "ReturnValue"
+    parseJSON = fromJSONText "ReturnValue"
 
 instance ToJSON ReturnValue where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data LocalSecondaryIndex = LocalSecondaryIndex
     { _lsiIndexName  :: Text
@@ -1316,10 +1402,17 @@ lsiProjection :: Lens' LocalSecondaryIndex Projection
 lsiProjection = lens _lsiProjection (\s a -> s { _lsiProjection = a })
 
 instance FromJSON LocalSecondaryIndex where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "LocalSecondaryIndex" $ \o -> LocalSecondaryIndex
+        <$> o .: "IndexName"
+        <*> o .: "KeySchema"
+        <*> o .: "Projection"
 
 instance ToJSON LocalSecondaryIndex where
-    toJSON = genericToJSON jsonOptions
+    toJSON LocalSecondaryIndex{..} = object
+        [ "IndexName"  .= _lsiIndexName
+        , "KeySchema"  .= _lsiKeySchema
+        , "Projection" .= _lsiProjection
+        ]
 
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     { _gsidIndexName             :: Maybe Text
@@ -1401,10 +1494,25 @@ gsidProvisionedThroughput =
         (\s a -> s { _gsidProvisionedThroughput = a })
 
 instance FromJSON GlobalSecondaryIndexDescription where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GlobalSecondaryIndexDescription" $ \o -> GlobalSecondaryIndexDescription
+        <$> o .: "IndexName"
+        <*> o .: "IndexSizeBytes"
+        <*> o .: "IndexStatus"
+        <*> o .: "ItemCount"
+        <*> o .: "KeySchema"
+        <*> o .: "Projection"
+        <*> o .: "ProvisionedThroughput"
 
 instance ToJSON GlobalSecondaryIndexDescription where
-    toJSON = genericToJSON jsonOptions
+    toJSON GlobalSecondaryIndexDescription{..} = object
+        [ "IndexName"             .= _gsidIndexName
+        , "KeySchema"             .= _gsidKeySchema
+        , "Projection"            .= _gsidProjection
+        , "IndexStatus"           .= _gsidIndexStatus
+        , "ProvisionedThroughput" .= _gsidProvisionedThroughput
+        , "IndexSizeBytes"        .= _gsidIndexSizeBytes
+        , "ItemCount"             .= _gsidItemCount
+        ]
 
 data ItemCollectionMetrics = ItemCollectionMetrics
     { _icmItemCollectionKey   :: Map Text AttributeValue
@@ -1445,10 +1553,15 @@ icmSizeEstimateRangeGB =
     lens _icmSizeEstimateRangeGB (\s a -> s { _icmSizeEstimateRangeGB = a })
 
 instance FromJSON ItemCollectionMetrics where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ItemCollectionMetrics" $ \o -> ItemCollectionMetrics
+        <$> o .: "ItemCollectionKey"
+        <*> o .: "SizeEstimateRangeGB"
 
 instance ToJSON ItemCollectionMetrics where
-    toJSON = genericToJSON jsonOptions
+    toJSON ItemCollectionMetrics{..} = object
+        [ "ItemCollectionKey"   .= _icmItemCollectionKey
+        , "SizeEstimateRangeGB" .= _icmSizeEstimateRangeGB
+        ]
 
 newtype Capacity = Capacity
     { _cCapacityUnits :: Maybe Double
@@ -1470,10 +1583,13 @@ cCapacityUnits :: Lens' Capacity (Maybe Double)
 cCapacityUnits = lens _cCapacityUnits (\s a -> s { _cCapacityUnits = a })
 
 instance FromJSON Capacity where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Capacity" $ \o -> Capacity
+        <$> o .: "CapacityUnits"
 
 instance ToJSON Capacity where
-    toJSON = genericToJSON jsonOptions
+    toJSON Capacity{..} = object
+        [ "CapacityUnits" .= _cCapacityUnits
+        ]
 
 data ConsumedCapacity = ConsumedCapacity
     { _ccCapacityUnits          :: Maybe Double
@@ -1534,10 +1650,21 @@ ccTableName :: Lens' ConsumedCapacity (Maybe Text)
 ccTableName = lens _ccTableName (\s a -> s { _ccTableName = a })
 
 instance FromJSON ConsumedCapacity where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ConsumedCapacity" $ \o -> ConsumedCapacity
+        <$> o .: "CapacityUnits"
+        <*> o .: "GlobalSecondaryIndexes"
+        <*> o .: "LocalSecondaryIndexes"
+        <*> o .: "Table"
+        <*> o .: "TableName"
 
 instance ToJSON ConsumedCapacity where
-    toJSON = genericToJSON jsonOptions
+    toJSON ConsumedCapacity{..} = object
+        [ "TableName"              .= _ccTableName
+        , "CapacityUnits"          .= _ccCapacityUnits
+        , "Table"                  .= _ccTable
+        , "LocalSecondaryIndexes"  .= _ccLocalSecondaryIndexes
+        , "GlobalSecondaryIndexes" .= _ccGlobalSecondaryIndexes
+        ]
 
 data GlobalSecondaryIndex = GlobalSecondaryIndex
     { _gsiIndexName             :: Text
@@ -1590,10 +1717,19 @@ gsiProvisionedThroughput =
         (\s a -> s { _gsiProvisionedThroughput = a })
 
 instance FromJSON GlobalSecondaryIndex where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GlobalSecondaryIndex" $ \o -> GlobalSecondaryIndex
+        <$> o .: "IndexName"
+        <*> o .: "KeySchema"
+        <*> o .: "Projection"
+        <*> o .: "ProvisionedThroughput"
 
 instance ToJSON GlobalSecondaryIndex where
-    toJSON = genericToJSON jsonOptions
+    toJSON GlobalSecondaryIndex{..} = object
+        [ "IndexName"             .= _gsiIndexName
+        , "KeySchema"             .= _gsiKeySchema
+        , "Projection"            .= _gsiProjection
+        , "ProvisionedThroughput" .= _gsiProvisionedThroughput
+        ]
 
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     { _lsidIndexName      :: Maybe Text
@@ -1654,10 +1790,21 @@ lsidProjection :: Lens' LocalSecondaryIndexDescription (Maybe Projection)
 lsidProjection = lens _lsidProjection (\s a -> s { _lsidProjection = a })
 
 instance FromJSON LocalSecondaryIndexDescription where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "LocalSecondaryIndexDescription" $ \o -> LocalSecondaryIndexDescription
+        <$> o .: "IndexName"
+        <*> o .: "IndexSizeBytes"
+        <*> o .: "ItemCount"
+        <*> o .: "KeySchema"
+        <*> o .: "Projection"
 
 instance ToJSON LocalSecondaryIndexDescription where
-    toJSON = genericToJSON jsonOptions
+    toJSON LocalSecondaryIndexDescription{..} = object
+        [ "IndexName"      .= _lsidIndexName
+        , "KeySchema"      .= _lsidKeySchema
+        , "Projection"     .= _lsidProjection
+        , "IndexSizeBytes" .= _lsidIndexSizeBytes
+        , "ItemCount"      .= _lsidItemCount
+        ]
 
 data AttributeAction
     = Add     -- ^ ADD
@@ -1679,10 +1826,10 @@ instance ToText AttributeAction where
         Put     -> "PUT"
 
 instance FromJSON AttributeAction where
-    parseJSON = withFromText "AttributeAction"
+    parseJSON = fromJSONText "AttributeAction"
 
 instance ToJSON AttributeAction where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ScalarAttributeType
     = B -- ^ B
@@ -1704,10 +1851,10 @@ instance ToText ScalarAttributeType where
         S -> "S"
 
 instance FromJSON ScalarAttributeType where
-    parseJSON = withFromText "ScalarAttributeType"
+    parseJSON = fromJSONText "ScalarAttributeType"
 
 instance ToJSON ScalarAttributeType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data Projection = Projection
     { _pNonKeyAttributes :: List1 Text
@@ -1748,10 +1895,15 @@ pProjectionType :: Lens' Projection (Maybe Text)
 pProjectionType = lens _pProjectionType (\s a -> s { _pProjectionType = a })
 
 instance FromJSON Projection where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Projection" $ \o -> Projection
+        <$> o .: "NonKeyAttributes"
+        <*> o .: "ProjectionType"
 
 instance ToJSON Projection where
-    toJSON = genericToJSON jsonOptions
+    toJSON Projection{..} = object
+        [ "ProjectionType"   .= _pProjectionType
+        , "NonKeyAttributes" .= _pNonKeyAttributes
+        ]
 
 data Select
     = AllAttributes          -- ^ ALL_ATTRIBUTES
@@ -1776,10 +1928,10 @@ instance ToText Select where
         SpecificAttributes     -> "SPECIFIC_ATTRIBUTES"
 
 instance FromJSON Select where
-    parseJSON = withFromText "Select"
+    parseJSON = fromJSONText "Select"
 
 instance ToJSON Select where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data KeySchemaElement = KeySchemaElement
     { _kseAttributeName :: Text
@@ -1812,10 +1964,15 @@ kseKeyType :: Lens' KeySchemaElement Text
 kseKeyType = lens _kseKeyType (\s a -> s { _kseKeyType = a })
 
 instance FromJSON KeySchemaElement where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "KeySchemaElement" $ \o -> KeySchemaElement
+        <$> o .: "AttributeName"
+        <*> o .: "KeyType"
 
 instance ToJSON KeySchemaElement where
-    toJSON = genericToJSON jsonOptions
+    toJSON KeySchemaElement{..} = object
+        [ "AttributeName" .= _kseAttributeName
+        , "KeyType"       .= _kseKeyType
+        ]
 
 newtype DeleteRequest = DeleteRequest
     { _dKey :: Map Text AttributeValue
@@ -1841,10 +1998,13 @@ dKey = lens _dKey (\s a -> s { _dKey = a })
     . _Map
 
 instance FromJSON DeleteRequest where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteRequest" $ \o -> DeleteRequest
+        <$> o .: "Key"
 
 instance ToJSON DeleteRequest where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteRequest{..} = object
+        [ "Key" .= _dKey
+        ]
 
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction
     { _ugsiaIndexName             :: Text
@@ -1877,10 +2037,15 @@ ugsiaProvisionedThroughput =
         (\s a -> s { _ugsiaProvisionedThroughput = a })
 
 instance FromJSON UpdateGlobalSecondaryIndexAction where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateGlobalSecondaryIndexAction" $ \o -> UpdateGlobalSecondaryIndexAction
+        <$> o .: "IndexName"
+        <*> o .: "ProvisionedThroughput"
 
 instance ToJSON UpdateGlobalSecondaryIndexAction where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateGlobalSecondaryIndexAction{..} = object
+        [ "IndexName"             .= _ugsiaIndexName
+        , "ProvisionedThroughput" .= _ugsiaProvisionedThroughput
+        ]
 
 newtype PutRequest = PutRequest
     { _pItem :: Map Text AttributeValue
@@ -1908,10 +2073,13 @@ pItem = lens _pItem (\s a -> s { _pItem = a })
     . _Map
 
 instance FromJSON PutRequest where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PutRequest" $ \o -> PutRequest
+        <$> o .: "Item"
 
 instance ToJSON PutRequest where
-    toJSON = genericToJSON jsonOptions
+    toJSON PutRequest{..} = object
+        [ "Item" .= _pItem
+        ]
 
 data Condition = Condition
     { _cAttributeValueList :: [AttributeValue]
@@ -2033,10 +2201,15 @@ cComparisonOperator =
     lens _cComparisonOperator (\s a -> s { _cComparisonOperator = a })
 
 instance FromJSON Condition where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Condition" $ \o -> Condition
+        <$> o .: "AttributeValueList"
+        <*> o .: "ComparisonOperator"
 
 instance ToJSON Condition where
-    toJSON = genericToJSON jsonOptions
+    toJSON Condition{..} = object
+        [ "AttributeValueList" .= _cAttributeValueList
+        , "ComparisonOperator" .= _cComparisonOperator
+        ]
 
 data ConditionalOperator
     = And -- ^ AND
@@ -2055,10 +2228,10 @@ instance ToText ConditionalOperator where
         Or  -> "OR"
 
 instance FromJSON ConditionalOperator where
-    parseJSON = withFromText "ConditionalOperator"
+    parseJSON = fromJSONText "ConditionalOperator"
 
 instance ToJSON ConditionalOperator where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction
@@ -2081,7 +2254,10 @@ gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndex
 gsiuUpdate = lens _gsiuUpdate (\s a -> s { _gsiuUpdate = a })
 
 instance FromJSON GlobalSecondaryIndexUpdate where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GlobalSecondaryIndexUpdate" $ \o -> GlobalSecondaryIndexUpdate
+        <$> o .: "Update"
 
 instance ToJSON GlobalSecondaryIndexUpdate where
-    toJSON = genericToJSON jsonOptions
+    toJSON GlobalSecondaryIndexUpdate{..} = object
+        [ "Update" .= _gsiuUpdate
+        ]

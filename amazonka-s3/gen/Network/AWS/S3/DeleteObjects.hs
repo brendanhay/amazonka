@@ -121,9 +121,11 @@ instance ToHeaders DeleteObjects where
     toHeaders DeleteObjects{..} = mconcat
         [ "x-amz-mfa" =: _do1MFA
         ]
+
 instance ToXML DeleteObjects where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteObjects"
+    toXML DeleteObjects{..} = node "DeleteObjects"
+        [ "Delete" .= _do1Delete
+        ]
 
 instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
@@ -133,5 +135,6 @@ instance AWSRequest DeleteObjects where
     response = xmlResponse
 
 instance FromXML DeleteObjectsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteObjectsResponse"
+    parseXML c = DeleteObjectsResponse
+        <$> c .: "Deleted"
+        <*> c .: "Error"

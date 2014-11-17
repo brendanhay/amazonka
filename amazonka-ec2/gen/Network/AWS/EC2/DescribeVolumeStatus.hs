@@ -181,5 +181,6 @@ instance AWSRequest DescribeVolumeStatus where
     response = xmlResponse
 
 instance FromXML DescribeVolumeStatusResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVolumeStatusResponse"
+    parseXML c = DescribeVolumeStatusResponse
+        <$> c .: "nextToken"
+        <*> c .: "volumeStatusSet"

@@ -145,5 +145,5 @@ instance AWSRequest DescribeNetworkAcls where
     response = xmlResponse
 
 instance FromXML DescribeNetworkAclsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeNetworkAclsResponse"
+    parseXML c = DescribeNetworkAclsResponse
+        <$> c .: "networkAclSet"

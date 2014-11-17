@@ -115,5 +115,5 @@ instance AWSRequest UploadSigningCertificate where
     response = xmlResponse
 
 instance FromXML UploadSigningCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UploadSigningCertificateResponse"
+    parseXML c = UploadSigningCertificateResponse
+        <$> c .: "Certificate"

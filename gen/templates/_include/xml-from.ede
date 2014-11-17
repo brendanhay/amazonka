@@ -1,7 +1,11 @@
+
 instance FromXML {{ type.name }} where
-  {% if type.flattened %}
-    fromXMLOptions = xmlOptions { xmlListElem = Nothing }
-  {% else %}
-    fromXMLOptions = xmlOptions
-  {% endif %}
-    fromXMLRoot    = fromRoot "{{ type.name }}"
+{% case type.type %}
+{% when "nullary" %}
+    parseXML = fromXMLText "{{ type.name }}"
+{% else %}
+    parseXML c = {{ type.name }}
+  {% for field in type.fields %}
+        {% include "applicative.ede" %} c .: "{{ field.value.locationName }}"
+  {% endfor %}
+{% endcase %}

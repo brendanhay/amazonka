@@ -140,5 +140,5 @@ instance AWSRequest DescribeConfigurationSettings where
     response = xmlResponse
 
 instance FromXML DescribeConfigurationSettingsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeConfigurationSettingsResponse"
+    parseXML c = DescribeConfigurationSettingsResponse
+        <$> c .: "ConfigurationSettings"

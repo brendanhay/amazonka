@@ -139,5 +139,5 @@ instance AWSRequest CreateCustomerGateway where
     response = xmlResponse
 
 instance FromXML CreateCustomerGatewayResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCustomerGatewayResponse"
+    parseXML c = CreateCustomerGatewayResponse
+        <$> c .: "customerGateway"

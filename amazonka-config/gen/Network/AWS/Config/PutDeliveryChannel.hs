@@ -84,8 +84,11 @@ instance ToQuery PutDeliveryChannel where
     toQuery = const mempty
 
 instance ToHeaders PutDeliveryChannel
+
 instance ToJSON PutDeliveryChannel where
-    toJSON = genericToJSON jsonOptions
+    toJSON PutDeliveryChannel{..} = object
+        [ "DeliveryChannel" .= _pdcDeliveryChannel
+        ]
 
 instance AWSRequest PutDeliveryChannel where
     type Sv PutDeliveryChannel = Config

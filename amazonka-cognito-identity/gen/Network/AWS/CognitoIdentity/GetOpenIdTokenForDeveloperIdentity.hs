@@ -159,8 +159,14 @@ instance ToQuery GetOpenIdTokenForDeveloperIdentity where
     toQuery = const mempty
 
 instance ToHeaders GetOpenIdTokenForDeveloperIdentity
+
 instance ToJSON GetOpenIdTokenForDeveloperIdentity where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetOpenIdTokenForDeveloperIdentity{..} = object
+        [ "IdentityPoolId" .= _goitfdiIdentityPoolId
+        , "IdentityId"     .= _goitfdiIdentityId
+        , "Logins"         .= _goitfdiLogins
+        , "TokenDuration"  .= _goitfdiTokenDuration
+        ]
 
 instance AWSRequest GetOpenIdTokenForDeveloperIdentity where
     type Sv GetOpenIdTokenForDeveloperIdentity = CognitoIdentity
@@ -170,4 +176,6 @@ instance AWSRequest GetOpenIdTokenForDeveloperIdentity where
     response = jsonResponse
 
 instance FromJSON GetOpenIdTokenForDeveloperIdentityResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetOpenIdTokenForDeveloperIdentityResponse" $ \o -> GetOpenIdTokenForDeveloperIdentityResponse
+        <$> o .: "IdentityId"
+        <*> o .: "Token"

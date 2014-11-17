@@ -106,8 +106,14 @@ instance ToQuery PutMetricFilter where
     toQuery = const mempty
 
 instance ToHeaders PutMetricFilter
+
 instance ToJSON PutMetricFilter where
-    toJSON = genericToJSON jsonOptions
+    toJSON PutMetricFilter{..} = object
+        [ "logGroupName"          .= _pmfLogGroupName
+        , "filterName"            .= _pmfFilterName
+        , "filterPattern"         .= _pmfFilterPattern
+        , "metricTransformations" .= _pmfMetricTransformations
+        ]
 
 instance AWSRequest PutMetricFilter where
     type Sv PutMetricFilter = CloudWatchLogs

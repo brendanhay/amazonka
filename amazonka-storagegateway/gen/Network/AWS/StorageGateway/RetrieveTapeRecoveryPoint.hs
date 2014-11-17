@@ -103,8 +103,12 @@ instance ToQuery RetrieveTapeRecoveryPoint where
     toQuery = const mempty
 
 instance ToHeaders RetrieveTapeRecoveryPoint
+
 instance ToJSON RetrieveTapeRecoveryPoint where
-    toJSON = genericToJSON jsonOptions
+    toJSON RetrieveTapeRecoveryPoint{..} = object
+        [ "TapeARN"    .= _rtrpTapeARN
+        , "GatewayARN" .= _rtrpGatewayARN
+        ]
 
 instance AWSRequest RetrieveTapeRecoveryPoint where
     type Sv RetrieveTapeRecoveryPoint = StorageGateway
@@ -114,4 +118,5 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
     response = jsonResponse
 
 instance FromJSON RetrieveTapeRecoveryPointResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RetrieveTapeRecoveryPointResponse" $ \o -> RetrieveTapeRecoveryPointResponse
+        <$> o .: "TapeARN"

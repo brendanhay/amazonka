@@ -134,8 +134,14 @@ instance ToQuery DescribeJobFlows where
     toQuery = const mempty
 
 instance ToHeaders DescribeJobFlows
+
 instance ToJSON DescribeJobFlows where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeJobFlows{..} = object
+        [ "CreatedAfter"  .= _djfCreatedAfter
+        , "CreatedBefore" .= _djfCreatedBefore
+        , "JobFlowIds"    .= _djfJobFlowIds
+        , "JobFlowStates" .= _djfJobFlowStates
+        ]
 
 instance AWSRequest DescribeJobFlows where
     type Sv DescribeJobFlows = EMR
@@ -145,4 +151,5 @@ instance AWSRequest DescribeJobFlows where
     response = jsonResponse
 
 instance FromJSON DescribeJobFlowsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeJobFlowsResponse" $ \o -> DescribeJobFlowsResponse
+        <$> o .: "JobFlows"

@@ -93,8 +93,11 @@ instance ToQuery UpdateGatewaySoftwareNow where
     toQuery = const mempty
 
 instance ToHeaders UpdateGatewaySoftwareNow
+
 instance ToJSON UpdateGatewaySoftwareNow where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateGatewaySoftwareNow{..} = object
+        [ "GatewayARN" .= _ugsnGatewayARN
+        ]
 
 instance AWSRequest UpdateGatewaySoftwareNow where
     type Sv UpdateGatewaySoftwareNow = StorageGateway
@@ -104,4 +107,5 @@ instance AWSRequest UpdateGatewaySoftwareNow where
     response = jsonResponse
 
 instance FromJSON UpdateGatewaySoftwareNowResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateGatewaySoftwareNowResponse" $ \o -> UpdateGatewaySoftwareNowResponse
+        <$> o .: "GatewayARN"

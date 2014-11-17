@@ -153,8 +153,16 @@ instance ToQuery CreateJob where
     toQuery = const mempty
 
 instance ToHeaders CreateJob
+
 instance ToJSON CreateJob where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateJob{..} = object
+        [ "PipelineId"      .= _cjPipelineId
+        , "Input"           .= _cjInput
+        , "Output"          .= _cjOutput
+        , "Outputs"         .= _cjOutputs
+        , "OutputKeyPrefix" .= _cjOutputKeyPrefix
+        , "Playlists"       .= _cjPlaylists
+        ]
 
 instance AWSRequest CreateJob where
     type Sv CreateJob = ElasticTranscoder
@@ -164,4 +172,5 @@ instance AWSRequest CreateJob where
     response = jsonResponse
 
 instance FromJSON CreateJobResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateJobResponse" $ \o -> CreateJobResponse
+        <$> o .: "Job"

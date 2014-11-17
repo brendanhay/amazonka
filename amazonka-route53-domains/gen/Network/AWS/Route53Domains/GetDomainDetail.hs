@@ -326,8 +326,11 @@ instance ToQuery GetDomainDetail where
     toQuery = const mempty
 
 instance ToHeaders GetDomainDetail
+
 instance ToJSON GetDomainDetail where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetDomainDetail{..} = object
+        [ "DomainName" .= _gddDomainName
+        ]
 
 instance AWSRequest GetDomainDetail where
     type Sv GetDomainDetail = Route53Domains
@@ -337,4 +340,25 @@ instance AWSRequest GetDomainDetail where
     response = jsonResponse
 
 instance FromJSON GetDomainDetailResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetDomainDetailResponse" $ \o -> GetDomainDetailResponse
+        <$> o .: "AbuseContactEmail"
+        <*> o .: "AbuseContactPhone"
+        <*> o .: "AdminContact"
+        <*> o .: "AdminPrivacy"
+        <*> o .: "AutoRenew"
+        <*> o .: "CreationDate"
+        <*> o .: "DnsSec"
+        <*> o .: "DomainName"
+        <*> o .: "ExpirationDate"
+        <*> o .: "Nameservers"
+        <*> o .: "RegistrantContact"
+        <*> o .: "RegistrantPrivacy"
+        <*> o .: "RegistrarName"
+        <*> o .: "RegistrarUrl"
+        <*> o .: "RegistryDomainId"
+        <*> o .: "Reseller"
+        <*> o .: "StatusList"
+        <*> o .: "TechContact"
+        <*> o .: "TechPrivacy"
+        <*> o .: "UpdatedDate"
+        <*> o .: "WhoIsServer"

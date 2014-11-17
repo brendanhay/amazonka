@@ -133,5 +133,5 @@ instance AWSRequest DescribeVpcs where
     response = xmlResponse
 
 instance FromXML DescribeVpcsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpcsResponse"
+    parseXML c = DescribeVpcsResponse
+        <$> c .: "vpcSet"

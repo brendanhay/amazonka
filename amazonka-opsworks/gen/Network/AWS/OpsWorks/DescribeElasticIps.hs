@@ -122,8 +122,13 @@ instance ToQuery DescribeElasticIps where
     toQuery = const mempty
 
 instance ToHeaders DescribeElasticIps
+
 instance ToJSON DescribeElasticIps where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeElasticIps{..} = object
+        [ "InstanceId" .= _deiInstanceId
+        , "StackId"    .= _deiStackId
+        , "Ips"        .= _deiIps
+        ]
 
 instance AWSRequest DescribeElasticIps where
     type Sv DescribeElasticIps = OpsWorks
@@ -133,4 +138,5 @@ instance AWSRequest DescribeElasticIps where
     response = jsonResponse
 
 instance FromJSON DescribeElasticIpsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeElasticIpsResponse" $ \o -> DescribeElasticIpsResponse
+        <$> o .: "ElasticIps"

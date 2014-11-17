@@ -209,8 +209,19 @@ instance ToQuery RegisterActivityType where
     toQuery = const mempty
 
 instance ToHeaders RegisterActivityType
+
 instance ToJSON RegisterActivityType where
-    toJSON = genericToJSON jsonOptions
+    toJSON RegisterActivityType{..} = object
+        [ "domain"                            .= _ratDomain
+        , "name"                              .= _ratName
+        , "version"                           .= _ratVersion
+        , "description"                       .= _ratDescription
+        , "defaultTaskStartToCloseTimeout"    .= _ratDefaultTaskStartToCloseTimeout
+        , "defaultTaskHeartbeatTimeout"       .= _ratDefaultTaskHeartbeatTimeout
+        , "defaultTaskList"                   .= _ratDefaultTaskList
+        , "defaultTaskScheduleToStartTimeout" .= _ratDefaultTaskScheduleToStartTimeout
+        , "defaultTaskScheduleToCloseTimeout" .= _ratDefaultTaskScheduleToCloseTimeout
+        ]
 
 instance AWSRequest RegisterActivityType where
     type Sv RegisterActivityType = SWF

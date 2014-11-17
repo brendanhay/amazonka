@@ -251,8 +251,22 @@ instance ToQuery TransferDomain where
     toQuery = const mempty
 
 instance ToHeaders TransferDomain
+
 instance ToJSON TransferDomain where
-    toJSON = genericToJSON jsonOptions
+    toJSON TransferDomain{..} = object
+        [ "DomainName"                      .= _tdDomainName
+        , "IdnLangCode"                     .= _tdIdnLangCode
+        , "DurationInYears"                 .= _tdDurationInYears
+        , "Nameservers"                     .= _tdNameservers
+        , "AuthCode"                        .= _tdAuthCode
+        , "AutoRenew"                       .= _tdAutoRenew
+        , "AdminContact"                    .= _tdAdminContact
+        , "RegistrantContact"               .= _tdRegistrantContact
+        , "TechContact"                     .= _tdTechContact
+        , "PrivacyProtectAdminContact"      .= _tdPrivacyProtectAdminContact
+        , "PrivacyProtectRegistrantContact" .= _tdPrivacyProtectRegistrantContact
+        , "PrivacyProtectTechContact"       .= _tdPrivacyProtectTechContact
+        ]
 
 instance AWSRequest TransferDomain where
     type Sv TransferDomain = Route53Domains
@@ -262,4 +276,5 @@ instance AWSRequest TransferDomain where
     response = jsonResponse
 
 instance FromJSON TransferDomainResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TransferDomainResponse" $ \o -> TransferDomainResponse
+        <$> o .: "OperationId"

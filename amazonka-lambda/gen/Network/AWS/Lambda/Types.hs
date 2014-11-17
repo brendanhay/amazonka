@@ -25,8 +25,6 @@ module Network.AWS.Lambda.Types
       Lambda
     -- ** Error
     , RESTError
-    -- ** JSON
-    , jsonOptions
 
     -- * Runtime
     , Runtime (..)
@@ -94,11 +92,6 @@ instance AWSService Lambda where
 
     handle = restError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data Runtime
     = Nodejs -- ^ nodejs
       deriving (Eq, Ord, Show, Generic, Enum)
@@ -112,10 +105,10 @@ instance ToText Runtime where
     toText Nodejs = "nodejs"
 
 instance FromJSON Runtime where
-    parseJSON = withFromText "Runtime"
+    parseJSON = fromJSONText "Runtime"
 
 instance ToJSON Runtime where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data Mode
     = Event -- ^ event
@@ -130,10 +123,10 @@ instance ToText Mode where
     toText Event = "event"
 
 instance FromJSON Mode where
-    parseJSON = withFromText "Mode"
+    parseJSON = fromJSONText "Mode"
 
 instance ToJSON Mode where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data FunctionCodeLocation = FunctionCodeLocation
     { _fclLocation       :: Maybe Text
@@ -165,10 +158,15 @@ fclRepositoryType =
     lens _fclRepositoryType (\s a -> s { _fclRepositoryType = a })
 
 instance FromJSON FunctionCodeLocation where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "FunctionCodeLocation" $ \o -> FunctionCodeLocation
+        <$> o .: "Location"
+        <*> o .: "RepositoryType"
 
 instance ToJSON FunctionCodeLocation where
-    toJSON = genericToJSON jsonOptions
+    toJSON FunctionCodeLocation{..} = object
+        [ "RepositoryType" .= _fclRepositoryType
+        , "Location"       .= _fclLocation
+        ]
 
 data FunctionConfiguration = FunctionConfiguration
     { _fcCodeSize        :: Maybe Integer
@@ -289,10 +287,35 @@ fcTimeout = lens _fcTimeout (\s a -> s { _fcTimeout = a })
     . mapping _Nat
 
 instance FromJSON FunctionConfiguration where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "FunctionConfiguration" $ \o -> FunctionConfiguration
+        <$> o .: "CodeSize"
+        <*> o .: "ConfigurationId"
+        <*> o .: "Description"
+        <*> o .: "FunctionARN"
+        <*> o .: "FunctionName"
+        <*> o .: "Handler"
+        <*> o .: "LastModified"
+        <*> o .: "MemorySize"
+        <*> o .: "Mode"
+        <*> o .: "Role"
+        <*> o .: "Runtime"
+        <*> o .: "Timeout"
 
 instance ToJSON FunctionConfiguration where
-    toJSON = genericToJSON jsonOptions
+    toJSON FunctionConfiguration{..} = object
+        [ "FunctionName"    .= _fcFunctionName
+        , "FunctionARN"     .= _fcFunctionARN
+        , "ConfigurationId" .= _fcConfigurationId
+        , "Runtime"         .= _fcRuntime
+        , "Role"            .= _fcRole
+        , "Handler"         .= _fcHandler
+        , "Mode"            .= _fcMode
+        , "CodeSize"        .= _fcCodeSize
+        , "Description"     .= _fcDescription
+        , "Timeout"         .= _fcTimeout
+        , "MemorySize"      .= _fcMemorySize
+        , "LastModified"    .= _fcLastModified
+        ]
 
 data EventSourceConfiguration = EventSourceConfiguration
     { _escBatchSize    :: Maybe Int
@@ -390,7 +413,26 @@ escUUID :: Lens' EventSourceConfiguration (Maybe Text)
 escUUID = lens _escUUID (\s a -> s { _escUUID = a })
 
 instance FromJSON EventSourceConfiguration where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "EventSourceConfiguration" $ \o -> EventSourceConfiguration
+        <$> o .: "BatchSize"
+        <*> o .: "EventSource"
+        <*> o .: "FunctionName"
+        <*> o .: "IsActive"
+        <*> o .: "LastModified"
+        <*> o .: "Parameters"
+        <*> o .: "Role"
+        <*> o .: "Status"
+        <*> o .: "UUID"
 
 instance ToJSON EventSourceConfiguration where
-    toJSON = genericToJSON jsonOptions
+    toJSON EventSourceConfiguration{..} = object
+        [ "UUID"         .= _escUUID
+        , "BatchSize"    .= _escBatchSize
+        , "EventSource"  .= _escEventSource
+        , "FunctionName" .= _escFunctionName
+        , "Parameters"   .= _escParameters
+        , "Role"         .= _escRole
+        , "LastModified" .= _escLastModified
+        , "IsActive"     .= _escIsActive
+        , "Status"       .= _escStatus
+        ]

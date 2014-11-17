@@ -104,8 +104,12 @@ instance ToQuery AddWorkingStorage where
     toQuery = const mempty
 
 instance ToHeaders AddWorkingStorage
+
 instance ToJSON AddWorkingStorage where
-    toJSON = genericToJSON jsonOptions
+    toJSON AddWorkingStorage{..} = object
+        [ "GatewayARN" .= _awsGatewayARN
+        , "DiskIds"    .= _awsDiskIds
+        ]
 
 instance AWSRequest AddWorkingStorage where
     type Sv AddWorkingStorage = StorageGateway
@@ -115,4 +119,5 @@ instance AWSRequest AddWorkingStorage where
     response = jsonResponse
 
 instance FromJSON AddWorkingStorageResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AddWorkingStorageResponse" $ \o -> AddWorkingStorageResponse
+        <$> o .: "GatewayARN"

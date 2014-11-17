@@ -92,8 +92,11 @@ instance ToQuery DisableGateway where
     toQuery = const mempty
 
 instance ToHeaders DisableGateway
+
 instance ToJSON DisableGateway where
-    toJSON = genericToJSON jsonOptions
+    toJSON DisableGateway{..} = object
+        [ "GatewayARN" .= _dg1GatewayARN
+        ]
 
 instance AWSRequest DisableGateway where
     type Sv DisableGateway = StorageGateway
@@ -103,4 +106,5 @@ instance AWSRequest DisableGateway where
     response = jsonResponse
 
 instance FromJSON DisableGatewayResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DisableGatewayResponse" $ \o -> DisableGatewayResponse
+        <$> o .: "GatewayARN"

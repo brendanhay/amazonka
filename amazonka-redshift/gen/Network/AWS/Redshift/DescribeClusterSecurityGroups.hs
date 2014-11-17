@@ -150,5 +150,6 @@ instance AWSRequest DescribeClusterSecurityGroups where
     response = xmlResponse
 
 instance FromXML DescribeClusterSecurityGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeClusterSecurityGroupsResponse"
+    parseXML c = DescribeClusterSecurityGroupsResponse
+        <$> c .: "ClusterSecurityGroups"
+        <*> c .: "Marker"

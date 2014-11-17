@@ -152,5 +152,10 @@ instance AWSRequest DescribeLoggingStatus where
     response = xmlResponse
 
 instance FromXML DescribeLoggingStatusResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLoggingStatusResponse"
+    parseXML c = DescribeLoggingStatusResponse
+        <$> c .: "BucketName"
+        <*> c .: "LastFailureMessage"
+        <*> c .: "LastFailureTime"
+        <*> c .: "LastSuccessfulDeliveryTime"
+        <*> c .: "LoggingEnabled"
+        <*> c .: "S3KeyPrefix"

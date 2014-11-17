@@ -90,8 +90,11 @@ instance ToQuery GenerateRandom where
     toQuery = const mempty
 
 instance ToHeaders GenerateRandom
+
 instance ToJSON GenerateRandom where
-    toJSON = genericToJSON jsonOptions
+    toJSON GenerateRandom{..} = object
+        [ "NumberOfBytes" .= _grNumberOfBytes
+        ]
 
 instance AWSRequest GenerateRandom where
     type Sv GenerateRandom = KMS
@@ -101,4 +104,5 @@ instance AWSRequest GenerateRandom where
     response = jsonResponse
 
 instance FromJSON GenerateRandomResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GenerateRandomResponse" $ \o -> GenerateRandomResponse
+        <$> o .: "Plaintext"

@@ -175,5 +175,5 @@ instance AWSRequest DescribeNetworkInterfaces where
     response = xmlResponse
 
 instance FromXML DescribeNetworkInterfacesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeNetworkInterfacesResponse"
+    parseXML c = DescribeNetworkInterfacesResponse
+        <$> c .: "networkInterfaceSet"

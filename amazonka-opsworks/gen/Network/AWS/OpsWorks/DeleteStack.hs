@@ -79,8 +79,11 @@ instance ToQuery DeleteStack where
     toQuery = const mempty
 
 instance ToHeaders DeleteStack
+
 instance ToJSON DeleteStack where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteStack{..} = object
+        [ "StackId" .= _dsStackId
+        ]
 
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = OpsWorks

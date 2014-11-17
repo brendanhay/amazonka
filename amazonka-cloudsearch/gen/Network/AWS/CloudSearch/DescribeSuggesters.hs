@@ -129,5 +129,5 @@ instance AWSRequest DescribeSuggesters where
     response = xmlResponse
 
 instance FromXML DescribeSuggestersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSuggestersResponse"
+    parseXML c = DescribeSuggestersResponse
+        <$> c .: "Suggesters"

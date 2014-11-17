@@ -112,5 +112,5 @@ instance AWSRequest UpdateServiceAccessPolicies where
     response = xmlResponse
 
 instance FromXML UpdateServiceAccessPoliciesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateServiceAccessPoliciesResponse"
+    parseXML c = UpdateServiceAccessPoliciesResponse
+        <$> c .: "AccessPolicies"

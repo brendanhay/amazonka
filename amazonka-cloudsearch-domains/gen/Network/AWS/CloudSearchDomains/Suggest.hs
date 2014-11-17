@@ -130,8 +130,9 @@ instance ToPath Suggest where
 instance ToQuery Suggest
 
 instance ToHeaders Suggest
+
 instance ToJSON Suggest where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest Suggest where
     type Sv Suggest = CloudSearchDomains
@@ -141,4 +142,6 @@ instance AWSRequest Suggest where
     response = jsonResponse
 
 instance FromJSON SuggestResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "SuggestResponse" $ \o -> SuggestResponse
+        <$> o .: "status"
+        <*> o .: "suggest"

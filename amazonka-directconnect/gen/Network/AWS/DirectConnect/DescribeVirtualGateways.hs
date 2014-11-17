@@ -85,8 +85,9 @@ instance ToQuery DescribeVirtualGateways where
     toQuery = const mempty
 
 instance ToHeaders DescribeVirtualGateways
+
 instance ToJSON DescribeVirtualGateways where
-    toJSON = genericToJSON jsonOptions
+    toXML = const Null
 
 instance AWSRequest DescribeVirtualGateways where
     type Sv DescribeVirtualGateways = DirectConnect
@@ -96,4 +97,5 @@ instance AWSRequest DescribeVirtualGateways where
     response = jsonResponse
 
 instance FromJSON DescribeVirtualGatewaysResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeVirtualGatewaysResponse" $ \o -> DescribeVirtualGatewaysResponse
+        <$> o .: "virtualGateways"

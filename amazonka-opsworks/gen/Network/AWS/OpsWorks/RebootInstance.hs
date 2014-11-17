@@ -79,8 +79,11 @@ instance ToQuery RebootInstance where
     toQuery = const mempty
 
 instance ToHeaders RebootInstance
+
 instance ToJSON RebootInstance where
-    toJSON = genericToJSON jsonOptions
+    toJSON RebootInstance{..} = object
+        [ "InstanceId" .= _riInstanceId
+        ]
 
 instance AWSRequest RebootInstance where
     type Sv RebootInstance = OpsWorks

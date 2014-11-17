@@ -170,5 +170,10 @@ instance AWSRequest CreateJob where
     response = xmlResponse
 
 instance FromXML CreateJobResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateJobResponse"
+    parseXML c = CreateJobResponse
+        <$> c .: "AwsShippingAddress"
+        <*> c .: "JobId"
+        <*> c .: "JobType"
+        <*> c .: "Signature"
+        <*> c .: "SignatureFileContents"
+        <*> c .: "WarningMessage"

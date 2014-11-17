@@ -145,5 +145,7 @@ instance AWSRequest ListGroups where
     response = xmlResponse
 
 instance FromXML ListGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListGroupsResponse"
+    parseXML c = ListGroupsResponse
+        <$> c .: "Groups"
+        <*> c .: "IsTruncated"
+        <*> c .: "Marker"

@@ -128,8 +128,11 @@ instance ToQuery DescribeWorkingStorage where
     toQuery = const mempty
 
 instance ToHeaders DescribeWorkingStorage
+
 instance ToJSON DescribeWorkingStorage where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeWorkingStorage{..} = object
+        [ "GatewayARN" .= _dwsGatewayARN
+        ]
 
 instance AWSRequest DescribeWorkingStorage where
     type Sv DescribeWorkingStorage = StorageGateway
@@ -139,4 +142,8 @@ instance AWSRequest DescribeWorkingStorage where
     response = jsonResponse
 
 instance FromJSON DescribeWorkingStorageResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeWorkingStorageResponse" $ \o -> DescribeWorkingStorageResponse
+        <$> o .: "DiskIds"
+        <*> o .: "GatewayARN"
+        <*> o .: "WorkingStorageAllocatedInBytes"
+        <*> o .: "WorkingStorageUsedInBytes"

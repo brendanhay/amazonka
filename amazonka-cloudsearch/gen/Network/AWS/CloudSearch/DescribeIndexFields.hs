@@ -128,5 +128,5 @@ instance AWSRequest DescribeIndexFields where
     response = xmlResponse
 
 instance FromXML DescribeIndexFieldsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeIndexFieldsResponse"
+    parseXML c = DescribeIndexFieldsResponse
+        <$> c .: "IndexFields"

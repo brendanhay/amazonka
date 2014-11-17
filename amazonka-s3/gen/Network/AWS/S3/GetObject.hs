@@ -517,9 +517,9 @@ instance ToHeaders GetObject where
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _goSSECustomerKeyMD5
         , "x-amz-server-side-encryption-aws-kms-key-id"     =: _goSSEKMSKeyId
         ]
+
 instance ToXML GetObject where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetObject"
+    toXML = const (node "GetObject" [])
 
 instance AWSRequest GetObject where
     type Sv GetObject = S3

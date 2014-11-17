@@ -77,8 +77,11 @@ instance ToQuery EnableKey where
     toQuery = const mempty
 
 instance ToHeaders EnableKey
+
 instance ToJSON EnableKey where
-    toJSON = genericToJSON jsonOptions
+    toJSON EnableKey{..} = object
+        [ "KeyId" .= _ekKeyId
+        ]
 
 instance AWSRequest EnableKey where
     type Sv EnableKey = KMS

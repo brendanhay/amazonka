@@ -470,5 +470,5 @@ instance AWSRequest CreateDBInstance where
     response = xmlResponse
 
 instance FromXML CreateDBInstanceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBInstanceResponse"
+    parseXML c = CreateDBInstanceResponse
+        <$> c .: "DBInstance"

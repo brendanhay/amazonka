@@ -101,9 +101,9 @@ instance ToPath ListDistributions where
 instance ToQuery ListDistributions
 
 instance ToHeaders ListDistributions
+
 instance ToXML ListDistributions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListDistributions"
+    toXML = const (node "ListDistributions" [])
 
 instance AWSRequest ListDistributions where
     type Sv ListDistributions = CloudFront
@@ -113,5 +113,5 @@ instance AWSRequest ListDistributions where
     response = xmlResponse
 
 instance FromXML ListDistributionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListDistributionsResponse"
+    parseXML c = ListDistributionsResponse
+        <$> c .: "DistributionList"

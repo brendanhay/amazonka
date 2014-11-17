@@ -81,8 +81,9 @@ instance ToQuery DeletePipeline where
     toQuery = const mempty
 
 instance ToHeaders DeletePipeline
+
 instance ToJSON DeletePipeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = ElasticTranscoder

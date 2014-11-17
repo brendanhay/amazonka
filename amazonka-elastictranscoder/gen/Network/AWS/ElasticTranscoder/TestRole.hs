@@ -138,8 +138,14 @@ instance ToQuery TestRole where
     toQuery = const mempty
 
 instance ToHeaders TestRole
+
 instance ToJSON TestRole where
-    toJSON = genericToJSON jsonOptions
+    toJSON TestRole{..} = object
+        [ "Role"         .= _trRole
+        , "InputBucket"  .= _trInputBucket
+        , "OutputBucket" .= _trOutputBucket
+        , "Topics"       .= _trTopics
+        ]
 
 instance AWSRequest TestRole where
     type Sv TestRole = ElasticTranscoder
@@ -149,4 +155,6 @@ instance AWSRequest TestRole where
     response = jsonResponse
 
 instance FromJSON TestRoleResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TestRoleResponse" $ \o -> TestRoleResponse
+        <$> o .: "Messages"
+        <*> o .: "Success"

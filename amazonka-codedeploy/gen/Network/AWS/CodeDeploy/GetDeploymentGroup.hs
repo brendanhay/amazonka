@@ -103,8 +103,12 @@ instance ToQuery GetDeploymentGroup where
     toQuery = const mempty
 
 instance ToHeaders GetDeploymentGroup
+
 instance ToJSON GetDeploymentGroup where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetDeploymentGroup{..} = object
+        [ "applicationName"     .= _gdgApplicationName
+        , "deploymentGroupName" .= _gdgDeploymentGroupName
+        ]
 
 instance AWSRequest GetDeploymentGroup where
     type Sv GetDeploymentGroup = CodeDeploy
@@ -114,4 +118,5 @@ instance AWSRequest GetDeploymentGroup where
     response = jsonResponse
 
 instance FromJSON GetDeploymentGroupResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetDeploymentGroupResponse" $ \o -> GetDeploymentGroupResponse
+        <$> o .: "deploymentGroupInfo"

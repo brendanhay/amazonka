@@ -110,8 +110,11 @@ instance ToQuery DescribeChapCredentials where
     toQuery = const mempty
 
 instance ToHeaders DescribeChapCredentials
+
 instance ToJSON DescribeChapCredentials where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeChapCredentials{..} = object
+        [ "TargetARN" .= _dccTargetARN
+        ]
 
 instance AWSRequest DescribeChapCredentials where
     type Sv DescribeChapCredentials = StorageGateway
@@ -121,4 +124,5 @@ instance AWSRequest DescribeChapCredentials where
     response = jsonResponse
 
 instance FromJSON DescribeChapCredentialsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeChapCredentialsResponse" $ \o -> DescribeChapCredentialsResponse
+        <$> o .: "ChapCredentials"

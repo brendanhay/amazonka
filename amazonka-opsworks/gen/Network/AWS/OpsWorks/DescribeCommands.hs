@@ -121,8 +121,13 @@ instance ToQuery DescribeCommands where
     toQuery = const mempty
 
 instance ToHeaders DescribeCommands
+
 instance ToJSON DescribeCommands where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeCommands{..} = object
+        [ "DeploymentId" .= _dcDeploymentId
+        , "InstanceId"   .= _dcInstanceId
+        , "CommandIds"   .= _dcCommandIds
+        ]
 
 instance AWSRequest DescribeCommands where
     type Sv DescribeCommands = OpsWorks
@@ -132,4 +137,5 @@ instance AWSRequest DescribeCommands where
     response = jsonResponse
 
 instance FromJSON DescribeCommandsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeCommandsResponse" $ \o -> DescribeCommandsResponse
+        <$> o .: "Commands"

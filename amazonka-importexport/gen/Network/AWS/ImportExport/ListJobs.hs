@@ -114,5 +114,6 @@ instance AWSRequest ListJobs where
     response = xmlResponse
 
 instance FromXML ListJobsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListJobsResponse"
+    parseXML c = ListJobsResponse
+        <$> c .: "IsTruncated"
+        <*> c .: "Jobs"

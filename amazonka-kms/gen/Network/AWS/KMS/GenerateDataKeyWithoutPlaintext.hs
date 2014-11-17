@@ -146,8 +146,15 @@ instance ToQuery GenerateDataKeyWithoutPlaintext where
     toQuery = const mempty
 
 instance ToHeaders GenerateDataKeyWithoutPlaintext
+
 instance ToJSON GenerateDataKeyWithoutPlaintext where
-    toJSON = genericToJSON jsonOptions
+    toJSON GenerateDataKeyWithoutPlaintext{..} = object
+        [ "KeyId"             .= _gdkwpKeyId
+        , "EncryptionContext" .= _gdkwpEncryptionContext
+        , "KeySpec"           .= _gdkwpKeySpec
+        , "NumberOfBytes"     .= _gdkwpNumberOfBytes
+        , "GrantTokens"       .= _gdkwpGrantTokens
+        ]
 
 instance AWSRequest GenerateDataKeyWithoutPlaintext where
     type Sv GenerateDataKeyWithoutPlaintext = KMS
@@ -157,4 +164,6 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext where
     response = jsonResponse
 
 instance FromJSON GenerateDataKeyWithoutPlaintextResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GenerateDataKeyWithoutPlaintextResponse" $ \o -> GenerateDataKeyWithoutPlaintextResponse
+        <$> o .: "CiphertextBlob"
+        <*> o .: "KeyId"

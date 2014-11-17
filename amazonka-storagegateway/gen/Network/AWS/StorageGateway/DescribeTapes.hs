@@ -135,8 +135,14 @@ instance ToQuery DescribeTapes where
     toQuery = const mempty
 
 instance ToHeaders DescribeTapes
+
 instance ToJSON DescribeTapes where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeTapes{..} = object
+        [ "GatewayARN" .= _dtGatewayARN
+        , "TapeARNs"   .= _dtTapeARNs
+        , "Marker"     .= _dtMarker
+        , "Limit"      .= _dtLimit
+        ]
 
 instance AWSRequest DescribeTapes where
     type Sv DescribeTapes = StorageGateway
@@ -146,4 +152,6 @@ instance AWSRequest DescribeTapes where
     response = jsonResponse
 
 instance FromJSON DescribeTapesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeTapesResponse" $ \o -> DescribeTapesResponse
+        <$> o .: "Marker"
+        <*> o .: "Tapes"

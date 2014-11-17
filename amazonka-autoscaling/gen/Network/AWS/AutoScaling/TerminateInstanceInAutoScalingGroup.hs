@@ -111,5 +111,5 @@ instance AWSRequest TerminateInstanceInAutoScalingGroup where
     response = xmlResponse
 
 instance FromXML TerminateInstanceInAutoScalingGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TerminateInstanceInAutoScalingGroupResponse"
+    parseXML c = TerminateInstanceInAutoScalingGroupResponse
+        <$> c .: "Activity"

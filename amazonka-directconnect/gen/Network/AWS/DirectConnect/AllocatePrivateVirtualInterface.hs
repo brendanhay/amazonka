@@ -248,8 +248,13 @@ instance ToQuery AllocatePrivateVirtualInterface where
     toQuery = const mempty
 
 instance ToHeaders AllocatePrivateVirtualInterface
+
 instance ToJSON AllocatePrivateVirtualInterface where
-    toJSON = genericToJSON jsonOptions
+    toJSON AllocatePrivateVirtualInterface{..} = object
+        [ "connectionId"                         .= _apviConnectionId
+        , "ownerAccount"                         .= _apviOwnerAccount
+        , "newPrivateVirtualInterfaceAllocation" .= _apviNewPrivateVirtualInterfaceAllocation
+        ]
 
 instance AWSRequest AllocatePrivateVirtualInterface where
     type Sv AllocatePrivateVirtualInterface = DirectConnect
@@ -259,4 +264,19 @@ instance AWSRequest AllocatePrivateVirtualInterface where
     response = jsonResponse
 
 instance FromJSON AllocatePrivateVirtualInterfaceResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AllocatePrivateVirtualInterfaceResponse" $ \o -> AllocatePrivateVirtualInterfaceResponse
+        <$> o .: "amazonAddress"
+        <*> o .: "asn"
+        <*> o .: "authKey"
+        <*> o .: "connectionId"
+        <*> o .: "customerAddress"
+        <*> o .: "customerRouterConfig"
+        <*> o .: "location"
+        <*> o .: "ownerAccount"
+        <*> o .: "routeFilterPrefixes"
+        <*> o .: "virtualGatewayId"
+        <*> o .: "virtualInterfaceId"
+        <*> o .: "virtualInterfaceName"
+        <*> o .: "virtualInterfaceState"
+        <*> o .: "virtualInterfaceType"
+        <*> o .: "vlan"

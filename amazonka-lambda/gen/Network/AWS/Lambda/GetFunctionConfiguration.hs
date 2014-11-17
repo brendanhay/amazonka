@@ -207,8 +207,9 @@ instance ToQuery GetFunctionConfiguration where
     toQuery = const mempty
 
 instance ToHeaders GetFunctionConfiguration
+
 instance ToJSON GetFunctionConfiguration where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest GetFunctionConfiguration where
     type Sv GetFunctionConfiguration = Lambda
@@ -218,4 +219,16 @@ instance AWSRequest GetFunctionConfiguration where
     response = jsonResponse
 
 instance FromJSON GetFunctionConfigurationResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetFunctionConfigurationResponse" $ \o -> GetFunctionConfigurationResponse
+        <$> o .: "CodeSize"
+        <*> o .: "ConfigurationId"
+        <*> o .: "Description"
+        <*> o .: "FunctionARN"
+        <*> o .: "FunctionName"
+        <*> o .: "Handler"
+        <*> o .: "LastModified"
+        <*> o .: "MemorySize"
+        <*> o .: "Mode"
+        <*> o .: "Role"
+        <*> o .: "Runtime"
+        <*> o .: "Timeout"

@@ -129,5 +129,5 @@ instance AWSRequest DescribeExpressions where
     response = xmlResponse
 
 instance FromXML DescribeExpressionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeExpressionsResponse"
+    parseXML c = DescribeExpressionsResponse
+        <$> c .: "Expressions"

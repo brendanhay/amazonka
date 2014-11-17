@@ -87,8 +87,11 @@ instance ToQuery DeleteStream where
     toQuery = const mempty
 
 instance ToHeaders DeleteStream
+
 instance ToJSON DeleteStream where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteStream{..} = object
+        [ "StreamName" .= _dsStreamName
+        ]
 
 instance AWSRequest DeleteStream where
     type Sv DeleteStream = Kinesis

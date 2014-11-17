@@ -111,8 +111,11 @@ instance ToQuery DescribePipelines where
     toQuery = const mempty
 
 instance ToHeaders DescribePipelines
+
 instance ToJSON DescribePipelines where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribePipelines{..} = object
+        [ "pipelineIds" .= _dpPipelineIds
+        ]
 
 instance AWSRequest DescribePipelines where
     type Sv DescribePipelines = DataPipeline
@@ -122,4 +125,5 @@ instance AWSRequest DescribePipelines where
     response = jsonResponse
 
 instance FromJSON DescribePipelinesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribePipelinesResponse" $ \o -> DescribePipelinesResponse
+        <$> o .: "pipelineDescriptionList"

@@ -94,8 +94,11 @@ instance ToQuery DescribeConnections where
     toQuery = const mempty
 
 instance ToHeaders DescribeConnections
+
 instance ToJSON DescribeConnections where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeConnections{..} = object
+        [ "connectionId" .= _dc1ConnectionId
+        ]
 
 instance AWSRequest DescribeConnections where
     type Sv DescribeConnections = DirectConnect
@@ -105,4 +108,5 @@ instance AWSRequest DescribeConnections where
     response = jsonResponse
 
 instance FromJSON DescribeConnectionsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeConnectionsResponse" $ \o -> DescribeConnectionsResponse
+        <$> o .: "connections"

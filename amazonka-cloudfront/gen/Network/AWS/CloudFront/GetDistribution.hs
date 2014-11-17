@@ -102,9 +102,9 @@ instance ToQuery GetDistribution where
     toQuery = const mempty
 
 instance ToHeaders GetDistribution
+
 instance ToXML GetDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetDistribution"
+    toXML = const (node "GetDistribution" [])
 
 instance AWSRequest GetDistribution where
     type Sv GetDistribution = CloudFront

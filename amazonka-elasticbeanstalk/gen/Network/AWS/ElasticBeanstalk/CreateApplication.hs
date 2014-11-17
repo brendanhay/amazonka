@@ -110,5 +110,5 @@ instance AWSRequest CreateApplication where
     response = xmlResponse
 
 instance FromXML CreateApplicationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateApplicationResponse"
+    parseXML c = CreateApplicationResponse
+        <$> c .: "Application"

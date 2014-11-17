@@ -104,9 +104,9 @@ instance ToQuery GetInvalidation where
     toQuery = const mempty
 
 instance ToHeaders GetInvalidation
+
 instance ToXML GetInvalidation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetInvalidation"
+    toXML = const (node "GetInvalidation" [])
 
 instance AWSRequest GetInvalidation where
     type Sv GetInvalidation = CloudFront
@@ -116,5 +116,5 @@ instance AWSRequest GetInvalidation where
     response = xmlResponse
 
 instance FromXML GetInvalidationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetInvalidationResponse"
+    parseXML c = GetInvalidationResponse
+        <$> c .: "Invalidation"

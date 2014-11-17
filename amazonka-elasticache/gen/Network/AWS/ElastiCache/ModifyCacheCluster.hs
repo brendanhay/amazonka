@@ -350,5 +350,5 @@ instance AWSRequest ModifyCacheCluster where
     response = xmlResponse
 
 instance FromXML ModifyCacheClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyCacheClusterResponse"
+    parseXML c = ModifyCacheClusterResponse
+        <$> c .: "CacheCluster"

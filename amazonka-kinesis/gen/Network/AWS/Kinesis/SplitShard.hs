@@ -136,8 +136,13 @@ instance ToQuery SplitShard where
     toQuery = const mempty
 
 instance ToHeaders SplitShard
+
 instance ToJSON SplitShard where
-    toJSON = genericToJSON jsonOptions
+    toJSON SplitShard{..} = object
+        [ "StreamName"         .= _ssStreamName
+        , "ShardToSplit"       .= _ssShardToSplit
+        , "NewStartingHashKey" .= _ssNewStartingHashKey
+        ]
 
 instance AWSRequest SplitShard where
     type Sv SplitShard = Kinesis

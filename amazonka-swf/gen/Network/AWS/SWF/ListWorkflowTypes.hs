@@ -170,8 +170,16 @@ instance ToQuery ListWorkflowTypes where
     toQuery = const mempty
 
 instance ToHeaders ListWorkflowTypes
+
 instance ToJSON ListWorkflowTypes where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListWorkflowTypes{..} = object
+        [ "domain"             .= _lwtDomain
+        , "name"               .= _lwtName
+        , "registrationStatus" .= _lwtRegistrationStatus
+        , "nextPageToken"      .= _lwtNextPageToken
+        , "maximumPageSize"    .= _lwtMaximumPageSize
+        , "reverseOrder"       .= _lwtReverseOrder
+        ]
 
 instance AWSRequest ListWorkflowTypes where
     type Sv ListWorkflowTypes = SWF
@@ -181,4 +189,6 @@ instance AWSRequest ListWorkflowTypes where
     response = jsonResponse
 
 instance FromJSON ListWorkflowTypesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListWorkflowTypesResponse" $ \o -> ListWorkflowTypesResponse
+        <$> o .: "nextPageToken"
+        <*> o .: "typeInfos"

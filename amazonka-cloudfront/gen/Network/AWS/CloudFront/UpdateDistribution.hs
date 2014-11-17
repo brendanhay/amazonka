@@ -126,9 +126,11 @@ instance ToHeaders UpdateDistribution where
     toHeaders UpdateDistribution{..} = mconcat
         [ "If-Match" =: _udIfMatch
         ]
+
 instance ToXML UpdateDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateDistribution"
+    toXML UpdateDistribution{..} = node "UpdateDistribution"
+        [ "DistributionConfig" .= _udDistributionConfig
+        ]
 
 instance AWSRequest UpdateDistribution where
     type Sv UpdateDistribution = CloudFront

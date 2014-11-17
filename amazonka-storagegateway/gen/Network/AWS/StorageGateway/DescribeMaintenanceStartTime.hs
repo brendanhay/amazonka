@@ -125,8 +125,11 @@ instance ToQuery DescribeMaintenanceStartTime where
     toQuery = const mempty
 
 instance ToHeaders DescribeMaintenanceStartTime
+
 instance ToJSON DescribeMaintenanceStartTime where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeMaintenanceStartTime{..} = object
+        [ "GatewayARN" .= _dmstGatewayARN
+        ]
 
 instance AWSRequest DescribeMaintenanceStartTime where
     type Sv DescribeMaintenanceStartTime = StorageGateway
@@ -136,4 +139,9 @@ instance AWSRequest DescribeMaintenanceStartTime where
     response = jsonResponse
 
 instance FromJSON DescribeMaintenanceStartTimeResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeMaintenanceStartTimeResponse" $ \o -> DescribeMaintenanceStartTimeResponse
+        <$> o .: "DayOfWeek"
+        <*> o .: "GatewayARN"
+        <*> o .: "HourOfDay"
+        <*> o .: "MinuteOfHour"
+        <*> o .: "Timezone"

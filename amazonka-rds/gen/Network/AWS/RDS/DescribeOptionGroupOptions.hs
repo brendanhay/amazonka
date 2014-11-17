@@ -152,5 +152,6 @@ instance AWSRequest DescribeOptionGroupOptions where
     response = xmlResponse
 
 instance FromXML DescribeOptionGroupOptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeOptionGroupOptionsResponse"
+    parseXML c = DescribeOptionGroupOptionsResponse
+        <$> c .: "Marker"
+        <*> c .: "OptionGroupOptions"

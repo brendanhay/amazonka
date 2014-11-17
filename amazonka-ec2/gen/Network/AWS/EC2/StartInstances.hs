@@ -134,5 +134,5 @@ instance AWSRequest StartInstances where
     response = xmlResponse
 
 instance FromXML StartInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StartInstancesResponse"
+    parseXML c = StartInstancesResponse
+        <$> c .: "instancesSet"

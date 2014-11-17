@@ -164,5 +164,5 @@ instance AWSRequest CopySnapshot where
     response = xmlResponse
 
 instance FromXML CopySnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopySnapshotResponse"
+    parseXML c = CopySnapshotResponse
+        <$> c .: "snapshotId"

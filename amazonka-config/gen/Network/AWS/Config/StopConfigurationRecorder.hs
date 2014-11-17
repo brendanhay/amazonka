@@ -79,8 +79,11 @@ instance ToQuery StopConfigurationRecorder where
     toQuery = const mempty
 
 instance ToHeaders StopConfigurationRecorder
+
 instance ToJSON StopConfigurationRecorder where
-    toJSON = genericToJSON jsonOptions
+    toJSON StopConfigurationRecorder{..} = object
+        [ "ConfigurationRecorderName" .= _scrConfigurationRecorderName
+        ]
 
 instance AWSRequest StopConfigurationRecorder where
     type Sv StopConfigurationRecorder = Config

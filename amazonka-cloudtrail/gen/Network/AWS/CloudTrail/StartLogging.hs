@@ -75,8 +75,11 @@ instance ToQuery StartLogging where
     toQuery = const mempty
 
 instance ToHeaders StartLogging
+
 instance ToJSON StartLogging where
-    toJSON = genericToJSON jsonOptions
+    toJSON StartLogging{..} = object
+        [ "Name" .= _sl1Name
+        ]
 
 instance AWSRequest StartLogging where
     type Sv StartLogging = CloudTrail

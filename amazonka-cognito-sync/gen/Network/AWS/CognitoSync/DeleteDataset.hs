@@ -129,8 +129,9 @@ instance ToQuery DeleteDataset where
     toQuery = const mempty
 
 instance ToHeaders DeleteDataset
+
 instance ToJSON DeleteDataset where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest DeleteDataset where
     type Sv DeleteDataset = CognitoSync
@@ -140,4 +141,5 @@ instance AWSRequest DeleteDataset where
     response = jsonResponse
 
 instance FromJSON DeleteDatasetResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteDatasetResponse" $ \o -> DeleteDatasetResponse
+        <$> o .: "Dataset"

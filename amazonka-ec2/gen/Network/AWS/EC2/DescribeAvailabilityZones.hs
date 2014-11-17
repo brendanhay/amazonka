@@ -129,5 +129,5 @@ instance AWSRequest DescribeAvailabilityZones where
     response = xmlResponse
 
 instance FromXML DescribeAvailabilityZonesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAvailabilityZonesResponse"
+    parseXML c = DescribeAvailabilityZonesResponse
+        <$> c .: "availabilityZoneInfo"

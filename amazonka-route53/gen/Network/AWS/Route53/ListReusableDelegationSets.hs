@@ -163,9 +163,9 @@ instance ToPath ListReusableDelegationSets where
 instance ToQuery ListReusableDelegationSets
 
 instance ToHeaders ListReusableDelegationSets
+
 instance ToXML ListReusableDelegationSets where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListReusableDelegationSets"
+    toXML = const (node "ListReusableDelegationSets" [])
 
 instance AWSRequest ListReusableDelegationSets where
     type Sv ListReusableDelegationSets = Route53
@@ -175,5 +175,9 @@ instance AWSRequest ListReusableDelegationSets where
     response = xmlResponse
 
 instance FromXML ListReusableDelegationSetsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListReusableDelegationSetsResponse"
+    parseXML c = ListReusableDelegationSetsResponse
+        <$> c .: "DelegationSets"
+        <*> c .: "IsTruncated"
+        <*> c .: "Marker"
+        <*> c .: "MaxItems"
+        <*> c .: "NextMarker"

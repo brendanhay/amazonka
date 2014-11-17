@@ -143,5 +143,5 @@ instance AWSRequest DescribeVpnConnections where
     response = xmlResponse
 
 instance FromXML DescribeVpnConnectionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpnConnectionsResponse"
+    parseXML c = DescribeVpnConnectionsResponse
+        <$> c .: "vpnConnectionSet"

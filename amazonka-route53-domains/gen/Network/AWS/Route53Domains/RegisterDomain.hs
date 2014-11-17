@@ -231,8 +231,20 @@ instance ToQuery RegisterDomain where
     toQuery = const mempty
 
 instance ToHeaders RegisterDomain
+
 instance ToJSON RegisterDomain where
-    toJSON = genericToJSON jsonOptions
+    toJSON RegisterDomain{..} = object
+        [ "DomainName"                      .= _rdDomainName
+        , "IdnLangCode"                     .= _rdIdnLangCode
+        , "DurationInYears"                 .= _rdDurationInYears
+        , "AutoRenew"                       .= _rdAutoRenew
+        , "AdminContact"                    .= _rdAdminContact
+        , "RegistrantContact"               .= _rdRegistrantContact
+        , "TechContact"                     .= _rdTechContact
+        , "PrivacyProtectAdminContact"      .= _rdPrivacyProtectAdminContact
+        , "PrivacyProtectRegistrantContact" .= _rdPrivacyProtectRegistrantContact
+        , "PrivacyProtectTechContact"       .= _rdPrivacyProtectTechContact
+        ]
 
 instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = Route53Domains
@@ -242,4 +254,5 @@ instance AWSRequest RegisterDomain where
     response = jsonResponse
 
 instance FromJSON RegisterDomainResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RegisterDomainResponse" $ \o -> RegisterDomainResponse
+        <$> o .: "OperationId"

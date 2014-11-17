@@ -100,8 +100,12 @@ instance ToQuery AddCache where
     toQuery = const mempty
 
 instance ToHeaders AddCache
+
 instance ToJSON AddCache where
-    toJSON = genericToJSON jsonOptions
+    toJSON AddCache{..} = object
+        [ "GatewayARN" .= _acGatewayARN
+        , "DiskIds"    .= _acDiskIds
+        ]
 
 instance AWSRequest AddCache where
     type Sv AddCache = StorageGateway
@@ -111,4 +115,5 @@ instance AWSRequest AddCache where
     response = jsonResponse
 
 instance FromJSON AddCacheResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AddCacheResponse" $ \o -> AddCacheResponse
+        <$> o .: "GatewayARN"

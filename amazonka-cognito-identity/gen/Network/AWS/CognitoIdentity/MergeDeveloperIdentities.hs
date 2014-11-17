@@ -139,8 +139,14 @@ instance ToQuery MergeDeveloperIdentities where
     toQuery = const mempty
 
 instance ToHeaders MergeDeveloperIdentities
+
 instance ToJSON MergeDeveloperIdentities where
-    toJSON = genericToJSON jsonOptions
+    toJSON MergeDeveloperIdentities{..} = object
+        [ "SourceUserIdentifier"      .= _mdiSourceUserIdentifier
+        , "DestinationUserIdentifier" .= _mdiDestinationUserIdentifier
+        , "DeveloperProviderName"     .= _mdiDeveloperProviderName
+        , "IdentityPoolId"            .= _mdiIdentityPoolId
+        ]
 
 instance AWSRequest MergeDeveloperIdentities where
     type Sv MergeDeveloperIdentities = CognitoIdentity
@@ -150,4 +156,5 @@ instance AWSRequest MergeDeveloperIdentities where
     response = jsonResponse
 
 instance FromJSON MergeDeveloperIdentitiesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "MergeDeveloperIdentitiesResponse" $ \o -> MergeDeveloperIdentitiesResponse
+        <$> o .: "IdentityId"

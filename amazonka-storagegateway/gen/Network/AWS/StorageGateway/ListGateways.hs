@@ -114,8 +114,12 @@ instance ToQuery ListGateways where
     toQuery = const mempty
 
 instance ToHeaders ListGateways
+
 instance ToJSON ListGateways where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListGateways{..} = object
+        [ "Marker" .= _lgMarker
+        , "Limit"  .= _lgLimit
+        ]
 
 instance AWSRequest ListGateways where
     type Sv ListGateways = StorageGateway
@@ -125,4 +129,6 @@ instance AWSRequest ListGateways where
     response = jsonResponse
 
 instance FromJSON ListGatewaysResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListGatewaysResponse" $ \o -> ListGatewaysResponse
+        <$> o .: "Gateways"
+        <*> o .: "Marker"

@@ -102,8 +102,11 @@ instance ToQuery BatchGetDeployments where
     toQuery = const mempty
 
 instance ToHeaders BatchGetDeployments
+
 instance ToJSON BatchGetDeployments where
-    toJSON = genericToJSON jsonOptions
+    toJSON BatchGetDeployments{..} = object
+        [ "deploymentIds" .= _bgdDeploymentIds
+        ]
 
 instance AWSRequest BatchGetDeployments where
     type Sv BatchGetDeployments = CodeDeploy
@@ -113,4 +116,5 @@ instance AWSRequest BatchGetDeployments where
     response = jsonResponse
 
 instance FromJSON BatchGetDeploymentsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "BatchGetDeploymentsResponse" $ \o -> BatchGetDeploymentsResponse
+        <$> o .: "deploymentsInfo"

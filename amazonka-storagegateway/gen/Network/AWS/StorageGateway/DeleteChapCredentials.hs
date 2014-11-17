@@ -113,8 +113,12 @@ instance ToQuery DeleteChapCredentials where
     toQuery = const mempty
 
 instance ToHeaders DeleteChapCredentials
+
 instance ToJSON DeleteChapCredentials where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteChapCredentials{..} = object
+        [ "TargetARN"     .= _dcc1TargetARN
+        , "InitiatorName" .= _dcc1InitiatorName
+        ]
 
 instance AWSRequest DeleteChapCredentials where
     type Sv DeleteChapCredentials = StorageGateway
@@ -124,4 +128,6 @@ instance AWSRequest DeleteChapCredentials where
     response = jsonResponse
 
 instance FromJSON DeleteChapCredentialsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteChapCredentialsResponse" $ \o -> DeleteChapCredentialsResponse
+        <$> o .: "InitiatorName"
+        <*> o .: "TargetARN"

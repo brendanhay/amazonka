@@ -107,8 +107,11 @@ instance ToQuery DescribeStorediSCSIVolumes where
     toQuery = const mempty
 
 instance ToHeaders DescribeStorediSCSIVolumes
+
 instance ToJSON DescribeStorediSCSIVolumes where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeStorediSCSIVolumes{..} = object
+        [ "VolumeARNs" .= _dsscsivVolumeARNs
+        ]
 
 instance AWSRequest DescribeStorediSCSIVolumes where
     type Sv DescribeStorediSCSIVolumes = StorageGateway
@@ -118,4 +121,5 @@ instance AWSRequest DescribeStorediSCSIVolumes where
     response = jsonResponse
 
 instance FromJSON DescribeStorediSCSIVolumesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeStorediSCSIVolumesResponse" $ \o -> DescribeStorediSCSIVolumesResponse
+        <$> o .: "StorediSCSIVolumes"

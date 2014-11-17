@@ -109,8 +109,12 @@ instance ToQuery DescribeRaidArrays where
     toQuery = const mempty
 
 instance ToHeaders DescribeRaidArrays
+
 instance ToJSON DescribeRaidArrays where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeRaidArrays{..} = object
+        [ "InstanceId"   .= _draInstanceId
+        , "RaidArrayIds" .= _draRaidArrayIds
+        ]
 
 instance AWSRequest DescribeRaidArrays where
     type Sv DescribeRaidArrays = OpsWorks
@@ -120,4 +124,5 @@ instance AWSRequest DescribeRaidArrays where
     response = jsonResponse
 
 instance FromJSON DescribeRaidArraysResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeRaidArraysResponse" $ \o -> DescribeRaidArraysResponse
+        <$> o .: "RaidArrays"

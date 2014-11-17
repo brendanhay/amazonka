@@ -403,8 +403,20 @@ instance ToQuery PutItem where
     toQuery = const mempty
 
 instance ToHeaders PutItem
+
 instance ToJSON PutItem where
-    toJSON = genericToJSON jsonOptions
+    toJSON PutItem{..} = object
+        [ "TableName"                   .= _piTableName
+        , "Item"                        .= _piItem
+        , "Expected"                    .= _piExpected
+        , "ReturnValues"                .= _piReturnValues
+        , "ReturnConsumedCapacity"      .= _piReturnConsumedCapacity
+        , "ReturnItemCollectionMetrics" .= _piReturnItemCollectionMetrics
+        , "ConditionalOperator"         .= _piConditionalOperator
+        , "ConditionExpression"         .= _piConditionExpression
+        , "ExpressionAttributeNames"    .= _piExpressionAttributeNames
+        , "ExpressionAttributeValues"   .= _piExpressionAttributeValues
+        ]
 
 instance AWSRequest PutItem where
     type Sv PutItem = DynamoDB
@@ -414,4 +426,7 @@ instance AWSRequest PutItem where
     response = jsonResponse
 
 instance FromJSON PutItemResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PutItemResponse" $ \o -> PutItemResponse
+        <$> o .: "Attributes"
+        <*> o .: "ConsumedCapacity"
+        <*> o .: "ItemCollectionMetrics"

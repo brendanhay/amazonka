@@ -91,8 +91,11 @@ instance ToQuery DeleteSnapshotSchedule where
     toQuery = const mempty
 
 instance ToHeaders DeleteSnapshotSchedule
+
 instance ToJSON DeleteSnapshotSchedule where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteSnapshotSchedule{..} = object
+        [ "VolumeARN" .= _dss1VolumeARN
+        ]
 
 instance AWSRequest DeleteSnapshotSchedule where
     type Sv DeleteSnapshotSchedule = StorageGateway
@@ -102,4 +105,5 @@ instance AWSRequest DeleteSnapshotSchedule where
     response = jsonResponse
 
 instance FromJSON DeleteSnapshotScheduleResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteSnapshotScheduleResponse" $ \o -> DeleteSnapshotScheduleResponse
+        <$> o .: "VolumeARN"

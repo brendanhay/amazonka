@@ -114,5 +114,5 @@ instance AWSRequest DescribeDomains where
     response = xmlResponse
 
 instance FromXML DescribeDomainsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDomainsResponse"
+    parseXML c = DescribeDomainsResponse
+        <$> c .: "DomainStatusList"

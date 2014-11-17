@@ -168,5 +168,5 @@ instance AWSRequest CreateNetworkInterface where
     response = xmlResponse
 
 instance FromXML CreateNetworkInterfaceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateNetworkInterfaceResponse"
+    parseXML c = CreateNetworkInterfaceResponse
+        <$> c .: "networkInterface"

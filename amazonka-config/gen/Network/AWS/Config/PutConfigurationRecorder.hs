@@ -81,8 +81,11 @@ instance ToQuery PutConfigurationRecorder where
     toQuery = const mempty
 
 instance ToHeaders PutConfigurationRecorder
+
 instance ToJSON PutConfigurationRecorder where
-    toJSON = genericToJSON jsonOptions
+    toJSON PutConfigurationRecorder{..} = object
+        [ "ConfigurationRecorder" .= _pcrConfigurationRecorder
+        ]
 
 instance AWSRequest PutConfigurationRecorder where
     type Sv PutConfigurationRecorder = Config

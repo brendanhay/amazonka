@@ -112,8 +112,9 @@ instance ToPath ListFunctions where
 instance ToQuery ListFunctions
 
 instance ToHeaders ListFunctions
+
 instance ToJSON ListFunctions where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ListFunctions where
     type Sv ListFunctions = Lambda
@@ -123,4 +124,6 @@ instance AWSRequest ListFunctions where
     response = jsonResponse
 
 instance FromJSON ListFunctionsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListFunctionsResponse" $ \o -> ListFunctionsResponse
+        <$> o .: "Functions"
+        <*> o .: "NextMarker"

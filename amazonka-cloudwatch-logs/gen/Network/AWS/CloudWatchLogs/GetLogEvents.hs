@@ -174,8 +174,17 @@ instance ToQuery GetLogEvents where
     toQuery = const mempty
 
 instance ToHeaders GetLogEvents
+
 instance ToJSON GetLogEvents where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetLogEvents{..} = object
+        [ "logGroupName"  .= _gleLogGroupName
+        , "logStreamName" .= _gleLogStreamName
+        , "startTime"     .= _gleStartTime
+        , "endTime"       .= _gleEndTime
+        , "nextToken"     .= _gleNextToken
+        , "limit"         .= _gleLimit
+        , "startFromHead" .= _gleStartFromHead
+        ]
 
 instance AWSRequest GetLogEvents where
     type Sv GetLogEvents = CloudWatchLogs
@@ -185,4 +194,7 @@ instance AWSRequest GetLogEvents where
     response = jsonResponse
 
 instance FromJSON GetLogEventsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetLogEventsResponse" $ \o -> GetLogEventsResponse
+        <$> o .: "events"
+        <*> o .: "nextBackwardToken"
+        <*> o .: "nextForwardToken"

@@ -227,8 +227,19 @@ instance ToQuery StartWorkflowExecution where
     toQuery = const mempty
 
 instance ToHeaders StartWorkflowExecution
+
 instance ToJSON StartWorkflowExecution where
-    toJSON = genericToJSON jsonOptions
+    toJSON StartWorkflowExecution{..} = object
+        [ "domain"                       .= _swe1Domain
+        , "workflowId"                   .= _swe1WorkflowId
+        , "workflowType"                 .= _swe1WorkflowType
+        , "taskList"                     .= _swe1TaskList
+        , "input"                        .= _swe1Input
+        , "executionStartToCloseTimeout" .= _swe1ExecutionStartToCloseTimeout
+        , "tagList"                      .= _swe1TagList
+        , "taskStartToCloseTimeout"      .= _swe1TaskStartToCloseTimeout
+        , "childPolicy"                  .= _swe1ChildPolicy
+        ]
 
 instance AWSRequest StartWorkflowExecution where
     type Sv StartWorkflowExecution = SWF
@@ -238,4 +249,5 @@ instance AWSRequest StartWorkflowExecution where
     response = jsonResponse
 
 instance FromJSON StartWorkflowExecutionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "StartWorkflowExecutionResponse" $ \o -> StartWorkflowExecutionResponse
+        <$> o .: "runId"

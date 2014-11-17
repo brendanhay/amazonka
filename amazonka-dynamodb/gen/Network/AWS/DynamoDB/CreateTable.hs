@@ -202,8 +202,16 @@ instance ToQuery CreateTable where
     toQuery = const mempty
 
 instance ToHeaders CreateTable
+
 instance ToJSON CreateTable where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateTable{..} = object
+        [ "AttributeDefinitions"   .= _ctAttributeDefinitions
+        , "TableName"              .= _ctTableName
+        , "KeySchema"              .= _ctKeySchema
+        , "LocalSecondaryIndexes"  .= _ctLocalSecondaryIndexes
+        , "GlobalSecondaryIndexes" .= _ctGlobalSecondaryIndexes
+        , "ProvisionedThroughput"  .= _ctProvisionedThroughput
+        ]
 
 instance AWSRequest CreateTable where
     type Sv CreateTable = DynamoDB
@@ -213,4 +221,5 @@ instance AWSRequest CreateTable where
     response = jsonResponse
 
 instance FromJSON CreateTableResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateTableResponse" $ \o -> CreateTableResponse
+        <$> o .: "TableDescription"

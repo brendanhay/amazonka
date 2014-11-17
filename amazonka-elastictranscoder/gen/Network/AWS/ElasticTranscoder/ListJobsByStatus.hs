@@ -134,8 +134,9 @@ instance ToQuery ListJobsByStatus where
         ]
 
 instance ToHeaders ListJobsByStatus
+
 instance ToJSON ListJobsByStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ListJobsByStatus where
     type Sv ListJobsByStatus = ElasticTranscoder
@@ -145,4 +146,6 @@ instance AWSRequest ListJobsByStatus where
     response = jsonResponse
 
 instance FromJSON ListJobsByStatusResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListJobsByStatusResponse" $ \o -> ListJobsByStatusResponse
+        <$> o .: "Jobs"
+        <*> o .: "NextPageToken"

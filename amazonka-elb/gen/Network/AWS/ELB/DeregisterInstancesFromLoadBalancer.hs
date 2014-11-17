@@ -120,5 +120,5 @@ instance AWSRequest DeregisterInstancesFromLoadBalancer where
     response = xmlResponse
 
 instance FromXML DeregisterInstancesFromLoadBalancerResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeregisterInstancesFromLoadBalancerResponse"
+    parseXML c = DeregisterInstancesFromLoadBalancerResponse
+        <$> c .: "Instances"

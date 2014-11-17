@@ -82,9 +82,9 @@ instance ToQuery ListBuckets where
     toQuery = const mempty
 
 instance ToHeaders ListBuckets
+
 instance ToXML ListBuckets where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListBuckets"
+    toXML = const (node "ListBuckets" [])
 
 instance AWSRequest ListBuckets where
     type Sv ListBuckets = S3
@@ -94,5 +94,6 @@ instance AWSRequest ListBuckets where
     response = xmlResponse
 
 instance FromXML ListBucketsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListBucketsResponse"
+    parseXML c = ListBucketsResponse
+        <$> c .: "Buckets"
+        <*> c .: "Owner"

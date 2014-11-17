@@ -144,5 +144,5 @@ instance AWSRequest CreateSubnet where
     response = xmlResponse
 
 instance FromXML CreateSubnetResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSubnetResponse"
+    parseXML c = CreateSubnetResponse
+        <$> c .: "subnet"

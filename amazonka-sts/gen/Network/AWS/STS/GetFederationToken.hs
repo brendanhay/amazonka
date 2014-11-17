@@ -216,5 +216,7 @@ instance AWSRequest GetFederationToken where
     response = xmlResponse
 
 instance FromXML GetFederationTokenResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetFederationTokenResponse"
+    parseXML c = GetFederationTokenResponse
+        <$> c .: "Credentials"
+        <*> c .: "FederatedUser"
+        <*> c .: "PackedPolicySize"

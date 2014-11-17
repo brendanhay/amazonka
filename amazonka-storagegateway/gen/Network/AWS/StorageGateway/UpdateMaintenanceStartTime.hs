@@ -126,8 +126,14 @@ instance ToQuery UpdateMaintenanceStartTime where
     toQuery = const mempty
 
 instance ToHeaders UpdateMaintenanceStartTime
+
 instance ToJSON UpdateMaintenanceStartTime where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateMaintenanceStartTime{..} = object
+        [ "GatewayARN"   .= _umstGatewayARN
+        , "HourOfDay"    .= _umstHourOfDay
+        , "MinuteOfHour" .= _umstMinuteOfHour
+        , "DayOfWeek"    .= _umstDayOfWeek
+        ]
 
 instance AWSRequest UpdateMaintenanceStartTime where
     type Sv UpdateMaintenanceStartTime = StorageGateway
@@ -137,4 +143,5 @@ instance AWSRequest UpdateMaintenanceStartTime where
     response = jsonResponse
 
 instance FromJSON UpdateMaintenanceStartTimeResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateMaintenanceStartTimeResponse" $ \o -> UpdateMaintenanceStartTimeResponse
+        <$> o .: "GatewayARN"

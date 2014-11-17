@@ -120,5 +120,6 @@ instance AWSRequest DeleteMessageBatch where
     response = xmlResponse
 
 instance FromXML DeleteMessageBatchResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteMessageBatchResponse"
+    parseXML c = DeleteMessageBatchResponse
+        <$> c .: "Failed"
+        <*> c .: "Successful"

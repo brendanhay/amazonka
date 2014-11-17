@@ -136,5 +136,5 @@ instance AWSRequest ImportInstance where
     response = xmlResponse
 
 instance FromXML ImportInstanceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImportInstanceResponse"
+    parseXML c = ImportInstanceResponse
+        <$> c .: "conversionTask"

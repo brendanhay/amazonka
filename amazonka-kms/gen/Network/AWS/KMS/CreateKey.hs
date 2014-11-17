@@ -114,8 +114,13 @@ instance ToQuery CreateKey where
     toQuery = const mempty
 
 instance ToHeaders CreateKey
+
 instance ToJSON CreateKey where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateKey{..} = object
+        [ "Policy"      .= _ckPolicy
+        , "Description" .= _ckDescription
+        , "KeyUsage"    .= _ckKeyUsage
+        ]
 
 instance AWSRequest CreateKey where
     type Sv CreateKey = KMS
@@ -125,4 +130,5 @@ instance AWSRequest CreateKey where
     response = jsonResponse
 
 instance FromJSON CreateKeyResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateKeyResponse" $ \o -> CreateKeyResponse
+        <$> o .: "KeyMetadata"

@@ -86,9 +86,9 @@ instance ToQuery DeleteHealthCheck where
     toQuery = const mempty
 
 instance ToHeaders DeleteHealthCheck
+
 instance ToXML DeleteHealthCheck where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteHealthCheck"
+    toXML = const (node "DeleteHealthCheck" [])
 
 instance AWSRequest DeleteHealthCheck where
     type Sv DeleteHealthCheck = Route53

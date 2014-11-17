@@ -111,8 +111,9 @@ instance ToQuery DescribeIdentityUsage where
     toQuery = const mempty
 
 instance ToHeaders DescribeIdentityUsage
+
 instance ToJSON DescribeIdentityUsage where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest DescribeIdentityUsage where
     type Sv DescribeIdentityUsage = CognitoSync
@@ -122,4 +123,5 @@ instance AWSRequest DescribeIdentityUsage where
     response = jsonResponse
 
 instance FromJSON DescribeIdentityUsageResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeIdentityUsageResponse" $ \o -> DescribeIdentityUsageResponse
+        <$> o .: "IdentityUsage"

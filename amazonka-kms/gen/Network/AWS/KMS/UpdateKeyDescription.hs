@@ -83,8 +83,12 @@ instance ToQuery UpdateKeyDescription where
     toQuery = const mempty
 
 instance ToHeaders UpdateKeyDescription
+
 instance ToJSON UpdateKeyDescription where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateKeyDescription{..} = object
+        [ "KeyId"       .= _ukdKeyId
+        , "Description" .= _ukdDescription
+        ]
 
 instance AWSRequest UpdateKeyDescription where
     type Sv UpdateKeyDescription = KMS

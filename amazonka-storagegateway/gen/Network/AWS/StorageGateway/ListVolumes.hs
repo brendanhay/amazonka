@@ -133,8 +133,13 @@ instance ToQuery ListVolumes where
     toQuery = const mempty
 
 instance ToHeaders ListVolumes
+
 instance ToJSON ListVolumes where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListVolumes{..} = object
+        [ "GatewayARN" .= _lvGatewayARN
+        , "Marker"     .= _lvMarker
+        , "Limit"      .= _lvLimit
+        ]
 
 instance AWSRequest ListVolumes where
     type Sv ListVolumes = StorageGateway
@@ -144,4 +149,7 @@ instance AWSRequest ListVolumes where
     response = jsonResponse
 
 instance FromJSON ListVolumesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListVolumesResponse" $ \o -> ListVolumesResponse
+        <$> o .: "GatewayARN"
+        <*> o .: "Marker"
+        <*> o .: "VolumeInfos"

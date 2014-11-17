@@ -80,8 +80,11 @@ instance ToQuery DeleteLayer where
     toQuery = const mempty
 
 instance ToHeaders DeleteLayer
+
 instance ToJSON DeleteLayer where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteLayer{..} = object
+        [ "LayerId" .= _dlLayerId
+        ]
 
 instance AWSRequest DeleteLayer where
     type Sv DeleteLayer = OpsWorks

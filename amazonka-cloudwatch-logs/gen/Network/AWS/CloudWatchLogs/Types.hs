@@ -25,8 +25,6 @@ module Network.AWS.CloudWatchLogs.Types
       CloudWatchLogs
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * MetricFilter
     , MetricFilter
@@ -110,11 +108,6 @@ instance AWSService CloudWatchLogs where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data MetricFilter = MetricFilter
     { _mfCreationTime          :: Maybe Nat
     , _mfFilterName            :: Maybe Text
@@ -159,10 +152,19 @@ mfMetricTransformations =
         . _List1
 
 instance FromJSON MetricFilter where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "MetricFilter" $ \o -> MetricFilter
+        <$> o .: "creationTime"
+        <*> o .: "filterName"
+        <*> o .: "filterPattern"
+        <*> o .: "metricTransformations"
 
 instance ToJSON MetricFilter where
-    toJSON = genericToJSON jsonOptions
+    toJSON MetricFilter{..} = object
+        [ "filterName"            .= _mfFilterName
+        , "filterPattern"         .= _mfFilterPattern
+        , "metricTransformations" .= _mfMetricTransformations
+        , "creationTime"          .= _mfCreationTime
+        ]
 
 data MetricFilterMatchRecord = MetricFilterMatchRecord
     { _mfmrEventMessage    :: Maybe Text
@@ -199,10 +201,17 @@ mfmrExtractedValues =
         . _Map
 
 instance FromJSON MetricFilterMatchRecord where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "MetricFilterMatchRecord" $ \o -> MetricFilterMatchRecord
+        <$> o .: "eventMessage"
+        <*> o .: "eventNumber"
+        <*> o .: "extractedValues"
 
 instance ToJSON MetricFilterMatchRecord where
-    toJSON = genericToJSON jsonOptions
+    toJSON MetricFilterMatchRecord{..} = object
+        [ "eventNumber"     .= _mfmrEventNumber
+        , "eventMessage"    .= _mfmrEventMessage
+        , "extractedValues" .= _mfmrExtractedValues
+        ]
 
 data MetricTransformation = MetricTransformation
     { _mtMetricName      :: Text
@@ -241,10 +250,17 @@ mtMetricValue :: Lens' MetricTransformation Text
 mtMetricValue = lens _mtMetricValue (\s a -> s { _mtMetricValue = a })
 
 instance FromJSON MetricTransformation where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "MetricTransformation" $ \o -> MetricTransformation
+        <$> o .: "metricName"
+        <*> o .: "metricNamespace"
+        <*> o .: "metricValue"
 
 instance ToJSON MetricTransformation where
-    toJSON = genericToJSON jsonOptions
+    toJSON MetricTransformation{..} = object
+        [ "metricName"      .= _mtMetricName
+        , "metricNamespace" .= _mtMetricNamespace
+        , "metricValue"     .= _mtMetricValue
+        ]
 
 data LogStream = LogStream
     { _lsArn                 :: Maybe Text
@@ -323,10 +339,27 @@ lsUploadSequenceToken =
     lens _lsUploadSequenceToken (\s a -> s { _lsUploadSequenceToken = a })
 
 instance FromJSON LogStream where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "LogStream" $ \o -> LogStream
+        <$> o .: "arn"
+        <*> o .: "creationTime"
+        <*> o .: "firstEventTimestamp"
+        <*> o .: "lastEventTimestamp"
+        <*> o .: "lastIngestionTime"
+        <*> o .: "logStreamName"
+        <*> o .: "storedBytes"
+        <*> o .: "uploadSequenceToken"
 
 instance ToJSON LogStream where
-    toJSON = genericToJSON jsonOptions
+    toJSON LogStream{..} = object
+        [ "logStreamName"       .= _lsLogStreamName
+        , "creationTime"        .= _lsCreationTime
+        , "firstEventTimestamp" .= _lsFirstEventTimestamp
+        , "lastEventTimestamp"  .= _lsLastEventTimestamp
+        , "lastIngestionTime"   .= _lsLastIngestionTime
+        , "uploadSequenceToken" .= _lsUploadSequenceToken
+        , "arn"                 .= _lsArn
+        , "storedBytes"         .= _lsStoredBytes
+        ]
 
 data LogGroup = LogGroup
     { _lgArn               :: Maybe Text
@@ -386,10 +419,23 @@ lgStoredBytes = lens _lgStoredBytes (\s a -> s { _lgStoredBytes = a })
     . mapping _Nat
 
 instance FromJSON LogGroup where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "LogGroup" $ \o -> LogGroup
+        <$> o .: "arn"
+        <*> o .: "creationTime"
+        <*> o .: "logGroupName"
+        <*> o .: "metricFilterCount"
+        <*> o .: "retentionInDays"
+        <*> o .: "storedBytes"
 
 instance ToJSON LogGroup where
-    toJSON = genericToJSON jsonOptions
+    toJSON LogGroup{..} = object
+        [ "logGroupName"      .= _lgLogGroupName
+        , "creationTime"      .= _lgCreationTime
+        , "retentionInDays"   .= _lgRetentionInDays
+        , "metricFilterCount" .= _lgMetricFilterCount
+        , "arn"               .= _lgArn
+        , "storedBytes"       .= _lgStoredBytes
+        ]
 
 data InputLogEvent = InputLogEvent
     { _ileMessage   :: Text
@@ -420,10 +466,15 @@ ileTimestamp = lens _ileTimestamp (\s a -> s { _ileTimestamp = a })
     . _Nat
 
 instance FromJSON InputLogEvent where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InputLogEvent" $ \o -> InputLogEvent
+        <$> o .: "message"
+        <*> o .: "timestamp"
 
 instance ToJSON InputLogEvent where
-    toJSON = genericToJSON jsonOptions
+    toJSON InputLogEvent{..} = object
+        [ "timestamp" .= _ileTimestamp
+        , "message"   .= _ileMessage
+        ]
 
 data OutputLogEvent = OutputLogEvent
     { _oleIngestionTime :: Maybe Nat
@@ -460,7 +511,14 @@ oleTimestamp = lens _oleTimestamp (\s a -> s { _oleTimestamp = a })
     . mapping _Nat
 
 instance FromJSON OutputLogEvent where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "OutputLogEvent" $ \o -> OutputLogEvent
+        <$> o .: "ingestionTime"
+        <*> o .: "message"
+        <*> o .: "timestamp"
 
 instance ToJSON OutputLogEvent where
-    toJSON = genericToJSON jsonOptions
+    toJSON OutputLogEvent{..} = object
+        [ "timestamp"     .= _oleTimestamp
+        , "message"       .= _oleMessage
+        , "ingestionTime" .= _oleIngestionTime
+        ]

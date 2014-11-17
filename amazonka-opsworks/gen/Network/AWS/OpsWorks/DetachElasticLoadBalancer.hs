@@ -92,8 +92,12 @@ instance ToQuery DetachElasticLoadBalancer where
     toQuery = const mempty
 
 instance ToHeaders DetachElasticLoadBalancer
+
 instance ToJSON DetachElasticLoadBalancer where
-    toJSON = genericToJSON jsonOptions
+    toJSON DetachElasticLoadBalancer{..} = object
+        [ "ElasticLoadBalancerName" .= _delbElasticLoadBalancerName
+        , "LayerId"                 .= _delbLayerId
+        ]
 
 instance AWSRequest DetachElasticLoadBalancer where
     type Sv DetachElasticLoadBalancer = OpsWorks

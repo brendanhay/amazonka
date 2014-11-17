@@ -157,8 +157,15 @@ instance ToQuery ReEncrypt where
     toQuery = const mempty
 
 instance ToHeaders ReEncrypt
+
 instance ToJSON ReEncrypt where
-    toJSON = genericToJSON jsonOptions
+    toJSON ReEncrypt{..} = object
+        [ "CiphertextBlob"               .= _reCiphertextBlob
+        , "SourceEncryptionContext"      .= _reSourceEncryptionContext
+        , "DestinationKeyId"             .= _reDestinationKeyId
+        , "DestinationEncryptionContext" .= _reDestinationEncryptionContext
+        , "GrantTokens"                  .= _reGrantTokens
+        ]
 
 instance AWSRequest ReEncrypt where
     type Sv ReEncrypt = KMS
@@ -168,4 +175,7 @@ instance AWSRequest ReEncrypt where
     response = jsonResponse
 
 instance FromJSON ReEncryptResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ReEncryptResponse" $ \o -> ReEncryptResponse
+        <$> o .: "CiphertextBlob"
+        <*> o .: "KeyId"
+        <*> o .: "SourceKeyId"

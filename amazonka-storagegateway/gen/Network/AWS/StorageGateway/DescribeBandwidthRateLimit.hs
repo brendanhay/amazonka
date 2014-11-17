@@ -119,8 +119,11 @@ instance ToQuery DescribeBandwidthRateLimit where
     toQuery = const mempty
 
 instance ToHeaders DescribeBandwidthRateLimit
+
 instance ToJSON DescribeBandwidthRateLimit where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeBandwidthRateLimit{..} = object
+        [ "GatewayARN" .= _dbrlGatewayARN
+        ]
 
 instance AWSRequest DescribeBandwidthRateLimit where
     type Sv DescribeBandwidthRateLimit = StorageGateway
@@ -130,4 +133,7 @@ instance AWSRequest DescribeBandwidthRateLimit where
     response = jsonResponse
 
 instance FromJSON DescribeBandwidthRateLimitResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeBandwidthRateLimitResponse" $ \o -> DescribeBandwidthRateLimitResponse
+        <$> o .: "AverageDownloadRateLimitInBitsPerSec"
+        <*> o .: "AverageUploadRateLimitInBitsPerSec"
+        <*> o .: "GatewayARN"

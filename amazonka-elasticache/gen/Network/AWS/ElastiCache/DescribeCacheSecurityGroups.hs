@@ -136,5 +136,6 @@ instance AWSRequest DescribeCacheSecurityGroups where
     response = xmlResponse
 
 instance FromXML DescribeCacheSecurityGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeCacheSecurityGroupsResponse"
+    parseXML c = DescribeCacheSecurityGroupsResponse
+        <$> c .: "CacheSecurityGroups"
+        <*> c .: "Marker"

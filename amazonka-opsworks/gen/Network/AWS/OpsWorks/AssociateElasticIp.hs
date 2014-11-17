@@ -90,8 +90,12 @@ instance ToQuery AssociateElasticIp where
     toQuery = const mempty
 
 instance ToHeaders AssociateElasticIp
+
 instance ToJSON AssociateElasticIp where
-    toJSON = genericToJSON jsonOptions
+    toJSON AssociateElasticIp{..} = object
+        [ "ElasticIp"  .= _aeiElasticIp
+        , "InstanceId" .= _aeiInstanceId
+        ]
 
 instance AWSRequest AssociateElasticIp where
     type Sv AssociateElasticIp = OpsWorks

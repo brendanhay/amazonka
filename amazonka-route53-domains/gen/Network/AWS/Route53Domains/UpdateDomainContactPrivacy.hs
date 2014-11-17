@@ -143,8 +143,14 @@ instance ToQuery UpdateDomainContactPrivacy where
     toQuery = const mempty
 
 instance ToHeaders UpdateDomainContactPrivacy
+
 instance ToJSON UpdateDomainContactPrivacy where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateDomainContactPrivacy{..} = object
+        [ "DomainName"        .= _udcpDomainName
+        , "AdminPrivacy"      .= _udcpAdminPrivacy
+        , "RegistrantPrivacy" .= _udcpRegistrantPrivacy
+        , "TechPrivacy"       .= _udcpTechPrivacy
+        ]
 
 instance AWSRequest UpdateDomainContactPrivacy where
     type Sv UpdateDomainContactPrivacy = Route53Domains
@@ -154,4 +160,5 @@ instance AWSRequest UpdateDomainContactPrivacy where
     response = jsonResponse
 
 instance FromJSON UpdateDomainContactPrivacyResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateDomainContactPrivacyResponse" $ \o -> UpdateDomainContactPrivacyResponse
+        <$> o .: "OperationId"

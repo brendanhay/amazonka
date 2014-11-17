@@ -106,8 +106,12 @@ instance ToQuery RespondActivityTaskCanceled where
     toQuery = const mempty
 
 instance ToHeaders RespondActivityTaskCanceled
+
 instance ToJSON RespondActivityTaskCanceled where
-    toJSON = genericToJSON jsonOptions
+    toJSON RespondActivityTaskCanceled{..} = object
+        [ "taskToken" .= _ratc1TaskToken
+        , "details"   .= _ratc1Details
+        ]
 
 instance AWSRequest RespondActivityTaskCanceled where
     type Sv RespondActivityTaskCanceled = SWF

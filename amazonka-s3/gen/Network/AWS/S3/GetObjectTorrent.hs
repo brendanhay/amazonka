@@ -101,9 +101,9 @@ instance ToQuery GetObjectTorrent where
     toQuery = const "torrent"
 
 instance ToHeaders GetObjectTorrent
+
 instance ToXML GetObjectTorrent where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetObjectTorrent"
+    toXML = const (node "GetObjectTorrent" [])
 
 instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3

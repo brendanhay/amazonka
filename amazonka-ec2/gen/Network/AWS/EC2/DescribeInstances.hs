@@ -277,5 +277,6 @@ instance AWSRequest DescribeInstances where
     response = xmlResponse
 
 instance FromXML DescribeInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeInstancesResponse"
+    parseXML c = DescribeInstancesResponse
+        <$> c .: "nextToken"
+        <*> c .: "reservationSet"

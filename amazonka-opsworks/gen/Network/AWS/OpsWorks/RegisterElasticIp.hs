@@ -105,8 +105,12 @@ instance ToQuery RegisterElasticIp where
     toQuery = const mempty
 
 instance ToHeaders RegisterElasticIp
+
 instance ToJSON RegisterElasticIp where
-    toJSON = genericToJSON jsonOptions
+    toJSON RegisterElasticIp{..} = object
+        [ "ElasticIp" .= _reiElasticIp
+        , "StackId"   .= _reiStackId
+        ]
 
 instance AWSRequest RegisterElasticIp where
     type Sv RegisterElasticIp = OpsWorks
@@ -116,4 +120,5 @@ instance AWSRequest RegisterElasticIp where
     response = jsonResponse
 
 instance FromJSON RegisterElasticIpResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RegisterElasticIpResponse" $ \o -> RegisterElasticIpResponse
+        <$> o .: "ElasticIp"

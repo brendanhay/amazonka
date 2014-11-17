@@ -86,8 +86,12 @@ instance ToQuery RevokeGrant where
     toQuery = const mempty
 
 instance ToHeaders RevokeGrant
+
 instance ToJSON RevokeGrant where
-    toJSON = genericToJSON jsonOptions
+    toJSON RevokeGrant{..} = object
+        [ "KeyId"   .= _rgKeyId
+        , "GrantId" .= _rgGrantId
+        ]
 
 instance AWSRequest RevokeGrant where
     type Sv RevokeGrant = KMS

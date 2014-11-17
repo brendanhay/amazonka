@@ -125,5 +125,7 @@ instance AWSRequest GetSAMLProvider where
     response = xmlResponse
 
 instance FromXML GetSAMLProviderResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetSAMLProviderResponse"
+    parseXML c = GetSAMLProviderResponse
+        <$> c .: "CreateDate"
+        <*> c .: "SAMLMetadataDocument"
+        <*> c .: "ValidUntil"

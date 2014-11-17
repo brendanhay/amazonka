@@ -25,8 +25,6 @@ module Network.AWS.Route53.Types
       Route53
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * AliasTarget
     , AliasTarget
@@ -207,9 +205,6 @@ instance AWSService Route53 where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-
 data AliasTarget = AliasTarget
     { _atDNSName              :: Text
     , _atEvaluateTargetHealth :: Bool
@@ -258,12 +253,17 @@ atHostedZoneId :: Lens' AliasTarget Text
 atHostedZoneId = lens _atHostedZoneId (\s a -> s { _atHostedZoneId = a })
 
 instance FromXML AliasTarget where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AliasTarget"
+    parseXML c = AliasTarget
+        <$> c .: "DNSName"
+        <*> c .: "EvaluateTargetHealth"
+        <*> c .: "HostedZoneId"
 
 instance ToXML AliasTarget where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AliasTarget"
+    toXML AliasTarget{..} = node "AliasTarget"
+        [ "HostedZoneId"         .= _atHostedZoneId
+        , "DNSName"              .= _atDNSName
+        , "EvaluateTargetHealth" .= _atEvaluateTargetHealth
+        ]
 
 newtype ResourceRecord = ResourceRecord
     { _rrValue :: Text
@@ -286,12 +286,13 @@ rrValue :: Lens' ResourceRecord Text
 rrValue = lens _rrValue (\s a -> s { _rrValue = a })
 
 instance FromXML ResourceRecord where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResourceRecord"
+    parseXML c = ResourceRecord
+        <$> c .: "Value"
 
 instance ToXML ResourceRecord where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResourceRecord"
+    toXML ResourceRecord{..} = node "ResourceRecord"
+        [ "Value" .= _rrValue
+        ]
 
 data Tag = Tag
     { _tagKey   :: Maybe Text
@@ -321,12 +322,15 @@ tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Tag"
+    parseXML c = Tag
+        <$> c .: "Key"
+        <*> c .: "Value"
 
 instance ToXML Tag where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "Tag"
+    toXML Tag{..} = node "Tag"
+        [ "Key"   .= _tagKey
+        , "Value" .= _tagValue
+        ]
 
 data GeoLocationDetails = GeoLocationDetails
     { _gldContinentCode   :: Maybe Text
@@ -398,12 +402,23 @@ gldSubdivisionName =
     lens _gldSubdivisionName (\s a -> s { _gldSubdivisionName = a })
 
 instance FromXML GeoLocationDetails where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GeoLocationDetails"
+    parseXML c = GeoLocationDetails
+        <$> c .: "ContinentCode"
+        <*> c .: "ContinentName"
+        <*> c .: "CountryCode"
+        <*> c .: "CountryName"
+        <*> c .: "SubdivisionCode"
+        <*> c .: "SubdivisionName"
 
 instance ToXML GeoLocationDetails where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GeoLocationDetails"
+    toXML GeoLocationDetails{..} = node "GeoLocationDetails"
+        [ "ContinentCode"   .= _gldContinentCode
+        , "ContinentName"   .= _gldContinentName
+        , "CountryCode"     .= _gldCountryCode
+        , "CountryName"     .= _gldCountryName
+        , "SubdivisionCode" .= _gldSubdivisionCode
+        , "SubdivisionName" .= _gldSubdivisionName
+        ]
 
 data HealthCheck = HealthCheck
     { _hcCallerReference    :: Text
@@ -459,12 +474,19 @@ hcId :: Lens' HealthCheck Text
 hcId = lens _hcId (\s a -> s { _hcId = a })
 
 instance FromXML HealthCheck where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HealthCheck"
+    parseXML c = HealthCheck
+        <$> c .: "CallerReference"
+        <*> c .: "HealthCheckConfig"
+        <*> c .: "HealthCheckVersion"
+        <*> c .: "Id"
 
 instance ToXML HealthCheck where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HealthCheck"
+    toXML HealthCheck{..} = node "HealthCheck"
+        [ "Id"                 .= _hcId
+        , "CallerReference"    .= _hcCallerReference
+        , "HealthCheckConfig"  .= _hcHealthCheckConfig
+        , "HealthCheckVersion" .= _hcHealthCheckVersion
+        ]
 
 data VPCRegion
     = ApNortheast1 -- ^ ap-northeast-1
@@ -507,12 +529,10 @@ instance ToText VPCRegion where
         UsWest2      -> "us-west-2"
 
 instance FromXML VPCRegion where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VPCRegion"
+    parseXML = fromXMLText "VPCRegion"
 
 instance ToXML VPCRegion where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "VPCRegion"
+    toXML = toXMLText
 
 data ChangeAction
     = Create  -- ^ CREATE
@@ -534,12 +554,10 @@ instance ToText ChangeAction where
         Upsert  -> "UPSERT"
 
 instance FromXML ChangeAction where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeAction"
+    parseXML = fromXMLText "ChangeAction"
 
 instance ToXML ChangeAction where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeAction"
+    toXML = toXMLText
 
 data TagResourceType
     = Healthcheck -- ^ healthcheck
@@ -554,12 +572,10 @@ instance ToText TagResourceType where
     toText Healthcheck = "healthcheck"
 
 instance FromXML TagResourceType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TagResourceType"
+    parseXML = fromXMLText "TagResourceType"
 
 instance ToXML TagResourceType where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TagResourceType"
+    toXML = toXMLText
 
 data HealthCheckConfig = HealthCheckConfig
     { _hccFailureThreshold         :: Maybe Nat
@@ -659,12 +675,27 @@ hccType :: Lens' HealthCheckConfig Text
 hccType = lens _hccType (\s a -> s { _hccType = a })
 
 instance FromXML HealthCheckConfig where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HealthCheckConfig"
+    parseXML c = HealthCheckConfig
+        <$> c .: "FailureThreshold"
+        <*> c .: "FullyQualifiedDomainName"
+        <*> c .: "IPAddress"
+        <*> c .: "Port"
+        <*> c .: "RequestInterval"
+        <*> c .: "ResourcePath"
+        <*> c .: "SearchString"
+        <*> c .: "Type"
 
 instance ToXML HealthCheckConfig where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HealthCheckConfig"
+    toXML HealthCheckConfig{..} = node "HealthCheckConfig"
+        [ "IPAddress"                .= _hccIPAddress
+        , "Port"                     .= _hccPort
+        , "Type"                     .= _hccType
+        , "ResourcePath"             .= _hccResourcePath
+        , "FullyQualifiedDomainName" .= _hccFullyQualifiedDomainName
+        , "SearchString"             .= _hccSearchString
+        , "RequestInterval"          .= _hccRequestInterval
+        , "FailureThreshold"         .= _hccFailureThreshold
+        ]
 
 data Change = Change
     { _cAction            :: Text
@@ -697,12 +728,15 @@ cResourceRecordSet =
     lens _cResourceRecordSet (\s a -> s { _cResourceRecordSet = a })
 
 instance FromXML Change where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Change"
+    parseXML c = Change
+        <$> c .: "Action"
+        <*> c .: "ResourceRecordSet"
 
 instance ToXML Change where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "Change"
+    toXML Change{..} = node "Change"
+        [ "Action"            .= _cAction
+        , "ResourceRecordSet" .= _cResourceRecordSet
+        ]
 
 data ResourceRecordSetFailover
     = Primary   -- ^ PRIMARY
@@ -721,12 +755,10 @@ instance ToText ResourceRecordSetFailover where
         Secondary -> "SECONDARY"
 
 instance FromXML ResourceRecordSetFailover where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResourceRecordSetFailover"
+    parseXML = fromXMLText "ResourceRecordSetFailover"
 
 instance ToXML ResourceRecordSetFailover where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResourceRecordSetFailover"
+    toXML = toXMLText
 
 data HostedZone = HostedZone
     { _hzCallerReference        :: Text
@@ -793,12 +825,21 @@ hzResourceRecordSetCount =
         (\s a -> s { _hzResourceRecordSetCount = a })
 
 instance FromXML HostedZone where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HostedZone"
+    parseXML c = HostedZone
+        <$> c .: "CallerReference"
+        <*> c .: "Config"
+        <*> c .: "Id"
+        <*> c .: "Name"
+        <*> c .: "ResourceRecordSetCount"
 
 instance ToXML HostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HostedZone"
+    toXML HostedZone{..} = node "HostedZone"
+        [ "Id"                     .= _hzId
+        , "Name"                   .= _hzName
+        , "CallerReference"        .= _hzCallerReference
+        , "Config"                 .= _hzConfig
+        , "ResourceRecordSetCount" .= _hzResourceRecordSetCount
+        ]
 
 data ResourceTagSet = ResourceTagSet
     { _rtsResourceId   :: Maybe Text
@@ -839,12 +880,17 @@ rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a })
     . _List1
 
 instance FromXML ResourceTagSet where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResourceTagSet"
+    parseXML c = ResourceTagSet
+        <$> c .: "ResourceId"
+        <*> c .: "ResourceType"
+        <*> c .: "Tags"
 
 instance ToXML ResourceTagSet where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResourceTagSet"
+    toXML ResourceTagSet{..} = node "ResourceTagSet"
+        [ "ResourceType" .= _rtsResourceType
+        , "ResourceId"   .= _rtsResourceId
+        , "Tags"         .= _rtsTags
+        ]
 
 data ChangeStatus
     = Insync  -- ^ INSYNC
@@ -863,12 +909,10 @@ instance ToText ChangeStatus where
         Pending -> "PENDING"
 
 instance FromXML ChangeStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeStatus"
+    parseXML = fromXMLText "ChangeStatus"
 
 instance ToXML ChangeStatus where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeStatus"
+    toXML = toXMLText
 
 data ChangeBatch = ChangeBatch
     { _cbChanges :: List1 Change
@@ -901,12 +945,15 @@ cbComment :: Lens' ChangeBatch (Maybe Text)
 cbComment = lens _cbComment (\s a -> s { _cbComment = a })
 
 instance FromXML ChangeBatch where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeBatch"
+    parseXML c = ChangeBatch
+        <$> c .: "Changes"
+        <*> c .: "Comment"
 
 instance ToXML ChangeBatch where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeBatch"
+    toXML ChangeBatch{..} = node "ChangeBatch"
+        [ "Comment" .= _cbComment
+        , "Changes" .= _cbChanges
+        ]
 
 data StatusReport = StatusReport
     { _srCheckedTime :: Maybe RFC822
@@ -941,12 +988,15 @@ srStatus :: Lens' StatusReport (Maybe Text)
 srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 
 instance FromXML StatusReport where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StatusReport"
+    parseXML c = StatusReport
+        <$> c .: "CheckedTime"
+        <*> c .: "Status"
 
 instance ToXML StatusReport where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "StatusReport"
+    toXML StatusReport{..} = node "StatusReport"
+        [ "Status"      .= _srStatus
+        , "CheckedTime" .= _srCheckedTime
+        ]
 
 data HealthCheckType
     = Http          -- ^ HTTP
@@ -974,12 +1024,10 @@ instance ToText HealthCheckType where
         Tcp           -> "TCP"
 
 instance FromXML HealthCheckType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HealthCheckType"
+    parseXML = fromXMLText "HealthCheckType"
 
 instance ToXML HealthCheckType where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HealthCheckType"
+    toXML = toXMLText
 
 data VPC = VPC
     { _vpcVPCId     :: Maybe Text
@@ -1007,12 +1055,15 @@ vpcVPCRegion :: Lens' VPC (Maybe Text)
 vpcVPCRegion = lens _vpcVPCRegion (\s a -> s { _vpcVPCRegion = a })
 
 instance FromXML VPC where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VPC"
+    parseXML c = VPC
+        <$> c .: "VPCId"
+        <*> c .: "VPCRegion"
 
 instance ToXML VPC where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "VPC"
+    toXML VPC{..} = node "VPC"
+        [ "VPCRegion" .= _vpcVPCRegion
+        , "VPCId"     .= _vpcVPCId
+        ]
 
 data HostedZoneConfig = HostedZoneConfig
     { _hzcComment     :: Maybe Text
@@ -1043,12 +1094,15 @@ hzcPrivateZone :: Lens' HostedZoneConfig (Maybe Bool)
 hzcPrivateZone = lens _hzcPrivateZone (\s a -> s { _hzcPrivateZone = a })
 
 instance FromXML HostedZoneConfig where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HostedZoneConfig"
+    parseXML c = HostedZoneConfig
+        <$> c .: "Comment"
+        <*> c .: "PrivateZone"
 
 instance ToXML HostedZoneConfig where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HostedZoneConfig"
+    toXML HostedZoneConfig{..} = node "HostedZoneConfig"
+        [ "Comment"     .= _hzcComment
+        , "PrivateZone" .= _hzcPrivateZone
+        ]
 
 data ResourceRecordSet = ResourceRecordSet
     { _rrsAliasTarget     :: Maybe AliasTarget
@@ -1184,12 +1238,33 @@ rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a })
     . mapping _Nat
 
 instance FromXML ResourceRecordSet where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResourceRecordSet"
+    parseXML c = ResourceRecordSet
+        <$> c .: "AliasTarget"
+        <*> c .: "Failover"
+        <*> c .: "GeoLocation"
+        <*> c .: "HealthCheckId"
+        <*> c .: "Name"
+        <*> c .: "Region"
+        <*> c .: "ResourceRecords"
+        <*> c .: "SetIdentifier"
+        <*> c .: "TTL"
+        <*> c .: "Type"
+        <*> c .: "Weight"
 
 instance ToXML ResourceRecordSet where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResourceRecordSet"
+    toXML ResourceRecordSet{..} = node "ResourceRecordSet"
+        [ "Name"            .= _rrsName
+        , "Type"            .= _rrsType
+        , "SetIdentifier"   .= _rrsSetIdentifier
+        , "Weight"          .= _rrsWeight
+        , "Region"          .= _rrsRegion
+        , "GeoLocation"     .= _rrsGeoLocation
+        , "Failover"        .= _rrsFailover
+        , "TTL"             .= _rrsTTL
+        , "ResourceRecords" .= _rrsResourceRecords
+        , "AliasTarget"     .= _rrsAliasTarget
+        , "HealthCheckId"   .= _rrsHealthCheckId
+        ]
 
 data DelegationSet = DelegationSet
     { _dsCallerReference :: Maybe Text
@@ -1231,12 +1306,17 @@ dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a })
     . _List1
 
 instance FromXML DelegationSet where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DelegationSet"
+    parseXML c = DelegationSet
+        <$> c .: "CallerReference"
+        <*> c .: "Id"
+        <*> c .: "NameServers"
 
 instance ToXML DelegationSet where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DelegationSet"
+    toXML DelegationSet{..} = node "DelegationSet"
+        [ "Id"              .= _dsId
+        , "CallerReference" .= _dsCallerReference
+        , "NameServers"     .= _dsNameServers
+        ]
 
 data ChangeInfo = ChangeInfo
     { _ciComment     :: Maybe Text
@@ -1296,12 +1376,19 @@ ciSubmittedAt = lens _ciSubmittedAt (\s a -> s { _ciSubmittedAt = a })
     . _Time
 
 instance FromXML ChangeInfo where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeInfo"
+    parseXML c = ChangeInfo
+        <$> c .: "Comment"
+        <*> c .: "Id"
+        <*> c .: "Status"
+        <*> c .: "SubmittedAt"
 
 instance ToXML ChangeInfo where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeInfo"
+    toXML ChangeInfo{..} = node "ChangeInfo"
+        [ "Id"          .= _ciId
+        , "Status"      .= _ciStatus
+        , "SubmittedAt" .= _ciSubmittedAt
+        , "Comment"     .= _ciComment
+        ]
 
 data GeoLocation = GeoLocation
     { _glContinentCode   :: Maybe Text
@@ -1349,12 +1436,17 @@ glSubdivisionCode =
     lens _glSubdivisionCode (\s a -> s { _glSubdivisionCode = a })
 
 instance FromXML GeoLocation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GeoLocation"
+    parseXML c = GeoLocation
+        <$> c .: "ContinentCode"
+        <*> c .: "CountryCode"
+        <*> c .: "SubdivisionCode"
 
 instance ToXML GeoLocation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GeoLocation"
+    toXML GeoLocation{..} = node "GeoLocation"
+        [ "ContinentCode"   .= _glContinentCode
+        , "CountryCode"     .= _glCountryCode
+        , "SubdivisionCode" .= _glSubdivisionCode
+        ]
 
 data HealthCheckObservation = HealthCheckObservation
     { _hcoIPAddress    :: Maybe Text
@@ -1386,9 +1478,12 @@ hcoStatusReport :: Lens' HealthCheckObservation (Maybe StatusReport)
 hcoStatusReport = lens _hcoStatusReport (\s a -> s { _hcoStatusReport = a })
 
 instance FromXML HealthCheckObservation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HealthCheckObservation"
+    parseXML c = HealthCheckObservation
+        <$> c .: "IPAddress"
+        <*> c .: "StatusReport"
 
 instance ToXML HealthCheckObservation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HealthCheckObservation"
+    toXML HealthCheckObservation{..} = node "HealthCheckObservation"
+        [ "IPAddress"    .= _hcoIPAddress
+        , "StatusReport" .= _hcoStatusReport
+        ]

@@ -192,8 +192,21 @@ instance ToQuery CreateApp where
     toQuery = const mempty
 
 instance ToHeaders CreateApp
+
 instance ToJSON CreateApp where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateApp{..} = object
+        [ "StackId"          .= _caStackId
+        , "Shortname"        .= _caShortname
+        , "Name"             .= _caName
+        , "Description"      .= _caDescription
+        , "DataSources"      .= _caDataSources
+        , "Type"             .= _caType
+        , "AppSource"        .= _caAppSource
+        , "Domains"          .= _caDomains
+        , "EnableSsl"        .= _caEnableSsl
+        , "SslConfiguration" .= _caSslConfiguration
+        , "Attributes"       .= _caAttributes
+        ]
 
 instance AWSRequest CreateApp where
     type Sv CreateApp = OpsWorks
@@ -203,4 +216,5 @@ instance AWSRequest CreateApp where
     response = jsonResponse
 
 instance FromJSON CreateAppResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateAppResponse" $ \o -> CreateAppResponse
+        <$> o .: "AppId"

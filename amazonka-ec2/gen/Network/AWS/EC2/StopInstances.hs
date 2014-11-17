@@ -144,5 +144,5 @@ instance AWSRequest StopInstances where
     response = xmlResponse
 
 instance FromXML StopInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StopInstancesResponse"
+    parseXML c = StopInstancesResponse
+        <$> c .: "instancesSet"

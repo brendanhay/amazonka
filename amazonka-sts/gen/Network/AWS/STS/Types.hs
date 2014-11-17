@@ -25,8 +25,6 @@ module Network.AWS.STS.Types
       STS
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * Credentials
     , Credentials
@@ -71,11 +69,6 @@ instance AWSService STS where
         }
 
     handle = restError alwaysFail
-
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "https://sts.amazonaws.com/doc/2011-06-15/"
-    }
 
 data Credentials = Credentials
     { _cAccessKeyId     :: Text
@@ -127,8 +120,11 @@ cSessionToken :: Lens' Credentials Text
 cSessionToken = lens _cSessionToken (\s a -> s { _cSessionToken = a })
 
 instance FromXML Credentials where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Credentials"
+    parseXML c = Credentials
+        <$> c .: "AccessKeyId"
+        <*> c .: "Expiration"
+        <*> c .: "SecretAccessKey"
+        <*> c .: "SessionToken"
 
 instance ToQuery Credentials
 
@@ -166,8 +162,9 @@ fuFederatedUserId =
     lens _fuFederatedUserId (\s a -> s { _fuFederatedUserId = a })
 
 instance FromXML FederatedUser where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "FederatedUser"
+    parseXML c = FederatedUser
+        <$> c .: "Arn"
+        <*> c .: "FederatedUserId"
 
 instance ToQuery FederatedUser
 
@@ -205,7 +202,8 @@ aruAssumedRoleId :: Lens' AssumedRoleUser Text
 aruAssumedRoleId = lens _aruAssumedRoleId (\s a -> s { _aruAssumedRoleId = a })
 
 instance FromXML AssumedRoleUser where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssumedRoleUser"
+    parseXML c = AssumedRoleUser
+        <$> c .: "Arn"
+        <*> c .: "AssumedRoleId"
 
 instance ToQuery AssumedRoleUser

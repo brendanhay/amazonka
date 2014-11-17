@@ -132,8 +132,14 @@ instance ToQuery Encrypt where
     toQuery = const mempty
 
 instance ToHeaders Encrypt
+
 instance ToJSON Encrypt where
-    toJSON = genericToJSON jsonOptions
+    toJSON Encrypt{..} = object
+        [ "KeyId"             .= _eKeyId
+        , "Plaintext"         .= _ePlaintext
+        , "EncryptionContext" .= _eEncryptionContext
+        , "GrantTokens"       .= _eGrantTokens
+        ]
 
 instance AWSRequest Encrypt where
     type Sv Encrypt = KMS
@@ -143,4 +149,6 @@ instance AWSRequest Encrypt where
     response = jsonResponse
 
 instance FromJSON EncryptResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "EncryptResponse" $ \o -> EncryptResponse
+        <$> o .: "CiphertextBlob"
+        <*> o .: "KeyId"

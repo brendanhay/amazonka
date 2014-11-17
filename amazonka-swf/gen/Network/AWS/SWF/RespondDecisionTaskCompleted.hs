@@ -111,8 +111,13 @@ instance ToQuery RespondDecisionTaskCompleted where
     toQuery = const mempty
 
 instance ToHeaders RespondDecisionTaskCompleted
+
 instance ToJSON RespondDecisionTaskCompleted where
-    toJSON = genericToJSON jsonOptions
+    toJSON RespondDecisionTaskCompleted{..} = object
+        [ "taskToken"        .= _rdtcTaskToken
+        , "decisions"        .= _rdtcDecisions
+        , "executionContext" .= _rdtcExecutionContext
+        ]
 
 instance AWSRequest RespondDecisionTaskCompleted where
     type Sv RespondDecisionTaskCompleted = SWF

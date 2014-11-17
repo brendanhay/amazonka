@@ -194,5 +194,10 @@ instance AWSRequest AttachVolume where
     response = xmlResponse
 
 instance FromXML AttachVolumeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttachVolumeResponse"
+    parseXML c = AttachVolumeResponse
+        <$> c .: "attachTime"
+        <*> c .: "deleteOnTermination"
+        <*> c .: "device"
+        <*> c .: "instanceId"
+        <*> c .: "status"
+        <*> c .: "volumeId"

@@ -152,8 +152,12 @@ instance ToQuery GetRecords where
     toQuery = const mempty
 
 instance ToHeaders GetRecords
+
 instance ToJSON GetRecords where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetRecords{..} = object
+        [ "ShardIterator" .= _grShardIterator
+        , "Limit"         .= _grLimit
+        ]
 
 instance AWSRequest GetRecords where
     type Sv GetRecords = Kinesis
@@ -163,4 +167,6 @@ instance AWSRequest GetRecords where
     response = jsonResponse
 
 instance FromJSON GetRecordsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetRecordsResponse" $ \o -> GetRecordsResponse
+        <$> o .: "NextShardIterator"
+        <*> o .: "Records"

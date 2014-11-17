@@ -106,8 +106,14 @@ instance ToQuery RegisterRdsDbInstance where
     toQuery = const mempty
 
 instance ToHeaders RegisterRdsDbInstance
+
 instance ToJSON RegisterRdsDbInstance where
-    toJSON = genericToJSON jsonOptions
+    toJSON RegisterRdsDbInstance{..} = object
+        [ "StackId"          .= _rrdiStackId
+        , "RdsDbInstanceArn" .= _rrdiRdsDbInstanceArn
+        , "DbUser"           .= _rrdiDbUser
+        , "DbPassword"       .= _rrdiDbPassword
+        ]
 
 instance AWSRequest RegisterRdsDbInstance where
     type Sv RegisterRdsDbInstance = OpsWorks

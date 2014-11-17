@@ -223,8 +223,17 @@ instance ToQuery CreateTrail where
     toQuery = const mempty
 
 instance ToHeaders CreateTrail
+
 instance ToJSON CreateTrail where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateTrail{..} = object
+        [ "Name"                       .= _ctName
+        , "S3BucketName"               .= _ctS3BucketName
+        , "S3KeyPrefix"                .= _ctS3KeyPrefix
+        , "SnsTopicName"               .= _ctSnsTopicName
+        , "IncludeGlobalServiceEvents" .= _ctIncludeGlobalServiceEvents
+        , "CloudWatchLogsLogGroupArn"  .= _ctCloudWatchLogsLogGroupArn
+        , "CloudWatchLogsRoleArn"      .= _ctCloudWatchLogsRoleArn
+        ]
 
 instance AWSRequest CreateTrail where
     type Sv CreateTrail = CloudTrail
@@ -234,4 +243,11 @@ instance AWSRequest CreateTrail where
     response = jsonResponse
 
 instance FromJSON CreateTrailResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateTrailResponse" $ \o -> CreateTrailResponse
+        <$> o .: "CloudWatchLogsLogGroupArn"
+        <*> o .: "CloudWatchLogsRoleArn"
+        <*> o .: "IncludeGlobalServiceEvents"
+        <*> o .: "Name"
+        <*> o .: "S3BucketName"
+        <*> o .: "S3KeyPrefix"
+        <*> o .: "SnsTopicName"

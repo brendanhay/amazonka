@@ -124,5 +124,5 @@ instance AWSRequest CreateLoginProfile where
     response = xmlResponse
 
 instance FromXML CreateLoginProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateLoginProfileResponse"
+    parseXML c = CreateLoginProfileResponse
+        <$> c .: "LoginProfile"

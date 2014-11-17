@@ -212,5 +212,6 @@ instance AWSRequest DescribeReservedDBInstances where
     response = xmlResponse
 
 instance FromXML DescribeReservedDBInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedDBInstancesResponse"
+    parseXML c = DescribeReservedDBInstancesResponse
+        <$> c .: "Marker"
+        <*> c .: "ReservedDBInstances"

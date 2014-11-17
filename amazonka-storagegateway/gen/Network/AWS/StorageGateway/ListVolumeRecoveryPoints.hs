@@ -102,8 +102,11 @@ instance ToQuery ListVolumeRecoveryPoints where
     toQuery = const mempty
 
 instance ToHeaders ListVolumeRecoveryPoints
+
 instance ToJSON ListVolumeRecoveryPoints where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListVolumeRecoveryPoints{..} = object
+        [ "GatewayARN" .= _lvrpGatewayARN
+        ]
 
 instance AWSRequest ListVolumeRecoveryPoints where
     type Sv ListVolumeRecoveryPoints = StorageGateway
@@ -113,4 +116,6 @@ instance AWSRequest ListVolumeRecoveryPoints where
     response = jsonResponse
 
 instance FromJSON ListVolumeRecoveryPointsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListVolumeRecoveryPointsResponse" $ \o -> ListVolumeRecoveryPointsResponse
+        <$> o .: "GatewayARN"
+        <*> o .: "VolumeRecoveryPointInfos"

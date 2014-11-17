@@ -163,8 +163,20 @@ instance ToQuery UpdateApp where
     toQuery = const mempty
 
 instance ToHeaders UpdateApp
+
 instance ToJSON UpdateApp where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateApp{..} = object
+        [ "AppId"            .= _uaAppId
+        , "Name"             .= _uaName
+        , "Description"      .= _uaDescription
+        , "DataSources"      .= _uaDataSources
+        , "Type"             .= _uaType
+        , "AppSource"        .= _uaAppSource
+        , "Domains"          .= _uaDomains
+        , "EnableSsl"        .= _uaEnableSsl
+        , "SslConfiguration" .= _uaSslConfiguration
+        , "Attributes"       .= _uaAttributes
+        ]
 
 instance AWSRequest UpdateApp where
     type Sv UpdateApp = OpsWorks

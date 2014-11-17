@@ -129,8 +129,13 @@ instance ToQuery DescribeStream where
     toQuery = const mempty
 
 instance ToHeaders DescribeStream
+
 instance ToJSON DescribeStream where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeStream{..} = object
+        [ "StreamName"            .= _ds1StreamName
+        , "Limit"                 .= _ds1Limit
+        , "ExclusiveStartShardId" .= _ds1ExclusiveStartShardId
+        ]
 
 instance AWSRequest DescribeStream where
     type Sv DescribeStream = Kinesis
@@ -140,4 +145,5 @@ instance AWSRequest DescribeStream where
     response = jsonResponse
 
 instance FromJSON DescribeStreamResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeStreamResponse" $ \o -> DescribeStreamResponse
+        <$> o .: "StreamDescription"

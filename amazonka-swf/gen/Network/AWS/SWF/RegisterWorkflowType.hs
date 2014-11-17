@@ -195,8 +195,18 @@ instance ToQuery RegisterWorkflowType where
     toQuery = const mempty
 
 instance ToHeaders RegisterWorkflowType
+
 instance ToJSON RegisterWorkflowType where
-    toJSON = genericToJSON jsonOptions
+    toJSON RegisterWorkflowType{..} = object
+        [ "domain"                              .= _rwtDomain
+        , "name"                                .= _rwtName
+        , "version"                             .= _rwtVersion
+        , "description"                         .= _rwtDescription
+        , "defaultTaskStartToCloseTimeout"      .= _rwtDefaultTaskStartToCloseTimeout
+        , "defaultExecutionStartToCloseTimeout" .= _rwtDefaultExecutionStartToCloseTimeout
+        , "defaultTaskList"                     .= _rwtDefaultTaskList
+        , "defaultChildPolicy"                  .= _rwtDefaultChildPolicy
+        ]
 
 instance AWSRequest RegisterWorkflowType where
     type Sv RegisterWorkflowType = SWF

@@ -25,8 +25,6 @@ module Network.AWS.ElasticTranscoder.Types
       ElasticTranscoder
     -- ** Error
     , RESTError
-    -- ** JSON
-    , jsonOptions
 
     -- * PipelineOutputConfig
     , PipelineOutputConfig
@@ -286,11 +284,6 @@ instance AWSService ElasticTranscoder where
 
     handle = restError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket       :: Maybe Text
     , _pocPermissions  :: [Permission]
@@ -351,10 +344,17 @@ pocStorageClass :: Lens' PipelineOutputConfig (Maybe Text)
 pocStorageClass = lens _pocStorageClass (\s a -> s { _pocStorageClass = a })
 
 instance FromJSON PipelineOutputConfig where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PipelineOutputConfig" $ \o -> PipelineOutputConfig
+        <$> o .: "Bucket"
+        <*> o .: "Permissions"
+        <*> o .: "StorageClass"
 
 instance ToJSON PipelineOutputConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON PipelineOutputConfig{..} = object
+        [ "Bucket"       .= _pocBucket
+        , "StorageClass" .= _pocStorageClass
+        , "Permissions"  .= _pocPermissions
+        ]
 
 data CreateJobPlaylist = CreateJobPlaylist
     { _cjpFormat     :: Maybe Text
@@ -422,10 +422,17 @@ cjpOutputKeys :: Lens' CreateJobPlaylist [Text]
 cjpOutputKeys = lens _cjpOutputKeys (\s a -> s { _cjpOutputKeys = a })
 
 instance FromJSON CreateJobPlaylist where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateJobPlaylist" $ \o -> CreateJobPlaylist
+        <$> o .: "Format"
+        <*> o .: "Name"
+        <*> o .: "OutputKeys"
 
 instance ToJSON CreateJobPlaylist where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateJobPlaylist{..} = object
+        [ "Name"       .= _cjpName
+        , "Format"     .= _cjpFormat
+        , "OutputKeys" .= _cjpOutputKeys
+        ]
 
 data Captions = Captions
     { _cCaptionFormats :: [CaptionFormat]
@@ -477,10 +484,17 @@ cMergePolicy :: Lens' Captions (Maybe Text)
 cMergePolicy = lens _cMergePolicy (\s a -> s { _cMergePolicy = a })
 
 instance FromJSON Captions where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Captions" $ \o -> Captions
+        <$> o .: "CaptionFormats"
+        <*> o .: "CaptionSources"
+        <*> o .: "MergePolicy"
 
 instance ToJSON Captions where
-    toJSON = genericToJSON jsonOptions
+    toJSON Captions{..} = object
+        [ "MergePolicy"    .= _cMergePolicy
+        , "CaptionSources" .= _cCaptionSources
+        , "CaptionFormats" .= _cCaptionFormats
+        ]
 
 newtype AudioCodecOptions = AudioCodecOptions
     { _acoProfile :: Maybe Text
@@ -511,10 +525,13 @@ acoProfile :: Lens' AudioCodecOptions (Maybe Text)
 acoProfile = lens _acoProfile (\s a -> s { _acoProfile = a })
 
 instance FromJSON AudioCodecOptions where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AudioCodecOptions" $ \o -> AudioCodecOptions
+        <$> o .: "Profile"
 
 instance ToJSON AudioCodecOptions where
-    toJSON = genericToJSON jsonOptions
+    toJSON AudioCodecOptions{..} = object
+        [ "Profile" .= _acoProfile
+        ]
 
 data JobOutput = JobOutput
     { _joAlbumArt         :: Maybe JobAlbumArt
@@ -751,10 +768,41 @@ joWidth :: Lens' JobOutput (Maybe Int)
 joWidth = lens _joWidth (\s a -> s { _joWidth = a })
 
 instance FromJSON JobOutput where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "JobOutput" $ \o -> JobOutput
+        <$> o .: "AlbumArt"
+        <*> o .: "Captions"
+        <*> o .: "Composition"
+        <*> o .: "Duration"
+        <*> o .: "Height"
+        <*> o .: "Id"
+        <*> o .: "Key"
+        <*> o .: "PresetId"
+        <*> o .: "Rotate"
+        <*> o .: "SegmentDuration"
+        <*> o .: "Status"
+        <*> o .: "StatusDetail"
+        <*> o .: "ThumbnailPattern"
+        <*> o .: "Watermarks"
+        <*> o .: "Width"
 
 instance ToJSON JobOutput where
-    toJSON = genericToJSON jsonOptions
+    toJSON JobOutput{..} = object
+        [ "Id"               .= _joId
+        , "Key"              .= _joKey
+        , "ThumbnailPattern" .= _joThumbnailPattern
+        , "Rotate"           .= _joRotate
+        , "PresetId"         .= _joPresetId
+        , "SegmentDuration"  .= _joSegmentDuration
+        , "Status"           .= _joStatus
+        , "StatusDetail"     .= _joStatusDetail
+        , "Duration"         .= _joDuration
+        , "Width"            .= _joWidth
+        , "Height"           .= _joHeight
+        , "Watermarks"       .= _joWatermarks
+        , "AlbumArt"         .= _joAlbumArt
+        , "Composition"      .= _joComposition
+        , "Captions"         .= _joCaptions
+        ]
 
 data Job' = Job'
     { _jArn             :: Maybe Text
@@ -865,10 +913,29 @@ jStatus :: Lens' Job' (Maybe Text)
 jStatus = lens _jStatus (\s a -> s { _jStatus = a })
 
 instance FromJSON Job' where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Job'" $ \o -> Job'
+        <$> o .: "Arn"
+        <*> o .: "Id"
+        <*> o .: "Input"
+        <*> o .: "Output"
+        <*> o .: "OutputKeyPrefix"
+        <*> o .: "Outputs"
+        <*> o .: "PipelineId"
+        <*> o .: "Playlists"
+        <*> o .: "Status"
 
 instance ToJSON Job' where
-    toJSON = genericToJSON jsonOptions
+    toJSON Job'{..} = object
+        [ "Id"              .= _jId
+        , "Arn"             .= _jArn
+        , "PipelineId"      .= _jPipelineId
+        , "Input"           .= _jInput
+        , "Output"          .= _jOutput
+        , "Outputs"         .= _jOutputs
+        , "OutputKeyPrefix" .= _jOutputKeyPrefix
+        , "Playlists"       .= _jPlaylists
+        , "Status"          .= _jStatus
+        ]
 
 data CaptionSource = CaptionSource
     { _csKey        :: Maybe Text
@@ -923,10 +990,19 @@ csTimeOffset :: Lens' CaptionSource (Maybe Text)
 csTimeOffset = lens _csTimeOffset (\s a -> s { _csTimeOffset = a })
 
 instance FromJSON CaptionSource where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CaptionSource" $ \o -> CaptionSource
+        <$> o .: "Key"
+        <*> o .: "Label"
+        <*> o .: "Language"
+        <*> o .: "TimeOffset"
 
 instance ToJSON CaptionSource where
-    toJSON = genericToJSON jsonOptions
+    toJSON CaptionSource{..} = object
+        [ "Key"        .= _csKey
+        , "Language"   .= _csLanguage
+        , "TimeOffset" .= _csTimeOffset
+        , "Label"      .= _csLabel
+        ]
 
 data Artwork = Artwork
     { _aAlbumArtFormat :: Maybe Text
@@ -1021,10 +1097,23 @@ aSizingPolicy :: Lens' Artwork (Maybe Text)
 aSizingPolicy = lens _aSizingPolicy (\s a -> s { _aSizingPolicy = a })
 
 instance FromJSON Artwork where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Artwork" $ \o -> Artwork
+        <$> o .: "AlbumArtFormat"
+        <*> o .: "InputKey"
+        <*> o .: "MaxHeight"
+        <*> o .: "MaxWidth"
+        <*> o .: "PaddingPolicy"
+        <*> o .: "SizingPolicy"
 
 instance ToJSON Artwork where
-    toJSON = genericToJSON jsonOptions
+    toJSON Artwork{..} = object
+        [ "InputKey"       .= _aInputKey
+        , "MaxWidth"       .= _aMaxWidth
+        , "MaxHeight"      .= _aMaxHeight
+        , "SizingPolicy"   .= _aSizingPolicy
+        , "PaddingPolicy"  .= _aPaddingPolicy
+        , "AlbumArtFormat" .= _aAlbumArtFormat
+        ]
 
 data TimeSpan = TimeSpan
     { _tsDuration  :: Maybe Text
@@ -1063,10 +1152,15 @@ tsStartTime :: Lens' TimeSpan (Maybe Text)
 tsStartTime = lens _tsStartTime (\s a -> s { _tsStartTime = a })
 
 instance FromJSON TimeSpan where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TimeSpan" $ \o -> TimeSpan
+        <$> o .: "Duration"
+        <*> o .: "StartTime"
 
 instance ToJSON TimeSpan where
-    toJSON = genericToJSON jsonOptions
+    toJSON TimeSpan{..} = object
+        [ "StartTime" .= _tsStartTime
+        , "Duration"  .= _tsDuration
+        ]
 
 data CreateJobOutput = CreateJobOutput
     { _cjoAlbumArt         :: Maybe JobAlbumArt
@@ -1233,10 +1327,29 @@ cjoWatermarks :: Lens' CreateJobOutput [JobWatermark]
 cjoWatermarks = lens _cjoWatermarks (\s a -> s { _cjoWatermarks = a })
 
 instance FromJSON CreateJobOutput where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateJobOutput" $ \o -> CreateJobOutput
+        <$> o .: "AlbumArt"
+        <*> o .: "Captions"
+        <*> o .: "Composition"
+        <*> o .: "Key"
+        <*> o .: "PresetId"
+        <*> o .: "Rotate"
+        <*> o .: "SegmentDuration"
+        <*> o .: "ThumbnailPattern"
+        <*> o .: "Watermarks"
 
 instance ToJSON CreateJobOutput where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateJobOutput{..} = object
+        [ "Key"              .= _cjoKey
+        , "ThumbnailPattern" .= _cjoThumbnailPattern
+        , "Rotate"           .= _cjoRotate
+        , "PresetId"         .= _cjoPresetId
+        , "SegmentDuration"  .= _cjoSegmentDuration
+        , "Watermarks"       .= _cjoWatermarks
+        , "AlbumArt"         .= _cjoAlbumArt
+        , "Composition"      .= _cjoComposition
+        , "Captions"         .= _cjoCaptions
+        ]
 
 data AudioParameters = AudioParameters
     { _apBitRate      :: Maybe Text
@@ -1299,10 +1412,21 @@ apSampleRate :: Lens' AudioParameters (Maybe Text)
 apSampleRate = lens _apSampleRate (\s a -> s { _apSampleRate = a })
 
 instance FromJSON AudioParameters where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AudioParameters" $ \o -> AudioParameters
+        <$> o .: "BitRate"
+        <*> o .: "Channels"
+        <*> o .: "Codec"
+        <*> o .: "CodecOptions"
+        <*> o .: "SampleRate"
 
 instance ToJSON AudioParameters where
-    toJSON = genericToJSON jsonOptions
+    toJSON AudioParameters{..} = object
+        [ "Codec"        .= _apCodec
+        , "SampleRate"   .= _apSampleRate
+        , "BitRate"      .= _apBitRate
+        , "Channels"     .= _apChannels
+        , "CodecOptions" .= _apCodecOptions
+        ]
 
 data Thumbnails = Thumbnails
     { _tAspectRatio   :: Maybe Text
@@ -1423,10 +1547,27 @@ tSizingPolicy :: Lens' Thumbnails (Maybe Text)
 tSizingPolicy = lens _tSizingPolicy (\s a -> s { _tSizingPolicy = a })
 
 instance FromJSON Thumbnails where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Thumbnails" $ \o -> Thumbnails
+        <$> o .: "AspectRatio"
+        <*> o .: "Format"
+        <*> o .: "Interval"
+        <*> o .: "MaxHeight"
+        <*> o .: "MaxWidth"
+        <*> o .: "PaddingPolicy"
+        <*> o .: "Resolution"
+        <*> o .: "SizingPolicy"
 
 instance ToJSON Thumbnails where
-    toJSON = genericToJSON jsonOptions
+    toJSON Thumbnails{..} = object
+        [ "Format"        .= _tFormat
+        , "Interval"      .= _tInterval
+        , "Resolution"    .= _tResolution
+        , "AspectRatio"   .= _tAspectRatio
+        , "MaxWidth"      .= _tMaxWidth
+        , "MaxHeight"     .= _tMaxHeight
+        , "SizingPolicy"  .= _tSizingPolicy
+        , "PaddingPolicy" .= _tPaddingPolicy
+        ]
 
 data JobAlbumArt = JobAlbumArt
     { _jaaArtwork     :: [Artwork]
@@ -1465,10 +1606,15 @@ jaaMergePolicy :: Lens' JobAlbumArt (Maybe Text)
 jaaMergePolicy = lens _jaaMergePolicy (\s a -> s { _jaaMergePolicy = a })
 
 instance FromJSON JobAlbumArt where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "JobAlbumArt" $ \o -> JobAlbumArt
+        <$> o .: "Artwork"
+        <*> o .: "MergePolicy"
 
 instance ToJSON JobAlbumArt where
-    toJSON = genericToJSON jsonOptions
+    toJSON JobAlbumArt{..} = object
+        [ "MergePolicy" .= _jaaMergePolicy
+        , "Artwork"     .= _jaaArtwork
+        ]
 
 data JobWatermark = JobWatermark
     { _jwInputKey          :: Maybe Text
@@ -1508,10 +1654,15 @@ jwPresetWatermarkId =
     lens _jwPresetWatermarkId (\s a -> s { _jwPresetWatermarkId = a })
 
 instance FromJSON JobWatermark where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "JobWatermark" $ \o -> JobWatermark
+        <$> o .: "InputKey"
+        <*> o .: "PresetWatermarkId"
 
 instance ToJSON JobWatermark where
-    toJSON = genericToJSON jsonOptions
+    toJSON JobWatermark{..} = object
+        [ "PresetWatermarkId" .= _jwPresetWatermarkId
+        , "InputKey"          .= _jwInputKey
+        ]
 
 data Pipeline = Pipeline
     { _pArn             :: Maybe Text
@@ -1673,10 +1824,31 @@ pThumbnailConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
 pThumbnailConfig = lens _pThumbnailConfig (\s a -> s { _pThumbnailConfig = a })
 
 instance FromJSON Pipeline where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Pipeline" $ \o -> Pipeline
+        <$> o .: "Arn"
+        <*> o .: "ContentConfig"
+        <*> o .: "Id"
+        <*> o .: "InputBucket"
+        <*> o .: "Name"
+        <*> o .: "Notifications"
+        <*> o .: "OutputBucket"
+        <*> o .: "Role"
+        <*> o .: "Status"
+        <*> o .: "ThumbnailConfig"
 
 instance ToJSON Pipeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON Pipeline{..} = object
+        [ "Id"              .= _pId
+        , "Arn"             .= _pArn
+        , "Name"            .= _pName
+        , "Status"          .= _pStatus
+        , "InputBucket"     .= _pInputBucket
+        , "OutputBucket"    .= _pOutputBucket
+        , "Role"            .= _pRole
+        , "Notifications"   .= _pNotifications
+        , "ContentConfig"   .= _pContentConfig
+        , "ThumbnailConfig" .= _pThumbnailConfig
+        ]
 
 data Preset = Preset
     { _p1Arn         :: Maybe Text
@@ -1768,10 +1940,29 @@ p1Video :: Lens' Preset (Maybe VideoParameters)
 p1Video = lens _p1Video (\s a -> s { _p1Video = a })
 
 instance FromJSON Preset where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Preset" $ \o -> Preset
+        <$> o .: "Arn"
+        <*> o .: "Audio"
+        <*> o .: "Container"
+        <*> o .: "Description"
+        <*> o .: "Id"
+        <*> o .: "Name"
+        <*> o .: "Thumbnails"
+        <*> o .: "Type"
+        <*> o .: "Video"
 
 instance ToJSON Preset where
-    toJSON = genericToJSON jsonOptions
+    toJSON Preset{..} = object
+        [ "Id"          .= _p1Id
+        , "Arn"         .= _p1Arn
+        , "Name"        .= _p1Name
+        , "Description" .= _p1Description
+        , "Container"   .= _p1Container
+        , "Audio"       .= _p1Audio
+        , "Video"       .= _p1Video
+        , "Thumbnails"  .= _p1Thumbnails
+        , "Type"        .= _p1Type
+        ]
 
 data CaptionFormat = CaptionFormat
     { _cfFormat  :: Maybe Text
@@ -1818,10 +2009,15 @@ cfPattern :: Lens' CaptionFormat (Maybe Text)
 cfPattern = lens _cfPattern (\s a -> s { _cfPattern = a })
 
 instance FromJSON CaptionFormat where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CaptionFormat" $ \o -> CaptionFormat
+        <$> o .: "Format"
+        <*> o .: "Pattern"
 
 instance ToJSON CaptionFormat where
-    toJSON = genericToJSON jsonOptions
+    toJSON CaptionFormat{..} = object
+        [ "Format"  .= _cfFormat
+        , "Pattern" .= _cfPattern
+        ]
 
 data PresetWatermark = PresetWatermark
     { _pwHorizontalAlign  :: Maybe Text
@@ -1993,10 +2189,31 @@ pwVerticalOffset :: Lens' PresetWatermark (Maybe Text)
 pwVerticalOffset = lens _pwVerticalOffset (\s a -> s { _pwVerticalOffset = a })
 
 instance FromJSON PresetWatermark where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PresetWatermark" $ \o -> PresetWatermark
+        <$> o .: "HorizontalAlign"
+        <*> o .: "HorizontalOffset"
+        <*> o .: "Id"
+        <*> o .: "MaxHeight"
+        <*> o .: "MaxWidth"
+        <*> o .: "Opacity"
+        <*> o .: "SizingPolicy"
+        <*> o .: "Target"
+        <*> o .: "VerticalAlign"
+        <*> o .: "VerticalOffset"
 
 instance ToJSON PresetWatermark where
-    toJSON = genericToJSON jsonOptions
+    toJSON PresetWatermark{..} = object
+        [ "Id"               .= _pwId
+        , "MaxWidth"         .= _pwMaxWidth
+        , "MaxHeight"        .= _pwMaxHeight
+        , "SizingPolicy"     .= _pwSizingPolicy
+        , "HorizontalAlign"  .= _pwHorizontalAlign
+        , "HorizontalOffset" .= _pwHorizontalOffset
+        , "VerticalAlign"    .= _pwVerticalAlign
+        , "VerticalOffset"   .= _pwVerticalOffset
+        , "Opacity"          .= _pwOpacity
+        , "Target"           .= _pwTarget
+        ]
 
 data Permission = Permission
     { _pAccess      :: [Text]
@@ -2051,10 +2268,17 @@ pGranteeType :: Lens' Permission (Maybe Text)
 pGranteeType = lens _pGranteeType (\s a -> s { _pGranteeType = a })
 
 instance FromJSON Permission where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Permission" $ \o -> Permission
+        <$> o .: "Access"
+        <*> o .: "Grantee"
+        <*> o .: "GranteeType"
 
 instance ToJSON Permission where
-    toJSON = genericToJSON jsonOptions
+    toJSON Permission{..} = object
+        [ "GranteeType" .= _pGranteeType
+        , "Grantee"     .= _pGrantee
+        , "Access"      .= _pAccess
+        ]
 
 data VideoParameters = VideoParameters
     { _vpAspectRatio        :: Maybe Text
@@ -2334,10 +2558,41 @@ vpWatermarks :: Lens' VideoParameters [PresetWatermark]
 vpWatermarks = lens _vpWatermarks (\s a -> s { _vpWatermarks = a })
 
 instance FromJSON VideoParameters where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "VideoParameters" $ \o -> VideoParameters
+        <$> o .: "AspectRatio"
+        <*> o .: "BitRate"
+        <*> o .: "Codec"
+        <*> o .: "CodecOptions"
+        <*> o .: "DisplayAspectRatio"
+        <*> o .: "FixedGOP"
+        <*> o .: "FrameRate"
+        <*> o .: "KeyframesMaxDist"
+        <*> o .: "MaxFrameRate"
+        <*> o .: "MaxHeight"
+        <*> o .: "MaxWidth"
+        <*> o .: "PaddingPolicy"
+        <*> o .: "Resolution"
+        <*> o .: "SizingPolicy"
+        <*> o .: "Watermarks"
 
 instance ToJSON VideoParameters where
-    toJSON = genericToJSON jsonOptions
+    toJSON VideoParameters{..} = object
+        [ "Codec"              .= _vpCodec
+        , "CodecOptions"       .= _vpCodecOptions
+        , "KeyframesMaxDist"   .= _vpKeyframesMaxDist
+        , "FixedGOP"           .= _vpFixedGOP
+        , "BitRate"            .= _vpBitRate
+        , "FrameRate"          .= _vpFrameRate
+        , "MaxFrameRate"       .= _vpMaxFrameRate
+        , "Resolution"         .= _vpResolution
+        , "AspectRatio"        .= _vpAspectRatio
+        , "MaxWidth"           .= _vpMaxWidth
+        , "MaxHeight"          .= _vpMaxHeight
+        , "DisplayAspectRatio" .= _vpDisplayAspectRatio
+        , "SizingPolicy"       .= _vpSizingPolicy
+        , "PaddingPolicy"      .= _vpPaddingPolicy
+        , "Watermarks"         .= _vpWatermarks
+        ]
 
 data Playlist = Playlist
     { _p2Format       :: Maybe Text
@@ -2421,10 +2676,21 @@ p2StatusDetail :: Lens' Playlist (Maybe Text)
 p2StatusDetail = lens _p2StatusDetail (\s a -> s { _p2StatusDetail = a })
 
 instance FromJSON Playlist where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Playlist" $ \o -> Playlist
+        <$> o .: "Format"
+        <*> o .: "Name"
+        <*> o .: "OutputKeys"
+        <*> o .: "Status"
+        <*> o .: "StatusDetail"
 
 instance ToJSON Playlist where
-    toJSON = genericToJSON jsonOptions
+    toJSON Playlist{..} = object
+        [ "Name"         .= _p2Name
+        , "Format"       .= _p2Format
+        , "OutputKeys"   .= _p2OutputKeys
+        , "Status"       .= _p2Status
+        , "StatusDetail" .= _p2StatusDetail
+        ]
 
 data Notifications = Notifications
     { _nCompleted   :: Maybe Text
@@ -2474,10 +2740,19 @@ nWarning :: Lens' Notifications (Maybe Text)
 nWarning = lens _nWarning (\s a -> s { _nWarning = a })
 
 instance FromJSON Notifications where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Notifications" $ \o -> Notifications
+        <$> o .: "Completed"
+        <*> o .: "Error"
+        <*> o .: "Progressing"
+        <*> o .: "Warning"
 
 instance ToJSON Notifications where
-    toJSON = genericToJSON jsonOptions
+    toJSON Notifications{..} = object
+        [ "Progressing" .= _nProgressing
+        , "Completed"   .= _nCompleted
+        , "Warning"     .= _nWarning
+        , "Error"       .= _nError
+        ]
 
 newtype Clip = Clip
     { _cTimeSpan :: Maybe TimeSpan
@@ -2499,10 +2774,13 @@ cTimeSpan :: Lens' Clip (Maybe TimeSpan)
 cTimeSpan = lens _cTimeSpan (\s a -> s { _cTimeSpan = a })
 
 instance FromJSON Clip where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Clip" $ \o -> Clip
+        <$> o .: "TimeSpan"
 
 instance ToJSON Clip where
-    toJSON = genericToJSON jsonOptions
+    toJSON Clip{..} = object
+        [ "TimeSpan" .= _cTimeSpan
+        ]
 
 data JobInput = JobInput
     { _jiAspectRatio :: Maybe Text
@@ -2588,7 +2866,20 @@ jiResolution :: Lens' JobInput (Maybe Text)
 jiResolution = lens _jiResolution (\s a -> s { _jiResolution = a })
 
 instance FromJSON JobInput where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "JobInput" $ \o -> JobInput
+        <$> o .: "AspectRatio"
+        <*> o .: "Container"
+        <*> o .: "FrameRate"
+        <*> o .: "Interlaced"
+        <*> o .: "Key"
+        <*> o .: "Resolution"
 
 instance ToJSON JobInput where
-    toJSON = genericToJSON jsonOptions
+    toJSON JobInput{..} = object
+        [ "Key"         .= _jiKey
+        , "FrameRate"   .= _jiFrameRate
+        , "Resolution"  .= _jiResolution
+        , "AspectRatio" .= _jiAspectRatio
+        , "Interlaced"  .= _jiInterlaced
+        , "Container"   .= _jiContainer
+        ]

@@ -25,8 +25,6 @@ module Network.AWS.SNS.Types
       SNS
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * Topic
     , Topic
@@ -85,11 +83,6 @@ instance AWSService SNS where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "http://sns.amazonaws.com/doc/2010-03-31/"
-    }
-
 newtype Topic = Topic
     { _tTopicArn :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -110,8 +103,8 @@ tTopicArn :: Lens' Topic (Maybe Text)
 tTopicArn = lens _tTopicArn (\s a -> s { _tTopicArn = a })
 
 instance FromXML Topic where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Topic"
+    parseXML c = Topic
+        <$> c .: "TopicArn"
 
 instance ToQuery Topic
 
@@ -155,8 +148,10 @@ mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
 instance FromXML MessageAttributeValue where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MessageAttributeValue"
+    parseXML c = MessageAttributeValue
+        <$> c .: "BinaryValue"
+        <*> c .: "DataType"
+        <*> c .: "StringValue"
 
 instance ToQuery MessageAttributeValue
 
@@ -191,8 +186,9 @@ paPlatformApplicationArn =
         (\s a -> s { _paPlatformApplicationArn = a })
 
 instance FromXML PlatformApplication where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PlatformApplication"
+    parseXML c = PlatformApplication
+        <$> c .: "Attributes"
+        <*> c .: "PlatformApplicationArn"
 
 instance ToQuery PlatformApplication
 
@@ -249,8 +245,12 @@ s1TopicArn :: Lens' Subscription (Maybe Text)
 s1TopicArn = lens _s1TopicArn (\s a -> s { _s1TopicArn = a })
 
 instance FromXML Subscription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Subscription"
+    parseXML c = Subscription
+        <$> c .: "Endpoint"
+        <*> c .: "Owner"
+        <*> c .: "Protocol"
+        <*> c .: "SubscriptionArn"
+        <*> c .: "TopicArn"
 
 instance ToQuery Subscription
 
@@ -283,7 +283,8 @@ eEndpointArn :: Lens' Endpoint (Maybe Text)
 eEndpointArn = lens _eEndpointArn (\s a -> s { _eEndpointArn = a })
 
 instance FromXML Endpoint where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Endpoint"
+    parseXML c = Endpoint
+        <$> c .: "Attributes"
+        <*> c .: "EndpointArn"
 
 instance ToQuery Endpoint

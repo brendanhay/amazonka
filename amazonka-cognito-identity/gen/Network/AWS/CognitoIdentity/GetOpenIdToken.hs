@@ -113,8 +113,12 @@ instance ToQuery GetOpenIdToken where
     toQuery = const mempty
 
 instance ToHeaders GetOpenIdToken
+
 instance ToJSON GetOpenIdToken where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetOpenIdToken{..} = object
+        [ "IdentityId" .= _goitIdentityId
+        , "Logins"     .= _goitLogins
+        ]
 
 instance AWSRequest GetOpenIdToken where
     type Sv GetOpenIdToken = CognitoIdentity
@@ -124,4 +128,6 @@ instance AWSRequest GetOpenIdToken where
     response = jsonResponse
 
 instance FromJSON GetOpenIdTokenResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetOpenIdTokenResponse" $ \o -> GetOpenIdTokenResponse
+        <$> o .: "IdentityId"
+        <*> o .: "Token"

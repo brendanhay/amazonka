@@ -107,8 +107,12 @@ instance ToQuery DescribeRdsDbInstances where
     toQuery = const mempty
 
 instance ToHeaders DescribeRdsDbInstances
+
 instance ToJSON DescribeRdsDbInstances where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeRdsDbInstances{..} = object
+        [ "StackId"           .= _drdiStackId
+        , "RdsDbInstanceArns" .= _drdiRdsDbInstanceArns
+        ]
 
 instance AWSRequest DescribeRdsDbInstances where
     type Sv DescribeRdsDbInstances = OpsWorks
@@ -118,4 +122,5 @@ instance AWSRequest DescribeRdsDbInstances where
     response = jsonResponse
 
 instance FromJSON DescribeRdsDbInstancesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeRdsDbInstancesResponse" $ \o -> DescribeRdsDbInstancesResponse
+        <$> o .: "RdsDbInstances"

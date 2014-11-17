@@ -108,8 +108,12 @@ instance ToQuery ListBootstrapActions where
     toQuery = const mempty
 
 instance ToHeaders ListBootstrapActions
+
 instance ToJSON ListBootstrapActions where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListBootstrapActions{..} = object
+        [ "ClusterId" .= _lbaClusterId
+        , "Marker"    .= _lbaMarker
+        ]
 
 instance AWSRequest ListBootstrapActions where
     type Sv ListBootstrapActions = EMR
@@ -119,4 +123,6 @@ instance AWSRequest ListBootstrapActions where
     response = jsonResponse
 
 instance FromJSON ListBootstrapActionsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListBootstrapActionsResponse" $ \o -> ListBootstrapActionsResponse
+        <$> o .: "BootstrapActions"
+        <*> o .: "Marker"

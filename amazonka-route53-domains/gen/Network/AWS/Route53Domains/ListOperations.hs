@@ -119,8 +119,12 @@ instance ToQuery ListOperations where
     toQuery = const mempty
 
 instance ToHeaders ListOperations
+
 instance ToJSON ListOperations where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListOperations{..} = object
+        [ "Marker"   .= _loMarker
+        , "MaxItems" .= _loMaxItems
+        ]
 
 instance AWSRequest ListOperations where
     type Sv ListOperations = Route53Domains
@@ -130,4 +134,6 @@ instance AWSRequest ListOperations where
     response = jsonResponse
 
 instance FromJSON ListOperationsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListOperationsResponse" $ \o -> ListOperationsResponse
+        <$> o .: "NextPageMarker"
+        <*> o .: "Operations"

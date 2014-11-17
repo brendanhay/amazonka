@@ -99,5 +99,5 @@ instance AWSRequest CreateInternetGateway where
     response = xmlResponse
 
 instance FromXML CreateInternetGatewayResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateInternetGatewayResponse"
+    parseXML c = CreateInternetGatewayResponse
+        <$> c .: "internetGateway"

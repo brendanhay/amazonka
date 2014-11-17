@@ -110,9 +110,9 @@ instance ToQuery GetBucketNotification where
     toQuery = const "notification"
 
 instance ToHeaders GetBucketNotification
+
 instance ToXML GetBucketNotification where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketNotification"
+    toXML = const (node "GetBucketNotification" [])
 
 instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
@@ -122,5 +122,7 @@ instance AWSRequest GetBucketNotification where
     response = xmlResponse
 
 instance FromXML GetBucketNotificationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketNotificationResponse"
+    parseXML c = GetBucketNotificationResponse
+        <$> c .: "CloudFunctionConfiguration"
+        <*> c .: "QueueConfiguration"
+        <*> c .: "TopicConfiguration"

@@ -124,8 +124,13 @@ instance ToQuery CreatePipeline where
     toQuery = const mempty
 
 instance ToHeaders CreatePipeline
+
 instance ToJSON CreatePipeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreatePipeline{..} = object
+        [ "name"        .= _cpName
+        , "uniqueId"    .= _cpUniqueId
+        , "description" .= _cpDescription
+        ]
 
 instance AWSRequest CreatePipeline where
     type Sv CreatePipeline = DataPipeline
@@ -135,4 +140,5 @@ instance AWSRequest CreatePipeline where
     response = jsonResponse
 
 instance FromJSON CreatePipelineResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreatePipelineResponse" $ \o -> CreatePipelineResponse
+        <$> o .: "pipelineId"

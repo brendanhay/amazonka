@@ -149,8 +149,11 @@ instance ToHeaders UploadDocuments where
     toHeaders UploadDocuments{..} = mconcat
         [ "Content-Type" =: _udContentType
         ]
+
 instance ToJSON UploadDocuments where
-    toJSON = genericToJSON jsonOptions
+    toJSON UploadDocuments{..} = object
+        [ "documents" .= _udDocuments
+        ]
 
 instance AWSRequest UploadDocuments where
     type Sv UploadDocuments = CloudSearchDomains
@@ -160,4 +163,8 @@ instance AWSRequest UploadDocuments where
     response = jsonResponse
 
 instance FromJSON UploadDocumentsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UploadDocumentsResponse" $ \o -> UploadDocumentsResponse
+        <$> o .: "adds"
+        <*> o .: "deletes"
+        <*> o .: "status"
+        <*> o .: "warnings"

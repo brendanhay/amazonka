@@ -96,9 +96,9 @@ instance ToQuery GetBucketTagging where
     toQuery = const "tagging"
 
 instance ToHeaders GetBucketTagging
+
 instance ToXML GetBucketTagging where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketTagging"
+    toXML = const (node "GetBucketTagging" [])
 
 instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
@@ -108,5 +108,5 @@ instance AWSRequest GetBucketTagging where
     response = xmlResponse
 
 instance FromXML GetBucketTaggingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketTaggingResponse"
+    parseXML c = GetBucketTaggingResponse
+        <$> c .: "TagSet"

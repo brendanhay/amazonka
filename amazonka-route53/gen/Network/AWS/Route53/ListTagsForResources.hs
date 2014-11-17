@@ -114,9 +114,11 @@ instance ToQuery ListTagsForResources where
     toQuery = const mempty
 
 instance ToHeaders ListTagsForResources
+
 instance ToXML ListTagsForResources where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListTagsForResources"
+    toXML ListTagsForResources{..} = node "ListTagsForResources"
+        [ "ResourceIds" .= _ltfr1ResourceIds
+        ]
 
 instance AWSRequest ListTagsForResources where
     type Sv ListTagsForResources = Route53
@@ -126,5 +128,5 @@ instance AWSRequest ListTagsForResources where
     response = xmlResponse
 
 instance FromXML ListTagsForResourcesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListTagsForResourcesResponse"
+    parseXML c = ListTagsForResourcesResponse
+        <$> c .: "ResourceTagSets"

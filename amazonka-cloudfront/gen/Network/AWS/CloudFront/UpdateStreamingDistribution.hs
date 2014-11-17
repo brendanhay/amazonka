@@ -129,9 +129,11 @@ instance ToHeaders UpdateStreamingDistribution where
     toHeaders UpdateStreamingDistribution{..} = mconcat
         [ "If-Match" =: _usdIfMatch
         ]
+
 instance ToXML UpdateStreamingDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateStreamingDistribution"
+    toXML UpdateStreamingDistribution{..} = node "UpdateStreamingDistribution"
+        [ "StreamingDistributionConfig" .= _usdStreamingDistributionConfig
+        ]
 
 instance AWSRequest UpdateStreamingDistribution where
     type Sv UpdateStreamingDistribution = CloudFront

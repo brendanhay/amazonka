@@ -95,8 +95,11 @@ instance ToQuery RetrieveDomainAuthCode where
     toQuery = const mempty
 
 instance ToHeaders RetrieveDomainAuthCode
+
 instance ToJSON RetrieveDomainAuthCode where
-    toJSON = genericToJSON jsonOptions
+    toJSON RetrieveDomainAuthCode{..} = object
+        [ "DomainName" .= _rdacDomainName
+        ]
 
 instance AWSRequest RetrieveDomainAuthCode where
     type Sv RetrieveDomainAuthCode = Route53Domains
@@ -106,4 +109,5 @@ instance AWSRequest RetrieveDomainAuthCode where
     response = jsonResponse
 
 instance FromJSON RetrieveDomainAuthCodeResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RetrieveDomainAuthCodeResponse" $ \o -> RetrieveDomainAuthCodeResponse
+        <$> o .: "AuthCode"

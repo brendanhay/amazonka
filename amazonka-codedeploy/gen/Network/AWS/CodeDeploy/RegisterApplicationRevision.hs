@@ -97,8 +97,13 @@ instance ToQuery RegisterApplicationRevision where
     toQuery = const mempty
 
 instance ToHeaders RegisterApplicationRevision
+
 instance ToJSON RegisterApplicationRevision where
-    toJSON = genericToJSON jsonOptions
+    toJSON RegisterApplicationRevision{..} = object
+        [ "applicationName" .= _rarApplicationName
+        , "description"     .= _rarDescription
+        , "revision"        .= _rarRevision
+        ]
 
 instance AWSRequest RegisterApplicationRevision where
     type Sv RegisterApplicationRevision = CodeDeploy

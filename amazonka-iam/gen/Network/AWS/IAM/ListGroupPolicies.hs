@@ -146,5 +146,7 @@ instance AWSRequest ListGroupPolicies where
     response = xmlResponse
 
 instance FromXML ListGroupPoliciesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListGroupPoliciesResponse"
+    parseXML c = ListGroupPoliciesResponse
+        <$> c .: "IsTruncated"
+        <*> c .: "Marker"
+        <*> c .: "PolicyNames"

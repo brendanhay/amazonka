@@ -113,5 +113,5 @@ instance AWSRequest MonitorInstances where
     response = xmlResponse
 
 instance FromXML MonitorInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MonitorInstancesResponse"
+    parseXML c = MonitorInstancesResponse
+        <$> c .: "instancesSet"

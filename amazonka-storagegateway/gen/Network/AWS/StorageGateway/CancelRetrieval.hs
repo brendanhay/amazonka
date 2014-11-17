@@ -102,8 +102,12 @@ instance ToQuery CancelRetrieval where
     toQuery = const mempty
 
 instance ToHeaders CancelRetrieval
+
 instance ToJSON CancelRetrieval where
-    toJSON = genericToJSON jsonOptions
+    toJSON CancelRetrieval{..} = object
+        [ "GatewayARN" .= _crGatewayARN
+        , "TapeARN"    .= _crTapeARN
+        ]
 
 instance AWSRequest CancelRetrieval where
     type Sv CancelRetrieval = StorageGateway
@@ -113,4 +117,5 @@ instance AWSRequest CancelRetrieval where
     response = jsonResponse
 
 instance FromJSON CancelRetrievalResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CancelRetrievalResponse" $ \o -> CancelRetrievalResponse
+        <$> o .: "TapeARN"

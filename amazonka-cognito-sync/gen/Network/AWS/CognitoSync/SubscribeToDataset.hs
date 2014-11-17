@@ -118,8 +118,9 @@ instance ToQuery SubscribeToDataset where
     toQuery = const mempty
 
 instance ToHeaders SubscribeToDataset
+
 instance ToJSON SubscribeToDataset where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest SubscribeToDataset where
     type Sv SubscribeToDataset = CognitoSync

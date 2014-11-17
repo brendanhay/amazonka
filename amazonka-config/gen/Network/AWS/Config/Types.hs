@@ -25,8 +25,6 @@ module Network.AWS.Config.Types
       Config
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * ConfigExportDeliveryInfo
     , ConfigExportDeliveryInfo
@@ -145,11 +143,6 @@ instance AWSService Config where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
     { _cediLastAttemptTime    :: Maybe RFC822
     , _cediLastErrorCode      :: Maybe Text
@@ -208,10 +201,21 @@ cediLastSuccessfulTime =
         . mapping _Time
 
 instance FromJSON ConfigExportDeliveryInfo where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ConfigExportDeliveryInfo" $ \o -> ConfigExportDeliveryInfo
+        <$> o .: "lastAttemptTime"
+        <*> o .: "lastErrorCode"
+        <*> o .: "lastErrorMessage"
+        <*> o .: "lastStatus"
+        <*> o .: "lastSuccessfulTime"
 
 instance ToJSON ConfigExportDeliveryInfo where
-    toJSON = genericToJSON jsonOptions
+    toJSON ConfigExportDeliveryInfo{..} = object
+        [ "lastStatus"         .= _cediLastStatus
+        , "lastErrorCode"      .= _cediLastErrorCode
+        , "lastErrorMessage"   .= _cediLastErrorMessage
+        , "lastAttemptTime"    .= _cediLastAttemptTime
+        , "lastSuccessfulTime" .= _cediLastSuccessfulTime
+        ]
 
 data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo
     { _csdiLastErrorCode        :: Maybe Text
@@ -262,10 +266,19 @@ csdiLastStatusChangeTime =
             . mapping _Time
 
 instance FromJSON ConfigStreamDeliveryInfo where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ConfigStreamDeliveryInfo" $ \o -> ConfigStreamDeliveryInfo
+        <$> o .: "lastErrorCode"
+        <*> o .: "lastErrorMessage"
+        <*> o .: "lastStatus"
+        <*> o .: "lastStatusChangeTime"
 
 instance ToJSON ConfigStreamDeliveryInfo where
-    toJSON = genericToJSON jsonOptions
+    toJSON ConfigStreamDeliveryInfo{..} = object
+        [ "lastStatus"           .= _csdiLastStatus
+        , "lastErrorCode"        .= _csdiLastErrorCode
+        , "lastErrorMessage"     .= _csdiLastErrorMessage
+        , "lastStatusChangeTime" .= _csdiLastStatusChangeTime
+        ]
 
 data Relationship = Relationship
     { _rRelationshipName :: Maybe Text
@@ -304,10 +317,17 @@ rResourceType :: Lens' Relationship (Maybe Text)
 rResourceType = lens _rResourceType (\s a -> s { _rResourceType = a })
 
 instance FromJSON Relationship where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Relationship" $ \o -> Relationship
+        <$> o .: "relationshipName"
+        <*> o .: "resourceId"
+        <*> o .: "resourceType"
 
 instance ToJSON Relationship where
-    toJSON = genericToJSON jsonOptions
+    toJSON Relationship{..} = object
+        [ "resourceType"     .= _rResourceType
+        , "resourceId"       .= _rResourceId
+        , "relationshipName" .= _rRelationshipName
+        ]
 
 data DeliveryChannel = DeliveryChannel
     { _dcName         :: Maybe Text
@@ -357,10 +377,19 @@ dcSnsTopicARN :: Lens' DeliveryChannel (Maybe Text)
 dcSnsTopicARN = lens _dcSnsTopicARN (\s a -> s { _dcSnsTopicARN = a })
 
 instance FromJSON DeliveryChannel where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeliveryChannel" $ \o -> DeliveryChannel
+        <$> o .: "name"
+        <*> o .: "s3BucketName"
+        <*> o .: "s3KeyPrefix"
+        <*> o .: "snsTopicARN"
 
 instance ToJSON DeliveryChannel where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeliveryChannel{..} = object
+        [ "name"         .= _dcName
+        , "s3BucketName" .= _dcS3BucketName
+        , "s3KeyPrefix"  .= _dcS3KeyPrefix
+        , "snsTopicARN"  .= _dcSnsTopicARN
+        ]
 
 data ChronologicalOrder
     = Forward -- ^ Forward
@@ -379,10 +408,10 @@ instance ToText ChronologicalOrder where
         Reverse -> "Reverse"
 
 instance FromJSON ChronologicalOrder where
-    parseJSON = withFromText "ChronologicalOrder"
+    parseJSON = fromJSONText "ChronologicalOrder"
 
 instance ToJSON ChronologicalOrder where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ResourceType
     = AWSCloudTrailTrail     -- ^ AWS::CloudTrail::Trail
@@ -437,10 +466,10 @@ instance ToText ResourceType where
         AWSEC2Volume           -> "AWS::EC2::Volume"
 
 instance FromJSON ResourceType where
-    parseJSON = withFromText "ResourceType"
+    parseJSON = fromJSONText "ResourceType"
 
 instance ToJSON ResourceType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ConfigurationItem = ConfigurationItem
     { _ciAccountId                    :: Maybe Text
@@ -593,10 +622,41 @@ ciVersion :: Lens' ConfigurationItem (Maybe Text)
 ciVersion = lens _ciVersion (\s a -> s { _ciVersion = a })
 
 instance FromJSON ConfigurationItem where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ConfigurationItem" $ \o -> ConfigurationItem
+        <$> o .: "accountId"
+        <*> o .: "arn"
+        <*> o .: "availabilityZone"
+        <*> o .: "configuration"
+        <*> o .: "configurationItemCaptureTime"
+        <*> o .: "configurationItemMD5Hash"
+        <*> o .: "configurationItemStatus"
+        <*> o .: "configurationStateId"
+        <*> o .: "relatedEvents"
+        <*> o .: "relationships"
+        <*> o .: "resourceCreationTime"
+        <*> o .: "resourceId"
+        <*> o .: "resourceType"
+        <*> o .: "tags"
+        <*> o .: "version"
 
 instance ToJSON ConfigurationItem where
-    toJSON = genericToJSON jsonOptions
+    toJSON ConfigurationItem{..} = object
+        [ "version"                      .= _ciVersion
+        , "accountId"                    .= _ciAccountId
+        , "configurationItemCaptureTime" .= _ciConfigurationItemCaptureTime
+        , "configurationItemStatus"      .= _ciConfigurationItemStatus
+        , "configurationStateId"         .= _ciConfigurationStateId
+        , "configurationItemMD5Hash"     .= _ciConfigurationItemMD5Hash
+        , "arn"                          .= _ciArn
+        , "resourceType"                 .= _ciResourceType
+        , "resourceId"                   .= _ciResourceId
+        , "availabilityZone"             .= _ciAvailabilityZone
+        , "resourceCreationTime"         .= _ciResourceCreationTime
+        , "tags"                         .= _ciTags
+        , "relatedEvents"                .= _ciRelatedEvents
+        , "relationships"                .= _ciRelationships
+        , "configuration"                .= _ciConfiguration
+        ]
 
 data DeliveryStatus
     = Failure -- ^ Failure
@@ -615,10 +675,10 @@ instance ToText DeliveryStatus where
         Success -> "Success"
 
 instance FromJSON DeliveryStatus where
-    parseJSON = withFromText "DeliveryStatus"
+    parseJSON = fromJSONText "DeliveryStatus"
 
 instance ToJSON DeliveryStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data DeliveryChannelStatus = DeliveryChannelStatus
     { _dcsConfigHistoryDeliveryInfo  :: Maybe ConfigExportDeliveryInfo
@@ -673,10 +733,19 @@ dcsName :: Lens' DeliveryChannelStatus (Maybe Text)
 dcsName = lens _dcsName (\s a -> s { _dcsName = a })
 
 instance FromJSON DeliveryChannelStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeliveryChannelStatus" $ \o -> DeliveryChannelStatus
+        <$> o .: "configHistoryDeliveryInfo"
+        <*> o .: "configSnapshotDeliveryInfo"
+        <*> o .: "configStreamDeliveryInfo"
+        <*> o .: "name"
 
 instance ToJSON DeliveryChannelStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeliveryChannelStatus{..} = object
+        [ "name"                       .= _dcsName
+        , "configSnapshotDeliveryInfo" .= _dcsConfigSnapshotDeliveryInfo
+        , "configHistoryDeliveryInfo"  .= _dcsConfigHistoryDeliveryInfo
+        , "configStreamDeliveryInfo"   .= _dcsConfigStreamDeliveryInfo
+        ]
 
 data ConfigurationRecorderStatus = ConfigurationRecorderStatus
     { _crsLastErrorCode        :: Maybe Text
@@ -759,10 +828,27 @@ crsRecording :: Lens' ConfigurationRecorderStatus (Maybe Bool)
 crsRecording = lens _crsRecording (\s a -> s { _crsRecording = a })
 
 instance FromJSON ConfigurationRecorderStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ConfigurationRecorderStatus" $ \o -> ConfigurationRecorderStatus
+        <$> o .: "lastErrorCode"
+        <*> o .: "lastErrorMessage"
+        <*> o .: "lastStartTime"
+        <*> o .: "lastStatus"
+        <*> o .: "lastStatusChangeTime"
+        <*> o .: "lastStopTime"
+        <*> o .: "name"
+        <*> o .: "recording"
 
 instance ToJSON ConfigurationRecorderStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON ConfigurationRecorderStatus{..} = object
+        [ "name"                 .= _crsName
+        , "lastStartTime"        .= _crsLastStartTime
+        , "lastStopTime"         .= _crsLastStopTime
+        , "recording"            .= _crsRecording
+        , "lastStatus"           .= _crsLastStatus
+        , "lastErrorCode"        .= _crsLastErrorCode
+        , "lastErrorMessage"     .= _crsLastErrorMessage
+        , "lastStatusChangeTime" .= _crsLastStatusChangeTime
+        ]
 
 data ConfigurationItemStatus
     = Deleted    -- ^ Deleted
@@ -787,10 +873,10 @@ instance ToText ConfigurationItemStatus where
         Ok         -> "Ok"
 
 instance FromJSON ConfigurationItemStatus where
-    parseJSON = withFromText "ConfigurationItemStatus"
+    parseJSON = fromJSONText "ConfigurationItemStatus"
 
 instance ToJSON ConfigurationItemStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ConfigurationRecorder = ConfigurationRecorder
     { _crName    :: Maybe Text
@@ -823,10 +909,15 @@ crRoleARN :: Lens' ConfigurationRecorder (Maybe Text)
 crRoleARN = lens _crRoleARN (\s a -> s { _crRoleARN = a })
 
 instance FromJSON ConfigurationRecorder where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ConfigurationRecorder" $ \o -> ConfigurationRecorder
+        <$> o .: "name"
+        <*> o .: "roleARN"
 
 instance ToJSON ConfigurationRecorder where
-    toJSON = genericToJSON jsonOptions
+    toJSON ConfigurationRecorder{..} = object
+        [ "name"    .= _crName
+        , "roleARN" .= _crRoleARN
+        ]
 
 data RecorderStatus
     = RSFailure -- ^ Failure
@@ -848,7 +939,7 @@ instance ToText RecorderStatus where
         RSSuccess -> "Success"
 
 instance FromJSON RecorderStatus where
-    parseJSON = withFromText "RecorderStatus"
+    parseJSON = fromJSONText "RecorderStatus"
 
 instance ToJSON RecorderStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText

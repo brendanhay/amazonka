@@ -248,5 +248,5 @@ instance AWSRequest UpdateStack where
     response = xmlResponse
 
 instance FromXML UpdateStackResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateStackResponse"
+    parseXML c = UpdateStackResponse
+        <$> c .: "StackId"

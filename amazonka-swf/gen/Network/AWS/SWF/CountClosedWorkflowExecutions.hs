@@ -179,8 +179,17 @@ instance ToQuery CountClosedWorkflowExecutions where
     toQuery = const mempty
 
 instance ToHeaders CountClosedWorkflowExecutions
+
 instance ToJSON CountClosedWorkflowExecutions where
-    toJSON = genericToJSON jsonOptions
+    toJSON CountClosedWorkflowExecutions{..} = object
+        [ "domain"            .= _ccweDomain
+        , "startTimeFilter"   .= _ccweStartTimeFilter
+        , "closeTimeFilter"   .= _ccweCloseTimeFilter
+        , "executionFilter"   .= _ccweExecutionFilter
+        , "typeFilter"        .= _ccweTypeFilter
+        , "tagFilter"         .= _ccweTagFilter
+        , "closeStatusFilter" .= _ccweCloseStatusFilter
+        ]
 
 instance AWSRequest CountClosedWorkflowExecutions where
     type Sv CountClosedWorkflowExecutions = SWF
@@ -190,4 +199,6 @@ instance AWSRequest CountClosedWorkflowExecutions where
     response = jsonResponse
 
 instance FromJSON CountClosedWorkflowExecutionsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CountClosedWorkflowExecutionsResponse" $ \o -> CountClosedWorkflowExecutionsResponse
+        <$> o .: "count"
+        <*> o .: "truncated"

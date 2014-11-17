@@ -151,8 +151,14 @@ instance ToQuery ListDomains where
     toQuery = const mempty
 
 instance ToHeaders ListDomains
+
 instance ToJSON ListDomains where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListDomains{..} = object
+        [ "nextPageToken"      .= _ldNextPageToken
+        , "registrationStatus" .= _ldRegistrationStatus
+        , "maximumPageSize"    .= _ldMaximumPageSize
+        , "reverseOrder"       .= _ldReverseOrder
+        ]
 
 instance AWSRequest ListDomains where
     type Sv ListDomains = SWF
@@ -162,4 +168,6 @@ instance AWSRequest ListDomains where
     response = jsonResponse
 
 instance FromJSON ListDomainsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListDomainsResponse" $ \o -> ListDomainsResponse
+        <$> o .: "domainInfos"
+        <*> o .: "nextPageToken"

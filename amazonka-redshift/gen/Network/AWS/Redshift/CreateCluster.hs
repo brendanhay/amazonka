@@ -390,5 +390,5 @@ instance AWSRequest CreateCluster where
     response = xmlResponse
 
 instance FromXML CreateClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateClusterResponse"
+    parseXML c = CreateClusterResponse
+        <$> c .: "Cluster"

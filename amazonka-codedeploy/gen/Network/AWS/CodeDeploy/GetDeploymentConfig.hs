@@ -93,8 +93,11 @@ instance ToQuery GetDeploymentConfig where
     toQuery = const mempty
 
 instance ToHeaders GetDeploymentConfig
+
 instance ToJSON GetDeploymentConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetDeploymentConfig{..} = object
+        [ "deploymentConfigName" .= _gdcDeploymentConfigName
+        ]
 
 instance AWSRequest GetDeploymentConfig where
     type Sv GetDeploymentConfig = CodeDeploy
@@ -104,4 +107,5 @@ instance AWSRequest GetDeploymentConfig where
     response = jsonResponse
 
 instance FromJSON GetDeploymentConfigResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetDeploymentConfigResponse" $ \o -> GetDeploymentConfigResponse
+        <$> o .: "deploymentConfigInfo"

@@ -121,5 +121,5 @@ instance AWSRequest DescribeConversionTasks where
     response = xmlResponse
 
 instance FromXML DescribeConversionTasksResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeConversionTasksResponse"
+    parseXML c = DescribeConversionTasksResponse
+        <$> c .: "conversionTasks"

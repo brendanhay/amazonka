@@ -120,9 +120,9 @@ instance ToPath GetGeoLocation where
 instance ToQuery GetGeoLocation
 
 instance ToHeaders GetGeoLocation
+
 instance ToXML GetGeoLocation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetGeoLocation"
+    toXML = const (node "GetGeoLocation" [])
 
 instance AWSRequest GetGeoLocation where
     type Sv GetGeoLocation = Route53
@@ -132,5 +132,5 @@ instance AWSRequest GetGeoLocation where
     response = xmlResponse
 
 instance FromXML GetGeoLocationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetGeoLocationResponse"
+    parseXML c = GetGeoLocationResponse
+        <$> c .: "GeoLocationDetails"

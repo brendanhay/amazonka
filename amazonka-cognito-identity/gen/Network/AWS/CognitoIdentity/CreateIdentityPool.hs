@@ -200,8 +200,15 @@ instance ToQuery CreateIdentityPool where
     toQuery = const mempty
 
 instance ToHeaders CreateIdentityPool
+
 instance ToJSON CreateIdentityPool where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateIdentityPool{..} = object
+        [ "IdentityPoolName"               .= _cipIdentityPoolName
+        , "AllowUnauthenticatedIdentities" .= _cipAllowUnauthenticatedIdentities
+        , "SupportedLoginProviders"        .= _cipSupportedLoginProviders
+        , "DeveloperProviderName"          .= _cipDeveloperProviderName
+        , "OpenIdConnectProviderARNs"      .= _cipOpenIdConnectProviderARNs
+        ]
 
 instance AWSRequest CreateIdentityPool where
     type Sv CreateIdentityPool = CognitoIdentity
@@ -211,4 +218,10 @@ instance AWSRequest CreateIdentityPool where
     response = jsonResponse
 
 instance FromJSON CreateIdentityPoolResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateIdentityPoolResponse" $ \o -> CreateIdentityPoolResponse
+        <$> o .: "AllowUnauthenticatedIdentities"
+        <*> o .: "DeveloperProviderName"
+        <*> o .: "IdentityPoolId"
+        <*> o .: "IdentityPoolName"
+        <*> o .: "OpenIdConnectProviderARNs"
+        <*> o .: "SupportedLoginProviders"

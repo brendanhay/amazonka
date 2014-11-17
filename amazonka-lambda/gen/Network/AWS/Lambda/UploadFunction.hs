@@ -313,8 +313,11 @@ instance ToQuery UploadFunction where
         ]
 
 instance ToHeaders UploadFunction
+
 instance ToJSON UploadFunction where
-    toJSON = genericToJSON jsonOptions
+    toJSON UploadFunction{..} = object
+        [ "FunctionZip" .= _ufFunctionZip
+        ]
 
 instance AWSRequest UploadFunction where
     type Sv UploadFunction = Lambda
@@ -324,4 +327,16 @@ instance AWSRequest UploadFunction where
     response = jsonResponse
 
 instance FromJSON UploadFunctionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UploadFunctionResponse" $ \o -> UploadFunctionResponse
+        <$> o .: "CodeSize"
+        <*> o .: "ConfigurationId"
+        <*> o .: "Description"
+        <*> o .: "FunctionARN"
+        <*> o .: "FunctionName"
+        <*> o .: "Handler"
+        <*> o .: "LastModified"
+        <*> o .: "MemorySize"
+        <*> o .: "Mode"
+        <*> o .: "Role"
+        <*> o .: "Runtime"
+        <*> o .: "Timeout"

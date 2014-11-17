@@ -187,9 +187,11 @@ instance ToQuery CompleteMultipartUpload where
     toQuery rq = "uploadId" =? _cmu1UploadId rq
 
 instance ToHeaders CompleteMultipartUpload
+
 instance ToXML CompleteMultipartUpload where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CompleteMultipartUpload"
+    toXML CompleteMultipartUpload{..} = node "CompleteMultipartUpload"
+        [ "CompleteMultipartUpload" .= _cmu1MultipartUpload
+        ]
 
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3

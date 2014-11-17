@@ -79,8 +79,11 @@ instance ToQuery ActivatePipeline where
     toQuery = const mempty
 
 instance ToHeaders ActivatePipeline
+
 instance ToJSON ActivatePipeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON ActivatePipeline{..} = object
+        [ "pipelineId" .= _apPipelineId
+        ]
 
 instance AWSRequest ActivatePipeline where
     type Sv ActivatePipeline = DataPipeline

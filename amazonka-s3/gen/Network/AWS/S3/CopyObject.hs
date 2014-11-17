@@ -501,9 +501,9 @@ instance ToHeaders CopyObject where
         , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _coCopySourceSSECustomerKeyMD5
         , "x-amz-copy-source-server-side-encryption-aws-kms-key-id"     =: _coCopySourceSSEKMSKeyId
         ]
+
 instance ToXML CopyObject where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CopyObject"
+    toXML = const (node "CopyObject" [])
 
 instance AWSRequest CopyObject where
     type Sv CopyObject = S3

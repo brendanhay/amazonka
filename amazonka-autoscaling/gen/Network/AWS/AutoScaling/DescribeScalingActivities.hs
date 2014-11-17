@@ -147,5 +147,6 @@ instance AWSRequest DescribeScalingActivities where
     response = xmlResponse
 
 instance FromXML DescribeScalingActivitiesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeScalingActivitiesResponse"
+    parseXML c = DescribeScalingActivitiesResponse
+        <$> c .: "Activities"
+        <*> c .: "NextToken"

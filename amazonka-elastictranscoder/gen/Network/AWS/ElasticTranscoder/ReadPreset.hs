@@ -94,8 +94,9 @@ instance ToQuery ReadPreset where
     toQuery = const mempty
 
 instance ToHeaders ReadPreset
+
 instance ToJSON ReadPreset where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ReadPreset where
     type Sv ReadPreset = ElasticTranscoder
@@ -105,4 +106,5 @@ instance AWSRequest ReadPreset where
     response = jsonResponse
 
 instance FromJSON ReadPresetResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ReadPresetResponse" $ \o -> ReadPresetResponse
+        <$> o .: "Preset"

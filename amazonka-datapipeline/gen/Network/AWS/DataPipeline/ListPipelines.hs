@@ -118,8 +118,11 @@ instance ToQuery ListPipelines where
     toQuery = const mempty
 
 instance ToHeaders ListPipelines
+
 instance ToJSON ListPipelines where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListPipelines{..} = object
+        [ "marker" .= _lpMarker
+        ]
 
 instance AWSRequest ListPipelines where
     type Sv ListPipelines = DataPipeline
@@ -129,4 +132,7 @@ instance AWSRequest ListPipelines where
     response = jsonResponse
 
 instance FromJSON ListPipelinesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListPipelinesResponse" $ \o -> ListPipelinesResponse
+        <$> o .: "hasMoreResults"
+        <*> o .: "marker"
+        <*> o .: "pipelineIdList"

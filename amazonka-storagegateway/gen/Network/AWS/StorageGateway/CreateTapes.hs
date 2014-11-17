@@ -146,8 +146,15 @@ instance ToQuery CreateTapes where
     toQuery = const mempty
 
 instance ToHeaders CreateTapes
+
 instance ToJSON CreateTapes where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateTapes{..} = object
+        [ "GatewayARN"        .= _ctGatewayARN
+        , "TapeSizeInBytes"   .= _ctTapeSizeInBytes
+        , "ClientToken"       .= _ctClientToken
+        , "NumTapesToCreate"  .= _ctNumTapesToCreate
+        , "TapeBarcodePrefix" .= _ctTapeBarcodePrefix
+        ]
 
 instance AWSRequest CreateTapes where
     type Sv CreateTapes = StorageGateway
@@ -157,4 +164,5 @@ instance AWSRequest CreateTapes where
     response = jsonResponse
 
 instance FromJSON CreateTapesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateTapesResponse" $ \o -> CreateTapesResponse
+        <$> o .: "TapeARNs"

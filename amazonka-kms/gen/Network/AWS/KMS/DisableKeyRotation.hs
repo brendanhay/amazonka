@@ -76,8 +76,11 @@ instance ToQuery DisableKeyRotation where
     toQuery = const mempty
 
 instance ToHeaders DisableKeyRotation
+
 instance ToJSON DisableKeyRotation where
-    toJSON = genericToJSON jsonOptions
+    toJSON DisableKeyRotation{..} = object
+        [ "KeyId" .= _dkrKeyId
+        ]
 
 instance AWSRequest DisableKeyRotation where
     type Sv DisableKeyRotation = KMS

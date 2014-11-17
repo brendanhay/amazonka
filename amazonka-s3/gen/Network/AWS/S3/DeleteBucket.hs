@@ -79,9 +79,9 @@ instance ToQuery DeleteBucket where
     toQuery = const mempty
 
 instance ToHeaders DeleteBucket
+
 instance ToXML DeleteBucket where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteBucket"
+    toXML = const (node "DeleteBucket" [])
 
 instance AWSRequest DeleteBucket where
     type Sv DeleteBucket = S3

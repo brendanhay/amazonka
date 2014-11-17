@@ -144,8 +144,11 @@ instance ToQuery DescribeCache where
     toQuery = const mempty
 
 instance ToHeaders DescribeCache
+
 instance ToJSON DescribeCache where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeCache{..} = object
+        [ "GatewayARN" .= _dcGatewayARN
+        ]
 
 instance AWSRequest DescribeCache where
     type Sv DescribeCache = StorageGateway
@@ -155,4 +158,11 @@ instance AWSRequest DescribeCache where
     response = jsonResponse
 
 instance FromJSON DescribeCacheResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeCacheResponse" $ \o -> DescribeCacheResponse
+        <$> o .: "CacheAllocatedInBytes"
+        <*> o .: "CacheDirtyPercentage"
+        <*> o .: "CacheHitPercentage"
+        <*> o .: "CacheMissPercentage"
+        <*> o .: "CacheUsedPercentage"
+        <*> o .: "DiskIds"
+        <*> o .: "GatewayARN"

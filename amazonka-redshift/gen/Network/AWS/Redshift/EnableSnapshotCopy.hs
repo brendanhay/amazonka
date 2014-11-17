@@ -125,5 +125,5 @@ instance AWSRequest EnableSnapshotCopy where
     response = xmlResponse
 
 instance FromXML EnableSnapshotCopyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnableSnapshotCopyResponse"
+    parseXML c = EnableSnapshotCopyResponse
+        <$> c .: "Cluster"

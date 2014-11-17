@@ -129,8 +129,9 @@ instance ToQuery DescribeDataset where
     toQuery = const mempty
 
 instance ToHeaders DescribeDataset
+
 instance ToJSON DescribeDataset where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest DescribeDataset where
     type Sv DescribeDataset = CognitoSync
@@ -140,4 +141,5 @@ instance AWSRequest DescribeDataset where
     response = jsonResponse
 
 instance FromJSON DescribeDatasetResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeDatasetResponse" $ \o -> DescribeDatasetResponse
+        <$> o .: "Dataset"

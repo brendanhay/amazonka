@@ -101,8 +101,12 @@ instance ToQuery GetKeyPolicy where
     toQuery = const mempty
 
 instance ToHeaders GetKeyPolicy
+
 instance ToJSON GetKeyPolicy where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetKeyPolicy{..} = object
+        [ "KeyId"      .= _gkpKeyId
+        , "PolicyName" .= _gkpPolicyName
+        ]
 
 instance AWSRequest GetKeyPolicy where
     type Sv GetKeyPolicy = KMS
@@ -112,4 +116,5 @@ instance AWSRequest GetKeyPolicy where
     response = jsonResponse
 
 instance FromJSON GetKeyPolicyResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetKeyPolicyResponse" $ \o -> GetKeyPolicyResponse
+        <$> o .: "Policy"

@@ -127,5 +127,7 @@ instance AWSRequest AllocateAddress where
     response = xmlResponse
 
 instance FromXML AllocateAddressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AllocateAddressResponse"
+    parseXML c = AllocateAddressResponse
+        <$> c .: "allocationId"
+        <*> c .: "domain"
+        <*> c .: "publicIp"

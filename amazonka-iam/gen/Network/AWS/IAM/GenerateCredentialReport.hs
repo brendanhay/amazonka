@@ -94,5 +94,6 @@ instance AWSRequest GenerateCredentialReport where
     response = xmlResponse
 
 instance FromXML GenerateCredentialReportResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GenerateCredentialReportResponse"
+    parseXML c = GenerateCredentialReportResponse
+        <$> c .: "Description"
+        <*> c .: "State"

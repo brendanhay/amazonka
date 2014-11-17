@@ -25,8 +25,6 @@ module Network.AWS.SQS.Types
       SQS
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * QueueAttributeName
     , QueueAttributeName (..)
@@ -122,11 +120,6 @@ instance AWSService SQS where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "http://queue.amazonaws.com/doc/2012-11-05/"
-    }
-
 data QueueAttributeName
     = ApproximateNumberOfMessages           -- ^ ApproximateNumberOfMessages
     | ApproximateNumberOfMessagesDelayed    -- ^ ApproximateNumberOfMessagesDelayed
@@ -177,8 +170,7 @@ instance ToText QueueAttributeName where
         VisibilityTimeout                     -> "VisibilityTimeout"
 
 instance FromXML QueueAttributeName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "QueueAttributeName"
+    parseXML = fromXMLText "QueueAttributeName"
 
 instance ToQuery QueueAttributeName
 
@@ -215,8 +207,9 @@ dmbreReceiptHandle =
     lens _dmbreReceiptHandle (\s a -> s { _dmbreReceiptHandle = a })
 
 instance FromXML DeleteMessageBatchRequestEntry where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteMessageBatchRequestEntry"
+    parseXML c = DeleteMessageBatchRequestEntry
+        <$> c .: "Id"
+        <*> c .: "ReceiptHandle"
 
 instance ToQuery DeleteMessageBatchRequestEntry
 
@@ -279,8 +272,12 @@ mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
 instance FromXML MessageAttributeValue where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MessageAttributeValue"
+    parseXML c = MessageAttributeValue
+        <$> c .: "BinaryListValue"
+        <*> c .: "BinaryValue"
+        <*> c .: "DataType"
+        <*> c .: "StringListValue"
+        <*> c .: "StringValue"
 
 instance ToQuery MessageAttributeValue
 
@@ -306,8 +303,8 @@ cmvbreId :: Lens' ChangeMessageVisibilityBatchResultEntry Text
 cmvbreId = lens _cmvbreId (\s a -> s { _cmvbreId = a })
 
 instance FromXML ChangeMessageVisibilityBatchResultEntry where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeMessageVisibilityBatchResultEntry"
+    parseXML c = ChangeMessageVisibilityBatchResultEntry
+        <$> c .: "Id"
 
 instance ToQuery ChangeMessageVisibilityBatchResultEntry
 
@@ -354,8 +351,10 @@ cmvbre1VisibilityTimeout =
         (\s a -> s { _cmvbre1VisibilityTimeout = a })
 
 instance FromXML ChangeMessageVisibilityBatchRequestEntry where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeMessageVisibilityBatchRequestEntry"
+    parseXML c = ChangeMessageVisibilityBatchRequestEntry
+        <$> c .: "Id"
+        <*> c .: "ReceiptHandle"
+        <*> c .: "VisibilityTimeout"
 
 instance ToQuery ChangeMessageVisibilityBatchRequestEntry
 
@@ -380,8 +379,8 @@ dmbre1Id :: Lens' DeleteMessageBatchResultEntry Text
 dmbre1Id = lens _dmbre1Id (\s a -> s { _dmbre1Id = a })
 
 instance FromXML DeleteMessageBatchResultEntry where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteMessageBatchResultEntry"
+    parseXML c = DeleteMessageBatchResultEntry
+        <$> c .: "Id"
 
 instance ToQuery DeleteMessageBatchResultEntry
 
@@ -468,8 +467,14 @@ mReceiptHandle :: Lens' Message (Maybe Text)
 mReceiptHandle = lens _mReceiptHandle (\s a -> s { _mReceiptHandle = a })
 
 instance FromXML Message where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Message"
+    parseXML c = Message
+        <$> c .: "Attribute"
+        <*> c .: "Body"
+        <*> c .: "MD5OfBody"
+        <*> c .: "MD5OfMessageAttributes"
+        <*> c .: "MessageAttribute"
+        <*> c .: "MessageId"
+        <*> c .: "ReceiptHandle"
 
 instance ToQuery Message
 
@@ -525,8 +530,11 @@ smbreMessageBody :: Lens' SendMessageBatchRequestEntry Text
 smbreMessageBody = lens _smbreMessageBody (\s a -> s { _smbreMessageBody = a })
 
 instance FromXML SendMessageBatchRequestEntry where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SendMessageBatchRequestEntry"
+    parseXML c = SendMessageBatchRequestEntry
+        <$> c .: "DelaySeconds"
+        <*> c .: "Id"
+        <*> c .: "MessageAttribute"
+        <*> c .: "MessageBody"
 
 instance ToQuery SendMessageBatchRequestEntry
 
@@ -586,8 +594,11 @@ smbre1MessageId :: Lens' SendMessageBatchResultEntry Text
 smbre1MessageId = lens _smbre1MessageId (\s a -> s { _smbre1MessageId = a })
 
 instance FromXML SendMessageBatchResultEntry where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SendMessageBatchResultEntry"
+    parseXML c = SendMessageBatchResultEntry
+        <$> c .: "Id"
+        <*> c .: "MD5OfMessageAttributes"
+        <*> c .: "MD5OfMessageBody"
+        <*> c .: "MessageId"
 
 instance ToQuery SendMessageBatchResultEntry
 
@@ -638,7 +649,10 @@ breeSenderFault :: Lens' BatchResultErrorEntry Bool
 breeSenderFault = lens _breeSenderFault (\s a -> s { _breeSenderFault = a })
 
 instance FromXML BatchResultErrorEntry where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BatchResultErrorEntry"
+    parseXML c = BatchResultErrorEntry
+        <$> c .: "Code"
+        <*> c .: "Id"
+        <*> c .: "Message"
+        <*> c .: "SenderFault"
 
 instance ToQuery BatchResultErrorEntry

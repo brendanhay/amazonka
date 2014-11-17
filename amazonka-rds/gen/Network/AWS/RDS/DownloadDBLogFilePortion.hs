@@ -169,5 +169,7 @@ instance AWSRequest DownloadDBLogFilePortion where
     response = xmlResponse
 
 instance FromXML DownloadDBLogFilePortionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DownloadDBLogFilePortionResponse"
+    parseXML c = DownloadDBLogFilePortionResponse
+        <$> c .: "AdditionalDataPending"
+        <*> c .: "LogFileData"
+        <*> c .: "Marker"

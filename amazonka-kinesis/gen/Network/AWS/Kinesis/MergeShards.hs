@@ -123,8 +123,13 @@ instance ToQuery MergeShards where
     toQuery = const mempty
 
 instance ToHeaders MergeShards
+
 instance ToJSON MergeShards where
-    toJSON = genericToJSON jsonOptions
+    toJSON MergeShards{..} = object
+        [ "StreamName"           .= _msStreamName
+        , "ShardToMerge"         .= _msShardToMerge
+        , "AdjacentShardToMerge" .= _msAdjacentShardToMerge
+        ]
 
 instance AWSRequest MergeShards where
     type Sv MergeShards = Kinesis

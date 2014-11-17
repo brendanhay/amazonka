@@ -146,5 +146,5 @@ instance AWSRequest CreateSecurityGroup where
     response = xmlResponse
 
 instance FromXML CreateSecurityGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSecurityGroupResponse"
+    parseXML c = CreateSecurityGroupResponse
+        <$> c .: "groupId"

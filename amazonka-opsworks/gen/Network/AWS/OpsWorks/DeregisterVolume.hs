@@ -80,8 +80,11 @@ instance ToQuery DeregisterVolume where
     toQuery = const mempty
 
 instance ToHeaders DeregisterVolume
+
 instance ToJSON DeregisterVolume where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeregisterVolume{..} = object
+        [ "VolumeId" .= _dvVolumeId
+        ]
 
 instance AWSRequest DeregisterVolume where
     type Sv DeregisterVolume = OpsWorks

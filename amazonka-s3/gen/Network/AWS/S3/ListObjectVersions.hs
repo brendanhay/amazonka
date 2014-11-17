@@ -265,9 +265,9 @@ instance ToQuery ListObjectVersions where
         ]
 
 instance ToHeaders ListObjectVersions
+
 instance ToXML ListObjectVersions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListObjectVersions"
+    toXML = const (node "ListObjectVersions" [])
 
 instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
@@ -277,5 +277,17 @@ instance AWSRequest ListObjectVersions where
     response = xmlResponse
 
 instance FromXML ListObjectVersionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListObjectVersionsResponse"
+    parseXML c = ListObjectVersionsResponse
+        <$> c .: "CommonPrefixes"
+        <*> c .: "DeleteMarker"
+        <*> c .: "Delimiter"
+        <*> c .: "EncodingType"
+        <*> c .: "IsTruncated"
+        <*> c .: "KeyMarker"
+        <*> c .: "MaxKeys"
+        <*> c .: "Name"
+        <*> c .: "NextKeyMarker"
+        <*> c .: "NextVersionIdMarker"
+        <*> c .: "Prefix"
+        <*> c .: "VersionIdMarker"
+        <*> c .: "Version"

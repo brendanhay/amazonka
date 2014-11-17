@@ -75,8 +75,11 @@ instance ToQuery DeleteLogGroup where
     toQuery = const mempty
 
 instance ToHeaders DeleteLogGroup
+
 instance ToJSON DeleteLogGroup where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteLogGroup{..} = object
+        [ "logGroupName" .= _dlgLogGroupName
+        ]
 
 instance AWSRequest DeleteLogGroup where
     type Sv DeleteLogGroup = CloudWatchLogs

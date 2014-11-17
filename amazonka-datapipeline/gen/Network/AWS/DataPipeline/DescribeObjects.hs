@@ -148,8 +148,14 @@ instance ToQuery DescribeObjects where
     toQuery = const mempty
 
 instance ToHeaders DescribeObjects
+
 instance ToJSON DescribeObjects where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeObjects{..} = object
+        [ "pipelineId"          .= _doPipelineId
+        , "objectIds"           .= _doObjectIds
+        , "evaluateExpressions" .= _doEvaluateExpressions
+        , "marker"              .= _doMarker
+        ]
 
 instance AWSRequest DescribeObjects where
     type Sv DescribeObjects = DataPipeline
@@ -159,4 +165,7 @@ instance AWSRequest DescribeObjects where
     response = jsonResponse
 
 instance FromJSON DescribeObjectsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeObjectsResponse" $ \o -> DescribeObjectsResponse
+        <$> o .: "hasMoreResults"
+        <*> o .: "marker"
+        <*> o .: "pipelineObjects"

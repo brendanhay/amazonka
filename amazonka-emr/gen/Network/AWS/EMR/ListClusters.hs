@@ -130,8 +130,14 @@ instance ToQuery ListClusters where
     toQuery = const mempty
 
 instance ToHeaders ListClusters
+
 instance ToJSON ListClusters where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListClusters{..} = object
+        [ "CreatedAfter"  .= _lcCreatedAfter
+        , "CreatedBefore" .= _lcCreatedBefore
+        , "ClusterStates" .= _lcClusterStates
+        , "Marker"        .= _lcMarker
+        ]
 
 instance AWSRequest ListClusters where
     type Sv ListClusters = EMR
@@ -141,4 +147,6 @@ instance AWSRequest ListClusters where
     response = jsonResponse
 
 instance FromJSON ListClustersResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListClustersResponse" $ \o -> ListClustersResponse
+        <$> o .: "Clusters"
+        <*> o .: "Marker"

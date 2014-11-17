@@ -127,5 +127,6 @@ instance AWSRequest ModifyLoadBalancerAttributes where
     response = xmlResponse
 
 instance FromXML ModifyLoadBalancerAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyLoadBalancerAttributesResponse"
+    parseXML c = ModifyLoadBalancerAttributesResponse
+        <$> c .: "LoadBalancerAttributes"
+        <*> c .: "LoadBalancerName"

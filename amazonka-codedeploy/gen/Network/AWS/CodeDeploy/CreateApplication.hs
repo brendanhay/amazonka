@@ -91,8 +91,11 @@ instance ToQuery CreateApplication where
     toQuery = const mempty
 
 instance ToHeaders CreateApplication
+
 instance ToJSON CreateApplication where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateApplication{..} = object
+        [ "applicationName" .= _caApplicationName
+        ]
 
 instance AWSRequest CreateApplication where
     type Sv CreateApplication = CodeDeploy
@@ -102,4 +105,5 @@ instance AWSRequest CreateApplication where
     response = jsonResponse
 
 instance FromJSON CreateApplicationResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateApplicationResponse" $ \o -> CreateApplicationResponse
+        <$> o .: "applicationId"

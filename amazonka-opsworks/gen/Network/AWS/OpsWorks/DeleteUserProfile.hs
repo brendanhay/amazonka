@@ -77,8 +77,11 @@ instance ToQuery DeleteUserProfile where
     toQuery = const mempty
 
 instance ToHeaders DeleteUserProfile
+
 instance ToJSON DeleteUserProfile where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteUserProfile{..} = object
+        [ "IamUserArn" .= _dupIamUserArn
+        ]
 
 instance AWSRequest DeleteUserProfile where
     type Sv DeleteUserProfile = OpsWorks

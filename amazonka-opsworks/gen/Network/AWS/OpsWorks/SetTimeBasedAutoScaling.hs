@@ -91,8 +91,12 @@ instance ToQuery SetTimeBasedAutoScaling where
     toQuery = const mempty
 
 instance ToHeaders SetTimeBasedAutoScaling
+
 instance ToJSON SetTimeBasedAutoScaling where
-    toJSON = genericToJSON jsonOptions
+    toJSON SetTimeBasedAutoScaling{..} = object
+        [ "InstanceId"          .= _stbasInstanceId
+        , "AutoScalingSchedule" .= _stbasAutoScalingSchedule
+        ]
 
 instance AWSRequest SetTimeBasedAutoScaling where
     type Sv SetTimeBasedAutoScaling = OpsWorks

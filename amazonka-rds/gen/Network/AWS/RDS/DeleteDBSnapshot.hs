@@ -100,5 +100,5 @@ instance AWSRequest DeleteDBSnapshot where
     response = xmlResponse
 
 instance FromXML DeleteDBSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteDBSnapshotResponse"
+    parseXML c = DeleteDBSnapshotResponse
+        <$> c .: "DBSnapshot"

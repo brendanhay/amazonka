@@ -239,8 +239,13 @@ instance ToQuery BatchWriteItem where
     toQuery = const mempty
 
 instance ToHeaders BatchWriteItem
+
 instance ToJSON BatchWriteItem where
-    toJSON = genericToJSON jsonOptions
+    toJSON BatchWriteItem{..} = object
+        [ "RequestItems"                .= _bwiRequestItems
+        , "ReturnConsumedCapacity"      .= _bwiReturnConsumedCapacity
+        , "ReturnItemCollectionMetrics" .= _bwiReturnItemCollectionMetrics
+        ]
 
 instance AWSRequest BatchWriteItem where
     type Sv BatchWriteItem = DynamoDB
@@ -250,4 +255,7 @@ instance AWSRequest BatchWriteItem where
     response = jsonResponse
 
 instance FromJSON BatchWriteItemResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "BatchWriteItemResponse" $ \o -> BatchWriteItemResponse
+        <$> o .: "ConsumedCapacity"
+        <*> o .: "ItemCollectionMetrics"
+        <*> o .: "UnprocessedItems"

@@ -97,5 +97,6 @@ instance AWSRequest DescribeMetricCollectionTypes where
     response = xmlResponse
 
 instance FromXML DescribeMetricCollectionTypesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeMetricCollectionTypesResponse"
+    parseXML c = DescribeMetricCollectionTypesResponse
+        <$> c .: "Granularities"
+        <*> c .: "Metrics"

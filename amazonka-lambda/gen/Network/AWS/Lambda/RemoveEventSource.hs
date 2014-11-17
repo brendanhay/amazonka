@@ -80,8 +80,9 @@ instance ToQuery RemoveEventSource where
     toQuery = const mempty
 
 instance ToHeaders RemoveEventSource
+
 instance ToJSON RemoveEventSource where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest RemoveEventSource where
     type Sv RemoveEventSource = Lambda

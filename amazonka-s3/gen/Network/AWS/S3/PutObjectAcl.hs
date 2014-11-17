@@ -171,9 +171,11 @@ instance ToHeaders PutObjectAcl where
         , "x-amz-grant-write"        =: _poaGrantWrite
         , "x-amz-grant-write-acp"    =: _poaGrantWriteACP
         ]
+
 instance ToXML PutObjectAcl where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PutObjectAcl"
+    toXML PutObjectAcl{..} = node "PutObjectAcl"
+        [ "AccessControlPolicy" .= _poaAccessControlPolicy
+        ]
 
 instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3

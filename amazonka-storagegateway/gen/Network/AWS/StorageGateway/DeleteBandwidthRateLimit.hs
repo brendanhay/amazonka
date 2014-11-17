@@ -101,8 +101,12 @@ instance ToQuery DeleteBandwidthRateLimit where
     toQuery = const mempty
 
 instance ToHeaders DeleteBandwidthRateLimit
+
 instance ToJSON DeleteBandwidthRateLimit where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteBandwidthRateLimit{..} = object
+        [ "GatewayARN"    .= _dbrl1GatewayARN
+        , "BandwidthType" .= _dbrl1BandwidthType
+        ]
 
 instance AWSRequest DeleteBandwidthRateLimit where
     type Sv DeleteBandwidthRateLimit = StorageGateway
@@ -112,4 +116,5 @@ instance AWSRequest DeleteBandwidthRateLimit where
     response = jsonResponse
 
 instance FromJSON DeleteBandwidthRateLimitResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteBandwidthRateLimitResponse" $ \o -> DeleteBandwidthRateLimitResponse
+        <$> o .: "GatewayARN"

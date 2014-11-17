@@ -207,5 +207,5 @@ instance AWSRequest RegisterImage where
     response = xmlResponse
 
 instance FromXML RegisterImageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RegisterImageResponse"
+    parseXML c = RegisterImageResponse
+        <$> c .: "imageId"

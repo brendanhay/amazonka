@@ -391,9 +391,9 @@ instance ToHeaders CreateMultipartUpload where
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _cmuSSECustomerKeyMD5
         , "x-amz-server-side-encryption-aws-kms-key-id"     =: _cmuSSEKMSKeyId
         ]
+
 instance ToXML CreateMultipartUpload where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateMultipartUpload"
+    toXML = const (node "CreateMultipartUpload" [])
 
 instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3

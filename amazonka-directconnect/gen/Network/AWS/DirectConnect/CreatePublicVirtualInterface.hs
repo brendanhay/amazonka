@@ -232,8 +232,12 @@ instance ToQuery CreatePublicVirtualInterface where
     toQuery = const mempty
 
 instance ToHeaders CreatePublicVirtualInterface
+
 instance ToJSON CreatePublicVirtualInterface where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreatePublicVirtualInterface{..} = object
+        [ "connectionId"              .= _cpviConnectionId
+        , "newPublicVirtualInterface" .= _cpviNewPublicVirtualInterface
+        ]
 
 instance AWSRequest CreatePublicVirtualInterface where
     type Sv CreatePublicVirtualInterface = DirectConnect
@@ -243,4 +247,19 @@ instance AWSRequest CreatePublicVirtualInterface where
     response = jsonResponse
 
 instance FromJSON CreatePublicVirtualInterfaceResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreatePublicVirtualInterfaceResponse" $ \o -> CreatePublicVirtualInterfaceResponse
+        <$> o .: "amazonAddress"
+        <*> o .: "asn"
+        <*> o .: "authKey"
+        <*> o .: "connectionId"
+        <*> o .: "customerAddress"
+        <*> o .: "customerRouterConfig"
+        <*> o .: "location"
+        <*> o .: "ownerAccount"
+        <*> o .: "routeFilterPrefixes"
+        <*> o .: "virtualGatewayId"
+        <*> o .: "virtualInterfaceId"
+        <*> o .: "virtualInterfaceName"
+        <*> o .: "virtualInterfaceState"
+        <*> o .: "virtualInterfaceType"
+        <*> o .: "vlan"

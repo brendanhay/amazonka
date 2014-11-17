@@ -193,5 +193,5 @@ instance AWSRequest CreateEventSubscription where
     response = xmlResponse
 
 instance FromXML CreateEventSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateEventSubscriptionResponse"
+    parseXML c = CreateEventSubscriptionResponse
+        <$> c .: "EventSubscription"

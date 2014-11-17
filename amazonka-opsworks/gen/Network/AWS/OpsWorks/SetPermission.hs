@@ -119,8 +119,15 @@ instance ToQuery SetPermission where
     toQuery = const mempty
 
 instance ToHeaders SetPermission
+
 instance ToJSON SetPermission where
-    toJSON = genericToJSON jsonOptions
+    toJSON SetPermission{..} = object
+        [ "StackId"    .= _spStackId
+        , "IamUserArn" .= _spIamUserArn
+        , "AllowSsh"   .= _spAllowSsh
+        , "AllowSudo"  .= _spAllowSudo
+        , "Level"      .= _spLevel
+        ]
 
 instance AWSRequest SetPermission where
     type Sv SetPermission = OpsWorks

@@ -132,8 +132,14 @@ instance ToQuery DescribeMetricFilters where
     toQuery = const mempty
 
 instance ToHeaders DescribeMetricFilters
+
 instance ToJSON DescribeMetricFilters where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeMetricFilters{..} = object
+        [ "logGroupName"     .= _dmfLogGroupName
+        , "filterNamePrefix" .= _dmfFilterNamePrefix
+        , "nextToken"        .= _dmfNextToken
+        , "limit"            .= _dmfLimit
+        ]
 
 instance AWSRequest DescribeMetricFilters where
     type Sv DescribeMetricFilters = CloudWatchLogs
@@ -143,4 +149,6 @@ instance AWSRequest DescribeMetricFilters where
     response = jsonResponse
 
 instance FromJSON DescribeMetricFiltersResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeMetricFiltersResponse" $ \o -> DescribeMetricFiltersResponse
+        <$> o .: "metricFilters"
+        <*> o .: "nextToken"

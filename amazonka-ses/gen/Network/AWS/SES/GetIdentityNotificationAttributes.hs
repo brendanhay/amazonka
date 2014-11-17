@@ -108,5 +108,5 @@ instance AWSRequest GetIdentityNotificationAttributes where
     response = xmlResponse
 
 instance FromXML GetIdentityNotificationAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetIdentityNotificationAttributesResponse"
+    parseXML c = GetIdentityNotificationAttributesResponse
+        <$> c .: "NotificationAttributes"

@@ -156,5 +156,5 @@ instance AWSRequest CreateImage where
     response = xmlResponse
 
 instance FromXML CreateImageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateImageResponse"
+    parseXML c = CreateImageResponse
+        <$> c .: "imageId"

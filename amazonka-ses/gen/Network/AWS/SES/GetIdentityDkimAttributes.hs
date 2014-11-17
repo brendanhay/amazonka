@@ -117,5 +117,5 @@ instance AWSRequest GetIdentityDkimAttributes where
     response = xmlResponse
 
 instance FromXML GetIdentityDkimAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetIdentityDkimAttributesResponse"
+    parseXML c = GetIdentityDkimAttributesResponse
+        <$> c .: "DkimAttributes"

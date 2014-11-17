@@ -130,8 +130,14 @@ instance ToQuery DescribeVolumes where
     toQuery = const mempty
 
 instance ToHeaders DescribeVolumes
+
 instance ToJSON DescribeVolumes where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeVolumes{..} = object
+        [ "InstanceId"  .= _dvInstanceId
+        , "StackId"     .= _dvStackId
+        , "RaidArrayId" .= _dvRaidArrayId
+        , "VolumeIds"   .= _dvVolumeIds
+        ]
 
 instance AWSRequest DescribeVolumes where
     type Sv DescribeVolumes = OpsWorks
@@ -141,4 +147,5 @@ instance AWSRequest DescribeVolumes where
     response = jsonResponse
 
 instance FromJSON DescribeVolumesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeVolumesResponse" $ \o -> DescribeVolumesResponse
+        <$> o .: "Volumes"

@@ -148,8 +148,15 @@ instance ToQuery ListDeployments where
     toQuery = const mempty
 
 instance ToHeaders ListDeployments
+
 instance ToJSON ListDeployments where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListDeployments{..} = object
+        [ "applicationName"     .= _ldApplicationName
+        , "deploymentGroupName" .= _ldDeploymentGroupName
+        , "includeOnlyStatuses" .= _ldIncludeOnlyStatuses
+        , "createTimeRange"     .= _ldCreateTimeRange
+        , "nextToken"           .= _ldNextToken
+        ]
 
 instance AWSRequest ListDeployments where
     type Sv ListDeployments = CodeDeploy
@@ -159,4 +166,6 @@ instance AWSRequest ListDeployments where
     response = jsonResponse
 
 instance FromJSON ListDeploymentsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListDeploymentsResponse" $ \o -> ListDeploymentsResponse
+        <$> o .: "deployments"
+        <*> o .: "nextToken"

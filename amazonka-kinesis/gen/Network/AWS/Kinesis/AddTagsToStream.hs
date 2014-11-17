@@ -88,8 +88,12 @@ instance ToQuery AddTagsToStream where
     toQuery = const mempty
 
 instance ToHeaders AddTagsToStream
+
 instance ToJSON AddTagsToStream where
-    toJSON = genericToJSON jsonOptions
+    toJSON AddTagsToStream{..} = object
+        [ "StreamName" .= _attsStreamName
+        , "Tags"       .= _attsTags
+        ]
 
 instance AWSRequest AddTagsToStream where
     type Sv AddTagsToStream = Kinesis

@@ -136,8 +136,13 @@ instance ToQuery PollForTask where
     toQuery = const mempty
 
 instance ToHeaders PollForTask
+
 instance ToJSON PollForTask where
-    toJSON = genericToJSON jsonOptions
+    toJSON PollForTask{..} = object
+        [ "workerGroup"      .= _pftWorkerGroup
+        , "hostname"         .= _pftHostname
+        , "instanceIdentity" .= _pftInstanceIdentity
+        ]
 
 instance AWSRequest PollForTask where
     type Sv PollForTask = DataPipeline
@@ -147,4 +152,5 @@ instance AWSRequest PollForTask where
     response = jsonResponse
 
 instance FromJSON PollForTaskResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PollForTaskResponse" $ \o -> PollForTaskResponse
+        <$> o .: "taskObject"

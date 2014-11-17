@@ -148,5 +148,6 @@ instance AWSRequest DescribeDBParameterGroups where
     response = xmlResponse
 
 instance FromXML DescribeDBParameterGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBParameterGroupsResponse"
+    parseXML c = DescribeDBParameterGroupsResponse
+        <$> c .: "DBParameterGroups"
+        <*> c .: "Marker"

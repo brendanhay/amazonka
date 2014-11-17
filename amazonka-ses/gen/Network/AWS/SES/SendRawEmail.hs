@@ -146,5 +146,5 @@ instance AWSRequest SendRawEmail where
     response = xmlResponse
 
 instance FromXML SendRawEmailResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SendRawEmailResponse"
+    parseXML c = SendRawEmailResponse
+        <$> c .: "MessageId"

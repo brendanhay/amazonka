@@ -91,8 +91,11 @@ instance ToQuery DescribeCluster where
     toQuery = const mempty
 
 instance ToHeaders DescribeCluster
+
 instance ToJSON DescribeCluster where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeCluster{..} = object
+        [ "ClusterId" .= _dcClusterId
+        ]
 
 instance AWSRequest DescribeCluster where
     type Sv DescribeCluster = EMR
@@ -102,4 +105,5 @@ instance AWSRequest DescribeCluster where
     response = jsonResponse
 
 instance FromJSON DescribeClusterResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeClusterResponse" $ \o -> DescribeClusterResponse
+        <$> o .: "Cluster"

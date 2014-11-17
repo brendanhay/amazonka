@@ -114,8 +114,12 @@ instance ToQuery DeleteDeploymentGroup where
     toQuery = const mempty
 
 instance ToHeaders DeleteDeploymentGroup
+
 instance ToJSON DeleteDeploymentGroup where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteDeploymentGroup{..} = object
+        [ "applicationName"     .= _ddgApplicationName
+        , "deploymentGroupName" .= _ddgDeploymentGroupName
+        ]
 
 instance AWSRequest DeleteDeploymentGroup where
     type Sv DeleteDeploymentGroup = CodeDeploy
@@ -125,4 +129,5 @@ instance AWSRequest DeleteDeploymentGroup where
     response = jsonResponse
 
 instance FromJSON DeleteDeploymentGroupResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteDeploymentGroupResponse" $ \o -> DeleteDeploymentGroupResponse
+        <$> o .: "hooksNotCleanedUp"

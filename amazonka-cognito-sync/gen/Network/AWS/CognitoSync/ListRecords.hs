@@ -247,8 +247,9 @@ instance ToQuery ListRecords where
         ]
 
 instance ToHeaders ListRecords
+
 instance ToJSON ListRecords where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ListRecords where
     type Sv ListRecords = CognitoSync
@@ -258,4 +259,13 @@ instance AWSRequest ListRecords where
     response = jsonResponse
 
 instance FromJSON ListRecordsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListRecordsResponse" $ \o -> ListRecordsResponse
+        <$> o .: "Count"
+        <*> o .: "DatasetDeletedAfterRequestedSyncCount"
+        <*> o .: "DatasetExists"
+        <*> o .: "DatasetSyncCount"
+        <*> o .: "LastModifiedBy"
+        <*> o .: "MergedDatasetNames"
+        <*> o .: "NextToken"
+        <*> o .: "Records"
+        <*> o .: "SyncSessionToken"

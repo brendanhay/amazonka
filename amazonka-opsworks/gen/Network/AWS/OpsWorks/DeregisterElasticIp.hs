@@ -80,8 +80,11 @@ instance ToQuery DeregisterElasticIp where
     toQuery = const mempty
 
 instance ToHeaders DeregisterElasticIp
+
 instance ToJSON DeregisterElasticIp where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeregisterElasticIp{..} = object
+        [ "ElasticIp" .= _dei1ElasticIp
+        ]
 
 instance AWSRequest DeregisterElasticIp where
     type Sv DeregisterElasticIp = OpsWorks

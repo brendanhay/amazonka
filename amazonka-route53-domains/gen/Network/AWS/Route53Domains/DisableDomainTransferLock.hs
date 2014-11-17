@@ -101,8 +101,11 @@ instance ToQuery DisableDomainTransferLock where
     toQuery = const mempty
 
 instance ToHeaders DisableDomainTransferLock
+
 instance ToJSON DisableDomainTransferLock where
-    toJSON = genericToJSON jsonOptions
+    toJSON DisableDomainTransferLock{..} = object
+        [ "DomainName" .= _ddtlDomainName
+        ]
 
 instance AWSRequest DisableDomainTransferLock where
     type Sv DisableDomainTransferLock = Route53Domains
@@ -112,4 +115,5 @@ instance AWSRequest DisableDomainTransferLock where
     response = jsonResponse
 
 instance FromJSON DisableDomainTransferLockResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DisableDomainTransferLockResponse" $ \o -> DisableDomainTransferLockResponse
+        <$> o .: "OperationId"

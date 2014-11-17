@@ -132,5 +132,5 @@ instance AWSRequest PromoteReadReplica where
     response = xmlResponse
 
 instance FromXML PromoteReadReplicaResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PromoteReadReplicaResponse"
+    parseXML c = PromoteReadReplicaResponse
+        <$> c .: "DBInstance"

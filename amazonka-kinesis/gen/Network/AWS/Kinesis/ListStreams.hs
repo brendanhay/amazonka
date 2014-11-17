@@ -123,8 +123,12 @@ instance ToQuery ListStreams where
     toQuery = const mempty
 
 instance ToHeaders ListStreams
+
 instance ToJSON ListStreams where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListStreams{..} = object
+        [ "Limit"                    .= _lsLimit
+        , "ExclusiveStartStreamName" .= _lsExclusiveStartStreamName
+        ]
 
 instance AWSRequest ListStreams where
     type Sv ListStreams = Kinesis
@@ -134,4 +138,6 @@ instance AWSRequest ListStreams where
     response = jsonResponse
 
 instance FromJSON ListStreamsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListStreamsResponse" $ \o -> ListStreamsResponse
+        <$> o .: "HasMoreStreams"
+        <*> o .: "StreamNames"

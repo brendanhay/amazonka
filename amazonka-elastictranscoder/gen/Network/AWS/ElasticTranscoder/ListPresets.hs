@@ -113,8 +113,9 @@ instance ToPath ListPresets where
 instance ToQuery ListPresets
 
 instance ToHeaders ListPresets
+
 instance ToJSON ListPresets where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ListPresets where
     type Sv ListPresets = ElasticTranscoder
@@ -124,4 +125,6 @@ instance AWSRequest ListPresets where
     response = jsonResponse
 
 instance FromJSON ListPresetsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListPresetsResponse" $ \o -> ListPresetsResponse
+        <$> o .: "NextPageToken"
+        <*> o .: "Presets"

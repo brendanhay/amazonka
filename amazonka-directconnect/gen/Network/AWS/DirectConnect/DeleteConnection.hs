@@ -158,8 +158,11 @@ instance ToQuery DeleteConnection where
     toQuery = const mempty
 
 instance ToHeaders DeleteConnection
+
 instance ToJSON DeleteConnection where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteConnection{..} = object
+        [ "connectionId" .= _dcConnectionId
+        ]
 
 instance AWSRequest DeleteConnection where
     type Sv DeleteConnection = DirectConnect
@@ -169,4 +172,13 @@ instance AWSRequest DeleteConnection where
     response = jsonResponse
 
 instance FromJSON DeleteConnectionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteConnectionResponse" $ \o -> DeleteConnectionResponse
+        <$> o .: "bandwidth"
+        <*> o .: "connectionId"
+        <*> o .: "connectionName"
+        <*> o .: "connectionState"
+        <*> o .: "location"
+        <*> o .: "ownerAccount"
+        <*> o .: "partnerName"
+        <*> o .: "region"
+        <*> o .: "vlan"

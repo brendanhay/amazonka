@@ -156,8 +156,15 @@ instance ToQuery CountOpenWorkflowExecutions where
     toQuery = const mempty
 
 instance ToHeaders CountOpenWorkflowExecutions
+
 instance ToJSON CountOpenWorkflowExecutions where
-    toJSON = genericToJSON jsonOptions
+    toJSON CountOpenWorkflowExecutions{..} = object
+        [ "domain"          .= _coweDomain
+        , "startTimeFilter" .= _coweStartTimeFilter
+        , "typeFilter"      .= _coweTypeFilter
+        , "tagFilter"       .= _coweTagFilter
+        , "executionFilter" .= _coweExecutionFilter
+        ]
 
 instance AWSRequest CountOpenWorkflowExecutions where
     type Sv CountOpenWorkflowExecutions = SWF
@@ -167,4 +174,6 @@ instance AWSRequest CountOpenWorkflowExecutions where
     response = jsonResponse
 
 instance FromJSON CountOpenWorkflowExecutionsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CountOpenWorkflowExecutionsResponse" $ \o -> CountOpenWorkflowExecutionsResponse
+        <$> o .: "count"
+        <*> o .: "truncated"

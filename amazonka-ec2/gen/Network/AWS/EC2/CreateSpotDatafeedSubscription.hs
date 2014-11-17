@@ -120,5 +120,5 @@ instance AWSRequest CreateSpotDatafeedSubscription where
     response = xmlResponse
 
 instance FromXML CreateSpotDatafeedSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSpotDatafeedSubscriptionResponse"
+    parseXML c = CreateSpotDatafeedSubscriptionResponse
+        <$> c .: "spotDatafeedSubscription"

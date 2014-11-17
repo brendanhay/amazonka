@@ -150,5 +150,5 @@ instance AWSRequest DescribeRouteTables where
     response = xmlResponse
 
 instance FromXML DescribeRouteTablesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeRouteTablesResponse"
+    parseXML c = DescribeRouteTablesResponse
+        <$> c .: "routeTableSet"

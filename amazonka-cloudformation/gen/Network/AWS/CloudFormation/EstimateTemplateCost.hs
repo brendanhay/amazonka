@@ -125,5 +125,5 @@ instance AWSRequest EstimateTemplateCost where
     response = xmlResponse
 
 instance FromXML EstimateTemplateCostResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EstimateTemplateCostResponse"
+    parseXML c = EstimateTemplateCostResponse
+        <$> c .: "Url"

@@ -147,5 +147,7 @@ instance AWSRequest ListMFADevices where
     response = xmlResponse
 
 instance FromXML ListMFADevicesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListMFADevicesResponse"
+    parseXML c = ListMFADevicesResponse
+        <$> c .: "IsTruncated"
+        <*> c .: "MFADevices"
+        <*> c .: "Marker"

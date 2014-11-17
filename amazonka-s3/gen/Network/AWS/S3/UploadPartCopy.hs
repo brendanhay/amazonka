@@ -360,9 +360,9 @@ instance ToHeaders UploadPartCopy where
         , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _upcCopySourceSSECustomerKeyMD5
         , "x-amz-server-side-encryption-aws-kms-key-id"                 =: _upcCopySourceSSEKMSKeyId
         ]
+
 instance ToXML UploadPartCopy where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UploadPartCopy"
+    toXML = const (node "UploadPartCopy" [])
 
 instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3

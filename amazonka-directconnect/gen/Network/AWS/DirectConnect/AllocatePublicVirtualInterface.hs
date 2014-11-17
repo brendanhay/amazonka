@@ -251,8 +251,13 @@ instance ToQuery AllocatePublicVirtualInterface where
     toQuery = const mempty
 
 instance ToHeaders AllocatePublicVirtualInterface
+
 instance ToJSON AllocatePublicVirtualInterface where
-    toJSON = genericToJSON jsonOptions
+    toJSON AllocatePublicVirtualInterface{..} = object
+        [ "connectionId"                        .= _apvi1ConnectionId
+        , "ownerAccount"                        .= _apvi1OwnerAccount
+        , "newPublicVirtualInterfaceAllocation" .= _apvi1NewPublicVirtualInterfaceAllocation
+        ]
 
 instance AWSRequest AllocatePublicVirtualInterface where
     type Sv AllocatePublicVirtualInterface = DirectConnect
@@ -262,4 +267,19 @@ instance AWSRequest AllocatePublicVirtualInterface where
     response = jsonResponse
 
 instance FromJSON AllocatePublicVirtualInterfaceResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AllocatePublicVirtualInterfaceResponse" $ \o -> AllocatePublicVirtualInterfaceResponse
+        <$> o .: "amazonAddress"
+        <*> o .: "asn"
+        <*> o .: "authKey"
+        <*> o .: "connectionId"
+        <*> o .: "customerAddress"
+        <*> o .: "customerRouterConfig"
+        <*> o .: "location"
+        <*> o .: "ownerAccount"
+        <*> o .: "routeFilterPrefixes"
+        <*> o .: "virtualGatewayId"
+        <*> o .: "virtualInterfaceId"
+        <*> o .: "virtualInterfaceName"
+        <*> o .: "virtualInterfaceState"
+        <*> o .: "virtualInterfaceType"
+        <*> o .: "vlan"

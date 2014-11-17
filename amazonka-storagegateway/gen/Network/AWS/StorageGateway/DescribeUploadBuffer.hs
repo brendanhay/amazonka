@@ -119,8 +119,11 @@ instance ToQuery DescribeUploadBuffer where
     toQuery = const mempty
 
 instance ToHeaders DescribeUploadBuffer
+
 instance ToJSON DescribeUploadBuffer where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeUploadBuffer{..} = object
+        [ "GatewayARN" .= _dubGatewayARN
+        ]
 
 instance AWSRequest DescribeUploadBuffer where
     type Sv DescribeUploadBuffer = StorageGateway
@@ -130,4 +133,8 @@ instance AWSRequest DescribeUploadBuffer where
     response = jsonResponse
 
 instance FromJSON DescribeUploadBufferResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeUploadBufferResponse" $ \o -> DescribeUploadBufferResponse
+        <$> o .: "DiskIds"
+        <*> o .: "GatewayARN"
+        <*> o .: "UploadBufferAllocatedInBytes"
+        <*> o .: "UploadBufferUsedInBytes"

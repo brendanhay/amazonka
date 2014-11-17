@@ -151,5 +151,6 @@ instance AWSRequest DescribeReservedInstancesModifications where
     response = xmlResponse
 
 instance FromXML DescribeReservedInstancesModificationsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedInstancesModificationsResponse"
+    parseXML c = DescribeReservedInstancesModificationsResponse
+        <$> c .: "nextToken"
+        <*> c .: "reservedInstancesModificationsSet"

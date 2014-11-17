@@ -129,5 +129,5 @@ instance AWSRequest DescribeDefaultClusterParameters where
     response = xmlResponse
 
 instance FromXML DescribeDefaultClusterParametersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDefaultClusterParametersResponse"
+    parseXML c = DescribeDefaultClusterParametersResponse
+        <$> c .: "DefaultClusterParameters"

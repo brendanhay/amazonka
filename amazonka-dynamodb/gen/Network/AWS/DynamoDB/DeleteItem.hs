@@ -391,8 +391,20 @@ instance ToQuery DeleteItem where
     toQuery = const mempty
 
 instance ToHeaders DeleteItem
+
 instance ToJSON DeleteItem where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteItem{..} = object
+        [ "TableName"                   .= _diTableName
+        , "Key"                         .= _diKey
+        , "Expected"                    .= _diExpected
+        , "ConditionalOperator"         .= _diConditionalOperator
+        , "ReturnValues"                .= _diReturnValues
+        , "ReturnConsumedCapacity"      .= _diReturnConsumedCapacity
+        , "ReturnItemCollectionMetrics" .= _diReturnItemCollectionMetrics
+        , "ConditionExpression"         .= _diConditionExpression
+        , "ExpressionAttributeNames"    .= _diExpressionAttributeNames
+        , "ExpressionAttributeValues"   .= _diExpressionAttributeValues
+        ]
 
 instance AWSRequest DeleteItem where
     type Sv DeleteItem = DynamoDB
@@ -402,4 +414,7 @@ instance AWSRequest DeleteItem where
     response = jsonResponse
 
 instance FromJSON DeleteItemResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteItemResponse" $ \o -> DeleteItemResponse
+        <$> o .: "Attributes"
+        <*> o .: "ConsumedCapacity"
+        <*> o .: "ItemCollectionMetrics"

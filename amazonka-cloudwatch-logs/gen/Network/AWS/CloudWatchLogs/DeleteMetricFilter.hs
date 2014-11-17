@@ -83,8 +83,12 @@ instance ToQuery DeleteMetricFilter where
     toQuery = const mempty
 
 instance ToHeaders DeleteMetricFilter
+
 instance ToJSON DeleteMetricFilter where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteMetricFilter{..} = object
+        [ "logGroupName" .= _dmf1LogGroupName
+        , "filterName"   .= _dmf1FilterName
+        ]
 
 instance AWSRequest DeleteMetricFilter where
     type Sv DeleteMetricFilter = CloudWatchLogs

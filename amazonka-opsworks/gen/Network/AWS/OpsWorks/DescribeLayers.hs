@@ -109,8 +109,12 @@ instance ToQuery DescribeLayers where
     toQuery = const mempty
 
 instance ToHeaders DescribeLayers
+
 instance ToJSON DescribeLayers where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeLayers{..} = object
+        [ "StackId"  .= _dlStackId
+        , "LayerIds" .= _dlLayerIds
+        ]
 
 instance AWSRequest DescribeLayers where
     type Sv DescribeLayers = OpsWorks
@@ -120,4 +124,5 @@ instance AWSRequest DescribeLayers where
     response = jsonResponse
 
 instance FromJSON DescribeLayersResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeLayersResponse" $ \o -> DescribeLayersResponse
+        <$> o .: "Layers"

@@ -116,5 +116,5 @@ instance AWSRequest UpdateSAMLProvider where
     response = xmlResponse
 
 instance FromXML UpdateSAMLProviderResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateSAMLProviderResponse"
+    parseXML c = UpdateSAMLProviderResponse
+        <$> c .: "SAMLProviderArn"

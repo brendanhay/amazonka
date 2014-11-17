@@ -161,8 +161,16 @@ instance ToQuery CreateGrant where
     toQuery = const mempty
 
 instance ToHeaders CreateGrant
+
 instance ToJSON CreateGrant where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateGrant{..} = object
+        [ "KeyId"             .= _cgKeyId
+        , "GranteePrincipal"  .= _cgGranteePrincipal
+        , "RetiringPrincipal" .= _cgRetiringPrincipal
+        , "Operations"        .= _cgOperations
+        , "Constraints"       .= _cgConstraints
+        , "GrantTokens"       .= _cgGrantTokens
+        ]
 
 instance AWSRequest CreateGrant where
     type Sv CreateGrant = KMS
@@ -172,4 +180,6 @@ instance AWSRequest CreateGrant where
     response = jsonResponse
 
 instance FromJSON CreateGrantResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateGrantResponse" $ \o -> CreateGrantResponse
+        <$> o .: "GrantId"
+        <*> o .: "GrantToken"

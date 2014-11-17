@@ -230,8 +230,16 @@ instance ToQuery UpdatePipeline where
     toQuery = const mempty
 
 instance ToHeaders UpdatePipeline
+
 instance ToJSON UpdatePipeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdatePipeline{..} = object
+        [ "Name"            .= _upName
+        , "InputBucket"     .= _upInputBucket
+        , "Role"            .= _upRole
+        , "Notifications"   .= _upNotifications
+        , "ContentConfig"   .= _upContentConfig
+        , "ThumbnailConfig" .= _upThumbnailConfig
+        ]
 
 instance AWSRequest UpdatePipeline where
     type Sv UpdatePipeline = ElasticTranscoder
@@ -241,4 +249,5 @@ instance AWSRequest UpdatePipeline where
     response = jsonResponse
 
 instance FromJSON UpdatePipelineResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdatePipelineResponse" $ \o -> UpdatePipelineResponse
+        <$> o .: "Pipeline"

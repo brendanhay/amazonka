@@ -127,8 +127,13 @@ instance ToQuery ListTagsForStream where
     toQuery = const mempty
 
 instance ToHeaders ListTagsForStream
+
 instance ToJSON ListTagsForStream where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListTagsForStream{..} = object
+        [ "StreamName"           .= _ltfsStreamName
+        , "ExclusiveStartTagKey" .= _ltfsExclusiveStartTagKey
+        , "Limit"                .= _ltfsLimit
+        ]
 
 instance AWSRequest ListTagsForStream where
     type Sv ListTagsForStream = Kinesis
@@ -138,4 +143,6 @@ instance AWSRequest ListTagsForStream where
     response = jsonResponse
 
 instance FromJSON ListTagsForStreamResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListTagsForStreamResponse" $ \o -> ListTagsForStreamResponse
+        <$> o .: "HasMoreTags"
+        <*> o .: "Tags"

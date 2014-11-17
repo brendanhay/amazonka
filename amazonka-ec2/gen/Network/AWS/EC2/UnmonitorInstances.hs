@@ -113,5 +113,5 @@ instance AWSRequest UnmonitorInstances where
     response = xmlResponse
 
 instance FromXML UnmonitorInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UnmonitorInstancesResponse"
+    parseXML c = UnmonitorInstancesResponse
+        <$> c .: "instancesSet"

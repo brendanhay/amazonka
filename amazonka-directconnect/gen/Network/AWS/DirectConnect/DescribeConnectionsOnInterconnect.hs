@@ -98,8 +98,11 @@ instance ToQuery DescribeConnectionsOnInterconnect where
     toQuery = const mempty
 
 instance ToHeaders DescribeConnectionsOnInterconnect
+
 instance ToJSON DescribeConnectionsOnInterconnect where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeConnectionsOnInterconnect{..} = object
+        [ "interconnectId" .= _dcoiInterconnectId
+        ]
 
 instance AWSRequest DescribeConnectionsOnInterconnect where
     type Sv DescribeConnectionsOnInterconnect = DirectConnect
@@ -109,4 +112,5 @@ instance AWSRequest DescribeConnectionsOnInterconnect where
     response = jsonResponse
 
 instance FromJSON DescribeConnectionsOnInterconnectResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeConnectionsOnInterconnectResponse" $ \o -> DescribeConnectionsOnInterconnectResponse
+        <$> o .: "connections"

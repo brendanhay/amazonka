@@ -123,8 +123,12 @@ instance ToQuery CountPendingActivityTasks where
     toQuery = const mempty
 
 instance ToHeaders CountPendingActivityTasks
+
 instance ToJSON CountPendingActivityTasks where
-    toJSON = genericToJSON jsonOptions
+    toJSON CountPendingActivityTasks{..} = object
+        [ "domain"   .= _cpatDomain
+        , "taskList" .= _cpatTaskList
+        ]
 
 instance AWSRequest CountPendingActivityTasks where
     type Sv CountPendingActivityTasks = SWF
@@ -134,4 +138,6 @@ instance AWSRequest CountPendingActivityTasks where
     response = jsonResponse
 
 instance FromJSON CountPendingActivityTasksResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CountPendingActivityTasksResponse" $ \o -> CountPendingActivityTasksResponse
+        <$> o .: "count"
+        <*> o .: "truncated"

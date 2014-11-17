@@ -111,8 +111,12 @@ instance ToQuery UpdateDomainNameservers where
     toQuery = const mempty
 
 instance ToHeaders UpdateDomainNameservers
+
 instance ToJSON UpdateDomainNameservers where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateDomainNameservers{..} = object
+        [ "DomainName"  .= _udnDomainName
+        , "Nameservers" .= _udnNameservers
+        ]
 
 instance AWSRequest UpdateDomainNameservers where
     type Sv UpdateDomainNameservers = Route53Domains
@@ -122,4 +126,5 @@ instance AWSRequest UpdateDomainNameservers where
     response = jsonResponse
 
 instance FromJSON UpdateDomainNameserversResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateDomainNameserversResponse" $ \o -> UpdateDomainNameserversResponse
+        <$> o .: "OperationId"

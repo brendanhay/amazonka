@@ -102,8 +102,11 @@ instance ToQuery DescribeTrustedAdvisorCheckRefreshStatuses where
     toQuery = const mempty
 
 instance ToHeaders DescribeTrustedAdvisorCheckRefreshStatuses
+
 instance ToJSON DescribeTrustedAdvisorCheckRefreshStatuses where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeTrustedAdvisorCheckRefreshStatuses{..} = object
+        [ "checkIds" .= _dtacrsCheckIds
+        ]
 
 instance AWSRequest DescribeTrustedAdvisorCheckRefreshStatuses where
     type Sv DescribeTrustedAdvisorCheckRefreshStatuses = Support
@@ -113,4 +116,5 @@ instance AWSRequest DescribeTrustedAdvisorCheckRefreshStatuses where
     response = jsonResponse
 
 instance FromJSON DescribeTrustedAdvisorCheckRefreshStatusesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeTrustedAdvisorCheckRefreshStatusesResponse" $ \o -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
+        <$> o .: "statuses"

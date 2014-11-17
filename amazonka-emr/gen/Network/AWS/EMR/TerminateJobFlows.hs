@@ -87,8 +87,11 @@ instance ToQuery TerminateJobFlows where
     toQuery = const mempty
 
 instance ToHeaders TerminateJobFlows
+
 instance ToJSON TerminateJobFlows where
-    toJSON = genericToJSON jsonOptions
+    toJSON TerminateJobFlows{..} = object
+        [ "JobFlowIds" .= _tjfJobFlowIds
+        ]
 
 instance AWSRequest TerminateJobFlows where
     type Sv TerminateJobFlows = EMR

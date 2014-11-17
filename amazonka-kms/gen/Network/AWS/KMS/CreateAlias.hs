@@ -93,8 +93,12 @@ instance ToQuery CreateAlias where
     toQuery = const mempty
 
 instance ToHeaders CreateAlias
+
 instance ToJSON CreateAlias where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateAlias{..} = object
+        [ "AliasName"   .= _caAliasName
+        , "TargetKeyId" .= _caTargetKeyId
+        ]
 
 instance AWSRequest CreateAlias where
     type Sv CreateAlias = KMS

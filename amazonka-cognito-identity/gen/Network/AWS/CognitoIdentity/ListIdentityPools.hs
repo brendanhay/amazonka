@@ -109,8 +109,12 @@ instance ToQuery ListIdentityPools where
     toQuery = const mempty
 
 instance ToHeaders ListIdentityPools
+
 instance ToJSON ListIdentityPools where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListIdentityPools{..} = object
+        [ "MaxResults" .= _lipMaxResults
+        , "NextToken"  .= _lipNextToken
+        ]
 
 instance AWSRequest ListIdentityPools where
     type Sv ListIdentityPools = CognitoIdentity
@@ -120,4 +124,6 @@ instance AWSRequest ListIdentityPools where
     response = jsonResponse
 
 instance FromJSON ListIdentityPoolsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListIdentityPoolsResponse" $ \o -> ListIdentityPoolsResponse
+        <$> o .: "IdentityPools"
+        <*> o .: "NextToken"

@@ -130,8 +130,14 @@ instance ToQuery UpdateSnapshotSchedule where
     toQuery = const mempty
 
 instance ToHeaders UpdateSnapshotSchedule
+
 instance ToJSON UpdateSnapshotSchedule where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateSnapshotSchedule{..} = object
+        [ "VolumeARN"         .= _ussVolumeARN
+        , "StartAt"           .= _ussStartAt
+        , "RecurrenceInHours" .= _ussRecurrenceInHours
+        , "Description"       .= _ussDescription
+        ]
 
 instance AWSRequest UpdateSnapshotSchedule where
     type Sv UpdateSnapshotSchedule = StorageGateway
@@ -141,4 +147,5 @@ instance AWSRequest UpdateSnapshotSchedule where
     response = jsonResponse
 
 instance FromJSON UpdateSnapshotScheduleResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateSnapshotScheduleResponse" $ \o -> UpdateSnapshotScheduleResponse
+        <$> o .: "VolumeARN"

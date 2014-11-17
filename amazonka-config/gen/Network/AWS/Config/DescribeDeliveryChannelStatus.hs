@@ -106,8 +106,11 @@ instance ToQuery DescribeDeliveryChannelStatus where
     toQuery = const mempty
 
 instance ToHeaders DescribeDeliveryChannelStatus
+
 instance ToJSON DescribeDeliveryChannelStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeDeliveryChannelStatus{..} = object
+        [ "DeliveryChannelNames" .= _ddcsDeliveryChannelNames
+        ]
 
 instance AWSRequest DescribeDeliveryChannelStatus where
     type Sv DescribeDeliveryChannelStatus = Config
@@ -117,4 +120,5 @@ instance AWSRequest DescribeDeliveryChannelStatus where
     response = jsonResponse
 
 instance FromJSON DescribeDeliveryChannelStatusResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeDeliveryChannelStatusResponse" $ \o -> DescribeDeliveryChannelStatusResponse
+        <$> o .: "DeliveryChannelsStatus"

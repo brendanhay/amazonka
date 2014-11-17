@@ -110,5 +110,5 @@ instance AWSRequest CreateGroup where
     response = xmlResponse
 
 instance FromXML CreateGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateGroupResponse"
+    parseXML c = CreateGroupResponse
+        <$> c .: "Group"

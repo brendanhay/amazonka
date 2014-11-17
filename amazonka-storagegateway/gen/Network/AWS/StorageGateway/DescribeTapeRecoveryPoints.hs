@@ -137,8 +137,13 @@ instance ToQuery DescribeTapeRecoveryPoints where
     toQuery = const mempty
 
 instance ToHeaders DescribeTapeRecoveryPoints
+
 instance ToJSON DescribeTapeRecoveryPoints where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeTapeRecoveryPoints{..} = object
+        [ "GatewayARN" .= _dtrpGatewayARN
+        , "Marker"     .= _dtrpMarker
+        , "Limit"      .= _dtrpLimit
+        ]
 
 instance AWSRequest DescribeTapeRecoveryPoints where
     type Sv DescribeTapeRecoveryPoints = StorageGateway
@@ -148,4 +153,7 @@ instance AWSRequest DescribeTapeRecoveryPoints where
     response = jsonResponse
 
 instance FromJSON DescribeTapeRecoveryPointsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeTapeRecoveryPointsResponse" $ \o -> DescribeTapeRecoveryPointsResponse
+        <$> o .: "GatewayARN"
+        <*> o .: "Marker"
+        <*> o .: "TapeRecoveryPointInfos"

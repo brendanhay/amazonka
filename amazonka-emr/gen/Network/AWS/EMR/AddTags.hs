@@ -91,8 +91,12 @@ instance ToQuery AddTags where
     toQuery = const mempty
 
 instance ToHeaders AddTags
+
 instance ToJSON AddTags where
-    toJSON = genericToJSON jsonOptions
+    toJSON AddTags{..} = object
+        [ "ResourceId" .= _atResourceId
+        , "Tags"       .= _atTags
+        ]
 
 instance AWSRequest AddTags where
     type Sv AddTags = EMR

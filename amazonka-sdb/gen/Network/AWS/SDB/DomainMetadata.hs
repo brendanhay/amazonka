@@ -160,5 +160,11 @@ instance AWSRequest DomainMetadata where
     response = xmlResponse
 
 instance FromXML DomainMetadataResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DomainMetadataResponse"
+    parseXML c = DomainMetadataResponse
+        <$> c .: "AttributeNameCount"
+        <*> c .: "AttributeNamesSizeBytes"
+        <*> c .: "AttributeValueCount"
+        <*> c .: "AttributeValuesSizeBytes"
+        <*> c .: "ItemCount"
+        <*> c .: "ItemNamesSizeBytes"
+        <*> c .: "Timestamp"

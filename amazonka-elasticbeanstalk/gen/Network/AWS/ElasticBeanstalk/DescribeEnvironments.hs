@@ -161,5 +161,5 @@ instance AWSRequest DescribeEnvironments where
     response = xmlResponse
 
 instance FromXML DescribeEnvironmentsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEnvironmentsResponse"
+    parseXML c = DescribeEnvironmentsResponse
+        <$> c .: "Environments"

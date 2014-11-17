@@ -147,5 +147,6 @@ instance AWSRequest DescribeEventSubscriptions where
     response = xmlResponse
 
 instance FromXML DescribeEventSubscriptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEventSubscriptionsResponse"
+    parseXML c = DescribeEventSubscriptionsResponse
+        <$> c .: "EventSubscriptionsList"
+        <*> c .: "Marker"

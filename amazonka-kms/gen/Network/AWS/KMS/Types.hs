@@ -25,8 +25,6 @@ module Network.AWS.KMS.Types
       KMS
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * KeyUsageType
     , KeyUsageType (..)
@@ -102,11 +100,6 @@ instance AWSService KMS where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data KeyUsageType
     = EncryptDecrypt -- ^ ENCRYPT_DECRYPT
       deriving (Eq, Ord, Show, Generic, Enum)
@@ -120,10 +113,10 @@ instance ToText KeyUsageType where
     toText EncryptDecrypt = "ENCRYPT_DECRYPT"
 
 instance FromJSON KeyUsageType where
-    parseJSON = withFromText "KeyUsageType"
+    parseJSON = fromJSONText "KeyUsageType"
 
 instance ToJSON KeyUsageType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data KeyMetadata = KeyMetadata
     { _kmAWSAccountId :: Maybe Text
@@ -195,10 +188,25 @@ kmKeyUsage :: Lens' KeyMetadata (Maybe Text)
 kmKeyUsage = lens _kmKeyUsage (\s a -> s { _kmKeyUsage = a })
 
 instance FromJSON KeyMetadata where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "KeyMetadata" $ \o -> KeyMetadata
+        <$> o .: "AWSAccountId"
+        <*> o .: "Arn"
+        <*> o .: "CreationDate"
+        <*> o .: "Description"
+        <*> o .: "Enabled"
+        <*> o .: "KeyId"
+        <*> o .: "KeyUsage"
 
 instance ToJSON KeyMetadata where
-    toJSON = genericToJSON jsonOptions
+    toJSON KeyMetadata{..} = object
+        [ "AWSAccountId" .= _kmAWSAccountId
+        , "KeyId"        .= _kmKeyId
+        , "Arn"          .= _kmArn
+        , "CreationDate" .= _kmCreationDate
+        , "Enabled"      .= _kmEnabled
+        , "Description"  .= _kmDescription
+        , "KeyUsage"     .= _kmKeyUsage
+        ]
 
 data DataKeySpec
     = AES128 -- ^ AES_128
@@ -217,10 +225,10 @@ instance ToText DataKeySpec where
         AES256 -> "AES_256"
 
 instance FromJSON DataKeySpec where
-    parseJSON = withFromText "DataKeySpec"
+    parseJSON = fromJSONText "DataKeySpec"
 
 instance ToJSON DataKeySpec where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data GrantConstraints = GrantConstraints
     { _gcEncryptionContextEquals :: Map Text Text
@@ -257,10 +265,15 @@ gcEncryptionContextSubset =
             . _Map
 
 instance FromJSON GrantConstraints where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GrantConstraints" $ \o -> GrantConstraints
+        <$> o .: "EncryptionContextEquals"
+        <*> o .: "EncryptionContextSubset"
 
 instance ToJSON GrantConstraints where
-    toJSON = genericToJSON jsonOptions
+    toJSON GrantConstraints{..} = object
+        [ "EncryptionContextSubset" .= _gcEncryptionContextSubset
+        , "EncryptionContextEquals" .= _gcEncryptionContextEquals
+        ]
 
 data AliasListEntry = AliasListEntry
     { _aleAliasArn    :: Maybe Text
@@ -298,10 +311,17 @@ aleTargetKeyId :: Lens' AliasListEntry (Maybe Text)
 aleTargetKeyId = lens _aleTargetKeyId (\s a -> s { _aleTargetKeyId = a })
 
 instance FromJSON AliasListEntry where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AliasListEntry" $ \o -> AliasListEntry
+        <$> o .: "AliasArn"
+        <*> o .: "AliasName"
+        <*> o .: "TargetKeyId"
 
 instance ToJSON AliasListEntry where
-    toJSON = genericToJSON jsonOptions
+    toJSON AliasListEntry{..} = object
+        [ "AliasName"   .= _aleAliasName
+        , "AliasArn"    .= _aleAliasArn
+        , "TargetKeyId" .= _aleTargetKeyId
+        ]
 
 data GrantListEntry = GrantListEntry
     { _gleConstraints       :: Maybe GrantConstraints
@@ -369,10 +389,23 @@ gleRetiringPrincipal =
     lens _gleRetiringPrincipal (\s a -> s { _gleRetiringPrincipal = a })
 
 instance FromJSON GrantListEntry where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GrantListEntry" $ \o -> GrantListEntry
+        <$> o .: "Constraints"
+        <*> o .: "GrantId"
+        <*> o .: "GranteePrincipal"
+        <*> o .: "IssuingAccount"
+        <*> o .: "Operations"
+        <*> o .: "RetiringPrincipal"
 
 instance ToJSON GrantListEntry where
-    toJSON = genericToJSON jsonOptions
+    toJSON GrantListEntry{..} = object
+        [ "GrantId"           .= _gleGrantId
+        , "GranteePrincipal"  .= _gleGranteePrincipal
+        , "RetiringPrincipal" .= _gleRetiringPrincipal
+        , "IssuingAccount"    .= _gleIssuingAccount
+        , "Operations"        .= _gleOperations
+        , "Constraints"       .= _gleConstraints
+        ]
 
 data GrantOperation
     = GOCreateGrant                     -- ^ CreateGrant
@@ -409,10 +442,10 @@ instance ToText GrantOperation where
         GORetireGrant                     -> "RetireGrant"
 
 instance FromJSON GrantOperation where
-    parseJSON = withFromText "GrantOperation"
+    parseJSON = fromJSONText "GrantOperation"
 
 instance ToJSON GrantOperation where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data KeyListEntry = KeyListEntry
     { _kleKeyArn :: Maybe Text
@@ -442,7 +475,12 @@ kleKeyId :: Lens' KeyListEntry (Maybe Text)
 kleKeyId = lens _kleKeyId (\s a -> s { _kleKeyId = a })
 
 instance FromJSON KeyListEntry where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "KeyListEntry" $ \o -> KeyListEntry
+        <$> o .: "KeyArn"
+        <*> o .: "KeyId"
 
 instance ToJSON KeyListEntry where
-    toJSON = genericToJSON jsonOptions
+    toJSON KeyListEntry{..} = object
+        [ "KeyId"  .= _kleKeyId
+        , "KeyArn" .= _kleKeyArn
+        ]

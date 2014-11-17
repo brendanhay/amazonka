@@ -152,8 +152,16 @@ instance ToQuery CreateDeployment where
     toQuery = const mempty
 
 instance ToHeaders CreateDeployment
+
 instance ToJSON CreateDeployment where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateDeployment{..} = object
+        [ "applicationName"               .= _cdApplicationName
+        , "deploymentGroupName"           .= _cdDeploymentGroupName
+        , "revision"                      .= _cdRevision
+        , "deploymentConfigName"          .= _cdDeploymentConfigName
+        , "description"                   .= _cdDescription
+        , "ignoreApplicationStopFailures" .= _cdIgnoreApplicationStopFailures
+        ]
 
 instance AWSRequest CreateDeployment where
     type Sv CreateDeployment = CodeDeploy
@@ -163,4 +171,5 @@ instance AWSRequest CreateDeployment where
     response = jsonResponse
 
 instance FromJSON CreateDeploymentResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateDeploymentResponse" $ \o -> CreateDeploymentResponse
+        <$> o .: "deploymentId"

@@ -177,5 +177,6 @@ instance AWSRequest DescribeDBLogFiles where
     response = xmlResponse
 
 instance FromXML DescribeDBLogFilesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBLogFilesResponse"
+    parseXML c = DescribeDBLogFilesResponse
+        <$> c .: "DescribeDBLogFiles"
+        <*> c .: "Marker"

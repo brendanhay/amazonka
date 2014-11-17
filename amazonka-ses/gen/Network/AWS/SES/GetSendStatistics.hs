@@ -93,5 +93,5 @@ instance AWSRequest GetSendStatistics where
     response = xmlResponse
 
 instance FromXML GetSendStatisticsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetSendStatisticsResponse"
+    parseXML c = GetSendStatisticsResponse
+        <$> c .: "SendDataPoints"

@@ -124,8 +124,12 @@ instance ToQuery ListTables where
     toQuery = const mempty
 
 instance ToHeaders ListTables
+
 instance ToJSON ListTables where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListTables{..} = object
+        [ "ExclusiveStartTableName" .= _ltExclusiveStartTableName
+        , "Limit"                   .= _ltLimit
+        ]
 
 instance AWSRequest ListTables where
     type Sv ListTables = DynamoDB
@@ -135,4 +139,6 @@ instance AWSRequest ListTables where
     response = jsonResponse
 
 instance FromJSON ListTablesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListTablesResponse" $ \o -> ListTablesResponse
+        <$> o .: "LastEvaluatedTableName"
+        <*> o .: "TableNames"

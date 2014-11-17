@@ -131,5 +131,5 @@ instance AWSRequest PurchaseReservedDBInstancesOffering where
     response = xmlResponse
 
 instance FromXML PurchaseReservedDBInstancesOfferingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PurchaseReservedDBInstancesOfferingResponse"
+    parseXML c = PurchaseReservedDBInstancesOfferingResponse
+        <$> c .: "ReservedDBInstance"

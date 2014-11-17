@@ -148,5 +148,6 @@ instance AWSRequest DescribeReservedNodeOfferings where
     response = xmlResponse
 
 instance FromXML DescribeReservedNodeOfferingsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedNodeOfferingsResponse"
+    parseXML c = DescribeReservedNodeOfferingsResponse
+        <$> c .: "Marker"
+        <*> c .: "ReservedNodeOfferings"

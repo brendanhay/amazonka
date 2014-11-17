@@ -279,5 +279,13 @@ instance AWSRequest CreateConfigurationTemplate where
     response = xmlResponse
 
 instance FromXML CreateConfigurationTemplateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateConfigurationTemplateResponse"
+    parseXML c = CreateConfigurationTemplateResponse
+        <$> c .: "ApplicationName"
+        <*> c .: "DateCreated"
+        <*> c .: "DateUpdated"
+        <*> c .: "DeploymentStatus"
+        <*> c .: "Description"
+        <*> c .: "EnvironmentName"
+        <*> c .: "OptionSettings"
+        <*> c .: "SolutionStackName"
+        <*> c .: "TemplateName"

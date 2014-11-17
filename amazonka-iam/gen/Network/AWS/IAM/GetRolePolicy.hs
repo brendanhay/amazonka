@@ -132,5 +132,7 @@ instance AWSRequest GetRolePolicy where
     response = xmlResponse
 
 instance FromXML GetRolePolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetRolePolicyResponse"
+    parseXML c = GetRolePolicyResponse
+        <$> c .: "PolicyDocument"
+        <*> c .: "PolicyName"
+        <*> c .: "RoleName"

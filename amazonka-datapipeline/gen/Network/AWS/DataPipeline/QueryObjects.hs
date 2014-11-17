@@ -161,8 +161,15 @@ instance ToQuery QueryObjects where
     toQuery = const mempty
 
 instance ToHeaders QueryObjects
+
 instance ToJSON QueryObjects where
-    toJSON = genericToJSON jsonOptions
+    toJSON QueryObjects{..} = object
+        [ "pipelineId" .= _qoPipelineId
+        , "query"      .= _qoQuery
+        , "sphere"     .= _qoSphere
+        , "marker"     .= _qoMarker
+        , "limit"      .= _qoLimit
+        ]
 
 instance AWSRequest QueryObjects where
     type Sv QueryObjects = DataPipeline
@@ -172,4 +179,7 @@ instance AWSRequest QueryObjects where
     response = jsonResponse
 
 instance FromJSON QueryObjectsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "QueryObjectsResponse" $ \o -> QueryObjectsResponse
+        <$> o .: "hasMoreResults"
+        <*> o .: "ids"
+        <*> o .: "marker"

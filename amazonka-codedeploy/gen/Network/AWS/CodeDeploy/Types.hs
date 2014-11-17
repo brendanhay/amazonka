@@ -25,8 +25,6 @@ module Network.AWS.CodeDeploy.Types
       CodeDeploy
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * GenericRevisionInfo
     , GenericRevisionInfo
@@ -238,11 +236,6 @@ instance AWSService CodeDeploy where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data GenericRevisionInfo = GenericRevisionInfo
     { _griDeploymentGroups :: [Text]
     , _griDescription      :: Maybe Text
@@ -299,10 +292,21 @@ griRegisterTime = lens _griRegisterTime (\s a -> s { _griRegisterTime = a })
     . mapping _Time
 
 instance FromJSON GenericRevisionInfo where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GenericRevisionInfo" $ \o -> GenericRevisionInfo
+        <$> o .: "deploymentGroups"
+        <*> o .: "description"
+        <*> o .: "firstUsedTime"
+        <*> o .: "lastUsedTime"
+        <*> o .: "registerTime"
 
 instance ToJSON GenericRevisionInfo where
-    toJSON = genericToJSON jsonOptions
+    toJSON GenericRevisionInfo{..} = object
+        [ "description"      .= _griDescription
+        , "deploymentGroups" .= _griDeploymentGroups
+        , "firstUsedTime"    .= _griFirstUsedTime
+        , "lastUsedTime"     .= _griLastUsedTime
+        , "registerTime"     .= _griRegisterTime
+        ]
 
 data ApplicationInfo = ApplicationInfo
     { _aiApplicationId   :: Maybe Text
@@ -351,10 +355,19 @@ aiLinkedToGitHub :: Lens' ApplicationInfo (Maybe Bool)
 aiLinkedToGitHub = lens _aiLinkedToGitHub (\s a -> s { _aiLinkedToGitHub = a })
 
 instance FromJSON ApplicationInfo where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ApplicationInfo" $ \o -> ApplicationInfo
+        <$> o .: "applicationId"
+        <*> o .: "applicationName"
+        <*> o .: "createTime"
+        <*> o .: "linkedToGitHub"
 
 instance ToJSON ApplicationInfo where
-    toJSON = genericToJSON jsonOptions
+    toJSON ApplicationInfo{..} = object
+        [ "applicationId"   .= _aiApplicationId
+        , "applicationName" .= _aiApplicationName
+        , "createTime"      .= _aiCreateTime
+        , "linkedToGitHub"  .= _aiLinkedToGitHub
+        ]
 
 data BundleType
     = Tar -- ^ tar
@@ -376,10 +389,10 @@ instance ToText BundleType where
         Zip -> "zip"
 
 instance FromJSON BundleType where
-    parseJSON = withFromText "BundleType"
+    parseJSON = fromJSONText "BundleType"
 
 instance ToJSON BundleType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data TimeRange = TimeRange
     { _trEnd   :: Maybe RFC822
@@ -413,10 +426,15 @@ trStart = lens _trStart (\s a -> s { _trStart = a })
     . mapping _Time
 
 instance FromJSON TimeRange where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TimeRange" $ \o -> TimeRange
+        <$> o .: "end"
+        <*> o .: "start"
 
 instance ToJSON TimeRange where
-    toJSON = genericToJSON jsonOptions
+    toJSON TimeRange{..} = object
+        [ "start" .= _trStart
+        , "end"   .= _trEnd
+        ]
 
 data DeploymentCreator
     = Autoscaling -- ^ autoscaling
@@ -435,10 +453,10 @@ instance ToText DeploymentCreator where
         User        -> "user"
 
 instance FromJSON DeploymentCreator where
-    parseJSON = withFromText "DeploymentCreator"
+    parseJSON = fromJSONText "DeploymentCreator"
 
 instance ToJSON DeploymentCreator where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data InstanceSummary = InstanceSummary
     { _isDeploymentId    :: Maybe Text
@@ -499,10 +517,21 @@ isStatus :: Lens' InstanceSummary (Maybe Text)
 isStatus = lens _isStatus (\s a -> s { _isStatus = a })
 
 instance FromJSON InstanceSummary where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InstanceSummary" $ \o -> InstanceSummary
+        <$> o .: "deploymentId"
+        <*> o .: "instanceId"
+        <*> o .: "lastUpdatedAt"
+        <*> o .: "lifecycleEvents"
+        <*> o .: "status"
 
 instance ToJSON InstanceSummary where
-    toJSON = genericToJSON jsonOptions
+    toJSON InstanceSummary{..} = object
+        [ "deploymentId"    .= _isDeploymentId
+        , "instanceId"      .= _isInstanceId
+        , "status"          .= _isStatus
+        , "lastUpdatedAt"   .= _isLastUpdatedAt
+        , "lifecycleEvents" .= _isLifecycleEvents
+        ]
 
 data AutoScalingGroup = AutoScalingGroup
     { _asgHook :: Maybe Text
@@ -532,10 +561,15 @@ asgName :: Lens' AutoScalingGroup (Maybe Text)
 asgName = lens _asgName (\s a -> s { _asgName = a })
 
 instance FromJSON AutoScalingGroup where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AutoScalingGroup" $ \o -> AutoScalingGroup
+        <$> o .: "hook"
+        <*> o .: "name"
 
 instance ToJSON AutoScalingGroup where
-    toJSON = genericToJSON jsonOptions
+    toJSON AutoScalingGroup{..} = object
+        [ "name" .= _asgName
+        , "hook" .= _asgHook
+        ]
 
 data DeploymentGroupInfo = DeploymentGroupInfo
     { _dgiApplicationName      :: Maybe Text
@@ -621,10 +655,27 @@ dgiTargetRevision =
     lens _dgiTargetRevision (\s a -> s { _dgiTargetRevision = a })
 
 instance FromJSON DeploymentGroupInfo where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeploymentGroupInfo" $ \o -> DeploymentGroupInfo
+        <$> o .: "applicationName"
+        <*> o .: "autoScalingGroups"
+        <*> o .: "deploymentConfigName"
+        <*> o .: "deploymentGroupId"
+        <*> o .: "deploymentGroupName"
+        <*> o .: "ec2TagFilters"
+        <*> o .: "serviceRoleArn"
+        <*> o .: "targetRevision"
 
 instance ToJSON DeploymentGroupInfo where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeploymentGroupInfo{..} = object
+        [ "applicationName"      .= _dgiApplicationName
+        , "deploymentGroupId"    .= _dgiDeploymentGroupId
+        , "deploymentGroupName"  .= _dgiDeploymentGroupName
+        , "deploymentConfigName" .= _dgiDeploymentConfigName
+        , "ec2TagFilters"        .= _dgiEc2TagFilters
+        , "autoScalingGroups"    .= _dgiAutoScalingGroups
+        , "serviceRoleArn"       .= _dgiServiceRoleArn
+        , "targetRevision"       .= _dgiTargetRevision
+        ]
 
 data ApplicationRevisionSortBy
     = FirstUsedTime -- ^ firstUsedTime
@@ -646,10 +697,10 @@ instance ToText ApplicationRevisionSortBy where
         RegisterTime  -> "registerTime"
 
 instance FromJSON ApplicationRevisionSortBy where
-    parseJSON = withFromText "ApplicationRevisionSortBy"
+    parseJSON = fromJSONText "ApplicationRevisionSortBy"
 
 instance ToJSON ApplicationRevisionSortBy where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data MinimumHealthyHosts = MinimumHealthyHosts
     { _mhhType  :: Maybe Text
@@ -692,10 +743,15 @@ mhhValue :: Lens' MinimumHealthyHosts (Maybe Int)
 mhhValue = lens _mhhValue (\s a -> s { _mhhValue = a })
 
 instance FromJSON MinimumHealthyHosts where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "MinimumHealthyHosts" $ \o -> MinimumHealthyHosts
+        <$> o .: "type"
+        <*> o .: "value"
 
 instance ToJSON MinimumHealthyHosts where
-    toJSON = genericToJSON jsonOptions
+    toJSON MinimumHealthyHosts{..} = object
+        [ "value" .= _mhhValue
+        , "type"  .= _mhhType
+        ]
 
 data ListStateFilterAction
     = Exclude -- ^ exclude
@@ -717,10 +773,10 @@ instance ToText ListStateFilterAction where
         Include -> "include"
 
 instance FromJSON ListStateFilterAction where
-    parseJSON = withFromText "ListStateFilterAction"
+    parseJSON = fromJSONText "ListStateFilterAction"
 
 instance ToJSON ListStateFilterAction where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data LifecycleErrorCode
     = ScriptFailed        -- ^ ScriptFailed
@@ -751,10 +807,10 @@ instance ToText LifecycleErrorCode where
         UnknownError        -> "UnknownError"
 
 instance FromJSON LifecycleErrorCode where
-    parseJSON = withFromText "LifecycleErrorCode"
+    parseJSON = fromJSONText "LifecycleErrorCode"
 
 instance ToJSON LifecycleErrorCode where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data RevisionLocation = RevisionLocation
     { _rlGitHubLocation :: Maybe GitHubLocation
@@ -791,10 +847,17 @@ rlS3Location :: Lens' RevisionLocation (Maybe S3Location)
 rlS3Location = lens _rlS3Location (\s a -> s { _rlS3Location = a })
 
 instance FromJSON RevisionLocation where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RevisionLocation" $ \o -> RevisionLocation
+        <$> o .: "gitHubLocation"
+        <*> o .: "revisionType"
+        <*> o .: "s3Location"
 
 instance ToJSON RevisionLocation where
-    toJSON = genericToJSON jsonOptions
+    toJSON RevisionLocation{..} = object
+        [ "revisionType"   .= _rlRevisionType
+        , "s3Location"     .= _rlS3Location
+        , "gitHubLocation" .= _rlGitHubLocation
+        ]
 
 data LifecycleEventStatus
     = Failed     -- ^ Failed
@@ -825,10 +888,10 @@ instance ToText LifecycleEventStatus where
         Unknown    -> "Unknown"
 
 instance FromJSON LifecycleEventStatus where
-    parseJSON = withFromText "LifecycleEventStatus"
+    parseJSON = fromJSONText "LifecycleEventStatus"
 
 instance ToJSON LifecycleEventStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data EC2TagFilter = EC2TagFilter
     { _ectfKey   :: Maybe Text
@@ -867,10 +930,17 @@ ectfValue :: Lens' EC2TagFilter (Maybe Text)
 ectfValue = lens _ectfValue (\s a -> s { _ectfValue = a })
 
 instance FromJSON EC2TagFilter where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "EC2TagFilter" $ \o -> EC2TagFilter
+        <$> o .: "Key"
+        <*> o .: "Type"
+        <*> o .: "Value"
 
 instance ToJSON EC2TagFilter where
-    toJSON = genericToJSON jsonOptions
+    toJSON EC2TagFilter{..} = object
+        [ "Key"   .= _ectfKey
+        , "Value" .= _ectfValue
+        , "Type"  .= _ectfType
+        ]
 
 data Diagnostics = Diagnostics
     { _dErrorCode  :: Maybe Text
@@ -922,10 +992,19 @@ dScriptName :: Lens' Diagnostics (Maybe Text)
 dScriptName = lens _dScriptName (\s a -> s { _dScriptName = a })
 
 instance FromJSON Diagnostics where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Diagnostics" $ \o -> Diagnostics
+        <$> o .: "errorCode"
+        <*> o .: "logTail"
+        <*> o .: "message"
+        <*> o .: "scriptName"
 
 instance ToJSON Diagnostics where
-    toJSON = genericToJSON jsonOptions
+    toJSON Diagnostics{..} = object
+        [ "errorCode"  .= _dErrorCode
+        , "scriptName" .= _dScriptName
+        , "message"    .= _dMessage
+        , "logTail"    .= _dLogTail
+        ]
 
 data StopStatus
     = SSPending   -- ^ Pending
@@ -944,10 +1023,10 @@ instance ToText StopStatus where
         SSSucceeded -> "Succeeded"
 
 instance FromJSON StopStatus where
-    parseJSON = withFromText "StopStatus"
+    parseJSON = fromJSONText "StopStatus"
 
 instance ToJSON StopStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data ErrorInformation = ErrorInformation
     { _eiCode    :: Maybe Text
@@ -994,10 +1073,15 @@ eiMessage :: Lens' ErrorInformation (Maybe Text)
 eiMessage = lens _eiMessage (\s a -> s { _eiMessage = a })
 
 instance FromJSON ErrorInformation where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ErrorInformation" $ \o -> ErrorInformation
+        <$> o .: "code"
+        <*> o .: "message"
 
 instance ToJSON ErrorInformation where
-    toJSON = genericToJSON jsonOptions
+    toJSON ErrorInformation{..} = object
+        [ "code"    .= _eiCode
+        , "message" .= _eiMessage
+        ]
 
 data SortOrder
     = Ascending  -- ^ ascending
@@ -1016,10 +1100,10 @@ instance ToText SortOrder where
         Descending -> "descending"
 
 instance FromJSON SortOrder where
-    parseJSON = withFromText "SortOrder"
+    parseJSON = fromJSONText "SortOrder"
 
 instance ToJSON SortOrder where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data DeploymentInfo = DeploymentInfo
     { _diApplicationName               :: Maybe Text
@@ -1168,10 +1252,39 @@ diStatus :: Lens' DeploymentInfo (Maybe Text)
 diStatus = lens _diStatus (\s a -> s { _diStatus = a })
 
 instance FromJSON DeploymentInfo where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeploymentInfo" $ \o -> DeploymentInfo
+        <$> o .: "applicationName"
+        <*> o .: "completeTime"
+        <*> o .: "createTime"
+        <*> o .: "creator"
+        <*> o .: "deploymentConfigName"
+        <*> o .: "deploymentGroupName"
+        <*> o .: "deploymentId"
+        <*> o .: "deploymentOverview"
+        <*> o .: "description"
+        <*> o .: "errorInformation"
+        <*> o .: "ignoreApplicationStopFailures"
+        <*> o .: "revision"
+        <*> o .: "startTime"
+        <*> o .: "status"
 
 instance ToJSON DeploymentInfo where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeploymentInfo{..} = object
+        [ "applicationName"               .= _diApplicationName
+        , "deploymentGroupName"           .= _diDeploymentGroupName
+        , "deploymentConfigName"          .= _diDeploymentConfigName
+        , "deploymentId"                  .= _diDeploymentId
+        , "revision"                      .= _diRevision
+        , "status"                        .= _diStatus
+        , "errorInformation"              .= _diErrorInformation
+        , "createTime"                    .= _diCreateTime
+        , "startTime"                     .= _diStartTime
+        , "completeTime"                  .= _diCompleteTime
+        , "deploymentOverview"            .= _diDeploymentOverview
+        , "description"                   .= _diDescription
+        , "creator"                       .= _diCreator
+        , "ignoreApplicationStopFailures" .= _diIgnoreApplicationStopFailures
+        ]
 
 data LifecycleEvent = LifecycleEvent
     { _leDiagnostics        :: Maybe Diagnostics
@@ -1234,10 +1347,21 @@ leStatus :: Lens' LifecycleEvent (Maybe Text)
 leStatus = lens _leStatus (\s a -> s { _leStatus = a })
 
 instance FromJSON LifecycleEvent where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "LifecycleEvent" $ \o -> LifecycleEvent
+        <$> o .: "diagnostics"
+        <*> o .: "endTime"
+        <*> o .: "lifecycleEventName"
+        <*> o .: "startTime"
+        <*> o .: "status"
 
 instance ToJSON LifecycleEvent where
-    toJSON = genericToJSON jsonOptions
+    toJSON LifecycleEvent{..} = object
+        [ "lifecycleEventName" .= _leLifecycleEventName
+        , "diagnostics"        .= _leDiagnostics
+        , "startTime"          .= _leStartTime
+        , "endTime"            .= _leEndTime
+        , "status"             .= _leStatus
+        ]
 
 data DeploymentOverview = DeploymentOverview
     { _doFailed     :: Maybe Integer
@@ -1291,10 +1415,21 @@ doSucceeded :: Lens' DeploymentOverview (Maybe Integer)
 doSucceeded = lens _doSucceeded (\s a -> s { _doSucceeded = a })
 
 instance FromJSON DeploymentOverview where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeploymentOverview" $ \o -> DeploymentOverview
+        <$> o .: "Failed"
+        <*> o .: "InProgress"
+        <*> o .: "Pending"
+        <*> o .: "Skipped"
+        <*> o .: "Succeeded"
 
 instance ToJSON DeploymentOverview where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeploymentOverview{..} = object
+        [ "Pending"    .= _doPending
+        , "InProgress" .= _doInProgress
+        , "Succeeded"  .= _doSucceeded
+        , "Failed"     .= _doFailed
+        , "Skipped"    .= _doSkipped
+        ]
 
 data ErrorCode
     = ApplicationMissing       -- ^ APPLICATION_MISSING
@@ -1340,10 +1475,10 @@ instance ToText ErrorCode where
         Timeout                  -> "TIMEOUT"
 
 instance FromJSON ErrorCode where
-    parseJSON = withFromText "ErrorCode"
+    parseJSON = fromJSONText "ErrorCode"
 
 instance ToJSON ErrorCode where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data DeploymentConfigInfo = DeploymentConfigInfo
     { _dciCreateTime           :: Maybe RFC822
@@ -1393,10 +1528,19 @@ dciMinimumHealthyHosts =
     lens _dciMinimumHealthyHosts (\s a -> s { _dciMinimumHealthyHosts = a })
 
 instance FromJSON DeploymentConfigInfo where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeploymentConfigInfo" $ \o -> DeploymentConfigInfo
+        <$> o .: "createTime"
+        <*> o .: "deploymentConfigId"
+        <*> o .: "deploymentConfigName"
+        <*> o .: "minimumHealthyHosts"
 
 instance ToJSON DeploymentConfigInfo where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeploymentConfigInfo{..} = object
+        [ "deploymentConfigId"   .= _dciDeploymentConfigId
+        , "deploymentConfigName" .= _dciDeploymentConfigName
+        , "minimumHealthyHosts"  .= _dciMinimumHealthyHosts
+        , "createTime"           .= _dciCreateTime
+        ]
 
 data InstanceStatus
     = ISFailed     -- ^ Failed
@@ -1427,10 +1571,10 @@ instance ToText InstanceStatus where
         ISUnknown    -> "Unknown"
 
 instance FromJSON InstanceStatus where
-    parseJSON = withFromText "InstanceStatus"
+    parseJSON = fromJSONText "InstanceStatus"
 
 instance ToJSON InstanceStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data DeploymentStatus
     = DSCreated    -- ^ Created
@@ -1461,10 +1605,10 @@ instance ToText DeploymentStatus where
         DSSucceeded  -> "Succeeded"
 
 instance FromJSON DeploymentStatus where
-    parseJSON = withFromText "DeploymentStatus"
+    parseJSON = fromJSONText "DeploymentStatus"
 
 instance ToJSON DeploymentStatus where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data S3Location = S3Location
     { _slBucket     :: Maybe Text
@@ -1526,10 +1670,21 @@ slVersion :: Lens' S3Location (Maybe Text)
 slVersion = lens _slVersion (\s a -> s { _slVersion = a })
 
 instance FromJSON S3Location where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "S3Location" $ \o -> S3Location
+        <$> o .: "bucket"
+        <*> o .: "bundleType"
+        <*> o .: "eTag"
+        <*> o .: "key"
+        <*> o .: "version"
 
 instance ToJSON S3Location where
-    toJSON = genericToJSON jsonOptions
+    toJSON S3Location{..} = object
+        [ "bucket"     .= _slBucket
+        , "key"        .= _slKey
+        , "bundleType" .= _slBundleType
+        , "version"    .= _slVersion
+        , "eTag"       .= _slETag
+        ]
 
 data MinimumHealthyHostsType
     = FleetPercent -- ^ FLEET_PERCENT
@@ -1548,10 +1703,10 @@ instance ToText MinimumHealthyHostsType where
         HostCount    -> "HOST_COUNT"
 
 instance FromJSON MinimumHealthyHostsType where
-    parseJSON = withFromText "MinimumHealthyHostsType"
+    parseJSON = fromJSONText "MinimumHealthyHostsType"
 
 instance ToJSON MinimumHealthyHostsType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data GitHubLocation = GitHubLocation
     { _ghlCommitId   :: Maybe Text
@@ -1584,10 +1739,15 @@ ghlRepository :: Lens' GitHubLocation (Maybe Text)
 ghlRepository = lens _ghlRepository (\s a -> s { _ghlRepository = a })
 
 instance FromJSON GitHubLocation where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GitHubLocation" $ \o -> GitHubLocation
+        <$> o .: "commitId"
+        <*> o .: "repository"
 
 instance ToJSON GitHubLocation where
-    toJSON = genericToJSON jsonOptions
+    toJSON GitHubLocation{..} = object
+        [ "repository" .= _ghlRepository
+        , "commitId"   .= _ghlCommitId
+        ]
 
 data RevisionLocationType
     = GitHub -- ^ GitHub
@@ -1606,10 +1766,10 @@ instance ToText RevisionLocationType where
         S3     -> "S3"
 
 instance FromJSON RevisionLocationType where
-    parseJSON = withFromText "RevisionLocationType"
+    parseJSON = fromJSONText "RevisionLocationType"
 
 instance ToJSON RevisionLocationType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data EC2TagFilterType
     = KeyAndValue -- ^ KEY_AND_VALUE
@@ -1631,7 +1791,7 @@ instance ToText EC2TagFilterType where
         ValueOnly   -> "VALUE_ONLY"
 
 instance FromJSON EC2TagFilterType where
-    parseJSON = withFromText "EC2TagFilterType"
+    parseJSON = fromJSONText "EC2TagFilterType"
 
 instance ToJSON EC2TagFilterType where
-    toJSON = toJSON . toText
+    toJSON = toJSONText

@@ -154,5 +154,8 @@ instance AWSRequest GetGroup where
     response = xmlResponse
 
 instance FromXML GetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetGroupResponse"
+    parseXML c = GetGroupResponse
+        <$> c .: "Group"
+        <*> c .: "IsTruncated"
+        <*> c .: "Marker"
+        <*> c .: "Users"

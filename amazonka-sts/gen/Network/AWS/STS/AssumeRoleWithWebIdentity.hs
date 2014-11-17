@@ -287,5 +287,10 @@ instance AWSRequest AssumeRoleWithWebIdentity where
     response = xmlResponse
 
 instance FromXML AssumeRoleWithWebIdentityResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssumeRoleWithWebIdentityResponse"
+    parseXML c = AssumeRoleWithWebIdentityResponse
+        <$> c .: "AssumedRoleUser"
+        <*> c .: "Audience"
+        <*> c .: "Credentials"
+        <*> c .: "PackedPolicySize"
+        <*> c .: "Provider"
+        <*> c .: "SubjectFromWebIdentityToken"

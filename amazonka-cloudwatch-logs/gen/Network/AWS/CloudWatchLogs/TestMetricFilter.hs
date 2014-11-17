@@ -106,8 +106,12 @@ instance ToQuery TestMetricFilter where
     toQuery = const mempty
 
 instance ToHeaders TestMetricFilter
+
 instance ToJSON TestMetricFilter where
-    toJSON = genericToJSON jsonOptions
+    toJSON TestMetricFilter{..} = object
+        [ "filterPattern"    .= _tmfFilterPattern
+        , "logEventMessages" .= _tmfLogEventMessages
+        ]
 
 instance AWSRequest TestMetricFilter where
     type Sv TestMetricFilter = CloudWatchLogs
@@ -117,4 +121,5 @@ instance AWSRequest TestMetricFilter where
     response = jsonResponse
 
 instance FromJSON TestMetricFilterResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TestMetricFilterResponse" $ \o -> TestMetricFilterResponse
+        <$> o .: "matches"

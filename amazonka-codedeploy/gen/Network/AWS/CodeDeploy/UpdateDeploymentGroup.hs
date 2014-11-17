@@ -166,8 +166,17 @@ instance ToQuery UpdateDeploymentGroup where
     toQuery = const mempty
 
 instance ToHeaders UpdateDeploymentGroup
+
 instance ToJSON UpdateDeploymentGroup where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateDeploymentGroup{..} = object
+        [ "applicationName"            .= _udgApplicationName
+        , "currentDeploymentGroupName" .= _udgCurrentDeploymentGroupName
+        , "newDeploymentGroupName"     .= _udgNewDeploymentGroupName
+        , "deploymentConfigName"       .= _udgDeploymentConfigName
+        , "ec2TagFilters"              .= _udgEc2TagFilters
+        , "autoScalingGroups"          .= _udgAutoScalingGroups
+        , "serviceRoleArn"             .= _udgServiceRoleArn
+        ]
 
 instance AWSRequest UpdateDeploymentGroup where
     type Sv UpdateDeploymentGroup = CodeDeploy
@@ -177,4 +186,5 @@ instance AWSRequest UpdateDeploymentGroup where
     response = jsonResponse
 
 instance FromJSON UpdateDeploymentGroupResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateDeploymentGroupResponse" $ \o -> UpdateDeploymentGroupResponse
+        <$> o .: "hooksNotCleanedUp"

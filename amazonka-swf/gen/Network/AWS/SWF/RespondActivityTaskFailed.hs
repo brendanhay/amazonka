@@ -112,8 +112,13 @@ instance ToQuery RespondActivityTaskFailed where
     toQuery = const mempty
 
 instance ToHeaders RespondActivityTaskFailed
+
 instance ToJSON RespondActivityTaskFailed where
-    toJSON = genericToJSON jsonOptions
+    toJSON RespondActivityTaskFailed{..} = object
+        [ "taskToken" .= _ratfTaskToken
+        , "reason"    .= _ratfReason
+        , "details"   .= _ratfDetails
+        ]
 
 instance AWSRequest RespondActivityTaskFailed where
     type Sv RespondActivityTaskFailed = SWF

@@ -139,5 +139,5 @@ instance AWSRequest DescribeSubnets where
     response = xmlResponse
 
 instance FromXML DescribeSubnetsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSubnetsResponse"
+    parseXML c = DescribeSubnetsResponse
+        <$> c .: "subnetSet"

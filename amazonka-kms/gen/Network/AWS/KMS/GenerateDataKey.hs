@@ -158,8 +158,15 @@ instance ToQuery GenerateDataKey where
     toQuery = const mempty
 
 instance ToHeaders GenerateDataKey
+
 instance ToJSON GenerateDataKey where
-    toJSON = genericToJSON jsonOptions
+    toJSON GenerateDataKey{..} = object
+        [ "KeyId"             .= _gdkKeyId
+        , "EncryptionContext" .= _gdkEncryptionContext
+        , "NumberOfBytes"     .= _gdkNumberOfBytes
+        , "KeySpec"           .= _gdkKeySpec
+        , "GrantTokens"       .= _gdkGrantTokens
+        ]
 
 instance AWSRequest GenerateDataKey where
     type Sv GenerateDataKey = KMS
@@ -169,4 +176,7 @@ instance AWSRequest GenerateDataKey where
     response = jsonResponse
 
 instance FromJSON GenerateDataKeyResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GenerateDataKeyResponse" $ \o -> GenerateDataKeyResponse
+        <$> o .: "CiphertextBlob"
+        <*> o .: "KeyId"
+        <*> o .: "Plaintext"

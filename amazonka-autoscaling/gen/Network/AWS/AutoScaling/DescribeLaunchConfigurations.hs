@@ -129,5 +129,6 @@ instance AWSRequest DescribeLaunchConfigurations where
     response = xmlResponse
 
 instance FromXML DescribeLaunchConfigurationsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLaunchConfigurationsResponse"
+    parseXML c = DescribeLaunchConfigurationsResponse
+        <$> c .: "LaunchConfigurations"
+        <*> c .: "NextToken"

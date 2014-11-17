@@ -25,8 +25,6 @@ module Network.AWS.DirectConnect.Types
       DirectConnect
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * VirtualInterface
     , VirtualInterface
@@ -169,11 +167,6 @@ instance AWSService DirectConnect where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data VirtualInterface = VirtualInterface
     { _viAmazonAddress         :: Maybe Text
     , _viAsn                   :: Maybe Int
@@ -300,10 +293,41 @@ viVlan :: Lens' VirtualInterface (Maybe Int)
 viVlan = lens _viVlan (\s a -> s { _viVlan = a })
 
 instance FromJSON VirtualInterface where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "VirtualInterface" $ \o -> VirtualInterface
+        <$> o .: "amazonAddress"
+        <*> o .: "asn"
+        <*> o .: "authKey"
+        <*> o .: "connectionId"
+        <*> o .: "customerAddress"
+        <*> o .: "customerRouterConfig"
+        <*> o .: "location"
+        <*> o .: "ownerAccount"
+        <*> o .: "routeFilterPrefixes"
+        <*> o .: "virtualGatewayId"
+        <*> o .: "virtualInterfaceId"
+        <*> o .: "virtualInterfaceName"
+        <*> o .: "virtualInterfaceState"
+        <*> o .: "virtualInterfaceType"
+        <*> o .: "vlan"
 
 instance ToJSON VirtualInterface where
-    toJSON = genericToJSON jsonOptions
+    toJSON VirtualInterface{..} = object
+        [ "ownerAccount"          .= _viOwnerAccount
+        , "virtualInterfaceId"    .= _viVirtualInterfaceId
+        , "location"              .= _viLocation
+        , "connectionId"          .= _viConnectionId
+        , "virtualInterfaceType"  .= _viVirtualInterfaceType
+        , "virtualInterfaceName"  .= _viVirtualInterfaceName
+        , "vlan"                  .= _viVlan
+        , "asn"                   .= _viAsn
+        , "authKey"               .= _viAuthKey
+        , "amazonAddress"         .= _viAmazonAddress
+        , "customerAddress"       .= _viCustomerAddress
+        , "virtualInterfaceState" .= _viVirtualInterfaceState
+        , "customerRouterConfig"  .= _viCustomerRouterConfig
+        , "virtualGatewayId"      .= _viVirtualGatewayId
+        , "routeFilterPrefixes"   .= _viRouteFilterPrefixes
+        ]
 
 data Location = Location
     { _lLocationCode :: Maybe Text
@@ -334,10 +358,15 @@ lLocationName :: Lens' Location (Maybe Text)
 lLocationName = lens _lLocationName (\s a -> s { _lLocationName = a })
 
 instance FromJSON Location where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Location" $ \o -> Location
+        <$> o .: "locationCode"
+        <*> o .: "locationName"
 
 instance ToJSON Location where
-    toJSON = genericToJSON jsonOptions
+    toJSON Location{..} = object
+        [ "locationCode" .= _lLocationCode
+        , "locationName" .= _lLocationName
+        ]
 
 newtype Connections = Connections
     { _cConnections :: [Connection]
@@ -365,10 +394,13 @@ cConnections :: Lens' Connections [Connection]
 cConnections = lens _cConnections (\s a -> s { _cConnections = a })
 
 instance FromJSON Connections where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Connections" $ \o -> Connections
+        <$> o .: "connections"
 
 instance ToJSON Connections where
-    toJSON = genericToJSON jsonOptions
+    toJSON Connections{..} = object
+        [ "connections" .= _cConnections
+        ]
 
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
     { _npviaAmazonAddress        :: Maybe Text
@@ -431,10 +463,23 @@ npviaVlan :: Lens' NewPrivateVirtualInterfaceAllocation Int
 npviaVlan = lens _npviaVlan (\s a -> s { _npviaVlan = a })
 
 instance FromJSON NewPrivateVirtualInterfaceAllocation where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "NewPrivateVirtualInterfaceAllocation" $ \o -> NewPrivateVirtualInterfaceAllocation
+        <$> o .: "amazonAddress"
+        <*> o .: "asn"
+        <*> o .: "authKey"
+        <*> o .: "customerAddress"
+        <*> o .: "virtualInterfaceName"
+        <*> o .: "vlan"
 
 instance ToJSON NewPrivateVirtualInterfaceAllocation where
-    toJSON = genericToJSON jsonOptions
+    toJSON NewPrivateVirtualInterfaceAllocation{..} = object
+        [ "virtualInterfaceName" .= _npviaVirtualInterfaceName
+        , "vlan"                 .= _npviaVlan
+        , "asn"                  .= _npviaAsn
+        , "authKey"              .= _npviaAuthKey
+        , "amazonAddress"        .= _npviaAmazonAddress
+        , "customerAddress"      .= _npviaCustomerAddress
+        ]
 
 data VirtualInterfaceState
     = Available  -- ^ available
@@ -468,10 +513,10 @@ instance ToText VirtualInterfaceState where
         Verifying  -> "verifying"
 
 instance FromJSON VirtualInterfaceState where
-    parseJSON = withFromText "VirtualInterfaceState"
+    parseJSON = fromJSONText "VirtualInterfaceState"
 
 instance ToJSON VirtualInterfaceState where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data Connection = Connection
     { _cBandwidth       :: Maybe Text
@@ -550,10 +595,29 @@ cVlan :: Lens' Connection (Maybe Int)
 cVlan = lens _cVlan (\s a -> s { _cVlan = a })
 
 instance FromJSON Connection where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Connection" $ \o -> Connection
+        <$> o .: "bandwidth"
+        <*> o .: "connectionId"
+        <*> o .: "connectionName"
+        <*> o .: "connectionState"
+        <*> o .: "location"
+        <*> o .: "ownerAccount"
+        <*> o .: "partnerName"
+        <*> o .: "region"
+        <*> o .: "vlan"
 
 instance ToJSON Connection where
-    toJSON = genericToJSON jsonOptions
+    toJSON Connection{..} = object
+        [ "ownerAccount"    .= _cOwnerAccount
+        , "connectionId"    .= _cConnectionId
+        , "connectionName"  .= _cConnectionName
+        , "connectionState" .= _cConnectionState
+        , "region"          .= _cRegion
+        , "location"        .= _cLocation
+        , "bandwidth"       .= _cBandwidth
+        , "vlan"            .= _cVlan
+        , "partnerName"     .= _cPartnerName
+        ]
 
 data NewPublicVirtualInterface = NewPublicVirtualInterface
     { _npviAmazonAddress        :: Text
@@ -626,10 +690,25 @@ npviVlan :: Lens' NewPublicVirtualInterface Int
 npviVlan = lens _npviVlan (\s a -> s { _npviVlan = a })
 
 instance FromJSON NewPublicVirtualInterface where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "NewPublicVirtualInterface" $ \o -> NewPublicVirtualInterface
+        <$> o .: "amazonAddress"
+        <*> o .: "asn"
+        <*> o .: "authKey"
+        <*> o .: "customerAddress"
+        <*> o .: "routeFilterPrefixes"
+        <*> o .: "virtualInterfaceName"
+        <*> o .: "vlan"
 
 instance ToJSON NewPublicVirtualInterface where
-    toJSON = genericToJSON jsonOptions
+    toJSON NewPublicVirtualInterface{..} = object
+        [ "virtualInterfaceName" .= _npviVirtualInterfaceName
+        , "vlan"                 .= _npviVlan
+        , "asn"                  .= _npviAsn
+        , "authKey"              .= _npviAuthKey
+        , "amazonAddress"        .= _npviAmazonAddress
+        , "customerAddress"      .= _npviCustomerAddress
+        , "routeFilterPrefixes"  .= _npviRouteFilterPrefixes
+        ]
 
 data Interconnect = Interconnect
     { _iBandwidth         :: Maybe Text
@@ -687,10 +766,23 @@ iRegion :: Lens' Interconnect (Maybe Text)
 iRegion = lens _iRegion (\s a -> s { _iRegion = a })
 
 instance FromJSON Interconnect where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Interconnect" $ \o -> Interconnect
+        <$> o .: "bandwidth"
+        <*> o .: "interconnectId"
+        <*> o .: "interconnectName"
+        <*> o .: "interconnectState"
+        <*> o .: "location"
+        <*> o .: "region"
 
 instance ToJSON Interconnect where
-    toJSON = genericToJSON jsonOptions
+    toJSON Interconnect{..} = object
+        [ "interconnectId"    .= _iInterconnectId
+        , "interconnectName"  .= _iInterconnectName
+        , "interconnectState" .= _iInterconnectState
+        , "region"            .= _iRegion
+        , "location"          .= _iLocation
+        , "bandwidth"         .= _iBandwidth
+        ]
 
 data InterconnectState
     = ISAvailable -- ^ available
@@ -721,10 +813,10 @@ instance ToText InterconnectState where
         ISRequested -> "requested"
 
 instance FromJSON InterconnectState where
-    parseJSON = withFromText "InterconnectState"
+    parseJSON = fromJSONText "InterconnectState"
 
 instance ToJSON InterconnectState where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface
     { _npvi1AmazonAddress        :: Maybe Text
@@ -796,10 +888,25 @@ npvi1Vlan :: Lens' NewPrivateVirtualInterface Int
 npvi1Vlan = lens _npvi1Vlan (\s a -> s { _npvi1Vlan = a })
 
 instance FromJSON NewPrivateVirtualInterface where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "NewPrivateVirtualInterface" $ \o -> NewPrivateVirtualInterface
+        <$> o .: "amazonAddress"
+        <*> o .: "asn"
+        <*> o .: "authKey"
+        <*> o .: "customerAddress"
+        <*> o .: "virtualGatewayId"
+        <*> o .: "virtualInterfaceName"
+        <*> o .: "vlan"
 
 instance ToJSON NewPrivateVirtualInterface where
-    toJSON = genericToJSON jsonOptions
+    toJSON NewPrivateVirtualInterface{..} = object
+        [ "virtualInterfaceName" .= _npvi1VirtualInterfaceName
+        , "vlan"                 .= _npvi1Vlan
+        , "asn"                  .= _npvi1Asn
+        , "authKey"              .= _npvi1AuthKey
+        , "amazonAddress"        .= _npvi1AmazonAddress
+        , "customerAddress"      .= _npvi1CustomerAddress
+        , "virtualGatewayId"     .= _npvi1VirtualGatewayId
+        ]
 
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
     { _npvia1AmazonAddress        :: Text
@@ -873,10 +980,25 @@ npvia1Vlan :: Lens' NewPublicVirtualInterfaceAllocation Int
 npvia1Vlan = lens _npvia1Vlan (\s a -> s { _npvia1Vlan = a })
 
 instance FromJSON NewPublicVirtualInterfaceAllocation where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "NewPublicVirtualInterfaceAllocation" $ \o -> NewPublicVirtualInterfaceAllocation
+        <$> o .: "amazonAddress"
+        <*> o .: "asn"
+        <*> o .: "authKey"
+        <*> o .: "customerAddress"
+        <*> o .: "routeFilterPrefixes"
+        <*> o .: "virtualInterfaceName"
+        <*> o .: "vlan"
 
 instance ToJSON NewPublicVirtualInterfaceAllocation where
-    toJSON = genericToJSON jsonOptions
+    toJSON NewPublicVirtualInterfaceAllocation{..} = object
+        [ "virtualInterfaceName" .= _npvia1VirtualInterfaceName
+        , "vlan"                 .= _npvia1Vlan
+        , "asn"                  .= _npvia1Asn
+        , "authKey"              .= _npvia1AuthKey
+        , "amazonAddress"        .= _npvia1AmazonAddress
+        , "customerAddress"      .= _npvia1CustomerAddress
+        , "routeFilterPrefixes"  .= _npvia1RouteFilterPrefixes
+        ]
 
 data ConnectionState
     = CSAvailable -- ^ available
@@ -913,10 +1035,10 @@ instance ToText ConnectionState where
         CSRequested -> "requested"
 
 instance FromJSON ConnectionState where
-    parseJSON = withFromText "ConnectionState"
+    parseJSON = fromJSONText "ConnectionState"
 
 instance ToJSON ConnectionState where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data VirtualGateway = VirtualGateway
     { _vgVirtualGatewayId    :: Maybe Text
@@ -946,10 +1068,15 @@ vgVirtualGatewayState =
     lens _vgVirtualGatewayState (\s a -> s { _vgVirtualGatewayState = a })
 
 instance FromJSON VirtualGateway where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "VirtualGateway" $ \o -> VirtualGateway
+        <$> o .: "virtualGatewayId"
+        <*> o .: "virtualGatewayState"
 
 instance ToJSON VirtualGateway where
-    toJSON = genericToJSON jsonOptions
+    toJSON VirtualGateway{..} = object
+        [ "virtualGatewayId"    .= _vgVirtualGatewayId
+        , "virtualGatewayState" .= _vgVirtualGatewayState
+        ]
 
 newtype RouteFilterPrefix = RouteFilterPrefix
     { _rfpCidr :: Maybe Text
@@ -972,7 +1099,10 @@ rfpCidr :: Lens' RouteFilterPrefix (Maybe Text)
 rfpCidr = lens _rfpCidr (\s a -> s { _rfpCidr = a })
 
 instance FromJSON RouteFilterPrefix where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RouteFilterPrefix" $ \o -> RouteFilterPrefix
+        <$> o .: "cidr"
 
 instance ToJSON RouteFilterPrefix where
-    toJSON = genericToJSON jsonOptions
+    toJSON RouteFilterPrefix{..} = object
+        [ "cidr" .= _rfpCidr
+        ]

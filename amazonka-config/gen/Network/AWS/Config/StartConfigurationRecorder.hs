@@ -80,8 +80,11 @@ instance ToQuery StartConfigurationRecorder where
     toQuery = const mempty
 
 instance ToHeaders StartConfigurationRecorder
+
 instance ToJSON StartConfigurationRecorder where
-    toJSON = genericToJSON jsonOptions
+    toJSON StartConfigurationRecorder{..} = object
+        [ "ConfigurationRecorderName" .= _scr1ConfigurationRecorderName
+        ]
 
 instance AWSRequest StartConfigurationRecorder where
     type Sv StartConfigurationRecorder = Config

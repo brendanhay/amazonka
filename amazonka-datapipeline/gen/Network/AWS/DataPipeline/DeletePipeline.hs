@@ -81,8 +81,11 @@ instance ToQuery DeletePipeline where
     toQuery = const mempty
 
 instance ToHeaders DeletePipeline
+
 instance ToJSON DeletePipeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeletePipeline{..} = object
+        [ "pipelineId" .= _dpPipelineId
+        ]
 
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = DataPipeline

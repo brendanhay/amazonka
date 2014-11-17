@@ -186,9 +186,17 @@ instance ToQuery UpdateHealthCheck where
     toQuery = const mempty
 
 instance ToHeaders UpdateHealthCheck
+
 instance ToXML UpdateHealthCheck where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateHealthCheck"
+    toXML UpdateHealthCheck{..} = node "UpdateHealthCheck"
+        [ "HealthCheckVersion"       .= _uhcHealthCheckVersion
+        , "IPAddress"                .= _uhcIPAddress
+        , "Port"                     .= _uhcPort
+        , "ResourcePath"             .= _uhcResourcePath
+        , "FullyQualifiedDomainName" .= _uhcFullyQualifiedDomainName
+        , "SearchString"             .= _uhcSearchString
+        , "FailureThreshold"         .= _uhcFailureThreshold
+        ]
 
 instance AWSRequest UpdateHealthCheck where
     type Sv UpdateHealthCheck = Route53
@@ -198,5 +206,5 @@ instance AWSRequest UpdateHealthCheck where
     response = xmlResponse
 
 instance FromXML UpdateHealthCheckResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateHealthCheckResponse"
+    parseXML c = UpdateHealthCheckResponse
+        <$> c .: "HealthCheck"

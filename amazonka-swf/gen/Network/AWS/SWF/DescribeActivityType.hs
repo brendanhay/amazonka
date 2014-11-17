@@ -129,8 +129,12 @@ instance ToQuery DescribeActivityType where
     toQuery = const mempty
 
 instance ToHeaders DescribeActivityType
+
 instance ToJSON DescribeActivityType where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeActivityType{..} = object
+        [ "domain"       .= _datDomain
+        , "activityType" .= _datActivityType
+        ]
 
 instance AWSRequest DescribeActivityType where
     type Sv DescribeActivityType = SWF
@@ -140,4 +144,6 @@ instance AWSRequest DescribeActivityType where
     response = jsonResponse
 
 instance FromJSON DescribeActivityTypeResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeActivityTypeResponse" $ \o -> DescribeActivityTypeResponse
+        <$> o .: "configuration"
+        <*> o .: "typeInfo"

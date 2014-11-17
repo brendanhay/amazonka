@@ -126,5 +126,5 @@ instance AWSRequest AuthorizeSnapshotAccess where
     response = xmlResponse
 
 instance FromXML AuthorizeSnapshotAccessResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AuthorizeSnapshotAccessResponse"
+    parseXML c = AuthorizeSnapshotAccessResponse
+        <$> c .: "Snapshot"

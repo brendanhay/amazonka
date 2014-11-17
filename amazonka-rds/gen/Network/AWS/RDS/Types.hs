@@ -25,8 +25,6 @@ module Network.AWS.RDS.Types
       RDS
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * OptionGroup
     , OptionGroup
@@ -435,11 +433,6 @@ instance AWSService RDS where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "http://rds.amazonaws.com/doc/2014-09-01/"
-    }
-
 data OptionGroup = OptionGroup
     { _ogAllowsVpcAndNonVpcInstanceMemberships :: Maybe Bool
     , _ogEngineName                            :: Maybe Text
@@ -520,8 +513,14 @@ ogVpcId :: Lens' OptionGroup (Maybe Text)
 ogVpcId = lens _ogVpcId (\s a -> s { _ogVpcId = a })
 
 instance FromXML OptionGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OptionGroup"
+    parseXML c = OptionGroup
+        <$> c .: "AllowsVpcAndNonVpcInstanceMemberships"
+        <*> c .: "EngineName"
+        <*> c .: "MajorEngineVersion"
+        <*> c .: "OptionGroupDescription"
+        <*> c .: "OptionGroupName"
+        <*> c .: "Options"
+        <*> c .: "VpcId"
 
 instance ToQuery OptionGroup
 
@@ -557,8 +556,9 @@ dbpgsParameterApplyStatus =
         (\s a -> s { _dbpgsParameterApplyStatus = a })
 
 instance FromXML DBParameterGroupStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBParameterGroupStatus"
+    parseXML c = DBParameterGroupStatus
+        <$> c .: "DBParameterGroupName"
+        <*> c .: "ParameterApplyStatus"
 
 instance ToQuery DBParameterGroupStatus
 
@@ -616,8 +616,12 @@ eSourceType :: Lens' Event (Maybe Text)
 eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 
 instance FromXML Event where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Event"
+    parseXML c = Event
+        <$> c .: "Date"
+        <*> c .: "EventCategories"
+        <*> c .: "Message"
+        <*> c .: "SourceIdentifier"
+        <*> c .: "SourceType"
 
 instance ToQuery Event
 
@@ -685,8 +689,13 @@ dbsgVpcId :: Lens' DBSecurityGroup (Maybe Text)
 dbsgVpcId = lens _dbsgVpcId (\s a -> s { _dbsgVpcId = a })
 
 instance FromXML DBSecurityGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBSecurityGroup"
+    parseXML c = DBSecurityGroup
+        <$> c .: "DBSecurityGroupDescription"
+        <*> c .: "DBSecurityGroupName"
+        <*> c .: "EC2SecurityGroups"
+        <*> c .: "IPRanges"
+        <*> c .: "OwnerId"
+        <*> c .: "VpcId"
 
 instance ToQuery DBSecurityGroup
 
@@ -726,8 +735,9 @@ tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Tag"
+    parseXML c = Tag
+        <$> c .: "Key"
+        <*> c .: "Value"
 
 instance ToQuery Tag
 
@@ -811,8 +821,14 @@ dbevSupportedCharacterSets =
         (\s a -> s { _dbevSupportedCharacterSets = a })
 
 instance FromXML DBEngineVersion where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBEngineVersion"
+    parseXML c = DBEngineVersion
+        <$> c .: "DBEngineDescription"
+        <*> c .: "DBEngineVersionDescription"
+        <*> c .: "DBParameterGroupFamily"
+        <*> c .: "DefaultCharacterSet"
+        <*> c .: "Engine"
+        <*> c .: "EngineVersion"
+        <*> c .: "SupportedCharacterSets"
 
 instance ToQuery DBEngineVersion
 
@@ -1005,8 +1021,27 @@ dbsVpcId :: Lens' DBSnapshot (Maybe Text)
 dbsVpcId = lens _dbsVpcId (\s a -> s { _dbsVpcId = a })
 
 instance FromXML DBSnapshot where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBSnapshot"
+    parseXML c = DBSnapshot
+        <$> c .: "AllocatedStorage"
+        <*> c .: "AvailabilityZone"
+        <*> c .: "DBInstanceIdentifier"
+        <*> c .: "DBSnapshotIdentifier"
+        <*> c .: "Engine"
+        <*> c .: "EngineVersion"
+        <*> c .: "InstanceCreateTime"
+        <*> c .: "Iops"
+        <*> c .: "LicenseModel"
+        <*> c .: "MasterUsername"
+        <*> c .: "OptionGroupName"
+        <*> c .: "PercentProgress"
+        <*> c .: "Port"
+        <*> c .: "SnapshotCreateTime"
+        <*> c .: "SnapshotType"
+        <*> c .: "SourceRegion"
+        <*> c .: "Status"
+        <*> c .: "StorageType"
+        <*> c .: "TdeCredentialArn"
+        <*> c .: "VpcId"
 
 instance ToQuery DBSnapshot
 
@@ -1040,8 +1075,9 @@ dbsgmStatus :: Lens' DBSecurityGroupMembership (Maybe Text)
 dbsgmStatus = lens _dbsgmStatus (\s a -> s { _dbsgmStatus = a })
 
 instance FromXML DBSecurityGroupMembership where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBSecurityGroupMembership"
+    parseXML c = DBSecurityGroupMembership
+        <$> c .: "DBSecurityGroupName"
+        <*> c .: "Status"
 
 instance ToQuery DBSecurityGroupMembership
 
@@ -1096,8 +1132,11 @@ ecsgStatus :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 
 instance FromXML EC2SecurityGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EC2SecurityGroup"
+    parseXML c = EC2SecurityGroup
+        <$> c .: "EC2SecurityGroupId"
+        <*> c .: "EC2SecurityGroupName"
+        <*> c .: "EC2SecurityGroupOwnerId"
+        <*> c .: "Status"
 
 instance ToQuery EC2SecurityGroup
 
@@ -1124,8 +1163,7 @@ instance ToText SourceType where
         DbSnapshot       -> "db-snapshot"
 
 instance FromXML SourceType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SourceType"
+    parseXML = fromXMLText "SourceType"
 
 instance ToQuery SourceType
 
@@ -1170,8 +1208,10 @@ dbpgDescription :: Lens' DBParameterGroup (Maybe Text)
 dbpgDescription = lens _dbpgDescription (\s a -> s { _dbpgDescription = a })
 
 instance FromXML DBParameterGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBParameterGroup"
+    parseXML c = DBParameterGroup
+        <$> c .: "DBParameterGroupFamily"
+        <*> c .: "DBParameterGroupName"
+        <*> c .: "Description"
 
 instance ToQuery DBParameterGroup
 
@@ -1274,8 +1314,17 @@ rdbioUsagePrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
 rdbioUsagePrice = lens _rdbioUsagePrice (\s a -> s { _rdbioUsagePrice = a })
 
 instance FromXML ReservedDBInstancesOffering where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedDBInstancesOffering"
+    parseXML c = ReservedDBInstancesOffering
+        <$> c .: "CurrencyCode"
+        <*> c .: "DBInstanceClass"
+        <*> c .: "Duration"
+        <*> c .: "FixedPrice"
+        <*> c .: "MultiAZ"
+        <*> c .: "OfferingType"
+        <*> c .: "ProductDescription"
+        <*> c .: "RecurringCharges"
+        <*> c .: "ReservedDBInstancesOfferingId"
+        <*> c .: "UsagePrice"
 
 instance ToQuery ReservedDBInstancesOffering
 
@@ -1296,8 +1345,7 @@ instance ToText ApplyMethod where
         PendingReboot -> "pending-reboot"
 
 instance FromXML ApplyMethod where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ApplyMethod"
+    parseXML = fromXMLText "ApplyMethod"
 
 instance ToQuery ApplyMethod
 
@@ -1332,8 +1380,9 @@ csCharacterSetName =
     lens _csCharacterSetName (\s a -> s { _csCharacterSetName = a })
 
 instance FromXML CharacterSet where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CharacterSet"
+    parseXML c = CharacterSet
+        <$> c .: "CharacterSetDescription"
+        <*> c .: "CharacterSetName"
 
 instance ToQuery CharacterSet
 
@@ -1374,8 +1423,10 @@ sSubnetStatus :: Lens' Subnet (Maybe Text)
 sSubnetStatus = lens _sSubnetStatus (\s a -> s { _sSubnetStatus = a })
 
 instance FromXML Subnet where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Subnet"
+    parseXML c = Subnet
+        <$> c .: "SubnetAvailabilityZone"
+        <*> c .: "SubnetIdentifier"
+        <*> c .: "SubnetStatus"
 
 instance ToQuery Subnet
 
@@ -1512,8 +1563,21 @@ rdbiUsagePrice :: Lens' ReservedDBInstance (Maybe Double)
 rdbiUsagePrice = lens _rdbiUsagePrice (\s a -> s { _rdbiUsagePrice = a })
 
 instance FromXML ReservedDBInstance where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedDBInstance"
+    parseXML c = ReservedDBInstance
+        <$> c .: "CurrencyCode"
+        <*> c .: "DBInstanceClass"
+        <*> c .: "DBInstanceCount"
+        <*> c .: "Duration"
+        <*> c .: "FixedPrice"
+        <*> c .: "MultiAZ"
+        <*> c .: "OfferingType"
+        <*> c .: "ProductDescription"
+        <*> c .: "RecurringCharges"
+        <*> c .: "ReservedDBInstanceId"
+        <*> c .: "ReservedDBInstancesOfferingId"
+        <*> c .: "StartTime"
+        <*> c .: "State"
+        <*> c .: "UsagePrice"
 
 instance ToQuery ReservedDBInstance
 
@@ -1558,8 +1622,10 @@ edParameters :: Lens' EngineDefaults [Parameter]
 edParameters = lens _edParameters (\s a -> s { _edParameters = a })
 
 instance FromXML EngineDefaults where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EngineDefaults"
+    parseXML c = EngineDefaults
+        <$> c .: "DBParameterGroupFamily"
+        <*> c .: "Marker"
+        <*> c .: "Parameters"
 
 instance ToQuery EngineDefaults
 
@@ -1585,8 +1651,8 @@ dbpgnmDBParameterGroupName =
         (\s a -> s { _dbpgnmDBParameterGroupName = a })
 
 instance FromXML DBParameterGroupNameMessage where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBParameterGroupNameMessage"
+    parseXML c = DBParameterGroupNameMessage
+        <$> c .: "DBParameterGroupName"
 
 instance ToQuery DBParameterGroupNameMessage
 
@@ -1702,8 +1768,18 @@ ogoPortRequired :: Lens' OptionGroupOption (Maybe Bool)
 ogoPortRequired = lens _ogoPortRequired (\s a -> s { _ogoPortRequired = a })
 
 instance FromXML OptionGroupOption where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OptionGroupOption"
+    parseXML c = OptionGroupOption
+        <$> c .: "DefaultPort"
+        <*> c .: "Description"
+        <*> c .: "EngineName"
+        <*> c .: "MajorEngineVersion"
+        <*> c .: "MinimumRequiredMinorEngineVersion"
+        <*> c .: "Name"
+        <*> c .: "OptionGroupOptionSettings"
+        <*> c .: "OptionsDependedOn"
+        <*> c .: "Permanent"
+        <*> c .: "Persistent"
+        <*> c .: "PortRequired"
 
 instance ToQuery OptionGroupOption
 
@@ -2056,8 +2132,40 @@ dbiVpcSecurityGroups =
     lens _dbiVpcSecurityGroups (\s a -> s { _dbiVpcSecurityGroups = a })
 
 instance FromXML DBInstance where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBInstance"
+    parseXML c = DBInstance
+        <$> c .: "AllocatedStorage"
+        <*> c .: "AutoMinorVersionUpgrade"
+        <*> c .: "AvailabilityZone"
+        <*> c .: "BackupRetentionPeriod"
+        <*> c .: "CharacterSetName"
+        <*> c .: "DBInstanceClass"
+        <*> c .: "DBInstanceIdentifier"
+        <*> c .: "DBInstanceStatus"
+        <*> c .: "DBName"
+        <*> c .: "DBParameterGroups"
+        <*> c .: "DBSecurityGroups"
+        <*> c .: "DBSubnetGroup"
+        <*> c .: "Endpoint"
+        <*> c .: "Engine"
+        <*> c .: "EngineVersion"
+        <*> c .: "InstanceCreateTime"
+        <*> c .: "Iops"
+        <*> c .: "LatestRestorableTime"
+        <*> c .: "LicenseModel"
+        <*> c .: "MasterUsername"
+        <*> c .: "MultiAZ"
+        <*> c .: "OptionGroupMemberships"
+        <*> c .: "PendingModifiedValues"
+        <*> c .: "PreferredBackupWindow"
+        <*> c .: "PreferredMaintenanceWindow"
+        <*> c .: "PubliclyAccessible"
+        <*> c .: "ReadReplicaDBInstanceIdentifiers"
+        <*> c .: "ReadReplicaSourceDBInstanceIdentifier"
+        <*> c .: "SecondaryAvailabilityZone"
+        <*> c .: "StatusInfos"
+        <*> c .: "StorageType"
+        <*> c .: "TdeCredentialArn"
+        <*> c .: "VpcSecurityGroups"
 
 instance ToQuery DBInstance
 
@@ -2081,8 +2189,8 @@ azName :: Lens' AvailabilityZone (Maybe Text)
 azName = lens _azName (\s a -> s { _azName = a })
 
 instance FromXML AvailabilityZone where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AvailabilityZone"
+    parseXML c = AvailabilityZone
+        <$> c .: "Name"
 
 instance ToQuery AvailabilityZone
 
@@ -2181,8 +2289,16 @@ esSubscriptionCreationTime =
         (\s a -> s { _esSubscriptionCreationTime = a })
 
 instance FromXML EventSubscription where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EventSubscription"
+    parseXML c = EventSubscription
+        <$> c .: "CustSubscriptionId"
+        <*> c .: "CustomerAwsId"
+        <*> c .: "Enabled"
+        <*> c .: "EventCategoriesList"
+        <*> c .: "SnsTopicArn"
+        <*> c .: "SourceIdsList"
+        <*> c .: "SourceType"
+        <*> c .: "Status"
+        <*> c .: "SubscriptionCreationTime"
 
 instance ToQuery EventSubscription
 
@@ -2242,8 +2358,12 @@ dbsg1VpcId :: Lens' DBSubnetGroup (Maybe Text)
 dbsg1VpcId = lens _dbsg1VpcId (\s a -> s { _dbsg1VpcId = a })
 
 instance FromXML DBSubnetGroup where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBSubnetGroup"
+    parseXML c = DBSubnetGroup
+        <$> c .: "DBSubnetGroupDescription"
+        <*> c .: "DBSubnetGroupName"
+        <*> c .: "SubnetGroupStatus"
+        <*> c .: "Subnets"
+        <*> c .: "VpcId"
 
 instance ToQuery DBSubnetGroup
 
@@ -2294,8 +2414,11 @@ dbisiStatusType :: Lens' DBInstanceStatusInfo (Maybe Text)
 dbisiStatusType = lens _dbisiStatusType (\s a -> s { _dbisiStatusType = a })
 
 instance FromXML DBInstanceStatusInfo where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBInstanceStatusInfo"
+    parseXML c = DBInstanceStatusInfo
+        <$> c .: "Message"
+        <*> c .: "Normal"
+        <*> c .: "Status"
+        <*> c .: "StatusType"
 
 instance ToQuery DBInstanceStatusInfo
 
@@ -2384,8 +2507,16 @@ osValue :: Lens' OptionSetting (Maybe Text)
 osValue = lens _osValue (\s a -> s { _osValue = a })
 
 instance FromXML OptionSetting where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OptionSetting"
+    parseXML c = OptionSetting
+        <$> c .: "AllowedValues"
+        <*> c .: "ApplyType"
+        <*> c .: "DataType"
+        <*> c .: "DefaultValue"
+        <*> c .: "Description"
+        <*> c .: "IsCollection"
+        <*> c .: "IsModifiable"
+        <*> c .: "Name"
+        <*> c .: "Value"
 
 instance ToQuery OptionSetting
 
@@ -2427,8 +2558,10 @@ ddblfdSize :: Lens' DescribeDBLogFilesDetails (Maybe Integer)
 ddblfdSize = lens _ddblfdSize (\s a -> s { _ddblfdSize = a })
 
 instance FromXML DescribeDBLogFilesDetails where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBLogFilesDetails"
+    parseXML c = DescribeDBLogFilesDetails
+        <$> c .: "LastWritten"
+        <*> c .: "LogFileName"
+        <*> c .: "Size"
 
 instance ToQuery DescribeDBLogFilesDetails
 
@@ -2531,8 +2664,17 @@ odbioVpc :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odbioVpc = lens _odbioVpc (\s a -> s { _odbioVpc = a })
 
 instance FromXML OrderableDBInstanceOption where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OrderableDBInstanceOption"
+    parseXML c = OrderableDBInstanceOption
+        <$> c .: "AvailabilityZones"
+        <*> c .: "DBInstanceClass"
+        <*> c .: "Engine"
+        <*> c .: "EngineVersion"
+        <*> c .: "LicenseModel"
+        <*> c .: "MultiAZCapable"
+        <*> c .: "ReadReplicaCapable"
+        <*> c .: "StorageType"
+        <*> c .: "SupportsIops"
+        <*> c .: "Vpc"
 
 instance ToQuery OrderableDBInstanceOption
 
@@ -2565,8 +2707,9 @@ fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\s a -> s { _fValues = a })
 
 instance FromXML Filter where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Filter"
+    parseXML c = Filter
+        <$> c .: "Name"
+        <*> c .: "Values"
 
 instance ToQuery Filter
 
@@ -2601,8 +2744,9 @@ rcRecurringChargeFrequency =
         (\s a -> s { _rcRecurringChargeFrequency = a })
 
 instance FromXML RecurringCharge where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RecurringCharge"
+    parseXML c = RecurringCharge
+        <$> c .: "RecurringChargeAmount"
+        <*> c .: "RecurringChargeFrequency"
 
 instance ToQuery RecurringCharge
 
@@ -2634,8 +2778,9 @@ ePort :: Lens' Endpoint (Maybe Int)
 ePort = lens _ePort (\s a -> s { _ePort = a })
 
 instance FromXML Endpoint where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Endpoint"
+    parseXML c = Endpoint
+        <$> c .: "Address"
+        <*> c .: "Port"
 
 instance ToQuery Endpoint
 
@@ -2696,8 +2841,12 @@ ocVpcSecurityGroupMemberships =
         (\s a -> s { _ocVpcSecurityGroupMemberships = a })
 
 instance FromXML OptionConfiguration where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OptionConfiguration"
+    parseXML c = OptionConfiguration
+        <$> c .: "DBSecurityGroupMemberships"
+        <*> c .: "OptionName"
+        <*> c .: "OptionSettings"
+        <*> c .: "Port"
+        <*> c .: "VpcSecurityGroupMemberships"
 
 instance ToQuery OptionConfiguration
 
@@ -2784,8 +2933,15 @@ oVpcSecurityGroupMemberships =
         (\s a -> s { _oVpcSecurityGroupMemberships = a })
 
 instance FromXML Option where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Option"
+    parseXML c = Option
+        <$> c .: "DBSecurityGroupMemberships"
+        <*> c .: "OptionDescription"
+        <*> c .: "OptionName"
+        <*> c .: "OptionSettings"
+        <*> c .: "Permanent"
+        <*> c .: "Persistent"
+        <*> c .: "Port"
+        <*> c .: "VpcSecurityGroupMemberships"
 
 instance ToQuery Option
 
@@ -2818,8 +2974,9 @@ iprStatus :: Lens' IPRange (Maybe Text)
 iprStatus = lens _iprStatus (\s a -> s { _iprStatus = a })
 
 instance FromXML IPRange where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IPRange"
+    parseXML c = IPRange
+        <$> c .: "CIDRIP"
+        <*> c .: "Status"
 
 instance ToQuery IPRange
 
@@ -2853,8 +3010,9 @@ ogmStatus :: Lens' OptionGroupMembership (Maybe Text)
 ogmStatus = lens _ogmStatus (\s a -> s { _ogmStatus = a })
 
 instance FromXML OptionGroupMembership where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OptionGroupMembership"
+    parseXML c = OptionGroupMembership
+        <$> c .: "OptionGroupName"
+        <*> c .: "Status"
 
 instance ToQuery OptionGroupMembership
 
@@ -2887,8 +3045,9 @@ ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
 ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
 
 instance FromXML EventCategoriesMap where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EventCategoriesMap"
+    parseXML c = EventCategoriesMap
+        <$> c .: "EventCategories"
+        <*> c .: "SourceType"
 
 instance ToQuery EventCategoriesMap
 
@@ -2997,8 +3156,17 @@ pmvStorageType :: Lens' PendingModifiedValues (Maybe Text)
 pmvStorageType = lens _pmvStorageType (\s a -> s { _pmvStorageType = a })
 
 instance FromXML PendingModifiedValues where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PendingModifiedValues"
+    parseXML c = PendingModifiedValues
+        <$> c .: "AllocatedStorage"
+        <*> c .: "BackupRetentionPeriod"
+        <*> c .: "DBInstanceClass"
+        <*> c .: "DBInstanceIdentifier"
+        <*> c .: "EngineVersion"
+        <*> c .: "Iops"
+        <*> c .: "MasterUserPassword"
+        <*> c .: "MultiAZ"
+        <*> c .: "Port"
+        <*> c .: "StorageType"
 
 instance ToQuery PendingModifiedValues
 
@@ -3031,8 +3199,9 @@ vsgmVpcSecurityGroupId =
     lens _vsgmVpcSecurityGroupId (\s a -> s { _vsgmVpcSecurityGroupId = a })
 
 instance FromXML VpcSecurityGroupMembership where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VpcSecurityGroupMembership"
+    parseXML c = VpcSecurityGroupMembership
+        <$> c .: "Status"
+        <*> c .: "VpcSecurityGroupId"
 
 instance ToQuery VpcSecurityGroupMembership
 
@@ -3131,8 +3300,17 @@ pSource :: Lens' Parameter (Maybe Text)
 pSource = lens _pSource (\s a -> s { _pSource = a })
 
 instance FromXML Parameter where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Parameter"
+    parseXML c = Parameter
+        <$> c .: "AllowedValues"
+        <*> c .: "ApplyMethod"
+        <*> c .: "ApplyType"
+        <*> c .: "DataType"
+        <*> c .: "Description"
+        <*> c .: "IsModifiable"
+        <*> c .: "MinimumEngineVersion"
+        <*> c .: "ParameterName"
+        <*> c .: "ParameterValue"
+        <*> c .: "Source"
 
 instance ToQuery Parameter
 
@@ -3199,7 +3377,12 @@ ogosSettingName :: Lens' OptionGroupOptionSetting (Maybe Text)
 ogosSettingName = lens _ogosSettingName (\s a -> s { _ogosSettingName = a })
 
 instance FromXML OptionGroupOptionSetting where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OptionGroupOptionSetting"
+    parseXML c = OptionGroupOptionSetting
+        <$> c .: "AllowedValues"
+        <*> c .: "ApplyType"
+        <*> c .: "DefaultValue"
+        <*> c .: "IsModifiable"
+        <*> c .: "SettingDescription"
+        <*> c .: "SettingName"
 
 instance ToQuery OptionGroupOptionSetting

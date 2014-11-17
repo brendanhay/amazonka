@@ -143,5 +143,5 @@ instance AWSRequest CreateOptionGroup where
     response = xmlResponse
 
 instance FromXML CreateOptionGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateOptionGroupResponse"
+    parseXML c = CreateOptionGroupResponse
+        <$> c .: "OptionGroup"

@@ -112,8 +112,12 @@ instance ToQuery DescribeVirtualInterfaces where
     toQuery = const mempty
 
 instance ToHeaders DescribeVirtualInterfaces
+
 instance ToJSON DescribeVirtualInterfaces where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeVirtualInterfaces{..} = object
+        [ "connectionId"       .= _dviConnectionId
+        , "virtualInterfaceId" .= _dviVirtualInterfaceId
+        ]
 
 instance AWSRequest DescribeVirtualInterfaces where
     type Sv DescribeVirtualInterfaces = DirectConnect
@@ -123,4 +127,5 @@ instance AWSRequest DescribeVirtualInterfaces where
     response = jsonResponse
 
 instance FromJSON DescribeVirtualInterfacesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeVirtualInterfacesResponse" $ \o -> DescribeVirtualInterfacesResponse
+        <$> o .: "virtualInterfaces"

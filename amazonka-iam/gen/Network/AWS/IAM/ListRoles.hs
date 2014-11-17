@@ -150,5 +150,7 @@ instance AWSRequest ListRoles where
     response = xmlResponse
 
 instance FromXML ListRolesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListRolesResponse"
+    parseXML c = ListRolesResponse
+        <$> c .: "IsTruncated"
+        <*> c .: "Marker"
+        <*> c .: "Roles"

@@ -131,8 +131,9 @@ instance ToPath ListEventSources where
 instance ToQuery ListEventSources
 
 instance ToHeaders ListEventSources
+
 instance ToJSON ListEventSources where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ListEventSources where
     type Sv ListEventSources = Lambda
@@ -142,4 +143,6 @@ instance AWSRequest ListEventSources where
     response = jsonResponse
 
 instance FromJSON ListEventSourcesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListEventSourcesResponse" $ \o -> ListEventSourcesResponse
+        <$> o .: "EventSources"
+        <*> o .: "NextMarker"

@@ -96,9 +96,9 @@ instance ToQuery GetBucketLifecycle where
     toQuery = const "lifecycle"
 
 instance ToHeaders GetBucketLifecycle
+
 instance ToXML GetBucketLifecycle where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketLifecycle"
+    toXML = const (node "GetBucketLifecycle" [])
 
 instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
@@ -108,5 +108,5 @@ instance AWSRequest GetBucketLifecycle where
     response = xmlResponse
 
 instance FromXML GetBucketLifecycleResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketLifecycleResponse"
+    parseXML c = GetBucketLifecycleResponse
+        <$> c .: "Rule"

@@ -421,8 +421,9 @@ instance ToPath Search where
 instance ToQuery Search
 
 instance ToHeaders Search
+
 instance ToJSON Search where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest Search where
     type Sv Search = CloudSearchDomains
@@ -432,4 +433,7 @@ instance AWSRequest Search where
     response = jsonResponse
 
 instance FromJSON SearchResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "SearchResponse" $ \o -> SearchResponse
+        <$> o .: "facets"
+        <*> o .: "hits"
+        <*> o .: "status"

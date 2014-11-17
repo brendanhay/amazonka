@@ -101,8 +101,11 @@ instance ToQuery DeleteVolume where
     toQuery = const mempty
 
 instance ToHeaders DeleteVolume
+
 instance ToJSON DeleteVolume where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteVolume{..} = object
+        [ "VolumeARN" .= _dvVolumeARN
+        ]
 
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = StorageGateway
@@ -112,4 +115,5 @@ instance AWSRequest DeleteVolume where
     response = jsonResponse
 
 instance FromJSON DeleteVolumeResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DeleteVolumeResponse" $ \o -> DeleteVolumeResponse
+        <$> o .: "VolumeARN"

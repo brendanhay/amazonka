@@ -119,8 +119,12 @@ instance ToQuery ListDomains where
     toQuery = const mempty
 
 instance ToHeaders ListDomains
+
 instance ToJSON ListDomains where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListDomains{..} = object
+        [ "Marker"   .= _ldMarker
+        , "MaxItems" .= _ldMaxItems
+        ]
 
 instance AWSRequest ListDomains where
     type Sv ListDomains = Route53Domains
@@ -130,4 +134,6 @@ instance AWSRequest ListDomains where
     response = jsonResponse
 
 instance FromJSON ListDomainsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListDomainsResponse" $ \o -> ListDomainsResponse
+        <$> o .: "Domains"
+        <*> o .: "NextPageMarker"

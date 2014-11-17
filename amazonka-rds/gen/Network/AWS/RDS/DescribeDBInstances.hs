@@ -146,5 +146,6 @@ instance AWSRequest DescribeDBInstances where
     response = xmlResponse
 
 instance FromXML DescribeDBInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBInstancesResponse"
+    parseXML c = DescribeDBInstancesResponse
+        <$> c .: "DBInstances"
+        <*> c .: "Marker"

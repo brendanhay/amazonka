@@ -171,8 +171,17 @@ instance ToQuery ActivateGateway where
     toQuery = const mempty
 
 instance ToHeaders ActivateGateway
+
 instance ToJSON ActivateGateway where
-    toJSON = genericToJSON jsonOptions
+    toJSON ActivateGateway{..} = object
+        [ "ActivationKey"     .= _agActivationKey
+        , "GatewayName"       .= _agGatewayName
+        , "GatewayTimezone"   .= _agGatewayTimezone
+        , "GatewayRegion"     .= _agGatewayRegion
+        , "GatewayType"       .= _agGatewayType
+        , "TapeDriveType"     .= _agTapeDriveType
+        , "MediumChangerType" .= _agMediumChangerType
+        ]
 
 instance AWSRequest ActivateGateway where
     type Sv ActivateGateway = StorageGateway
@@ -182,4 +191,5 @@ instance AWSRequest ActivateGateway where
     response = jsonResponse
 
 instance FromJSON ActivateGatewayResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ActivateGatewayResponse" $ \o -> ActivateGatewayResponse
+        <$> o .: "GatewayARN"

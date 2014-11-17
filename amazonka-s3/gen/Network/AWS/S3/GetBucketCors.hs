@@ -96,9 +96,9 @@ instance ToQuery GetBucketCors where
     toQuery = const "cors"
 
 instance ToHeaders GetBucketCors
+
 instance ToXML GetBucketCors where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketCors"
+    toXML = const (node "GetBucketCors" [])
 
 instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
@@ -108,5 +108,5 @@ instance AWSRequest GetBucketCors where
     response = xmlResponse
 
 instance FromXML GetBucketCorsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketCorsResponse"
+    parseXML c = GetBucketCorsResponse
+        <$> c .: "CORSRule"

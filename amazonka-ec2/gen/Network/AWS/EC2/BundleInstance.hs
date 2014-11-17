@@ -121,5 +121,5 @@ instance AWSRequest BundleInstance where
     response = xmlResponse
 
 instance FromXML BundleInstanceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BundleInstanceResponse"
+    parseXML c = BundleInstanceResponse
+        <$> c .: "bundleInstanceTask"

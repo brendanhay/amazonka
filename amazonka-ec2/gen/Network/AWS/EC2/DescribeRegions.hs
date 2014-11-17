@@ -122,5 +122,5 @@ instance AWSRequest DescribeRegions where
     response = xmlResponse
 
 instance FromXML DescribeRegionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeRegionsResponse"
+    parseXML c = DescribeRegionsResponse
+        <$> c .: "regionInfo"

@@ -87,8 +87,12 @@ instance ToQuery RemoveTagsFromStream where
     toQuery = const mempty
 
 instance ToHeaders RemoveTagsFromStream
+
 instance ToJSON RemoveTagsFromStream where
-    toJSON = genericToJSON jsonOptions
+    toJSON RemoveTagsFromStream{..} = object
+        [ "StreamName" .= _rtfsStreamName
+        , "TagKeys"    .= _rtfsTagKeys
+        ]
 
 instance AWSRequest RemoveTagsFromStream where
     type Sv RemoveTagsFromStream = Kinesis

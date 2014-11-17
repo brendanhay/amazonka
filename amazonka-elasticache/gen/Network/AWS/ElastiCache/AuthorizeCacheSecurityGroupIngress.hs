@@ -130,5 +130,5 @@ instance AWSRequest AuthorizeCacheSecurityGroupIngress where
     response = xmlResponse
 
 instance FromXML AuthorizeCacheSecurityGroupIngressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AuthorizeCacheSecurityGroupIngressResponse"
+    parseXML c = AuthorizeCacheSecurityGroupIngressResponse
+        <$> c .: "CacheSecurityGroup"

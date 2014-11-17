@@ -128,5 +128,6 @@ instance AWSRequest ListIdentities where
     response = xmlResponse
 
 instance FromXML ListIdentitiesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListIdentitiesResponse"
+    parseXML c = ListIdentitiesResponse
+        <$> c .: "Identities"
+        <*> c .: "NextToken"

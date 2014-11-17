@@ -75,8 +75,11 @@ instance ToQuery DeleteAlias where
     toQuery = const mempty
 
 instance ToHeaders DeleteAlias
+
 instance ToJSON DeleteAlias where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteAlias{..} = object
+        [ "AliasName" .= _daAliasName
+        ]
 
 instance AWSRequest DeleteAlias where
     type Sv DeleteAlias = KMS

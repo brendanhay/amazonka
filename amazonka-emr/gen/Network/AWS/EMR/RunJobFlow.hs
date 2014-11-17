@@ -253,8 +253,23 @@ instance ToQuery RunJobFlow where
     toQuery = const mempty
 
 instance ToHeaders RunJobFlow
+
 instance ToJSON RunJobFlow where
-    toJSON = genericToJSON jsonOptions
+    toJSON RunJobFlow{..} = object
+        [ "Name"                 .= _rjfName
+        , "LogUri"               .= _rjfLogUri
+        , "AdditionalInfo"       .= _rjfAdditionalInfo
+        , "AmiVersion"           .= _rjfAmiVersion
+        , "Instances"            .= _rjfInstances
+        , "Steps"                .= _rjfSteps
+        , "BootstrapActions"     .= _rjfBootstrapActions
+        , "SupportedProducts"    .= _rjfSupportedProducts
+        , "NewSupportedProducts" .= _rjfNewSupportedProducts
+        , "VisibleToAllUsers"    .= _rjfVisibleToAllUsers
+        , "JobFlowRole"          .= _rjfJobFlowRole
+        , "ServiceRole"          .= _rjfServiceRole
+        , "Tags"                 .= _rjfTags
+        ]
 
 instance AWSRequest RunJobFlow where
     type Sv RunJobFlow = EMR
@@ -264,4 +279,5 @@ instance AWSRequest RunJobFlow where
     response = jsonResponse
 
 instance FromJSON RunJobFlowResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RunJobFlowResponse" $ \o -> RunJobFlowResponse
+        <$> o .: "JobFlowId"

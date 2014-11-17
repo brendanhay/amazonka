@@ -178,8 +178,9 @@ instance ToQuery GetEventSource where
     toQuery = const mempty
 
 instance ToHeaders GetEventSource
+
 instance ToJSON GetEventSource where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest GetEventSource where
     type Sv GetEventSource = Lambda
@@ -189,4 +190,13 @@ instance AWSRequest GetEventSource where
     response = jsonResponse
 
 instance FromJSON GetEventSourceResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetEventSourceResponse" $ \o -> GetEventSourceResponse
+        <$> o .: "BatchSize"
+        <*> o .: "EventSource"
+        <*> o .: "FunctionName"
+        <*> o .: "IsActive"
+        <*> o .: "LastModified"
+        <*> o .: "Parameters"
+        <*> o .: "Role"
+        <*> o .: "Status"
+        <*> o .: "UUID"

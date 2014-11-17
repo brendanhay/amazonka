@@ -90,8 +90,12 @@ instance ToQuery AssignVolume where
     toQuery = const mempty
 
 instance ToHeaders AssignVolume
+
 instance ToJSON AssignVolume where
-    toJSON = genericToJSON jsonOptions
+    toJSON AssignVolume{..} = object
+        [ "VolumeId"   .= _avVolumeId
+        , "InstanceId" .= _avInstanceId
+        ]
 
 instance AWSRequest AssignVolume where
     type Sv AssignVolume = OpsWorks

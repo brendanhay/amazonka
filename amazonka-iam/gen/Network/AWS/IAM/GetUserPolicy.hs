@@ -131,5 +131,7 @@ instance AWSRequest GetUserPolicy where
     response = xmlResponse
 
 instance FromXML GetUserPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetUserPolicyResponse"
+    parseXML c = GetUserPolicyResponse
+        <$> c .: "PolicyDocument"
+        <*> c .: "PolicyName"
+        <*> c .: "UserName"

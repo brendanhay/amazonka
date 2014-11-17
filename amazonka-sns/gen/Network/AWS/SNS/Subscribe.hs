@@ -135,5 +135,5 @@ instance AWSRequest Subscribe where
     response = xmlResponse
 
 instance FromXML SubscribeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SubscribeResponse"
+    parseXML c = SubscribeResponse
+        <$> c .: "SubscriptionArn"

@@ -107,5 +107,5 @@ instance AWSRequest GetAccountSummary where
     response = xmlResponse
 
 instance FromXML GetAccountSummaryResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetAccountSummaryResponse"
+    parseXML c = GetAccountSummaryResponse
+        <$> c .: "SummaryMap"

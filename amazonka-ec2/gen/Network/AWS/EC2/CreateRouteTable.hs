@@ -108,5 +108,5 @@ instance AWSRequest CreateRouteTable where
     response = xmlResponse
 
 instance FromXML CreateRouteTableResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateRouteTableResponse"
+    parseXML c = CreateRouteTableResponse
+        <$> c .: "routeTable"

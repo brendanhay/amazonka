@@ -122,5 +122,5 @@ instance AWSRequest CreateVirtualMFADevice where
     response = xmlResponse
 
 instance FromXML CreateVirtualMFADeviceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVirtualMFADeviceResponse"
+    parseXML c = CreateVirtualMFADeviceResponse
+        <$> c .: "VirtualMFADevice"

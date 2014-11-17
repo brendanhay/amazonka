@@ -130,5 +130,5 @@ instance AWSRequest DeleteReplicationGroup where
     response = xmlResponse
 
 instance FromXML DeleteReplicationGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteReplicationGroupResponse"
+    parseXML c = DeleteReplicationGroupResponse
+        <$> c .: "ReplicationGroup"

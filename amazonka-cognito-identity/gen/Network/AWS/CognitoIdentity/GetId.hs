@@ -112,8 +112,13 @@ instance ToQuery GetId where
     toQuery = const mempty
 
 instance ToHeaders GetId
+
 instance ToJSON GetId where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetId{..} = object
+        [ "AccountId"      .= _giAccountId
+        , "IdentityPoolId" .= _giIdentityPoolId
+        , "Logins"         .= _giLogins
+        ]
 
 instance AWSRequest GetId where
     type Sv GetId = CognitoIdentity
@@ -123,4 +128,5 @@ instance AWSRequest GetId where
     response = jsonResponse
 
 instance FromJSON GetIdResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetIdResponse" $ \o -> GetIdResponse
+        <$> o .: "IdentityId"

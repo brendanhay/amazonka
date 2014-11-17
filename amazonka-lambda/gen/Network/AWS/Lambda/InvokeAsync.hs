@@ -108,8 +108,11 @@ instance ToQuery InvokeAsync where
     toQuery = const mempty
 
 instance ToHeaders InvokeAsync
+
 instance ToJSON InvokeAsync where
-    toJSON = genericToJSON jsonOptions
+    toJSON InvokeAsync{..} = object
+        [ "InvokeArgs" .= _iaInvokeArgs
+        ]
 
 instance AWSRequest InvokeAsync where
     type Sv InvokeAsync = Lambda
@@ -119,4 +122,5 @@ instance AWSRequest InvokeAsync where
     response = jsonResponse
 
 instance FromJSON InvokeAsyncResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "InvokeAsyncResponse" $ \o -> InvokeAsyncResponse
+        <$> o .: "Status"

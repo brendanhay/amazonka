@@ -103,9 +103,9 @@ instance ToPath ListCloudFrontOriginAccessIdentities where
 instance ToQuery ListCloudFrontOriginAccessIdentities
 
 instance ToHeaders ListCloudFrontOriginAccessIdentities
+
 instance ToXML ListCloudFrontOriginAccessIdentities where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListCloudFrontOriginAccessIdentities"
+    toXML = const (node "ListCloudFrontOriginAccessIdentities" [])
 
 instance AWSRequest ListCloudFrontOriginAccessIdentities where
     type Sv ListCloudFrontOriginAccessIdentities = CloudFront
@@ -115,5 +115,5 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
     response = xmlResponse
 
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListCloudFrontOriginAccessIdentitiesResponse"
+    parseXML c = ListCloudFrontOriginAccessIdentitiesResponse
+        <$> c .: "CloudFrontOriginAccessIdentityList"

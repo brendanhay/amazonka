@@ -125,9 +125,12 @@ instance ToQuery DisassociateVPCFromHostedZone where
     toQuery = const mempty
 
 instance ToHeaders DisassociateVPCFromHostedZone
+
 instance ToXML DisassociateVPCFromHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DisassociateVPCFromHostedZone"
+    toXML DisassociateVPCFromHostedZone{..} = node "DisassociateVPCFromHostedZone"
+        [ "VPC"     .= _dvpcfhzVPC
+        , "Comment" .= _dvpcfhzComment
+        ]
 
 instance AWSRequest DisassociateVPCFromHostedZone where
     type Sv DisassociateVPCFromHostedZone = Route53
@@ -137,5 +140,5 @@ instance AWSRequest DisassociateVPCFromHostedZone where
     response = xmlResponse
 
 instance FromXML DisassociateVPCFromHostedZoneResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DisassociateVPCFromHostedZoneResponse"
+    parseXML c = DisassociateVPCFromHostedZoneResponse
+        <$> c .: "ChangeInfo"

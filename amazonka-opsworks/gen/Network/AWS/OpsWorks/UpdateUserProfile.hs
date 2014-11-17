@@ -111,8 +111,14 @@ instance ToQuery UpdateUserProfile where
     toQuery = const mempty
 
 instance ToHeaders UpdateUserProfile
+
 instance ToJSON UpdateUserProfile where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateUserProfile{..} = object
+        [ "IamUserArn"          .= _uupIamUserArn
+        , "SshUsername"         .= _uupSshUsername
+        , "SshPublicKey"        .= _uupSshPublicKey
+        , "AllowSelfManagement" .= _uupAllowSelfManagement
+        ]
 
 instance AWSRequest UpdateUserProfile where
     type Sv UpdateUserProfile = OpsWorks

@@ -99,8 +99,11 @@ instance ToQuery StopDeployment where
     toQuery = const mempty
 
 instance ToHeaders StopDeployment
+
 instance ToJSON StopDeployment where
-    toJSON = genericToJSON jsonOptions
+    toJSON StopDeployment{..} = object
+        [ "deploymentId" .= _sdDeploymentId
+        ]
 
 instance AWSRequest StopDeployment where
     type Sv StopDeployment = CodeDeploy
@@ -110,4 +113,6 @@ instance AWSRequest StopDeployment where
     response = jsonResponse
 
 instance FromJSON StopDeploymentResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "StopDeploymentResponse" $ \o -> StopDeploymentResponse
+        <$> o .: "status"
+        <*> o .: "statusMessage"

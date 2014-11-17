@@ -187,8 +187,12 @@ instance ToQuery BatchGetItem where
     toQuery = const mempty
 
 instance ToHeaders BatchGetItem
+
 instance ToJSON BatchGetItem where
-    toJSON = genericToJSON jsonOptions
+    toJSON BatchGetItem{..} = object
+        [ "RequestItems"           .= _bgiRequestItems
+        , "ReturnConsumedCapacity" .= _bgiReturnConsumedCapacity
+        ]
 
 instance AWSRequest BatchGetItem where
     type Sv BatchGetItem = DynamoDB
@@ -198,4 +202,7 @@ instance AWSRequest BatchGetItem where
     response = jsonResponse
 
 instance FromJSON BatchGetItemResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "BatchGetItemResponse" $ \o -> BatchGetItemResponse
+        <$> o .: "ConsumedCapacity"
+        <*> o .: "Responses"
+        <*> o .: "UnprocessedKeys"

@@ -198,8 +198,18 @@ instance ToQuery ListOpenWorkflowExecutions where
     toQuery = const mempty
 
 instance ToHeaders ListOpenWorkflowExecutions
+
 instance ToJSON ListOpenWorkflowExecutions where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListOpenWorkflowExecutions{..} = object
+        [ "domain"          .= _loweDomain
+        , "startTimeFilter" .= _loweStartTimeFilter
+        , "typeFilter"      .= _loweTypeFilter
+        , "tagFilter"       .= _loweTagFilter
+        , "nextPageToken"   .= _loweNextPageToken
+        , "maximumPageSize" .= _loweMaximumPageSize
+        , "reverseOrder"    .= _loweReverseOrder
+        , "executionFilter" .= _loweExecutionFilter
+        ]
 
 instance AWSRequest ListOpenWorkflowExecutions where
     type Sv ListOpenWorkflowExecutions = SWF
@@ -209,4 +219,6 @@ instance AWSRequest ListOpenWorkflowExecutions where
     response = jsonResponse
 
 instance FromJSON ListOpenWorkflowExecutionsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListOpenWorkflowExecutionsResponse" $ \o -> ListOpenWorkflowExecutionsResponse
+        <$> o .: "executionInfos"
+        <*> o .: "nextPageToken"

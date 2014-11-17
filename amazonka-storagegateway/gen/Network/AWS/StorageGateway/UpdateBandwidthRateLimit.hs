@@ -118,8 +118,13 @@ instance ToQuery UpdateBandwidthRateLimit where
     toQuery = const mempty
 
 instance ToHeaders UpdateBandwidthRateLimit
+
 instance ToJSON UpdateBandwidthRateLimit where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateBandwidthRateLimit{..} = object
+        [ "GatewayARN"                           .= _ubrlGatewayARN
+        , "AverageUploadRateLimitInBitsPerSec"   .= _ubrlAverageUploadRateLimitInBitsPerSec
+        , "AverageDownloadRateLimitInBitsPerSec" .= _ubrlAverageDownloadRateLimitInBitsPerSec
+        ]
 
 instance AWSRequest UpdateBandwidthRateLimit where
     type Sv UpdateBandwidthRateLimit = StorageGateway
@@ -129,4 +134,5 @@ instance AWSRequest UpdateBandwidthRateLimit where
     response = jsonResponse
 
 instance FromJSON UpdateBandwidthRateLimitResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateBandwidthRateLimitResponse" $ \o -> UpdateBandwidthRateLimitResponse
+        <$> o .: "GatewayARN"

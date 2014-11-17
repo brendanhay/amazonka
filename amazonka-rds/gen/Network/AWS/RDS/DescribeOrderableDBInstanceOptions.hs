@@ -188,5 +188,6 @@ instance AWSRequest DescribeOrderableDBInstanceOptions where
     response = xmlResponse
 
 instance FromXML DescribeOrderableDBInstanceOptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeOrderableDBInstanceOptionsResponse"
+    parseXML c = DescribeOrderableDBInstanceOptionsResponse
+        <$> c .: "Marker"
+        <*> c .: "OrderableDBInstanceOptions"

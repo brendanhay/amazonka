@@ -107,8 +107,11 @@ instance ToQuery DescribeConfigurationRecorders where
     toQuery = const mempty
 
 instance ToHeaders DescribeConfigurationRecorders
+
 instance ToJSON DescribeConfigurationRecorders where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeConfigurationRecorders{..} = object
+        [ "ConfigurationRecorderNames" .= _dcrConfigurationRecorderNames
+        ]
 
 instance AWSRequest DescribeConfigurationRecorders where
     type Sv DescribeConfigurationRecorders = Config
@@ -118,4 +121,5 @@ instance AWSRequest DescribeConfigurationRecorders where
     response = jsonResponse
 
 instance FromJSON DescribeConfigurationRecordersResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeConfigurationRecordersResponse" $ \o -> DescribeConfigurationRecordersResponse
+        <$> o .: "ConfigurationRecorders"

@@ -92,8 +92,11 @@ instance ToQuery GetKeyRotationStatus where
     toQuery = const mempty
 
 instance ToHeaders GetKeyRotationStatus
+
 instance ToJSON GetKeyRotationStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetKeyRotationStatus{..} = object
+        [ "KeyId" .= _gkrsKeyId
+        ]
 
 instance AWSRequest GetKeyRotationStatus where
     type Sv GetKeyRotationStatus = KMS
@@ -103,4 +106,5 @@ instance AWSRequest GetKeyRotationStatus where
     response = jsonResponse
 
 instance FromJSON GetKeyRotationStatusResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetKeyRotationStatusResponse" $ \o -> GetKeyRotationStatusResponse
+        <$> o .: "KeyRotationEnabled"

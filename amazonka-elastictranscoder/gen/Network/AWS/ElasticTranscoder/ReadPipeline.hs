@@ -93,8 +93,9 @@ instance ToQuery ReadPipeline where
     toQuery = const mempty
 
 instance ToHeaders ReadPipeline
+
 instance ToJSON ReadPipeline where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest ReadPipeline where
     type Sv ReadPipeline = ElasticTranscoder
@@ -104,4 +105,5 @@ instance AWSRequest ReadPipeline where
     response = jsonResponse
 
 instance FromJSON ReadPipelineResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ReadPipelineResponse" $ \o -> ReadPipelineResponse
+        <$> o .: "Pipeline"

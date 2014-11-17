@@ -122,8 +122,13 @@ instance ToQuery UpdateTable where
     toQuery = const mempty
 
 instance ToHeaders UpdateTable
+
 instance ToJSON UpdateTable where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateTable{..} = object
+        [ "TableName"                   .= _utTableName
+        , "ProvisionedThroughput"       .= _utProvisionedThroughput
+        , "GlobalSecondaryIndexUpdates" .= _utGlobalSecondaryIndexUpdates
+        ]
 
 instance AWSRequest UpdateTable where
     type Sv UpdateTable = DynamoDB
@@ -133,4 +138,5 @@ instance AWSRequest UpdateTable where
     response = jsonResponse
 
 instance FromJSON UpdateTableResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateTableResponse" $ \o -> UpdateTableResponse
+        <$> o .: "TableDescription"

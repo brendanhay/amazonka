@@ -129,8 +129,12 @@ instance ToQuery CreateSnapshot where
     toQuery = const mempty
 
 instance ToHeaders CreateSnapshot
+
 instance ToJSON CreateSnapshot where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateSnapshot{..} = object
+        [ "VolumeARN"           .= _csVolumeARN
+        , "SnapshotDescription" .= _csSnapshotDescription
+        ]
 
 instance AWSRequest CreateSnapshot where
     type Sv CreateSnapshot = StorageGateway
@@ -140,4 +144,6 @@ instance AWSRequest CreateSnapshot where
     response = jsonResponse
 
 instance FromJSON CreateSnapshotResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateSnapshotResponse" $ \o -> CreateSnapshotResponse
+        <$> o .: "SnapshotId"
+        <*> o .: "VolumeARN"

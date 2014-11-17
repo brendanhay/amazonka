@@ -123,9 +123,12 @@ instance ToQuery CreateHealthCheck where
     toQuery = const mempty
 
 instance ToHeaders CreateHealthCheck
+
 instance ToXML CreateHealthCheck where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateHealthCheck"
+    toXML CreateHealthCheck{..} = node "CreateHealthCheck"
+        [ "CallerReference"   .= _chcCallerReference
+        , "HealthCheckConfig" .= _chcHealthCheckConfig
+        ]
 
 instance AWSRequest CreateHealthCheck where
     type Sv CreateHealthCheck = Route53

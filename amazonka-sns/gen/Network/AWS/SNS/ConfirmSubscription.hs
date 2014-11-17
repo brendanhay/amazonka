@@ -126,5 +126,5 @@ instance AWSRequest ConfirmSubscription where
     response = xmlResponse
 
 instance FromXML ConfirmSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfirmSubscriptionResponse"
+    parseXML c = ConfirmSubscriptionResponse
+        <$> c .: "SubscriptionArn"

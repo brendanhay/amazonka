@@ -106,8 +106,13 @@ instance ToQuery UpdateGatewayInformation where
     toQuery = const mempty
 
 instance ToHeaders UpdateGatewayInformation
+
 instance ToJSON UpdateGatewayInformation where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateGatewayInformation{..} = object
+        [ "GatewayARN"      .= _ugiGatewayARN
+        , "GatewayName"     .= _ugiGatewayName
+        , "GatewayTimezone" .= _ugiGatewayTimezone
+        ]
 
 instance AWSRequest UpdateGatewayInformation where
     type Sv UpdateGatewayInformation = StorageGateway
@@ -117,4 +122,5 @@ instance AWSRequest UpdateGatewayInformation where
     response = jsonResponse
 
 instance FromJSON UpdateGatewayInformationResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateGatewayInformationResponse" $ \o -> UpdateGatewayInformationResponse
+        <$> o .: "GatewayARN"

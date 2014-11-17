@@ -225,8 +225,17 @@ instance ToQuery UpdateTrail where
     toQuery = const mempty
 
 instance ToHeaders UpdateTrail
+
 instance ToJSON UpdateTrail where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateTrail{..} = object
+        [ "Name"                       .= _utName
+        , "S3BucketName"               .= _utS3BucketName
+        , "S3KeyPrefix"                .= _utS3KeyPrefix
+        , "SnsTopicName"               .= _utSnsTopicName
+        , "IncludeGlobalServiceEvents" .= _utIncludeGlobalServiceEvents
+        , "CloudWatchLogsLogGroupArn"  .= _utCloudWatchLogsLogGroupArn
+        , "CloudWatchLogsRoleArn"      .= _utCloudWatchLogsRoleArn
+        ]
 
 instance AWSRequest UpdateTrail where
     type Sv UpdateTrail = CloudTrail
@@ -236,4 +245,11 @@ instance AWSRequest UpdateTrail where
     response = jsonResponse
 
 instance FromJSON UpdateTrailResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateTrailResponse" $ \o -> UpdateTrailResponse
+        <$> o .: "CloudWatchLogsLogGroupArn"
+        <*> o .: "CloudWatchLogsRoleArn"
+        <*> o .: "IncludeGlobalServiceEvents"
+        <*> o .: "Name"
+        <*> o .: "S3BucketName"
+        <*> o .: "S3KeyPrefix"
+        <*> o .: "SnsTopicName"

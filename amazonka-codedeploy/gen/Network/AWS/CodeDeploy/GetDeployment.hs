@@ -90,8 +90,11 @@ instance ToQuery GetDeployment where
     toQuery = const mempty
 
 instance ToHeaders GetDeployment
+
 instance ToJSON GetDeployment where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetDeployment{..} = object
+        [ "deploymentId" .= _gdDeploymentId
+        ]
 
 instance AWSRequest GetDeployment where
     type Sv GetDeployment = CodeDeploy
@@ -101,4 +104,5 @@ instance AWSRequest GetDeployment where
     response = jsonResponse
 
 instance FromJSON GetDeploymentResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetDeploymentResponse" $ \o -> GetDeploymentResponse
+        <$> o .: "deploymentInfo"

@@ -92,8 +92,12 @@ instance ToQuery AttachElasticLoadBalancer where
     toQuery = const mempty
 
 instance ToHeaders AttachElasticLoadBalancer
+
 instance ToJSON AttachElasticLoadBalancer where
-    toJSON = genericToJSON jsonOptions
+    toJSON AttachElasticLoadBalancer{..} = object
+        [ "ElasticLoadBalancerName" .= _aelbElasticLoadBalancerName
+        , "LayerId"                 .= _aelbLayerId
+        ]
 
 instance AWSRequest AttachElasticLoadBalancer where
     type Sv AttachElasticLoadBalancer = OpsWorks

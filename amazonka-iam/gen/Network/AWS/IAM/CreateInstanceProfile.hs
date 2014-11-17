@@ -114,5 +114,5 @@ instance AWSRequest CreateInstanceProfile where
     response = xmlResponse
 
 instance FromXML CreateInstanceProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateInstanceProfileResponse"
+    parseXML c = CreateInstanceProfileResponse
+        <$> c .: "InstanceProfile"

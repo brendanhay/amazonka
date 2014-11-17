@@ -102,8 +102,11 @@ instance ToQuery GetHostnameSuggestion where
     toQuery = const mempty
 
 instance ToHeaders GetHostnameSuggestion
+
 instance ToJSON GetHostnameSuggestion where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetHostnameSuggestion{..} = object
+        [ "LayerId" .= _ghsLayerId
+        ]
 
 instance AWSRequest GetHostnameSuggestion where
     type Sv GetHostnameSuggestion = OpsWorks
@@ -113,4 +116,6 @@ instance AWSRequest GetHostnameSuggestion where
     response = jsonResponse
 
 instance FromJSON GetHostnameSuggestionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetHostnameSuggestionResponse" $ \o -> GetHostnameSuggestionResponse
+        <$> o .: "Hostname"
+        <*> o .: "LayerId"

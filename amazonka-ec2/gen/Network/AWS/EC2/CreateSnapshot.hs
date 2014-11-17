@@ -226,5 +226,15 @@ instance AWSRequest CreateSnapshot where
     response = xmlResponse
 
 instance FromXML CreateSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSnapshotResponse"
+    parseXML c = CreateSnapshotResponse
+        <$> c .: "description"
+        <*> c .: "encrypted"
+        <*> c .: "ownerAlias"
+        <*> c .: "ownerId"
+        <*> c .: "progress"
+        <*> c .: "snapshotId"
+        <*> c .: "startTime"
+        <*> c .: "status"
+        <*> c .: "tagSet"
+        <*> c .: "volumeId"
+        <*> c .: "volumeSize"

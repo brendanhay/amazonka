@@ -99,8 +99,12 @@ instance ToQuery DescribeStep where
     toQuery = const mempty
 
 instance ToHeaders DescribeStep
+
 instance ToJSON DescribeStep where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeStep{..} = object
+        [ "ClusterId" .= _dsClusterId
+        , "StepId"    .= _dsStepId
+        ]
 
 instance AWSRequest DescribeStep where
     type Sv DescribeStep = EMR
@@ -110,4 +114,5 @@ instance AWSRequest DescribeStep where
     response = jsonResponse
 
 instance FromJSON DescribeStepResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeStepResponse" $ \o -> DescribeStepResponse
+        <$> o .: "Step"

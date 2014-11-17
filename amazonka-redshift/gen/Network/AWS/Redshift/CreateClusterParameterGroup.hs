@@ -139,5 +139,5 @@ instance AWSRequest CreateClusterParameterGroup where
     response = xmlResponse
 
 instance FromXML CreateClusterParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateClusterParameterGroupResponse"
+    parseXML c = CreateClusterParameterGroupResponse
+        <$> c .: "ClusterParameterGroup"

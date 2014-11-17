@@ -109,5 +109,6 @@ instance AWSRequest ListTopics where
     response = xmlResponse
 
 instance FromXML ListTopicsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListTopicsResponse"
+    parseXML c = ListTopicsResponse
+        <$> c .: "NextToken"
+        <*> c .: "Topics"

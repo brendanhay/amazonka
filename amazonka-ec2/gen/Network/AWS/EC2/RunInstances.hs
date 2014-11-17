@@ -401,5 +401,9 @@ instance AWSRequest RunInstances where
     response = xmlResponse
 
 instance FromXML RunInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RunInstancesResponse"
+    parseXML c = RunInstancesResponse
+        <$> c .: "groupSet"
+        <*> c .: "instancesSet"
+        <*> c .: "ownerId"
+        <*> c .: "requesterId"
+        <*> c .: "reservationId"

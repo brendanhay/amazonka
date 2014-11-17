@@ -105,8 +105,11 @@ instance ToQuery ListDeploymentConfigs where
     toQuery = const mempty
 
 instance ToHeaders ListDeploymentConfigs
+
 instance ToJSON ListDeploymentConfigs where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListDeploymentConfigs{..} = object
+        [ "nextToken" .= _ldcNextToken
+        ]
 
 instance AWSRequest ListDeploymentConfigs where
     type Sv ListDeploymentConfigs = CodeDeploy
@@ -116,4 +119,6 @@ instance AWSRequest ListDeploymentConfigs where
     response = jsonResponse
 
 instance FromJSON ListDeploymentConfigsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListDeploymentConfigsResponse" $ \o -> ListDeploymentConfigsResponse
+        <$> o .: "deploymentConfigsList"
+        <*> o .: "nextToken"

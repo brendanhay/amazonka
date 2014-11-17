@@ -226,5 +226,20 @@ instance AWSRequest GetStatus where
     response = xmlResponse
 
 instance FromXML GetStatusResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetStatusResponse"
+    parseXML c = GetStatusResponse
+        <$> c .: "AwsShippingAddress"
+        <*> c .: "Carrier"
+        <*> c .: "CreationDate"
+        <*> c .: "CurrentManifest"
+        <*> c .: "ErrorCount"
+        <*> c .: "JobId"
+        <*> c .: "JobType"
+        <*> c .: "LocationCode"
+        <*> c .: "LocationMessage"
+        <*> c .: "LogBucket"
+        <*> c .: "LogKey"
+        <*> c .: "ProgressCode"
+        <*> c .: "ProgressMessage"
+        <*> c .: "Signature"
+        <*> c .: "SignatureFileContents"
+        <*> c .: "TrackingNumber"

@@ -116,5 +116,5 @@ instance AWSRequest DecodeAuthorizationMessage where
     response = xmlResponse
 
 instance FromXML DecodeAuthorizationMessageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DecodeAuthorizationMessageResponse"
+    parseXML c = DecodeAuthorizationMessageResponse
+        <$> c .: "DecodedMessage"

@@ -123,8 +123,11 @@ instance ToQuery UpdatePipelineNotifications where
     toQuery = const mempty
 
 instance ToHeaders UpdatePipelineNotifications
+
 instance ToJSON UpdatePipelineNotifications where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdatePipelineNotifications{..} = object
+        [ "Notifications" .= _upnNotifications
+        ]
 
 instance AWSRequest UpdatePipelineNotifications where
     type Sv UpdatePipelineNotifications = ElasticTranscoder
@@ -134,4 +137,5 @@ instance AWSRequest UpdatePipelineNotifications where
     response = jsonResponse
 
 instance FromJSON UpdatePipelineNotificationsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdatePipelineNotificationsResponse" $ \o -> UpdatePipelineNotificationsResponse
+        <$> o .: "Pipeline"

@@ -339,5 +339,19 @@ instance AWSRequest UpdateEnvironment where
     response = xmlResponse
 
 instance FromXML UpdateEnvironmentResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateEnvironmentResponse"
+    parseXML c = UpdateEnvironmentResponse
+        <$> c .: "ApplicationName"
+        <*> c .: "CNAME"
+        <*> c .: "DateCreated"
+        <*> c .: "DateUpdated"
+        <*> c .: "Description"
+        <*> c .: "EndpointURL"
+        <*> c .: "EnvironmentId"
+        <*> c .: "EnvironmentName"
+        <*> c .: "Health"
+        <*> c .: "Resources"
+        <*> c .: "SolutionStackName"
+        <*> c .: "Status"
+        <*> c .: "TemplateName"
+        <*> c .: "Tier"
+        <*> c .: "VersionLabel"

@@ -99,9 +99,9 @@ instance ToQuery GetBucketAcl where
     toQuery = const "acl"
 
 instance ToHeaders GetBucketAcl
+
 instance ToXML GetBucketAcl where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketAcl"
+    toXML = const (node "GetBucketAcl" [])
 
 instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
@@ -111,5 +111,6 @@ instance AWSRequest GetBucketAcl where
     response = xmlResponse
 
 instance FromXML GetBucketAclResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketAclResponse"
+    parseXML c = GetBucketAclResponse
+        <$> c .: "AccessControlList"
+        <*> c .: "Owner"

@@ -101,8 +101,12 @@ instance ToQuery SetTerminationProtection where
     toQuery = const mempty
 
 instance ToHeaders SetTerminationProtection
+
 instance ToJSON SetTerminationProtection where
-    toJSON = genericToJSON jsonOptions
+    toJSON SetTerminationProtection{..} = object
+        [ "JobFlowIds"           .= _stpJobFlowIds
+        , "TerminationProtected" .= _stpTerminationProtected
+        ]
 
 instance AWSRequest SetTerminationProtection where
     type Sv SetTerminationProtection = EMR

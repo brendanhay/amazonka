@@ -122,8 +122,12 @@ instance ToQuery AddJobFlowSteps where
     toQuery = const mempty
 
 instance ToHeaders AddJobFlowSteps
+
 instance ToJSON AddJobFlowSteps where
-    toJSON = genericToJSON jsonOptions
+    toJSON AddJobFlowSteps{..} = object
+        [ "JobFlowId" .= _ajfsJobFlowId
+        , "Steps"     .= _ajfsSteps
+        ]
 
 instance AWSRequest AddJobFlowSteps where
     type Sv AddJobFlowSteps = EMR
@@ -133,4 +137,5 @@ instance AWSRequest AddJobFlowSteps where
     response = jsonResponse
 
 instance FromJSON AddJobFlowStepsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AddJobFlowStepsResponse" $ \o -> AddJobFlowStepsResponse
+        <$> o .: "StepIds"

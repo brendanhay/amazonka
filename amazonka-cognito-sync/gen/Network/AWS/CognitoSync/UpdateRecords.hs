@@ -175,8 +175,13 @@ instance ToHeaders UpdateRecords where
     toHeaders UpdateRecords{..} = mconcat
         [ "x-amz-Client-Context" =: _urClientContext
         ]
+
 instance ToJSON UpdateRecords where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateRecords{..} = object
+        [ "DeviceId"         .= _urDeviceId
+        , "RecordPatches"    .= _urRecordPatches
+        , "SyncSessionToken" .= _urSyncSessionToken
+        ]
 
 instance AWSRequest UpdateRecords where
     type Sv UpdateRecords = CognitoSync
@@ -186,4 +191,5 @@ instance AWSRequest UpdateRecords where
     response = jsonResponse
 
 instance FromJSON UpdateRecordsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateRecordsResponse" $ \o -> UpdateRecordsResponse
+        <$> o .: "Records"

@@ -104,8 +104,11 @@ instance ToQuery ReportTaskProgress where
     toQuery = const mempty
 
 instance ToHeaders ReportTaskProgress
+
 instance ToJSON ReportTaskProgress where
-    toJSON = genericToJSON jsonOptions
+    toJSON ReportTaskProgress{..} = object
+        [ "taskId" .= _rtpTaskId
+        ]
 
 instance AWSRequest ReportTaskProgress where
     type Sv ReportTaskProgress = DataPipeline
@@ -115,4 +118,5 @@ instance AWSRequest ReportTaskProgress where
     response = jsonResponse
 
 instance FromJSON ReportTaskProgressResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ReportTaskProgressResponse" $ \o -> ReportTaskProgressResponse
+        <$> o .: "canceled"

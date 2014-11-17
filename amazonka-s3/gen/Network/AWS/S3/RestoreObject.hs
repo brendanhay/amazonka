@@ -107,9 +107,11 @@ instance ToQuery RestoreObject where
         ]
 
 instance ToHeaders RestoreObject
+
 instance ToXML RestoreObject where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "RestoreObject"
+    toXML RestoreObject{..} = node "RestoreObject"
+        [ "RestoreRequest" .= _roRestoreRequest
+        ]
 
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3

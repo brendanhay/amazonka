@@ -143,5 +143,7 @@ instance AWSRequest ListGroupsForUser where
     response = xmlResponse
 
 instance FromXML ListGroupsForUserResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListGroupsForUserResponse"
+    parseXML c = ListGroupsForUserResponse
+        <$> c .: "Groups"
+        <*> c .: "IsTruncated"
+        <*> c .: "Marker"

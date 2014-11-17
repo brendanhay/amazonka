@@ -109,8 +109,12 @@ instance ToQuery AddInstanceGroups where
     toQuery = const mempty
 
 instance ToHeaders AddInstanceGroups
+
 instance ToJSON AddInstanceGroups where
-    toJSON = genericToJSON jsonOptions
+    toJSON AddInstanceGroups{..} = object
+        [ "InstanceGroups" .= _aigInstanceGroups
+        , "JobFlowId"      .= _aigJobFlowId
+        ]
 
 instance AWSRequest AddInstanceGroups where
     type Sv AddInstanceGroups = EMR
@@ -120,4 +124,6 @@ instance AWSRequest AddInstanceGroups where
     response = jsonResponse
 
 instance FromJSON AddInstanceGroupsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AddInstanceGroupsResponse" $ \o -> AddInstanceGroupsResponse
+        <$> o .: "InstanceGroupIds"
+        <*> o .: "JobFlowId"

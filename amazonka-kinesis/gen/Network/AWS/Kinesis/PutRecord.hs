@@ -185,8 +185,15 @@ instance ToQuery PutRecord where
     toQuery = const mempty
 
 instance ToHeaders PutRecord
+
 instance ToJSON PutRecord where
-    toJSON = genericToJSON jsonOptions
+    toJSON PutRecord{..} = object
+        [ "StreamName"                .= _prStreamName
+        , "Data"                      .= _prData
+        , "PartitionKey"              .= _prPartitionKey
+        , "ExplicitHashKey"           .= _prExplicitHashKey
+        , "SequenceNumberForOrdering" .= _prSequenceNumberForOrdering
+        ]
 
 instance AWSRequest PutRecord where
     type Sv PutRecord = Kinesis
@@ -196,4 +203,6 @@ instance AWSRequest PutRecord where
     response = jsonResponse
 
 instance FromJSON PutRecordResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PutRecordResponse" $ \o -> PutRecordResponse
+        <$> o .: "SequenceNumber"
+        <*> o .: "ShardId"

@@ -194,5 +194,5 @@ instance AWSRequest ReceiveMessage where
     response = xmlResponse
 
 instance FromXML ReceiveMessageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReceiveMessageResponse"
+    parseXML c = ReceiveMessageResponse
+        <$> c .: "Messages"

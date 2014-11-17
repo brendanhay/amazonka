@@ -123,5 +123,6 @@ instance AWSRequest DescribeStackEvents where
     response = xmlResponse
 
 instance FromXML DescribeStackEventsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeStackEventsResponse"
+    parseXML c = DescribeStackEventsResponse
+        <$> c .: "NextToken"
+        <*> c .: "StackEvents"

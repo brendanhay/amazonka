@@ -254,8 +254,16 @@ instance ToQuery PollForDecisionTask where
     toQuery = const mempty
 
 instance ToHeaders PollForDecisionTask
+
 instance ToJSON PollForDecisionTask where
-    toJSON = genericToJSON jsonOptions
+    toJSON PollForDecisionTask{..} = object
+        [ "domain"          .= _pfdtDomain
+        , "taskList"        .= _pfdtTaskList
+        , "identity"        .= _pfdtIdentity
+        , "nextPageToken"   .= _pfdtNextPageToken
+        , "maximumPageSize" .= _pfdtMaximumPageSize
+        , "reverseOrder"    .= _pfdtReverseOrder
+        ]
 
 instance AWSRequest PollForDecisionTask where
     type Sv PollForDecisionTask = SWF
@@ -265,4 +273,11 @@ instance AWSRequest PollForDecisionTask where
     response = jsonResponse
 
 instance FromJSON PollForDecisionTaskResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PollForDecisionTaskResponse" $ \o -> PollForDecisionTaskResponse
+        <$> o .: "events"
+        <*> o .: "nextPageToken"
+        <*> o .: "previousStartedEventId"
+        <*> o .: "startedEventId"
+        <*> o .: "taskToken"
+        <*> o .: "workflowExecution"
+        <*> o .: "workflowType"

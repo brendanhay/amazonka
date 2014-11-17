@@ -90,5 +90,5 @@ instance AWSRequest DescribeScalingProcessTypes where
     response = xmlResponse
 
 instance FromXML DescribeScalingProcessTypesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeScalingProcessTypesResponse"
+    parseXML c = DescribeScalingProcessTypesResponse
+        <$> c .: "Processes"

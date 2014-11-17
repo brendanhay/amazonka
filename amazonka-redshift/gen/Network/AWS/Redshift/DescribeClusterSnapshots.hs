@@ -203,5 +203,6 @@ instance AWSRequest DescribeClusterSnapshots where
     response = xmlResponse
 
 instance FromXML DescribeClusterSnapshotsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeClusterSnapshotsResponse"
+    parseXML c = DescribeClusterSnapshotsResponse
+        <$> c .: "Marker"
+        <*> c .: "Snapshots"

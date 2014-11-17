@@ -107,8 +107,11 @@ instance ToQuery DescribeDomain where
     toQuery = const mempty
 
 instance ToHeaders DescribeDomain
+
 instance ToJSON DescribeDomain where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeDomain{..} = object
+        [ "name" .= _ddName
+        ]
 
 instance AWSRequest DescribeDomain where
     type Sv DescribeDomain = SWF
@@ -118,4 +121,6 @@ instance AWSRequest DescribeDomain where
     response = jsonResponse
 
 instance FromJSON DescribeDomainResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeDomainResponse" $ \o -> DescribeDomainResponse
+        <$> o .: "configuration"
+        <*> o .: "domainInfo"

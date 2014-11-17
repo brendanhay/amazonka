@@ -25,8 +25,6 @@ module Network.AWS.SES.Types
       SES
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * Destination
     , Destination
@@ -121,11 +119,6 @@ instance AWSService SES where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "http://ses.amazonaws.com/doc/2010-12-01/"
-    }
-
 data Destination = Destination
     { _dBccAddresses :: [Text]
     , _dCcAddresses  :: [Text]
@@ -162,8 +155,10 @@ dToAddresses :: Lens' Destination [Text]
 dToAddresses = lens _dToAddresses (\s a -> s { _dToAddresses = a })
 
 instance FromXML Destination where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Destination"
+    parseXML c = Destination
+        <$> c .: "BccAddresses"
+        <*> c .: "CcAddresses"
+        <*> c .: "ToAddresses"
 
 instance ToQuery Destination
 
@@ -218,8 +213,10 @@ idaDkimVerificationStatus =
         (\s a -> s { _idaDkimVerificationStatus = a })
 
 instance FromXML IdentityDkimAttributes where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IdentityDkimAttributes"
+    parseXML c = IdentityDkimAttributes
+        <$> c .: "DkimEnabled"
+        <*> c .: "DkimTokens"
+        <*> c .: "DkimVerificationStatus"
 
 instance ToQuery IdentityDkimAttributes
 
@@ -254,8 +251,9 @@ bText :: Lens' Body (Maybe Content)
 bText = lens _bText (\s a -> s { _bText = a })
 
 instance FromXML Body where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Body"
+    parseXML c = Body
+        <$> c .: "Html"
+        <*> c .: "Text"
 
 instance ToQuery Body
 
@@ -292,8 +290,9 @@ ivaVerificationToken =
     lens _ivaVerificationToken (\s a -> s { _ivaVerificationToken = a })
 
 instance FromXML IdentityVerificationAttributes where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IdentityVerificationAttributes"
+    parseXML c = IdentityVerificationAttributes
+        <$> c .: "VerificationStatus"
+        <*> c .: "VerificationToken"
 
 instance ToQuery IdentityVerificationAttributes
 
@@ -351,8 +350,12 @@ sdpTimestamp = lens _sdpTimestamp (\s a -> s { _sdpTimestamp = a })
     . mapping _Time
 
 instance FromXML SendDataPoint where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SendDataPoint"
+    parseXML c = SendDataPoint
+        <$> c .: "Bounces"
+        <*> c .: "Complaints"
+        <*> c .: "DeliveryAttempts"
+        <*> c .: "Rejects"
+        <*> c .: "Timestamp"
 
 instance ToQuery SendDataPoint
 
@@ -373,8 +376,7 @@ instance ToText IdentityType where
         ITEmailAddress -> "EmailAddress"
 
 instance FromXML IdentityType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IdentityType"
+    parseXML = fromXMLText "IdentityType"
 
 instance ToQuery IdentityType
 
@@ -407,8 +409,9 @@ cData :: Lens' Content Text
 cData = lens _cData (\s a -> s { _cData = a })
 
 instance FromXML Content where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Content"
+    parseXML c = Content
+        <$> c .: "Charset"
+        <*> c .: "Data"
 
 instance ToQuery Content
 
@@ -469,8 +472,11 @@ inaForwardingEnabled =
     lens _inaForwardingEnabled (\s a -> s { _inaForwardingEnabled = a })
 
 instance FromXML IdentityNotificationAttributes where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IdentityNotificationAttributes"
+    parseXML c = IdentityNotificationAttributes
+        <$> c .: "BounceTopic"
+        <*> c .: "ComplaintTopic"
+        <*> c .: "DeliveryTopic"
+        <*> c .: "ForwardingEnabled"
 
 instance ToQuery IdentityNotificationAttributes
 
@@ -499,8 +505,8 @@ rmData :: Lens' RawMessage Base64
 rmData = lens _rmData (\s a -> s { _rmData = a })
 
 instance FromXML RawMessage where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RawMessage"
+    parseXML c = RawMessage
+        <$> c .: "Data"
 
 instance ToQuery RawMessage
 
@@ -524,8 +530,7 @@ instance ToText NotificationType where
         Delivery  -> "Delivery"
 
 instance FromXML NotificationType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NotificationType"
+    parseXML = fromXMLText "NotificationType"
 
 instance ToQuery NotificationType
 
@@ -555,8 +560,7 @@ instance ToText VerificationStatus where
         TemporaryFailure -> "TemporaryFailure"
 
 instance FromXML VerificationStatus where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VerificationStatus"
+    parseXML = fromXMLText "VerificationStatus"
 
 instance ToQuery VerificationStatus
 
@@ -591,7 +595,8 @@ mSubject :: Lens' Message Content
 mSubject = lens _mSubject (\s a -> s { _mSubject = a })
 
 instance FromXML Message where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Message"
+    parseXML c = Message
+        <$> c .: "Body"
+        <*> c .: "Subject"
 
 instance ToQuery Message

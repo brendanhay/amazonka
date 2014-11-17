@@ -107,5 +107,5 @@ instance AWSRequest GetIdentityVerificationAttributes where
     response = xmlResponse
 
 instance FromXML GetIdentityVerificationAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetIdentityVerificationAttributesResponse"
+    parseXML c = GetIdentityVerificationAttributesResponse
+        <$> c .: "VerificationAttributes"

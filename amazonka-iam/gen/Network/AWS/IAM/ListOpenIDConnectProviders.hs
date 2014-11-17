@@ -91,5 +91,5 @@ instance AWSRequest ListOpenIDConnectProviders where
     response = xmlResponse
 
 instance FromXML ListOpenIDConnectProvidersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListOpenIDConnectProvidersResponse"
+    parseXML c = ListOpenIDConnectProvidersResponse
+        <$> c .: "OpenIDConnectProviderList"

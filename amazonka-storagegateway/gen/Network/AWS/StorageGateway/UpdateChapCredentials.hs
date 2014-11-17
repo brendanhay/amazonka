@@ -142,8 +142,14 @@ instance ToQuery UpdateChapCredentials where
     toQuery = const mempty
 
 instance ToHeaders UpdateChapCredentials
+
 instance ToJSON UpdateChapCredentials where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateChapCredentials{..} = object
+        [ "TargetARN"                     .= _uccTargetARN
+        , "SecretToAuthenticateInitiator" .= _uccSecretToAuthenticateInitiator
+        , "InitiatorName"                 .= _uccInitiatorName
+        , "SecretToAuthenticateTarget"    .= _uccSecretToAuthenticateTarget
+        ]
 
 instance AWSRequest UpdateChapCredentials where
     type Sv UpdateChapCredentials = StorageGateway
@@ -153,4 +159,6 @@ instance AWSRequest UpdateChapCredentials where
     response = jsonResponse
 
 instance FromJSON UpdateChapCredentialsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "UpdateChapCredentialsResponse" $ \o -> UpdateChapCredentialsResponse
+        <$> o .: "InitiatorName"
+        <*> o .: "TargetARN"

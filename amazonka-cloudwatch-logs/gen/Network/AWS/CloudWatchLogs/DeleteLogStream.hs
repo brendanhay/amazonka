@@ -84,8 +84,12 @@ instance ToQuery DeleteLogStream where
     toQuery = const mempty
 
 instance ToHeaders DeleteLogStream
+
 instance ToJSON DeleteLogStream where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteLogStream{..} = object
+        [ "logGroupName"  .= _dlsLogGroupName
+        , "logStreamName" .= _dlsLogStreamName
+        ]
 
 instance AWSRequest DeleteLogStream where
     type Sv DeleteLogStream = CloudWatchLogs

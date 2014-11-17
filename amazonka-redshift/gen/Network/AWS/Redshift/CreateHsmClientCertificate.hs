@@ -109,5 +109,5 @@ instance AWSRequest CreateHsmClientCertificate where
     response = xmlResponse
 
 instance FromXML CreateHsmClientCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateHsmClientCertificateResponse"
+    parseXML c = CreateHsmClientCertificateResponse
+        <$> c .: "HsmClientCertificate"

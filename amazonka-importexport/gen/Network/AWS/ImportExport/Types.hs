@@ -25,8 +25,6 @@ module Network.AWS.ImportExport.Types
       ImportExport
     -- ** Error
     , RESTError
-    -- ** XML
-    , xmlOptions
 
     -- * JobType
     , JobType (..)
@@ -63,11 +61,6 @@ instance AWSService ImportExport where
 
     handle = restError alwaysFail
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-    { xmlNamespace = Just "http://importexport.amazonaws.com/doc/2010-06-01/"
-    }
-
 data JobType
     = Export' -- ^ Export
     | Import' -- ^ Import
@@ -85,8 +78,7 @@ instance ToText JobType where
         Import' -> "Import"
 
 instance FromXML JobType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "JobType"
+    parseXML = fromXMLText "JobType"
 
 instance ToQuery JobType
 
@@ -135,7 +127,10 @@ jobJobType :: Lens' Job Text
 jobJobType = lens _jobJobType (\s a -> s { _jobJobType = a })
 
 instance FromXML Job where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Job"
+    parseXML c = Job
+        <$> c .: "CreationDate"
+        <*> c .: "IsCanceled"
+        <*> c .: "JobId"
+        <*> c .: "JobType"
 
 instance ToQuery Job

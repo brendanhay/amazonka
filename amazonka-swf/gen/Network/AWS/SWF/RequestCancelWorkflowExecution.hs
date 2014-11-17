@@ -107,8 +107,13 @@ instance ToQuery RequestCancelWorkflowExecution where
     toQuery = const mempty
 
 instance ToHeaders RequestCancelWorkflowExecution
+
 instance ToJSON RequestCancelWorkflowExecution where
-    toJSON = genericToJSON jsonOptions
+    toJSON RequestCancelWorkflowExecution{..} = object
+        [ "domain"     .= _rcweDomain
+        , "workflowId" .= _rcweWorkflowId
+        , "runId"      .= _rcweRunId
+        ]
 
 instance AWSRequest RequestCancelWorkflowExecution where
     type Sv RequestCancelWorkflowExecution = SWF

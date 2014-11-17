@@ -77,9 +77,9 @@ instance ToQuery GetHealthCheckCount where
     toQuery = const mempty
 
 instance ToHeaders GetHealthCheckCount
+
 instance ToXML GetHealthCheckCount where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHealthCheckCount"
+    toXML = const (node "GetHealthCheckCount" [])
 
 instance AWSRequest GetHealthCheckCount where
     type Sv GetHealthCheckCount = Route53
@@ -89,5 +89,5 @@ instance AWSRequest GetHealthCheckCount where
     response = xmlResponse
 
 instance FromXML GetHealthCheckCountResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetHealthCheckCountResponse"
+    parseXML c = GetHealthCheckCountResponse
+        <$> c .: "HealthCheckCount"

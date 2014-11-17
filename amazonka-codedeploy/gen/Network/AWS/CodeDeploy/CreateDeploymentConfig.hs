@@ -112,8 +112,12 @@ instance ToQuery CreateDeploymentConfig where
     toQuery = const mempty
 
 instance ToHeaders CreateDeploymentConfig
+
 instance ToJSON CreateDeploymentConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateDeploymentConfig{..} = object
+        [ "deploymentConfigName" .= _cdcDeploymentConfigName
+        , "minimumHealthyHosts"  .= _cdcMinimumHealthyHosts
+        ]
 
 instance AWSRequest CreateDeploymentConfig where
     type Sv CreateDeploymentConfig = CodeDeploy
@@ -123,4 +127,5 @@ instance AWSRequest CreateDeploymentConfig where
     response = jsonResponse
 
 instance FromJSON CreateDeploymentConfigResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CreateDeploymentConfigResponse" $ \o -> CreateDeploymentConfigResponse
+        <$> o .: "deploymentConfigId"

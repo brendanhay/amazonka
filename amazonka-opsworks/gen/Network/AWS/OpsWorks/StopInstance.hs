@@ -82,8 +82,11 @@ instance ToQuery StopInstance where
     toQuery = const mempty
 
 instance ToHeaders StopInstance
+
 instance ToJSON StopInstance where
-    toJSON = genericToJSON jsonOptions
+    toJSON StopInstance{..} = object
+        [ "InstanceId" .= _siInstanceId
+        ]
 
 instance AWSRequest StopInstance where
     type Sv StopInstance = OpsWorks

@@ -129,9 +129,11 @@ instance ToHeaders UpdateCloudFrontOriginAccessIdentity where
     toHeaders UpdateCloudFrontOriginAccessIdentity{..} = mconcat
         [ "If-Match" =: _ucfoaiIfMatch
         ]
+
 instance ToXML UpdateCloudFrontOriginAccessIdentity where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateCloudFrontOriginAccessIdentity"
+    toXML UpdateCloudFrontOriginAccessIdentity{..} = node "UpdateCloudFrontOriginAccessIdentity"
+        [ "CloudFrontOriginAccessIdentityConfig" .= _ucfoaiCloudFrontOriginAccessIdentityConfig
+        ]
 
 instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
     type Sv UpdateCloudFrontOriginAccessIdentity = CloudFront

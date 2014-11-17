@@ -204,9 +204,15 @@ instance ToQuery CreateHostedZone where
     toQuery = const mempty
 
 instance ToHeaders CreateHostedZone
+
 instance ToXML CreateHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateHostedZone"
+    toXML CreateHostedZone{..} = node "CreateHostedZone"
+        [ "Name"             .= _chzName
+        , "VPC"              .= _chzVPC
+        , "CallerReference"  .= _chzCallerReference
+        , "HostedZoneConfig" .= _chzHostedZoneConfig
+        , "DelegationSetId"  .= _chzDelegationSetId
+        ]
 
 instance AWSRequest CreateHostedZone where
     type Sv CreateHostedZone = Route53

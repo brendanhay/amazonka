@@ -25,8 +25,6 @@ module Network.AWS.CognitoSync.Types
       CognitoSync
     -- ** Error
     , RESTError
-    -- ** JSON
-    , jsonOptions
 
     -- * IdentityPoolUsage
     , IdentityPoolUsage
@@ -112,11 +110,6 @@ instance AWSService CognitoSync where
 
     handle = restError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data IdentityPoolUsage = IdentityPoolUsage
     { _ipuDataStorage       :: Maybe Integer
     , _ipuIdentityPoolId    :: Maybe Text
@@ -167,10 +160,19 @@ ipuSyncSessionsCount =
     lens _ipuSyncSessionsCount (\s a -> s { _ipuSyncSessionsCount = a })
 
 instance FromJSON IdentityPoolUsage where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "IdentityPoolUsage" $ \o -> IdentityPoolUsage
+        <$> o .: "DataStorage"
+        <*> o .: "IdentityPoolId"
+        <*> o .: "LastModifiedDate"
+        <*> o .: "SyncSessionsCount"
 
 instance ToJSON IdentityPoolUsage where
-    toJSON = genericToJSON jsonOptions
+    toJSON IdentityPoolUsage{..} = object
+        [ "IdentityPoolId"    .= _ipuIdentityPoolId
+        , "SyncSessionsCount" .= _ipuSyncSessionsCount
+        , "DataStorage"       .= _ipuDataStorage
+        , "LastModifiedDate"  .= _ipuLastModifiedDate
+        ]
 
 data Platform
     = Adm         -- ^ ADM
@@ -195,10 +197,10 @@ instance ToText Platform where
         Gcm         -> "GCM"
 
 instance FromJSON Platform where
-    parseJSON = withFromText "Platform"
+    parseJSON = fromJSONText "Platform"
 
 instance ToJSON Platform where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data Dataset = Dataset
     { _dCreationDate     :: Maybe RFC822
@@ -274,10 +276,25 @@ dNumRecords :: Lens' Dataset (Maybe Integer)
 dNumRecords = lens _dNumRecords (\s a -> s { _dNumRecords = a })
 
 instance FromJSON Dataset where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Dataset" $ \o -> Dataset
+        <$> o .: "CreationDate"
+        <*> o .: "DataStorage"
+        <*> o .: "DatasetName"
+        <*> o .: "IdentityId"
+        <*> o .: "LastModifiedBy"
+        <*> o .: "LastModifiedDate"
+        <*> o .: "NumRecords"
 
 instance ToJSON Dataset where
-    toJSON = genericToJSON jsonOptions
+    toJSON Dataset{..} = object
+        [ "IdentityId"       .= _dIdentityId
+        , "DatasetName"      .= _dDatasetName
+        , "CreationDate"     .= _dCreationDate
+        , "LastModifiedDate" .= _dLastModifiedDate
+        , "LastModifiedBy"   .= _dLastModifiedBy
+        , "DataStorage"      .= _dDataStorage
+        , "NumRecords"       .= _dNumRecords
+        ]
 
 data Operation
     = Remove  -- ^ remove
@@ -296,10 +313,10 @@ instance ToText Operation where
         Replace -> "replace"
 
 instance FromJSON Operation where
-    parseJSON = withFromText "Operation"
+    parseJSON = fromJSONText "Operation"
 
 instance ToJSON Operation where
-    toJSON = toJSON . toText
+    toJSON = toJSONText
 
 data Record = Record
     { _rDeviceLastModifiedDate :: Maybe RFC822
@@ -365,10 +382,23 @@ rValue :: Lens' Record (Maybe Text)
 rValue = lens _rValue (\s a -> s { _rValue = a })
 
 instance FromJSON Record where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Record" $ \o -> Record
+        <$> o .: "DeviceLastModifiedDate"
+        <*> o .: "Key"
+        <*> o .: "LastModifiedBy"
+        <*> o .: "LastModifiedDate"
+        <*> o .: "SyncCount"
+        <*> o .: "Value"
 
 instance ToJSON Record where
-    toJSON = genericToJSON jsonOptions
+    toJSON Record{..} = object
+        [ "Key"                    .= _rKey
+        , "Value"                  .= _rValue
+        , "SyncCount"              .= _rSyncCount
+        , "LastModifiedDate"       .= _rLastModifiedDate
+        , "LastModifiedBy"         .= _rLastModifiedBy
+        , "DeviceLastModifiedDate" .= _rDeviceLastModifiedDate
+        ]
 
 data IdentityUsage = IdentityUsage
     { _iuDataStorage      :: Maybe Integer
@@ -428,10 +458,21 @@ iuLastModifiedDate =
         . mapping _Time
 
 instance FromJSON IdentityUsage where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "IdentityUsage" $ \o -> IdentityUsage
+        <$> o .: "DataStorage"
+        <*> o .: "DatasetCount"
+        <*> o .: "IdentityId"
+        <*> o .: "IdentityPoolId"
+        <*> o .: "LastModifiedDate"
 
 instance ToJSON IdentityUsage where
-    toJSON = genericToJSON jsonOptions
+    toJSON IdentityUsage{..} = object
+        [ "IdentityId"       .= _iuIdentityId
+        , "IdentityPoolId"   .= _iuIdentityPoolId
+        , "LastModifiedDate" .= _iuLastModifiedDate
+        , "DatasetCount"     .= _iuDatasetCount
+        , "DataStorage"      .= _iuDataStorage
+        ]
 
 data RecordPatch = RecordPatch
     { _rpDeviceLastModifiedDate :: Maybe RFC822
@@ -491,10 +532,21 @@ rpValue :: Lens' RecordPatch (Maybe Text)
 rpValue = lens _rpValue (\s a -> s { _rpValue = a })
 
 instance FromJSON RecordPatch where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RecordPatch" $ \o -> RecordPatch
+        <$> o .: "DeviceLastModifiedDate"
+        <*> o .: "Key"
+        <*> o .: "Op"
+        <*> o .: "SyncCount"
+        <*> o .: "Value"
 
 instance ToJSON RecordPatch where
-    toJSON = genericToJSON jsonOptions
+    toJSON RecordPatch{..} = object
+        [ "Op"                     .= _rpOp
+        , "Key"                    .= _rpKey
+        , "Value"                  .= _rpValue
+        , "SyncCount"              .= _rpSyncCount
+        , "DeviceLastModifiedDate" .= _rpDeviceLastModifiedDate
+        ]
 
 data PushSync = PushSync
     { _psApplicationArns :: [Text]
@@ -526,7 +578,12 @@ psRoleArn :: Lens' PushSync (Maybe Text)
 psRoleArn = lens _psRoleArn (\s a -> s { _psRoleArn = a })
 
 instance FromJSON PushSync where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "PushSync" $ \o -> PushSync
+        <$> o .: "ApplicationArns"
+        <*> o .: "RoleArn"
 
 instance ToJSON PushSync where
-    toJSON = genericToJSON jsonOptions
+    toJSON PushSync{..} = object
+        [ "ApplicationArns" .= _psApplicationArns
+        , "RoleArn"         .= _psRoleArn
+        ]

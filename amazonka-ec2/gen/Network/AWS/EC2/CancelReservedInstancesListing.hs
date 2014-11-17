@@ -109,5 +109,5 @@ instance AWSRequest CancelReservedInstancesListing where
     response = xmlResponse
 
 instance FromXML CancelReservedInstancesListingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelReservedInstancesListingResponse"
+    parseXML c = CancelReservedInstancesListingResponse
+        <$> c .: "reservedInstancesListingsSet"

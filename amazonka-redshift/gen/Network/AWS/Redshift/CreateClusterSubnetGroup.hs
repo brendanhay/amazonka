@@ -127,5 +127,5 @@ instance AWSRequest CreateClusterSubnetGroup where
     response = xmlResponse
 
 instance FromXML CreateClusterSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateClusterSubnetGroupResponse"
+    parseXML c = CreateClusterSubnetGroupResponse
+        <$> c .: "ClusterSubnetGroup"

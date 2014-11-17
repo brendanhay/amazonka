@@ -80,8 +80,11 @@ instance ToQuery DisassociateElasticIp where
     toQuery = const mempty
 
 instance ToHeaders DisassociateElasticIp
+
 instance ToJSON DisassociateElasticIp where
-    toJSON = genericToJSON jsonOptions
+    toJSON DisassociateElasticIp{..} = object
+        [ "ElasticIp" .= _deiElasticIp
+        ]
 
 instance AWSRequest DisassociateElasticIp where
     type Sv DisassociateElasticIp = OpsWorks

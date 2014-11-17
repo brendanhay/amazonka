@@ -100,8 +100,12 @@ instance ToQuery AddUploadBuffer where
     toQuery = const mempty
 
 instance ToHeaders AddUploadBuffer
+
 instance ToJSON AddUploadBuffer where
-    toJSON = genericToJSON jsonOptions
+    toJSON AddUploadBuffer{..} = object
+        [ "GatewayARN" .= _aubGatewayARN
+        , "DiskIds"    .= _aubDiskIds
+        ]
 
 instance AWSRequest AddUploadBuffer where
     type Sv AddUploadBuffer = StorageGateway
@@ -111,4 +115,5 @@ instance AWSRequest AddUploadBuffer where
     response = jsonResponse
 
 instance FromJSON AddUploadBufferResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AddUploadBufferResponse" $ \o -> AddUploadBufferResponse
+        <$> o .: "GatewayARN"

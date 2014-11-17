@@ -162,8 +162,15 @@ instance ToQuery GetWorkflowExecutionHistory where
     toQuery = const mempty
 
 instance ToHeaders GetWorkflowExecutionHistory
+
 instance ToJSON GetWorkflowExecutionHistory where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetWorkflowExecutionHistory{..} = object
+        [ "domain"          .= _gwehDomain
+        , "execution"       .= _gwehExecution
+        , "nextPageToken"   .= _gwehNextPageToken
+        , "maximumPageSize" .= _gwehMaximumPageSize
+        , "reverseOrder"    .= _gwehReverseOrder
+        ]
 
 instance AWSRequest GetWorkflowExecutionHistory where
     type Sv GetWorkflowExecutionHistory = SWF
@@ -173,4 +180,6 @@ instance AWSRequest GetWorkflowExecutionHistory where
     response = jsonResponse
 
 instance FromJSON GetWorkflowExecutionHistoryResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetWorkflowExecutionHistoryResponse" $ \o -> GetWorkflowExecutionHistoryResponse
+        <$> o .: "events"
+        <*> o .: "nextPageToken"

@@ -84,8 +84,11 @@ instance ToQuery ModifyInstanceGroups where
     toQuery = const mempty
 
 instance ToHeaders ModifyInstanceGroups
+
 instance ToJSON ModifyInstanceGroups where
-    toJSON = genericToJSON jsonOptions
+    toJSON ModifyInstanceGroups{..} = object
+        [ "InstanceGroups" .= _migInstanceGroups
+        ]
 
 instance AWSRequest ModifyInstanceGroups where
     type Sv ModifyInstanceGroups = EMR

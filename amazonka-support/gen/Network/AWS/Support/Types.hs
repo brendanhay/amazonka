@@ -25,8 +25,6 @@ module Network.AWS.Support.Types
       Support
     -- ** Error
     , JSONError
-    -- ** JSON
-    , jsonOptions
 
     -- * TrustedAdvisorResourcesSummary
     , TrustedAdvisorResourcesSummary
@@ -179,11 +177,6 @@ instance AWSService Support where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
     { _tarsResourcesFlagged    :: Integer
     , _tarsResourcesIgnored    :: Integer
@@ -240,10 +233,19 @@ tarsResourcesSuppressed =
     lens _tarsResourcesSuppressed (\s a -> s { _tarsResourcesSuppressed = a })
 
 instance FromJSON TrustedAdvisorResourcesSummary where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TrustedAdvisorResourcesSummary" $ \o -> TrustedAdvisorResourcesSummary
+        <$> o .: "resourcesFlagged"
+        <*> o .: "resourcesIgnored"
+        <*> o .: "resourcesProcessed"
+        <*> o .: "resourcesSuppressed"
 
 instance ToJSON TrustedAdvisorResourcesSummary where
-    toJSON = genericToJSON jsonOptions
+    toJSON TrustedAdvisorResourcesSummary{..} = object
+        [ "resourcesProcessed"  .= _tarsResourcesProcessed
+        , "resourcesFlagged"    .= _tarsResourcesFlagged
+        , "resourcesIgnored"    .= _tarsResourcesIgnored
+        , "resourcesSuppressed" .= _tarsResourcesSuppressed
+        ]
 
 data Service = Service
     { _sCategories :: [Category]
@@ -286,10 +288,17 @@ sName :: Lens' Service (Maybe Text)
 sName = lens _sName (\s a -> s { _sName = a })
 
 instance FromJSON Service where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Service" $ \o -> Service
+        <$> o .: "categories"
+        <*> o .: "code"
+        <*> o .: "name"
 
 instance ToJSON Service where
-    toJSON = genericToJSON jsonOptions
+    toJSON Service{..} = object
+        [ "code"       .= _sCode
+        , "name"       .= _sName
+        , "categories" .= _sCategories
+        ]
 
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
     { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
@@ -313,10 +322,13 @@ tacssCostOptimizing =
     lens _tacssCostOptimizing (\s a -> s { _tacssCostOptimizing = a })
 
 instance FromJSON TrustedAdvisorCategorySpecificSummary where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TrustedAdvisorCategorySpecificSummary" $ \o -> TrustedAdvisorCategorySpecificSummary
+        <$> o .: "costOptimizing"
 
 instance ToJSON TrustedAdvisorCategorySpecificSummary where
-    toJSON = genericToJSON jsonOptions
+    toJSON TrustedAdvisorCategorySpecificSummary{..} = object
+        [ "costOptimizing" .= _tacssCostOptimizing
+        ]
 
 data Communication = Communication
     { _cAttachmentSet :: [AttachmentDetails]
@@ -372,10 +384,21 @@ cTimeCreated :: Lens' Communication (Maybe Text)
 cTimeCreated = lens _cTimeCreated (\s a -> s { _cTimeCreated = a })
 
 instance FromJSON Communication where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Communication" $ \o -> Communication
+        <$> o .: "attachmentSet"
+        <*> o .: "body"
+        <*> o .: "caseId"
+        <*> o .: "submittedBy"
+        <*> o .: "timeCreated"
 
 instance ToJSON Communication where
-    toJSON = genericToJSON jsonOptions
+    toJSON Communication{..} = object
+        [ "caseId"        .= _cCaseId
+        , "body"          .= _cBody
+        , "submittedBy"   .= _cSubmittedBy
+        , "timeCreated"   .= _cTimeCreated
+        , "attachmentSet" .= _cAttachmentSet
+        ]
 
 data Category = Category
     { _cCode :: Maybe Text
@@ -405,10 +428,15 @@ cName :: Lens' Category (Maybe Text)
 cName = lens _cName (\s a -> s { _cName = a })
 
 instance FromJSON Category where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Category" $ \o -> Category
+        <$> o .: "code"
+        <*> o .: "name"
 
 instance ToJSON Category where
-    toJSON = genericToJSON jsonOptions
+    toJSON Category{..} = object
+        [ "code" .= _cCode
+        , "name" .= _cName
+        ]
 
 data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
     { _tacsCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
@@ -480,10 +508,23 @@ tacsTimestamp :: Lens' TrustedAdvisorCheckSummary Text
 tacsTimestamp = lens _tacsTimestamp (\s a -> s { _tacsTimestamp = a })
 
 instance FromJSON TrustedAdvisorCheckSummary where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TrustedAdvisorCheckSummary" $ \o -> TrustedAdvisorCheckSummary
+        <$> o .: "categorySpecificSummary"
+        <*> o .: "checkId"
+        <*> o .: "hasFlaggedResources"
+        <*> o .: "resourcesSummary"
+        <*> o .: "status"
+        <*> o .: "timestamp"
 
 instance ToJSON TrustedAdvisorCheckSummary where
-    toJSON = genericToJSON jsonOptions
+    toJSON TrustedAdvisorCheckSummary{..} = object
+        [ "checkId"                 .= _tacsCheckId
+        , "timestamp"               .= _tacsTimestamp
+        , "status"                  .= _tacsStatus
+        , "hasFlaggedResources"     .= _tacsHasFlaggedResources
+        , "resourcesSummary"        .= _tacsResourcesSummary
+        , "categorySpecificSummary" .= _tacsCategorySpecificSummary
+        ]
 
 data AttachmentDetails = AttachmentDetails
     { _adAttachmentId :: Maybe Text
@@ -513,10 +554,15 @@ adFileName :: Lens' AttachmentDetails (Maybe Text)
 adFileName = lens _adFileName (\s a -> s { _adFileName = a })
 
 instance FromJSON AttachmentDetails where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AttachmentDetails" $ \o -> AttachmentDetails
+        <$> o .: "attachmentId"
+        <*> o .: "fileName"
 
 instance ToJSON AttachmentDetails where
-    toJSON = genericToJSON jsonOptions
+    toJSON AttachmentDetails{..} = object
+        [ "attachmentId" .= _adAttachmentId
+        , "fileName"     .= _adFileName
+        ]
 
 data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
     { _tacrCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
@@ -588,10 +634,23 @@ tacrTimestamp :: Lens' TrustedAdvisorCheckResult Text
 tacrTimestamp = lens _tacrTimestamp (\s a -> s { _tacrTimestamp = a })
 
 instance FromJSON TrustedAdvisorCheckResult where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TrustedAdvisorCheckResult" $ \o -> TrustedAdvisorCheckResult
+        <$> o .: "categorySpecificSummary"
+        <*> o .: "checkId"
+        <*> o .: "flaggedResources"
+        <*> o .: "resourcesSummary"
+        <*> o .: "status"
+        <*> o .: "timestamp"
 
 instance ToJSON TrustedAdvisorCheckResult where
-    toJSON = genericToJSON jsonOptions
+    toJSON TrustedAdvisorCheckResult{..} = object
+        [ "checkId"                 .= _tacrCheckId
+        , "timestamp"               .= _tacrTimestamp
+        , "status"                  .= _tacrStatus
+        , "resourcesSummary"        .= _tacrResourcesSummary
+        , "categorySpecificSummary" .= _tacrCategorySpecificSummary
+        , "flaggedResources"        .= _tacrFlaggedResources
+        ]
 
 data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
     { _tacdCategory    :: Text
@@ -654,10 +713,21 @@ tacdName :: Lens' TrustedAdvisorCheckDescription Text
 tacdName = lens _tacdName (\s a -> s { _tacdName = a })
 
 instance FromJSON TrustedAdvisorCheckDescription where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TrustedAdvisorCheckDescription" $ \o -> TrustedAdvisorCheckDescription
+        <$> o .: "category"
+        <*> o .: "description"
+        <*> o .: "id"
+        <*> o .: "metadata"
+        <*> o .: "name"
 
 instance ToJSON TrustedAdvisorCheckDescription where
-    toJSON = genericToJSON jsonOptions
+    toJSON TrustedAdvisorCheckDescription{..} = object
+        [ "id"          .= _tacdId
+        , "name"        .= _tacdName
+        , "description" .= _tacdDescription
+        , "category"    .= _tacdCategory
+        , "metadata"    .= _tacdMetadata
+        ]
 
 data Attachment = Attachment
     { _aData     :: Maybe Base64
@@ -687,10 +757,15 @@ aFileName :: Lens' Attachment (Maybe Text)
 aFileName = lens _aFileName (\s a -> s { _aFileName = a })
 
 instance FromJSON Attachment where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "Attachment" $ \o -> Attachment
+        <$> o .: "data"
+        <*> o .: "fileName"
 
 instance ToJSON Attachment where
-    toJSON = genericToJSON jsonOptions
+    toJSON Attachment{..} = object
+        [ "fileName" .= _aFileName
+        , "data"     .= _aData
+        ]
 
 data RecentCaseCommunications = RecentCaseCommunications
     { _rccCommunications :: [Communication]
@@ -721,10 +796,15 @@ rccNextToken :: Lens' RecentCaseCommunications (Maybe Text)
 rccNextToken = lens _rccNextToken (\s a -> s { _rccNextToken = a })
 
 instance FromJSON RecentCaseCommunications where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RecentCaseCommunications" $ \o -> RecentCaseCommunications
+        <$> o .: "communications"
+        <*> o .: "nextToken"
 
 instance ToJSON RecentCaseCommunications where
-    toJSON = genericToJSON jsonOptions
+    toJSON RecentCaseCommunications{..} = object
+        [ "communications" .= _rccCommunications
+        , "nextToken"      .= _rccNextToken
+        ]
 
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
     { _tardIsSuppressed :: Maybe Bool
@@ -787,10 +867,21 @@ tardStatus :: Lens' TrustedAdvisorResourceDetail Text
 tardStatus = lens _tardStatus (\s a -> s { _tardStatus = a })
 
 instance FromJSON TrustedAdvisorResourceDetail where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TrustedAdvisorResourceDetail" $ \o -> TrustedAdvisorResourceDetail
+        <$> o .: "isSuppressed"
+        <*> o .: "metadata"
+        <*> o .: "region"
+        <*> o .: "resourceId"
+        <*> o .: "status"
 
 instance ToJSON TrustedAdvisorResourceDetail where
-    toJSON = genericToJSON jsonOptions
+    toJSON TrustedAdvisorResourceDetail{..} = object
+        [ "status"       .= _tardStatus
+        , "region"       .= _tardRegion
+        , "resourceId"   .= _tardResourceId
+        , "isSuppressed" .= _tardIsSuppressed
+        , "metadata"     .= _tardMetadata
+        ]
 
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary
     { _tacosEstimatedMonthlySavings        :: Double
@@ -828,10 +919,15 @@ tacosEstimatedPercentMonthlySavings =
         (\s a -> s { _tacosEstimatedPercentMonthlySavings = a })
 
 instance FromJSON TrustedAdvisorCostOptimizingSummary where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TrustedAdvisorCostOptimizingSummary" $ \o -> TrustedAdvisorCostOptimizingSummary
+        <$> o .: "estimatedMonthlySavings"
+        <*> o .: "estimatedPercentMonthlySavings"
 
 instance ToJSON TrustedAdvisorCostOptimizingSummary where
-    toJSON = genericToJSON jsonOptions
+    toJSON TrustedAdvisorCostOptimizingSummary{..} = object
+        [ "estimatedMonthlySavings"        .= _tacosEstimatedMonthlySavings
+        , "estimatedPercentMonthlySavings" .= _tacosEstimatedPercentMonthlySavings
+        ]
 
 data SeverityLevel = SeverityLevel
     { _slCode :: Maybe Text
@@ -864,10 +960,15 @@ slName :: Lens' SeverityLevel (Maybe Text)
 slName = lens _slName (\s a -> s { _slName = a })
 
 instance FromJSON SeverityLevel where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "SeverityLevel" $ \o -> SeverityLevel
+        <$> o .: "code"
+        <*> o .: "name"
 
 instance ToJSON SeverityLevel where
-    toJSON = genericToJSON jsonOptions
+    toJSON SeverityLevel{..} = object
+        [ "code" .= _slCode
+        , "name" .= _slName
+        ]
 
 data CaseDetails = CaseDetails
     { _cdCaseId               :: Maybe Text
@@ -987,10 +1088,35 @@ cdTimeCreated :: Lens' CaseDetails (Maybe Text)
 cdTimeCreated = lens _cdTimeCreated (\s a -> s { _cdTimeCreated = a })
 
 instance FromJSON CaseDetails where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "CaseDetails" $ \o -> CaseDetails
+        <$> o .: "caseId"
+        <*> o .: "categoryCode"
+        <*> o .: "ccEmailAddresses"
+        <*> o .: "displayId"
+        <*> o .: "language"
+        <*> o .: "recentCommunications"
+        <*> o .: "serviceCode"
+        <*> o .: "severityCode"
+        <*> o .: "status"
+        <*> o .: "subject"
+        <*> o .: "submittedBy"
+        <*> o .: "timeCreated"
 
 instance ToJSON CaseDetails where
-    toJSON = genericToJSON jsonOptions
+    toJSON CaseDetails{..} = object
+        [ "caseId"               .= _cdCaseId
+        , "displayId"            .= _cdDisplayId
+        , "subject"              .= _cdSubject
+        , "status"               .= _cdStatus
+        , "serviceCode"          .= _cdServiceCode
+        , "categoryCode"         .= _cdCategoryCode
+        , "severityCode"         .= _cdSeverityCode
+        , "submittedBy"          .= _cdSubmittedBy
+        , "timeCreated"          .= _cdTimeCreated
+        , "recentCommunications" .= _cdRecentCommunications
+        , "ccEmailAddresses"     .= _cdCcEmailAddresses
+        , "language"             .= _cdLanguage
+        ]
 
 data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
     { _tacrsCheckId                    :: Text
@@ -1035,7 +1161,14 @@ tacrsStatus :: Lens' TrustedAdvisorCheckRefreshStatus Text
 tacrsStatus = lens _tacrsStatus (\s a -> s { _tacrsStatus = a })
 
 instance FromJSON TrustedAdvisorCheckRefreshStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "TrustedAdvisorCheckRefreshStatus" $ \o -> TrustedAdvisorCheckRefreshStatus
+        <$> o .: "checkId"
+        <*> o .: "millisUntilNextRefreshable"
+        <*> o .: "status"
 
 instance ToJSON TrustedAdvisorCheckRefreshStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON TrustedAdvisorCheckRefreshStatus{..} = object
+        [ "checkId"                    .= _tacrsCheckId
+        , "status"                     .= _tacrsStatus
+        , "millisUntilNextRefreshable" .= _tacrsMillisUntilNextRefreshable
+        ]

@@ -97,9 +97,11 @@ instance ToHeaders PutBucketTagging where
     toHeaders PutBucketTagging{..} = mconcat
         [ "Content-MD5" =: _pbtContentMD5
         ]
+
 instance ToXML PutBucketTagging where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PutBucketTagging"
+    toXML PutBucketTagging{..} = node "PutBucketTagging"
+        [ "Tagging" .= _pbtTagging
+        ]
 
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3

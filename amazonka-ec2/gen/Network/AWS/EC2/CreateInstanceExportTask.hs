@@ -128,5 +128,5 @@ instance AWSRequest CreateInstanceExportTask where
     response = xmlResponse
 
 instance FromXML CreateInstanceExportTaskResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateInstanceExportTaskResponse"
+    parseXML c = CreateInstanceExportTaskResponse
+        <$> c .: "exportTask"

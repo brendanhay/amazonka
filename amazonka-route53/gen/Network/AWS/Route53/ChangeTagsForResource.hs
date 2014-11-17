@@ -116,9 +116,12 @@ instance ToQuery ChangeTagsForResource where
     toQuery = const mempty
 
 instance ToHeaders ChangeTagsForResource
+
 instance ToXML ChangeTagsForResource where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeTagsForResource"
+    toXML ChangeTagsForResource{..} = node "ChangeTagsForResource"
+        [ "AddTags"       .= _ctfrAddTags
+        , "RemoveTagKeys" .= _ctfrRemoveTagKeys
+        ]
 
 instance AWSRequest ChangeTagsForResource where
     type Sv ChangeTagsForResource = Route53

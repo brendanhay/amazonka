@@ -127,8 +127,12 @@ instance ToQuery RegisterDevice where
     toQuery = const mempty
 
 instance ToHeaders RegisterDevice
+
 instance ToJSON RegisterDevice where
-    toJSON = genericToJSON jsonOptions
+    toJSON RegisterDevice{..} = object
+        [ "Platform" .= _rdPlatform
+        , "Token"    .= _rdToken
+        ]
 
 instance AWSRequest RegisterDevice where
     type Sv RegisterDevice = CognitoSync
@@ -138,4 +142,5 @@ instance AWSRequest RegisterDevice where
     response = jsonResponse
 
 instance FromJSON RegisterDeviceResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "RegisterDeviceResponse" $ \o -> RegisterDeviceResponse
+        <$> o .: "DeviceId"

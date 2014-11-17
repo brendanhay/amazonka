@@ -107,8 +107,12 @@ instance ToQuery ConfirmPrivateVirtualInterface where
     toQuery = const mempty
 
 instance ToHeaders ConfirmPrivateVirtualInterface
+
 instance ToJSON ConfirmPrivateVirtualInterface where
-    toJSON = genericToJSON jsonOptions
+    toJSON ConfirmPrivateVirtualInterface{..} = object
+        [ "virtualInterfaceId" .= _cpviVirtualInterfaceId
+        , "virtualGatewayId"   .= _cpviVirtualGatewayId
+        ]
 
 instance AWSRequest ConfirmPrivateVirtualInterface where
     type Sv ConfirmPrivateVirtualInterface = DirectConnect
@@ -118,4 +122,5 @@ instance AWSRequest ConfirmPrivateVirtualInterface where
     response = jsonResponse
 
 instance FromJSON ConfirmPrivateVirtualInterfaceResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ConfirmPrivateVirtualInterfaceResponse" $ \o -> ConfirmPrivateVirtualInterfaceResponse
+        <$> o .: "virtualInterfaceState"

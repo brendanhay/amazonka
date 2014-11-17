@@ -168,9 +168,9 @@ instance ToPath ListHostedZones where
 instance ToQuery ListHostedZones
 
 instance ToHeaders ListHostedZones
+
 instance ToXML ListHostedZones where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListHostedZones"
+    toXML = const (node "ListHostedZones" [])
 
 instance AWSRequest ListHostedZones where
     type Sv ListHostedZones = Route53
@@ -180,5 +180,9 @@ instance AWSRequest ListHostedZones where
     response = xmlResponse
 
 instance FromXML ListHostedZonesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListHostedZonesResponse"
+    parseXML c = ListHostedZonesResponse
+        <$> c .: "HostedZones"
+        <*> c .: "IsTruncated"
+        <*> c .: "Marker"
+        <*> c .: "MaxItems"
+        <*> c .: "NextMarker"

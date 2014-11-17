@@ -94,8 +94,12 @@ instance ToQuery SetVisibleToAllUsers where
     toQuery = const mempty
 
 instance ToHeaders SetVisibleToAllUsers
+
 instance ToJSON SetVisibleToAllUsers where
-    toJSON = genericToJSON jsonOptions
+    toJSON SetVisibleToAllUsers{..} = object
+        [ "JobFlowIds"        .= _svtauJobFlowIds
+        , "VisibleToAllUsers" .= _svtauVisibleToAllUsers
+        ]
 
 instance AWSRequest SetVisibleToAllUsers where
     type Sv SetVisibleToAllUsers = EMR

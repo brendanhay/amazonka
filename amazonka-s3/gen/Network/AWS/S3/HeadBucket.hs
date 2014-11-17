@@ -78,9 +78,9 @@ instance ToQuery HeadBucket where
     toQuery = const mempty
 
 instance ToHeaders HeadBucket
+
 instance ToXML HeadBucket where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HeadBucket"
+    toXML = const (node "HeadBucket" [])
 
 instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3

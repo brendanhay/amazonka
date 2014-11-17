@@ -104,8 +104,9 @@ instance ToQuery GetFunction where
     toQuery = const mempty
 
 instance ToHeaders GetFunction
+
 instance ToJSON GetFunction where
-    toJSON = genericToJSON jsonOptions
+    toJSON = const Null
 
 instance AWSRequest GetFunction where
     type Sv GetFunction = Lambda
@@ -115,4 +116,6 @@ instance AWSRequest GetFunction where
     response = jsonResponse
 
 instance FromJSON GetFunctionResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetFunctionResponse" $ \o -> GetFunctionResponse
+        <$> o .: "Code"
+        <*> o .: "Configuration"

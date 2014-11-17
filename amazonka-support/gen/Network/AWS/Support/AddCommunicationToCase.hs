@@ -129,8 +129,14 @@ instance ToQuery AddCommunicationToCase where
     toQuery = const mempty
 
 instance ToHeaders AddCommunicationToCase
+
 instance ToJSON AddCommunicationToCase where
-    toJSON = genericToJSON jsonOptions
+    toJSON AddCommunicationToCase{..} = object
+        [ "caseId"            .= _actcCaseId
+        , "communicationBody" .= _actcCommunicationBody
+        , "ccEmailAddresses"  .= _actcCcEmailAddresses
+        , "attachmentSetId"   .= _actcAttachmentSetId
+        ]
 
 instance AWSRequest AddCommunicationToCase where
     type Sv AddCommunicationToCase = Support
@@ -140,4 +146,5 @@ instance AWSRequest AddCommunicationToCase where
     response = jsonResponse
 
 instance FromJSON AddCommunicationToCaseResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "AddCommunicationToCaseResponse" $ \o -> AddCommunicationToCaseResponse
+        <$> o .: "result"

@@ -97,8 +97,13 @@ instance ToQuery UnlinkIdentity where
     toQuery = const mempty
 
 instance ToHeaders UnlinkIdentity
+
 instance ToJSON UnlinkIdentity where
-    toJSON = genericToJSON jsonOptions
+    toJSON UnlinkIdentity{..} = object
+        [ "IdentityId"     .= _uiIdentityId
+        , "Logins"         .= _uiLogins
+        , "LoginsToRemove" .= _uiLoginsToRemove
+        ]
 
 instance AWSRequest UnlinkIdentity where
     type Sv UnlinkIdentity = CognitoIdentity

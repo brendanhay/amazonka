@@ -199,8 +199,17 @@ instance ToQuery GetItem where
     toQuery = const mempty
 
 instance ToHeaders GetItem
+
 instance ToJSON GetItem where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetItem{..} = object
+        [ "TableName"                .= _giTableName
+        , "Key"                      .= _giKey
+        , "AttributesToGet"          .= _giAttributesToGet
+        , "ConsistentRead"           .= _giConsistentRead
+        , "ReturnConsumedCapacity"   .= _giReturnConsumedCapacity
+        , "ProjectionExpression"     .= _giProjectionExpression
+        , "ExpressionAttributeNames" .= _giExpressionAttributeNames
+        ]
 
 instance AWSRequest GetItem where
     type Sv GetItem = DynamoDB
@@ -210,4 +219,6 @@ instance AWSRequest GetItem where
     response = jsonResponse
 
 instance FromJSON GetItemResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetItemResponse" $ \o -> GetItemResponse
+        <$> o .: "ConsumedCapacity"
+        <*> o .: "Item"

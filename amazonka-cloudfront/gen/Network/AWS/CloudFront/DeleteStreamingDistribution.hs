@@ -91,9 +91,9 @@ instance ToHeaders DeleteStreamingDistribution where
     toHeaders DeleteStreamingDistribution{..} = mconcat
         [ "If-Match" =: _dsdIfMatch
         ]
+
 instance ToXML DeleteStreamingDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteStreamingDistribution"
+    toXML = const (node "DeleteStreamingDistribution" [])
 
 instance AWSRequest DeleteStreamingDistribution where
     type Sv DeleteStreamingDistribution = CloudFront

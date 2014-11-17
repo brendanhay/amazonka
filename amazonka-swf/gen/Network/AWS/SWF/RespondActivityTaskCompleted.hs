@@ -108,8 +108,12 @@ instance ToQuery RespondActivityTaskCompleted where
     toQuery = const mempty
 
 instance ToHeaders RespondActivityTaskCompleted
+
 instance ToJSON RespondActivityTaskCompleted where
-    toJSON = genericToJSON jsonOptions
+    toJSON RespondActivityTaskCompleted{..} = object
+        [ "taskToken" .= _ratcTaskToken
+        , "result"    .= _ratcResult
+        ]
 
 instance AWSRequest RespondActivityTaskCompleted where
     type Sv RespondActivityTaskCompleted = SWF

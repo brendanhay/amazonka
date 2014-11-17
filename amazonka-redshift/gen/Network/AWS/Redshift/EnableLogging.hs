@@ -176,5 +176,10 @@ instance AWSRequest EnableLogging where
     response = xmlResponse
 
 instance FromXML EnableLoggingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnableLoggingResponse"
+    parseXML c = EnableLoggingResponse
+        <$> c .: "BucketName"
+        <*> c .: "LastFailureMessage"
+        <*> c .: "LastFailureTime"
+        <*> c .: "LastSuccessfulDeliveryTime"
+        <*> c .: "LoggingEnabled"
+        <*> c .: "S3KeyPrefix"

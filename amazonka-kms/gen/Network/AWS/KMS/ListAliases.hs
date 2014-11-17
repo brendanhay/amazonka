@@ -125,8 +125,12 @@ instance ToQuery ListAliases where
     toQuery = const mempty
 
 instance ToHeaders ListAliases
+
 instance ToJSON ListAliases where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListAliases{..} = object
+        [ "Limit"  .= _laLimit
+        , "Marker" .= _laMarker
+        ]
 
 instance AWSRequest ListAliases where
     type Sv ListAliases = KMS
@@ -136,4 +140,7 @@ instance AWSRequest ListAliases where
     response = jsonResponse
 
 instance FromJSON ListAliasesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListAliasesResponse" $ \o -> ListAliasesResponse
+        <$> o .: "Aliases"
+        <*> o .: "NextMarker"
+        <*> o .: "Truncated"

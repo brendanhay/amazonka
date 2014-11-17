@@ -129,5 +129,5 @@ instance AWSRequest ModifyDBParameterGroup where
     response = xmlResponse
 
 instance FromXML ModifyDBParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyDBParameterGroupResponse"
+    parseXML c = ModifyDBParameterGroupResponse
+        <$> c .: "DBParameterGroupName"

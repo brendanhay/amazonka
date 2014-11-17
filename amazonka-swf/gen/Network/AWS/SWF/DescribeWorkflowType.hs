@@ -131,8 +131,12 @@ instance ToQuery DescribeWorkflowType where
     toQuery = const mempty
 
 instance ToHeaders DescribeWorkflowType
+
 instance ToJSON DescribeWorkflowType where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeWorkflowType{..} = object
+        [ "domain"       .= _dwtDomain
+        , "workflowType" .= _dwtWorkflowType
+        ]
 
 instance AWSRequest DescribeWorkflowType where
     type Sv DescribeWorkflowType = SWF
@@ -142,4 +146,6 @@ instance AWSRequest DescribeWorkflowType where
     response = jsonResponse
 
 instance FromJSON DescribeWorkflowTypeResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeWorkflowTypeResponse" $ \o -> DescribeWorkflowTypeResponse
+        <$> o .: "configuration"
+        <*> o .: "typeInfo"

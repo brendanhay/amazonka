@@ -265,5 +265,7 @@ instance AWSRequest AssumeRole where
     response = xmlResponse
 
 instance FromXML AssumeRoleResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssumeRoleResponse"
+    parseXML c = AssumeRoleResponse
+        <$> c .: "AssumedRoleUser"
+        <*> c .: "Credentials"
+        <*> c .: "PackedPolicySize"

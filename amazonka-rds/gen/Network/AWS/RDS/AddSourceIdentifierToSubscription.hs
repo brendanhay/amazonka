@@ -119,5 +119,5 @@ instance AWSRequest AddSourceIdentifierToSubscription where
     response = xmlResponse
 
 instance FromXML AddSourceIdentifierToSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AddSourceIdentifierToSubscriptionResponse"
+    parseXML c = AddSourceIdentifierToSubscriptionResponse
+        <$> c .: "EventSubscription"

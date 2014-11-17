@@ -153,5 +153,7 @@ instance AWSRequest ListVirtualMFADevices where
     response = xmlResponse
 
 instance FromXML ListVirtualMFADevicesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListVirtualMFADevicesResponse"
+    parseXML c = ListVirtualMFADevicesResponse
+        <$> c .: "IsTruncated"
+        <*> c .: "Marker"
+        <*> c .: "VirtualMFADevices"

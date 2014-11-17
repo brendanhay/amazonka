@@ -107,5 +107,5 @@ instance AWSRequest GetSubscriptionAttributes where
     response = xmlResponse
 
 instance FromXML GetSubscriptionAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetSubscriptionAttributesResponse"
+    parseXML c = GetSubscriptionAttributesResponse
+        <$> c .: "Attributes"

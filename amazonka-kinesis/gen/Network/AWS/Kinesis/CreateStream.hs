@@ -121,8 +121,12 @@ instance ToQuery CreateStream where
     toQuery = const mempty
 
 instance ToHeaders CreateStream
+
 instance ToJSON CreateStream where
-    toJSON = genericToJSON jsonOptions
+    toJSON CreateStream{..} = object
+        [ "StreamName" .= _csStreamName
+        , "ShardCount" .= _csShardCount
+        ]
 
 instance AWSRequest CreateStream where
     type Sv CreateStream = Kinesis

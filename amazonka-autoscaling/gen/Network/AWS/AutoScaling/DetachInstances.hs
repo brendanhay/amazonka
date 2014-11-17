@@ -133,5 +133,5 @@ instance AWSRequest DetachInstances where
     response = xmlResponse
 
 instance FromXML DetachInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DetachInstancesResponse"
+    parseXML c = DetachInstancesResponse
+        <$> c .: "Activities"

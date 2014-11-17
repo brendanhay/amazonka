@@ -100,8 +100,12 @@ instance ToQuery DeprecateWorkflowType where
     toQuery = const mempty
 
 instance ToHeaders DeprecateWorkflowType
+
 instance ToJSON DeprecateWorkflowType where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeprecateWorkflowType{..} = object
+        [ "domain"       .= _dwt1Domain
+        , "workflowType" .= _dwt1WorkflowType
+        ]
 
 instance AWSRequest DeprecateWorkflowType where
     type Sv DeprecateWorkflowType = SWF

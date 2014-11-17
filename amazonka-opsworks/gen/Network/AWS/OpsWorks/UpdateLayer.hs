@@ -220,8 +220,24 @@ instance ToQuery UpdateLayer where
     toQuery = const mempty
 
 instance ToHeaders UpdateLayer
+
 instance ToJSON UpdateLayer where
-    toJSON = genericToJSON jsonOptions
+    toJSON UpdateLayer{..} = object
+        [ "LayerId"                  .= _ulLayerId
+        , "Name"                     .= _ulName
+        , "Shortname"                .= _ulShortname
+        , "Attributes"               .= _ulAttributes
+        , "CustomInstanceProfileArn" .= _ulCustomInstanceProfileArn
+        , "CustomSecurityGroupIds"   .= _ulCustomSecurityGroupIds
+        , "Packages"                 .= _ulPackages
+        , "VolumeConfigurations"     .= _ulVolumeConfigurations
+        , "EnableAutoHealing"        .= _ulEnableAutoHealing
+        , "AutoAssignElasticIps"     .= _ulAutoAssignElasticIps
+        , "AutoAssignPublicIps"      .= _ulAutoAssignPublicIps
+        , "CustomRecipes"            .= _ulCustomRecipes
+        , "InstallUpdatesOnBoot"     .= _ulInstallUpdatesOnBoot
+        , "UseEbsOptimizedInstances" .= _ulUseEbsOptimizedInstances
+        ]
 
 instance AWSRequest UpdateLayer where
     type Sv UpdateLayer = OpsWorks

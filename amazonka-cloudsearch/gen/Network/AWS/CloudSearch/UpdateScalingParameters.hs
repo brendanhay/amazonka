@@ -113,5 +113,5 @@ instance AWSRequest UpdateScalingParameters where
     response = xmlResponse
 
 instance FromXML UpdateScalingParametersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateScalingParametersResponse"
+    parseXML c = UpdateScalingParametersResponse
+        <$> c .: "ScalingParameters"

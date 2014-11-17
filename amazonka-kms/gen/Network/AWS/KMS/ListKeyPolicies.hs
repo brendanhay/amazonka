@@ -136,8 +136,13 @@ instance ToQuery ListKeyPolicies where
     toQuery = const mempty
 
 instance ToHeaders ListKeyPolicies
+
 instance ToJSON ListKeyPolicies where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListKeyPolicies{..} = object
+        [ "KeyId"  .= _lkpKeyId
+        , "Limit"  .= _lkpLimit
+        , "Marker" .= _lkpMarker
+        ]
 
 instance AWSRequest ListKeyPolicies where
     type Sv ListKeyPolicies = KMS
@@ -147,4 +152,7 @@ instance AWSRequest ListKeyPolicies where
     response = jsonResponse
 
 instance FromJSON ListKeyPoliciesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListKeyPoliciesResponse" $ \o -> ListKeyPoliciesResponse
+        <$> o .: "NextMarker"
+        <*> o .: "PolicyNames"
+        <*> o .: "Truncated"

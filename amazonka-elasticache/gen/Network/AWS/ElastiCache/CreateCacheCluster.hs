@@ -379,5 +379,5 @@ instance AWSRequest CreateCacheCluster where
     response = xmlResponse
 
 instance FromXML CreateCacheClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCacheClusterResponse"
+    parseXML c = CreateCacheClusterResponse
+        <$> c .: "CacheCluster"

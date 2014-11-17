@@ -91,8 +91,11 @@ instance ToQuery GetApplication where
     toQuery = const mempty
 
 instance ToHeaders GetApplication
+
 instance ToJSON GetApplication where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetApplication{..} = object
+        [ "applicationName" .= _gaApplicationName
+        ]
 
 instance AWSRequest GetApplication where
     type Sv GetApplication = CodeDeploy
@@ -102,4 +105,5 @@ instance AWSRequest GetApplication where
     response = jsonResponse
 
 instance FromJSON GetApplicationResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetApplicationResponse" $ \o -> GetApplicationResponse
+        <$> o .: "application"

@@ -79,8 +79,11 @@ instance ToQuery StopLogging where
     toQuery = const mempty
 
 instance ToHeaders StopLogging
+
 instance ToJSON StopLogging where
-    toJSON = genericToJSON jsonOptions
+    toJSON StopLogging{..} = object
+        [ "Name" .= _slName
+        ]
 
 instance AWSRequest StopLogging where
     type Sv StopLogging = CloudTrail

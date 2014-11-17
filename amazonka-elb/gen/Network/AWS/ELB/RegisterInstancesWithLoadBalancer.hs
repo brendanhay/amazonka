@@ -134,5 +134,5 @@ instance AWSRequest RegisterInstancesWithLoadBalancer where
     response = xmlResponse
 
 instance FromXML RegisterInstancesWithLoadBalancerResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RegisterInstancesWithLoadBalancerResponse"
+    parseXML c = RegisterInstancesWithLoadBalancerResponse
+        <$> c .: "Instances"

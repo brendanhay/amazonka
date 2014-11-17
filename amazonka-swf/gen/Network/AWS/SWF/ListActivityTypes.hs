@@ -172,8 +172,16 @@ instance ToQuery ListActivityTypes where
     toQuery = const mempty
 
 instance ToHeaders ListActivityTypes
+
 instance ToJSON ListActivityTypes where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListActivityTypes{..} = object
+        [ "domain"             .= _latDomain
+        , "name"               .= _latName
+        , "registrationStatus" .= _latRegistrationStatus
+        , "nextPageToken"      .= _latNextPageToken
+        , "maximumPageSize"    .= _latMaximumPageSize
+        , "reverseOrder"       .= _latReverseOrder
+        ]
 
 instance AWSRequest ListActivityTypes where
     type Sv ListActivityTypes = SWF
@@ -183,4 +191,6 @@ instance AWSRequest ListActivityTypes where
     response = jsonResponse
 
 instance FromJSON ListActivityTypesResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListActivityTypesResponse" $ \o -> ListActivityTypesResponse
+        <$> o .: "nextPageToken"
+        <*> o .: "typeInfos"

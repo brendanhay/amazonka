@@ -91,9 +91,9 @@ instance ToQuery GetBucketRequestPayment where
     toQuery = const "requestPayment"
 
 instance ToHeaders GetBucketRequestPayment
+
 instance ToXML GetBucketRequestPayment where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketRequestPayment"
+    toXML = const (node "GetBucketRequestPayment" [])
 
 instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
@@ -103,5 +103,5 @@ instance AWSRequest GetBucketRequestPayment where
     response = xmlResponse
 
 instance FromXML GetBucketRequestPaymentResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketRequestPaymentResponse"
+    parseXML c = GetBucketRequestPaymentResponse
+        <$> c .: "Payer"

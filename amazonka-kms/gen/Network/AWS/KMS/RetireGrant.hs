@@ -77,8 +77,11 @@ instance ToQuery RetireGrant where
     toQuery = const mempty
 
 instance ToHeaders RetireGrant
+
 instance ToJSON RetireGrant where
-    toJSON = genericToJSON jsonOptions
+    toJSON RetireGrant{..} = object
+        [ "GrantToken" .= _rgGrantToken
+        ]
 
 instance AWSRequest RetireGrant where
     type Sv RetireGrant = KMS

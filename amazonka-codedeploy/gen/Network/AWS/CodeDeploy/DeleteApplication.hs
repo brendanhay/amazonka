@@ -77,8 +77,11 @@ instance ToQuery DeleteApplication where
     toQuery = const mempty
 
 instance ToHeaders DeleteApplication
+
 instance ToJSON DeleteApplication where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteApplication{..} = object
+        [ "applicationName" .= _daApplicationName
+        ]
 
 instance AWSRequest DeleteApplication where
     type Sv DeleteApplication = CodeDeploy

@@ -124,8 +124,13 @@ instance ToQuery Decrypt where
     toQuery = const mempty
 
 instance ToHeaders Decrypt
+
 instance ToJSON Decrypt where
-    toJSON = genericToJSON jsonOptions
+    toJSON Decrypt{..} = object
+        [ "CiphertextBlob"    .= _dCiphertextBlob
+        , "EncryptionContext" .= _dEncryptionContext
+        , "GrantTokens"       .= _dGrantTokens
+        ]
 
 instance AWSRequest Decrypt where
     type Sv Decrypt = KMS
@@ -135,4 +140,6 @@ instance AWSRequest Decrypt where
     response = jsonResponse
 
 instance FromJSON DecryptResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DecryptResponse" $ \o -> DecryptResponse
+        <$> o .: "KeyId"
+        <*> o .: "Plaintext"

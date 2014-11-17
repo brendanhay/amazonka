@@ -141,8 +141,11 @@ instance ToQuery GetOperationDetail where
     toQuery = const mempty
 
 instance ToHeaders GetOperationDetail
+
 instance ToJSON GetOperationDetail where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetOperationDetail{..} = object
+        [ "OperationId" .= _godOperationId
+        ]
 
 instance AWSRequest GetOperationDetail where
     type Sv GetOperationDetail = Route53Domains
@@ -152,4 +155,10 @@ instance AWSRequest GetOperationDetail where
     response = jsonResponse
 
 instance FromJSON GetOperationDetailResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetOperationDetailResponse" $ \o -> GetOperationDetailResponse
+        <$> o .: "DomainName"
+        <*> o .: "Message"
+        <*> o .: "OperationId"
+        <*> o .: "Status"
+        <*> o .: "SubmittedDate"
+        <*> o .: "Type"

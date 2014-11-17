@@ -76,8 +76,11 @@ instance ToQuery DisableKey where
     toQuery = const mempty
 
 instance ToHeaders DisableKey
+
 instance ToJSON DisableKey where
-    toJSON = genericToJSON jsonOptions
+    toJSON DisableKey{..} = object
+        [ "KeyId" .= _dkKeyId
+        ]
 
 instance AWSRequest DisableKey where
     type Sv DisableKey = KMS

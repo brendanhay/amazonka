@@ -79,8 +79,11 @@ instance ToQuery DeleteDeploymentConfig where
     toQuery = const mempty
 
 instance ToHeaders DeleteDeploymentConfig
+
 instance ToJSON DeleteDeploymentConfig where
-    toJSON = genericToJSON jsonOptions
+    toJSON DeleteDeploymentConfig{..} = object
+        [ "deploymentConfigName" .= _ddcDeploymentConfigName
+        ]
 
 instance AWSRequest DeleteDeploymentConfig where
     type Sv DeleteDeploymentConfig = CodeDeploy

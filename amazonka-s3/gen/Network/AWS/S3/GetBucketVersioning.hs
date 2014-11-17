@@ -103,9 +103,9 @@ instance ToQuery GetBucketVersioning where
     toQuery = const "versioning"
 
 instance ToHeaders GetBucketVersioning
+
 instance ToXML GetBucketVersioning where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketVersioning"
+    toXML = const (node "GetBucketVersioning" [])
 
 instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
@@ -115,5 +115,6 @@ instance AWSRequest GetBucketVersioning where
     response = xmlResponse
 
 instance FromXML GetBucketVersioningResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketVersioningResponse"
+    parseXML c = GetBucketVersioningResponse
+        <$> c .: "MfaDelete"
+        <*> c .: "Status"

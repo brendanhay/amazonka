@@ -116,8 +116,13 @@ instance ToQuery ListSteps where
     toQuery = const mempty
 
 instance ToHeaders ListSteps
+
 instance ToJSON ListSteps where
-    toJSON = genericToJSON jsonOptions
+    toJSON ListSteps{..} = object
+        [ "ClusterId"  .= _lsClusterId
+        , "StepStates" .= _lsStepStates
+        , "Marker"     .= _lsMarker
+        ]
 
 instance AWSRequest ListSteps where
     type Sv ListSteps = EMR
@@ -127,4 +132,6 @@ instance AWSRequest ListSteps where
     response = jsonResponse
 
 instance FromJSON ListStepsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "ListStepsResponse" $ \o -> ListStepsResponse
+        <$> o .: "Marker"
+        <*> o .: "Steps"

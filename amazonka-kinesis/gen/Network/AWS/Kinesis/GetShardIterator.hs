@@ -162,8 +162,14 @@ instance ToQuery GetShardIterator where
     toQuery = const mempty
 
 instance ToHeaders GetShardIterator
+
 instance ToJSON GetShardIterator where
-    toJSON = genericToJSON jsonOptions
+    toJSON GetShardIterator{..} = object
+        [ "StreamName"             .= _gsiStreamName
+        , "ShardId"                .= _gsiShardId
+        , "ShardIteratorType"      .= _gsiShardIteratorType
+        , "StartingSequenceNumber" .= _gsiStartingSequenceNumber
+        ]
 
 instance AWSRequest GetShardIterator where
     type Sv GetShardIterator = Kinesis
@@ -173,4 +179,5 @@ instance AWSRequest GetShardIterator where
     response = jsonResponse
 
 instance FromJSON GetShardIteratorResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "GetShardIteratorResponse" $ \o -> GetShardIteratorResponse
+        <$> o .: "ShardIterator"

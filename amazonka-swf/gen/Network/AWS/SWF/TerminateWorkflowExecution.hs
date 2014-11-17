@@ -144,8 +144,16 @@ instance ToQuery TerminateWorkflowExecution where
     toQuery = const mempty
 
 instance ToHeaders TerminateWorkflowExecution
+
 instance ToJSON TerminateWorkflowExecution where
-    toJSON = genericToJSON jsonOptions
+    toJSON TerminateWorkflowExecution{..} = object
+        [ "domain"      .= _tweDomain
+        , "workflowId"  .= _tweWorkflowId
+        , "runId"       .= _tweRunId
+        , "reason"      .= _tweReason
+        , "details"     .= _tweDetails
+        , "childPolicy" .= _tweChildPolicy
+        ]
 
 instance AWSRequest TerminateWorkflowExecution where
     type Sv TerminateWorkflowExecution = SWF

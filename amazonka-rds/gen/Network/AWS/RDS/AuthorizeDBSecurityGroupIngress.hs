@@ -157,5 +157,5 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress where
     response = xmlResponse
 
 instance FromXML AuthorizeDBSecurityGroupIngressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AuthorizeDBSecurityGroupIngressResponse"
+    parseXML c = AuthorizeDBSecurityGroupIngressResponse
+        <$> c .: "DBSecurityGroup"

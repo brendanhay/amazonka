@@ -100,8 +100,11 @@ instance ToQuery DescribeSeverityLevels where
     toQuery = const mempty
 
 instance ToHeaders DescribeSeverityLevels
+
 instance ToJSON DescribeSeverityLevels where
-    toJSON = genericToJSON jsonOptions
+    toJSON DescribeSeverityLevels{..} = object
+        [ "language" .= _dslLanguage
+        ]
 
 instance AWSRequest DescribeSeverityLevels where
     type Sv DescribeSeverityLevels = Support
@@ -111,4 +114,5 @@ instance AWSRequest DescribeSeverityLevels where
     response = jsonResponse
 
 instance FromJSON DescribeSeverityLevelsResponse where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "DescribeSeverityLevelsResponse" $ \o -> DescribeSeverityLevelsResponse
+        <$> o .: "severityLevels"

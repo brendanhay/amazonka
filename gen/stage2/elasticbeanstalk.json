@@ -100,8 +100,10 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "applicationDescription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ApplicationDescription",
                 "type": "record",
                 "optional": [
@@ -307,8 +309,10 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Tag",
                 "type": "record",
                 "optional": [
@@ -381,8 +385,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "eventDescription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EventDescription",
                 "type": "record",
                 "optional": [
@@ -639,8 +645,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "LaunchConfiguration",
                 "type": "newtype",
                 "optional": [
@@ -699,8 +707,10 @@
                     "typeExposed": "Maybe ApplicationVersionDescription",
                     "type": "Maybe ApplicationVersionDescription"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ApplicationVersionDescriptionMessage",
                 "type": "newtype",
                 "optional": [
@@ -761,8 +771,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AutoScalingGroup",
                 "type": "newtype",
                 "optional": [
@@ -825,8 +837,10 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "configurationOptionSetting",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ConfigurationOptionSetting",
                 "type": "record",
                 "optional": [
@@ -943,8 +957,10 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "configurationSettingsDescription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ConfigurationSettingsDescription",
                 "type": "record",
                 "optional": [
@@ -1212,8 +1228,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "applicationVersionDescription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ApplicationVersionDescription",
                 "type": "record",
                 "optional": [
@@ -1398,8 +1416,10 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "optionSpecification",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "OptionSpecification",
                 "type": "record",
                 "optional": [
@@ -1471,8 +1491,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "environmentResourceDescription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EnvironmentResourceDescription",
                 "type": "record",
                 "optional": [
@@ -1685,8 +1707,10 @@
                 ],
                 "fieldPad": 6,
                 "ctor": "queue",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Queue",
                 "type": "record",
                 "optional": [
@@ -1778,8 +1802,10 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "loadBalancerDescription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "LoadBalancerDescription",
                 "type": "record",
                 "optional": [
@@ -1894,8 +1920,10 @@
                     "typeExposed": "Maybe ApplicationDescription",
                     "type": "Maybe ApplicationDescription"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ApplicationDescriptionMessage",
                 "type": "newtype",
                 "optional": [
@@ -1940,8 +1968,10 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "environmentTier",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EnvironmentTier",
                 "type": "record",
                 "optional": [
@@ -2058,8 +2088,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "LoadBalancer",
                 "type": "newtype",
                 "optional": [
@@ -2118,8 +2150,10 @@
                     "typeExposed": "Maybe LoadBalancerDescription",
                     "type": "Maybe LoadBalancerDescription"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EnvironmentResourcesDescription",
                 "type": "newtype",
                 "optional": [
@@ -2164,8 +2198,10 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "optionRestrictionRegex",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "OptionRestrictionRegex",
                 "type": "record",
                 "optional": [
@@ -2237,8 +2273,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "configurationOptionDescription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ConfigurationOptionDescription",
                 "type": "record",
                 "optional": [
@@ -2563,8 +2601,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "sourceConfiguration",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "SourceConfiguration",
                 "type": "record",
                 "optional": [
@@ -2637,8 +2677,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "environmentInfoDescription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EnvironmentInfoDescription",
                 "type": "record",
                 "optional": [
@@ -2767,8 +2809,10 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "s3Location",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "S3Location",
                 "type": "record",
                 "optional": [
@@ -2841,8 +2885,10 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "validationMessage",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ValidationMessage",
                 "type": "record",
                 "optional": [
@@ -3004,8 +3050,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Trigger",
                 "type": "newtype",
                 "optional": [
@@ -3065,8 +3113,10 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "environmentDescription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EnvironmentDescription",
                 "type": "record",
                 "optional": [
@@ -3503,8 +3553,10 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "listener",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Listener",
                 "type": "record",
                 "optional": [
@@ -3612,8 +3664,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Instance",
                 "type": "newtype",
                 "optional": [
@@ -3658,8 +3712,10 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "solutionStackDescription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "SolutionStackDescription",
                 "type": "record",
                 "optional": [
@@ -3741,12 +3797,14 @@
                 "fieldPad": 26,
                 "ctor": "checkDNSAvailabilityResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CheckDNSAvailabilityResponse",
                 "resultWrapper": "CheckDNSAvailabilityResult",
                 "type": "record",
@@ -3851,6 +3909,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3877,6 +3936,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "CheckDNSAvailability",
                 "query": [
@@ -3936,12 +3996,14 @@
                     "typeExposed": "Maybe ApplicationDescription",
                     "type": "Maybe ApplicationDescription"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateApplicationResponse",
                 "resultWrapper": "CreateApplicationResult",
                 "type": "newtype",
@@ -4001,6 +4063,7 @@
                 "fieldPad": 18,
                 "ctor": "createApplication",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4027,6 +4090,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "CreateApplication",
                 "query": [
@@ -4120,12 +4184,14 @@
                     "typeExposed": "Maybe ApplicationVersionDescription",
                     "type": "Maybe ApplicationVersionDescription"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateApplicationVersionResponse",
                 "resultWrapper": "CreateApplicationVersionResult",
                 "type": "newtype",
@@ -4184,6 +4250,7 @@
                 "fieldPad": 25,
                 "ctor": "createApplicationVersion",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4224,6 +4291,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "CreateApplicationVersion",
                 "query": [
@@ -4387,12 +4455,14 @@
                 "fieldPad": 22,
                 "ctor": "createConfigurationTemplateResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateConfigurationTemplateResponse",
                 "resultWrapper": "CreateConfigurationTemplateResult",
                 "type": "record",
@@ -4675,6 +4745,7 @@
                 "fieldPad": 23,
                 "ctor": "createConfigurationTemplate",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4715,6 +4786,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "CreateConfigurationTemplate",
                 "query": [
@@ -4944,12 +5016,14 @@
                 "fieldPad": 21,
                 "ctor": "createEnvironmentResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateEnvironmentResponse",
                 "resultWrapper": "CreateEnvironmentResult",
                 "type": "record",
@@ -5400,6 +5474,7 @@
                 "fieldPad": 20,
                 "ctor": "createEnvironment",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5440,6 +5515,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "CreateEnvironment",
                 "query": [
@@ -5818,12 +5894,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateStorageLocationResponse",
                 "resultWrapper": "CreateStorageLocationResult",
                 "type": "newtype",
@@ -5951,6 +6029,7 @@
                 "fieldPad": 22,
                 "ctor": "deleteApplication",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5977,6 +6056,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "DeleteApplication",
                 "query": [
@@ -6090,6 +6170,7 @@
                 "fieldPad": 22,
                 "ctor": "deleteApplicationVersion",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6130,6 +6211,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DeleteApplicationVersion",
                 "query": [
@@ -6262,6 +6344,7 @@
                 "fieldPad": 19,
                 "ctor": "deleteConfigurationTemplate",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6302,6 +6385,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DeleteConfigurationTemplate",
                 "query": [
@@ -6400,6 +6484,7 @@
                 "fieldPad": 19,
                 "ctor": "deleteEnvironmentConfiguration",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6440,6 +6525,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DeleteEnvironmentConfiguration",
                 "query": [
@@ -6520,12 +6606,14 @@
                     "typeExposed": "[ApplicationVersionDescription]",
                     "type": "[ApplicationVersionDescription]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeApplicationVersionsResponse",
                 "resultWrapper": "DescribeApplicationVersionsResult",
                 "type": "newtype",
@@ -6585,6 +6673,7 @@
                 "fieldPad": 20,
                 "ctor": "describeApplicationVersions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6596,6 +6685,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DescribeApplicationVersions",
                 "query": [
@@ -6705,12 +6795,14 @@
                     "typeExposed": "[ApplicationDescription]",
                     "type": "[ApplicationDescription]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeApplicationsResponse",
                 "resultWrapper": "DescribeApplicationsResult",
                 "type": "newtype",
@@ -6787,6 +6879,7 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6798,6 +6891,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "DescribeApplications",
                 "query": [
@@ -6857,12 +6951,14 @@
                 "fieldPad": 22,
                 "ctor": "describeConfigurationOptionsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeConfigurationOptionsResponse",
                 "resultWrapper": "DescribeConfigurationOptionsResult",
                 "type": "record",
@@ -6949,6 +7045,7 @@
                 "fieldPad": 21,
                 "ctor": "describeConfigurationOptions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6960,6 +7057,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DescribeConfigurationOptions",
                 "query": [
@@ -7168,12 +7266,14 @@
                     "typeExposed": "[ConfigurationSettingsDescription]",
                     "type": "[ConfigurationSettingsDescription]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeConfigurationSettingsResponse",
                 "resultWrapper": "DescribeConfigurationSettingsResult",
                 "type": "newtype",
@@ -7233,6 +7333,7 @@
                 "fieldPad": 19,
                 "ctor": "describeConfigurationSettings",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7259,6 +7360,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DescribeConfigurationSettings",
                 "query": [
@@ -7385,12 +7487,14 @@
                     "typeExposed": "Maybe EnvironmentResourceDescription",
                     "type": "Maybe EnvironmentResourceDescription"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeEnvironmentResourcesResponse",
                 "resultWrapper": "DescribeEnvironmentResourcesResult",
                 "type": "newtype",
@@ -7450,6 +7554,7 @@
                 "fieldPad": 19,
                 "ctor": "describeEnvironmentResources",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7461,6 +7566,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DescribeEnvironmentResources",
                 "query": [
@@ -7570,12 +7676,14 @@
                     "typeExposed": "[EnvironmentDescription]",
                     "type": "[EnvironmentDescription]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeEnvironmentsResponse",
                 "resultWrapper": "DescribeEnvironmentsResult",
                 "type": "newtype",
@@ -7635,6 +7743,7 @@
                 "fieldPad": 25,
                 "ctor": "describeEnvironments",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7646,6 +7755,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "DescribeEnvironments",
                 "query": [
@@ -7870,12 +7980,14 @@
                 "fieldPad": 13,
                 "ctor": "describeEventsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeEventsResponse",
                 "resultWrapper": "DescribeEventsResult",
                 "type": "record",
@@ -7971,6 +8083,7 @@
                 "fieldPad": 18,
                 "ctor": "describeEvents",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7982,6 +8095,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DescribeEvents",
                 "query": [
@@ -8371,12 +8485,14 @@
                 "fieldPad": 26,
                 "ctor": "listAvailableSolutionStacksResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListAvailableSolutionStacksResponse",
                 "resultWrapper": "ListAvailableSolutionStacksResult",
                 "type": "record",
@@ -8532,6 +8648,7 @@
                 "fieldPad": 18,
                 "ctor": "rebuildEnvironment",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8543,6 +8660,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "RebuildEnvironment",
                 "query": [
@@ -8670,6 +8788,7 @@
                 "fieldPad": 19,
                 "ctor": "requestEnvironmentInfo",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8696,6 +8815,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "RequestEnvironmentInfo",
                 "query": [
@@ -8842,6 +8962,7 @@
                 "fieldPad": 19,
                 "ctor": "restartAppServer",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8853,6 +8974,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "RestartAppServer",
                 "query": [
@@ -8962,12 +9084,14 @@
                     "typeExposed": "[EnvironmentInfoDescription]",
                     "type": "[EnvironmentInfoDescription]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RetrieveEnvironmentInfoResponse",
                 "resultWrapper": "RetrieveEnvironmentInfoResult",
                 "type": "newtype",
@@ -9027,6 +9151,7 @@
                 "fieldPad": 20,
                 "ctor": "retrieveEnvironmentInfo",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9053,6 +9178,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "RetrieveEnvironmentInfo",
                 "query": [
@@ -9199,6 +9325,7 @@
                 "fieldPad": 34,
                 "ctor": "swapEnvironmentCNAMEs",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9210,6 +9337,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "SwapEnvironmentCNAMEs",
                 "query": [
@@ -9368,12 +9496,14 @@
                 "fieldPad": 21,
                 "ctor": "terminateEnvironmentResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "TerminateEnvironmentResponse",
                 "resultWrapper": "TerminateEnvironmentResult",
                 "type": "record",
@@ -9825,6 +9955,7 @@
                 "fieldPad": 21,
                 "ctor": "terminateEnvironment",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9836,6 +9967,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "TerminateEnvironment",
                 "query": [
@@ -9976,12 +10108,14 @@
                     "typeExposed": "Maybe ApplicationDescription",
                     "type": "Maybe ApplicationDescription"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UpdateApplicationResponse",
                 "resultWrapper": "UpdateApplicationResult",
                 "type": "newtype",
@@ -10041,6 +10175,7 @@
                 "fieldPad": 18,
                 "ctor": "updateApplication",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10067,6 +10202,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "UpdateApplication",
                 "query": [
@@ -10160,12 +10296,14 @@
                     "typeExposed": "Maybe ApplicationVersionDescription",
                     "type": "Maybe ApplicationVersionDescription"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UpdateApplicationVersionResponse",
                 "resultWrapper": "UpdateApplicationVersionResult",
                 "type": "newtype",
@@ -10225,6 +10363,7 @@
                 "fieldPad": 19,
                 "ctor": "updateApplicationVersion",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10265,6 +10404,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "UpdateApplicationVersion",
                 "query": [
@@ -10362,12 +10502,14 @@
                 "fieldPad": 22,
                 "ctor": "updateConfigurationTemplateResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UpdateConfigurationTemplateResponse",
                 "resultWrapper": "UpdateConfigurationTemplateResult",
                 "type": "record",
@@ -10650,6 +10792,7 @@
                 "fieldPad": 19,
                 "ctor": "updateConfigurationTemplate",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10690,6 +10833,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "UpdateConfigurationTemplate",
                 "query": [
@@ -10853,12 +10997,14 @@
                 "fieldPad": 21,
                 "ctor": "updateEnvironmentResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UpdateEnvironmentResponse",
                 "resultWrapper": "UpdateEnvironmentResult",
                 "type": "record",
@@ -11309,6 +11455,7 @@
                 "fieldPad": 18,
                 "ctor": "updateEnvironment",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11320,6 +11467,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "UpdateEnvironment",
                 "query": [
@@ -11627,12 +11775,14 @@
                     "typeExposed": "[ValidationMessage]",
                     "type": "[ValidationMessage]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ValidateConfigurationSettingsResponse",
                 "resultWrapper": "ValidateConfigurationSettingsResult",
                 "type": "newtype",
@@ -11691,6 +11841,7 @@
                 "fieldPad": 19,
                 "ctor": "validateConfigurationSettings",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11717,6 +11868,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "ValidateConfigurationSettings",
                 "query": [

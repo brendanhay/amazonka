@@ -89,6 +89,7 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "domainStatus",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -134,6 +135,7 @@
                         "type": "Bool"
                     }
                 ],
+                "contentPad": 0,
                 "name": "DomainStatus",
                 "type": "record",
                 "optional": [
@@ -472,6 +474,7 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "documentSuggesterOptions",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -489,6 +492,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "DocumentSuggesterOptions",
                 "type": "record",
                 "optional": [
@@ -575,8 +579,10 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "doubleArrayOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "DoubleArrayOptions",
                 "type": "record",
                 "optional": [
@@ -732,6 +738,7 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "indexField",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -763,6 +770,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "IndexField",
                 "type": "record",
                 "optional": [
@@ -1115,8 +1123,10 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "dateOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "DateOptions",
                 "type": "record",
                 "optional": [
@@ -1320,8 +1330,10 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "textArrayOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "TextArrayOptions",
                 "type": "record",
                 "optional": [
@@ -1496,6 +1508,7 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "analysisScheme",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1527,6 +1540,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "AnalysisScheme",
                 "type": "record",
                 "optional": [
@@ -1599,8 +1613,10 @@
                 ],
                 "fieldPad": 26,
                 "ctor": "scalingParameters",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ScalingParameters",
                 "type": "record",
                 "optional": [
@@ -1701,8 +1717,10 @@
                 ],
                 "fieldPad": 33,
                 "ctor": "analysisOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AnalysisOptions",
                 "type": "record",
                 "optional": [
@@ -1859,8 +1877,10 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "doubleOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "DoubleOptions",
                 "type": "record",
                 "optional": [
@@ -2045,8 +2065,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "textOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "TextOptions",
                 "type": "record",
                 "optional": [
@@ -2230,6 +2252,7 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "availabilityOptionsStatus",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2261,6 +2284,7 @@
                         "type": "OptionStatus"
                     }
                 ],
+                "contentPad": 0,
                 "name": "AvailabilityOptionsStatus",
                 "type": "record",
                 "optional": [],
@@ -2303,6 +2327,7 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "indexFieldStatus",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2334,6 +2359,7 @@
                         "type": "OptionStatus"
                     }
                 ],
+                "contentPad": 0,
                 "name": "IndexFieldStatus",
                 "type": "record",
                 "optional": [],
@@ -2376,6 +2402,7 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "scalingParametersStatus",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2407,6 +2434,7 @@
                         "type": "OptionStatus"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ScalingParametersStatus",
                 "type": "record",
                 "optional": [],
@@ -2449,6 +2477,7 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "analysisSchemeStatus",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2480,6 +2509,7 @@
                         "type": "OptionStatus"
                     }
                 ],
+                "contentPad": 0,
                 "name": "AnalysisSchemeStatus",
                 "type": "record",
                 "optional": [],
@@ -2539,8 +2569,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ServiceEndpoint",
                 "type": "newtype",
                 "optional": [
@@ -2585,6 +2617,7 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "limits",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2616,6 +2649,7 @@
                         "type": "Nat"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Limits",
                 "type": "record",
                 "optional": [],
@@ -2658,6 +2692,7 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "expressionStatus",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2689,6 +2724,7 @@
                         "type": "OptionStatus"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ExpressionStatus",
                 "type": "record",
                 "optional": [],
@@ -2758,8 +2794,10 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "latLonOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "LatLonOptions",
                 "type": "record",
                 "optional": [
@@ -2943,6 +2981,7 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "suggesterStatus",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2974,6 +3013,7 @@
                         "type": "OptionStatus"
                     }
                 ],
+                "contentPad": 0,
                 "name": "SuggesterStatus",
                 "type": "record",
                 "optional": [],
@@ -3017,6 +3057,7 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "optionStatus",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -3062,6 +3103,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "OptionStatus",
                 "type": "record",
                 "optional": [
@@ -3176,8 +3218,10 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "literalArrayOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "LiteralArrayOptions",
                 "type": "record",
                 "optional": [
@@ -3334,8 +3378,10 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "intArrayOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "IntArrayOptions",
                 "type": "record",
                 "optional": [
@@ -3492,6 +3538,7 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "expression",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -3523,6 +3570,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Expression",
                 "type": "record",
                 "optional": [],
@@ -3584,8 +3632,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "dateArrayOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "DateArrayOptions",
                 "type": "record",
                 "optional": [
@@ -3810,6 +3860,7 @@
                 ],
                 "fieldPad": 26,
                 "ctor": "suggester",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -3841,6 +3892,7 @@
                         "type": "DocumentSuggesterOptions"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Suggester",
                 "type": "record",
                 "optional": [],
@@ -3884,8 +3936,10 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "intOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "IntOptions",
                 "type": "record",
                 "optional": [
@@ -4070,8 +4124,10 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "literalOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "LiteralOptions",
                 "type": "record",
                 "optional": [
@@ -4255,6 +4311,7 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "accessPoliciesStatus",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -4286,6 +4343,7 @@
                         "type": "OptionStatus"
                     }
                 ],
+                "contentPad": 0,
                 "name": "AccessPoliciesStatus",
                 "type": "record",
                 "optional": [],
@@ -4355,12 +4413,14 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "BuildSuggestersResponse",
                 "resultWrapper": "BuildSuggestersResult",
                 "type": "newtype",
@@ -4437,6 +4497,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4463,6 +4524,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "BuildSuggesters",
                 "query": [
@@ -4522,12 +4584,14 @@
                     "typeExposed": "Maybe DomainStatus",
                     "type": "Maybe DomainStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateDomainResponse",
                 "resultWrapper": "CreateDomainResult",
                 "type": "newtype",
@@ -4604,6 +4668,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4630,6 +4695,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "CreateDomain",
                 "query": [
@@ -4689,6 +4755,7 @@
                     "typeExposed": "AnalysisSchemeStatus",
                     "type": "AnalysisSchemeStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -4710,6 +4777,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DefineAnalysisSchemeResponse",
                 "resultWrapper": "DefineAnalysisSchemeResult",
                 "type": "newtype",
@@ -4753,6 +4821,7 @@
                 "fieldPad": 19,
                 "ctor": "defineAnalysisScheme",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4793,6 +4862,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "DefineAnalysisScheme",
                 "query": [
@@ -4871,6 +4941,7 @@
                     "typeExposed": "ExpressionStatus",
                     "type": "ExpressionStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -4892,6 +4963,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DefineExpressionResponse",
                 "resultWrapper": "DefineExpressionResult",
                 "type": "newtype",
@@ -4935,6 +5007,7 @@
                 "fieldPad": 14,
                 "ctor": "defineExpression",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4975,6 +5048,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DefineExpression",
                 "query": [
@@ -5053,6 +5127,7 @@
                     "typeExposed": "IndexFieldStatus",
                     "type": "IndexFieldStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -5074,6 +5149,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DefineIndexFieldResponse",
                 "resultWrapper": "DefineIndexFieldResult",
                 "type": "newtype",
@@ -5117,6 +5193,7 @@
                 "fieldPad": 15,
                 "ctor": "defineIndexField",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5157,6 +5234,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DefineIndexField",
                 "query": [
@@ -5235,6 +5313,7 @@
                     "typeExposed": "SuggesterStatus",
                     "type": "SuggesterStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -5256,6 +5335,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DefineSuggesterResponse",
                 "resultWrapper": "DefineSuggesterResult",
                 "type": "newtype",
@@ -5299,6 +5379,7 @@
                 "fieldPad": 14,
                 "ctor": "defineSuggester",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5339,6 +5420,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DefineSuggester",
                 "query": [
@@ -5417,6 +5499,7 @@
                     "typeExposed": "AnalysisSchemeStatus",
                     "type": "AnalysisSchemeStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -5438,6 +5521,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteAnalysisSchemeResponse",
                 "resultWrapper": "DeleteAnalysisSchemeResult",
                 "type": "newtype",
@@ -5482,6 +5566,7 @@
                 "fieldPad": 22,
                 "ctor": "deleteAnalysisScheme",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5522,6 +5607,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DeleteAnalysisScheme",
                 "query": [
@@ -5600,12 +5686,14 @@
                     "typeExposed": "Maybe DomainStatus",
                     "type": "Maybe DomainStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteDomainResponse",
                 "resultWrapper": "DeleteDomainResult",
                 "type": "newtype",
@@ -5682,6 +5770,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5708,6 +5797,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DeleteDomain",
                 "query": [
@@ -5767,6 +5857,7 @@
                     "typeExposed": "ExpressionStatus",
                     "type": "ExpressionStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -5788,6 +5879,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteExpressionResponse",
                 "resultWrapper": "DeleteExpressionResult",
                 "type": "newtype",
@@ -5832,6 +5924,7 @@
                 "fieldPad": 18,
                 "ctor": "deleteExpression",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5872,6 +5965,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "DeleteExpression",
                 "query": [
@@ -5950,6 +6044,7 @@
                     "typeExposed": "IndexFieldStatus",
                     "type": "IndexFieldStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -5971,6 +6066,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteIndexFieldResponse",
                 "resultWrapper": "DeleteIndexFieldResult",
                 "type": "newtype",
@@ -6015,6 +6111,7 @@
                 "fieldPad": 19,
                 "ctor": "deleteIndexField",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6055,6 +6152,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "DeleteIndexField",
                 "query": [
@@ -6133,6 +6231,7 @@
                     "typeExposed": "SuggesterStatus",
                     "type": "SuggesterStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -6154,6 +6253,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteSuggesterResponse",
                 "resultWrapper": "DeleteSuggesterResult",
                 "type": "newtype",
@@ -6198,6 +6298,7 @@
                 "fieldPad": 17,
                 "ctor": "deleteSuggester",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6238,6 +6339,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "DeleteSuggester",
                 "query": [
@@ -6318,12 +6420,14 @@
                     "typeExposed": "[AnalysisSchemeStatus]",
                     "type": "[AnalysisSchemeStatus]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAnalysisSchemesResponse",
                 "resultWrapper": "DescribeAnalysisSchemesResult",
                 "type": "newtype",
@@ -6383,6 +6487,7 @@
                 "fieldPad": 24,
                 "ctor": "describeAnalysisSchemes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6409,6 +6514,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "DescribeAnalysisSchemes",
                 "query": [
@@ -6535,12 +6641,14 @@
                     "typeExposed": "Maybe AvailabilityOptionsStatus",
                     "type": "Maybe AvailabilityOptionsStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAvailabilityOptionsResponse",
                 "resultWrapper": "DescribeAvailabilityOptionsResult",
                 "type": "newtype",
@@ -6600,6 +6708,7 @@
                 "fieldPad": 14,
                 "ctor": "describeAvailabilityOptions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6626,6 +6735,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeAvailabilityOptions",
                 "query": [
@@ -6721,12 +6831,14 @@
                     "typeExposed": "[DomainStatus]",
                     "type": "[DomainStatus]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeDomainsResponse",
                 "resultWrapper": "DescribeDomainsResult",
                 "type": "newtype",
@@ -6803,6 +6915,7 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6814,6 +6927,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "DescribeDomains",
                 "query": [
@@ -6890,12 +7004,14 @@
                     "typeExposed": "[ExpressionStatus]",
                     "type": "[ExpressionStatus]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeExpressionsResponse",
                 "resultWrapper": "DescribeExpressionsResult",
                 "type": "newtype",
@@ -6955,6 +7071,7 @@
                 "fieldPad": 18,
                 "ctor": "describeExpressions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6981,6 +7098,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DescribeExpressions",
                 "query": [
@@ -7109,12 +7227,14 @@
                     "typeExposed": "[IndexFieldStatus]",
                     "type": "[IndexFieldStatus]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeIndexFieldsResponse",
                 "resultWrapper": "DescribeIndexFieldsResult",
                 "type": "newtype",
@@ -7174,6 +7294,7 @@
                 "fieldPad": 14,
                 "ctor": "describeIndexFields",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7200,6 +7321,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeIndexFields",
                 "query": [
@@ -7326,6 +7448,7 @@
                     "typeExposed": "ScalingParametersStatus",
                     "type": "ScalingParametersStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -7347,6 +7470,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeScalingParametersResponse",
                 "resultWrapper": "DescribeScalingParametersResult",
                 "type": "newtype",
@@ -7408,6 +7532,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7434,6 +7559,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeScalingParameters",
                 "query": [
@@ -7493,6 +7619,7 @@
                     "typeExposed": "AccessPoliciesStatus",
                     "type": "AccessPoliciesStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -7514,6 +7641,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeServiceAccessPoliciesResponse",
                 "resultWrapper": "DescribeServiceAccessPoliciesResult",
                 "type": "newtype",
@@ -7558,6 +7686,7 @@
                 "fieldPad": 15,
                 "ctor": "describeServiceAccessPolicies",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7584,6 +7713,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeServiceAccessPolicies",
                 "query": [
@@ -7679,12 +7809,14 @@
                     "typeExposed": "[SuggesterStatus]",
                     "type": "[SuggesterStatus]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeSuggestersResponse",
                 "resultWrapper": "DescribeSuggestersResult",
                 "type": "newtype",
@@ -7744,6 +7876,7 @@
                 "fieldPad": 18,
                 "ctor": "describeSuggesters",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7770,6 +7903,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "DescribeSuggesters",
                 "query": [
@@ -7899,12 +8033,14 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "IndexDocumentsResponse",
                 "resultWrapper": "IndexDocumentsResult",
                 "type": "newtype",
@@ -7981,6 +8117,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8007,6 +8144,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "IndexDocuments",
                 "query": [
@@ -8068,12 +8206,14 @@
                     "typeExposed": "HashMap Text Text",
                     "type": "Map Text Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListDomainNamesResponse",
                 "resultWrapper": "ListDomainNamesResult",
                 "type": "newtype",
@@ -8181,12 +8321,14 @@
                     "typeExposed": "Maybe AvailabilityOptionsStatus",
                     "type": "Maybe AvailabilityOptionsStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UpdateAvailabilityOptionsResponse",
                 "resultWrapper": "UpdateAvailabilityOptionsResult",
                 "type": "newtype",
@@ -8246,6 +8388,7 @@
                 "fieldPad": 14,
                 "ctor": "updateAvailabilityOptions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8286,6 +8429,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "UpdateAvailabilityOptions",
                 "query": [
@@ -8364,6 +8508,7 @@
                     "typeExposed": "ScalingParametersStatus",
                     "type": "ScalingParametersStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -8385,6 +8530,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UpdateScalingParametersResponse",
                 "resultWrapper": "UpdateScalingParametersResult",
                 "type": "newtype",
@@ -8428,6 +8574,7 @@
                 "fieldPad": 21,
                 "ctor": "updateScalingParameters",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8468,6 +8615,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "UpdateScalingParameters",
                 "query": [
@@ -8546,6 +8694,7 @@
                     "typeExposed": "AccessPoliciesStatus",
                     "type": "AccessPoliciesStatus"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -8567,6 +8716,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UpdateServiceAccessPoliciesResponse",
                 "resultWrapper": "UpdateServiceAccessPoliciesResult",
                 "type": "newtype",
@@ -8611,6 +8761,7 @@
                 "fieldPad": 19,
                 "ctor": "updateServiceAccessPolicies",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8651,6 +8802,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "UpdateServiceAccessPolicies",
                 "query": [

@@ -20,13 +20,6 @@ module {{ namespace }}
       {{ service.abbrev }}
     -- ** Error
     , {{ service.error }}
-{% if service.protocol == "json" || service.protocol == "rest-json" %}
-    -- ** JSON
-    , jsonOptions
-{% else %}
-    -- ** XML
-    , xmlOptions
-{% endif %}
 
 {% for type in types %}
     -- * {{ type.value.name }}

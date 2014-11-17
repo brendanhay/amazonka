@@ -9,16 +9,9 @@ import qualified GHC.Exts
 
 {% include "_include/service.ede" %}
 
-jsonOptions :: AesonOptions
-jsonOptions = defaultOptions
-    { fieldLabelModifier = dropWhile (not . isUpper)
-    }
-
 {% for type in types %}
 {% include "_include/datatype.ede" with type = type.value %}
-
 {% include "_include/json-from.ede" with type = type.value %}
-
 {% include "_include/json-to.ede" with type = type.value %}
   {% if !type.last %}
 

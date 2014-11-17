@@ -102,6 +102,7 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "deleteMessageBatchRequestEntry",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -133,6 +134,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "DeleteMessageBatchRequestEntry",
                 "type": "record",
                 "optional": [],
@@ -175,6 +177,7 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "messageAttributeValue",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -192,6 +195,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "MessageAttributeValue",
                 "type": "record",
                 "optional": [
@@ -351,6 +355,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -368,6 +373,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ChangeMessageVisibilityBatchResultEntry",
                 "type": "newtype",
                 "optional": [],
@@ -397,6 +403,7 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "changeMessageVisibilityBatchRequestEntry",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -428,6 +435,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ChangeMessageVisibilityBatchRequestEntry",
                 "type": "record",
                 "optional": [
@@ -517,6 +525,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -534,6 +543,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "DeleteMessageBatchResultEntry",
                 "type": "newtype",
                 "optional": [],
@@ -562,8 +572,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "message",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Message",
                 "type": "record",
                 "optional": [
@@ -775,6 +787,7 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "sendMessageBatchRequestEntry",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -806,6 +819,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "SendMessageBatchRequestEntry",
                 "type": "record",
                 "optional": [
@@ -906,6 +920,7 @@
                 ],
                 "fieldPad": 29,
                 "ctor": "sendMessageBatchResultEntry",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -951,6 +966,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "SendMessageBatchResultEntry",
                 "type": "record",
                 "optional": [
@@ -1037,6 +1053,7 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "batchResultErrorEntry",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1082,6 +1099,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "BatchResultErrorEntry",
                 "type": "record",
                 "optional": [
@@ -1211,6 +1229,7 @@
                 "fieldPad": 16,
                 "ctor": "addPermission",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1251,6 +1270,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "AddPermission",
                 "query": [
@@ -1416,6 +1436,7 @@
                 "fieldPad": 21,
                 "ctor": "changeMessageVisibility",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1470,6 +1491,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "ChangeMessageVisibility",
                 "query": [
@@ -1552,12 +1574,14 @@
                 "fieldPad": 16,
                 "ctor": "changeMessageVisibilityBatchResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ChangeMessageVisibilityBatchResponse",
                 "resultWrapper": "ChangeMessageVisibilityBatchResult",
                 "type": "record",
@@ -1644,6 +1668,7 @@
                 "fieldPad": 13,
                 "ctor": "changeMessageVisibilityBatch",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1670,6 +1695,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ChangeMessageVisibilityBatch",
                 "query": [
@@ -1765,12 +1791,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateQueueResponse",
                 "resultWrapper": "CreateQueueResult",
                 "type": "newtype",
@@ -1829,6 +1857,7 @@
                 "fieldPad": 13,
                 "ctor": "createQueue",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1855,6 +1884,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "CreateQueue",
                 "query": [
@@ -1968,6 +1998,7 @@
                 "fieldPad": 16,
                 "ctor": "deleteMessage",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2008,6 +2039,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "DeleteMessage",
                 "query": [
@@ -2071,12 +2103,14 @@
                 "fieldPad": 15,
                 "ctor": "deleteMessageBatchResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteMessageBatchResponse",
                 "resultWrapper": "DeleteMessageBatchResult",
                 "type": "record",
@@ -2163,6 +2197,7 @@
                 "fieldPad": 12,
                 "ctor": "deleteMessageBatch",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2189,6 +2224,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "DeleteMessageBatch",
                 "query": [
@@ -2319,6 +2355,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2345,6 +2382,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "DeleteQueue",
                 "query": [
@@ -2406,12 +2444,14 @@
                     "typeExposed": "HashMap Text Text",
                     "type": "Map Text Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetQueueAttributesResponse",
                 "resultWrapper": "GetQueueAttributesResult",
                 "type": "newtype",
@@ -2471,6 +2511,7 @@
                 "fieldPad": 18,
                 "ctor": "getQueueAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2497,6 +2538,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "GetQueueAttributes",
                 "query": [
@@ -2592,12 +2634,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetQueueUrlResponse",
                 "resultWrapper": "GetQueueUrlResult",
                 "type": "newtype",
@@ -2657,6 +2701,7 @@
                 "fieldPad": 26,
                 "ctor": "getQueueUrl",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2683,6 +2728,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "GetQueueUrl",
                 "query": [
@@ -2779,12 +2825,14 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListDeadLetterSourceQueuesResponse",
                 "resultWrapper": "ListDeadLetterSourceQueuesResult",
                 "type": "newtype",
@@ -2861,6 +2909,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2887,6 +2936,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ListDeadLetterSourceQueues",
                 "query": [
@@ -2949,12 +2999,14 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListQueuesResponse",
                 "resultWrapper": "ListQueuesResult",
                 "type": "newtype",
@@ -3030,6 +3082,7 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3041,6 +3094,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "ListQueues",
                 "query": [
@@ -3117,12 +3171,14 @@
                     "typeExposed": "[Message]",
                     "type": "[Message]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ReceiveMessageResponse",
                 "resultWrapper": "ReceiveMessageResult",
                 "type": "newtype",
@@ -3182,6 +3238,7 @@
                 "fieldPad": 24,
                 "ctor": "receiveMessage",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3208,6 +3265,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "ReceiveMessage",
                 "query": [
@@ -3453,6 +3511,7 @@
                 "fieldPad": 11,
                 "ctor": "removePermission",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3493,6 +3552,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "RemovePermission",
                 "query": [
@@ -3557,12 +3617,14 @@
                 "fieldPad": 26,
                 "ctor": "sendMessageResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "SendMessageResponse",
                 "resultWrapper": "SendMessageResult",
                 "type": "record",
@@ -3677,6 +3739,7 @@
                 "fieldPad": 20,
                 "ctor": "sendMessage",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3717,6 +3780,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "SendMessage",
                 "query": [
@@ -3847,12 +3911,14 @@
                 "fieldPad": 15,
                 "ctor": "sendMessageBatchResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "SendMessageBatchResponse",
                 "resultWrapper": "SendMessageBatchResult",
                 "type": "record",
@@ -3939,6 +4005,7 @@
                 "fieldPad": 12,
                 "ctor": "sendMessageBatch",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3965,6 +4032,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "SendMessageBatch",
                 "query": [
@@ -4077,6 +4145,7 @@
                 "fieldPad": 14,
                 "ctor": "setQueueAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4103,6 +4172,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "SetQueueAttributes",
                 "query": [

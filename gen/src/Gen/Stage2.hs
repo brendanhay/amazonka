@@ -409,6 +409,8 @@ instance ToJSON Data where
                 , "field"       .= f
                 , "fields"      .= ([f] :: [Field])
                 , "fieldPad"    .= (0 :: Int)
+                , "contents"    .= filter (isNothing . _fLocation) [f]
+                , "contentPad"  .= (0 :: Int)
                 , "required"    .= req
                 , "optional"    .= opt
                 , "payload"     .= if _fPayload f then Just f else Nothing
@@ -423,12 +425,21 @@ instance ToJSON Data where
                 , "ctor"        .= constructor n
                 , "fields"      .= sort fs
                 , "fieldPad"    .= (maximum (map (Text.length . view nameOf) fs) + 1)
+                , "contents"    .= contents
+                , "contentPad"  .= contentPad
                 , "required"    .= req
                 , "optional"    .= opt
                 , "payload"     .= find _fPayload fs
                 ]
               where
                 (req, opt) = parameters fs
+
+                contentPad
+                    | [] <- contents = 0
+                    | otherwise      =
+                        maximum (map (Text.length . _fLocationName) contents) + 1
+
+                contents   = filter (isNothing . _fLocation) fs
 
 nestedTypes :: Data -> [Type]
 nestedTypes = concatMap universe . toListOf (dataFields . typesOf)

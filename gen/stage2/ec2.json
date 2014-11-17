@@ -388,8 +388,10 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "networkAclEntry",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NetworkAclEntry",
                 "type": "record",
                 "optional": [
@@ -616,8 +618,10 @@
                     "typeExposed": "Maybe Base64",
                     "type": "Maybe Base64"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "BlobAttributeValue",
                 "type": "newtype",
                 "optional": [
@@ -661,8 +665,10 @@
                 ],
                 "fieldPad": 38,
                 "ctor": "importInstanceLaunchSpecification",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ImportInstanceLaunchSpecification",
                 "type": "record",
                 "optional": [
@@ -986,8 +992,10 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "snapshot",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Snapshot",
                 "type": "record",
                 "optional": [
@@ -1312,8 +1320,10 @@
                 ],
                 "fieldPad": 12,
                 "ctor": "spotInstanceStateFault",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "SpotInstanceStateFault",
                 "type": "record",
                 "optional": [
@@ -1386,6 +1396,7 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "tagDescription",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1445,6 +1456,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "TagDescription",
                 "type": "record",
                 "optional": [],
@@ -1516,8 +1528,10 @@
                 ],
                 "fieldPad": 12,
                 "ctor": "groupIdentifier",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "GroupIdentifier",
                 "type": "record",
                 "optional": [
@@ -1605,8 +1619,10 @@
                 ],
                 "fieldPad": 30,
                 "ctor": "reservedInstancesListing",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedInstancesListing",
                 "type": "record",
                 "optional": [
@@ -1971,8 +1987,10 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "createVolumePermission",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CreateVolumePermission",
                 "type": "record",
                 "optional": [
@@ -2045,8 +2063,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "networkInterfaceAttachmentChanges",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NetworkInterfaceAttachmentChanges",
                 "type": "record",
                 "optional": [
@@ -2134,8 +2154,10 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "dhcpOptions",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "DhcpOptions",
                 "type": "record",
                 "optional": [
@@ -2235,8 +2257,10 @@
                 ],
                 "fieldPad": 35,
                 "ctor": "instanceNetworkInterfaceSpecification",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceNetworkInterfaceSpecification",
                 "type": "record",
                 "optional": [
@@ -2570,8 +2594,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AttributeValue",
                 "type": "newtype",
                 "optional": [
@@ -2616,6 +2642,7 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "privateIpAddressSpecification",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2633,6 +2660,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "PrivateIpAddressSpecification",
                 "type": "record",
                 "optional": [
@@ -2690,6 +2718,7 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "image",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2847,6 +2876,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Image",
                 "type": "record",
                 "optional": [
@@ -3324,8 +3354,10 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "dhcpConfiguration",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "DhcpConfiguration",
                 "type": "record",
                 "optional": [
@@ -3398,6 +3430,7 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -3429,6 +3462,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Tag",
                 "type": "record",
                 "optional": [],
@@ -3489,8 +3523,10 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "networkInterfaceAttachment",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NetworkInterfaceAttachment",
                 "type": "record",
                 "optional": [
@@ -3719,6 +3755,7 @@
                     "typeExposed": "Bool",
                     "type": "Bool"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -3736,6 +3773,7 @@
                         "type": "Bool"
                     }
                 ],
+                "contentPad": 0,
                 "name": "RunInstancesMonitoringEnabled",
                 "type": "newtype",
                 "optional": [],
@@ -3764,8 +3802,10 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "volumeStatusInfo",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VolumeStatusInfo",
                 "type": "record",
                 "optional": [
@@ -3838,8 +3878,10 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "networkInterfaceAssociation",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NetworkInterfaceAssociation",
                 "type": "record",
                 "optional": [
@@ -3995,8 +4037,10 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "createVolumePermissionModifications",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CreateVolumePermissionModifications",
                 "type": "record",
                 "optional": [
@@ -4151,8 +4195,10 @@
                 ],
                 "fieldPad": 8,
                 "ctor": "icmpTypeCode",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "IcmpTypeCode",
                 "type": "record",
                 "optional": [
@@ -4225,8 +4271,10 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "instanceCount",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceCount",
                 "type": "record",
                 "optional": [
@@ -4299,8 +4347,10 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "exportToS3Task",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ExportToS3Task",
                 "type": "record",
                 "optional": [
@@ -4428,6 +4478,7 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "blockDeviceMapping",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -4445,6 +4496,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "BlockDeviceMapping",
                 "type": "record",
                 "optional": [
@@ -4558,6 +4610,7 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "conversionTask",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -4589,6 +4642,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ConversionTask",
                 "type": "record",
                 "optional": [
@@ -4829,8 +4883,10 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "spotPrice",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "SpotPrice",
                 "type": "record",
                 "optional": [
@@ -4986,8 +5042,10 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "instanceMonitoring",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceMonitoring",
                 "type": "record",
                 "optional": [
@@ -5060,8 +5118,10 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "priceScheduleSpecification",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "PriceScheduleSpecification",
                 "type": "record",
                 "optional": [
@@ -5162,8 +5222,10 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "spotInstanceStatus",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "SpotInstanceStatus",
                 "type": "record",
                 "optional": [
@@ -5279,8 +5341,10 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "spotInstanceRequest",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "SpotInstanceRequest",
                 "type": "record",
                 "optional": [
@@ -5744,8 +5808,10 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "launchSpecification",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "LaunchSpecification",
                 "type": "record",
                 "optional": [
@@ -6182,8 +6248,10 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "volumeStatusEvent",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VolumeStatusEvent",
                 "type": "record",
                 "optional": [
@@ -6339,8 +6407,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "volume",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Volume",
                 "type": "record",
                 "optional": [
@@ -6664,8 +6734,10 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "reservation",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Reservation",
                 "type": "record",
                 "optional": [
@@ -6821,6 +6893,7 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "importInstanceVolumeDetailItem",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -6894,6 +6967,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ImportInstanceVolumeDetailItem",
                 "type": "record",
                 "optional": [
@@ -7054,8 +7128,10 @@
                 ],
                 "fieldPad": 35,
                 "ctor": "reservedInstancesModification",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedInstancesModification",
                 "type": "record",
                 "optional": [
@@ -7340,8 +7416,10 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "networkInterface",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NetworkInterface",
                 "type": "record",
                 "optional": [
@@ -7878,8 +7956,10 @@
                 ],
                 "fieldPad": 26,
                 "ctor": "subnet",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Subnet",
                 "type": "record",
                 "optional": [
@@ -8148,8 +8228,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "keyPairInfo",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "KeyPairInfo",
                 "type": "record",
                 "optional": [
@@ -8221,8 +8303,10 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "launchPermissionModifications",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "LaunchPermissionModifications",
                 "type": "record",
                 "optional": [
@@ -8313,8 +8397,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "instanceNetworkInterfaceAssociation",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceNetworkInterfaceAssociation",
                 "type": "record",
                 "optional": [
@@ -8415,6 +8501,7 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "diskImageDetail",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -8460,6 +8547,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "DiskImageDetail",
                 "type": "record",
                 "optional": [],
@@ -8516,8 +8604,10 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "instancePrivateIpAddress",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstancePrivateIpAddress",
                 "type": "record",
                 "optional": [
@@ -8646,8 +8736,10 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "cancelledSpotInstanceRequest",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CancelledSpotInstanceRequest",
                 "type": "record",
                 "optional": [
@@ -8735,8 +8827,10 @@
                     "typeExposed": "Maybe Bool",
                     "type": "Maybe Bool"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VpnConnectionOptionsSpecification",
                 "type": "newtype",
                 "optional": [
@@ -8781,8 +8875,10 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "address",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Address",
                 "type": "record",
                 "optional": [
@@ -9042,8 +9138,10 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "launchPermission",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "LaunchPermission",
                 "type": "record",
                 "optional": [
@@ -9133,8 +9231,10 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "routeTableAssociation",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "RouteTableAssociation",
                 "type": "record",
                 "optional": [
@@ -9285,8 +9385,10 @@
                 ],
                 "fieldPad": 7,
                 "ctor": "portRange",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "PortRange",
                 "type": "record",
                 "optional": [
@@ -9376,8 +9478,10 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "reservedInstancesConfiguration",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedInstancesConfiguration",
                 "type": "record",
                 "optional": [
@@ -9506,8 +9610,10 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "volumeStatusDetails",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VolumeStatusDetails",
                 "type": "record",
                 "optional": [
@@ -9615,8 +9721,10 @@
                     "typeExposed": "Maybe Bool",
                     "type": "Maybe Bool"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VpnConnectionOptions",
                 "type": "newtype",
                 "optional": [
@@ -9661,8 +9769,10 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "userIdGroupPair",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "UserIdGroupPair",
                 "type": "record",
                 "optional": [
@@ -9762,8 +9872,10 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "instanceStatusSummary",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceStatusSummary",
                 "type": "record",
                 "optional": [
@@ -9836,8 +9948,10 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "spotPlacement",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "SpotPlacement",
                 "type": "record",
                 "optional": [
@@ -9910,8 +10024,10 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "ebsInstanceBlockDeviceSpecification",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EbsInstanceBlockDeviceSpecification",
                 "type": "record",
                 "optional": [
@@ -9984,8 +10100,10 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "networkAclAssociation",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NetworkAclAssociation",
                 "type": "record",
                 "optional": [
@@ -10085,8 +10203,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "bundleTask",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "BundleTask",
                 "type": "record",
                 "optional": [
@@ -10327,8 +10447,10 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "instanceStatusEvent",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceStatusEvent",
                 "type": "record",
                 "optional": [
@@ -10510,8 +10632,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "route",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Route",
                 "type": "record",
                 "optional": [
@@ -10751,8 +10875,10 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "spotDatafeedSubscription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "SpotDatafeedSubscription",
                 "type": "record",
                 "optional": [
@@ -10923,8 +11049,10 @@
                     "typeExposed": "Maybe S3Storage",
                     "type": "Maybe S3Storage"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Storage",
                 "type": "newtype",
                 "optional": [
@@ -10968,6 +11096,7 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "securityGroup",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -11027,6 +11156,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "SecurityGroup",
                 "type": "record",
                 "optional": [
@@ -11249,8 +11379,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "reservedInstancesModificationResult",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedInstancesModificationResult",
                 "type": "record",
                 "optional": [
@@ -11322,8 +11454,10 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "instanceBlockDeviceMappingSpecification",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceBlockDeviceMappingSpecification",
                 "type": "record",
                 "optional": [
@@ -11470,8 +11604,10 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "volumeAttachment",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VolumeAttachment",
                 "type": "record",
                 "optional": [
@@ -11655,8 +11791,10 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "customerGateway",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CustomerGateway",
                 "type": "record",
                 "optional": [
@@ -11841,8 +11979,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "ebsInstanceBlockDevice",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EbsInstanceBlockDevice",
                 "type": "record",
                 "optional": [
@@ -11988,6 +12128,7 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "diskImageDescription",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -12033,6 +12174,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "DiskImageDescription",
                 "type": "record",
                 "optional": [
@@ -12119,6 +12261,7 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "diskImageVolumeDescription",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -12136,6 +12279,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "DiskImageVolumeDescription",
                 "type": "record",
                 "optional": [
@@ -12210,8 +12354,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Monitoring",
                 "type": "newtype",
                 "optional": [
@@ -12305,8 +12451,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AvailabilityZoneMessage",
                 "type": "newtype",
                 "optional": [
@@ -12351,8 +12499,10 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "vpcAttachment",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VpcAttachment",
                 "type": "record",
                 "optional": [
@@ -12424,8 +12574,10 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "instanceBlockDeviceMapping",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceBlockDeviceMapping",
                 "type": "record",
                 "optional": [
@@ -12516,8 +12668,10 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "exportToS3TaskSpecification",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ExportToS3TaskSpecification",
                 "type": "record",
                 "optional": [
@@ -12683,8 +12837,10 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "instanceExportDetails",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceExportDetails",
                 "type": "record",
                 "optional": [
@@ -12773,8 +12929,10 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "availabilityZone",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AvailabilityZone",
                 "type": "record",
                 "optional": [
@@ -12921,8 +13079,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "routeTable",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "RouteTable",
                 "type": "record",
                 "optional": [
@@ -13124,8 +13284,10 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "instanceStatusDetails",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceStatusDetails",
                 "type": "record",
                 "optional": [
@@ -13226,8 +13388,10 @@
                 ],
                 "fieldPad": 7,
                 "ctor": "iamInstanceProfile",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "IamInstanceProfile",
                 "type": "record",
                 "optional": [
@@ -13300,6 +13464,7 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "internetGatewayAttachment",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -13331,6 +13496,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "InternetGatewayAttachment",
                 "type": "record",
                 "optional": [],
@@ -13420,6 +13586,7 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "ipPermission",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -13465,6 +13632,7 @@
                         "type": "Int"
                     }
                 ],
+                "contentPad": 0,
                 "name": "IpPermission",
                 "type": "record",
                 "optional": [
@@ -13597,8 +13765,10 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "diskImage",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "DiskImage",
                 "type": "record",
                 "optional": [
@@ -13716,8 +13886,10 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "vpcPeeringConnectionStateReason",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VpcPeeringConnectionStateReason",
                 "type": "record",
                 "optional": [
@@ -13790,8 +13962,10 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "iamInstanceProfileSpecification",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "IamInstanceProfileSpecification",
                 "type": "record",
                 "optional": [
@@ -13863,6 +14037,7 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "importVolumeTaskDetails",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -13922,6 +14097,7 @@
                         "type": "DiskImageVolumeDescription"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ImportVolumeTaskDetails",
                 "type": "record",
                 "optional": [
@@ -14037,8 +14213,10 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "instanceNetworkInterface",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceNetworkInterface",
                 "type": "record",
                 "optional": [
@@ -14447,8 +14625,10 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "volumeStatusAction",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VolumeStatusAction",
                 "type": "record",
                 "optional": [
@@ -14577,8 +14757,10 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "vpcPeeringConnectionVpcInfo",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VpcPeeringConnectionVpcInfo",
                 "type": "record",
                 "optional": [
@@ -14679,8 +14861,10 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "reservedInstanceLimitPrice",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedInstanceLimitPrice",
                 "type": "record",
                 "optional": [
@@ -14752,8 +14936,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "vpc",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Vpc",
                 "type": "record",
                 "optional": [
@@ -14965,8 +15151,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "instanceStatus",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceStatus",
                 "type": "record",
                 "optional": [
@@ -15192,8 +15380,10 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "ebsBlockDevice",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EbsBlockDevice",
                 "type": "record",
                 "optional": [
@@ -15377,8 +15567,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "accountAttribute",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AccountAttribute",
                 "type": "record",
                 "optional": [
@@ -15451,8 +15643,10 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "priceSchedule",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "PriceSchedule",
                 "type": "record",
                 "optional": [
@@ -15615,8 +15809,10 @@
                 ],
                 "fieldPad": 12,
                 "ctor": "region",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Region",
                 "type": "record",
                 "optional": [
@@ -15705,8 +15901,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "PropagatingVgw",
                 "type": "newtype",
                 "optional": [
@@ -15768,8 +15966,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "vpnGateway",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VpnGateway",
                 "type": "record",
                 "optional": [
@@ -15954,6 +16154,7 @@
                 ],
                 "fieldPad": 8,
                 "ctor": "filter'",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -15971,6 +16172,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Filter",
                 "type": "record",
                 "optional": [
@@ -16046,8 +16248,10 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "instanceStateChange",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceStateChange",
                 "type": "record",
                 "optional": [
@@ -16147,8 +16351,10 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "networkAcl",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NetworkAcl",
                 "type": "record",
                 "optional": [
@@ -16366,8 +16572,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "instanceNetworkInterfaceAttachment",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceNetworkInterfaceAttachment",
                 "type": "record",
                 "optional": [
@@ -16539,8 +16747,10 @@
                     "typeExposed": "Maybe Bool",
                     "type": "Maybe Bool"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AttributeBooleanValue",
                 "type": "newtype",
                 "optional": [
@@ -16585,8 +16795,10 @@
                 ],
                 "fieldPad": 12,
                 "ctor": "recurringCharge",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "RecurringCharge",
                 "type": "record",
                 "optional": [
@@ -16659,8 +16871,10 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "newDhcpConfiguration",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NewDhcpConfiguration",
                 "type": "record",
                 "optional": [
@@ -16733,8 +16947,10 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "stateReason",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "StateReason",
                 "type": "record",
                 "optional": [
@@ -16841,8 +17057,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedInstancesId",
                 "type": "newtype",
                 "optional": [
@@ -16902,6 +17120,7 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "internetGateway",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -16919,6 +17138,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "InternetGateway",
                 "type": "record",
                 "optional": [
@@ -17038,8 +17258,10 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "importInstanceTaskDetails",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ImportInstanceTaskDetails",
                 "type": "record",
                 "optional": [
@@ -17168,8 +17390,10 @@
                 ],
                 "fieldPad": 12,
                 "ctor": "placementGroup",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "PlacementGroup",
                 "type": "record",
                 "optional": [
@@ -17270,8 +17494,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "productCode",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ProductCode",
                 "type": "record",
                 "optional": [
@@ -17380,6 +17606,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -17397,6 +17624,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "IpRange",
                 "type": "newtype",
                 "optional": [],
@@ -17460,8 +17688,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AccountAttributeValue",
                 "type": "newtype",
                 "optional": [
@@ -17524,8 +17754,10 @@
                 ],
                 "fieldPad": 31,
                 "ctor": "reservedInstancesOffering",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedInstancesOffering",
                 "type": "record",
                 "optional": [
@@ -17905,8 +18137,10 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "reservedInstances",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedInstances",
                 "type": "record",
                 "optional": [
@@ -18423,8 +18657,10 @@
                 ],
                 "fieldPad": 31,
                 "ctor": "vpnConnection",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VpnConnection",
                 "type": "record",
                 "optional": [
@@ -18721,6 +18957,7 @@
                 ],
                 "fieldPad": 7,
                 "ctor": "instanceState",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -18752,6 +18989,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "InstanceState",
                 "type": "record",
                 "optional": [],
@@ -18795,8 +19033,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "placement",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Placement",
                 "type": "record",
                 "optional": [
@@ -18933,8 +19173,10 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "vpcPeeringConnection",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VpcPeeringConnection",
                 "type": "record",
                 "optional": [
@@ -19118,8 +19360,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "s3Storage",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "S3Storage",
                 "type": "record",
                 "optional": [
@@ -19276,8 +19520,10 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "vgwTelemetry",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VgwTelemetry",
                 "type": "record",
                 "optional": [
@@ -19434,8 +19680,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "vpnStaticRoute",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VpnStaticRoute",
                 "type": "record",
                 "optional": [
@@ -19556,8 +19804,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "instance'",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Instance",
                 "type": "record",
                 "optional": [
@@ -20609,8 +20859,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "exportTask",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ExportTask",
                 "type": "record",
                 "optional": [
@@ -20810,8 +21062,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "requestSpotLaunchSpecification",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "RequestSpotLaunchSpecification",
                 "type": "record",
                 "optional": [
@@ -21295,6 +21549,7 @@
                     "typeExposed": "Integer",
                     "type": "Integer"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -21312,6 +21567,7 @@
                         "type": "Integer"
                     }
                 ],
+                "contentPad": 0,
                 "name": "VolumeDetail",
                 "type": "newtype",
                 "optional": [],
@@ -21341,8 +21597,10 @@
                 ],
                 "fieldPad": 8,
                 "ctor": "pricingDetail",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "PricingDetail",
                 "type": "record",
                 "optional": [
@@ -21414,8 +21672,10 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "networkInterfacePrivateIpAddress",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NetworkInterfacePrivateIpAddress",
                 "type": "record",
                 "optional": [
@@ -21562,8 +21822,10 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "bundleTaskError",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "BundleTaskError",
                 "type": "record",
                 "optional": [
@@ -21635,8 +21897,10 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "volumeStatusItem",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VolumeStatusItem",
                 "type": "record",
                 "optional": [
@@ -21818,12 +22082,14 @@
                     "typeExposed": "Maybe VpcPeeringConnection",
                     "type": "Maybe VpcPeeringConnection"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AcceptVpcPeeringConnectionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -21883,6 +22149,7 @@
                 "fieldPad": 27,
                 "ctor": "acceptVpcPeeringConnection",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -21894,6 +22161,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "AcceptVpcPeeringConnection",
                 "query": [
@@ -21987,12 +22255,14 @@
                 "fieldPad": 16,
                 "ctor": "allocateAddressResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AllocateAddressResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -22108,6 +22378,7 @@
                 "fieldPad": 9,
                 "ctor": "allocateAddress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -22119,6 +22390,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 7,
                 "name": "AllocateAddress",
                 "query": [
@@ -22246,6 +22518,7 @@
                 "fieldPad": 35,
                 "ctor": "assignPrivateIpAddresses",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -22272,6 +22545,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 31,
                 "name": "AssignPrivateIpAddresses",
                 "query": [
@@ -22433,12 +22707,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AssociateAddressResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -22498,6 +22774,7 @@
                 "fieldPad": 22,
                 "ctor": "associateAddress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -22509,6 +22786,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "AssociateAddress",
                 "query": [
@@ -22801,6 +23079,7 @@
                 "fieldPad": 17,
                 "ctor": "associateDhcpOptions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -22841,6 +23120,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "AssociateDhcpOptions",
                 "query": [
@@ -22955,12 +23235,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AssociateRouteTableResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -23020,6 +23302,7 @@
                 "fieldPad": 16,
                 "ctor": "associateRouteTable",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -23060,6 +23343,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "AssociateRouteTable",
                 "query": [
@@ -23192,6 +23476,7 @@
                 "fieldPad": 21,
                 "ctor": "attachInternetGateway",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -23232,6 +23517,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "AttachInternetGateway",
                 "query": [
@@ -23346,12 +23632,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AttachNetworkInterfaceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -23411,6 +23699,7 @@
                 "fieldPad": 22,
                 "ctor": "attachNetworkInterface",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -23465,6 +23754,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "AttachNetworkInterface",
                 "query": [
@@ -23582,12 +23872,14 @@
                 "fieldPad": 23,
                 "ctor": "attachVolumeResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AttachVolumeResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -23787,6 +24079,7 @@
                 "fieldPad": 13,
                 "ctor": "attachVolume",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -23841,6 +24134,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "AttachVolume",
                 "query": [
@@ -23972,12 +24266,14 @@
                     "typeExposed": "Maybe VpcAttachment",
                     "type": "Maybe VpcAttachment"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AttachVpnGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -24037,6 +24333,7 @@
                 "fieldPad": 16,
                 "ctor": "attachVpnGateway",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -24077,6 +24374,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "AttachVpnGateway",
                 "query": [
@@ -24208,6 +24506,7 @@
                 "fieldPad": 31,
                 "ctor": "authorizeSecurityGroupEgress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -24234,6 +24533,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "AuthorizeSecurityGroupEgress",
                 "query": [
@@ -24577,6 +24877,7 @@
                 "fieldPad": 31,
                 "ctor": "authorizeSecurityGroupIngress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -24588,6 +24889,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "AuthorizeSecurityGroupIngress",
                 "query": [
@@ -24959,12 +25261,14 @@
                     "typeExposed": "Maybe BundleTask",
                     "type": "Maybe BundleTask"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "BundleInstanceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -25023,6 +25327,7 @@
                 "fieldPad": 13,
                 "ctor": "bundleInstance",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -25063,6 +25368,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "BundleInstance",
                 "query": [
@@ -25175,12 +25481,14 @@
                     "typeExposed": "Maybe BundleTask",
                     "type": "Maybe BundleTask"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CancelBundleTaskResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -25240,6 +25548,7 @@
                 "fieldPad": 12,
                 "ctor": "cancelBundleTask",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -25266,6 +25575,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "CancelBundleTask",
                 "query": [
@@ -25379,6 +25689,7 @@
                 "fieldPad": 20,
                 "ctor": "cancelConversionTask",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -25405,6 +25716,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "CancelConversionTask",
                 "query": [
@@ -25568,6 +25880,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -25594,6 +25907,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "CancelExportTask",
                 "query": [
@@ -25655,12 +25969,14 @@
                     "typeExposed": "[ReservedInstancesListing]",
                     "type": "[ReservedInstancesListing]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CancelReservedInstancesListingResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -25737,6 +26053,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -25763,6 +26080,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "CancelReservedInstancesListing",
                 "query": [
@@ -25824,12 +26142,14 @@
                     "typeExposed": "[CancelledSpotInstanceRequest]",
                     "type": "[CancelledSpotInstanceRequest]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CancelSpotInstanceRequestsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -25889,6 +26209,7 @@
                 "fieldPad": 27,
                 "ctor": "cancelSpotInstanceRequests",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -25900,6 +26221,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "CancelSpotInstanceRequests",
                 "query": [
@@ -26009,12 +26331,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ConfirmProductInstanceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -26074,6 +26398,7 @@
                 "fieldPad": 15,
                 "ctor": "confirmProductInstance",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -26114,6 +26439,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "ConfirmProductInstance",
                 "query": [
@@ -26228,12 +26554,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CopyImageResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -26293,6 +26621,7 @@
                 "fieldPad": 16,
                 "ctor": "copyImage",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -26347,6 +26676,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "CopyImage",
                 "query": [
@@ -26546,12 +26876,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CopySnapshotResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -26611,6 +26943,7 @@
                 "fieldPad": 20,
                 "ctor": "copySnapshot",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -26651,6 +26984,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "CopySnapshot",
                 "query": [
@@ -26862,12 +27196,14 @@
                     "typeExposed": "Maybe CustomerGateway",
                     "type": "Maybe CustomerGateway"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateCustomerGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -26927,6 +27263,7 @@
                 "fieldPad": 12,
                 "ctor": "createCustomerGateway",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -26981,6 +27318,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "CreateCustomerGateway",
                 "query": [
@@ -27112,12 +27450,14 @@
                     "typeExposed": "Maybe DhcpOptions",
                     "type": "Maybe DhcpOptions"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateDhcpOptionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -27176,6 +27516,7 @@
                 "fieldPad": 22,
                 "ctor": "createDhcpOptions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -27187,6 +27528,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "CreateDhcpOptions",
                 "query": [
@@ -27296,12 +27638,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateImageResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -27360,6 +27704,7 @@
                 "fieldPad": 23,
                 "ctor": "createImage",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -27400,6 +27745,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "CreateImage",
                 "query": [
@@ -27611,12 +27957,14 @@
                     "typeExposed": "Maybe ExportTask",
                     "type": "Maybe ExportTask"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateInstanceExportTaskResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -27675,6 +28023,7 @@
                 "fieldPad": 22,
                 "ctor": "createInstanceExportTask",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -27701,6 +28050,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "CreateInstanceExportTask",
                 "query": [
@@ -27860,12 +28210,14 @@
                     "typeExposed": "Maybe InternetGateway",
                     "type": "Maybe InternetGateway"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateInternetGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -27940,6 +28292,7 @@
                     "typeExposed": "Maybe Bool",
                     "type": "Maybe Bool"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -27951,6 +28304,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 7,
                 "name": "CreateInternetGateway",
                 "query": [
@@ -28011,12 +28365,14 @@
                 "fieldPad": 19,
                 "ctor": "createKeyPairResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateKeyPairResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -28132,6 +28488,7 @@
                 "fieldPad": 11,
                 "ctor": "createKeyPair",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -28158,6 +28515,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 8,
                 "name": "CreateKeyPair",
                 "query": [
@@ -28251,12 +28609,14 @@
                     "typeExposed": "Maybe NetworkAcl",
                     "type": "Maybe NetworkAcl"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateNetworkAclResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -28316,6 +28676,7 @@
                 "fieldPad": 10,
                 "ctor": "createNetworkAcl",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -28342,6 +28703,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 7,
                 "name": "CreateNetworkAcl",
                 "query": [
@@ -28454,6 +28816,7 @@
                 "fieldPad": 17,
                 "ctor": "createNetworkAclEntry",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -28550,6 +28913,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "CreateNetworkAclEntry",
                 "query": [
@@ -28804,12 +29168,14 @@
                     "typeExposed": "Maybe NetworkInterface",
                     "type": "Maybe NetworkInterface"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateNetworkInterfaceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -28868,6 +29234,7 @@
                 "fieldPad": 34,
                 "ctor": "createNetworkInterface",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -28894,6 +29261,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 31,
                 "name": "CreateNetworkInterface",
                 "query": [
@@ -29172,6 +29540,7 @@
                 "fieldPad": 13,
                 "ctor": "createPlacementGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -29212,6 +29581,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "CreatePlacementGroup",
                 "query": [
@@ -29326,12 +29696,14 @@
                     "typeExposed": "[ReservedInstancesListing]",
                     "type": "[ReservedInstancesListing]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateReservedInstancesListingResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -29390,6 +29762,7 @@
                 "fieldPad": 24,
                 "ctor": "createReservedInstancesListing",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -29444,6 +29817,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "CreateReservedInstancesListing",
                 "query": [
@@ -29595,6 +29969,7 @@
                 "fieldPad": 25,
                 "ctor": "createRoute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -29635,6 +30010,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "CreateRoute",
                 "query": [
@@ -29879,12 +30255,14 @@
                     "typeExposed": "Maybe RouteTable",
                     "type": "Maybe RouteTable"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateRouteTableResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -29944,6 +30322,7 @@
                 "fieldPad": 10,
                 "ctor": "createRouteTable",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -29970,6 +30349,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 7,
                 "name": "CreateRouteTable",
                 "query": [
@@ -30065,12 +30445,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateSecurityGroupResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -30130,6 +30512,7 @@
                 "fieldPad": 15,
                 "ctor": "createSecurityGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -30170,6 +30553,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "CreateSecurityGroup",
                 "query": [
@@ -30300,12 +30684,14 @@
                 "fieldPad": 16,
                 "ctor": "createSnapshotResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateSnapshotResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -30645,6 +31031,7 @@
                 "fieldPad": 15,
                 "ctor": "createSnapshot",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -30671,6 +31058,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "CreateSnapshot",
                 "query": [
@@ -30797,12 +31185,14 @@
                     "typeExposed": "Maybe SpotDatafeedSubscription",
                     "type": "Maybe SpotDatafeedSubscription"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateSpotDatafeedSubscriptionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -30862,6 +31252,7 @@
                 "fieldPad": 11,
                 "ctor": "createSpotDatafeedSubscription",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -30888,6 +31279,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 7,
                 "name": "CreateSpotDatafeedSubscription",
                 "query": [
@@ -31014,12 +31406,14 @@
                     "typeExposed": "Maybe Subnet",
                     "type": "Maybe Subnet"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateSubnetResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -31079,6 +31473,7 @@
                 "fieldPad": 20,
                 "ctor": "createSubnet",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -31119,6 +31514,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "CreateSubnet",
                 "query": [
@@ -31283,6 +31679,7 @@
                 "fieldPad": 13,
                 "ctor": "createTags",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -31294,6 +31691,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "CreateTags",
                 "query": [
@@ -31419,12 +31817,14 @@
                 "fieldPad": 20,
                 "ctor": "createVolumeResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateVolumeResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -31764,6 +32164,7 @@
                 "fieldPad": 20,
                 "ctor": "createVolume",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -31790,6 +32191,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "CreateVolume",
                 "query": [
@@ -32048,12 +32450,14 @@
                     "typeExposed": "Maybe Vpc",
                     "type": "Maybe Vpc"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateVpcResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -32113,6 +32517,7 @@
                 "fieldPad": 18,
                 "ctor": "createVpc",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -32139,6 +32544,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "CreateVpc",
                 "query": [
@@ -32265,12 +32671,14 @@
                     "typeExposed": "Maybe VpcPeeringConnection",
                     "type": "Maybe VpcPeeringConnection"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateVpcPeeringConnectionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -32330,6 +32738,7 @@
                 "fieldPad": 16,
                 "ctor": "createVpcPeeringConnection",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -32341,6 +32750,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "CreateVpcPeeringConnection",
                 "query": [
@@ -32514,12 +32924,14 @@
                     "typeExposed": "Maybe VpnConnection",
                     "type": "Maybe VpnConnection"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateVpnConnectionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -32578,6 +32990,7 @@
                 "fieldPad": 21,
                 "ctor": "createVpnConnection",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -32632,6 +33045,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "CreateVpnConnection",
                 "query": [
@@ -32816,6 +33230,7 @@
                 "fieldPad": 25,
                 "ctor": "createVpnConnectionRoute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -32856,6 +33271,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "CreateVpnConnectionRoute",
                 "query": [
@@ -32934,12 +33350,14 @@
                     "typeExposed": "Maybe VpnGateway",
                     "type": "Maybe VpnGateway"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateVpnGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -32999,6 +33417,7 @@
                 "fieldPad": 20,
                 "ctor": "createVpnGateway",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -33025,6 +33444,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "CreateVpnGateway",
                 "query": [
@@ -33171,6 +33591,7 @@
                 "fieldPad": 22,
                 "ctor": "deleteCustomerGateway",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -33197,6 +33618,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DeleteCustomerGateway",
                 "query": [
@@ -33310,6 +33732,7 @@
                 "fieldPad": 18,
                 "ctor": "deleteDhcpOptions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -33336,6 +33759,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "DeleteDhcpOptions",
                 "query": [
@@ -33449,6 +33873,7 @@
                 "fieldPad": 22,
                 "ctor": "deleteInternetGateway",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -33475,6 +33900,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DeleteInternetGateway",
                 "query": [
@@ -33588,6 +34014,7 @@
                 "fieldPad": 11,
                 "ctor": "deleteKeyPair",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -33614,6 +34041,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 8,
                 "name": "DeleteKeyPair",
                 "query": [
@@ -33727,6 +34155,7 @@
                 "fieldPad": 16,
                 "ctor": "deleteNetworkAcl",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -33753,6 +34182,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DeleteNetworkAcl",
                 "query": [
@@ -33866,6 +34296,7 @@
                 "fieldPad": 17,
                 "ctor": "deleteNetworkAclEntry",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -33920,6 +34351,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DeleteNetworkAclEntry",
                 "query": [
@@ -34071,6 +34503,7 @@
                 "fieldPad": 23,
                 "ctor": "deleteNetworkInterface",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -34097,6 +34530,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DeleteNetworkInterface",
                 "query": [
@@ -34210,6 +34644,7 @@
                 "fieldPad": 13,
                 "ctor": "deletePlacementGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -34236,6 +34671,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "DeletePlacementGroup",
                 "query": [
@@ -34349,6 +34785,7 @@
                 "fieldPad": 23,
                 "ctor": "deleteRoute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -34389,6 +34826,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DeleteRoute",
                 "query": [
@@ -34521,6 +34959,7 @@
                 "fieldPad": 17,
                 "ctor": "deleteRouteTable",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -34547,6 +34986,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DeleteRouteTable",
                 "query": [
@@ -34660,6 +35100,7 @@
                 "fieldPad": 13,
                 "ctor": "deleteSecurityGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -34671,6 +35112,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "DeleteSecurityGroup",
                 "query": [
@@ -34831,6 +35273,7 @@
                 "fieldPad": 14,
                 "ctor": "deleteSnapshot",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -34857,6 +35300,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DeleteSnapshot",
                 "query": [
@@ -34985,6 +35429,7 @@
                     "typeExposed": "Maybe Bool",
                     "type": "Maybe Bool"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -34996,6 +35441,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 7,
                 "name": "DeleteSpotDatafeedSubscription",
                 "query": [
@@ -35090,6 +35536,7 @@
                 "fieldPad": 12,
                 "ctor": "deleteSubnet",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -35116,6 +35563,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "DeleteSubnet",
                 "query": [
@@ -35228,6 +35676,7 @@
                 "fieldPad": 13,
                 "ctor": "deleteTags",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -35239,6 +35688,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DeleteTags",
                 "query": [
@@ -35399,6 +35849,7 @@
                 "fieldPad": 12,
                 "ctor": "deleteVolume",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -35425,6 +35876,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "DeleteVolume",
                 "query": [
@@ -35538,6 +35990,7 @@
                 "fieldPad": 10,
                 "ctor": "deleteVpc",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -35564,6 +36017,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 7,
                 "name": "DeleteVpc",
                 "query": [
@@ -35658,12 +36112,14 @@
                     "typeExposed": "Maybe Bool",
                     "type": "Maybe Bool"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteVpcPeeringConnectionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -35723,6 +36179,7 @@
                 "fieldPad": 27,
                 "ctor": "deleteVpcPeeringConnection",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -35749,6 +36206,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "DeleteVpcPeeringConnection",
                 "query": [
@@ -35862,6 +36320,7 @@
                 "fieldPad": 19,
                 "ctor": "deleteVpnConnection",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -35888,6 +36347,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DeleteVpnConnection",
                 "query": [
@@ -36001,6 +36461,7 @@
                 "fieldPad": 25,
                 "ctor": "deleteVpnConnectionRoute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -36041,6 +36502,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DeleteVpnConnectionRoute",
                 "query": [
@@ -36139,6 +36601,7 @@
                 "fieldPad": 16,
                 "ctor": "deleteVpnGateway",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -36165,6 +36628,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DeleteVpnGateway",
                 "query": [
@@ -36278,6 +36742,7 @@
                 "fieldPad": 10,
                 "ctor": "deregisterImage",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -36304,6 +36769,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 8,
                 "name": "DeregisterImage",
                 "query": [
@@ -36399,12 +36865,14 @@
                     "typeExposed": "[AccountAttribute]",
                     "type": "[AccountAttribute]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAccountAttributesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -36464,6 +36932,7 @@
                 "fieldPad": 18,
                 "ctor": "describeAccountAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -36475,6 +36944,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "DescribeAccountAttributes",
                 "query": [
@@ -36584,12 +37054,14 @@
                     "typeExposed": "[Address]",
                     "type": "[Address]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAddressesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -36648,6 +37120,7 @@
                 "fieldPad": 16,
                 "ctor": "describeAddresses",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -36659,6 +37132,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DescribeAddresses",
                 "query": [
@@ -36834,12 +37308,14 @@
                     "typeExposed": "[AvailabilityZone]",
                     "type": "[AvailabilityZone]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAvailabilityZonesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -36898,6 +37374,7 @@
                 "fieldPad": 13,
                 "ctor": "describeAvailabilityZones",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -36909,6 +37386,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "DescribeAvailabilityZones",
                 "query": [
@@ -37051,12 +37529,14 @@
                     "typeExposed": "[BundleTask]",
                     "type": "[BundleTask]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeBundleTasksResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -37115,6 +37595,7 @@
                 "fieldPad": 13,
                 "ctor": "describeBundleTasks",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -37126,6 +37607,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "DescribeBundleTasks",
                 "query": [
@@ -37268,12 +37750,14 @@
                     "typeExposed": "[ConversionTask]",
                     "type": "[ConversionTask]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeConversionTasksResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -37332,6 +37816,7 @@
                 "fieldPad": 21,
                 "ctor": "describeConversionTasks",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -37343,6 +37828,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "DescribeConversionTasks",
                 "query": [
@@ -37485,12 +37971,14 @@
                     "typeExposed": "[CustomerGateway]",
                     "type": "[CustomerGateway]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeCustomerGatewaysResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -37549,6 +38037,7 @@
                 "fieldPad": 22,
                 "ctor": "describeCustomerGateways",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -37560,6 +38049,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DescribeCustomerGateways",
                 "query": [
@@ -37702,12 +38192,14 @@
                     "typeExposed": "[DhcpOptions]",
                     "type": "[DhcpOptions]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeDhcpOptionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -37766,6 +38258,7 @@
                 "fieldPad": 18,
                 "ctor": "describeDhcpOptions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -37777,6 +38270,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "DescribeDhcpOptions",
                 "query": [
@@ -37919,12 +38413,14 @@
                     "typeExposed": "[ExportTask]",
                     "type": "[ExportTask]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeExportTasksResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -38001,6 +38497,7 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -38012,6 +38509,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DescribeExportTasks",
                 "query": [
@@ -38071,12 +38569,14 @@
                 "fieldPad": 24,
                 "ctor": "describeImageAttributeResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeImageAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -38332,6 +38832,7 @@
                 "fieldPad": 14,
                 "ctor": "describeImageAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -38372,6 +38873,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "DescribeImageAttribute",
                 "query": [
@@ -38486,12 +38988,14 @@
                     "typeExposed": "[Image]",
                     "type": "[Image]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeImagesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -38550,6 +39054,7 @@
                 "fieldPad": 19,
                 "ctor": "describeImages",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -38561,6 +39066,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DescribeImages",
                 "query": [
@@ -38752,12 +39258,14 @@
                 "fieldPad": 39,
                 "ctor": "describeInstanceAttributeResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeInstanceAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -39181,6 +39689,7 @@
                 "fieldPad": 14,
                 "ctor": "describeInstanceAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -39221,6 +39730,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeInstanceAttribute",
                 "query": [
@@ -39318,12 +39828,14 @@
                 "fieldPad": 21,
                 "ctor": "describeInstanceStatusResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeInstanceStatusResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -39418,6 +39930,7 @@
                 "fieldPad": 23,
                 "ctor": "describeInstanceStatus",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -39429,6 +39942,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "DescribeInstanceStatus",
                 "query": [
@@ -39653,12 +40167,14 @@
                 "fieldPad": 16,
                 "ctor": "describeInstancesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeInstancesResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -39753,6 +40269,7 @@
                 "fieldPad": 15,
                 "ctor": "describeInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -39764,6 +40281,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeInstances",
                 "query": [
@@ -39972,12 +40490,14 @@
                     "typeExposed": "[InternetGateway]",
                     "type": "[InternetGateway]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeInternetGatewaysResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -40036,6 +40556,7 @@
                 "fieldPad": 23,
                 "ctor": "describeInternetGateways",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -40047,6 +40568,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DescribeInternetGateways",
                 "query": [
@@ -40189,12 +40711,14 @@
                     "typeExposed": "[KeyPairInfo]",
                     "type": "[KeyPairInfo]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeKeyPairsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -40253,6 +40777,7 @@
                 "fieldPad": 13,
                 "ctor": "describeKeyPairs",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -40264,6 +40789,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 8,
                 "name": "DescribeKeyPairs",
                 "query": [
@@ -40406,12 +40932,14 @@
                     "typeExposed": "[NetworkAcl]",
                     "type": "[NetworkAcl]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeNetworkAclsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -40470,6 +40998,7 @@
                 "fieldPad": 18,
                 "ctor": "describeNetworkAcls",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -40481,6 +41010,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DescribeNetworkAcls",
                 "query": [
@@ -40606,12 +41136,14 @@
                 "fieldPad": 24,
                 "ctor": "describeNetworkInterfaceAttributeResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeNetworkInterfaceAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -40783,6 +41315,7 @@
                 "fieldPad": 23,
                 "ctor": "describeNetworkInterfaceAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -40809,6 +41342,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DescribeNetworkInterfaceAttribute",
                 "query": [
@@ -40937,12 +41471,14 @@
                     "typeExposed": "[NetworkInterface]",
                     "type": "[NetworkInterface]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeNetworkInterfacesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -41001,6 +41537,7 @@
                 "fieldPad": 24,
                 "ctor": "describeNetworkInterfaces",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -41012,6 +41549,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DescribeNetworkInterfaces",
                 "query": [
@@ -41154,12 +41692,14 @@
                     "typeExposed": "[PlacementGroup]",
                     "type": "[PlacementGroup]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribePlacementGroupsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -41218,6 +41758,7 @@
                 "fieldPad": 15,
                 "ctor": "describePlacementGroups",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -41229,6 +41770,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "DescribePlacementGroups",
                 "query": [
@@ -41371,12 +41913,14 @@
                     "typeExposed": "[Region]",
                     "type": "[Region]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeRegionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -41435,6 +41979,7 @@
                 "fieldPad": 15,
                 "ctor": "describeRegions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -41446,6 +41991,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeRegions",
                 "query": [
@@ -41588,12 +42134,14 @@
                     "typeExposed": "[ReservedInstances]",
                     "type": "[ReservedInstances]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeReservedInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -41652,6 +42200,7 @@
                 "fieldPad": 24,
                 "ctor": "describeReservedInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -41663,6 +42212,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "DescribeReservedInstances",
                 "query": [
@@ -41838,12 +42388,14 @@
                     "typeExposed": "[ReservedInstancesListing]",
                     "type": "[ReservedInstancesListing]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeReservedInstancesListingsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -41902,6 +42454,7 @@
                 "fieldPad": 31,
                 "ctor": "describeReservedInstancesListings",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -41913,6 +42466,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "DescribeReservedInstancesListings",
                 "query": [
@@ -42038,12 +42592,14 @@
                 "fieldPad": 36,
                 "ctor": "describeReservedInstancesModificationsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeReservedInstancesModificationsResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -42138,6 +42694,7 @@
                 "fieldPad": 37,
                 "ctor": "describeReservedInstancesModifications",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -42149,6 +42706,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 32,
                 "name": "DescribeReservedInstancesModifications",
                 "query": [
@@ -42274,12 +42832,14 @@
                 "fieldPad": 32,
                 "ctor": "describeReservedInstancesOfferingsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeReservedInstancesOfferingsResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -42374,6 +42934,7 @@
                 "fieldPad": 33,
                 "ctor": "describeReservedInstancesOfferings",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -42385,6 +42946,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 28,
                 "name": "DescribeReservedInstancesOfferings",
                 "query": [
@@ -42890,12 +43452,14 @@
                     "typeExposed": "[RouteTable]",
                     "type": "[RouteTable]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeRouteTablesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -42954,6 +43518,7 @@
                 "fieldPad": 18,
                 "ctor": "describeRouteTables",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -42965,6 +43530,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DescribeRouteTables",
                 "query": [
@@ -43107,12 +43673,14 @@
                     "typeExposed": "[SecurityGroup]",
                     "type": "[SecurityGroup]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeSecurityGroupsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -43171,6 +43739,7 @@
                 "fieldPad": 15,
                 "ctor": "describeSecurityGroups",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -43182,6 +43751,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "DescribeSecurityGroups",
                 "query": [
@@ -43340,12 +43910,14 @@
                 "fieldPad": 28,
                 "ctor": "describeSnapshotAttributeResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeSnapshotAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -43461,6 +44033,7 @@
                 "fieldPad": 14,
                 "ctor": "describeSnapshotAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -43501,6 +44074,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeSnapshotAttribute",
                 "query": [
@@ -43615,12 +44189,14 @@
                     "typeExposed": "[Snapshot]",
                     "type": "[Snapshot]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeSnapshotsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -43679,6 +44255,7 @@
                 "fieldPad": 23,
                 "ctor": "describeSnapshots",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -43690,6 +44267,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DescribeSnapshots",
                 "query": [
@@ -43896,12 +44474,14 @@
                     "typeExposed": "Maybe SpotDatafeedSubscription",
                     "type": "Maybe SpotDatafeedSubscription"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeSpotDatafeedSubscriptionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -43976,6 +44556,7 @@
                     "typeExposed": "Maybe Bool",
                     "type": "Maybe Bool"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -43987,6 +44568,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 7,
                 "name": "DescribeSpotDatafeedSubscription",
                 "query": [
@@ -44063,12 +44645,14 @@
                     "typeExposed": "[SpotInstanceRequest]",
                     "type": "[SpotInstanceRequest]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeSpotInstanceRequestsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -44127,6 +44711,7 @@
                 "fieldPad": 27,
                 "ctor": "describeSpotInstanceRequests",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -44138,6 +44723,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "DescribeSpotInstanceRequests",
                 "query": [
@@ -44263,12 +44849,14 @@
                 "fieldPad": 22,
                 "ctor": "describeSpotPriceHistoryResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeSpotPriceHistoryResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -44363,6 +44951,7 @@
                 "fieldPad": 24,
                 "ctor": "describeSpotPriceHistory",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -44374,6 +44963,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DescribeSpotPriceHistory",
                 "query": [
@@ -44714,12 +45304,14 @@
                     "typeExposed": "[Subnet]",
                     "type": "[Subnet]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeSubnetsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -44778,6 +45370,7 @@
                 "fieldPad": 12,
                 "ctor": "describeSubnets",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -44789,6 +45382,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "DescribeSubnets",
                 "query": [
@@ -44914,12 +45508,14 @@
                 "fieldPad": 13,
                 "ctor": "describeTagsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeTagsResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -45014,6 +45610,7 @@
                 "fieldPad": 13,
                 "ctor": "describeTags",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -45025,6 +45622,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeTags",
                 "query": [
@@ -45183,12 +45781,14 @@
                 "fieldPad": 17,
                 "ctor": "describeVolumeAttributeResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeVolumeAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -45304,6 +45904,7 @@
                 "fieldPad": 13,
                 "ctor": "describeVolumeAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -45330,6 +45931,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "DescribeVolumeAttribute",
                 "query": [
@@ -45441,12 +46043,14 @@
                 "fieldPad": 19,
                 "ctor": "describeVolumeStatusResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeVolumeStatusResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -45541,6 +46145,7 @@
                 "fieldPad": 14,
                 "ctor": "describeVolumeStatus",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -45552,6 +46157,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeVolumeStatus",
                 "query": [
@@ -45743,12 +46349,14 @@
                 "fieldPad": 13,
                 "ctor": "describeVolumesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeVolumesResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -45835,6 +46443,7 @@
                 "fieldPad": 14,
                 "ctor": "describeVolumes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -45846,6 +46455,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeVolumes",
                 "query": [
@@ -46037,12 +46647,14 @@
                 "fieldPad": 23,
                 "ctor": "describeVpcAttributeResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeVpcAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -46158,6 +46770,7 @@
                 "fieldPad": 14,
                 "ctor": "describeVpcAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -46184,6 +46797,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "DescribeVpcAttribute",
                 "query": [
@@ -46312,12 +46926,14 @@
                     "typeExposed": "[VpcPeeringConnection]",
                     "type": "[VpcPeeringConnection]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeVpcPeeringConnectionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -46376,6 +46992,7 @@
                 "fieldPad": 29,
                 "ctor": "describeVpcPeeringConnections",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -46387,6 +47004,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "DescribeVpcPeeringConnections",
                 "query": [
@@ -46529,12 +47147,14 @@
                     "typeExposed": "[Vpc]",
                     "type": "[Vpc]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeVpcsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -46593,6 +47213,7 @@
                 "fieldPad": 11,
                 "ctor": "describeVpcs",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -46604,6 +47225,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 7,
                 "name": "DescribeVpcs",
                 "query": [
@@ -46746,12 +47368,14 @@
                     "typeExposed": "[VpnConnection]",
                     "type": "[VpnConnection]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeVpnConnectionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -46810,6 +47434,7 @@
                 "fieldPad": 21,
                 "ctor": "describeVpnConnections",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -46821,6 +47446,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DescribeVpnConnections",
                 "query": [
@@ -46963,12 +47589,14 @@
                     "typeExposed": "[VpnGateway]",
                     "type": "[VpnGateway]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeVpnGatewaysResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -47027,6 +47655,7 @@
                 "fieldPad": 18,
                 "ctor": "describeVpnGateways",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -47038,6 +47667,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DescribeVpnGateways",
                 "query": [
@@ -47198,6 +47828,7 @@
                 "fieldPad": 21,
                 "ctor": "detachInternetGateway",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -47238,6 +47869,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DetachInternetGateway",
                 "query": [
@@ -47370,6 +48002,7 @@
                 "fieldPad": 16,
                 "ctor": "detachNetworkInterface",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -47396,6 +48029,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DetachNetworkInterface",
                 "query": [
@@ -47508,12 +48142,14 @@
                 "fieldPad": 23,
                 "ctor": "detachVolumeResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DetachVolumeResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -47713,6 +48349,7 @@
                 "fieldPad": 13,
                 "ctor": "detachVolume",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -47739,6 +48376,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DetachVolume",
                 "query": [
@@ -47951,6 +48589,7 @@
                 "fieldPad": 17,
                 "ctor": "detachVpnGateway",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -47991,6 +48630,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DetachVpnGateway",
                 "query": [
@@ -48123,6 +48763,7 @@
                 "fieldPad": 17,
                 "ctor": "disableVgwRoutePropagation",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -48163,6 +48804,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DisableVgwRoutePropagation",
                 "query": [
@@ -48261,6 +48903,7 @@
                 "fieldPad": 17,
                 "ctor": "disassociateAddress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -48272,6 +48915,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "DisassociateAddress",
                 "query": [
@@ -48432,6 +49076,7 @@
                 "fieldPad": 17,
                 "ctor": "disassociateRouteTable",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -48458,6 +49103,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "DisassociateRouteTable",
                 "query": [
@@ -48571,6 +49217,7 @@
                 "fieldPad": 17,
                 "ctor": "enableVgwRoutePropagation",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -48611,6 +49258,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "EnableVgwRoutePropagation",
                 "query": [
@@ -48709,6 +49357,7 @@
                 "fieldPad": 13,
                 "ctor": "enableVolumeIO",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -48735,6 +49384,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "EnableVolumeIO",
                 "query": [
@@ -48814,12 +49464,14 @@
                 "fieldPad": 15,
                 "ctor": "getConsoleOutputResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetConsoleOutputResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -48935,6 +49587,7 @@
                 "fieldPad": 14,
                 "ctor": "getConsoleOutput",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -48961,6 +49614,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "GetConsoleOutput",
                 "query": [
@@ -49040,12 +49694,14 @@
                 "fieldPad": 17,
                 "ctor": "getPasswordDataResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetPasswordDataResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -49161,6 +49817,7 @@
                 "fieldPad": 14,
                 "ctor": "getPasswordData",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -49187,6 +49844,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "GetPasswordData",
                 "query": [
@@ -49280,12 +49938,14 @@
                     "typeExposed": "Maybe ConversionTask",
                     "type": "Maybe ConversionTask"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ImportInstanceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -49344,6 +50004,7 @@
                 "fieldPad": 22,
                 "ctor": "importInstance",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -49370,6 +50031,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "ImportInstance",
                 "query": [
@@ -49548,12 +50210,14 @@
                 "fieldPad": 19,
                 "ctor": "importKeyPairResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ImportKeyPairResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -49640,6 +50304,7 @@
                 "fieldPad": 21,
                 "ctor": "importKeyPair",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -49680,6 +50345,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "ImportKeyPair",
                 "query": [
@@ -49792,12 +50458,14 @@
                     "typeExposed": "Maybe ConversionTask",
                     "type": "Maybe ConversionTask"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ImportVolumeResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -49856,6 +50524,7 @@
                 "fieldPad": 19,
                 "ctor": "importVolume",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -49910,6 +50579,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "ImportVolume",
                 "query": [
@@ -50093,6 +50763,7 @@
                 "fieldPad": 20,
                 "ctor": "modifyImageAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -50119,6 +50790,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "ModifyImageAttribute",
                 "query": [
@@ -50495,6 +51167,7 @@
                 "fieldPad": 38,
                 "ctor": "modifyInstanceAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -50521,6 +51194,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 34,
                 "name": "ModifyInstanceAttribute",
                 "query": [
@@ -51062,6 +51736,7 @@
                 "fieldPad": 23,
                 "ctor": "modifyNetworkInterfaceAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -51088,6 +51763,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "ModifyNetworkInterfaceAttribute",
                 "query": [
@@ -51315,12 +51991,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ModifyReservedInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -51379,6 +52057,7 @@
                 "fieldPad": 24,
                 "ctor": "modifyReservedInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -51390,6 +52069,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 42,
                 "name": "ModifyReservedInstances",
                 "query": [
@@ -51549,6 +52229,7 @@
                 "fieldPad": 26,
                 "ctor": "modifySnapshotAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -51575,6 +52256,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "ModifySnapshotAttribute",
                 "query": [
@@ -51852,6 +52534,7 @@
                 "fieldPad": 23,
                 "ctor": "modifySubnetAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -51878,6 +52561,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "ModifySubnetAttribute",
                 "query": [
@@ -51990,6 +52674,7 @@
                 "fieldPad": 16,
                 "ctor": "modifyVolumeAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -52016,6 +52701,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "ModifyVolumeAttribute",
                 "query": [
@@ -52161,6 +52847,7 @@
                 "fieldPad": 22,
                 "ctor": "modifyVpcAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -52187,6 +52874,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "ModifyVpcAttribute",
                 "query": [
@@ -52315,12 +53003,14 @@
                     "typeExposed": "[InstanceMonitoring]",
                     "type": "[InstanceMonitoring]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "MonitorInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -52380,6 +53070,7 @@
                 "fieldPad": 14,
                 "ctor": "monitorInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -52391,6 +53082,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "MonitorInstances",
                 "query": [
@@ -52500,12 +53192,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "PurchaseReservedInstancesOfferingResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -52564,6 +53258,7 @@
                 "fieldPad": 32,
                 "ctor": "purchaseReservedInstancesOffering",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -52604,6 +53299,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 28,
                 "name": "PurchaseReservedInstancesOffering",
                 "query": [
@@ -52769,6 +53465,7 @@
                 "fieldPad": 15,
                 "ctor": "rebootInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -52780,6 +53477,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "RebootInstances",
                 "query": [
@@ -52889,12 +53587,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RegisterImageResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -52953,6 +53653,7 @@
                 "fieldPad": 23,
                 "ctor": "registerImage",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -52979,6 +53680,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "RegisterImage",
                 "query": [
@@ -53370,12 +54072,14 @@
                     "typeExposed": "Maybe Bool",
                     "type": "Maybe Bool"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RejectVpcPeeringConnectionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -53435,6 +54139,7 @@
                 "fieldPad": 27,
                 "ctor": "rejectVpcPeeringConnection",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -53461,6 +54166,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "RejectVpcPeeringConnection",
                 "query": [
@@ -53574,6 +54280,7 @@
                 "fieldPad": 15,
                 "ctor": "releaseAddress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -53585,6 +54292,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "ReleaseAddress",
                 "query": [
@@ -53727,12 +54435,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ReplaceNetworkAclAssociationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -53792,6 +54502,7 @@
                 "fieldPad": 18,
                 "ctor": "replaceNetworkAclAssociation",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -53832,6 +54543,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "ReplaceNetworkAclAssociation",
                 "query": [
@@ -53963,6 +54675,7 @@
                 "fieldPad": 17,
                 "ctor": "replaceNetworkAclEntry",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -54059,6 +54772,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "ReplaceNetworkAclEntry",
                 "query": [
@@ -54333,6 +55047,7 @@
                 "fieldPad": 25,
                 "ctor": "replaceRoute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -54373,6 +55088,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "ReplaceRoute",
                 "query": [
@@ -54619,12 +55335,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ReplaceRouteTableAssociationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -54684,6 +55402,7 @@
                 "fieldPad": 18,
                 "ctor": "replaceRouteTableAssociation",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -54724,6 +55443,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "ReplaceRouteTableAssociation",
                 "query": [
@@ -54856,6 +55576,7 @@
                 "fieldPad": 15,
                 "ctor": "reportInstanceStatus",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -54882,6 +55603,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "ReportInstanceStatus",
                 "query": [
@@ -55142,12 +55864,14 @@
                     "typeExposed": "[SpotInstanceRequest]",
                     "type": "[SpotInstanceRequest]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RequestSpotInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -55206,6 +55930,7 @@
                 "fieldPad": 25,
                 "ctor": "requestSpotInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -55232,6 +55957,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "RequestSpotInstances",
                 "query": [
@@ -55576,6 +56302,7 @@
                 "fieldPad": 14,
                 "ctor": "resetImageAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -55616,6 +56343,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "ResetImageAttribute",
                 "query": [
@@ -55748,6 +56476,7 @@
                 "fieldPad": 14,
                 "ctor": "resetInstanceAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -55788,6 +56517,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "ResetInstanceAttribute",
                 "query": [
@@ -55920,6 +56650,7 @@
                 "fieldPad": 23,
                 "ctor": "resetNetworkInterfaceAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -55946,6 +56677,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "ResetNetworkInterfaceAttribute",
                 "query": [
@@ -56092,6 +56824,7 @@
                 "fieldPad": 14,
                 "ctor": "resetSnapshotAttribute",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -56132,6 +56865,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "ResetSnapshotAttribute",
                 "query": [
@@ -56263,6 +56997,7 @@
                 "fieldPad": 31,
                 "ctor": "revokeSecurityGroupEgress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -56289,6 +57024,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "RevokeSecurityGroupEgress",
                 "query": [
@@ -56632,6 +57368,7 @@
                 "fieldPad": 31,
                 "ctor": "revokeSecurityGroupIngress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -56643,6 +57380,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "RevokeSecurityGroupIngress",
                 "query": [
@@ -56999,12 +57737,14 @@
                 "fieldPad": 17,
                 "ctor": "runInstancesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RunInstancesResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -57175,6 +57915,7 @@
                 "fieldPad": 36,
                 "ctor": "runInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -57229,6 +57970,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 34,
                 "name": "RunInstances",
                 "query": [
@@ -57989,12 +58731,14 @@
                     "typeExposed": "[InstanceStateChange]",
                     "type": "[InstanceStateChange]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "StartInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -58054,6 +58798,7 @@
                 "fieldPad": 18,
                 "ctor": "startInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -58065,6 +58810,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "StartInstances",
                 "query": [
@@ -58207,12 +58953,14 @@
                     "typeExposed": "[InstanceStateChange]",
                     "type": "[InstanceStateChange]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "StopInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -58272,6 +59020,7 @@
                 "fieldPad": 14,
                 "ctor": "stopInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -58283,6 +59032,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "StopInstances",
                 "query": [
@@ -58425,12 +59175,14 @@
                     "typeExposed": "[InstanceStateChange]",
                     "type": "[InstanceStateChange]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "TerminateInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -58490,6 +59242,7 @@
                 "fieldPad": 14,
                 "ctor": "terminateInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -58501,6 +59254,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "TerminateInstances",
                 "query": [
@@ -58628,6 +59382,7 @@
                 "fieldPad": 23,
                 "ctor": "unassignPrivateIpAddresses",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -58654,6 +59409,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "UnassignPrivateIpAddresses",
                 "query": [
@@ -58749,12 +59505,14 @@
                     "typeExposed": "[InstanceMonitoring]",
                     "type": "[InstanceMonitoring]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UnmonitorInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -58814,6 +59572,7 @@
                 "fieldPad": 14,
                 "ctor": "unmonitorInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -58825,6 +59584,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "UnmonitorInstances",
                 "query": [

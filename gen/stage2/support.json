@@ -72,6 +72,64 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "trustedAdvisorResourcesSummary",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tarsResourcesProcessed",
+                        "name": "_tarsResourcesProcessed",
+                        "shape": "Long",
+                        "locationName": "resourcesProcessed",
+                        "documentation": "\u003cp\u003eThe number of AWS resources that were analyzed by the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Integer",
+                        "type": "Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tarsResourcesFlagged",
+                        "name": "_tarsResourcesFlagged",
+                        "shape": "Long",
+                        "locationName": "resourcesFlagged",
+                        "documentation": "\u003cp\u003eThe number of AWS resources that were flagged (listed) by the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Integer",
+                        "type": "Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tarsResourcesIgnored",
+                        "name": "_tarsResourcesIgnored",
+                        "shape": "Long",
+                        "locationName": "resourcesIgnored",
+                        "documentation": "\u003cp\u003eThe number of AWS resources ignored by Trusted Advisor because information was unavailable.\u003c/p\u003e",
+                        "typeExposed": "Integer",
+                        "type": "Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tarsResourcesSuppressed",
+                        "name": "_tarsResourcesSuppressed",
+                        "shape": "Long",
+                        "locationName": "resourcesSuppressed",
+                        "documentation": "\u003cp\u003eThe number of AWS resources ignored by Trusted Advisor because they were marked as suppressed by the user.\u003c/p\u003e",
+                        "typeExposed": "Integer",
+                        "type": "Integer"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -131,6 +189,7 @@
                         "type": "Integer"
                     }
                 ],
+                "contentPad": 20,
                 "name": "TrustedAdvisorResourcesSummary",
                 "type": "record",
                 "optional": [],
@@ -201,8 +260,53 @@
                 ],
                 "fieldPad": 12,
                 "ctor": "service",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sCode",
+                        "name": "_sCode",
+                        "shape": "ServiceCode",
+                        "locationName": "code",
+                        "documentation": "\u003cp\u003eThe code for an AWS service returned by the \u003ca\u003eDescribeServices\u003c/a\u003e response. The \u003ccode\u003eName\u003c/code\u003e element contains the corresponding friendly name.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sName",
+                        "name": "_sName",
+                        "shape": "ServiceName",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe friendly name for an AWS service. The \u003ccode\u003eCode\u003c/code\u003e element contains the corresponding code.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "sCategories",
+                        "name": "_sCategories",
+                        "shape": "CategoryList",
+                        "locationName": "categories",
+                        "documentation": "\u003cp\u003eA list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call \u003ca\u003eCreateCase\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "[Category]",
+                        "type": "[Category]"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 11,
                 "name": "Service",
                 "type": "record",
                 "optional": [
@@ -317,8 +421,25 @@
                     "typeExposed": "Maybe TrustedAdvisorCostOptimizingSummary",
                     "type": "Maybe TrustedAdvisorCostOptimizingSummary"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "tacssCostOptimizing",
+                        "name": "_tacssCostOptimizing",
+                        "shape": "TrustedAdvisorCostOptimizingSummary",
+                        "locationName": "costOptimizing",
+                        "documentation": "\u003cp\u003eThe summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category.\u003c/p\u003e",
+                        "typeExposed": "Maybe TrustedAdvisorCostOptimizingSummary",
+                        "type": "Maybe TrustedAdvisorCostOptimizingSummary"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "TrustedAdvisorCategorySpecificSummary",
                 "type": "newtype",
                 "optional": [
@@ -362,8 +483,81 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "communication",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cCaseId",
+                        "name": "_cCaseId",
+                        "shape": "CaseId",
+                        "locationName": "caseId",
+                        "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cBody",
+                        "name": "_cBody",
+                        "shape": "CommunicationBody",
+                        "locationName": "body",
+                        "documentation": "\u003cp\u003eThe text of the communication between the customer and AWS Support.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cSubmittedBy",
+                        "name": "_cSubmittedBy",
+                        "shape": "SubmittedBy",
+                        "locationName": "submittedBy",
+                        "documentation": "\u003cp\u003eThe email address of the account that submitted the AWS Support case. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cTimeCreated",
+                        "name": "_cTimeCreated",
+                        "shape": "TimeCreated",
+                        "locationName": "timeCreated",
+                        "documentation": "\u003cp\u003eThe time the communication was created. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "cAttachmentSet",
+                        "name": "_cAttachmentSet",
+                        "shape": "AttachmentSet",
+                        "locationName": "attachmentSet",
+                        "documentation": "\u003cp\u003eInformation about the attachments to the case communication. \u003c/p\u003e",
+                        "typeExposed": "[AttachmentDetails]",
+                        "type": "[AttachmentDetails]"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 14,
                 "name": "Communication",
                 "type": "record",
                 "optional": [
@@ -520,8 +714,39 @@
                 ],
                 "fieldPad": 6,
                 "ctor": "category",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cCode",
+                        "name": "_cCode",
+                        "shape": "CategoryCode",
+                        "locationName": "code",
+                        "documentation": "\u003cp\u003eThe category code for the support case. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cName",
+                        "name": "_cName",
+                        "shape": "CategoryName",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe category name for the support case. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 5,
                 "name": "Category",
                 "type": "record",
                 "optional": [
@@ -593,6 +818,92 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "trustedAdvisorCheckSummary",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacsCheckId",
+                        "name": "_tacsCheckId",
+                        "shape": "String",
+                        "locationName": "checkId",
+                        "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacsTimestamp",
+                        "name": "_tacsTimestamp",
+                        "shape": "String",
+                        "locationName": "timestamp",
+                        "documentation": "\u003cp\u003eThe time of the last refresh of the check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacsStatus",
+                        "name": "_tacsStatus",
+                        "shape": "String",
+                        "locationName": "status",
+                        "documentation": "\u003cp\u003eThe alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "tacsHasFlaggedResources",
+                        "name": "_tacsHasFlaggedResources",
+                        "shape": "Boolean",
+                        "locationName": "hasFlaggedResources",
+                        "documentation": "\u003cp\u003eSpecifies whether the Trusted Advisor check has flagged resources.\u003c/p\u003e",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacsResourcesSummary",
+                        "name": "_tacsResourcesSummary",
+                        "shape": "TrustedAdvisorResourcesSummary",
+                        "locationName": "resourcesSummary",
+                        "documentation": null,
+                        "typeExposed": "TrustedAdvisorResourcesSummary",
+                        "type": "TrustedAdvisorResourcesSummary"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacsCategorySpecificSummary",
+                        "name": "_tacsCategorySpecificSummary",
+                        "shape": "TrustedAdvisorCategorySpecificSummary",
+                        "locationName": "categorySpecificSummary",
+                        "documentation": "\u003cp\u003eSummary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.\u003c/p\u003e",
+                        "typeExposed": "TrustedAdvisorCategorySpecificSummary",
+                        "type": "TrustedAdvisorCategorySpecificSummary"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -666,6 +977,7 @@
                         "type": "TrustedAdvisorCategorySpecificSummary"
                     }
                 ],
+                "contentPad": 24,
                 "name": "TrustedAdvisorCheckSummary",
                 "type": "record",
                 "optional": [
@@ -780,8 +1092,39 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "attachmentDetails",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "adAttachmentId",
+                        "name": "_adAttachmentId",
+                        "shape": "AttachmentId",
+                        "locationName": "attachmentId",
+                        "documentation": "\u003cp\u003eThe ID of the attachment.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "adFileName",
+                        "name": "_adFileName",
+                        "shape": "FileName",
+                        "locationName": "fileName",
+                        "documentation": "\u003cp\u003eThe file name of the attachment.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 13,
                 "name": "AttachmentDetails",
                 "type": "record",
                 "optional": [
@@ -853,6 +1196,92 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "trustedAdvisorCheckResult",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacrCheckId",
+                        "name": "_tacrCheckId",
+                        "shape": "String",
+                        "locationName": "checkId",
+                        "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacrTimestamp",
+                        "name": "_tacrTimestamp",
+                        "shape": "String",
+                        "locationName": "timestamp",
+                        "documentation": "\u003cp\u003eThe time of the last refresh of the check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacrStatus",
+                        "name": "_tacrStatus",
+                        "shape": "String",
+                        "locationName": "status",
+                        "documentation": "\u003cp\u003eThe alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacrResourcesSummary",
+                        "name": "_tacrResourcesSummary",
+                        "shape": "TrustedAdvisorResourcesSummary",
+                        "locationName": "resourcesSummary",
+                        "documentation": null,
+                        "typeExposed": "TrustedAdvisorResourcesSummary",
+                        "type": "TrustedAdvisorResourcesSummary"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacrCategorySpecificSummary",
+                        "name": "_tacrCategorySpecificSummary",
+                        "shape": "TrustedAdvisorCategorySpecificSummary",
+                        "locationName": "categorySpecificSummary",
+                        "documentation": "\u003cp\u003eSummary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.\u003c/p\u003e",
+                        "typeExposed": "TrustedAdvisorCategorySpecificSummary",
+                        "type": "TrustedAdvisorCategorySpecificSummary"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "tacrFlaggedResources",
+                        "name": "_tacrFlaggedResources",
+                        "shape": "TrustedAdvisorResourceDetailList",
+                        "locationName": "flaggedResources",
+                        "documentation": "\u003cp\u003eThe details about each resource listed in the check result.\u003c/p\u003e",
+                        "typeExposed": "[TrustedAdvisorResourceDetail]",
+                        "type": "[TrustedAdvisorResourceDetail]"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -926,6 +1355,7 @@
                         "type": "TrustedAdvisorCategorySpecificSummary"
                     }
                 ],
+                "contentPad": 24,
                 "name": "TrustedAdvisorCheckResult",
                 "type": "record",
                 "optional": [
@@ -1040,6 +1470,78 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "trustedAdvisorCheckDescription",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacdId",
+                        "name": "_tacdId",
+                        "shape": "String",
+                        "locationName": "id",
+                        "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacdName",
+                        "name": "_tacdName",
+                        "shape": "String",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe display name for the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacdDescription",
+                        "name": "_tacdDescription",
+                        "shape": "String",
+                        "locationName": "description",
+                        "documentation": "\u003cp\u003eThe description of the Trusted Advisor check, which includes the alert criteria and recommended actions (contains HTML markup).\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacdCategory",
+                        "name": "_tacdCategory",
+                        "shape": "String",
+                        "locationName": "category",
+                        "documentation": "\u003cp\u003eThe category of the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "tacdMetadata",
+                        "name": "_tacdMetadata",
+                        "shape": "StringList",
+                        "locationName": "metadata",
+                        "documentation": "\u003cp\u003eThe column headings for the data returned by the Trusted Advisor check. The order of the headings corresponds to the order of the data in the \u003cb\u003eMetadata\u003c/b\u003e element of the \u003ca\u003eTrustedAdvisorResourceDetail\u003c/a\u003e for the check. \u003cb\u003eMetadata\u003c/b\u003e contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data. \u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -1099,6 +1601,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 12,
                 "name": "TrustedAdvisorCheckDescription",
                 "type": "record",
                 "optional": [
@@ -1198,8 +1701,39 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "attachment",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "aFileName",
+                        "name": "_aFileName",
+                        "shape": "FileName",
+                        "locationName": "fileName",
+                        "documentation": "\u003cp\u003eThe name of the attachment file.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "aData",
+                        "name": "_aData",
+                        "shape": "Data",
+                        "locationName": "data",
+                        "documentation": "\u003cp\u003eThe content of the attachment file.\u003c/p\u003e",
+                        "typeExposed": "Maybe Base64",
+                        "type": "Maybe Base64"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 9,
                 "name": "Attachment",
                 "type": "record",
                 "optional": [
@@ -1271,8 +1805,39 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "recentCaseCommunications",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "rccCommunications",
+                        "name": "_rccCommunications",
+                        "shape": "CommunicationList",
+                        "locationName": "communications",
+                        "documentation": "\u003cp\u003eThe five most recent communications associated with the case.\u003c/p\u003e",
+                        "typeExposed": "[Communication]",
+                        "type": "[Communication]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rccNextToken",
+                        "name": "_rccNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003eA resumption point for pagination.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 15,
                 "name": "RecentCaseCommunications",
                 "type": "record",
                 "optional": [
@@ -1345,6 +1910,78 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "trustedAdvisorResourceDetail",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tardStatus",
+                        "name": "_tardStatus",
+                        "shape": "String",
+                        "locationName": "status",
+                        "documentation": "\u003cp\u003eThe status code for the resource identified in the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tardRegion",
+                        "name": "_tardRegion",
+                        "shape": "String",
+                        "locationName": "region",
+                        "documentation": "\u003cp\u003eThe AWS region in which the identified resource is located. \u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tardResourceId",
+                        "name": "_tardResourceId",
+                        "shape": "String",
+                        "locationName": "resourceId",
+                        "documentation": "\u003cp\u003eThe unique identifier for the identified resource.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "tardIsSuppressed",
+                        "name": "_tardIsSuppressed",
+                        "shape": "Boolean",
+                        "locationName": "isSuppressed",
+                        "documentation": "\u003cp\u003eSpecifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.\u003c/p\u003e",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "tardMetadata",
+                        "name": "_tardMetadata",
+                        "shape": "StringList",
+                        "locationName": "metadata",
+                        "documentation": "\u003cp\u003eAdditional information about the identified resource. The exact metadata and its order can be obtained by inspecting the \u003ca\u003eTrustedAdvisorCheckDescription\u003c/a\u003e object returned by the call to \u003ca\u003eDescribeTrustedAdvisorChecks\u003c/a\u003e. \u003cb\u003eMetadata\u003c/b\u003e contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data. \u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -1390,6 +2027,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 13,
                 "name": "TrustedAdvisorResourceDetail",
                 "type": "record",
                 "optional": [
@@ -1504,6 +2142,36 @@
                 ],
                 "fieldPad": 36,
                 "ctor": "trustedAdvisorCostOptimizingSummary",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacosEstimatedMonthlySavings",
+                        "name": "_tacosEstimatedMonthlySavings",
+                        "shape": "Double",
+                        "locationName": "estimatedMonthlySavings",
+                        "documentation": "\u003cp\u003eThe estimated monthly savings that might be realized if the recommended actions are taken.\u003c/p\u003e",
+                        "typeExposed": "Double",
+                        "type": "Double"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacosEstimatedPercentMonthlySavings",
+                        "name": "_tacosEstimatedPercentMonthlySavings",
+                        "shape": "Double",
+                        "locationName": "estimatedPercentMonthlySavings",
+                        "documentation": "\u003cp\u003eThe estimated percentage of savings that might be realized if the recommended actions are taken.\u003c/p\u003e",
+                        "typeExposed": "Double",
+                        "type": "Double"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -1535,6 +2203,7 @@
                         "type": "Double"
                     }
                 ],
+                "contentPad": 31,
                 "name": "TrustedAdvisorCostOptimizingSummary",
                 "type": "record",
                 "optional": [],
@@ -1578,8 +2247,39 @@
                 ],
                 "fieldPad": 7,
                 "ctor": "severityLevel",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "slCode",
+                        "name": "_slCode",
+                        "shape": "SeverityLevelCode",
+                        "locationName": "code",
+                        "documentation": "\u003cp\u003eOne of four values: \"low,\" \"medium,\" \"high,\" and \"urgent\". These values correspond to response times returned to the caller in \u003ccode\u003eSeverityLevel.name\u003c/code\u003e. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "slName",
+                        "name": "_slName",
+                        "shape": "SeverityLevelName",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe name of the severity level that corresponds to the severity level code.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 5,
                 "name": "SeverityLevel",
                 "type": "record",
                 "optional": [
@@ -1651,8 +2351,179 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "caseDetails",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cdCaseId",
+                        "name": "_cdCaseId",
+                        "shape": "CaseId",
+                        "locationName": "caseId",
+                        "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cdDisplayId",
+                        "name": "_cdDisplayId",
+                        "shape": "DisplayId",
+                        "locationName": "displayId",
+                        "documentation": "\u003cp\u003eThe ID displayed for the case in the AWS Support Center. This is a numeric string. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cdSubject",
+                        "name": "_cdSubject",
+                        "shape": "Subject",
+                        "locationName": "subject",
+                        "documentation": "\u003cp\u003eThe subject line for the case in the AWS Support Center.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cdStatus",
+                        "name": "_cdStatus",
+                        "shape": "Status",
+                        "locationName": "status",
+                        "documentation": "\u003cp\u003eThe status of the case. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cdServiceCode",
+                        "name": "_cdServiceCode",
+                        "shape": "ServiceCode",
+                        "locationName": "serviceCode",
+                        "documentation": "\u003cp\u003eThe code for the AWS service returned by the call to \u003ca\u003eDescribeServices\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cdCategoryCode",
+                        "name": "_cdCategoryCode",
+                        "shape": "CategoryCode",
+                        "locationName": "categoryCode",
+                        "documentation": "\u003cp\u003eThe category of problem for the AWS Support case.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cdSeverityCode",
+                        "name": "_cdSeverityCode",
+                        "shape": "SeverityCode",
+                        "locationName": "severityCode",
+                        "documentation": "\u003cp\u003eThe code for the severity level returned by the call to \u003ca\u003eDescribeSeverityLevels\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cdSubmittedBy",
+                        "name": "_cdSubmittedBy",
+                        "shape": "SubmittedBy",
+                        "locationName": "submittedBy",
+                        "documentation": "\u003cp\u003eThe email address of the account that submitted the case.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cdTimeCreated",
+                        "name": "_cdTimeCreated",
+                        "shape": "TimeCreated",
+                        "locationName": "timeCreated",
+                        "documentation": "\u003cp\u003eThe time that the case was case created in the AWS Support Center. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cdRecentCommunications",
+                        "name": "_cdRecentCommunications",
+                        "shape": "RecentCaseCommunications",
+                        "locationName": "recentCommunications",
+                        "documentation": "\u003cp\u003eThe five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a \u003ccode\u003enextToken\u003c/code\u003e that you can use to retrieve earlier communications.\u003c/p\u003e",
+                        "typeExposed": "Maybe RecentCaseCommunications",
+                        "type": "Maybe RecentCaseCommunications"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "cdCcEmailAddresses",
+                        "name": "_cdCcEmailAddresses",
+                        "shape": "CcEmailAddressList",
+                        "locationName": "ccEmailAddresses",
+                        "documentation": "\u003cp\u003eThe email addresses that receive copies of communication about the case.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cdLanguage",
+                        "name": "_cdLanguage",
+                        "shape": "Language",
+                        "locationName": "language",
+                        "documentation": "\u003cp\u003eThe ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 21,
                 "name": "CaseDetails",
                 "type": "record",
                 "optional": [
@@ -2005,6 +2876,50 @@
                 ],
                 "fieldPad": 32,
                 "ctor": "trustedAdvisorCheckRefreshStatus",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacrsCheckId",
+                        "name": "_tacrsCheckId",
+                        "shape": "String",
+                        "locationName": "checkId",
+                        "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacrsStatus",
+                        "name": "_tacrsStatus",
+                        "shape": "String",
+                        "locationName": "status",
+                        "documentation": "\u003cp\u003eThe status of the Trusted Advisor check for which a refresh has been requested: \"none\", \"enqueued\", \"processing\", \"success\", or \"abandoned\".\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "tacrsMillisUntilNextRefreshable",
+                        "name": "_tacrsMillisUntilNextRefreshable",
+                        "shape": "Long",
+                        "locationName": "millisUntilNextRefreshable",
+                        "documentation": "\u003cp\u003eThe amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.\u003c/p\u003e",
+                        "typeExposed": "Integer",
+                        "type": "Integer"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -2050,6 +2965,7 @@
                         "type": "Integer"
                     }
                 ],
+                "contentPad": 27,
                 "name": "TrustedAdvisorCheckRefreshStatus",
                 "type": "record",
                 "optional": [],
@@ -2116,12 +3032,43 @@
                 "fieldPad": 21,
                 "ctor": "addAttachmentsToSetResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "aatsrAttachmentSetId",
+                        "name": "_aatsrAttachmentSetId",
+                        "shape": "AttachmentSetId",
+                        "locationName": "attachmentSetId",
+                        "documentation": "\u003cp\u003eThe ID of the attachment set. If an \u003ccode\u003eAttachmentSetId\u003c/code\u003e was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an \u003ccode\u003eAttachmentSetId\u003c/code\u003e was specified, the attachments are added to the specified set, if it exists.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "aatsrExpiryTime",
+                        "name": "_aatsrExpiryTime",
+                        "shape": "ExpiryTime",
+                        "locationName": "expiryTime",
+                        "documentation": "\u003cp\u003eThe time and date when the attachment set expires.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 16,
                 "name": "AddAttachmentsToSetResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -2208,6 +3155,36 @@
                 "fieldPad": 20,
                 "ctor": "addAttachmentsToSet",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "aatsAttachmentSetId",
+                        "name": "_aatsAttachmentSetId",
+                        "shape": "AttachmentSetId",
+                        "locationName": "attachmentSetId",
+                        "documentation": "\u003cp\u003eThe ID of the attachment set. If an \u003ccode\u003eAttachmentSetId\u003c/code\u003e is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an \u003ccode\u003eAttachmentSetId\u003c/code\u003e is specified, the attachments are added to the specified set, if it exists.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "aatsAttachments",
+                        "name": "_aatsAttachments",
+                        "shape": "Attachments",
+                        "locationName": "attachments",
+                        "documentation": "\u003cp\u003eOne or more attachments to add to the set. The limit is 3 attachments per set, and the size limit is 5 MB per attachment.\u003c/p\u003e",
+                        "typeExposed": "[Attachment]",
+                        "type": "[Attachment]"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -2219,6 +3196,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 16,
                 "queryPad": 0,
                 "name": "AddAttachmentsToSet",
                 "query": [],
@@ -2316,12 +3294,29 @@
                     "typeExposed": "Maybe Bool",
                     "type": "Maybe Bool"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "actcrResult",
+                        "name": "_actcrResult",
+                        "shape": "Result",
+                        "locationName": "result",
+                        "documentation": "\u003cp\u003eTrue if \u003ca\u003eAddCommunicationToCase\u003c/a\u003e succeeds. Otherwise, returns an error.\u003c/p\u003e",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AddCommunicationToCaseResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -2381,6 +3376,64 @@
                 "fieldPad": 22,
                 "ctor": "addCommunicationToCase",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "actcCaseId",
+                        "name": "_actcCaseId",
+                        "shape": "CaseId",
+                        "locationName": "caseId",
+                        "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "actcCommunicationBody",
+                        "name": "_actcCommunicationBody",
+                        "shape": "CommunicationBody",
+                        "locationName": "communicationBody",
+                        "documentation": "\u003cp\u003eThe body of an email communication to add to the support case.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "actcCcEmailAddresses",
+                        "name": "_actcCcEmailAddresses",
+                        "shape": "CcEmailAddressList",
+                        "locationName": "ccEmailAddresses",
+                        "documentation": "\u003cp\u003eThe email addresses in the CC line of an email to be added to the support case.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "actcAttachmentSetId",
+                        "name": "_actcAttachmentSetId",
+                        "shape": "AttachmentSetId",
+                        "locationName": "attachmentSetId",
+                        "documentation": "\u003cp\u003eThe ID of a set of one or more attachments for the communication to add to the case. Create the set by calling \u003ca\u003eAddAttachmentsToSet\u003c/a\u003e\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -2407,6 +3460,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 18,
                 "queryPad": 0,
                 "name": "AddCommunicationToCase",
                 "query": [],
@@ -2547,12 +3601,29 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ccrCaseId",
+                        "name": "_ccrCaseId",
+                        "shape": "CaseId",
+                        "locationName": "caseId",
+                        "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateCaseResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -2612,6 +3683,134 @@
                 "fieldPad": 20,
                 "ctor": "createCase",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ccSubject",
+                        "name": "_ccSubject",
+                        "shape": "Subject",
+                        "locationName": "subject",
+                        "documentation": "\u003cp\u003eThe title of the AWS Support case.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ccServiceCode",
+                        "name": "_ccServiceCode",
+                        "shape": "ServiceCode",
+                        "locationName": "serviceCode",
+                        "documentation": "\u003cp\u003eThe code for the AWS service returned by the call to \u003ca\u003eDescribeServices\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ccSeverityCode",
+                        "name": "_ccSeverityCode",
+                        "shape": "SeverityCode",
+                        "locationName": "severityCode",
+                        "documentation": "\u003cp\u003eThe code for the severity level returned by the call to \u003ca\u003eDescribeSeverityLevels\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ccCategoryCode",
+                        "name": "_ccCategoryCode",
+                        "shape": "CategoryCode",
+                        "locationName": "categoryCode",
+                        "documentation": "\u003cp\u003eThe category of problem for the AWS Support case. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ccCommunicationBody",
+                        "name": "_ccCommunicationBody",
+                        "shape": "CommunicationBody",
+                        "locationName": "communicationBody",
+                        "documentation": "\u003cp\u003eThe communication body text when you create an AWS Support case by calling \u003ca\u003eCreateCase\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ccCcEmailAddresses",
+                        "name": "_ccCcEmailAddresses",
+                        "shape": "CcEmailAddressList",
+                        "locationName": "ccEmailAddresses",
+                        "documentation": "\u003cp\u003eA list of email addresses that AWS Support copies on case correspondence.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ccLanguage",
+                        "name": "_ccLanguage",
+                        "shape": "Language",
+                        "locationName": "language",
+                        "documentation": "\u003cp\u003eThe ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ccIssueType",
+                        "name": "_ccIssueType",
+                        "shape": "IssueType",
+                        "locationName": "issueType",
+                        "documentation": "\u003cp\u003eThe type of issue for the case. You can specify either \"customer-service\" or \"technical.\" If you do not indicate a value, the default is \"technical.\" \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ccAttachmentSetId",
+                        "name": "_ccAttachmentSetId",
+                        "shape": "AttachmentSetId",
+                        "locationName": "attachmentSetId",
+                        "documentation": "\u003cp\u003eThe ID of a set of one or more attachments for the case. Create the set by using \u003ca\u003eAddAttachmentsToSet\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -2652,6 +3851,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 18,
                 "queryPad": 0,
                 "name": "CreateCase",
                 "query": [],
@@ -2916,12 +4116,29 @@
                     "typeExposed": "Maybe Attachment",
                     "type": "Maybe Attachment"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "darAttachment",
+                        "name": "_darAttachment",
+                        "shape": "Attachment",
+                        "locationName": "attachment",
+                        "documentation": "\u003cp\u003eThe attachment content and file name.\u003c/p\u003e",
+                        "typeExposed": "Maybe Attachment",
+                        "type": "Maybe Attachment"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAttachmentResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -2998,6 +4215,22 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "daAttachmentId",
+                        "name": "_daAttachmentId",
+                        "shape": "AttachmentId",
+                        "locationName": "attachmentId",
+                        "documentation": "\u003cp\u003eThe ID of the attachment to return. Attachment IDs are returned by the \u003ca\u003eDescribeCommunications\u003c/a\u003e operation.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -3024,6 +4257,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "DescribeAttachment",
                 "query": [],
@@ -3062,12 +4296,43 @@
                 "fieldPad": 14,
                 "ctor": "describeCasesResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dcr1Cases",
+                        "name": "_dcr1Cases",
+                        "shape": "CaseList",
+                        "locationName": "cases",
+                        "documentation": "\u003cp\u003eThe details for the cases that match the request.\u003c/p\u003e",
+                        "typeExposed": "[CaseDetails]",
+                        "type": "[CaseDetails]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcr1NextToken",
+                        "name": "_dcr1NextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003eA resumption point for pagination.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 10,
                 "name": "DescribeCasesResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -3163,6 +4428,134 @@
                 "fieldPad": 24,
                 "ctor": "describeCases",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dcCaseIdList",
+                        "name": "_dcCaseIdList",
+                        "shape": "CaseIdList",
+                        "locationName": "caseIdList",
+                        "documentation": "\u003cp\u003eA list of ID numbers of the support cases you want returned. The maximum number of cases is 100. \u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcDisplayId",
+                        "name": "_dcDisplayId",
+                        "shape": "DisplayId",
+                        "locationName": "displayId",
+                        "documentation": "\u003cp\u003eThe ID displayed for a case in the AWS Support Center user interface. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcAfterTime",
+                        "name": "_dcAfterTime",
+                        "shape": "AfterTime",
+                        "locationName": "afterTime",
+                        "documentation": "\u003cp\u003eThe start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcBeforeTime",
+                        "name": "_dcBeforeTime",
+                        "shape": "BeforeTime",
+                        "locationName": "beforeTime",
+                        "documentation": "\u003cp\u003eThe end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcIncludeResolvedCases",
+                        "name": "_dcIncludeResolvedCases",
+                        "shape": "IncludeResolvedCases",
+                        "locationName": "includeResolvedCases",
+                        "documentation": "\u003cp\u003eSpecifies whether resolved support cases should be included in the \u003ca\u003eDescribeCases\u003c/a\u003e results. The default is \u003ci\u003efalse\u003c/i\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcNextToken",
+                        "name": "_dcNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003eA resumption point for pagination.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcMaxResults",
+                        "name": "_dcMaxResults",
+                        "shape": "MaxResults",
+                        "locationName": "maxResults",
+                        "documentation": "\u003cp\u003eThe maximum number of results to return before paginating.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcLanguage",
+                        "name": "_dcLanguage",
+                        "shape": "Language",
+                        "locationName": "language",
+                        "documentation": "\u003cp\u003eThe ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcIncludeCommunications",
+                        "name": "_dcIncludeCommunications",
+                        "shape": "IncludeCommunications",
+                        "locationName": "includeCommunications",
+                        "documentation": "\u003cp\u003eSpecifies whether communications should be included in the \u003ca\u003eDescribeCases\u003c/a\u003e results. The default is \u003ci\u003etrue\u003c/i\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -3174,6 +4567,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 22,
                 "queryPad": 0,
                 "name": "DescribeCases",
                 "query": [],
@@ -3451,12 +4845,43 @@
                 "fieldPad": 18,
                 "ctor": "describeCommunicationsResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dcrCommunications",
+                        "name": "_dcrCommunications",
+                        "shape": "CommunicationList",
+                        "locationName": "communications",
+                        "documentation": "\u003cp\u003eThe communications for the case.\u003c/p\u003e",
+                        "typeExposed": "[Communication]",
+                        "type": "[Communication]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcrNextToken",
+                        "name": "_dcrNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003eA resumption point for pagination.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 15,
                 "name": "DescribeCommunicationsResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -3552,6 +4977,78 @@
                 "fieldPad": 14,
                 "ctor": "describeCommunications",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dc1CaseId",
+                        "name": "_dc1CaseId",
+                        "shape": "CaseId",
+                        "locationName": "caseId",
+                        "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dc1BeforeTime",
+                        "name": "_dc1BeforeTime",
+                        "shape": "BeforeTime",
+                        "locationName": "beforeTime",
+                        "documentation": "\u003cp\u003eThe end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dc1AfterTime",
+                        "name": "_dc1AfterTime",
+                        "shape": "AfterTime",
+                        "locationName": "afterTime",
+                        "documentation": "\u003cp\u003eThe start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dc1NextToken",
+                        "name": "_dc1NextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003eA resumption point for pagination.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dc1MaxResults",
+                        "name": "_dc1MaxResults",
+                        "shape": "MaxResults",
+                        "locationName": "maxResults",
+                        "documentation": "\u003cp\u003eThe maximum number of results to return before paginating.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -3578,6 +5075,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 11,
                 "queryPad": 0,
                 "name": "DescribeCommunications",
                 "query": [],
@@ -3746,12 +5244,29 @@
                     "typeExposed": "[Service]",
                     "type": "[Service]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dsrServices",
+                        "name": "_dsrServices",
+                        "shape": "ServiceList",
+                        "locationName": "services",
+                        "documentation": "\u003cp\u003eA JSON-formatted list of AWS services.\u003c/p\u003e",
+                        "typeExposed": "[Service]",
+                        "type": "[Service]"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeServicesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -3811,6 +5326,36 @@
                 "fieldPad": 18,
                 "ctor": "describeServices",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dsServiceCodeList",
+                        "name": "_dsServiceCodeList",
+                        "shape": "ServiceCodeList",
+                        "locationName": "serviceCodeList",
+                        "documentation": "\u003cp\u003eA JSON-formatted list of service codes available for AWS services.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dsLanguage",
+                        "name": "_dsLanguage",
+                        "shape": "Language",
+                        "locationName": "language",
+                        "documentation": "\u003cp\u003eThe ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -3822,6 +5367,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 16,
                 "queryPad": 0,
                 "name": "DescribeServices",
                 "query": [],
@@ -3920,12 +5466,29 @@
                     "typeExposed": "[SeverityLevel]",
                     "type": "[SeverityLevel]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dslrSeverityLevels",
+                        "name": "_dslrSeverityLevels",
+                        "shape": "SeverityLevelsList",
+                        "locationName": "severityLevels",
+                        "documentation": "\u003cp\u003eThe available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.\u003c/p\u003e",
+                        "typeExposed": "[SeverityLevel]",
+                        "type": "[SeverityLevel]"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeSeverityLevelsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -4001,6 +5564,22 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dslLanguage",
+                        "name": "_dslLanguage",
+                        "shape": "Language",
+                        "locationName": "language",
+                        "documentation": "\u003cp\u003eThe ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -4012,6 +5591,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "DescribeSeverityLevels",
                 "query": [],
@@ -4082,12 +5662,29 @@
                     "typeExposed": "[TrustedAdvisorCheckRefreshStatus]",
                     "type": "[TrustedAdvisorCheckRefreshStatus]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dtacrsrStatuses",
+                        "name": "_dtacrsrStatuses",
+                        "shape": "TrustedAdvisorCheckRefreshStatusList",
+                        "locationName": "statuses",
+                        "documentation": "\u003cp\u003eThe refresh status of the specified Trusted Advisor checks.\u003c/p\u003e",
+                        "typeExposed": "[TrustedAdvisorCheckRefreshStatus]",
+                        "type": "[TrustedAdvisorCheckRefreshStatus]"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeTrustedAdvisorCheckRefreshStatusesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -4164,6 +5761,22 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dtacrsCheckIds",
+                        "name": "_dtacrsCheckIds",
+                        "shape": "StringList",
+                        "locationName": "checkIds",
+                        "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -4175,6 +5788,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorCheckRefreshStatuses",
                 "query": [],
@@ -4243,12 +5857,29 @@
                     "typeExposed": "Maybe TrustedAdvisorCheckResult",
                     "type": "Maybe TrustedAdvisorCheckResult"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dtacrrResult",
+                        "name": "_dtacrrResult",
+                        "shape": "TrustedAdvisorCheckResult",
+                        "locationName": "result",
+                        "documentation": "\u003cp\u003eThe detailed results of the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Maybe TrustedAdvisorCheckResult",
+                        "type": "Maybe TrustedAdvisorCheckResult"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeTrustedAdvisorCheckResultResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -4308,6 +5939,36 @@
                 "fieldPad": 14,
                 "ctor": "describeTrustedAdvisorCheckResult",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dtacrCheckId",
+                        "name": "_dtacrCheckId",
+                        "shape": "String",
+                        "locationName": "checkId",
+                        "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dtacrLanguage",
+                        "name": "_dtacrLanguage",
+                        "shape": "String",
+                        "locationName": "language",
+                        "documentation": "\u003cp\u003eThe ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -4334,6 +5995,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 9,
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorCheckResult",
                 "query": [],
@@ -4418,12 +6080,29 @@
                     "typeExposed": "[TrustedAdvisorCheckSummary]",
                     "type": "[TrustedAdvisorCheckSummary]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dtacsrSummaries",
+                        "name": "_dtacsrSummaries",
+                        "shape": "TrustedAdvisorCheckSummaryList",
+                        "locationName": "summaries",
+                        "documentation": "\u003cp\u003eThe summary information for the requested Trusted Advisor checks.\u003c/p\u003e",
+                        "typeExposed": "[TrustedAdvisorCheckSummary]",
+                        "type": "[TrustedAdvisorCheckSummary]"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeTrustedAdvisorCheckSummariesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -4500,6 +6179,22 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dtacsCheckIds",
+                        "name": "_dtacsCheckIds",
+                        "shape": "StringList",
+                        "locationName": "checkIds",
+                        "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -4511,6 +6206,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorCheckSummaries",
                 "query": [],
@@ -4581,12 +6277,29 @@
                     "typeExposed": "[TrustedAdvisorCheckDescription]",
                     "type": "[TrustedAdvisorCheckDescription]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dtacrChecks",
+                        "name": "_dtacrChecks",
+                        "shape": "TrustedAdvisorCheckList",
+                        "locationName": "checks",
+                        "documentation": "\u003cp\u003eInformation about all available Trusted Advisor checks.\u003c/p\u003e",
+                        "typeExposed": "[TrustedAdvisorCheckDescription]",
+                        "type": "[TrustedAdvisorCheckDescription]"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeTrustedAdvisorChecksResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -4663,6 +6376,22 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dtacLanguage",
+                        "name": "_dtacLanguage",
+                        "shape": "String",
+                        "locationName": "language",
+                        "documentation": "\u003cp\u003eThe ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -4689,6 +6418,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorChecks",
                 "query": [],
@@ -4742,6 +6472,22 @@
                     "typeExposed": "TrustedAdvisorCheckRefreshStatus",
                     "type": "TrustedAdvisorCheckRefreshStatus"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rtacrStatus",
+                        "name": "_rtacrStatus",
+                        "shape": "TrustedAdvisorCheckRefreshStatus",
+                        "locationName": "status",
+                        "documentation": "\u003cp\u003eThe current refresh status for a check, including the amount of time until the check is eligible for refresh. \u003c/p\u003e",
+                        "typeExposed": "TrustedAdvisorCheckRefreshStatus",
+                        "type": "TrustedAdvisorCheckRefreshStatus"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
@@ -4763,6 +6509,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RefreshTrustedAdvisorCheckResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -4824,6 +6571,22 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rtacCheckId",
+                        "name": "_rtacCheckId",
+                        "shape": "String",
+                        "locationName": "checkId",
+                        "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -4850,6 +6613,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "RefreshTrustedAdvisorCheck",
                 "query": [],
@@ -4889,12 +6653,43 @@
                 "fieldPad": 21,
                 "ctor": "resolveCaseResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rcrInitialCaseStatus",
+                        "name": "_rcrInitialCaseStatus",
+                        "shape": "CaseStatus",
+                        "locationName": "initialCaseStatus",
+                        "documentation": "\u003cp\u003eThe status of the case when the \u003ca\u003eResolveCase\u003c/a\u003e request was sent.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rcrFinalCaseStatus",
+                        "name": "_rcrFinalCaseStatus",
+                        "shape": "CaseStatus",
+                        "locationName": "finalCaseStatus",
+                        "documentation": "\u003cp\u003eThe status of the case after the \u003ca\u003eResolveCase\u003c/a\u003e request was processed.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 18,
                 "name": "ResolveCaseResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -4998,6 +6793,22 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rcCaseId",
+                        "name": "_rcCaseId",
+                        "shape": "CaseId",
+                        "locationName": "caseId",
+                        "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/",
@@ -5009,6 +6820,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "ResolveCase",
                 "query": [],

@@ -226,8 +226,10 @@
                 ],
                 "fieldPad": 29,
                 "ctor": "passwordPolicy",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "PasswordPolicy",
                 "type": "record",
                 "optional": [
@@ -524,6 +526,7 @@
                 ],
                 "fieldPad": 12,
                 "ctor": "group",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -597,6 +600,7 @@
                         "type": "RFC822"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Group",
                 "type": "record",
                 "optional": [],
@@ -682,6 +686,7 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "mfadevice",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -727,6 +732,7 @@
                         "type": "RFC822"
                     }
                 ],
+                "contentPad": 0,
                 "name": "MFADevice",
                 "type": "record",
                 "optional": [],
@@ -783,6 +789,7 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "instanceProfile",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -856,6 +863,7 @@
                         "type": "RFC822"
                     }
                 ],
+                "contentPad": 0,
                 "name": "InstanceProfile",
                 "type": "record",
                 "optional": [
@@ -986,6 +994,7 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "serverCertificateMetadata",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1045,6 +1054,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ServerCertificateMetadata",
                 "type": "record",
                 "optional": [
@@ -1189,8 +1199,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "OpenIDConnectProviderListEntry",
                 "type": "newtype",
                 "optional": [
@@ -1235,6 +1247,7 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "loginProfile",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1266,6 +1279,7 @@
                         "type": "RFC822"
                     }
                 ],
+                "contentPad": 0,
                 "name": "LoginProfile",
                 "type": "record",
                 "optional": [
@@ -1385,6 +1399,7 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "user",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1458,6 +1473,7 @@
                         "type": "RFC822"
                     }
                 ],
+                "contentPad": 0,
                 "name": "User",
                 "type": "record",
                 "optional": [
@@ -1589,8 +1605,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "samlproviderListEntry",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "SAMLProviderListEntry",
                 "type": "record",
                 "optional": [
@@ -1691,6 +1709,7 @@
                 ],
                 "fieldPad": 26,
                 "ctor": "role",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1764,6 +1783,7 @@
                         "type": "RFC822"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Role",
                 "type": "record",
                 "optional": [
@@ -1877,6 +1897,7 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "serverCertificate",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1908,6 +1929,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ServerCertificate",
                 "type": "record",
                 "optional": [
@@ -1980,6 +2002,7 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "accessKey",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2039,6 +2062,7 @@
                         "type": "Sensitive Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "AccessKey",
                 "type": "record",
                 "optional": [
@@ -2138,6 +2162,7 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "virtualMFADevice",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2155,6 +2180,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "VirtualMFADevice",
                 "type": "record",
                 "optional": [
@@ -2297,6 +2323,7 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "signingCertificate",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2356,6 +2383,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "SigningCertificate",
                 "type": "record",
                 "optional": [
@@ -2456,8 +2484,10 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "accessKeyMetadata",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AccessKeyMetadata",
                 "type": "record",
                 "optional": [
@@ -2629,6 +2659,7 @@
                 "fieldPad": 35,
                 "ctor": "addClientIDToOpenIDConnectProvider",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2669,6 +2700,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "AddClientIDToOpenIDConnectProvider",
                 "query": [
@@ -2767,6 +2799,7 @@
                 "fieldPad": 25,
                 "ctor": "addRoleToInstanceProfile",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2807,6 +2840,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "AddRoleToInstanceProfile",
                 "query": [
@@ -2905,6 +2939,7 @@
                 "fieldPad": 14,
                 "ctor": "addUserToGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2945,6 +2980,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "AddUserToGroup",
                 "query": [
@@ -3043,6 +3079,7 @@
                 "fieldPad": 14,
                 "ctor": "changePassword",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3083,6 +3120,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "ChangePassword",
                 "query": [
@@ -3161,6 +3199,7 @@
                     "typeExposed": "AccessKey",
                     "type": "AccessKey"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -3182,6 +3221,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateAccessKeyResponse",
                 "resultWrapper": "CreateAccessKeyResult",
                 "type": "newtype",
@@ -3242,6 +3282,7 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3253,6 +3294,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "CreateAccessKey",
                 "query": [
@@ -3364,6 +3406,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3390,6 +3433,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "CreateAccountAlias",
                 "query": [
@@ -3449,6 +3493,7 @@
                     "typeExposed": "Group",
                     "type": "Group"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -3470,6 +3515,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateGroupResponse",
                 "resultWrapper": "CreateGroupResult",
                 "type": "newtype",
@@ -3514,6 +3560,7 @@
                 "fieldPad": 12,
                 "ctor": "createGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3540,6 +3587,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "CreateGroup",
                 "query": [
@@ -3633,6 +3681,7 @@
                     "typeExposed": "InstanceProfile",
                     "type": "InstanceProfile"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -3654,6 +3703,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateInstanceProfileResponse",
                 "resultWrapper": "CreateInstanceProfileResult",
                 "type": "newtype",
@@ -3698,6 +3748,7 @@
                 "fieldPad": 23,
                 "ctor": "createInstanceProfile",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3724,6 +3775,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "CreateInstanceProfile",
                 "query": [
@@ -3817,6 +3869,7 @@
                     "typeExposed": "LoginProfile",
                     "type": "LoginProfile"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -3838,6 +3891,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateLoginProfileResponse",
                 "resultWrapper": "CreateLoginProfileResult",
                 "type": "newtype",
@@ -3882,6 +3936,7 @@
                 "fieldPad": 25,
                 "ctor": "createLoginProfile",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3922,6 +3977,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "CreateLoginProfile",
                 "query": [
@@ -4036,12 +4092,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateOpenIDConnectProviderResponse",
                 "resultWrapper": "CreateOpenIDConnectProviderResult",
                 "type": "newtype",
@@ -4101,6 +4159,7 @@
                 "fieldPad": 21,
                 "ctor": "createOpenIDConnectProvider",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4127,6 +4186,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "CreateOpenIDConnectProvider",
                 "query": [
@@ -4253,6 +4313,7 @@
                     "typeExposed": "Role",
                     "type": "Role"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -4274,6 +4335,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateRoleResponse",
                 "resultWrapper": "CreateRoleResult",
                 "type": "newtype",
@@ -4318,6 +4380,7 @@
                 "fieldPad": 27,
                 "ctor": "createRole",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4358,6 +4421,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "CreateRole",
                 "query": [
@@ -4472,12 +4536,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateSAMLProviderResponse",
                 "resultWrapper": "CreateSAMLProviderResult",
                 "type": "newtype",
@@ -4537,6 +4603,7 @@
                 "fieldPad": 27,
                 "ctor": "createSAMLProvider",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4577,6 +4644,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "CreateSAMLProvider",
                 "query": [
@@ -4655,12 +4723,14 @@
                     "typeExposed": "Maybe User",
                     "type": "Maybe User"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateUserResponse",
                 "resultWrapper": "CreateUserResult",
                 "type": "newtype",
@@ -4720,6 +4790,7 @@
                 "fieldPad": 11,
                 "ctor": "createUser",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4746,6 +4817,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "CreateUser",
                 "query": [
@@ -4839,6 +4911,7 @@
                     "typeExposed": "VirtualMFADevice",
                     "type": "VirtualMFADevice"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -4860,6 +4933,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateVirtualMFADeviceResponse",
                 "resultWrapper": "CreateVirtualMFADeviceResult",
                 "type": "newtype",
@@ -4904,6 +4978,7 @@
                 "fieldPad": 27,
                 "ctor": "createVirtualMFADevice",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4930,6 +5005,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "CreateVirtualMFADevice",
                 "query": [
@@ -5043,6 +5119,7 @@
                 "fieldPad": 18,
                 "ctor": "deactivateMFADevice",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5083,6 +5160,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DeactivateMFADevice",
                 "query": [
@@ -5181,6 +5259,7 @@
                 "fieldPad": 15,
                 "ctor": "deleteAccessKey",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5207,6 +5286,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "DeleteAccessKey",
                 "query": [
@@ -5337,6 +5417,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5363,6 +5444,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DeleteAccountAlias",
                 "query": [
@@ -5527,6 +5609,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5553,6 +5636,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "DeleteGroup",
                 "query": [
@@ -5632,6 +5716,7 @@
                 "fieldPad": 14,
                 "ctor": "deleteGroupPolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5672,6 +5757,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DeleteGroupPolicy",
                 "query": [
@@ -5787,6 +5873,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5813,6 +5900,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "DeleteInstanceProfile",
                 "query": [
@@ -5909,6 +5997,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5935,6 +6024,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "DeleteLoginProfile",
                 "query": [
@@ -6031,6 +6121,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6057,6 +6148,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "DeleteOpenIDConnectProvider",
                 "query": [
@@ -6153,6 +6245,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6179,6 +6272,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "DeleteRole",
                 "query": [
@@ -6258,6 +6352,7 @@
                 "fieldPad": 14,
                 "ctor": "deleteRolePolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6298,6 +6393,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DeleteRolePolicy",
                 "query": [
@@ -6413,6 +6509,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6439,6 +6536,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DeleteSAMLProvider",
                 "query": [
@@ -6535,6 +6633,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6561,6 +6660,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "DeleteServerCertificate",
                 "query": [
@@ -6640,6 +6740,7 @@
                 "fieldPad": 17,
                 "ctor": "deleteSigningCertificate",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6666,6 +6767,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "DeleteSigningCertificate",
                 "query": [
@@ -6796,6 +6898,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6822,6 +6925,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "DeleteUser",
                 "query": [
@@ -6901,6 +7005,7 @@
                 "fieldPad": 14,
                 "ctor": "deleteUserPolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6941,6 +7046,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DeleteUserPolicy",
                 "query": [
@@ -7056,6 +7162,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7082,6 +7189,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DeleteVirtualMFADevice",
                 "query": [
@@ -7161,6 +7269,7 @@
                 "fieldPad": 25,
                 "ctor": "enableMFADevice",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7229,6 +7338,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "EnableMFADevice",
                 "query": [
@@ -7331,12 +7441,14 @@
                 "fieldPad": 16,
                 "ctor": "generateCredentialReportResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GenerateCredentialReportResponse",
                 "resultWrapper": "GenerateCredentialReportResult",
                 "type": "record",
@@ -7472,6 +7584,7 @@
                     "typeExposed": "PasswordPolicy",
                     "type": "PasswordPolicy"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -7493,6 +7606,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetAccountPasswordPolicyResponse",
                 "resultWrapper": "GetAccountPasswordPolicyResult",
                 "type": "newtype",
@@ -7587,12 +7701,14 @@
                     "typeExposed": "HashMap Text Int",
                     "type": "Map Text Int"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetAccountSummaryResponse",
                 "resultWrapper": "GetAccountSummaryResult",
                 "type": "newtype",
@@ -7685,12 +7801,14 @@
                 "fieldPad": 18,
                 "ctor": "getCredentialReportResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetCredentialReportResponse",
                 "resultWrapper": "GetCredentialReportResult",
                 "type": "record",
@@ -7839,6 +7957,7 @@
                 "fieldPad": 15,
                 "ctor": "getGroupResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -7860,6 +7979,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetGroupResponse",
                 "resultWrapper": "GetGroupResult",
                 "type": "record",
@@ -7997,6 +8117,7 @@
                 "fieldPad": 12,
                 "ctor": "getGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8023,6 +8144,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "GetGroup",
                 "query": [
@@ -8135,6 +8257,7 @@
                 "fieldPad": 19,
                 "ctor": "getGroupPolicyResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -8184,6 +8307,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetGroupPolicyResponse",
                 "resultWrapper": "GetGroupPolicyResult",
                 "type": "record",
@@ -8256,6 +8380,7 @@
                 "fieldPad": 14,
                 "ctor": "getGroupPolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8296,6 +8421,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "GetGroupPolicy",
                 "query": [
@@ -8374,6 +8500,7 @@
                     "typeExposed": "InstanceProfile",
                     "type": "InstanceProfile"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -8395,6 +8522,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetInstanceProfileResponse",
                 "resultWrapper": "GetInstanceProfileResult",
                 "type": "newtype",
@@ -8456,6 +8584,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8482,6 +8611,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "GetInstanceProfile",
                 "query": [
@@ -8541,6 +8671,7 @@
                     "typeExposed": "LoginProfile",
                     "type": "LoginProfile"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -8562,6 +8693,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetLoginProfileResponse",
                 "resultWrapper": "GetLoginProfileResult",
                 "type": "newtype",
@@ -8623,6 +8755,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8649,6 +8782,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "GetLoginProfile",
                 "query": [
@@ -8694,12 +8828,14 @@
                 "fieldPad": 22,
                 "ctor": "getOpenIDConnectProviderResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetOpenIDConnectProviderResponse",
                 "resultWrapper": "GetOpenIDConnectProviderResult",
                 "type": "record",
@@ -8860,6 +8996,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8886,6 +9023,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "GetOpenIDConnectProvider",
                 "query": [
@@ -8945,6 +9083,7 @@
                     "typeExposed": "Role",
                     "type": "Role"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -8966,6 +9105,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetRoleResponse",
                 "resultWrapper": "GetRoleResult",
                 "type": "newtype",
@@ -9027,6 +9167,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9053,6 +9194,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "GetRole",
                 "query": [
@@ -9098,6 +9240,7 @@
                 "fieldPad": 19,
                 "ctor": "getRolePolicyResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -9147,6 +9290,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetRolePolicyResponse",
                 "resultWrapper": "GetRolePolicyResult",
                 "type": "record",
@@ -9219,6 +9363,7 @@
                 "fieldPad": 14,
                 "ctor": "getRolePolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9259,6 +9404,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "GetRolePolicy",
                 "query": [
@@ -9323,12 +9469,14 @@
                 "fieldPad": 28,
                 "ctor": "getSAMLProviderResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetSAMLProviderResponse",
                 "resultWrapper": "GetSAMLProviderResult",
                 "type": "record",
@@ -9461,6 +9609,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9487,6 +9636,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "GetSAMLProvider",
                 "query": [
@@ -9546,6 +9696,7 @@
                     "typeExposed": "ServerCertificate",
                     "type": "ServerCertificate"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -9567,6 +9718,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetServerCertificateResponse",
                 "resultWrapper": "GetServerCertificateResult",
                 "type": "newtype",
@@ -9628,6 +9780,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9654,6 +9807,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "GetServerCertificate",
                 "query": [
@@ -9713,6 +9867,7 @@
                     "typeExposed": "User",
                     "type": "User"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -9734,6 +9889,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetUserResponse",
                 "resultWrapper": "GetUserResult",
                 "type": "newtype",
@@ -9794,6 +9950,7 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9805,6 +9962,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "GetUser",
                 "query": [
@@ -9865,6 +10023,7 @@
                 "fieldPad": 19,
                 "ctor": "getUserPolicyResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -9914,6 +10073,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetUserPolicyResponse",
                 "resultWrapper": "GetUserPolicyResult",
                 "type": "record",
@@ -9986,6 +10146,7 @@
                 "fieldPad": 14,
                 "ctor": "getUserPolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10026,6 +10187,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "GetUserPolicy",
                 "query": [
@@ -10089,12 +10251,14 @@
                 "fieldPad": 22,
                 "ctor": "listAccessKeysResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListAccessKeysResponse",
                 "resultWrapper": "ListAccessKeysResult",
                 "type": "record",
@@ -10218,6 +10382,7 @@
                 "fieldPad": 12,
                 "ctor": "listAccessKeys",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10229,6 +10394,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ListAccessKeys",
                 "query": [
@@ -10355,12 +10521,14 @@
                 "fieldPad": 19,
                 "ctor": "listAccountAliasesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListAccountAliasesResponse",
                 "resultWrapper": "ListAccountAliasesResult",
                 "type": "record",
@@ -10484,6 +10652,7 @@
                 "fieldPad": 12,
                 "ctor": "listAccountAliases",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10495,6 +10664,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ListAccountAliases",
                 "query": [
@@ -10588,12 +10758,14 @@
                 "fieldPad": 16,
                 "ctor": "listGroupPoliciesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListGroupPoliciesResponse",
                 "resultWrapper": "ListGroupPoliciesResult",
                 "type": "record",
@@ -10717,6 +10889,7 @@
                 "fieldPad": 13,
                 "ctor": "listGroupPolicies",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10743,6 +10916,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "ListGroupPolicies",
                 "query": [
@@ -10854,12 +11028,14 @@
                 "fieldPad": 15,
                 "ctor": "listGroupsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListGroupsResponse",
                 "resultWrapper": "ListGroupsResult",
                 "type": "record",
@@ -10983,6 +11159,7 @@
                 "fieldPad": 13,
                 "ctor": "listGroups",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10994,6 +11171,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "ListGroups",
                 "query": [
@@ -11119,12 +11297,14 @@
                 "fieldPad": 17,
                 "ctor": "listGroupsForUserResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListGroupsForUserResponse",
                 "resultWrapper": "ListGroupsForUserResult",
                 "type": "record",
@@ -11248,6 +11428,7 @@
                 "fieldPad": 13,
                 "ctor": "listGroupsForUser",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11274,6 +11455,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ListGroupsForUser",
                 "query": [
@@ -11385,12 +11567,14 @@
                 "fieldPad": 21,
                 "ctor": "listInstanceProfilesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListInstanceProfilesResponse",
                 "resultWrapper": "ListInstanceProfilesResult",
                 "type": "record",
@@ -11514,6 +11698,7 @@
                 "fieldPad": 14,
                 "ctor": "listInstanceProfiles",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11525,6 +11710,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "ListInstanceProfiles",
                 "query": [
@@ -11650,12 +11836,14 @@
                 "fieldPad": 23,
                 "ctor": "listInstanceProfilesForRoleResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListInstanceProfilesForRoleResponse",
                 "resultWrapper": "ListInstanceProfilesForRoleResult",
                 "type": "record",
@@ -11779,6 +11967,7 @@
                 "fieldPad": 14,
                 "ctor": "listInstanceProfilesForRole",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11805,6 +11994,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ListInstanceProfilesForRole",
                 "query": [
@@ -11916,12 +12106,14 @@
                 "fieldPad": 18,
                 "ctor": "listMFADevicesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListMFADevicesResponse",
                 "resultWrapper": "ListMFADevicesResult",
                 "type": "record",
@@ -12045,6 +12237,7 @@
                 "fieldPad": 14,
                 "ctor": "listMFADevices",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12056,6 +12249,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ListMFADevices",
                 "query": [
@@ -12198,12 +12392,14 @@
                     "typeExposed": "[OpenIDConnectProviderListEntry]",
                     "type": "[OpenIDConnectProviderListEntry]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListOpenIDConnectProvidersResponse",
                 "resultWrapper": "ListOpenIDConnectProvidersResult",
                 "type": "newtype",
@@ -12297,12 +12493,14 @@
                 "fieldPad": 16,
                 "ctor": "listRolePoliciesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListRolePoliciesResponse",
                 "resultWrapper": "ListRolePoliciesResult",
                 "type": "record",
@@ -12426,6 +12624,7 @@
                 "fieldPad": 12,
                 "ctor": "listRolePolicies",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12452,6 +12651,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ListRolePolicies",
                 "query": [
@@ -12563,12 +12763,14 @@
                 "fieldPad": 15,
                 "ctor": "listRolesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListRolesResponse",
                 "resultWrapper": "ListRolesResult",
                 "type": "record",
@@ -12692,6 +12894,7 @@
                 "fieldPad": 13,
                 "ctor": "listRoles",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12703,6 +12906,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "ListRoles",
                 "query": [
@@ -12845,12 +13049,14 @@
                     "typeExposed": "[SAMLProviderListEntry]",
                     "type": "[SAMLProviderListEntry]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListSAMLProvidersResponse",
                 "resultWrapper": "ListSAMLProvidersResult",
                 "type": "newtype",
@@ -12943,12 +13149,14 @@
                 "fieldPad": 34,
                 "ctor": "listServerCertificatesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListServerCertificatesResponse",
                 "resultWrapper": "ListServerCertificatesResult",
                 "type": "record",
@@ -13072,6 +13280,7 @@
                 "fieldPad": 14,
                 "ctor": "listServerCertificates",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -13083,6 +13292,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "ListServerCertificates",
                 "query": [
@@ -13208,12 +13418,14 @@
                 "fieldPad": 18,
                 "ctor": "listSigningCertificatesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListSigningCertificatesResponse",
                 "resultWrapper": "ListSigningCertificatesResult",
                 "type": "record",
@@ -13337,6 +13549,7 @@
                 "fieldPad": 13,
                 "ctor": "listSigningCertificates",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -13348,6 +13561,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ListSigningCertificates",
                 "query": [
@@ -13474,12 +13688,14 @@
                 "fieldPad": 16,
                 "ctor": "listUserPoliciesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListUserPoliciesResponse",
                 "resultWrapper": "ListUserPoliciesResult",
                 "type": "record",
@@ -13603,6 +13819,7 @@
                 "fieldPad": 12,
                 "ctor": "listUserPolicies",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -13629,6 +13846,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ListUserPolicies",
                 "query": [
@@ -13740,12 +13958,14 @@
                 "fieldPad": 15,
                 "ctor": "listUsersResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListUsersResponse",
                 "resultWrapper": "ListUsersResult",
                 "type": "record",
@@ -13869,6 +14089,7 @@
                 "fieldPad": 13,
                 "ctor": "listUsers",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -13880,6 +14101,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "ListUsers",
                 "query": [
@@ -14005,12 +14227,14 @@
                 "fieldPad": 25,
                 "ctor": "listVirtualMFADevicesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListVirtualMFADevicesResponse",
                 "resultWrapper": "ListVirtualMFADevicesResult",
                 "type": "record",
@@ -14134,6 +14358,7 @@
                 "fieldPad": 23,
                 "ctor": "listVirtualMFADevices",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14145,6 +14370,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "ListVirtualMFADevices",
                 "query": [
@@ -14305,6 +14531,7 @@
                 "fieldPad": 18,
                 "ctor": "putGroupPolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14359,6 +14586,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "PutGroupPolicy",
                 "query": [
@@ -14476,6 +14704,7 @@
                 "fieldPad": 18,
                 "ctor": "putRolePolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14530,6 +14759,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "PutRolePolicy",
                 "query": [
@@ -14647,6 +14877,7 @@
                 "fieldPad": 18,
                 "ctor": "putUserPolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14701,6 +14932,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "PutUserPolicy",
                 "query": [
@@ -14818,6 +15050,7 @@
                 "fieldPad": 35,
                 "ctor": "removeClientIDFromOpenIDConnectProvider",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14858,6 +15091,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "RemoveClientIDFromOpenIDConnectProvider",
                 "query": [
@@ -14956,6 +15190,7 @@
                 "fieldPad": 25,
                 "ctor": "removeRoleFromInstanceProfile",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14996,6 +15231,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "RemoveRoleFromInstanceProfile",
                 "query": [
@@ -15094,6 +15330,7 @@
                 "fieldPad": 14,
                 "ctor": "removeUserFromGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -15134,6 +15371,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "RemoveUserFromGroup",
                 "query": [
@@ -15232,6 +15470,7 @@
                 "fieldPad": 25,
                 "ctor": "resyncMFADevice",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -15300,6 +15539,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 20,
                 "name": "ResyncMFADevice",
                 "query": [
@@ -15436,6 +15676,7 @@
                 "fieldPad": 15,
                 "ctor": "updateAccessKey",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -15476,6 +15717,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "UpdateAccessKey",
                 "query": [
@@ -15608,6 +15850,7 @@
                 "fieldPad": 31,
                 "ctor": "updateAccountPasswordPolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -15619,6 +15862,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "UpdateAccountPasswordPolicy",
                 "query": [
@@ -15977,6 +16221,7 @@
                 "fieldPad": 19,
                 "ctor": "updateAssumeRolePolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -16017,6 +16262,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "UpdateAssumeRolePolicy",
                 "query": [
@@ -16115,6 +16361,7 @@
                 "fieldPad": 15,
                 "ctor": "updateGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -16141,6 +16388,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "UpdateGroup",
                 "query": [
@@ -16287,6 +16535,7 @@
                 "fieldPad": 25,
                 "ctor": "updateLoginProfile",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -16313,6 +16562,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "UpdateLoginProfile",
                 "query": [
@@ -16459,6 +16709,7 @@
                 "fieldPad": 32,
                 "ctor": "updateOpenIDConnectProviderThumbprint",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -16485,6 +16736,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "UpdateOpenIDConnectProviderThumbprint",
                 "query": [
@@ -16580,12 +16832,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UpdateSAMLProviderResponse",
                 "resultWrapper": "UpdateSAMLProviderResult",
                 "type": "newtype",
@@ -16645,6 +16899,7 @@
                 "fieldPad": 27,
                 "ctor": "updateSAMLProvider",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -16685,6 +16940,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "UpdateSAMLProvider",
                 "query": [
@@ -16783,6 +17039,7 @@
                 "fieldPad": 29,
                 "ctor": "updateServerCertificate",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -16809,6 +17066,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "UpdateServerCertificate",
                 "query": [
@@ -16955,6 +17213,7 @@
                 "fieldPad": 17,
                 "ctor": "updateSigningCertificate",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -16995,6 +17254,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 14,
                 "name": "UpdateSigningCertificate",
                 "query": [
@@ -17127,6 +17387,7 @@
                 "fieldPad": 14,
                 "ctor": "updateUser",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -17153,6 +17414,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "UpdateUser",
                 "query": [
@@ -17279,12 +17541,14 @@
                     "typeExposed": "Maybe ServerCertificateMetadata",
                     "type": "Maybe ServerCertificateMetadata"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UploadServerCertificateResponse",
                 "resultWrapper": "UploadServerCertificateResult",
                 "type": "newtype",
@@ -17344,6 +17608,7 @@
                 "fieldPad": 25,
                 "ctor": "uploadServerCertificate",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -17398,6 +17663,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "UploadServerCertificate",
                 "query": [
@@ -17562,6 +17828,7 @@
                     "typeExposed": "SigningCertificate",
                     "type": "SigningCertificate"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
@@ -17583,6 +17850,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UploadSigningCertificateResponse",
                 "resultWrapper": "UploadSigningCertificateResult",
                 "type": "newtype",
@@ -17627,6 +17895,7 @@
                 "fieldPad": 20,
                 "ctor": "uploadSigningCertificate",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -17653,6 +17922,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "UploadSigningCertificate",
                 "query": [

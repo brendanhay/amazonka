@@ -64,6 +64,7 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "statisticSet",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -123,6 +124,7 @@
                         "type": "Double"
                     }
                 ],
+                "contentPad": 0,
                 "name": "StatisticSet",
                 "type": "record",
                 "optional": [],
@@ -193,8 +195,10 @@
                 ],
                 "fieldPad": 37,
                 "ctor": "metricAlarm",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "MetricAlarm",
                 "type": "record",
                 "optional": [
@@ -816,6 +820,7 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "metricDatum",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -833,6 +838,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "MetricDatum",
                 "type": "record",
                 "optional": [
@@ -1045,6 +1051,7 @@
                 ],
                 "fieldPad": 7,
                 "ctor": "dimension",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1076,6 +1083,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Dimension",
                 "type": "record",
                 "optional": [],
@@ -1138,8 +1146,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "alarmHistoryItem",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AlarmHistoryItem",
                 "type": "record",
                 "optional": [
@@ -1295,8 +1305,10 @@
                 ],
                 "fieldPad": 12,
                 "ctor": "metric",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Metric",
                 "type": "record",
                 "optional": [
@@ -1415,8 +1427,10 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "datapoint",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Datapoint",
                 "type": "record",
                 "optional": [
@@ -1629,6 +1643,7 @@
                 ],
                 "fieldPad": 8,
                 "ctor": "dimensionFilter",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1646,6 +1661,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "DimensionFilter",
                 "type": "record",
                 "optional": [
@@ -1784,6 +1800,7 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1795,6 +1812,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DeleteAlarms",
                 "query": [
@@ -1854,12 +1872,14 @@
                 "fieldPad": 22,
                 "ctor": "describeAlarmHistoryResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAlarmHistoryResponse",
                 "resultWrapper": "DescribeAlarmHistoryResult",
                 "type": "record",
@@ -1955,6 +1975,7 @@
                 "fieldPad": 19,
                 "ctor": "describeAlarmHistory",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1966,6 +1987,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DescribeAlarmHistory",
                 "query": [
@@ -2190,12 +2212,14 @@
                 "fieldPad": 16,
                 "ctor": "describeAlarmsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAlarmsResponse",
                 "resultWrapper": "DescribeAlarmsResult",
                 "type": "record",
@@ -2291,6 +2315,7 @@
                 "fieldPad": 18,
                 "ctor": "describeAlarms",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2302,6 +2327,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "DescribeAlarms",
                 "query": [
@@ -2543,12 +2569,14 @@
                     "typeExposed": "[MetricAlarm]",
                     "type": "[MetricAlarm]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAlarmsForMetricResponse",
                 "resultWrapper": "DescribeAlarmsForMetricResult",
                 "type": "newtype",
@@ -2607,6 +2635,7 @@
                 "fieldPad": 15,
                 "ctor": "describeAlarmsForMetric",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2647,6 +2676,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeAlarmsForMetric",
                 "query": [
@@ -2895,6 +2925,7 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2906,6 +2937,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DisableAlarmActions",
                 "query": [
@@ -3017,6 +3049,7 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3028,6 +3061,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "EnableAlarmActions",
                 "query": [
@@ -3087,12 +3121,14 @@
                 "fieldPad": 15,
                 "ctor": "getMetricStatisticsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetMetricStatisticsResponse",
                 "resultWrapper": "GetMetricStatisticsResult",
                 "type": "record",
@@ -3179,6 +3215,7 @@
                 "fieldPad": 14,
                 "ctor": "getMetricStatistics",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3275,6 +3312,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "GetMetricStatistics",
                 "query": [
@@ -3481,12 +3519,14 @@
                 "fieldPad": 13,
                 "ctor": "listMetricsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListMetricsResponse",
                 "resultWrapper": "ListMetricsResult",
                 "type": "record",
@@ -3581,6 +3621,7 @@
                 "fieldPad": 13,
                 "ctor": "listMetrics",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3592,6 +3633,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "ListMetrics",
                 "query": [
@@ -3784,6 +3826,7 @@
                 "fieldPad": 27,
                 "ctor": "putMetricAlarm",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3908,6 +3951,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "PutMetricAlarm",
                 "query": [
@@ -4351,6 +4395,7 @@
                 "fieldPad": 14,
                 "ctor": "putMetricData",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4377,6 +4422,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "PutMetricData",
                 "query": [
@@ -4490,6 +4536,7 @@
                 "fieldPad": 19,
                 "ctor": "setAlarmState",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4544,6 +4591,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "SetAlarmState",
                 "query": [

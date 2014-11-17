@@ -108,8 +108,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Topic",
                 "type": "newtype",
                 "optional": [
@@ -153,6 +155,7 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "messageAttributeValue",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -170,6 +173,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "MessageAttributeValue",
                 "type": "record",
                 "optional": [
@@ -255,8 +259,10 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "platformApplication",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "PlatformApplication",
                 "type": "record",
                 "optional": [
@@ -329,8 +335,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "subscription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Subscription",
                 "type": "record",
                 "optional": [
@@ -486,8 +494,10 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "endpoint",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Endpoint",
                 "type": "record",
                 "optional": [
@@ -603,6 +613,7 @@
                 "fieldPad": 15,
                 "ctor": "addPermission",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -643,6 +654,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "AddPermission",
                 "query": [
@@ -790,12 +802,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ConfirmSubscriptionResponse",
                 "resultWrapper": "ConfirmSubscriptionResult",
                 "type": "newtype",
@@ -855,6 +869,7 @@
                 "fieldPad": 28,
                 "ctor": "confirmSubscription",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -895,6 +910,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 26,
                 "name": "ConfirmSubscription",
                 "query": [
@@ -1009,12 +1025,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreatePlatformApplicationResponse",
                 "resultWrapper": "CreatePlatformApplicationResult",
                 "type": "newtype",
@@ -1073,6 +1091,7 @@
                 "fieldPad": 14,
                 "ctor": "createPlatformApplication",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1113,6 +1132,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "CreatePlatformApplication",
                 "query": [
@@ -1227,12 +1247,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreatePlatformEndpointResponse",
                 "resultWrapper": "CreatePlatformEndpointResult",
                 "type": "newtype",
@@ -1291,6 +1313,7 @@
                 "fieldPad": 26,
                 "ctor": "createPlatformEndpoint",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1331,6 +1354,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "CreatePlatformEndpoint",
                 "query": [
@@ -1478,12 +1502,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateTopicResponse",
                 "resultWrapper": "CreateTopicResult",
                 "type": "newtype",
@@ -1560,6 +1586,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1586,6 +1613,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 5,
                 "name": "CreateTopic",
                 "query": [
@@ -1682,6 +1710,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1708,6 +1737,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "DeleteEndpoint",
                 "query": [
@@ -1804,6 +1834,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1830,6 +1861,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "DeletePlatformApplication",
                 "query": [
@@ -1926,6 +1958,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1952,6 +1985,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "DeleteTopic",
                 "query": [
@@ -2013,12 +2047,14 @@
                     "typeExposed": "HashMap Text Text",
                     "type": "Map Text Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetEndpointAttributesResponse",
                 "resultWrapper": "GetEndpointAttributesResult",
                 "type": "newtype",
@@ -2095,6 +2131,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2121,6 +2158,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "GetEndpointAttributes",
                 "query": [
@@ -2182,12 +2220,14 @@
                     "typeExposed": "HashMap Text Text",
                     "type": "Map Text Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetPlatformApplicationAttributesResponse",
                 "resultWrapper": "GetPlatformApplicationAttributesResult",
                 "type": "newtype",
@@ -2264,6 +2304,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2290,6 +2331,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "GetPlatformApplicationAttributes",
                 "query": [
@@ -2351,12 +2393,14 @@
                     "typeExposed": "HashMap Text Text",
                     "type": "Map Text Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetSubscriptionAttributesResponse",
                 "resultWrapper": "GetSubscriptionAttributesResult",
                 "type": "newtype",
@@ -2433,6 +2477,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2459,6 +2504,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "GetSubscriptionAttributes",
                 "query": [
@@ -2520,12 +2566,14 @@
                     "typeExposed": "HashMap Text Text",
                     "type": "Map Text Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetTopicAttributesResponse",
                 "resultWrapper": "GetTopicAttributesResult",
                 "type": "newtype",
@@ -2602,6 +2650,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2628,6 +2677,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "GetTopicAttributes",
                 "query": [
@@ -2672,12 +2722,14 @@
                 "fieldPad": 16,
                 "ctor": "listEndpointsByPlatformApplicationResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListEndpointsByPlatformApplicationResponse",
                 "resultWrapper": "ListEndpointsByPlatformApplicationResult",
                 "type": "record",
@@ -2773,6 +2825,7 @@
                 "fieldPad": 28,
                 "ctor": "listEndpointsByPlatformApplication",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2799,6 +2852,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "ListEndpointsByPlatformApplication",
                 "query": [
@@ -2877,12 +2931,14 @@
                 "fieldPad": 25,
                 "ctor": "listPlatformApplicationsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListPlatformApplicationsResponse",
                 "resultWrapper": "ListPlatformApplicationsResult",
                 "type": "record",
@@ -2994,6 +3050,7 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3005,6 +3062,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "ListPlatformApplications",
                 "query": [
@@ -3064,12 +3122,14 @@
                 "fieldPad": 17,
                 "ctor": "listSubscriptionsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListSubscriptionsResponse",
                 "resultWrapper": "ListSubscriptionsResult",
                 "type": "record",
@@ -3181,6 +3241,7 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3192,6 +3253,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "ListSubscriptions",
                 "query": [
@@ -3251,12 +3313,14 @@
                 "fieldPad": 19,
                 "ctor": "listSubscriptionsByTopicResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListSubscriptionsByTopicResponse",
                 "resultWrapper": "ListSubscriptionsByTopicResult",
                 "type": "record",
@@ -3352,6 +3416,7 @@
                 "fieldPad": 14,
                 "ctor": "listSubscriptionsByTopic",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3378,6 +3443,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "ListSubscriptionsByTopic",
                 "query": [
@@ -3456,12 +3522,14 @@
                 "fieldPad": 13,
                 "ctor": "listTopicsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListTopicsResponse",
                 "resultWrapper": "ListTopicsResult",
                 "type": "record",
@@ -3573,6 +3641,7 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3584,6 +3653,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "ListTopics",
                 "query": [
@@ -3660,12 +3730,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "PublishResponse",
                 "resultWrapper": "PublishResult",
                 "type": "newtype",
@@ -3724,6 +3796,7 @@
                 "fieldPad": 19,
                 "ctor": "publish",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3750,6 +3823,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "Publish",
                 "query": [
@@ -3995,6 +4069,7 @@
                 "fieldPad": 11,
                 "ctor": "removePermission",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4035,6 +4110,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "RemovePermission",
                 "query": [
@@ -4132,6 +4208,7 @@
                 "fieldPad": 15,
                 "ctor": "setEndpointAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4158,6 +4235,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "SetEndpointAttributes",
                 "query": [
@@ -4270,6 +4348,7 @@
                 "fieldPad": 27,
                 "ctor": "setPlatformApplicationAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4296,6 +4375,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "SetPlatformApplicationAttributes",
                 "query": [
@@ -4409,6 +4489,7 @@
                 "fieldPad": 19,
                 "ctor": "setSubscriptionAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4449,6 +4530,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "SetSubscriptionAttributes",
                 "query": [
@@ -4581,6 +4663,7 @@
                 "fieldPad": 18,
                 "ctor": "setTopicAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4621,6 +4704,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "SetTopicAttributes",
                 "query": [
@@ -4735,12 +4819,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "SubscribeResponse",
                 "resultWrapper": "SubscribeResult",
                 "type": "newtype",
@@ -4800,6 +4886,7 @@
                 "fieldPad": 10,
                 "ctor": "subscribe",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4840,6 +4927,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "Subscribe",
                 "query": [
@@ -4989,6 +5077,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5015,6 +5104,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "Unsubscribe",
                 "query": [

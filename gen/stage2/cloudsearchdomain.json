@@ -49,8 +49,39 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "searchStatus",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ssTimems",
+                        "name": "_ssTimems",
+                        "shape": "Long",
+                        "locationName": "timems",
+                        "documentation": "\u003cp\u003eHow long it took to process the request, in milliseconds.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ssRid",
+                        "name": "_ssRid",
+                        "shape": "String",
+                        "locationName": "rid",
+                        "documentation": "\u003cp\u003eThe encrypted resource ID for the request.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 7,
                 "name": "SearchStatus",
                 "type": "record",
                 "optional": [
@@ -141,8 +172,53 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "hit",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hitId",
+                        "name": "_hitId",
+                        "shape": "String",
+                        "locationName": "id",
+                        "documentation": "\u003cp\u003eThe document ID of a document that matches the search request.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "hitFields",
+                        "name": "_hitFields",
+                        "shape": "Fields",
+                        "locationName": "fields",
+                        "documentation": "\u003cp\u003eThe fields returned from a document that matches the search request.\u003c/p\u003e",
+                        "typeExposed": "HashMap Text [Text]",
+                        "type": "Map Text [Text]"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "hitHighlights",
+                        "name": "_hitHighlights",
+                        "shape": "Highlights",
+                        "locationName": "highlights",
+                        "documentation": "\u003cp\u003eThe highlights returned from a document that matches the search request.\u003c/p\u003e",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 11,
                 "name": "Hit",
                 "type": "record",
                 "optional": [
@@ -243,8 +319,39 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "suggestStatus",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ss1Timems",
+                        "name": "_ss1Timems",
+                        "shape": "Long",
+                        "locationName": "timems",
+                        "documentation": "\u003cp\u003eHow long it took to process the request, in milliseconds.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ss1Rid",
+                        "name": "_ss1Rid",
+                        "shape": "String",
+                        "locationName": "rid",
+                        "documentation": "\u003cp\u003eThe encrypted resource ID for the request.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 7,
                 "name": "SuggestStatus",
                 "type": "record",
                 "optional": [
@@ -317,8 +424,39 @@
                 ],
                 "fieldPad": 7,
                 "ctor": "bucket",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "bValue",
+                        "name": "_bValue",
+                        "shape": "String",
+                        "locationName": "value",
+                        "documentation": "\u003cp\u003eThe facet value being counted.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "bCount",
+                        "name": "_bCount",
+                        "shape": "Long",
+                        "locationName": "count",
+                        "documentation": "\u003cp\u003eThe number of hits that contain the facet value in the specified facet field.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 6,
                 "name": "Bucket",
                 "type": "record",
                 "optional": [
@@ -391,8 +529,53 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "suggestionMatch",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "smSuggestion",
+                        "name": "_smSuggestion",
+                        "shape": "String",
+                        "locationName": "suggestion",
+                        "documentation": "\u003cp\u003eThe string that matches the query string specified in the \u003ccode\u003eSuggestRequest\u003c/code\u003e. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "smScore",
+                        "name": "_smScore",
+                        "shape": "Long",
+                        "locationName": "score",
+                        "documentation": "\u003cp\u003eThe relevance score of a suggested match.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "smId",
+                        "name": "_smId",
+                        "shape": "String",
+                        "locationName": "id",
+                        "documentation": "\u003cp\u003eThe document ID of the suggested document.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 11,
                 "name": "SuggestionMatch",
                 "type": "record",
                 "optional": [
@@ -509,8 +692,25 @@
                     "typeExposed": "[Bucket]",
                     "type": "[Bucket]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "biBuckets",
+                        "name": "_biBuckets",
+                        "shape": "BucketList",
+                        "locationName": "buckets",
+                        "documentation": "\u003cp\u003eA list of the calculated facet values and counts.\u003c/p\u003e",
+                        "typeExposed": "[Bucket]",
+                        "type": "[Bucket]"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "BucketInfo",
                 "type": "newtype",
                 "optional": [
@@ -571,8 +771,25 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dswMessage",
+                        "name": "_dswMessage",
+                        "shape": "String",
+                        "locationName": "message",
+                        "documentation": "\u003cp\u003eThe description for a warning returned by the document service.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "DocumentServiceWarning",
                 "type": "newtype",
                 "optional": [
@@ -616,8 +833,53 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "suggestModel",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "smQuery",
+                        "name": "_smQuery",
+                        "shape": "String",
+                        "locationName": "query",
+                        "documentation": "\u003cp\u003eThe query string specified in the suggest request.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "smFound",
+                        "name": "_smFound",
+                        "shape": "Long",
+                        "locationName": "found",
+                        "documentation": "\u003cp\u003eThe number of documents that were found to match the query string.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "smSuggestions",
+                        "name": "_smSuggestions",
+                        "shape": "Suggestions",
+                        "locationName": "suggestions",
+                        "documentation": "\u003cp\u003eThe documents that match the query string.\u003c/p\u003e",
+                        "typeExposed": "[SuggestionMatch]",
+                        "type": "[SuggestionMatch]"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 12,
                 "name": "SuggestModel",
                 "type": "record",
                 "optional": [
@@ -717,8 +979,67 @@
                 ],
                 "fieldPad": 8,
                 "ctor": "hits",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hFound",
+                        "name": "_hFound",
+                        "shape": "Long",
+                        "locationName": "found",
+                        "documentation": "\u003cp\u003eThe total number of documents that match the search request.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hStart",
+                        "name": "_hStart",
+                        "shape": "Long",
+                        "locationName": "start",
+                        "documentation": "\u003cp\u003eThe index of the first matching document.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hCursor",
+                        "name": "_hCursor",
+                        "shape": "String",
+                        "locationName": "cursor",
+                        "documentation": "\u003cp\u003eA cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "hHit",
+                        "name": "_hHit",
+                        "shape": "HitList",
+                        "locationName": "hit",
+                        "documentation": "\u003cp\u003eA document that matches the search request.\u003c/p\u003e",
+                        "typeExposed": "[Hit]",
+                        "type": "[Hit]"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 7,
                 "name": "Hits",
                 "type": "record",
                 "optional": [
@@ -872,12 +1193,57 @@
                 "fieldPad": 10,
                 "ctor": "searchResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sr1Status",
+                        "name": "_sr1Status",
+                        "shape": "SearchStatus",
+                        "locationName": "status",
+                        "documentation": "\u003cp\u003eThe status information returned for the search request.\u003c/p\u003e",
+                        "typeExposed": "Maybe SearchStatus",
+                        "type": "Maybe SearchStatus"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "sr1Hits",
+                        "name": "_sr1Hits",
+                        "shape": "Hits",
+                        "locationName": "hits",
+                        "documentation": "\u003cp\u003eThe documents that match the search criteria.\u003c/p\u003e",
+                        "typeExposed": "Maybe Hits",
+                        "type": "Maybe Hits"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "sr1Facets",
+                        "name": "_sr1Facets",
+                        "shape": "Facets",
+                        "locationName": "facets",
+                        "documentation": "\u003cp\u003eThe requested facet information.\u003c/p\u003e",
+                        "typeExposed": "HashMap Text BucketInfo",
+                        "type": "Map Text BucketInfo"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 7,
                 "name": "SearchResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -993,6 +1359,7 @@
                 "fieldPad": 15,
                 "ctor": "search",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-01-01/search",
@@ -1019,6 +1386,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "Search",
                 "query": [
@@ -1464,12 +1832,43 @@
                 "fieldPad": 10,
                 "ctor": "suggestResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "srStatus",
+                        "name": "_srStatus",
+                        "shape": "SuggestStatus",
+                        "locationName": "status",
+                        "documentation": "\u003cp\u003eThe status of a \u003ccode\u003eSuggestRequest\u003c/code\u003e. Contains the resource ID (\u003ccode\u003erid\u003c/code\u003e) and how long it took to process the request (\u003ccode\u003etimems\u003c/code\u003e).\u003c/p\u003e",
+                        "typeExposed": "Maybe SuggestStatus",
+                        "type": "Maybe SuggestStatus"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "srSuggest",
+                        "name": "_srSuggest",
+                        "shape": "SuggestModel",
+                        "locationName": "suggest",
+                        "documentation": "\u003cp\u003eContainer for the matching search suggestion information.\u003c/p\u003e",
+                        "typeExposed": "Maybe SuggestModel",
+                        "type": "Maybe SuggestModel"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 8,
                 "name": "SuggestResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -1557,6 +1956,7 @@
                 "fieldPad": 11,
                 "ctor": "suggest",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-01-01/suggest",
@@ -1597,6 +1997,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "Suggest",
                 "query": [
@@ -1698,12 +2099,71 @@
                 "fieldPad": 12,
                 "ctor": "uploadDocumentsResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "udrStatus",
+                        "name": "_udrStatus",
+                        "shape": "String",
+                        "locationName": "status",
+                        "documentation": "\u003cp\u003eThe status of an \u003ccode\u003eUploadDocumentsRequest\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "udrAdds",
+                        "name": "_udrAdds",
+                        "shape": "Adds",
+                        "locationName": "adds",
+                        "documentation": "\u003cp\u003eThe number of documents that were added to the search domain.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "udrDeletes",
+                        "name": "_udrDeletes",
+                        "shape": "Deletes",
+                        "locationName": "deletes",
+                        "documentation": "\u003cp\u003eThe number of documents that were deleted from the search domain.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "udrWarnings",
+                        "name": "_udrWarnings",
+                        "shape": "DocumentServiceWarnings",
+                        "locationName": "warnings",
+                        "documentation": "\u003cp\u003eAny warnings returned by the document service about the documents being uploaded.\u003c/p\u003e",
+                        "typeExposed": "[DocumentServiceWarning]",
+                        "type": "[DocumentServiceWarning]"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 9,
                 "name": "UploadDocumentsResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -1846,6 +2306,22 @@
                 "fieldPad": 14,
                 "ctor": "uploadDocuments",
                 "headerPad": 13,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "udDocuments",
+                        "name": "_udDocuments",
+                        "shape": "Blob",
+                        "locationName": "documents",
+                        "documentation": "\u003cp\u003eA batch of documents formatted in JSON or HTML.\u003c/p\u003e",
+                        "typeExposed": "Base64",
+                        "type": "Base64"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/2013-01-01/documents/batch",
@@ -1905,6 +2381,7 @@
                         "type": "field"
                     }
                 ],
+                "contentPad": 10,
                 "queryPad": 0,
                 "name": "UploadDocuments",
                 "query": [

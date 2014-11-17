@@ -147,8 +147,10 @@
                 ],
                 "fieldPad": 40,
                 "ctor": "snapshot",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Snapshot",
                 "type": "record",
                 "optional": [
@@ -865,8 +867,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "clusterParameterGroup",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ClusterParameterGroup",
                 "type": "record",
                 "optional": [
@@ -967,8 +971,10 @@
                 ],
                 "fieldPad": 41,
                 "ctor": "restoreStatus",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "RestoreStatus",
                 "type": "record",
                 "optional": [
@@ -1153,8 +1159,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "event",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Event",
                 "type": "record",
                 "optional": [
@@ -1367,8 +1375,10 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "clusterSnapshotCopyStatus",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ClusterSnapshotCopyStatus",
                 "type": "record",
                 "optional": [
@@ -1441,8 +1451,10 @@
                 ],
                 "fieldPad": 34,
                 "ctor": "hsmClientCertificate",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "HsmClientCertificate",
                 "type": "record",
                 "optional": [
@@ -1514,8 +1526,10 @@
                 ],
                 "fieldPad": 34,
                 "ctor": "cluster",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Cluster",
                 "type": "record",
                 "optional": [
@@ -2344,8 +2358,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "clusterNode",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ClusterNode",
                 "type": "record",
                 "optional": [
@@ -2446,8 +2462,10 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "ec2SecurityGroup",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EC2SecurityGroup",
                 "type": "record",
                 "optional": [
@@ -2547,8 +2565,10 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "orderableClusterOption",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "OrderableClusterOption",
                 "type": "record",
                 "optional": [
@@ -2696,8 +2716,10 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "clusterParameterGroupStatus",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ClusterParameterGroupStatus",
                 "type": "record",
                 "optional": [
@@ -2769,8 +2791,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "subnet",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Subnet",
                 "type": "record",
                 "optional": [
@@ -2870,8 +2894,10 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "clusterSecurityGroup",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ClusterSecurityGroup",
                 "type": "record",
                 "optional": [
@@ -2999,8 +3025,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "defaultClusterParameters",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "DefaultClusterParameters",
                 "type": "record",
                 "optional": [
@@ -3100,8 +3128,10 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "clusterSubnetGroup",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ClusterSubnetGroup",
                 "type": "record",
                 "optional": [
@@ -3258,8 +3288,10 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "eventInfoMap",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EventInfoMap",
                 "type": "record",
                 "optional": [
@@ -3388,8 +3420,10 @@
                 ],
                 "fieldPad": 29,
                 "ctor": "clusterSecurityGroupMembership",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ClusterSecurityGroupMembership",
                 "type": "record",
                 "optional": [
@@ -3461,8 +3495,10 @@
                 ],
                 "fieldPad": 26,
                 "ctor": "reservedNodeOffering",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedNodeOffering",
                 "type": "record",
                 "optional": [
@@ -3702,8 +3738,10 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "reservedNode",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedNode",
                 "type": "record",
                 "optional": [
@@ -4056,8 +4094,10 @@
                 ],
                 "fieldPad": 29,
                 "ctor": "loggingStatus",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "LoggingStatus",
                 "type": "record",
                 "optional": [
@@ -4258,8 +4298,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AccountWithRestoreAccess",
                 "type": "newtype",
                 "optional": [
@@ -4320,8 +4362,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AvailabilityZone",
                 "type": "newtype",
                 "optional": [
@@ -4366,8 +4410,10 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "eventSubscription",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EventSubscription",
                 "type": "record",
                 "optional": [
@@ -4664,8 +4710,10 @@
                 ],
                 "fieldPad": 33,
                 "ctor": "hsmStatus",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "HsmStatus",
                 "type": "record",
                 "optional": [
@@ -4766,8 +4814,10 @@
                 ],
                 "fieldPad": 26,
                 "ctor": "clusterParameterGroupNameMessage",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ClusterParameterGroupNameMessage",
                 "type": "record",
                 "optional": [
@@ -4840,8 +4890,10 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "elasticIpStatus",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ElasticIpStatus",
                 "type": "record",
                 "optional": [
@@ -4914,8 +4966,10 @@
                 ],
                 "fieldPad": 30,
                 "ctor": "clusterVersion",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ClusterVersion",
                 "type": "record",
                 "optional": [
@@ -5016,8 +5070,10 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "recurringCharge",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "RecurringCharge",
                 "type": "record",
                 "optional": [
@@ -5090,8 +5146,10 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "endpoint",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Endpoint",
                 "type": "record",
                 "optional": [
@@ -5164,8 +5222,10 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "iprange",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "IPRange",
                 "type": "record",
                 "optional": [
@@ -5237,8 +5297,10 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "eventCategoriesMap",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EventCategoriesMap",
                 "type": "record",
                 "optional": [
@@ -5311,8 +5373,10 @@
                 ],
                 "fieldPad": 29,
                 "ctor": "hsmConfiguration",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "HsmConfiguration",
                 "type": "record",
                 "optional": [
@@ -5441,8 +5505,10 @@
                 ],
                 "fieldPad": 36,
                 "ctor": "pendingModifiedValues",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "PendingModifiedValues",
                 "type": "record",
                 "optional": [
@@ -5655,8 +5721,10 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "vpcSecurityGroupMembership",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "VpcSecurityGroupMembership",
                 "type": "record",
                 "optional": [
@@ -5729,8 +5797,10 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "parameter",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Parameter",
                 "type": "record",
                 "optional": [
@@ -5994,12 +6064,14 @@
                     "typeExposed": "Maybe ClusterSecurityGroup",
                     "type": "Maybe ClusterSecurityGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AuthorizeClusterSecurityGroupIngressResponse",
                 "resultWrapper": "AuthorizeClusterSecurityGroupIngressResult",
                 "type": "newtype",
@@ -6059,6 +6131,7 @@
                 "fieldPad": 30,
                 "ctor": "authorizeClusterSecurityGroupIngress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6085,6 +6158,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "AuthorizeClusterSecurityGroupIngress",
                 "query": [
@@ -6244,12 +6318,14 @@
                     "typeExposed": "Maybe Snapshot",
                     "type": "Maybe Snapshot"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AuthorizeSnapshotAccessResponse",
                 "resultWrapper": "AuthorizeSnapshotAccessResult",
                 "type": "newtype",
@@ -6309,6 +6385,7 @@
                 "fieldPad": 29,
                 "ctor": "authorizeSnapshotAccess",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6349,6 +6426,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 26,
                 "name": "AuthorizeSnapshotAccess",
                 "query": [
@@ -6461,12 +6539,14 @@
                     "typeExposed": "Maybe Snapshot",
                     "type": "Maybe Snapshot"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CopyClusterSnapshotResponse",
                 "resultWrapper": "CopyClusterSnapshotResult",
                 "type": "newtype",
@@ -6526,6 +6606,7 @@
                 "fieldPad": 35,
                 "ctor": "copyClusterSnapshot",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6566,6 +6647,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 32,
                 "name": "CopyClusterSnapshot",
                 "query": [
@@ -6678,12 +6760,14 @@
                     "typeExposed": "Maybe Cluster",
                     "type": "Maybe Cluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateClusterResponse",
                 "resultWrapper": "CreateClusterResult",
                 "type": "newtype",
@@ -6743,6 +6827,7 @@
                 "fieldPad": 35,
                 "ctor": "createCluster",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6811,6 +6896,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 33,
                 "name": "CreateCluster",
                 "query": [
@@ -7522,12 +7608,14 @@
                     "typeExposed": "Maybe ClusterParameterGroup",
                     "type": "Maybe ClusterParameterGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateClusterParameterGroupResponse",
                 "resultWrapper": "CreateClusterParameterGroupResult",
                 "type": "newtype",
@@ -7587,6 +7675,7 @@
                 "fieldPad": 25,
                 "ctor": "createClusterParameterGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7641,6 +7730,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "CreateClusterParameterGroup",
                 "query": [
@@ -7738,12 +7828,14 @@
                     "typeExposed": "Maybe ClusterSecurityGroup",
                     "type": "Maybe ClusterSecurityGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateClusterSecurityGroupResponse",
                 "resultWrapper": "CreateClusterSecurityGroupResult",
                 "type": "newtype",
@@ -7803,6 +7895,7 @@
                 "fieldPad": 30,
                 "ctor": "createClusterSecurityGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7843,6 +7936,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "CreateClusterSecurityGroup",
                 "query": [
@@ -7921,12 +8015,14 @@
                     "typeExposed": "Maybe Snapshot",
                     "type": "Maybe Snapshot"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateClusterSnapshotResponse",
                 "resultWrapper": "CreateClusterSnapshotResult",
                 "type": "newtype",
@@ -7986,6 +8082,7 @@
                 "fieldPad": 22,
                 "ctor": "createClusterSnapshot",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8026,6 +8123,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "CreateClusterSnapshot",
                 "query": [
@@ -8104,12 +8202,14 @@
                     "typeExposed": "Maybe ClusterSubnetGroup",
                     "type": "Maybe ClusterSubnetGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateClusterSubnetGroupResponse",
                 "resultWrapper": "CreateClusterSubnetGroupResult",
                 "type": "newtype",
@@ -8169,6 +8269,7 @@
                 "fieldPad": 27,
                 "ctor": "createClusterSubnetGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8209,6 +8310,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "CreateClusterSubnetGroup",
                 "query": [
@@ -8321,12 +8423,14 @@
                     "typeExposed": "Maybe EventSubscription",
                     "type": "Maybe EventSubscription"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateEventSubscriptionResponse",
                 "resultWrapper": "CreateEventSubscriptionResult",
                 "type": "newtype",
@@ -8386,6 +8490,7 @@
                 "fieldPad": 20,
                 "ctor": "createEventSubscription",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8426,6 +8531,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "CreateEventSubscription",
                 "query": [
@@ -8670,12 +8776,14 @@
                     "typeExposed": "Maybe HsmClientCertificate",
                     "type": "Maybe HsmClientCertificate"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateHsmClientCertificateResponse",
                 "resultWrapper": "CreateHsmClientCertificateResult",
                 "type": "newtype",
@@ -8752,6 +8860,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8778,6 +8887,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 31,
                 "name": "CreateHsmClientCertificate",
                 "query": [
@@ -8837,12 +8947,14 @@
                     "typeExposed": "Maybe HsmConfiguration",
                     "type": "Maybe HsmConfiguration"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateHsmConfigurationResponse",
                 "resultWrapper": "CreateHsmConfigurationResult",
                 "type": "newtype",
@@ -8902,6 +9014,7 @@
                 "fieldPad": 30,
                 "ctor": "createHsmConfiguration",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8998,6 +9111,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "CreateHsmConfiguration",
                 "query": [
@@ -9152,12 +9266,14 @@
                     "typeExposed": "Maybe Cluster",
                     "type": "Maybe Cluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteClusterResponse",
                 "resultWrapper": "DeleteClusterResult",
                 "type": "newtype",
@@ -9217,6 +9333,7 @@
                 "fieldPad": 34,
                 "ctor": "deleteCluster",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9243,6 +9360,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 31,
                 "name": "DeleteCluster",
                 "query": [
@@ -9406,6 +9524,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9432,6 +9551,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DeleteClusterParameterGroup",
                 "query": [
@@ -9528,6 +9648,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9554,6 +9675,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "DeleteClusterSecurityGroup",
                 "query": [
@@ -9613,12 +9735,14 @@
                     "typeExposed": "Maybe Snapshot",
                     "type": "Maybe Snapshot"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteClusterSnapshotResponse",
                 "resultWrapper": "DeleteClusterSnapshotResult",
                 "type": "newtype",
@@ -9678,6 +9802,7 @@
                 "fieldPad": 29,
                 "ctor": "deleteClusterSnapshot",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9704,6 +9829,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 26,
                 "name": "DeleteClusterSnapshot",
                 "query": [
@@ -9834,6 +9960,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9860,6 +9987,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "DeleteClusterSubnetGroup",
                 "query": [
@@ -9956,6 +10084,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9982,6 +10111,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "DeleteEventSubscription",
                 "query": [
@@ -10078,6 +10208,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10104,6 +10235,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 31,
                 "name": "DeleteHsmClientCertificate",
                 "query": [
@@ -10200,6 +10332,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10226,6 +10359,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "DeleteHsmConfiguration",
                 "query": [
@@ -10270,12 +10404,14 @@
                 "fieldPad": 21,
                 "ctor": "describeClusterParameterGroupsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeClusterParameterGroupsResponse",
                 "resultWrapper": "DescribeClusterParameterGroupsResult",
                 "type": "record",
@@ -10371,6 +10507,7 @@
                 "fieldPad": 23,
                 "ctor": "describeClusterParameterGroups",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10382,6 +10519,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DescribeClusterParameterGroups",
                 "query": [
@@ -10507,12 +10645,14 @@
                 "fieldPad": 15,
                 "ctor": "describeClusterParametersResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeClusterParametersResponse",
                 "resultWrapper": "DescribeClusterParametersResult",
                 "type": "record",
@@ -10608,6 +10748,7 @@
                 "fieldPad": 23,
                 "ctor": "describeClusterParameters",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10634,6 +10775,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DescribeClusterParameters",
                 "query": [
@@ -10778,12 +10920,14 @@
                 "fieldPad": 28,
                 "ctor": "describeClusterSecurityGroupsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeClusterSecurityGroupsResponse",
                 "resultWrapper": "DescribeClusterSecurityGroupsResult",
                 "type": "record",
@@ -10879,6 +11023,7 @@
                 "fieldPad": 29,
                 "ctor": "describeClusterSecurityGroups",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10890,6 +11035,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "DescribeClusterSecurityGroups",
                 "query": [
@@ -11015,12 +11161,14 @@
                 "fieldPad": 14,
                 "ctor": "describeClusterSnapshotsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeClusterSnapshotsResponse",
                 "resultWrapper": "DescribeClusterSnapshotsResult",
                 "type": "record",
@@ -11116,6 +11264,7 @@
                 "fieldPad": 23,
                 "ctor": "describeClusterSnapshots",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11127,6 +11276,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DescribeClusterSnapshots",
                 "query": [
@@ -11417,12 +11567,14 @@
                 "fieldPad": 25,
                 "ctor": "describeClusterSubnetGroupsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeClusterSubnetGroupsResponse",
                 "resultWrapper": "DescribeClusterSubnetGroupsResult",
                 "type": "record",
@@ -11518,6 +11670,7 @@
                 "fieldPad": 28,
                 "ctor": "describeClusterSubnetGroups",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11529,6 +11682,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "DescribeClusterSubnetGroups",
                 "query": [
@@ -11654,12 +11808,14 @@
                 "fieldPad": 20,
                 "ctor": "describeClusterVersionsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeClusterVersionsResponse",
                 "resultWrapper": "DescribeClusterVersionsResult",
                 "type": "record",
@@ -11755,6 +11911,7 @@
                 "fieldPad": 31,
                 "ctor": "describeClusterVersions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11766,6 +11923,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 28,
                 "name": "DescribeClusterVersions",
                 "query": [
@@ -11924,12 +12082,14 @@
                 "fieldPad": 12,
                 "ctor": "describeClustersResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeClustersResponse",
                 "resultWrapper": "DescribeClustersResult",
                 "type": "record",
@@ -12025,6 +12185,7 @@
                 "fieldPad": 20,
                 "ctor": "describeClusters",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12036,6 +12197,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DescribeClusters",
                 "query": [
@@ -12176,12 +12338,14 @@
                     "typeExposed": "Maybe DefaultClusterParameters",
                     "type": "Maybe DefaultClusterParameters"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeDefaultClusterParametersResponse",
                 "resultWrapper": "DescribeDefaultClusterParametersResult",
                 "type": "newtype",
@@ -12249,6 +12413,7 @@
                 "fieldPad": 25,
                 "ctor": "describeDefaultClusterParameters",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12275,6 +12440,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DescribeDefaultClusterParameters",
                 "query": [
@@ -12403,12 +12569,14 @@
                     "typeExposed": "[EventCategoriesMap]",
                     "type": "[EventCategoriesMap]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeEventCategoriesResponse",
                 "resultWrapper": "DescribeEventCategoriesResult",
                 "type": "newtype",
@@ -12484,6 +12652,7 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12495,6 +12664,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeEventCategories",
                 "query": [
@@ -12554,12 +12724,14 @@
                 "fieldPad": 27,
                 "ctor": "describeEventSubscriptionsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeEventSubscriptionsResponse",
                 "resultWrapper": "DescribeEventSubscriptionsResult",
                 "type": "record",
@@ -12655,6 +12827,7 @@
                 "fieldPad": 21,
                 "ctor": "describeEventSubscriptions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12666,6 +12839,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "DescribeEventSubscriptions",
                 "query": [
@@ -12791,12 +12965,14 @@
                 "fieldPad": 10,
                 "ctor": "describeEventsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeEventsResponse",
                 "resultWrapper": "DescribeEventsResult",
                 "type": "record",
@@ -12892,6 +13068,7 @@
                 "fieldPad": 19,
                 "ctor": "describeEvents",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12903,6 +13080,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "DescribeEvents",
                 "query": [
@@ -13160,12 +13338,14 @@
                 "fieldPad": 27,
                 "ctor": "describeHsmClientCertificatesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeHsmClientCertificatesResponse",
                 "resultWrapper": "DescribeHsmClientCertificatesResult",
                 "type": "record",
@@ -13261,6 +13441,7 @@
                 "fieldPad": 35,
                 "ctor": "describeHsmClientCertificates",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -13272,6 +13453,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 31,
                 "name": "DescribeHsmClientCertificates",
                 "query": [
@@ -13397,12 +13579,14 @@
                 "fieldPad": 22,
                 "ctor": "describeHsmConfigurationsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeHsmConfigurationsResponse",
                 "resultWrapper": "DescribeHsmConfigurationsResult",
                 "type": "record",
@@ -13498,6 +13682,7 @@
                 "fieldPad": 31,
                 "ctor": "describeHsmConfigurations",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -13509,6 +13694,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "DescribeHsmConfigurations",
                 "query": [
@@ -13635,12 +13821,14 @@
                 "fieldPad": 31,
                 "ctor": "describeLoggingStatusResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeLoggingStatusResponse",
                 "resultWrapper": "DescribeLoggingStatusResult",
                 "type": "record",
@@ -13857,6 +14045,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -13883,6 +14072,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DescribeLoggingStatus",
                 "query": [
@@ -13927,12 +14117,14 @@
                 "fieldPad": 29,
                 "ctor": "describeOrderableClusterOptionsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeOrderableClusterOptionsResponse",
                 "resultWrapper": "DescribeOrderableClusterOptionsResult",
                 "type": "record",
@@ -14028,6 +14220,7 @@
                 "fieldPad": 19,
                 "ctor": "describeOrderableClusterOptions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14039,6 +14232,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "DescribeOrderableClusterOptions",
                 "query": [
@@ -14197,12 +14391,14 @@
                 "fieldPad": 27,
                 "ctor": "describeReservedNodeOfferingsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeReservedNodeOfferingsResponse",
                 "resultWrapper": "DescribeReservedNodeOfferingsResult",
                 "type": "record",
@@ -14298,6 +14494,7 @@
                 "fieldPad": 27,
                 "ctor": "describeReservedNodeOfferings",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14309,6 +14506,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "DescribeReservedNodeOfferings",
                 "query": [
@@ -14434,12 +14632,14 @@
                 "fieldPad": 18,
                 "ctor": "describeReservedNodesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeReservedNodesResponse",
                 "resultWrapper": "DescribeReservedNodesResult",
                 "type": "record",
@@ -14535,6 +14735,7 @@
                 "fieldPad": 18,
                 "ctor": "describeReservedNodes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14546,6 +14747,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "DescribeReservedNodes",
                 "query": [
@@ -14672,12 +14874,14 @@
                 "fieldPad": 38,
                 "ctor": "describeResizeResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeResizeResponse",
                 "resultWrapper": "DescribeResizeResult",
                 "type": "record",
@@ -15062,6 +15266,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -15088,6 +15293,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DescribeResize",
                 "query": [
@@ -15133,12 +15339,14 @@
                 "fieldPad": 30,
                 "ctor": "disableLoggingResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DisableLoggingResponse",
                 "resultWrapper": "DisableLoggingResult",
                 "type": "record",
@@ -15355,6 +15563,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -15381,6 +15590,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DisableLogging",
                 "query": [
@@ -15440,12 +15650,14 @@
                     "typeExposed": "Maybe Cluster",
                     "type": "Maybe Cluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DisableSnapshotCopyResponse",
                 "resultWrapper": "DisableSnapshotCopyResult",
                 "type": "newtype",
@@ -15522,6 +15734,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -15548,6 +15761,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DisableSnapshotCopy",
                 "query": [
@@ -15593,12 +15807,14 @@
                 "fieldPad": 30,
                 "ctor": "enableLoggingResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "EnableLoggingResponse",
                 "resultWrapper": "EnableLoggingResult",
                 "type": "record",
@@ -15798,6 +16014,7 @@
                 "fieldPad": 20,
                 "ctor": "enableLogging",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -15838,6 +16055,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "EnableLogging",
                 "query": [
@@ -15950,12 +16168,14 @@
                     "typeExposed": "Maybe Cluster",
                     "type": "Maybe Cluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "EnableSnapshotCopyResponse",
                 "resultWrapper": "EnableSnapshotCopyResult",
                 "type": "newtype",
@@ -16015,6 +16235,7 @@
                 "fieldPad": 21,
                 "ctor": "enableSnapshotCopy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -16055,6 +16276,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "EnableSnapshotCopy",
                 "query": [
@@ -16167,12 +16389,14 @@
                     "typeExposed": "Maybe Cluster",
                     "type": "Maybe Cluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ModifyClusterResponse",
                 "resultWrapper": "ModifyClusterResult",
                 "type": "newtype",
@@ -16232,6 +16456,7 @@
                 "fieldPad": 35,
                 "ctor": "modifyCluster",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -16258,6 +16483,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 33,
                 "name": "ModifyCluster",
                 "query": [
@@ -16766,12 +16992,14 @@
                 "fieldPad": 26,
                 "ctor": "modifyClusterParameterGroupResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ModifyClusterParameterGroupResponse",
                 "resultWrapper": "ModifyClusterParameterGroupResult",
                 "type": "record",
@@ -16858,6 +17086,7 @@
                 "fieldPad": 23,
                 "ctor": "modifyClusterParameterGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -16884,6 +17113,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "ModifyClusterParameterGroup",
                 "query": [
@@ -16977,12 +17207,14 @@
                     "typeExposed": "Maybe ClusterSubnetGroup",
                     "type": "Maybe ClusterSubnetGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ModifyClusterSubnetGroupResponse",
                 "resultWrapper": "ModifyClusterSubnetGroupResult",
                 "type": "newtype",
@@ -17042,6 +17274,7 @@
                 "fieldPad": 27,
                 "ctor": "modifyClusterSubnetGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -17068,6 +17301,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "ModifyClusterSubnetGroup",
                 "query": [
@@ -17194,12 +17428,14 @@
                     "typeExposed": "Maybe EventSubscription",
                     "type": "Maybe EventSubscription"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ModifyEventSubscriptionResponse",
                 "resultWrapper": "ModifyEventSubscriptionResult",
                 "type": "newtype",
@@ -17259,6 +17495,7 @@
                 "fieldPad": 20,
                 "ctor": "modifyEventSubscription",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -17285,6 +17522,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "ModifyEventSubscription",
                 "query": [
@@ -17543,12 +17781,14 @@
                     "typeExposed": "Maybe Cluster",
                     "type": "Maybe Cluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ModifySnapshotCopyRetentionPeriodResponse",
                 "resultWrapper": "ModifySnapshotCopyRetentionPeriodResult",
                 "type": "newtype",
@@ -17608,6 +17848,7 @@
                 "fieldPad": 23,
                 "ctor": "modifySnapshotCopyRetentionPeriod",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -17648,6 +17889,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "ModifySnapshotCopyRetentionPeriod",
                 "query": [
@@ -17726,12 +17968,14 @@
                     "typeExposed": "Maybe ReservedNode",
                     "type": "Maybe ReservedNode"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "PurchaseReservedNodeOfferingResponse",
                 "resultWrapper": "PurchaseReservedNodeOfferingResult",
                 "type": "newtype",
@@ -17791,6 +18035,7 @@
                 "fieldPad": 27,
                 "ctor": "purchaseReservedNodeOffering",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -17817,6 +18062,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "PurchaseReservedNodeOffering",
                 "query": [
@@ -17910,12 +18156,14 @@
                     "typeExposed": "Maybe Cluster",
                     "type": "Maybe Cluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RebootClusterResponse",
                 "resultWrapper": "RebootClusterResult",
                 "type": "newtype",
@@ -17992,6 +18240,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -18018,6 +18267,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "RebootCluster",
                 "query": [
@@ -18063,12 +18313,14 @@
                 "fieldPad": 26,
                 "ctor": "resetClusterParameterGroupResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ResetClusterParameterGroupResponse",
                 "resultWrapper": "ResetClusterParameterGroupResult",
                 "type": "record",
@@ -18155,6 +18407,7 @@
                 "fieldPad": 23,
                 "ctor": "resetClusterParameterGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -18181,6 +18434,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "ResetClusterParameterGroup",
                 "query": [
@@ -18307,12 +18561,14 @@
                     "typeExposed": "Maybe Cluster",
                     "type": "Maybe Cluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RestoreFromClusterSnapshotResponse",
                 "resultWrapper": "RestoreFromClusterSnapshotResult",
                 "type": "newtype",
@@ -18372,6 +18628,7 @@
                 "fieldPad": 37,
                 "ctor": "restoreFromClusterSnapshot",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -18412,6 +18669,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 33,
                 "name": "RestoreFromClusterSnapshot",
                 "query": [
@@ -18986,12 +19244,14 @@
                     "typeExposed": "Maybe ClusterSecurityGroup",
                     "type": "Maybe ClusterSecurityGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RevokeClusterSecurityGroupIngressResponse",
                 "resultWrapper": "RevokeClusterSecurityGroupIngressResult",
                 "type": "newtype",
@@ -19051,6 +19311,7 @@
                 "fieldPad": 30,
                 "ctor": "revokeClusterSecurityGroupIngress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -19077,6 +19338,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "RevokeClusterSecurityGroupIngress",
                 "query": [
@@ -19236,12 +19498,14 @@
                     "typeExposed": "Maybe Snapshot",
                     "type": "Maybe Snapshot"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RevokeSnapshotAccessResponse",
                 "resultWrapper": "RevokeSnapshotAccessResult",
                 "type": "newtype",
@@ -19301,6 +19565,7 @@
                 "fieldPad": 29,
                 "ctor": "revokeSnapshotAccess",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -19341,6 +19606,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 26,
                 "name": "RevokeSnapshotAccess",
                 "query": [
@@ -19453,12 +19719,14 @@
                     "typeExposed": "Maybe Cluster",
                     "type": "Maybe Cluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RotateEncryptionKeyResponse",
                 "resultWrapper": "RotateEncryptionKeyResult",
                 "type": "newtype",
@@ -19535,6 +19803,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -19561,6 +19830,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "RotateEncryptionKey",
                 "query": [

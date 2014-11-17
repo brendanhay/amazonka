@@ -54,6 +54,7 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "credentials",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -113,6 +114,7 @@
                         "type": "RFC822"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Credentials",
                 "type": "record",
                 "optional": [],
@@ -184,6 +186,7 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "federatedUser",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -215,6 +218,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "FederatedUser",
                 "type": "record",
                 "optional": [],
@@ -258,6 +262,7 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "assumedRoleUser",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -289,6 +294,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "AssumedRoleUser",
                 "type": "record",
                 "optional": [],
@@ -340,12 +346,14 @@
                 "fieldPad": 20,
                 "ctor": "assumeRoleResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AssumeRoleResponse",
                 "resultWrapper": "AssumeRoleResult",
                 "type": "record",
@@ -461,6 +469,7 @@
                 "fieldPad": 18,
                 "ctor": "assumeRole",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -501,6 +510,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "AssumeRole",
                 "query": [
@@ -730,12 +740,14 @@
                 "fieldPad": 25,
                 "ctor": "assumeRoleWithSAMLResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AssumeRoleWithSAMLResponse",
                 "resultWrapper": "AssumeRoleWithSAMLResult",
                 "type": "record",
@@ -991,6 +1003,7 @@
                 "fieldPad": 23,
                 "ctor": "assumeRoleWithSAML",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1045,6 +1058,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "AssumeRoleWithSAML",
                 "query": [
@@ -1194,12 +1208,14 @@
                 "fieldPad": 34,
                 "ctor": "assumeRoleWithWebIdentityResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AssumeRoleWithWebIdentityResponse",
                 "resultWrapper": "AssumeRoleWithWebIdentityResult",
                 "type": "record",
@@ -1399,6 +1415,7 @@
                 "fieldPad": 22,
                 "ctor": "assumeRoleWithWebIdentity",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1453,6 +1470,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "AssumeRoleWithWebIdentity",
                 "query": [
@@ -1652,12 +1670,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DecodeAuthorizationMessageResponse",
                 "resultWrapper": "DecodeAuthorizationMessageResult",
                 "type": "newtype",
@@ -1734,6 +1754,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1760,6 +1781,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "DecodeAuthorizationMessage",
                 "query": [
@@ -1804,12 +1826,14 @@
                 "fieldPad": 21,
                 "ctor": "getFederationTokenResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetFederationTokenResponse",
                 "resultWrapper": "GetFederationTokenResult",
                 "type": "record",
@@ -1925,6 +1949,7 @@
                 "fieldPad": 19,
                 "ctor": "getFederationToken",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1951,6 +1976,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "GetFederationToken",
                 "query": [
@@ -2077,12 +2103,14 @@
                     "typeExposed": "Maybe Credentials",
                     "type": "Maybe Credentials"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetSessionTokenResponse",
                 "resultWrapper": "GetSessionTokenResult",
                 "type": "newtype",
@@ -2142,6 +2170,7 @@
                 "fieldPad": 19,
                 "ctor": "getSessionToken",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2153,6 +2182,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "GetSessionToken",
                 "query": [

@@ -1,7 +1,11 @@
+
 instance FromJSON {{ type.name }} where
 {% case type.type %}
 {% when "nullary" %}
-    parseJSON = withFromText "{{ type.name }}"
+    parseJSON = fromJSONText "{{ type.name }}"
 {% else %}
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withObject "{{ type.name }}" $ \o -> {{ type.name }}
+  {% for field in type.fields %}
+        {% include "applicative.ede" %} o .: "{{ field.value.locationName }}"
+  {% endfor %}
 {% endcase %}

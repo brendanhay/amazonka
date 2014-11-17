@@ -8,18 +8,9 @@ import qualified GHC.Exts
 
 {% include "_include/service.ede" %}
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-{% if xmlNamespace %}
-    { xmlNamespace = Just "{{ xmlNamespace }}"
-    }
-{% endif %}
-
 {% for type in types %}
 {% include "_include/datatype.ede" with type = type.value %}
-
 {% include "_include/xml-from.ede" with type = type.value %}
-
 {% include "_include/xml-to.ede" with type = type.value %}
   {% if !type.last %}
 

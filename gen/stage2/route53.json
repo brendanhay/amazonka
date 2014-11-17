@@ -96,6 +96,50 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "aliasTarget",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "atHostedZoneId",
+                        "name": "_atHostedZoneId",
+                        "shape": "ResourceId",
+                        "locationName": "HostedZoneId",
+                        "documentation": "\u003cp\u003e\u003ci\u003eAlias resource record sets only:\u003c/i\u003e The value of the hosted zone ID for the AWS resource.\u003c/p\u003e \u003cp\u003eFor more information and an example, see \u003ca href=\"http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html\"\u003eCreating Alias Resource Record Sets\u003c/a\u003e in the \u003ci\u003eAmazon Route 53 Developer Guide\u003c/i\u003e\u003c/p\u003e.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "atDNSName",
+                        "name": "_atDNSName",
+                        "shape": "DNSName",
+                        "locationName": "DNSName",
+                        "documentation": "\u003cp\u003e\u003ci\u003eAlias resource record sets only:\u003c/i\u003e The external DNS name associated with the AWS Resource.\u003c/p\u003e \u003cp\u003eFor more information and an example, see \u003ca href=\"http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html\"\u003eCreating Alias Resource Record Sets\u003c/a\u003e in the \u003ci\u003eAmazon Route 53 Developer Guide\u003c/i\u003e\u003c/p\u003e.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "atEvaluateTargetHealth",
+                        "name": "_atEvaluateTargetHealth",
+                        "shape": "AliasHealthEnabled",
+                        "locationName": "EvaluateTargetHealth",
+                        "documentation": "\u003cp\u003e\u003ci\u003eAlias resource record sets only:\u003c/i\u003e A boolean value that indicates whether this Resource Record Set should respect the health status of any health checks associated with the ALIAS target record which it is linked to.\u003c/p\u003e \u003cp\u003eFor more information and an example, see \u003ca href=\"http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html\"\u003eCreating Alias Resource Record Sets\u003c/a\u003e in the \u003ci\u003eAmazon Route 53 Developer Guide\u003c/i\u003e\u003c/p\u003e.",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -141,6 +185,7 @@
                         "type": "Bool"
                     }
                 ],
+                "contentPad": 21,
                 "name": "AliasTarget",
                 "type": "record",
                 "optional": [],
@@ -215,6 +260,22 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rrValue",
+                        "name": "_rrValue",
+                        "shape": "RData",
+                        "locationName": "Value",
+                        "documentation": "\u003cp\u003eThe value of the \u003ccode\u003eValue\u003c/code\u003e element for the current resource record set.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -232,6 +293,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ResourceRecord",
                 "type": "newtype",
                 "optional": [],
@@ -261,8 +323,39 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "tagKey",
+                        "name": "_tagKey",
+                        "shape": "TagKey",
+                        "locationName": "Key",
+                        "documentation": "\u003cp\u003eThe key for a \u003ccode\u003eTag\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "tagValue",
+                        "name": "_tagValue",
+                        "shape": "TagValue",
+                        "locationName": "Value",
+                        "documentation": "\u003cp\u003eThe value for a \u003ccode\u003eTag\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 6,
                 "name": "Tag",
                 "type": "record",
                 "optional": [
@@ -335,8 +428,95 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "geoLocationDetails",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gldContinentCode",
+                        "name": "_gldContinentCode",
+                        "shape": "GeoLocationContinentCode",
+                        "locationName": "ContinentCode",
+                        "documentation": "\u003cp\u003eThe code for a continent geo location. Note: only continent locations have a continent code.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gldContinentName",
+                        "name": "_gldContinentName",
+                        "shape": "GeoLocationContinentName",
+                        "locationName": "ContinentName",
+                        "documentation": "\u003cp\u003eThe name of the continent. This element is only present if \u003ccode\u003eContinentCode\u003c/code\u003e is also present.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gldCountryCode",
+                        "name": "_gldCountryCode",
+                        "shape": "GeoLocationCountryCode",
+                        "locationName": "CountryCode",
+                        "documentation": "\u003cp\u003eThe code for a country geo location. The default location uses '*' for the country code and will match all locations that are not matched by a geo location.\u003c/p\u003e \u003cp\u003eThe default geo location uses a \u003ccode\u003e*\u003c/code\u003e for the country code. All other country codes follow the ISO 3166 two-character code.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gldCountryName",
+                        "name": "_gldCountryName",
+                        "shape": "GeoLocationCountryName",
+                        "locationName": "CountryName",
+                        "documentation": "\u003cp\u003eThe name of the country. This element is only present if \u003ccode\u003eCountryCode\u003c/code\u003e is also present.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gldSubdivisionCode",
+                        "name": "_gldSubdivisionCode",
+                        "shape": "GeoLocationSubdivisionCode",
+                        "locationName": "SubdivisionCode",
+                        "documentation": "\u003cp\u003eThe code for a country's subdivision (e.g., a province of Canada). A subdivision code is only valid with the appropriate country code.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "gldSubdivisionName",
+                        "name": "_gldSubdivisionName",
+                        "shape": "GeoLocationSubdivisionName",
+                        "locationName": "SubdivisionName",
+                        "documentation": "\u003cp\u003eThe name of the subdivision. This element is only present if \u003ccode\u003eSubdivisionCode\u003c/code\u003e is also present.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 16,
                 "name": "GeoLocationDetails",
                 "type": "record",
                 "optional": [
@@ -520,6 +700,64 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "healthCheck",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hcId",
+                        "name": "_hcId",
+                        "shape": "HealthCheckId",
+                        "locationName": "Id",
+                        "documentation": "\u003cp\u003eThe ID of the specified health check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hcCallerReference",
+                        "name": "_hcCallerReference",
+                        "shape": "HealthCheckNonce",
+                        "locationName": "CallerReference",
+                        "documentation": "\u003cp\u003eA unique string that identifies the request to create the health check.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hcHealthCheckConfig",
+                        "name": "_hcHealthCheckConfig",
+                        "shape": "HealthCheckConfig",
+                        "locationName": "HealthCheckConfig",
+                        "documentation": "\u003cp\u003eA complex type that contains the health check configuration.\u003c/p\u003e",
+                        "typeExposed": "HealthCheckConfig",
+                        "type": "HealthCheckConfig"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Nat",
+                        "lensMapping": "_Nat",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hcHealthCheckVersion",
+                        "name": "_hcHealthCheckVersion",
+                        "shape": "HealthCheckVersion",
+                        "locationName": "HealthCheckVersion",
+                        "documentation": "\u003cp\u003eThe version of the health check. You can optionally pass this value in a call to \u003ccode\u003eUpdateHealthCheck\u003c/code\u003e to prevent overwriting another change to the health check.\u003c/p\u003e",
+                        "typeExposed": "Natural",
+                        "type": "Nat"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -579,6 +817,7 @@
                         "type": "Nat"
                     }
                 ],
+                "contentPad": 19,
                 "name": "HealthCheck",
                 "type": "record",
                 "optional": [],
@@ -709,6 +948,120 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "healthCheckConfig",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hccIPAddress",
+                        "name": "_hccIPAddress",
+                        "shape": "IPAddress",
+                        "locationName": "IPAddress",
+                        "documentation": "\u003cp\u003eIP Address of the instance being checked. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hccPort",
+                        "name": "_hccPort",
+                        "shape": "Port",
+                        "locationName": "Port",
+                        "documentation": "\u003cp\u003ePort on which connection will be opened to the instance to health check. For HTTP and HTTP_STR_MATCH this defaults to 80 if the port is not specified. For HTTPS and HTTPS_STR_MATCH this defaults to 443 if the port is not specified.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hccType",
+                        "name": "_hccType",
+                        "shape": "HealthCheckType",
+                        "locationName": "Type",
+                        "documentation": "\u003cp\u003eThe type of health check to be performed. Currently supported types are TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hccResourcePath",
+                        "name": "_hccResourcePath",
+                        "shape": "ResourcePath",
+                        "locationName": "ResourcePath",
+                        "documentation": "\u003cp\u003ePath to ping on the instance to check the health. Required for HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks, HTTP request is issued to the instance on the given port and path.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hccFullyQualifiedDomainName",
+                        "name": "_hccFullyQualifiedDomainName",
+                        "shape": "FullyQualifiedDomainName",
+                        "locationName": "FullyQualifiedDomainName",
+                        "documentation": "\u003cp\u003eFully qualified domain name of the instance to be health checked.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hccSearchString",
+                        "name": "_hccSearchString",
+                        "shape": "SearchString",
+                        "locationName": "SearchString",
+                        "documentation": "\u003cp\u003eA string to search for in the body of a health check response. Required for HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hccRequestInterval",
+                        "name": "_hccRequestInterval",
+                        "shape": "RequestInterval",
+                        "locationName": "RequestInterval",
+                        "documentation": "\u003cp\u003eThe number of seconds between the time that Route 53 gets a response from your endpoint and the time that it sends the next health-check request.\u003c/p\u003e \u003cp\u003eEach Route 53 health checker makes requests at this interval. Valid values are 10 and 30. The default value is 30.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hccFailureThreshold",
+                        "name": "_hccFailureThreshold",
+                        "shape": "FailureThreshold",
+                        "locationName": "FailureThreshold",
+                        "documentation": "\u003cp\u003eThe number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.\u003c/p\u003e \u003cp\u003eValid values are integers between 1 and 10. For more information, see \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the Amazon Route 53 Developer Guide.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -726,6 +1079,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 25,
                 "name": "HealthCheckConfig",
                 "type": "record",
                 "optional": [
@@ -951,6 +1305,36 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "change",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cAction",
+                        "name": "_cAction",
+                        "shape": "ChangeAction",
+                        "locationName": "Action",
+                        "documentation": "\u003cp\u003eThe action to perform.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eCREATE\u003c/code\u003e | \u003ccode\u003eDELETE\u003c/code\u003e | \u003ccode\u003eUPSERT\u003c/code\u003e\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cResourceRecordSet",
+                        "name": "_cResourceRecordSet",
+                        "shape": "ResourceRecordSet",
+                        "locationName": "ResourceRecordSet",
+                        "documentation": "\u003cp\u003eInformation about the resource record set to create or delete.\u003c/p\u003e",
+                        "typeExposed": "ResourceRecordSet",
+                        "type": "ResourceRecordSet"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -982,6 +1366,7 @@
                         "type": "ResourceRecordSet"
                     }
                 ],
+                "contentPad": 18,
                 "name": "Change",
                 "type": "record",
                 "optional": [],
@@ -1041,6 +1426,78 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "hostedZone",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hzId",
+                        "name": "_hzId",
+                        "shape": "ResourceId",
+                        "locationName": "Id",
+                        "documentation": "\u003cp\u003eThe ID of the specified hosted zone.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hzName",
+                        "name": "_hzName",
+                        "shape": "DNSName",
+                        "locationName": "Name",
+                        "documentation": "\u003cp\u003eThe name of the domain. This must be a fully-specified domain, for example, www.example.com. The trailing dot is optional; Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.\u003c/p\u003e \u003cp\u003eThis is the name you have registered with your DNS registrar. You should ask your registrar to change the authoritative name servers for your domain to the set of \u003ccode\u003eNameServers\u003c/code\u003e elements returned in \u003ccode\u003eDelegationSet\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "hzCallerReference",
+                        "name": "_hzCallerReference",
+                        "shape": "Nonce",
+                        "locationName": "CallerReference",
+                        "documentation": "\u003cp\u003eA unique string that identifies the request to create the hosted zone.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hzConfig",
+                        "name": "_hzConfig",
+                        "shape": "HostedZoneConfig",
+                        "locationName": "Config",
+                        "documentation": "\u003cp\u003eA complex type that contains the \u003ccode\u003eComment\u003c/code\u003e element.\u003c/p\u003e",
+                        "typeExposed": "Maybe HostedZoneConfig",
+                        "type": "Maybe HostedZoneConfig"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hzResourceRecordSetCount",
+                        "name": "_hzResourceRecordSetCount",
+                        "shape": "HostedZoneRRSetCount",
+                        "locationName": "ResourceRecordSetCount",
+                        "documentation": "\u003cp\u003eTotal number of resource record sets in the hosted zone.\u003c/p\u003e",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -1086,6 +1543,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 23,
                 "name": "HostedZone",
                 "type": "record",
                 "optional": [
@@ -1199,6 +1657,50 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "resourceTagSet",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rtsResourceType",
+                        "name": "_rtsResourceType",
+                        "shape": "TagResourceType",
+                        "locationName": "ResourceType",
+                        "documentation": "\u003cp\u003eThe type of the resource. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rtsResourceId",
+                        "name": "_rtsResourceId",
+                        "shape": "TagResourceId",
+                        "locationName": "ResourceId",
+                        "documentation": "\u003cp\u003eThe ID for the specified resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rtsTags",
+                        "name": "_rtsTags",
+                        "shape": "TagList",
+                        "locationName": "Tags",
+                        "documentation": "\u003cp\u003eThe tags associated with the specified resource.\u003c/p\u003e",
+                        "typeExposed": "NonEmpty Tag",
+                        "type": "List1 Tag"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -1216,6 +1718,7 @@
                         "type": "List1 Tag"
                     }
                 ],
+                "contentPad": 13,
                 "name": "ResourceTagSet",
                 "type": "record",
                 "optional": [
@@ -1318,6 +1821,36 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "changeBatch",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cbComment",
+                        "name": "_cbComment",
+                        "shape": "ResourceDescription",
+                        "locationName": "Comment",
+                        "documentation": "\u003cp\u003e\u003ci\u003eOptional:\u003c/i\u003e Any comments you want to include about a change batch request.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "cbChanges",
+                        "name": "_cbChanges",
+                        "shape": "Changes",
+                        "locationName": "Changes",
+                        "documentation": "\u003cp\u003eA complex type that contains one \u003ccode\u003eChange\u003c/code\u003e element for each resource record set that you want to create or delete.\u003c/p\u003e",
+                        "typeExposed": "NonEmpty Change",
+                        "type": "List1 Change"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -1335,6 +1868,7 @@
                         "type": "List1 Change"
                     }
                 ],
+                "contentPad": 8,
                 "name": "ChangeBatch",
                 "type": "record",
                 "optional": [
@@ -1393,8 +1927,39 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "statusReport",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "srStatus",
+                        "name": "_srStatus",
+                        "shape": "Status",
+                        "locationName": "Status",
+                        "documentation": "\u003cp\u003eThe observed health check status.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "srCheckedTime",
+                        "name": "_srCheckedTime",
+                        "shape": "TimeStamp",
+                        "locationName": "CheckedTime",
+                        "documentation": "\u003cp\u003eThe date and time the health check status was observed, in the format \u003ccode\u003eYYYY-MM-DDThh:mm:ssZ\u003c/code\u003e, as specified in the ISO 8601 standard (for example, 2009-11-19T19:37:58Z). The \u003ccode\u003eZ\u003c/code\u003e after the time indicates that the time is listed in Coordinated Universal Time (UTC), which is synonymous with Greenwich Mean Time in this context.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 12,
                 "name": "StatusReport",
                 "type": "record",
                 "optional": [
@@ -1487,8 +2052,39 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "vpc",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "vpcVPCRegion",
+                        "name": "_vpcVPCRegion",
+                        "shape": "VPCRegion",
+                        "locationName": "VPCRegion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "vpcVPCId",
+                        "name": "_vpcVPCId",
+                        "shape": "VPCId",
+                        "locationName": "VPCId",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 10,
                 "name": "VPC",
                 "type": "record",
                 "optional": [
@@ -1561,8 +2157,39 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "hostedZoneConfig",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hzcComment",
+                        "name": "_hzcComment",
+                        "shape": "ResourceDescription",
+                        "locationName": "Comment",
+                        "documentation": "\u003cp\u003eAn optional comment about your hosted zone. If you don't want to specify a comment, you can omit the \u003ccode\u003eHostedZoneConfig\u003c/code\u003e and \u003ccode\u003eComment\u003c/code\u003e elements from the XML document.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hzcPrivateZone",
+                        "name": "_hzcPrivateZone",
+                        "shape": "IsPrivateZone",
+                        "locationName": "PrivateZone",
+                        "documentation": null,
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 12,
                 "name": "HostedZoneConfig",
                 "type": "record",
                 "optional": [
@@ -1634,6 +2261,162 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "resourceRecordSet",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rrsName",
+                        "name": "_rrsName",
+                        "shape": "DNSName",
+                        "locationName": "Name",
+                        "documentation": "\u003cp\u003eThe domain name of the current resource record set.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rrsType",
+                        "name": "_rrsType",
+                        "shape": "RRType",
+                        "locationName": "Type",
+                        "documentation": "\u003cp\u003eThe type of the current resource record set.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rrsSetIdentifier",
+                        "name": "_rrsSetIdentifier",
+                        "shape": "ResourceRecordSetIdentifier",
+                        "locationName": "SetIdentifier",
+                        "documentation": "\u003cp\u003e\u003ci\u003eWeighted, Latency, Geo, and Failover resource record sets only:\u003c/i\u003e An identifier that differentiates among multiple resource record sets that have the same combination of DNS name and type.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rrsWeight",
+                        "name": "_rrsWeight",
+                        "shape": "ResourceRecordSetWeight",
+                        "locationName": "Weight",
+                        "documentation": "\u003cp\u003e\u003ci\u003eWeighted resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that determines what portion of traffic for the current resource record set is routed to the associated location.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rrsRegion",
+                        "name": "_rrsRegion",
+                        "shape": "ResourceRecordSetRegion",
+                        "locationName": "Region",
+                        "documentation": "\u003cp\u003e\u003ci\u003eLatency-based resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that specifies the AWS region for the current resource record set.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rrsGeoLocation",
+                        "name": "_rrsGeoLocation",
+                        "shape": "GeoLocation",
+                        "locationName": "GeoLocation",
+                        "documentation": "\u003cp\u003e\u003ci\u003eGeo location resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that specifies the geo location for the current resource record set.\u003c/p\u003e",
+                        "typeExposed": "Maybe GeoLocation",
+                        "type": "Maybe GeoLocation"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rrsFailover",
+                        "name": "_rrsFailover",
+                        "shape": "ResourceRecordSetFailover",
+                        "locationName": "Failover",
+                        "documentation": "\u003cp\u003e\u003ci\u003eFailover resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that indicates whether the current resource record set is a primary or secondary resource record set. A failover set may contain at most one resource record set marked as primary and one resource record set marked as secondary. A resource record set marked as primary will be returned if any of the following are true: (1) an associated health check is passing, (2) if the resource record set is an alias with the evaluate target health and at least one target resource record set is healthy, (3) both the primary and secondary resource record set are failing health checks or (4) there is no secondary resource record set. A secondary resource record set will be returned if: (1) the primary is failing a health check and either the secondary is passing a health check or has no associated health check, or (2) there is no primary resource record set. \u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003ePRIMARY\u003c/code\u003e | \u003ccode\u003eSECONDARY\u003c/code\u003e\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rrsTTL",
+                        "name": "_rrsTTL",
+                        "shape": "TTL",
+                        "locationName": "TTL",
+                        "documentation": "\u003cp\u003eThe cache time to live for the current resource record set.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "rrsResourceRecords",
+                        "name": "_rrsResourceRecords",
+                        "shape": "ResourceRecords",
+                        "locationName": "ResourceRecords",
+                        "documentation": "\u003cp\u003eA complex type that contains the resource records for the current resource record set.\u003c/p\u003e",
+                        "typeExposed": "NonEmpty ResourceRecord",
+                        "type": "List1 ResourceRecord"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rrsAliasTarget",
+                        "name": "_rrsAliasTarget",
+                        "shape": "AliasTarget",
+                        "locationName": "AliasTarget",
+                        "documentation": "\u003cp\u003e\u003ci\u003eAlias resource record sets only:\u003c/i\u003e Information about the AWS resource to which you are redirecting traffic.\u003c/p\u003e",
+                        "typeExposed": "Maybe AliasTarget",
+                        "type": "Maybe AliasTarget"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rrsHealthCheckId",
+                        "name": "_rrsHealthCheckId",
+                        "shape": "HealthCheckId",
+                        "locationName": "HealthCheckId",
+                        "documentation": "\u003cp\u003e\u003ci\u003eHealth Check resource record sets only, not required for alias resource record sets:\u003c/i\u003e An identifier that is used to identify health check associated with the resource record set.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -1679,6 +2462,7 @@
                         "type": "List1 ResourceRecord"
                     }
                 ],
+                "contentPad": 16,
                 "name": "ResourceRecordSet",
                 "type": "record",
                 "optional": [
@@ -1961,6 +2745,50 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "delegationSet",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dsId",
+                        "name": "_dsId",
+                        "shape": "ResourceId",
+                        "locationName": "Id",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dsCallerReference",
+                        "name": "_dsCallerReference",
+                        "shape": "Nonce",
+                        "locationName": "CallerReference",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dsNameServers",
+                        "name": "_dsNameServers",
+                        "shape": "DelegationSetNameServers",
+                        "locationName": "NameServers",
+                        "documentation": "\u003cp\u003eA complex type that contains the authoritative name servers for the hosted zone. Use the method provided by your domain registrar to add an NS record to your domain for each \u003ccode\u003eNameServer\u003c/code\u003e that is assigned to your hosted zone.\u003c/p\u003e",
+                        "typeExposed": "NonEmpty Text",
+                        "type": "List1 Text"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -1978,6 +2806,7 @@
                         "type": "List1 Text"
                     }
                 ],
+                "contentPad": 16,
                 "name": "DelegationSet",
                 "type": "record",
                 "optional": [
@@ -2064,6 +2893,64 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "changeInfo",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ciId",
+                        "name": "_ciId",
+                        "shape": "ResourceId",
+                        "locationName": "Id",
+                        "documentation": "\u003cp\u003eThe ID of the request. Use this ID to track when the change has completed across all Amazon Route 53 DNS servers.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ciStatus",
+                        "name": "_ciStatus",
+                        "shape": "ChangeStatus",
+                        "locationName": "Status",
+                        "documentation": "\u003cp\u003eThe current state of the request. \u003ccode\u003ePENDING\u003c/code\u003e indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.\u003c/p\u003e \u003cp\u003eValid Values: \u003ccode\u003ePENDING\u003c/code\u003e | \u003ccode\u003eINSYNC\u003c/code\u003e\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Time",
+                        "lensMapping": "_Time",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ciSubmittedAt",
+                        "name": "_ciSubmittedAt",
+                        "shape": "TimeStamp",
+                        "locationName": "SubmittedAt",
+                        "documentation": "\u003cp\u003eThe date and time the change was submitted, in the format \u003ccode\u003eYYYY-MM-DDThh:mm:ssZ\u003c/code\u003e, as specified in the ISO 8601 standard (for example, 2009-11-19T19:37:58Z). The \u003ccode\u003eZ\u003c/code\u003e after the time indicates that the time is listed in Coordinated Universal Time (UTC), which is synonymous with Greenwich Mean Time in this context.\u003c/p\u003e",
+                        "typeExposed": "UTCTime",
+                        "type": "RFC822"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciComment",
+                        "name": "_ciComment",
+                        "shape": "ResourceDescription",
+                        "locationName": "Comment",
+                        "documentation": "\u003cp\u003eA complex type that describes change information about changes made to your hosted zone.\u003c/p\u003e \u003cp\u003eThis element contains an ID that you use when performing a \u003ca\u003eGetChange\u003c/a\u003e action to get detailed information about the change.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [
                     {
@@ -2109,6 +2996,7 @@
                         "type": "RFC822"
                     }
                 ],
+                "contentPad": 12,
                 "name": "ChangeInfo",
                 "type": "record",
                 "optional": [
@@ -2195,8 +3083,53 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "geoLocation",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "glContinentCode",
+                        "name": "_glContinentCode",
+                        "shape": "GeoLocationContinentCode",
+                        "locationName": "ContinentCode",
+                        "documentation": "\u003cp\u003eThe code for a continent geo location. Note: only continent locations have a continent code.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eAF\u003c/code\u003e | \u003ccode\u003eAN\u003c/code\u003e | \u003ccode\u003eAS\u003c/code\u003e | \u003ccode\u003eEU\u003c/code\u003e | \u003ccode\u003eOC\u003c/code\u003e | \u003ccode\u003eNA\u003c/code\u003e | \u003ccode\u003eSA\u003c/code\u003e\u003c/p\u003e \u003cp\u003eConstraint: Specifying \u003ccode\u003eContinentCode\u003c/code\u003e with either \u003ccode\u003eCountryCode\u003c/code\u003e or \u003ccode\u003eSubdivisionCode\u003c/code\u003e returns an \u003ca\u003eInvalidInput\u003c/a\u003e error.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "glCountryCode",
+                        "name": "_glCountryCode",
+                        "shape": "GeoLocationCountryCode",
+                        "locationName": "CountryCode",
+                        "documentation": "\u003cp\u003eThe code for a country geo location. The default location uses '*' for the country code and will match all locations that are not matched by a geo location.\u003c/p\u003e \u003cp\u003eThe default geo location uses a \u003ccode\u003e*\u003c/code\u003e for the country code. All other country codes follow the ISO 3166 two-character code.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "glSubdivisionCode",
+                        "name": "_glSubdivisionCode",
+                        "shape": "GeoLocationSubdivisionCode",
+                        "locationName": "SubdivisionCode",
+                        "documentation": "\u003cp\u003eThe code for a country's subdivision (e.g., a province of Canada). A subdivision code is only valid with the appropriate country code.\u003c/p\u003e \u003cp\u003eConstraint: Specifying \u003ccode\u003eSubdivisionCode\u003c/code\u003e without \u003ccode\u003eCountryCode\u003c/code\u003e returns an \u003ca\u003eInvalidInput\u003c/a\u003e error.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 16,
                 "name": "GeoLocation",
                 "type": "record",
                 "optional": [
@@ -2296,8 +3229,39 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "healthCheckObservation",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hcoIPAddress",
+                        "name": "_hcoIPAddress",
+                        "shape": "IPAddress",
+                        "locationName": "IPAddress",
+                        "documentation": "\u003cp\u003eThe IP address of the Route 53 health checker that performed the health check.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "hcoStatusReport",
+                        "name": "_hcoStatusReport",
+                        "shape": "StatusReport",
+                        "locationName": "StatusReport",
+                        "documentation": "\u003cp\u003eA complex type that contains information about the health check status for the current observation.\u003c/p\u003e",
+                        "typeExposed": "Maybe StatusReport",
+                        "type": "Maybe StatusReport"
+                    }
+                ],
                 "payload": null,
                 "required": [],
+                "contentPad": 13,
                 "name": "HealthCheckObservation",
                 "type": "record",
                 "optional": [
@@ -2393,6 +3357,22 @@
                     "typeExposed": "ChangeInfo",
                     "type": "ChangeInfo"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "avpcwhzrChangeInfo",
+                        "name": "_avpcwhzrChangeInfo",
+                        "shape": "ChangeInfo",
+                        "locationName": "ChangeInfo",
+                        "documentation": "\u003cp\u003eA complex type that contains the ID, the status, and the date and time of your \u003ccode\u003eAssociateVPCWithHostedZoneRequest\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "ChangeInfo",
+                        "type": "ChangeInfo"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -2414,6 +3394,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AssociateVPCWithHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -2457,6 +3438,36 @@
                 "fieldPad": 20,
                 "ctor": "associateVPCWithHostedZone",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "avpcwhzVPC",
+                        "name": "_avpcwhzVPC",
+                        "shape": "VPC",
+                        "locationName": "VPC",
+                        "documentation": "\u003cp\u003eThe VPC that you want your hosted zone to be associated with. \u003c/p\u003e",
+                        "typeExposed": "VPC",
+                        "type": "VPC"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "avpcwhzComment",
+                        "name": "_avpcwhzComment",
+                        "shape": "AssociateVPCComment",
+                        "locationName": "Comment",
+                        "documentation": "\u003cp\u003e\u003ci\u003eOptional:\u003c/i\u003e Any comments you want to include about a \u003ccode\u003eAssociateVPCWithHostedZoneRequest\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/2013-04-01/hostedzone/",
@@ -2505,6 +3516,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 8,
                 "queryPad": 0,
                 "name": "AssociateVPCWithHostedZone",
                 "query": [],
@@ -2601,6 +3613,22 @@
                     "typeExposed": "ChangeInfo",
                     "type": "ChangeInfo"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "crrsrChangeInfo",
+                        "name": "_crrsrChangeInfo",
+                        "shape": "ChangeInfo",
+                        "locationName": "ChangeInfo",
+                        "documentation": "\u003cp\u003eA complex type that contains information about changes made to your hosted zone.\u003c/p\u003e \u003cp\u003eThis element contains an ID that you use when performing a \u003ca\u003eGetChange\u003c/a\u003e action to get detailed information about the change.\u003c/p\u003e",
+                        "typeExposed": "ChangeInfo",
+                        "type": "ChangeInfo"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -2622,6 +3650,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ChangeResourceRecordSetsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -2665,6 +3694,22 @@
                 "fieldPad": 17,
                 "ctor": "changeResourceRecordSets",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "crrsChangeBatch",
+                        "name": "_crrsChangeBatch",
+                        "shape": "ChangeBatch",
+                        "locationName": "ChangeBatch",
+                        "documentation": "\u003cp\u003eA complex type that contains an optional comment and the \u003ccode\u003eChanges\u003c/code\u003e element.\u003c/p\u003e",
+                        "typeExposed": "ChangeBatch",
+                        "type": "ChangeBatch"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/2013-04-01/hostedzone/",
@@ -2713,6 +3758,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 12,
                 "queryPad": 0,
                 "name": "ChangeResourceRecordSets",
                 "query": [],
@@ -2799,6 +3845,36 @@
                 "fieldPad": 18,
                 "ctor": "changeTagsForResource",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ctfrAddTags",
+                        "name": "_ctfrAddTags",
+                        "shape": "TagList",
+                        "locationName": "AddTags",
+                        "documentation": "\u003cp\u003eA complex type that contains a list of \u003ccode\u003eTag\u003c/code\u003e elements. Each \u003ccode\u003eTag\u003c/code\u003e element identifies a tag that you want to add or update for the specified resource.\u003c/p\u003e",
+                        "typeExposed": "NonEmpty Tag",
+                        "type": "List1 Tag"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ctfrRemoveTagKeys",
+                        "name": "_ctfrRemoveTagKeys",
+                        "shape": "TagKeyList",
+                        "locationName": "RemoveTagKeys",
+                        "documentation": "\u003cp\u003eA list of \u003ccode\u003eTag\u003c/code\u003e keys that you want to remove from the specified resource.\u003c/p\u003e",
+                        "typeExposed": "NonEmpty Text",
+                        "type": "List1 Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/2013-04-01/tags/",
@@ -2879,6 +3955,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 14,
                 "queryPad": 0,
                 "name": "ChangeTagsForResource",
                 "query": [],
@@ -2959,6 +4036,22 @@
                 "fieldPad": 16,
                 "ctor": "createHealthCheckResponse",
                 "headerPad": 9,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "chcrHealthCheck",
+                        "name": "_chcrHealthCheck",
+                        "shape": "HealthCheck",
+                        "locationName": "HealthCheck",
+                        "documentation": "\u003cp\u003eA complex type that contains identifying information about the health check.\u003c/p\u003e",
+                        "typeExposed": "HealthCheck",
+                        "type": "HealthCheck"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -3000,6 +4093,7 @@
                         "type": "field"
                     }
                 ],
+                "contentPad": 12,
                 "name": "CreateHealthCheckResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -3057,6 +4151,36 @@
                 "fieldPad": 21,
                 "ctor": "createHealthCheck",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "chcCallerReference",
+                        "name": "_chcCallerReference",
+                        "shape": "HealthCheckNonce",
+                        "locationName": "CallerReference",
+                        "documentation": "\u003cp\u003eA unique string that identifies the request and that allows failed \u003ccode\u003eCreateHealthCheck\u003c/code\u003e requests to be retried without the risk of executing the operation twice. You must use a unique \u003ccode\u003eCallerReference\u003c/code\u003e string every time you create a health check. \u003ccode\u003eCallerReference\u003c/code\u003e can be any unique string; you might choose to use a string that identifies your project.\u003c/p\u003e \u003cp\u003eValid characters are any Unicode code points that are legal in an XML 1.0 document. The UTF-8 encoding of the value must be less than 128 bytes.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "chcHealthCheckConfig",
+                        "name": "_chcHealthCheckConfig",
+                        "shape": "HealthCheckConfig",
+                        "locationName": "HealthCheckConfig",
+                        "documentation": "\u003cp\u003eA complex type that contains health check configuration.\u003c/p\u003e",
+                        "typeExposed": "HealthCheckConfig",
+                        "type": "HealthCheckConfig"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/2013-04-01/healthcheck",
@@ -3097,6 +4221,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 18,
                 "queryPad": 0,
                 "name": "CreateHealthCheck",
                 "query": [],
@@ -3149,6 +4274,64 @@
                 "fieldPad": 18,
                 "ctor": "createHostedZoneResponse",
                 "headerPad": 9,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "chzrHostedZone",
+                        "name": "_chzrHostedZone",
+                        "shape": "HostedZone",
+                        "locationName": "HostedZone",
+                        "documentation": "\u003cp\u003eA complex type that contains identifying information about the hosted zone.\u003c/p\u003e",
+                        "typeExposed": "HostedZone",
+                        "type": "HostedZone"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "chzrChangeInfo",
+                        "name": "_chzrChangeInfo",
+                        "shape": "ChangeInfo",
+                        "locationName": "ChangeInfo",
+                        "documentation": "\u003cp\u003eA complex type that contains information about the request to create a hosted zone. This includes an ID that you use when you call the \u003ca\u003eGetChange\u003c/a\u003e action to get the current status of the change request.\u003c/p\u003e",
+                        "typeExposed": "ChangeInfo",
+                        "type": "ChangeInfo"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "chzrDelegationSet",
+                        "name": "_chzrDelegationSet",
+                        "shape": "DelegationSet",
+                        "locationName": "DelegationSet",
+                        "documentation": "\u003cp\u003eA complex type that contains name server information.\u003c/p\u003e",
+                        "typeExposed": "DelegationSet",
+                        "type": "DelegationSet"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "chzrVPC",
+                        "name": "_chzrVPC",
+                        "shape": "VPC",
+                        "locationName": "VPC",
+                        "documentation": null,
+                        "typeExposed": "Maybe VPC",
+                        "type": "Maybe VPC"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -3218,6 +4401,7 @@
                         "type": "field"
                     }
                 ],
+                "contentPad": 14,
                 "name": "CreateHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -3332,6 +4516,78 @@
                 "fieldPad": 20,
                 "ctor": "createHostedZone",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "chzName",
+                        "name": "_chzName",
+                        "shape": "DNSName",
+                        "locationName": "Name",
+                        "documentation": "\u003cp\u003eThe name of the domain. This must be a fully-specified domain, for example, www.example.com. The trailing dot is optional; Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.\u003c/p\u003e \u003cp\u003eThis is the name you have registered with your DNS registrar. You should ask your registrar to change the authoritative name servers for your domain to the set of \u003ccode\u003eNameServers\u003c/code\u003e elements returned in \u003ccode\u003eDelegationSet\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "chzVPC",
+                        "name": "_chzVPC",
+                        "shape": "VPC",
+                        "locationName": "VPC",
+                        "documentation": "\u003cp\u003eThe VPC that you want your hosted zone to be associated with. By providing this parameter, your newly created hosted cannot be resolved anywhere other than the given VPC.\u003c/p\u003e",
+                        "typeExposed": "Maybe VPC",
+                        "type": "Maybe VPC"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "chzCallerReference",
+                        "name": "_chzCallerReference",
+                        "shape": "Nonce",
+                        "locationName": "CallerReference",
+                        "documentation": "\u003cp\u003eA unique string that identifies the request and that allows failed \u003ccode\u003eCreateHostedZone\u003c/code\u003e requests to be retried without the risk of executing the operation twice. You must use a unique \u003ccode\u003eCallerReference\u003c/code\u003e string every time you create a hosted zone. \u003ccode\u003eCallerReference\u003c/code\u003e can be any unique string; you might choose to use a string that identifies your project, such as \u003ccode\u003eDNSMigration_01\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eValid characters are any Unicode code points that are legal in an XML 1.0 document. The UTF-8 encoding of the value must be less than 128 bytes.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "chzHostedZoneConfig",
+                        "name": "_chzHostedZoneConfig",
+                        "shape": "HostedZoneConfig",
+                        "locationName": "HostedZoneConfig",
+                        "documentation": "\u003cp\u003eA complex type that contains an optional comment about your hosted zone.\u003c/p\u003e",
+                        "typeExposed": "Maybe HostedZoneConfig",
+                        "type": "Maybe HostedZoneConfig"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "chzDelegationSetId",
+                        "name": "_chzDelegationSetId",
+                        "shape": "ResourceId",
+                        "locationName": "DelegationSetId",
+                        "documentation": "\u003cp\u003eThe delegation set id of the reusable delgation set whose NS records you want to assign to the new hosted zone.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/2013-04-01/hostedzone",
@@ -3372,6 +4628,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 17,
                 "queryPad": 0,
                 "name": "CreateHostedZone",
                 "query": [],
@@ -3509,6 +4766,22 @@
                 "fieldPad": 19,
                 "ctor": "createReusableDelegationSetResponse",
                 "headerPad": 9,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "crdsrDelegationSet",
+                        "name": "_crdsrDelegationSet",
+                        "shape": "DelegationSet",
+                        "locationName": "DelegationSet",
+                        "documentation": "\u003cp\u003eA complex type that contains name server information.\u003c/p\u003e",
+                        "typeExposed": "DelegationSet",
+                        "type": "DelegationSet"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -3550,6 +4823,7 @@
                         "type": "field"
                     }
                 ],
+                "contentPad": 14,
                 "name": "CreateReusableDelegationSetResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -3608,6 +4882,36 @@
                 "fieldPad": 20,
                 "ctor": "createReusableDelegationSet",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "crdsCallerReference",
+                        "name": "_crdsCallerReference",
+                        "shape": "Nonce",
+                        "locationName": "CallerReference",
+                        "documentation": "\u003cp\u003eA unique string that identifies the request and that allows failed \u003ccode\u003eCreateReusableDelegationSet\u003c/code\u003e requests to be retried without the risk of executing the operation twice. You must use a unique \u003ccode\u003eCallerReference\u003c/code\u003e string every time you create a reusable delegation set. \u003ccode\u003eCallerReference\u003c/code\u003e can be any unique string; you might choose to use a string that identifies your project, such as \u003ccode\u003eDNSMigration_01\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eValid characters are any Unicode code points that are legal in an XML 1.0 document. The UTF-8 encoding of the value must be less than 128 bytes.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crdsHostedZoneId",
+                        "name": "_crdsHostedZoneId",
+                        "shape": "ResourceId",
+                        "locationName": "HostedZoneId",
+                        "documentation": "\u003cp\u003eThe ID of the hosted zone whose delegation set you want to mark as reusable. It is an optional parameter.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/2013-04-01/delegationset",
@@ -3634,6 +4938,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 16,
                 "queryPad": 0,
                 "name": "CreateReusableDelegationSet",
                 "query": [],
@@ -3753,6 +5058,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/healthcheck/",
@@ -3783,6 +5089,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "DeleteHealthCheck",
                 "query": [],
@@ -3836,6 +5143,22 @@
                     "typeExposed": "ChangeInfo",
                     "type": "ChangeInfo"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dhzrChangeInfo",
+                        "name": "_dhzrChangeInfo",
+                        "shape": "ChangeInfo",
+                        "locationName": "ChangeInfo",
+                        "documentation": "\u003cp\u003eA complex type that contains the ID, the status, and the date and time of your delete request.\u003c/p\u003e",
+                        "typeExposed": "ChangeInfo",
+                        "type": "ChangeInfo"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -3857,6 +5180,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -3918,6 +5242,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/hostedzone/",
@@ -3948,6 +5273,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "DeleteHostedZone",
                 "query": [],
@@ -4038,6 +5364,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/delegationset/",
@@ -4068,6 +5395,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "DeleteReusableDelegationSet",
                 "query": [],
@@ -4121,6 +5449,22 @@
                     "typeExposed": "ChangeInfo",
                     "type": "ChangeInfo"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dvpcfhzrChangeInfo",
+                        "name": "_dvpcfhzrChangeInfo",
+                        "shape": "ChangeInfo",
+                        "locationName": "ChangeInfo",
+                        "documentation": "\u003cp\u003eA complex type that contains the ID, the status, and the date and time of your \u003ccode\u003eDisassociateVPCFromHostedZoneRequest\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "ChangeInfo",
+                        "type": "ChangeInfo"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -4142,6 +5486,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DisassociateVPCFromHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -4185,6 +5530,36 @@
                 "fieldPad": 20,
                 "ctor": "disassociateVPCFromHostedZone",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dvpcfhzVPC",
+                        "name": "_dvpcfhzVPC",
+                        "shape": "VPC",
+                        "locationName": "VPC",
+                        "documentation": "\u003cp\u003eThe VPC that you want your hosted zone to be disassociated from. \u003c/p\u003e",
+                        "typeExposed": "VPC",
+                        "type": "VPC"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dvpcfhzComment",
+                        "name": "_dvpcfhzComment",
+                        "shape": "DisassociateVPCComment",
+                        "locationName": "Comment",
+                        "documentation": "\u003cp\u003e\u003ci\u003eOptional:\u003c/i\u003e Any comments you want to include about a \u003ccode\u003eDisassociateVPCFromHostedZoneRequest\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/2013-04-01/hostedzone/",
@@ -4233,6 +5608,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 8,
                 "queryPad": 0,
                 "name": "DisassociateVPCFromHostedZone",
                 "query": [],
@@ -4329,6 +5705,22 @@
                     "typeExposed": "ChangeInfo",
                     "type": "ChangeInfo"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gcrChangeInfo",
+                        "name": "_gcrChangeInfo",
+                        "shape": "ChangeInfo",
+                        "locationName": "ChangeInfo",
+                        "documentation": "\u003cp\u003eA complex type that contains information about the specified change batch, including the change batch ID, the status of the change, and the date and time of the request.\u003c/p\u003e",
+                        "typeExposed": "ChangeInfo",
+                        "type": "ChangeInfo"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -4350,6 +5742,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetChangeResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -4411,6 +5804,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/change/",
@@ -4441,6 +5835,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "GetChange",
                 "query": [],
@@ -4497,12 +5892,29 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "gcirrCheckerIpRanges",
+                        "name": "_gcirrCheckerIpRanges",
+                        "shape": "CheckerIpRanges",
+                        "locationName": "CheckerIpRanges",
+                        "documentation": "\u003cp\u003eA complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetCheckerIpRangesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -4610,6 +6022,22 @@
                     "typeExposed": "GeoLocationDetails",
                     "type": "GeoLocationDetails"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "gglrGeoLocationDetails",
+                        "name": "_gglrGeoLocationDetails",
+                        "shape": "GeoLocationDetails",
+                        "locationName": "GeoLocationDetails",
+                        "documentation": "\u003cp\u003eA complex type that contains the information about the specified geo location.\u003c/p\u003e",
+                        "typeExposed": "GeoLocationDetails",
+                        "type": "GeoLocationDetails"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -4631,6 +6059,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetGeoLocationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -4675,6 +6104,7 @@
                 "fieldPad": 19,
                 "ctor": "getGeoLocation",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/geolocation",
@@ -4686,6 +6116,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "GetGeoLocation",
                 "query": [
@@ -4826,6 +6257,22 @@
                     "typeExposed": "HealthCheck",
                     "type": "HealthCheck"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ghcrHealthCheck",
+                        "name": "_ghcrHealthCheck",
+                        "shape": "HealthCheck",
+                        "locationName": "HealthCheck",
+                        "documentation": "\u003cp\u003eA complex type that contains the information about the specified health check.\u003c/p\u003e",
+                        "typeExposed": "HealthCheck",
+                        "type": "HealthCheck"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -4847,6 +6294,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetHealthCheckResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -4908,6 +6356,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/healthcheck/",
@@ -4938,6 +6387,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "GetHealthCheck",
                 "query": [],
@@ -4996,6 +6446,22 @@
                     "typeExposed": "Integer",
                     "type": "Integer"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ghccrHealthCheckCount",
+                        "name": "_ghccrHealthCheckCount",
+                        "shape": "HealthCheckCount",
+                        "locationName": "HealthCheckCount",
+                        "documentation": "\u003cp\u003e The number of health checks associated with the current AWS account.\u003c/p\u003e",
+                        "typeExposed": "Integer",
+                        "type": "Integer"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -5017,6 +6483,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetHealthCheckCountResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -5111,12 +6578,29 @@
                     "typeExposed": "[HealthCheckObservation]",
                     "type": "[HealthCheckObservation]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ghclfrrHealthCheckObservations",
+                        "name": "_ghclfrrHealthCheckObservations",
+                        "shape": "HealthCheckObservations",
+                        "locationName": "HealthCheckObservations",
+                        "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
+                        "typeExposed": "[HealthCheckObservation]",
+                        "type": "[HealthCheckObservation]"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetHealthCheckLastFailureReasonResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -5193,6 +6677,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/healthcheck/",
@@ -5227,6 +6712,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "GetHealthCheckLastFailureReason",
                 "query": [],
@@ -5282,12 +6768,29 @@
                     "typeExposed": "[HealthCheckObservation]",
                     "type": "[HealthCheckObservation]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ghcsrHealthCheckObservations",
+                        "name": "_ghcsrHealthCheckObservations",
+                        "shape": "HealthCheckObservations",
+                        "locationName": "HealthCheckObservations",
+                        "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
+                        "typeExposed": "[HealthCheckObservation]",
+                        "type": "[HealthCheckObservation]"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetHealthCheckStatusResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -5364,6 +6867,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/healthcheck/",
@@ -5398,6 +6902,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "GetHealthCheckStatus",
                 "query": [],
@@ -5436,6 +6941,50 @@
                 "fieldPad": 18,
                 "ctor": "getHostedZoneResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ghzrHostedZone",
+                        "name": "_ghzrHostedZone",
+                        "shape": "HostedZone",
+                        "locationName": "HostedZone",
+                        "documentation": "\u003cp\u003eA complex type that contains the information about the specified hosted zone.\u003c/p\u003e",
+                        "typeExposed": "HostedZone",
+                        "type": "HostedZone"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ghzrDelegationSet",
+                        "name": "_ghzrDelegationSet",
+                        "shape": "DelegationSet",
+                        "locationName": "DelegationSet",
+                        "documentation": "\u003cp\u003eA complex type that contains information about the name servers for the specified hosted zone.\u003c/p\u003e",
+                        "typeExposed": "Maybe DelegationSet",
+                        "type": "Maybe DelegationSet"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ghzrVPCs",
+                        "name": "_ghzrVPCs",
+                        "shape": "VPCs",
+                        "locationName": "VPCs",
+                        "documentation": "\u003cp\u003eA complex type that contains information about VPCs associated with the specified hosted zone.\u003c/p\u003e",
+                        "typeExposed": "NonEmpty VPC",
+                        "type": "List1 VPC"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -5471,6 +7020,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 14,
                 "name": "GetHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -5575,6 +7125,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/hostedzone/",
@@ -5605,6 +7156,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "GetHostedZone",
                 "query": [],
@@ -5658,6 +7210,22 @@
                     "typeExposed": "DelegationSet",
                     "type": "DelegationSet"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "grdsrDelegationSet",
+                        "name": "_grdsrDelegationSet",
+                        "shape": "DelegationSet",
+                        "locationName": "DelegationSet",
+                        "documentation": "\u003cp\u003eA complex type that contains the information about the nameservers for the specified delegation set ID.\u003c/p\u003e",
+                        "typeExposed": "DelegationSet",
+                        "type": "DelegationSet"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -5679,6 +7247,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetReusableDelegationSetResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -5740,6 +7309,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/delegationset/",
@@ -5770,6 +7340,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "GetReusableDelegationSet",
                 "query": [],
@@ -5808,6 +7379,92 @@
                 "fieldPad": 27,
                 "ctor": "listGeoLocationsResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "lglrGeoLocationDetailsList",
+                        "name": "_lglrGeoLocationDetailsList",
+                        "shape": "GeoLocationDetailsList",
+                        "locationName": "GeoLocationDetailsList",
+                        "documentation": "\u003cp\u003eA complex type that contains information about the geo locations that are returned by the request.\u003c/p\u003e",
+                        "typeExposed": "[GeoLocationDetails]",
+                        "type": "[GeoLocationDetails]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lglrIsTruncated",
+                        "name": "_lglrIsTruncated",
+                        "shape": "PageTruncated",
+                        "locationName": "IsTruncated",
+                        "documentation": "\u003cp\u003e A flag that indicates whether there are more geo locations to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the values included in the \u003ca\u003eListGeoLocationsResponse$NextContinentCode\u003c/a\u003e, \u003ca\u003eListGeoLocationsResponse$NextCountryCode\u003c/a\u003e and \u003ca\u003eListGeoLocationsResponse$NextSubdivisionCode\u003c/a\u003e elements.\u003c/p\u003e \u003cp\u003eValid Values: \u003ccode\u003etrue\u003c/code\u003e | \u003ccode\u003efalse\u003c/code\u003e\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lglrNextContinentCode",
+                        "name": "_lglrNextContinentCode",
+                        "shape": "GeoLocationContinentCode",
+                        "locationName": "NextContinentCode",
+                        "documentation": "\u003cp\u003eIf the results were truncated, the continent code of the next geo location in the list. This element is present only if \u003ca\u003eListGeoLocationsResponse$IsTruncated\u003c/a\u003e is true and the next geo location to list is a continent location. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lglrNextCountryCode",
+                        "name": "_lglrNextCountryCode",
+                        "shape": "GeoLocationCountryCode",
+                        "locationName": "NextCountryCode",
+                        "documentation": "\u003cp\u003eIf the results were truncated, the country code of the next geo location in the list. This element is present only if \u003ca\u003eListGeoLocationsResponse$IsTruncated\u003c/a\u003e is true and the next geo location to list is not a continent location. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lglrNextSubdivisionCode",
+                        "name": "_lglrNextSubdivisionCode",
+                        "shape": "GeoLocationSubdivisionCode",
+                        "locationName": "NextSubdivisionCode",
+                        "documentation": "\u003cp\u003eIf the results were truncated, the subdivision code of the next geo location in the list. This element is present only if \u003ca\u003eListGeoLocationsResponse$IsTruncated\u003c/a\u003e is true and the next geo location has a subdivision. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lglrMaxItems",
+                        "name": "_lglrMaxItems",
+                        "shape": "PageMaxItems",
+                        "locationName": "MaxItems",
+                        "documentation": "\u003cp\u003eThe maximum number of records you requested. The maximum value of \u003ccode\u003eMaxItems\u003c/code\u003e is 100.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -5843,6 +7500,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 23,
                 "name": "ListGeoLocationsResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -6014,6 +7672,7 @@
                 "fieldPad": 24,
                 "ctor": "listGeoLocations",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/geolocations",
@@ -6025,6 +7684,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "ListGeoLocations",
                 "query": [
@@ -6183,6 +7843,78 @@
                 "fieldPad": 17,
                 "ctor": "listHealthChecksResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "lhcrHealthChecks",
+                        "name": "_lhcrHealthChecks",
+                        "shape": "HealthChecks",
+                        "locationName": "HealthChecks",
+                        "documentation": "\u003cp\u003eA complex type that contains information about the health checks associated with the current AWS account.\u003c/p\u003e",
+                        "typeExposed": "[HealthCheck]",
+                        "type": "[HealthCheck]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lhcrMarker",
+                        "name": "_lhcrMarker",
+                        "shape": "PageMarker",
+                        "locationName": "Marker",
+                        "documentation": "\u003cp\u003eIf the request returned more than one page of results, submit another request and specify the value of \u003ccode\u003eNextMarker\u003c/code\u003e from the last response in the \u003ccode\u003emarker\u003c/code\u003e parameter to get the next page of results.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lhcrIsTruncated",
+                        "name": "_lhcrIsTruncated",
+                        "shape": "PageTruncated",
+                        "locationName": "IsTruncated",
+                        "documentation": "\u003cp\u003e A flag indicating whether there are more health checks to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the \u003ccode\u003eMarker\u003c/code\u003e element.\u003c/p\u003e \u003cp\u003eValid Values: \u003ccode\u003etrue\u003c/code\u003e | \u003ccode\u003efalse\u003c/code\u003e\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lhcrNextMarker",
+                        "name": "_lhcrNextMarker",
+                        "shape": "PageMarker",
+                        "locationName": "NextMarker",
+                        "documentation": "\u003cp\u003e Indicates where to continue listing health checks. If \u003ca\u003eListHealthChecksResponse$IsTruncated\u003c/a\u003e is \u003ccode\u003etrue\u003c/code\u003e, make another request to \u003ccode\u003eListHealthChecks\u003c/code\u003e and include the value of the \u003ccode\u003eNextMarker\u003c/code\u003e element in the \u003ccode\u003eMarker\u003c/code\u003e element to get the next page of results.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lhcrMaxItems",
+                        "name": "_lhcrMaxItems",
+                        "shape": "PageMaxItems",
+                        "locationName": "MaxItems",
+                        "documentation": "\u003cp\u003eThe maximum number of health checks to be included in the response body. If the number of health checks associated with this AWS account exceeds \u003ccode\u003eMaxItems\u003c/code\u003e, the value of \u003ca\u003eListHealthChecksResponse$IsTruncated\u003c/a\u003e in the response is \u003ccode\u003etrue\u003c/code\u003e. Call \u003ccode\u003eListHealthChecks\u003c/code\u003e again and specify the value of \u003ca\u003eListHealthChecksResponse$NextMarker\u003c/a\u003e in the \u003ca\u003eListHostedZonesRequest$Marker\u003c/a\u003e element to get the next page of results.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -6232,6 +7964,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 13,
                 "name": "ListHealthChecksResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -6369,6 +8102,7 @@
                 "fieldPad": 12,
                 "ctor": "listHealthChecks",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/healthcheck",
@@ -6380,6 +8114,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ListHealthChecks",
                 "query": [
@@ -6472,6 +8207,78 @@
                 "fieldPad": 16,
                 "ctor": "listHostedZonesResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "lhzrHostedZones",
+                        "name": "_lhzrHostedZones",
+                        "shape": "HostedZones",
+                        "locationName": "HostedZones",
+                        "documentation": "\u003cp\u003eA complex type that contains information about the hosted zones associated with the current AWS account.\u003c/p\u003e",
+                        "typeExposed": "[HostedZone]",
+                        "type": "[HostedZone]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lhzrMarker",
+                        "name": "_lhzrMarker",
+                        "shape": "PageMarker",
+                        "locationName": "Marker",
+                        "documentation": "\u003cp\u003eIf the request returned more than one page of results, submit another request and specify the value of \u003ccode\u003eNextMarker\u003c/code\u003e from the last response in the \u003ccode\u003emarker\u003c/code\u003e parameter to get the next page of results.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lhzrIsTruncated",
+                        "name": "_lhzrIsTruncated",
+                        "shape": "PageTruncated",
+                        "locationName": "IsTruncated",
+                        "documentation": "\u003cp\u003e A flag indicating whether there are more hosted zones to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the \u003ccode\u003eMarker\u003c/code\u003e element.\u003c/p\u003e \u003cp\u003eValid Values: \u003ccode\u003etrue\u003c/code\u003e | \u003ccode\u003efalse\u003c/code\u003e\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lhzrNextMarker",
+                        "name": "_lhzrNextMarker",
+                        "shape": "PageMarker",
+                        "locationName": "NextMarker",
+                        "documentation": "\u003cp\u003e Indicates where to continue listing hosted zones. If \u003ca\u003eListHostedZonesResponse$IsTruncated\u003c/a\u003e is \u003ccode\u003etrue\u003c/code\u003e, make another request to \u003ccode\u003eListHostedZones\u003c/code\u003e and include the value of the \u003ccode\u003eNextMarker\u003c/code\u003e element in the \u003ccode\u003eMarker\u003c/code\u003e element to get the next page of results.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lhzrMaxItems",
+                        "name": "_lhzrMaxItems",
+                        "shape": "PageMaxItems",
+                        "locationName": "MaxItems",
+                        "documentation": "\u003cp\u003eThe maximum number of hosted zones to be included in the response body. If the number of hosted zones associated with this AWS account exceeds \u003ccode\u003eMaxItems\u003c/code\u003e, the value of \u003ca\u003eListHostedZonesResponse$IsTruncated\u003c/a\u003e in the response is \u003ccode\u003etrue\u003c/code\u003e. Call \u003ccode\u003eListHostedZones\u003c/code\u003e again and specify the value of \u003ca\u003eListHostedZonesResponse$NextMarker\u003c/a\u003e in the \u003ca\u003eListHostedZonesRequest$Marker\u003c/a\u003e element to get the next page of results.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -6521,6 +8328,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 12,
                 "name": "ListHostedZonesResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -6658,6 +8466,7 @@
                 "fieldPad": 19,
                 "ctor": "listHostedZones",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/hostedzone",
@@ -6669,6 +8478,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "ListHostedZones",
                 "query": [
@@ -6794,6 +8604,92 @@
                 "fieldPad": 26,
                 "ctor": "listResourceRecordSetsResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "lrrsrResourceRecordSets",
+                        "name": "_lrrsrResourceRecordSets",
+                        "shape": "ResourceRecordSets",
+                        "locationName": "ResourceRecordSets",
+                        "documentation": "\u003cp\u003eA complex type that contains information about the resource record sets that are returned by the request.\u003c/p\u003e",
+                        "typeExposed": "[ResourceRecordSet]",
+                        "type": "[ResourceRecordSet]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lrrsrIsTruncated",
+                        "name": "_lrrsrIsTruncated",
+                        "shape": "PageTruncated",
+                        "locationName": "IsTruncated",
+                        "documentation": "\u003cp\u003e A flag that indicates whether there are more resource record sets to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the \u003ca\u003eListResourceRecordSetsResponse$NextRecordName\u003c/a\u003e element.\u003c/p\u003e \u003cp\u003eValid Values: \u003ccode\u003etrue\u003c/code\u003e | \u003ccode\u003efalse\u003c/code\u003e\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lrrsrNextRecordName",
+                        "name": "_lrrsrNextRecordName",
+                        "shape": "DNSName",
+                        "locationName": "NextRecordName",
+                        "documentation": "\u003cp\u003eIf the results were truncated, the name of the next record in the list. This element is present only if \u003ca\u003eListResourceRecordSetsResponse$IsTruncated\u003c/a\u003e is true. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lrrsrNextRecordType",
+                        "name": "_lrrsrNextRecordType",
+                        "shape": "RRType",
+                        "locationName": "NextRecordType",
+                        "documentation": "\u003cp\u003eIf the results were truncated, the type of the next record in the list. This element is present only if \u003ca\u003eListResourceRecordSetsResponse$IsTruncated\u003c/a\u003e is true. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lrrsrNextRecordIdentifier",
+                        "name": "_lrrsrNextRecordIdentifier",
+                        "shape": "ResourceRecordSetIdentifier",
+                        "locationName": "NextRecordIdentifier",
+                        "documentation": "\u003cp\u003e\u003ci\u003eWeighted resource record sets only:\u003c/i\u003e If results were truncated for a given DNS name and type, the value of \u003ccode\u003eSetIdentifier\u003c/code\u003e for the next resource record set that has the current DNS name and type.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lrrsrMaxItems",
+                        "name": "_lrrsrMaxItems",
+                        "shape": "PageMaxItems",
+                        "locationName": "MaxItems",
+                        "documentation": "\u003cp\u003eThe maximum number of records you requested. The maximum value of \u003ccode\u003eMaxItems\u003c/code\u003e is 100.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -6829,6 +8725,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 21,
                 "name": "ListResourceRecordSetsResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -7019,6 +8916,7 @@
                 "fieldPad": 26,
                 "ctor": "listResourceRecordSets",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/hostedzone/",
@@ -7053,6 +8951,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "ListResourceRecordSets",
                 "query": [
@@ -7225,6 +9124,78 @@
                 "fieldPad": 20,
                 "ctor": "listReusableDelegationSetsResponse",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "lrdsrDelegationSets",
+                        "name": "_lrdsrDelegationSets",
+                        "shape": "DelegationSets",
+                        "locationName": "DelegationSets",
+                        "documentation": "\u003cp\u003eA complex type that contains information about the reusable delegation sets associated with the current AWS account.\u003c/p\u003e",
+                        "typeExposed": "[DelegationSet]",
+                        "type": "[DelegationSet]"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lrdsrMarker",
+                        "name": "_lrdsrMarker",
+                        "shape": "PageMarker",
+                        "locationName": "Marker",
+                        "documentation": "\u003cp\u003eIf the request returned more than one page of results, submit another request and specify the value of \u003ccode\u003eNextMarker\u003c/code\u003e from the last response in the \u003ccode\u003emarker\u003c/code\u003e parameter to get the next page of results.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lrdsrIsTruncated",
+                        "name": "_lrdsrIsTruncated",
+                        "shape": "PageTruncated",
+                        "locationName": "IsTruncated",
+                        "documentation": "\u003cp\u003e A flag indicating whether there are more reusable delegation sets to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the \u003ccode\u003eMarker\u003c/code\u003e element.\u003c/p\u003e \u003cp\u003eValid Values: \u003ccode\u003etrue\u003c/code\u003e | \u003ccode\u003efalse\u003c/code\u003e\u003c/p\u003e",
+                        "typeExposed": "Bool",
+                        "type": "Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "lrdsrNextMarker",
+                        "name": "_lrdsrNextMarker",
+                        "shape": "PageMarker",
+                        "locationName": "NextMarker",
+                        "documentation": "\u003cp\u003e Indicates where to continue listing reusable delegation sets. If \u003ca\u003eListReusableDelegationSetsResponse$IsTruncated\u003c/a\u003e is \u003ccode\u003etrue\u003c/code\u003e, make another request to \u003ccode\u003eListReusableDelegationSets\u003c/code\u003e and include the value of the \u003ccode\u003eNextMarker\u003c/code\u003e element in the \u003ccode\u003eMarker\u003c/code\u003e element to get the next page of results.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "lrdsrMaxItems",
+                        "name": "_lrdsrMaxItems",
+                        "shape": "PageMaxItems",
+                        "locationName": "MaxItems",
+                        "documentation": "\u003cp\u003eThe maximum number of reusable delegation sets to be included in the response body. If the number of reusable delegation sets associated with this AWS account exceeds \u003ccode\u003eMaxItems\u003c/code\u003e, the value of \u003ca\u003eListReusablDelegationSetsResponse$IsTruncated\u003c/a\u003e in the response is \u003ccode\u003etrue\u003c/code\u003e. Call \u003ccode\u003eListReusableDelegationSets\u003c/code\u003e again and specify the value of \u003ca\u003eListReusableDelegationSetsResponse$NextMarker\u003c/a\u003e in the \u003ca\u003eListReusableDelegationSetsRequest$Marker\u003c/a\u003e element to get the next page of results.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -7274,6 +9245,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 15,
                 "name": "ListReusableDelegationSetsResponse",
                 "resultWrapper": null,
                 "type": "record",
@@ -7403,6 +9375,7 @@
                 "fieldPad": 13,
                 "ctor": "listReusableDelegationSets",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/delegationset",
@@ -7414,6 +9387,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 9,
                 "name": "ListReusableDelegationSets",
                 "query": [
@@ -7521,6 +9495,22 @@
                     "typeExposed": "ResourceTagSet",
                     "type": "ResourceTagSet"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ltfrrResourceTagSet",
+                        "name": "_ltfrrResourceTagSet",
+                        "shape": "ResourceTagSet",
+                        "locationName": "ResourceTagSet",
+                        "documentation": "\u003cp\u003eA \u003ccode\u003eResourceTagSet\u003c/code\u003e containing tags associated with the specified resource.\u003c/p\u003e",
+                        "typeExposed": "ResourceTagSet",
+                        "type": "ResourceTagSet"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -7542,6 +9532,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListTagsForResourceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -7586,6 +9577,7 @@
                 "fieldPad": 17,
                 "ctor": "listTagsForResource",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-04-01/tags/",
@@ -7638,6 +9630,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "ListTagsForResource",
                 "query": [],
@@ -7707,12 +9700,29 @@
                     "typeExposed": "[ResourceTagSet]",
                     "type": "[ResourceTagSet]"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ltfrrResourceTagSets",
+                        "name": "_ltfrrResourceTagSets",
+                        "shape": "ResourceTagSetList",
+                        "locationName": "ResourceTagSets",
+                        "documentation": "\u003cp\u003eA list of \u003ccode\u003eResourceTagSet\u003c/code\u003es containing tags associated with the specified resources.\u003c/p\u003e",
+                        "typeExposed": "[ResourceTagSet]",
+                        "type": "[ResourceTagSet]"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListTagsForResourcesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -7772,6 +9782,22 @@
                 "fieldPad": 18,
                 "ctor": "listTagsForResources",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ltfr1ResourceIds",
+                        "name": "_ltfr1ResourceIds",
+                        "shape": "TagResourceIdList",
+                        "locationName": "ResourceIds",
+                        "documentation": "\u003cp\u003eA complex type that contains the ResourceId element for each resource for which you want to get a list of tags.\u003c/p\u003e",
+                        "typeExposed": "NonEmpty Text",
+                        "type": "List1 Text"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/2013-04-01/tags/",
@@ -7816,6 +9842,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 12,
                 "queryPad": 0,
                 "name": "ListTagsForResources",
                 "query": [],
@@ -7883,6 +9910,22 @@
                     "typeExposed": "HealthCheck",
                     "type": "HealthCheck"
                 },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "uhcrHealthCheck",
+                        "name": "_uhcrHealthCheck",
+                        "shape": "HealthCheck",
+                        "locationName": "HealthCheck",
+                        "documentation": null,
+                        "typeExposed": "HealthCheck",
+                        "type": "HealthCheck"
+                    }
+                ],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": null,
@@ -7904,6 +9947,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UpdateHealthCheckResponse",
                 "resultWrapper": null,
                 "type": "newtype",
@@ -7948,6 +9992,106 @@
                 "fieldPad": 28,
                 "ctor": "updateHealthCheck",
                 "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "uhcHealthCheckVersion",
+                        "name": "_uhcHealthCheckVersion",
+                        "shape": "HealthCheckVersion",
+                        "locationName": "HealthCheckVersion",
+                        "documentation": "\u003cp\u003eOptional. When you specify a health check version, Route 53 compares this value with the current value in the health check, which prevents you from updating the health check when the versions don't match. Using \u003ccode\u003eHealthCheckVersion\u003c/code\u003e lets you prevent overwriting another change to the health check.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "uhcIPAddress",
+                        "name": "_uhcIPAddress",
+                        "shape": "IPAddress",
+                        "locationName": "IPAddress",
+                        "documentation": "\u003cp\u003eThe IP address of the resource that you want to check.\u003c/p\u003e \u003cp\u003eSpecify this value only if you want to change it.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "uhcPort",
+                        "name": "_uhcPort",
+                        "shape": "Port",
+                        "locationName": "Port",
+                        "documentation": "\u003cp\u003eThe port on which you want Route 53 to open a connection to perform health checks.\u003c/p\u003e \u003cp\u003eSpecify this value only if you want to change it.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "uhcResourcePath",
+                        "name": "_uhcResourcePath",
+                        "shape": "ResourcePath",
+                        "locationName": "ResourcePath",
+                        "documentation": "\u003cp\u003eThe path that you want Amazon Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, for example the file /docs/route53-health-check.html. \u003c/p\u003e \u003cp\u003eSpecify this value only if you want to change it.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "uhcFullyQualifiedDomainName",
+                        "name": "_uhcFullyQualifiedDomainName",
+                        "shape": "FullyQualifiedDomainName",
+                        "locationName": "FullyQualifiedDomainName",
+                        "documentation": "\u003cp\u003eFully qualified domain name of the instance to be health checked.\u003c/p\u003e \u003cp\u003eSpecify this value only if you want to change it.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "uhcSearchString",
+                        "name": "_uhcSearchString",
+                        "shape": "SearchString",
+                        "locationName": "SearchString",
+                        "documentation": "\u003cp\u003eIf the value of \u003ccode\u003eType\u003c/code\u003e is \u003ccode\u003eHTTP_STR_MATCH\u003c/code\u003e or \u003ccode\u003eHTTP_STR_MATCH\u003c/code\u003e, the string that you want Route 53 to search for in the response body from the specified resource. If the string appears in the response body, Route 53 considers the resource healthy. \u003c/p\u003e \u003cp\u003eSpecify this value only if you want to change it.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "uhcFailureThreshold",
+                        "name": "_uhcFailureThreshold",
+                        "shape": "FailureThreshold",
+                        "locationName": "FailureThreshold",
+                        "documentation": "\u003cp\u003eThe number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.\u003c/p\u003e \u003cp\u003eValid values are integers between 1 and 10. For more information, see \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the Amazon Route 53 Developer Guide.\u003c/p\u003e \u003cp\u003eSpecify this value only if you want to change it.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    }
+                ],
                 "path": [
                     {
                         "value": "/2013-04-01/healthcheck/",
@@ -7978,6 +10122,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 25,
                 "queryPad": 0,
                 "name": "UpdateHealthCheck",
                 "query": [],

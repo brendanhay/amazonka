@@ -69,6 +69,7 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "job",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -128,6 +129,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Job",
                 "type": "record",
                 "optional": [],
@@ -223,12 +225,14 @@
                     "typeExposed": "Maybe Bool",
                     "type": "Maybe Bool"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CancelJobResponse",
                 "resultWrapper": "CancelJobResult",
                 "type": "newtype",
@@ -305,6 +309,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -331,6 +336,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 6,
                 "name": "CancelJob",
                 "query": [
@@ -380,12 +386,14 @@
                 "fieldPad": 25,
                 "ctor": "createJobResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateJobResponse",
                 "resultWrapper": "CreateJobResult",
                 "type": "record",
@@ -585,6 +593,7 @@
                 "fieldPad": 19,
                 "ctor": "createJob",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -639,6 +648,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "CreateJob",
                 "query": [
@@ -760,12 +770,14 @@
                 "fieldPad": 25,
                 "ctor": "getStatusResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetStatusResponse",
                 "resultWrapper": "GetStatusResult",
                 "type": "record",
@@ -1262,6 +1274,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1288,6 +1301,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 6,
                 "name": "GetStatus",
                 "query": [
@@ -1336,12 +1350,14 @@
                 "fieldPad": 15,
                 "ctor": "listJobsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListJobsResponse",
                 "resultWrapper": "ListJobsResult",
                 "type": "record",
@@ -1437,6 +1453,7 @@
                 "fieldPad": 10,
                 "ctor": "listJobs",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1448,6 +1465,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 8,
                 "name": "ListJobs",
                 "query": [
@@ -1545,12 +1563,14 @@
                 "fieldPad": 18,
                 "ctor": "updateJobResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UpdateJobResponse",
                 "resultWrapper": "UpdateJobResult",
                 "type": "record",
@@ -1638,6 +1658,7 @@
                 "fieldPad": 15,
                 "ctor": "updateJob",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1706,6 +1727,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "UpdateJob",
                 "query": [

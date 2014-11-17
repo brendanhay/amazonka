@@ -8,16 +8,8 @@ import qualified GHC.Exts
 
 {% include "_include/service.ede" %}
 
-xmlOptions :: Tagged a XMLOptions
-xmlOptions = Tagged def
-{% if service.xmlNamespace %}
-    { xmlNamespace = Just "{{ service.xmlNamespace }}"
-    }
-{% endif %}
-
 {% for type in types %}
 {% include "_include/datatype.ede" with type = type.value %}
-
 {% include "_include/xml-from.ede" with type = type.value %}
 
 instance ToQuery {{ type.value.name }}

@@ -110,8 +110,10 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "nodeSnapshot",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NodeSnapshot",
                 "type": "record",
                 "optional": [
@@ -239,8 +241,10 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "snapshot",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Snapshot",
                 "type": "record",
                 "optional": [
@@ -817,8 +821,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "event",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Event",
                 "type": "record",
                 "optional": [
@@ -946,8 +952,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "nodeGroup",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NodeGroup",
                 "type": "record",
                 "optional": [
@@ -1076,8 +1084,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "cacheNodeTypeSpecificValue",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CacheNodeTypeSpecificValue",
                 "type": "record",
                 "optional": [
@@ -1167,8 +1177,10 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "notificationConfiguration",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NotificationConfiguration",
                 "type": "record",
                 "optional": [
@@ -1241,8 +1253,10 @@
                 ],
                 "fieldPad": 29,
                 "ctor": "replicationGroupPendingModifiedValues",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReplicationGroupPendingModifiedValues",
                 "type": "record",
                 "optional": [
@@ -1315,8 +1329,10 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "ec2SecurityGroup",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EC2SecurityGroup",
                 "type": "record",
                 "optional": [
@@ -1417,8 +1433,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "parameterNameValue",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ParameterNameValue",
                 "type": "record",
                 "optional": [
@@ -1509,8 +1527,10 @@
                 ],
                 "fieldPad": 31,
                 "ctor": "cacheSubnetGroup",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CacheSubnetGroup",
                 "type": "record",
                 "optional": [
@@ -1638,8 +1658,10 @@
                 ],
                 "fieldPad": 32,
                 "ctor": "reservedCacheNode",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedCacheNode",
                 "type": "record",
                 "optional": [
@@ -1991,8 +2013,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "subnet",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Subnet",
                 "type": "record",
                 "optional": [
@@ -2065,8 +2089,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "securityGroupMembership",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "SecurityGroupMembership",
                 "type": "record",
                 "optional": [
@@ -2138,8 +2164,10 @@
                 ],
                 "fieldPad": 29,
                 "ctor": "cacheCluster",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CacheCluster",
                 "type": "record",
                 "optional": [
@@ -2771,8 +2799,10 @@
                 ],
                 "fieldPad": 34,
                 "ctor": "engineDefaults",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EngineDefaults",
                 "type": "record",
                 "optional": [
@@ -2901,8 +2931,10 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "cacheParameterGroupStatus",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CacheParameterGroupStatus",
                 "type": "record",
                 "optional": [
@@ -3002,8 +3034,10 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "cacheNode",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CacheNode",
                 "type": "record",
                 "optional": [
@@ -3216,8 +3250,10 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "cacheSecurityGroupMembership",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CacheSecurityGroupMembership",
                 "type": "record",
                 "optional": [
@@ -3306,8 +3342,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AvailabilityZone",
                 "type": "newtype",
                 "optional": [
@@ -3351,8 +3389,10 @@
                 ],
                 "fieldPad": 29,
                 "ctor": "nodeGroupMember",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NodeGroupMember",
                 "type": "record",
                 "optional": [
@@ -3509,8 +3549,10 @@
                 ],
                 "fieldPad": 29,
                 "ctor": "cacheParameterGroup",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CacheParameterGroup",
                 "type": "record",
                 "optional": [
@@ -3629,8 +3671,10 @@
                 ],
                 "fieldPad": 26,
                 "ctor": "cacheSecurityGroup",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CacheSecurityGroup",
                 "type": "record",
                 "optional": [
@@ -3758,8 +3802,10 @@
                 ],
                 "fieldPad": 33,
                 "ctor": "cacheNodeTypeSpecificParameter",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CacheNodeTypeSpecificParameter",
                 "type": "record",
                 "optional": [
@@ -4017,8 +4063,10 @@
                 ],
                 "fieldPad": 33,
                 "ctor": "cacheEngineVersion",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CacheEngineVersion",
                 "type": "record",
                 "optional": [
@@ -4174,8 +4222,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "replicationGroup",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReplicationGroup",
                 "type": "record",
                 "optional": [
@@ -4416,8 +4466,10 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "recurringCharge",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "RecurringCharge",
                 "type": "record",
                 "optional": [
@@ -4489,8 +4541,10 @@
                 ],
                 "fieldPad": 33,
                 "ctor": "reservedCacheNodesOffering",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ReservedCacheNodesOffering",
                 "type": "record",
                 "optional": [
@@ -4731,8 +4785,10 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "endpoint",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Endpoint",
                 "type": "record",
                 "optional": [
@@ -4805,8 +4861,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "pendingModifiedValues",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "PendingModifiedValues",
                 "type": "record",
                 "optional": [
@@ -4923,8 +4981,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "CacheParameterGroupNameMessage",
                 "type": "newtype",
                 "optional": [
@@ -4969,8 +5029,10 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "parameter",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Parameter",
                 "type": "record",
                 "optional": [
@@ -5234,12 +5296,14 @@
                     "typeExposed": "Maybe CacheSecurityGroup",
                     "type": "Maybe CacheSecurityGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "AuthorizeCacheSecurityGroupIngressResponse",
                 "resultWrapper": "AuthorizeCacheSecurityGroupIngressResult",
                 "type": "newtype",
@@ -5299,6 +5363,7 @@
                 "fieldPad": 29,
                 "ctor": "authorizeCacheSecurityGroupIngress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5353,6 +5418,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "AuthorizeCacheSecurityGroupIngress",
                 "query": [
@@ -5450,12 +5516,14 @@
                     "typeExposed": "Maybe Snapshot",
                     "type": "Maybe Snapshot"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CopySnapshotResponse",
                 "resultWrapper": "CopySnapshotResult",
                 "type": "newtype",
@@ -5515,6 +5583,7 @@
                 "fieldPad": 21,
                 "ctor": "copySnapshot",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5555,6 +5624,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "CopySnapshot",
                 "query": [
@@ -5633,12 +5703,14 @@
                     "typeExposed": "Maybe CacheCluster",
                     "type": "Maybe CacheCluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateCacheClusterResponse",
                 "resultWrapper": "CreateCacheClusterResult",
                 "type": "newtype",
@@ -5698,6 +5770,7 @@
                 "fieldPad": 30,
                 "ctor": "createCacheCluster",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5724,6 +5797,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "CreateCacheCluster",
                 "query": [
@@ -6444,12 +6518,14 @@
                     "typeExposed": "Maybe CacheParameterGroup",
                     "type": "Maybe CacheParameterGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateCacheParameterGroupResponse",
                 "resultWrapper": "CreateCacheParameterGroupResult",
                 "type": "newtype",
@@ -6509,6 +6585,7 @@
                 "fieldPad": 30,
                 "ctor": "createCacheParameterGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6563,6 +6640,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 26,
                 "name": "CreateCacheParameterGroup",
                 "query": [
@@ -6660,12 +6738,14 @@
                     "typeExposed": "Maybe CacheSecurityGroup",
                     "type": "Maybe CacheSecurityGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateCacheSecurityGroupResponse",
                 "resultWrapper": "CreateCacheSecurityGroupResult",
                 "type": "newtype",
@@ -6725,6 +6805,7 @@
                 "fieldPad": 27,
                 "ctor": "createCacheSecurityGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6765,6 +6846,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "CreateCacheSecurityGroup",
                 "query": [
@@ -6843,12 +6925,14 @@
                     "typeExposed": "Maybe CacheSubnetGroup",
                     "type": "Maybe CacheSubnetGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateCacheSubnetGroupResponse",
                 "resultWrapper": "CreateCacheSubnetGroupResult",
                 "type": "newtype",
@@ -6908,6 +6992,7 @@
                 "fieldPad": 32,
                 "ctor": "createCacheSubnetGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6948,6 +7033,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 28,
                 "name": "CreateCacheSubnetGroup",
                 "query": [
@@ -7060,12 +7146,14 @@
                     "typeExposed": "Maybe ReplicationGroup",
                     "type": "Maybe ReplicationGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateReplicationGroupResponse",
                 "resultWrapper": "CreateReplicationGroupResult",
                 "type": "newtype",
@@ -7125,6 +7213,7 @@
                 "fieldPad": 31,
                 "ctor": "createReplicationGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7165,6 +7254,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 28,
                 "name": "CreateReplicationGroup",
                 "query": [
@@ -7871,12 +7961,14 @@
                     "typeExposed": "Maybe Snapshot",
                     "type": "Maybe Snapshot"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateSnapshotResponse",
                 "resultWrapper": "CreateSnapshotResult",
                 "type": "newtype",
@@ -7936,6 +8028,7 @@
                 "fieldPad": 17,
                 "ctor": "createSnapshot",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7976,6 +8069,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "CreateSnapshot",
                 "query": [
@@ -8054,12 +8148,14 @@
                     "typeExposed": "Maybe CacheCluster",
                     "type": "Maybe CacheCluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteCacheClusterResponse",
                 "resultWrapper": "DeleteCacheClusterResult",
                 "type": "newtype",
@@ -8119,6 +8215,7 @@
                 "fieldPad": 27,
                 "ctor": "deleteCacheCluster",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8145,6 +8242,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "DeleteCacheCluster",
                 "query": [
@@ -8275,6 +8373,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8301,6 +8400,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "DeleteCacheParameterGroup",
                 "query": [
@@ -8397,6 +8497,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8423,6 +8524,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "DeleteCacheSecurityGroup",
                 "query": [
@@ -8519,6 +8621,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8545,6 +8648,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DeleteCacheSubnetGroup",
                 "query": [
@@ -8604,12 +8708,14 @@
                     "typeExposed": "Maybe ReplicationGroup",
                     "type": "Maybe ReplicationGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteReplicationGroupResponse",
                 "resultWrapper": "DeleteReplicationGroupResult",
                 "type": "newtype",
@@ -8669,6 +8775,7 @@
                 "fieldPad": 27,
                 "ctor": "deleteReplicationGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8695,6 +8802,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "DeleteReplicationGroup",
                 "query": [
@@ -8821,12 +8929,14 @@
                     "typeExposed": "Maybe Snapshot",
                     "type": "Maybe Snapshot"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DeleteSnapshotResponse",
                 "resultWrapper": "DeleteSnapshotResult",
                 "type": "newtype",
@@ -8903,6 +9013,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8929,6 +9040,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "DeleteSnapshot",
                 "query": [
@@ -8973,12 +9085,14 @@
                 "fieldPad": 18,
                 "ctor": "describeCacheClustersResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeCacheClustersResponse",
                 "resultWrapper": "DescribeCacheClustersResult",
                 "type": "record",
@@ -9074,6 +9188,7 @@
                 "fieldPad": 22,
                 "ctor": "describeCacheClusters",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9085,6 +9200,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DescribeCacheClusters",
                 "query": [
@@ -9243,12 +9359,14 @@
                 "fieldPad": 25,
                 "ctor": "describeCacheEngineVersionsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeCacheEngineVersionsResponse",
                 "resultWrapper": "DescribeCacheEngineVersionsResult",
                 "type": "record",
@@ -9344,6 +9462,7 @@
                 "fieldPad": 30,
                 "ctor": "describeCacheEngineVersions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9355,6 +9474,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 26,
                 "name": "DescribeCacheEngineVersions",
                 "query": [
@@ -9579,12 +9699,14 @@
                 "fieldPad": 26,
                 "ctor": "describeCacheParameterGroupsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeCacheParameterGroupsResponse",
                 "resultWrapper": "DescribeCacheParameterGroupsResult",
                 "type": "record",
@@ -9680,6 +9802,7 @@
                 "fieldPad": 28,
                 "ctor": "describeCacheParameterGroups",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9691,6 +9814,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "DescribeCacheParameterGroups",
                 "query": [
@@ -9816,12 +9940,14 @@
                 "fieldPad": 36,
                 "ctor": "describeCacheParametersResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeCacheParametersResponse",
                 "resultWrapper": "DescribeCacheParametersResult",
                 "type": "record",
@@ -9945,6 +10071,7 @@
                 "fieldPad": 27,
                 "ctor": "describeCacheParameters",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9971,6 +10098,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "DescribeCacheParameters",
                 "query": [
@@ -10115,12 +10243,14 @@
                 "fieldPad": 26,
                 "ctor": "describeCacheSecurityGroupsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeCacheSecurityGroupsResponse",
                 "resultWrapper": "DescribeCacheSecurityGroupsResult",
                 "type": "record",
@@ -10216,6 +10346,7 @@
                 "fieldPad": 28,
                 "ctor": "describeCacheSecurityGroups",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10227,6 +10358,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 23,
                 "name": "DescribeCacheSecurityGroups",
                 "query": [
@@ -10352,12 +10484,14 @@
                 "fieldPad": 23,
                 "ctor": "describeCacheSubnetGroupsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeCacheSubnetGroupsResponse",
                 "resultWrapper": "DescribeCacheSubnetGroupsResult",
                 "type": "record",
@@ -10453,6 +10587,7 @@
                 "fieldPad": 25,
                 "ctor": "describeCacheSubnetGroups",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10464,6 +10599,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DescribeCacheSubnetGroups",
                 "query": [
@@ -10604,6 +10740,7 @@
                     "typeExposed": "EngineDefaults",
                     "type": "EngineDefaults"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
@@ -10625,6 +10762,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeEngineDefaultParametersResponse",
                 "resultWrapper": "DescribeEngineDefaultParametersResult",
                 "type": "newtype",
@@ -10677,6 +10815,7 @@
                 "fieldPad": 30,
                 "ctor": "describeEngineDefaultParameters",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10703,6 +10842,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 26,
                 "name": "DescribeEngineDefaultParameters",
                 "query": [
@@ -10814,12 +10954,14 @@
                 "fieldPad": 10,
                 "ctor": "describeEventsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeEventsResponse",
                 "resultWrapper": "DescribeEventsResult",
                 "type": "record",
@@ -10915,6 +11057,7 @@
                 "fieldPad": 19,
                 "ctor": "describeEvents",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10926,6 +11069,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "DescribeEvents",
                 "query": [
@@ -11183,12 +11327,14 @@
                 "fieldPad": 22,
                 "ctor": "describeReplicationGroupsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeReplicationGroupsResponse",
                 "resultWrapper": "DescribeReplicationGroupsResult",
                 "type": "record",
@@ -11284,6 +11430,7 @@
                 "fieldPad": 23,
                 "ctor": "describeReplicationGroups",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11295,6 +11442,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DescribeReplicationGroups",
                 "query": [
@@ -11420,12 +11568,14 @@
                 "fieldPad": 24,
                 "ctor": "describeReservedCacheNodesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeReservedCacheNodesResponse",
                 "resultWrapper": "DescribeReservedCacheNodesResult",
                 "type": "record",
@@ -11521,6 +11671,7 @@
                 "fieldPad": 33,
                 "ctor": "describeReservedCacheNodes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11532,6 +11683,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 29,
                 "name": "DescribeReservedCacheNodes",
                 "query": [
@@ -11822,12 +11974,14 @@
                 "fieldPad": 34,
                 "ctor": "describeReservedCacheNodesOfferingsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeReservedCacheNodesOfferingsResponse",
                 "resultWrapper": "DescribeReservedCacheNodesOfferingsResult",
                 "type": "record",
@@ -11923,6 +12077,7 @@
                 "fieldPad": 34,
                 "ctor": "describeReservedCacheNodesOfferings",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11934,6 +12089,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 29,
                 "name": "DescribeReservedCacheNodesOfferings",
                 "query": [
@@ -12191,12 +12347,14 @@
                 "fieldPad": 13,
                 "ctor": "describeSnapshotsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeSnapshotsResponse",
                 "resultWrapper": "DescribeSnapshotsResult",
                 "type": "record",
@@ -12292,6 +12450,7 @@
                 "fieldPad": 17,
                 "ctor": "describeSnapshots",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12303,6 +12462,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "DescribeSnapshots",
                 "query": [
@@ -12509,12 +12669,14 @@
                     "typeExposed": "Maybe CacheCluster",
                     "type": "Maybe CacheCluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ModifyCacheClusterResponse",
                 "resultWrapper": "ModifyCacheClusterResult",
                 "type": "newtype",
@@ -12574,6 +12736,7 @@
                 "fieldPad": 30,
                 "ctor": "modifyCacheCluster",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12600,6 +12763,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 27,
                 "name": "ModifyCacheCluster",
                 "query": [
@@ -13157,12 +13321,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ModifyCacheParameterGroupResponse",
                 "resultWrapper": "ModifyCacheParameterGroupResult",
                 "type": "newtype",
@@ -13221,6 +13387,7 @@
                 "fieldPad": 28,
                 "ctor": "modifyCacheParameterGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -13247,6 +13414,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "ModifyCacheParameterGroup",
                 "query": [
@@ -13340,12 +13508,14 @@
                     "typeExposed": "Maybe CacheSubnetGroup",
                     "type": "Maybe CacheSubnetGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ModifyCacheSubnetGroupResponse",
                 "resultWrapper": "ModifyCacheSubnetGroupResult",
                 "type": "newtype",
@@ -13405,6 +13575,7 @@
                 "fieldPad": 32,
                 "ctor": "modifyCacheSubnetGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -13431,6 +13602,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 28,
                 "name": "ModifyCacheSubnetGroup",
                 "query": [
@@ -13557,12 +13729,14 @@
                     "typeExposed": "Maybe ReplicationGroup",
                     "type": "Maybe ReplicationGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ModifyReplicationGroupResponse",
                 "resultWrapper": "ModifyReplicationGroupResult",
                 "type": "newtype",
@@ -13622,6 +13796,7 @@
                 "fieldPad": 31,
                 "ctor": "modifyReplicationGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -13648,6 +13823,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 28,
                 "name": "ModifyReplicationGroup",
                 "query": [
@@ -14203,12 +14379,14 @@
                     "typeExposed": "Maybe ReservedCacheNode",
                     "type": "Maybe ReservedCacheNode"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "PurchaseReservedCacheNodesOfferingResponse",
                 "resultWrapper": "PurchaseReservedCacheNodesOfferingResult",
                 "type": "newtype",
@@ -14268,6 +14446,7 @@
                 "fieldPad": 34,
                 "ctor": "purchaseReservedCacheNodesOffering",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14294,6 +14473,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 29,
                 "name": "PurchaseReservedCacheNodesOffering",
                 "query": [
@@ -14420,12 +14600,14 @@
                     "typeExposed": "Maybe CacheCluster",
                     "type": "Maybe CacheCluster"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RebootCacheClusterResponse",
                 "resultWrapper": "RebootCacheClusterResult",
                 "type": "newtype",
@@ -14485,6 +14667,7 @@
                 "fieldPad": 24,
                 "ctor": "rebootCacheCluster",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14511,6 +14694,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "RebootCacheCluster",
                 "query": [
@@ -14606,12 +14790,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ResetCacheParameterGroupResponse",
                 "resultWrapper": "ResetCacheParameterGroupResult",
                 "type": "newtype",
@@ -14670,6 +14856,7 @@
                 "fieldPad": 28,
                 "ctor": "resetCacheParameterGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14696,6 +14883,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "ResetCacheParameterGroup",
                 "query": [
@@ -14822,12 +15010,14 @@
                     "typeExposed": "Maybe CacheSecurityGroup",
                     "type": "Maybe CacheSecurityGroup"
                 },
+                "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "RevokeCacheSecurityGroupIngressResponse",
                 "resultWrapper": "RevokeCacheSecurityGroupIngressResult",
                 "type": "newtype",
@@ -14887,6 +15077,7 @@
                 "fieldPad": 29,
                 "ctor": "revokeCacheSecurityGroupIngress",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -14941,6 +15132,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "RevokeCacheSecurityGroupIngress",
                 "query": [

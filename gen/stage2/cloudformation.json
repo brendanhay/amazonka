@@ -76,8 +76,10 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Tag",
                 "type": "record",
                 "optional": [
@@ -181,6 +183,7 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "stackEvent",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -240,6 +243,7 @@
                         "type": "RFC822"
                     }
                 ],
+                "contentPad": 0,
                 "name": "StackEvent",
                 "type": "record",
                 "optional": [
@@ -480,6 +484,7 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "stackSummary",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -525,6 +530,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "StackSummary",
                 "type": "record",
                 "optional": [
@@ -723,6 +729,7 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "stackResourceDetail",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -782,6 +789,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "StackResourceDetail",
                 "type": "record",
                 "optional": [
@@ -1047,8 +1055,10 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "templateParameter",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "TemplateParameter",
                 "type": "record",
                 "optional": [
@@ -1177,8 +1187,10 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "parameterDeclaration",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ParameterDeclaration",
                 "type": "record",
                 "optional": [
@@ -1335,6 +1347,7 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "stackResource",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1394,6 +1407,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "StackResource",
                 "type": "record",
                 "optional": [
@@ -1606,8 +1620,10 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "output",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Output",
                 "type": "record",
                 "optional": [
@@ -1708,6 +1724,7 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "stackResourceSummary",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1767,6 +1784,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "StackResourceSummary",
                 "type": "record",
                 "optional": [
@@ -1927,6 +1945,7 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "stack",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1972,6 +1991,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Stack",
                 "type": "record",
                 "optional": [
@@ -2356,8 +2376,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "parameter",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Parameter",
                 "type": "record",
                 "optional": [
@@ -2518,6 +2540,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2544,6 +2567,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "CancelUpdateStack",
                 "query": [
@@ -2605,12 +2629,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "CreateStackResponse",
                 "resultWrapper": "CreateStackResult",
                 "type": "newtype",
@@ -2669,6 +2695,7 @@
                 "fieldPad": 19,
                 "ctor": "createStack",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2695,6 +2722,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "CreateStack",
                 "query": [
@@ -3155,6 +3183,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3181,6 +3210,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "DeleteStack",
                 "query": [
@@ -3225,12 +3255,14 @@
                 "fieldPad": 16,
                 "ctor": "describeStackEventsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeStackEventsResponse",
                 "resultWrapper": "DescribeStackEventsResult",
                 "type": "record",
@@ -3326,6 +3358,7 @@
                 "fieldPad": 13,
                 "ctor": "describeStackEvents",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3337,6 +3370,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "DescribeStackEvents",
                 "query": [
@@ -3444,12 +3478,14 @@
                     "typeExposed": "Maybe StackResourceDetail",
                     "type": "Maybe StackResourceDetail"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeStackResourceResponse",
                 "resultWrapper": "DescribeStackResourceResult",
                 "type": "newtype",
@@ -3509,6 +3545,7 @@
                 "fieldPad": 22,
                 "ctor": "describeStackResource",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3549,6 +3586,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "DescribeStackResource",
                 "query": [
@@ -3629,12 +3667,14 @@
                     "typeExposed": "[StackResource]",
                     "type": "[StackResource]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeStackResourcesResponse",
                 "resultWrapper": "DescribeStackResourcesResult",
                 "type": "newtype",
@@ -3694,6 +3734,7 @@
                 "fieldPad": 22,
                 "ctor": "describeStackResources",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3705,6 +3746,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "DescribeStackResources",
                 "query": [
@@ -3830,12 +3872,14 @@
                 "fieldPad": 13,
                 "ctor": "describeStacksResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeStacksResponse",
                 "resultWrapper": "DescribeStacksResult",
                 "type": "record",
@@ -3931,6 +3975,7 @@
                 "fieldPad": 13,
                 "ctor": "describeStacks",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -3942,6 +3987,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "DescribeStacks",
                 "query": [
@@ -4051,12 +4097,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "EstimateTemplateCostResponse",
                 "resultWrapper": "EstimateTemplateCostResult",
                 "type": "newtype",
@@ -4115,6 +4163,7 @@
                 "fieldPad": 16,
                 "ctor": "estimateTemplateCost",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4126,6 +4175,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "EstimateTemplateCost",
                 "query": [
@@ -4268,12 +4318,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetStackPolicyResponse",
                 "resultWrapper": "GetStackPolicyResult",
                 "type": "newtype",
@@ -4350,6 +4402,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4376,6 +4429,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "GetStackPolicy",
                 "query": [
@@ -4437,12 +4491,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetTemplateResponse",
                 "resultWrapper": "GetTemplateResult",
                 "type": "newtype",
@@ -4519,6 +4575,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4545,6 +4602,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "GetTemplate",
                 "query": [
@@ -4589,12 +4647,14 @@
                 "fieldPad": 23,
                 "ctor": "getTemplateSummaryResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetTemplateSummaryResponse",
                 "resultWrapper": "GetTemplateSummaryResult",
                 "type": "record",
@@ -4766,6 +4826,7 @@
                 "fieldPad": 16,
                 "ctor": "getTemplateSummary",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4777,6 +4838,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "GetTemplateSummary",
                 "query": [
@@ -4902,12 +4964,14 @@
                 "fieldPad": 27,
                 "ctor": "listStackResourcesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListStackResourcesResponse",
                 "resultWrapper": "ListStackResourcesResult",
                 "type": "record",
@@ -5003,6 +5067,7 @@
                 "fieldPad": 13,
                 "ctor": "listStackResources",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5029,6 +5094,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 10,
                 "name": "ListStackResources",
                 "query": [
@@ -5107,12 +5173,14 @@
                 "fieldPad": 19,
                 "ctor": "listStacksResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListStacksResponse",
                 "resultWrapper": "ListStacksResult",
                 "type": "record",
@@ -5208,6 +5276,7 @@
                 "fieldPad": 20,
                 "ctor": "listStacks",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5219,6 +5288,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "ListStacks",
                 "query": [
@@ -5346,6 +5416,7 @@
                 "fieldPad": 19,
                 "ctor": "setStackPolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5372,6 +5443,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 16,
                 "name": "SetStackPolicy",
                 "query": [
@@ -5518,6 +5590,7 @@
                 "fieldPad": 20,
                 "ctor": "signalResource",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5586,6 +5659,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 18,
                 "name": "SignalResource",
                 "query": [
@@ -5704,12 +5778,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "UpdateStackResponse",
                 "resultWrapper": "UpdateStackResult",
                 "type": "newtype",
@@ -5768,6 +5844,7 @@
                 "fieldPad": 30,
                 "ctor": "updateStack",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5794,6 +5871,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 28,
                 "name": "UpdateStack",
                 "query": [
@@ -6169,12 +6247,14 @@
                 "fieldPad": 22,
                 "ctor": "validateTemplateResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ValidateTemplateResponse",
                 "resultWrapper": "ValidateTemplateResult",
                 "type": "record",
@@ -6318,6 +6398,7 @@
                 "fieldPad": 15,
                 "ctor": "validateTemplate",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6329,6 +6410,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 13,
                 "name": "ValidateTemplate",
                 "query": [

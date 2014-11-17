@@ -132,6 +132,7 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "tagDescription",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -205,6 +206,7 @@
                         "type": "Bool"
                     }
                 ],
+                "contentPad": 0,
                 "name": "TagDescription",
                 "type": "record",
                 "optional": [],
@@ -290,6 +292,7 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "tag",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -363,6 +366,7 @@
                         "type": "Bool"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Tag",
                 "type": "record",
                 "optional": [],
@@ -448,8 +452,10 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "notificationConfiguration",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "NotificationConfiguration",
                 "type": "record",
                 "optional": [
@@ -549,6 +555,7 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "blockDeviceMapping",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -566,6 +573,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "BlockDeviceMapping",
                 "type": "record",
                 "optional": [
@@ -679,6 +687,7 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "launchConfiguration",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -738,6 +747,7 @@
                         "type": "RFC822"
                     }
                 ],
+                "contentPad": 0,
                 "name": "LaunchConfiguration",
                 "type": "record",
                 "optional": [
@@ -1173,6 +1183,7 @@
                 ],
                 "fieldPad": 27,
                 "ctor": "autoScalingGroup",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -1302,6 +1313,7 @@
                         "type": "RFC822"
                     }
                 ],
+                "contentPad": 0,
                 "name": "AutoScalingGroup",
                 "type": "record",
                 "optional": [
@@ -1751,8 +1763,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "scalingPolicy",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ScalingPolicy",
                 "type": "record",
                 "optional": [
@@ -2008,8 +2022,10 @@
                     "typeExposed": "Maybe Bool",
                     "type": "Maybe Bool"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "InstanceMonitoring",
                 "type": "newtype",
                 "optional": [
@@ -2054,8 +2070,10 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "scheduledUpdateGroupAction",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "ScheduledUpdateGroupAction",
                 "type": "record",
                 "optional": [
@@ -2352,6 +2370,7 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "scalingProcessQuery",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -2369,6 +2388,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ScalingProcessQuery",
                 "type": "record",
                 "optional": [
@@ -2427,8 +2447,10 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "ebs",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Ebs",
                 "type": "record",
                 "optional": [
@@ -2601,8 +2623,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "AdjustmentType",
                 "type": "newtype",
                 "optional": [
@@ -2663,8 +2687,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "MetricCollectionType",
                 "type": "newtype",
                 "optional": [
@@ -2709,8 +2735,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "lifecycleHook",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "LifecycleHook",
                 "type": "record",
                 "optional": [
@@ -2979,6 +3007,7 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "activity",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -3052,6 +3081,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Activity",
                 "type": "record",
                 "optional": [
@@ -3278,8 +3308,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "suspendedProcess",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "SuspendedProcess",
                 "type": "record",
                 "optional": [
@@ -3368,8 +3400,10 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "MetricGranularityType",
                 "type": "newtype",
                 "optional": [
@@ -3414,6 +3448,7 @@
                 ],
                 "fieldPad": 8,
                 "ctor": "filter'",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -3431,6 +3466,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Filter",
                 "type": "record",
                 "optional": [
@@ -3506,6 +3542,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -3523,6 +3560,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ProcessType",
                 "type": "newtype",
                 "optional": [],
@@ -3552,8 +3590,10 @@
                 ],
                 "fieldPad": 11,
                 "ctor": "alarm",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "Alarm",
                 "type": "record",
                 "optional": [
@@ -3626,8 +3666,10 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "enabledMetric",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "EnabledMetric",
                 "type": "record",
                 "optional": [
@@ -3700,6 +3742,7 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "instance'",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -3773,6 +3816,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Instance",
                 "type": "record",
                 "optional": [],
@@ -3886,6 +3930,7 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "autoScalingInstanceDetails",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -3973,6 +4018,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "AutoScalingInstanceDetails",
                 "type": "record",
                 "optional": [],
@@ -4140,6 +4186,7 @@
                 "fieldPad": 23,
                 "ctor": "attachInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4166,6 +4213,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "AttachInstances",
                 "query": [
@@ -4279,6 +4327,7 @@
                 "fieldPad": 25,
                 "ctor": "completeLifecycleAction",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4347,6 +4396,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "CompleteLifecycleAction",
                 "query": [
@@ -4482,6 +4532,7 @@
                 "fieldPad": 28,
                 "ctor": "createAutoScalingGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -4550,6 +4601,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "CreateAutoScalingGroup",
                 "query": [
@@ -5049,6 +5101,7 @@
                 "fieldPad": 28,
                 "ctor": "createLaunchConfiguration",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5075,6 +5128,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "CreateLaunchConfiguration",
                 "query": [
@@ -5666,6 +5720,7 @@
                     "typeExposed": "[Tag]",
                     "type": "[Tag]"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5677,6 +5732,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 5,
                 "name": "CreateOrUpdateTags",
                 "query": [
@@ -5771,6 +5827,7 @@
                 "fieldPad": 25,
                 "ctor": "deleteAutoScalingGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5797,6 +5854,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DeleteAutoScalingGroup",
                 "query": [
@@ -5927,6 +5985,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -5953,6 +6012,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "DeleteLaunchConfiguration",
                 "query": [
@@ -6032,6 +6092,7 @@
                 "fieldPad": 25,
                 "ctor": "deleteLifecycleHook",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6072,6 +6133,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DeleteLifecycleHook",
                 "query": [
@@ -6170,6 +6232,7 @@
                 "fieldPad": 24,
                 "ctor": "deleteNotificationConfiguration",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6210,6 +6273,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DeleteNotificationConfiguration",
                 "query": [
@@ -6308,6 +6372,7 @@
                 "fieldPad": 23,
                 "ctor": "deletePolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6334,6 +6399,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DeletePolicy",
                 "query": [
@@ -6447,6 +6513,7 @@
                 "fieldPad": 24,
                 "ctor": "deleteScheduledAction",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6473,6 +6540,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DeleteScheduledAction",
                 "query": [
@@ -6602,6 +6670,7 @@
                     "typeExposed": "[Tag]",
                     "type": "[Tag]"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -6613,6 +6682,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 5,
                 "name": "DeleteTags",
                 "query": [
@@ -6673,12 +6743,14 @@
                 "fieldPad": 36,
                 "ctor": "describeAccountLimitsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAccountLimitsResponse",
                 "resultWrapper": "DescribeAccountLimitsResult",
                 "type": "record",
@@ -6816,12 +6888,14 @@
                     "typeExposed": "[AdjustmentType]",
                     "type": "[AdjustmentType]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAdjustmentTypesResponse",
                 "resultWrapper": "DescribeAdjustmentTypesResult",
                 "type": "newtype",
@@ -6914,12 +6988,14 @@
                 "fieldPad": 23,
                 "ctor": "describeAutoScalingGroupsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAutoScalingGroupsResponse",
                 "resultWrapper": "DescribeAutoScalingGroupsResult",
                 "type": "record",
@@ -7015,6 +7091,7 @@
                 "fieldPad": 26,
                 "ctor": "describeAutoScalingGroups",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7026,6 +7103,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "DescribeAutoScalingGroups",
                 "query": [
@@ -7151,12 +7229,14 @@
                 "fieldPad": 26,
                 "ctor": "describeAutoScalingInstancesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAutoScalingInstancesResponse",
                 "resultWrapper": "DescribeAutoScalingInstancesResult",
                 "type": "record",
@@ -7252,6 +7332,7 @@
                 "fieldPad": 16,
                 "ctor": "describeAutoScalingInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7263,6 +7344,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "DescribeAutoScalingInstances",
                 "query": [
@@ -7406,12 +7488,14 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeAutoScalingNotificationTypesResponse",
                 "resultWrapper": "DescribeAutoScalingNotificationTypesResult",
                 "type": "newtype",
@@ -7504,12 +7588,14 @@
                 "fieldPad": 25,
                 "ctor": "describeLaunchConfigurationsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeLaunchConfigurationsResponse",
                 "resultWrapper": "DescribeLaunchConfigurationsResult",
                 "type": "record",
@@ -7605,6 +7691,7 @@
                 "fieldPad": 28,
                 "ctor": "describeLaunchConfigurations",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7616,6 +7703,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "DescribeLaunchConfigurations",
                 "query": [
@@ -7759,12 +7847,14 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeLifecycleHookTypesResponse",
                 "resultWrapper": "DescribeLifecycleHookTypesResult",
                 "type": "newtype",
@@ -7874,12 +7964,14 @@
                     "typeExposed": "[LifecycleHook]",
                     "type": "[LifecycleHook]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeLifecycleHooksResponse",
                 "resultWrapper": "DescribeLifecycleHooksResult",
                 "type": "newtype",
@@ -7939,6 +8031,7 @@
                 "fieldPad": 24,
                 "ctor": "describeLifecycleHooks",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -7965,6 +8058,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DescribeLifecycleHooks",
                 "query": [
@@ -8043,12 +8137,14 @@
                 "fieldPad": 19,
                 "ctor": "describeMetricCollectionTypesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeMetricCollectionTypesResponse",
                 "resultWrapper": "DescribeMetricCollectionTypesResult",
                 "type": "record",
@@ -8169,12 +8265,14 @@
                 "fieldPad": 31,
                 "ctor": "describeNotificationConfigurationsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeNotificationConfigurationsResponse",
                 "resultWrapper": "DescribeNotificationConfigurationsResult",
                 "type": "record",
@@ -8270,6 +8368,7 @@
                 "fieldPad": 25,
                 "ctor": "describeNotificationConfigurations",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8281,6 +8380,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "DescribeNotificationConfigurations",
                 "query": [
@@ -8406,12 +8506,14 @@
                 "fieldPad": 19,
                 "ctor": "describePoliciesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribePoliciesResponse",
                 "resultWrapper": "DescribePoliciesResult",
                 "type": "record",
@@ -8507,6 +8609,7 @@
                 "fieldPad": 24,
                 "ctor": "describePolicies",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8518,6 +8621,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DescribePolicies",
                 "query": [
@@ -8676,12 +8780,14 @@
                 "fieldPad": 16,
                 "ctor": "describeScalingActivitiesResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeScalingActivitiesResponse",
                 "resultWrapper": "DescribeScalingActivitiesResult",
                 "type": "record",
@@ -8777,6 +8883,7 @@
                 "fieldPad": 25,
                 "ctor": "describeScalingActivities",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -8788,6 +8895,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DescribeScalingActivities",
                 "query": [
@@ -8963,12 +9071,14 @@
                     "typeExposed": "[ProcessType]",
                     "type": "[ProcessType]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeScalingProcessTypesResponse",
                 "resultWrapper": "DescribeScalingProcessTypesResult",
                 "type": "newtype",
@@ -9061,12 +9171,14 @@
                 "fieldPad": 32,
                 "ctor": "describeScheduledActionsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeScheduledActionsResponse",
                 "resultWrapper": "DescribeScheduledActionsResult",
                 "type": "record",
@@ -9162,6 +9274,7 @@
                 "fieldPad": 25,
                 "ctor": "describeScheduledActions",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9173,6 +9286,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DescribeScheduledActions",
                 "query": [
@@ -9397,12 +9511,14 @@
                 "fieldPad": 13,
                 "ctor": "describeTagsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeTagsResponse",
                 "resultWrapper": "DescribeTagsResult",
                 "type": "record",
@@ -9497,6 +9613,7 @@
                 "fieldPad": 13,
                 "ctor": "describeTags",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9508,6 +9625,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DescribeTags",
                 "query": [
@@ -9651,12 +9769,14 @@
                     "typeExposed": "[Text]",
                     "type": "[Text]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DescribeTerminationPolicyTypesResponse",
                 "resultWrapper": "DescribeTerminationPolicyTypesResult",
                 "type": "newtype",
@@ -9766,12 +9886,14 @@
                     "typeExposed": "[Activity]",
                     "type": "[Activity]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DetachInstancesResponse",
                 "resultWrapper": "DetachInstancesResult",
                 "type": "newtype",
@@ -9831,6 +9953,7 @@
                 "fieldPad": 33,
                 "ctor": "detachInstances",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9871,6 +9994,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 31,
                 "name": "DetachInstances",
                 "query": [
@@ -10003,6 +10127,7 @@
                 "fieldPad": 24,
                 "ctor": "disableMetricsCollection",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10029,6 +10154,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "DisableMetricsCollection",
                 "query": [
@@ -10142,6 +10268,7 @@
                 "fieldPad": 24,
                 "ctor": "enableMetricsCollection",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10182,6 +10309,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "EnableMetricsCollection",
                 "query": [
@@ -10296,12 +10424,14 @@
                     "typeExposed": "[Activity]",
                     "type": "[Activity]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "EnterStandbyResponse",
                 "resultWrapper": "EnterStandbyResult",
                 "type": "newtype",
@@ -10361,6 +10491,7 @@
                 "fieldPad": 33,
                 "ctor": "enterStandby",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10401,6 +10532,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 31,
                 "name": "EnterStandby",
                 "query": [
@@ -10533,6 +10665,7 @@
                 "fieldPad": 23,
                 "ctor": "executePolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10559,6 +10692,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "ExecutePolicy",
                 "query": [
@@ -10687,12 +10821,14 @@
                     "typeExposed": "[Activity]",
                     "type": "[Activity]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ExitStandbyResponse",
                 "resultWrapper": "ExitStandbyResult",
                 "type": "newtype",
@@ -10752,6 +10888,7 @@
                 "fieldPad": 24,
                 "ctor": "exitStandby",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10778,6 +10915,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "ExitStandby",
                 "query": [
@@ -10891,6 +11029,7 @@
                 "fieldPad": 25,
                 "ctor": "putLifecycleHook",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10931,6 +11070,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 22,
                 "name": "PutLifecycleHook",
                 "query": [
@@ -11228,6 +11368,7 @@
                 "fieldPad": 24,
                 "ctor": "putNotificationConfiguration",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11268,6 +11409,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "PutNotificationConfiguration",
                 "query": [
@@ -11382,12 +11524,14 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "PutScalingPolicyResponse",
                 "resultWrapper": "PutScalingPolicyResult",
                 "type": "newtype",
@@ -11447,6 +11591,7 @@
                 "fieldPad": 24,
                 "ctor": "putScalingPolicy",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11515,6 +11660,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "PutScalingPolicy",
                 "query": [
@@ -11718,6 +11864,7 @@
                 "fieldPad": 26,
                 "ctor": "putScheduledUpdateGroupAction",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -11758,6 +11905,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "PutScheduledUpdateGroupAction",
                 "query": [
@@ -12088,6 +12236,7 @@
                 "fieldPad": 25,
                 "ctor": "recordLifecycleActionHeartbeat",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12142,6 +12291,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "RecordLifecycleActionHeartbeat",
                 "query": [
@@ -12259,6 +12409,7 @@
                 "fieldPad": 23,
                 "ctor": "resumeProcesses",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12285,6 +12436,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "ResumeProcesses",
                 "query": [
@@ -12398,6 +12550,7 @@
                 "fieldPad": 24,
                 "ctor": "setDesiredCapacity",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12438,6 +12591,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "SetDesiredCapacity",
                 "query": [
@@ -12570,6 +12724,7 @@
                 "fieldPad": 28,
                 "ctor": "setInstanceHealth",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12610,6 +12765,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 25,
                 "name": "SetInstanceHealth",
                 "query": [
@@ -12742,6 +12898,7 @@
                 "fieldPad": 23,
                 "ctor": "suspendProcesses",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12768,6 +12925,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 21,
                 "name": "SuspendProcesses",
                 "query": [
@@ -12861,12 +13019,14 @@
                     "typeExposed": "Maybe Activity",
                     "type": "Maybe Activity"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "TerminateInstanceInAutoScalingGroupResponse",
                 "resultWrapper": "TerminateInstanceInAutoScalingGroupResult",
                 "type": "newtype",
@@ -12926,6 +13086,7 @@
                 "fieldPad": 37,
                 "ctor": "terminateInstanceInAutoScalingGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -12966,6 +13127,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 31,
                 "name": "TerminateInstanceInAutoScalingGroup",
                 "query": [
@@ -13064,6 +13226,7 @@
                 "fieldPad": 28,
                 "ctor": "updateAutoScalingGroup",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -13104,6 +13267,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 24,
                 "name": "UpdateAutoScalingGroup",
                 "query": [

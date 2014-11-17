@@ -62,6 +62,7 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "attribute",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -93,6 +94,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Attribute",
                 "type": "record",
                 "optional": [
@@ -192,6 +194,7 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "deletableItem",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -209,6 +212,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "DeletableItem",
                 "type": "record",
                 "optional": [
@@ -266,6 +270,7 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "replaceableItem",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -283,6 +288,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ReplaceableItem",
                 "type": "record",
                 "optional": [
@@ -341,8 +347,10 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "updateCondition",
+                "contents": [],
                 "payload": null,
                 "required": [],
+                "contentPad": 0,
                 "name": "UpdateCondition",
                 "type": "record",
                 "optional": [
@@ -443,6 +451,7 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "replaceableAttribute",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -474,6 +483,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "ReplaceableAttribute",
                 "type": "record",
                 "optional": [
@@ -545,6 +555,7 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "item",
+                "contents": [],
                 "payload": null,
                 "required": [
                     {
@@ -562,6 +573,7 @@
                         "type": "Text"
                     }
                 ],
+                "contentPad": 0,
                 "name": "Item",
                 "type": "record",
                 "optional": [
@@ -690,6 +702,7 @@
                 "fieldPad": 14,
                 "ctor": "batchDeleteAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -716,6 +729,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "BatchDeleteAttributes",
                 "query": [
@@ -828,6 +842,7 @@
                 "fieldPad": 14,
                 "ctor": "batchPutAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -854,6 +869,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "BatchPutAttributes",
                 "query": [
@@ -984,6 +1000,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1010,6 +1027,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "CreateDomain",
                 "query": [
@@ -1088,6 +1106,7 @@
                 "fieldPad": 13,
                 "ctor": "deleteAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1128,6 +1147,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DeleteAttributes",
                 "query": [
@@ -1310,6 +1330,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1336,6 +1357,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DeleteDomain",
                 "query": [
@@ -1381,12 +1403,14 @@
                 "fieldPad": 28,
                 "ctor": "domainMetadataResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "DomainMetadataResponse",
                 "resultWrapper": "DomainMetadataResult",
                 "type": "record",
@@ -1631,6 +1655,7 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1657,6 +1682,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "DomainMetadata",
                 "query": [
@@ -1718,12 +1744,14 @@
                     "typeExposed": "[Attribute]",
                     "type": "[Attribute]"
                 },
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "GetAttributesResponse",
                 "resultWrapper": "GetAttributesResult",
                 "type": "newtype",
@@ -1783,6 +1811,7 @@
                 "fieldPad": 17,
                 "ctor": "getAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -1823,6 +1852,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 15,
                 "name": "GetAttributes",
                 "query": [
@@ -1954,12 +1984,14 @@
                 "fieldPad": 15,
                 "ctor": "listDomainsResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "ListDomainsResponse",
                 "resultWrapper": "ListDomainsResult",
                 "type": "record",
@@ -2055,6 +2087,7 @@
                 "fieldPad": 21,
                 "ctor": "listDomains",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2066,6 +2099,7 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 19,
                 "name": "ListDomains",
                 "query": [
@@ -2192,6 +2226,7 @@
                 "fieldPad": 13,
                 "ctor": "putAttributes",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2232,6 +2267,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "PutAttributes",
                 "query": [
@@ -2362,12 +2398,14 @@
                 "fieldPad": 12,
                 "ctor": "selectResponse",
                 "headerPad": 0,
+                "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "name": "SelectResponse",
                 "resultWrapper": "SelectResult",
                 "type": "record",
@@ -2463,6 +2501,7 @@
                 "fieldPad": 18,
                 "ctor": "select",
                 "headerPad": 0,
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -2489,6 +2528,7 @@
                 ],
                 "shared": false,
                 "headers": [],
+                "contentPad": 0,
                 "queryPad": 17,
                 "name": "Select",
                 "query": [

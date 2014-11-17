@@ -12,19 +12,21 @@
 
 module Network.AWS.Data.Internal.JSON
     (
-    -- * Re-purposed operators
+    -- * FromJSON
+      FromJSON (..)
+    , fromJSONText
+    -- ** Either String a
+    , (.:>)
+    , (.:?>)
+    -- ** Parser a
       (.:)
     , (.:?)
 
-    -- * Re-exported
-    , FromJSON     (..)
-    , genericParseJSON
-    , fromJSONText
-
-    , ToJSON       (..)
-    , genericToJSON
+    -- * ToJSON
+    , ToJSON   (..)
     , toJSONText
     , encode
+    , (.=)
     ) where
 
 import           Data.Aeson                     (encode, withText)
@@ -40,15 +42,15 @@ fromJSONText n = withText n (either fail fromText)
 toJSONText :: ToText a => a -> Value
 toJSONText = String . toText
 
-(.:) :: FromJSON a => Object -> Text -> Either String a
-o .: k =
+(.:>) :: FromJSON a => Object -> Text -> Either String a
+(.:>) o k =
     case Map.lookup k o of
         Nothing -> Left $ "key " ++ show k ++ " not present"
         Just v  -> parseEither parseJSON v
 {-# INLINE (.:) #-}
 
-(.:?) :: FromJSON a => Object -> Text -> Either String (Maybe a)
-o .:? k =
+(.:?>) :: FromJSON a => Object -> Text -> Either String (Maybe a)
+(.:?>) o k =
     case Map.lookup k o of
         Nothing -> Right Nothing
         Just v  -> parseEither parseJSON v

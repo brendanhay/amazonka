@@ -23,7 +23,7 @@
 -- is still running. To delete the delivery channel, stop the running
 -- configuration recorder using the StopConfigurationRecorder action.
 --
--- <DeleteDeliveryChannel.html>
+-- <http://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html>
 module Network.AWS.Config.DeleteDeliveryChannel
     (
     -- * Request

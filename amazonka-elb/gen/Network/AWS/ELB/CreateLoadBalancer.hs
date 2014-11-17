@@ -34,7 +34,7 @@
 -- EC2-VPC For information on creating and managing your load balancers in
 -- EC2-VPC, see Deploy Elastic Load Balancing in Amazon VPC.
 --
--- <CreateLoadBalancer.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancer.html>
 module Network.AWS.ELB.CreateLoadBalancer
     (
     -- * Request

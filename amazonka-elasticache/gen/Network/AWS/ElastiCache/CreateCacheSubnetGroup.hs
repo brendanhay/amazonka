@@ -22,7 +22,7 @@
 -- this parameter only when you are creating a cluster in an Amazon Virtual
 -- Private Cloud (VPC).
 --
--- <CreateCacheSubnetGroup.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html>
 module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     (
     -- * Request

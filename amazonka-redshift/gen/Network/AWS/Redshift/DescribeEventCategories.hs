@@ -22,7 +22,7 @@
 -- specified source type. For a list of the event categories and source types,
 -- go to Amazon Redshift Event Notifications.
 --
--- <DescribeEventCategories.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventCategories.html>
 module Network.AWS.Redshift.DescribeEventCategories
     (
     -- * Request

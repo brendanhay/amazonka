@@ -26,7 +26,7 @@
 -- causes the contents of the cache (for each cache node being rebooted) to be
 -- lost. When the reboot is complete, a cache cluster event is created.
 --
--- <RebootCacheCluster.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebootCacheCluster.html>
 module Network.AWS.ElastiCache.RebootCacheCluster
     (
     -- * Request

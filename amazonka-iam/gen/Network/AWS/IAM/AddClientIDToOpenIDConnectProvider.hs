@@ -23,7 +23,7 @@
 -- action is idempotent; it does not fail or return an error if you add an
 -- existing client ID to the provider.
 --
--- <AddClientIDToOpenIDConnectProvider.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddClientIDToOpenIDConnectProvider.html>
 module Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
     (
     -- * Request

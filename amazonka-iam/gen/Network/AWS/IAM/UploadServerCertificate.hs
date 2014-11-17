@@ -24,7 +24,7 @@
 -- information about the number of server certificates you can upload, see
 -- Limitations on IAM Entities in the Using IAM guide.
 --
--- <UploadServerCertificate.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html>
 module Network.AWS.IAM.UploadServerCertificate
     (
     -- * Request

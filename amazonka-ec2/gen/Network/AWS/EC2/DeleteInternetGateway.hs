@@ -21,7 +21,7 @@
 -- | Deletes the specified Internet gateway. You must detach the Internet
 -- gateway from the VPC before you can delete it.
 --
--- <DeleteInternetGateway.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteInternetGateway.html>
 module Network.AWS.EC2.DeleteInternetGateway
     (
     -- * Request

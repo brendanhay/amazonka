@@ -31,7 +31,7 @@
 -- the Segment and TotalSegments parameters. For more information, see
 -- Parallel Scan in the Amazon DynamoDB Developer Guide.
 --
--- <Scan.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html>
 module Network.AWS.DynamoDB.Scan
     (
     -- * Request

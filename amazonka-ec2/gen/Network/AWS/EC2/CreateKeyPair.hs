@@ -28,7 +28,7 @@
 -- more information about key pairs, see Key Pairs in the Amazon Elastic
 -- Compute Cloud User Guide.
 --
--- <CreateKeyPair.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateKeyPair.html>
 module Network.AWS.EC2.CreateKeyPair
     (
     -- * Request

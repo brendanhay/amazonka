@@ -23,7 +23,7 @@
 -- a NextToken is also returned. Use the NextToken parameter in a new
 -- ListSubscriptions call to get further results.
 --
--- <ListSubscriptions.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html>
 module Network.AWS.SNS.ListSubscriptions
     (
     -- * Request

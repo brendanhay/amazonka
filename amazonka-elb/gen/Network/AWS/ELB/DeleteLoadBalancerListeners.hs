@@ -20,7 +20,7 @@
 
 -- | Deletes listeners from the load balancer for the specified port.
 --
--- <DeleteLoadBalancerListeners.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>
 module Network.AWS.ELB.DeleteLoadBalancerListeners
     (
     -- * Request

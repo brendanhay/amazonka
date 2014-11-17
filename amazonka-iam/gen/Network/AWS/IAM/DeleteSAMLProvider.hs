@@ -23,7 +23,7 @@
 -- Any attempt to assume a role that references a SAML provider that has been
 -- deleted will fail.
 --
--- <DeleteSAMLProvider.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSAMLProvider.html>
 module Network.AWS.IAM.DeleteSAMLProvider
     (
     -- * Request

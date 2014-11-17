@@ -32,7 +32,7 @@
 -- not call PollForTask again on the same workerGroup until it receives a
 -- response, and this may take up to 90 seconds.
 --
--- <PollForTask.html>
+-- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PollForTask.html>
 module Network.AWS.DataPipeline.PollForTask
     (
     -- * Request

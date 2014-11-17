@@ -21,7 +21,7 @@
 -- | Resets a network interface attribute. You can specify only one attribute at
 -- a time.
 --
--- <ResetNetworkInterfaceAttribute.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetNetworkInterfaceAttribute.html>
 module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     (
     -- * Request

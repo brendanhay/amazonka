@@ -22,7 +22,7 @@
 -- there are none, the action returns an empty list. You can paginate the
 -- results using the MaxItems and Marker parameters.
 --
--- <ListGroupPolicies.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html>
 module Network.AWS.IAM.ListGroupPolicies
     (
     -- * Request

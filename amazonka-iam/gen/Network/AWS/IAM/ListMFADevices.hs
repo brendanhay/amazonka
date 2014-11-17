@@ -24,7 +24,7 @@
 -- based on the AWS access key ID signing the request. You can paginate the
 -- results using the MaxItems and Marker parameters.
 --
--- <ListMFADevices.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADevices.html>
 module Network.AWS.IAM.ListMFADevices
     (
     -- * Request

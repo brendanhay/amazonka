@@ -26,7 +26,7 @@
 -- request. This operation implements a subset of the behavior on the AWS
 -- Support Your Support Cases web form.
 --
--- <AddCommunicationToCase.html>
+-- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddCommunicationToCase.html>
 module Network.AWS.Support.AddCommunicationToCase
     (
     -- * Request

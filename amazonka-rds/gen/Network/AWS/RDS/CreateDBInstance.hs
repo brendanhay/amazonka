@@ -20,7 +20,7 @@
 
 -- | Creates a new DB instance.
 --
--- <CreateDBInstance.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html>
 module Network.AWS.RDS.CreateDBInstance
     (
     -- * Request

@@ -27,7 +27,7 @@
 -- in milliseconds, until the check is eligible for refresh. CheckId. The
 -- unique identifier for the check.
 --
--- <RefreshTrustedAdvisorCheck.html>
+-- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html>
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
     (
     -- * Request

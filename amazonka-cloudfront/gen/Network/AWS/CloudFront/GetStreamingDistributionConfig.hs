@@ -20,7 +20,7 @@
 
 -- | Get the configuration information about a streaming distribution.
 --
--- <GetStreamingDistributionConfig.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetStreamingDistributionConfig.html>
 module Network.AWS.CloudFront.GetStreamingDistributionConfig
     (
     -- * Request

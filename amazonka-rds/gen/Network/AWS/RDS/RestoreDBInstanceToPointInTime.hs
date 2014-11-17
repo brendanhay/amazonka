@@ -24,7 +24,7 @@
 -- database with the same configuration as the original database except that
 -- the DB instance is created with the default DB security group.
 --
--- <RestoreDBInstanceToPointInTime.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.html>
 module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     (
     -- * Request

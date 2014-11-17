@@ -24,7 +24,7 @@
 -- about managing security groups, go to Amazon Redshift Cluster Security
 -- Groups in the Amazon Redshift Management Guide.
 --
--- <RevokeClusterSecurityGroupIngress.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeClusterSecurityGroupIngress.html>
 module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     (
     -- * Request

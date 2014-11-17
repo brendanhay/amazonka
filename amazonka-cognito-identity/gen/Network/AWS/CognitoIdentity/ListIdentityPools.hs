@@ -20,7 +20,7 @@
 
 -- | Lists all of the Cognito identity pools registered for your account.
 --
--- <ListIdentityPools.html>
+-- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListIdentityPools.html>
 module Network.AWS.CognitoIdentity.ListIdentityPools
     (
     -- * Request

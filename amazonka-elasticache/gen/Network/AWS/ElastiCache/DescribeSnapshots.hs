@@ -23,7 +23,7 @@
 -- can optionally describe a single snapshot, or just the snapshots associated
 -- with a particular cache cluster.
 --
--- <DescribeSnapshots.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html>
 module Network.AWS.ElastiCache.DescribeSnapshots
     (
     -- * Request

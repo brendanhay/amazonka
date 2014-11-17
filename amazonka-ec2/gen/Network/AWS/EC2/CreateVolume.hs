@@ -30,7 +30,7 @@
 -- more information, see Creating or Restoring an Amazon EBS Volume in the
 -- Amazon Elastic Compute Cloud User Guide.
 --
--- <CreateVolume.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html>
 module Network.AWS.EC2.CreateVolume
     (
     -- * Request

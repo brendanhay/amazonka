@@ -21,7 +21,7 @@
 -- | Creates the Amazon S3 storage location for the account. This location is
 -- used to store user log files.
 --
--- <CreateStorageLocation.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateStorageLocation.html>
 module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     (
     -- * Request

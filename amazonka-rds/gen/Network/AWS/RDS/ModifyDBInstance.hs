@@ -22,7 +22,7 @@
 -- configuration parameters by specifying these parameters and the new values
 -- in the request.
 --
--- <ModifyDBInstance.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html>
 module Network.AWS.RDS.ModifyDBInstance
     (
     -- * Request

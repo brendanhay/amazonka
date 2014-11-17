@@ -23,7 +23,7 @@
 -- information, see Configuring Analysis Schemes in the Amazon CloudSearch
 -- Developer Guide.
 --
--- <DefineAnalysisScheme.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineAnalysisScheme.html>
 module Network.AWS.CloudSearch.DefineAnalysisScheme
     (
     -- * Request

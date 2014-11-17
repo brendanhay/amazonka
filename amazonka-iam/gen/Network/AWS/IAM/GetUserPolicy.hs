@@ -22,7 +22,7 @@
 -- returned policy is URL-encoded according to RFC 3986. For more information
 -- about RFC 3986, go to http://www.faqs.org/rfcs/rfc3986.html.
 --
--- <GetUserPolicy.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUserPolicy.html>
 module Network.AWS.IAM.GetUserPolicy
     (
     -- * Request

@@ -26,7 +26,7 @@
 -- static parameters are set to pending-reboot to take effect on the next DB
 -- instance restart or RebootDBInstance request.
 --
--- <ResetDBParameterGroup.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBParameterGroup.html>
 module Network.AWS.RDS.ResetDBParameterGroup
     (
     -- * Request

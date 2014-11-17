@@ -23,7 +23,7 @@
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
--- <CloneStack.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CloneStack.html>
 module Network.AWS.OpsWorks.CloneStack
     (
     -- * Request

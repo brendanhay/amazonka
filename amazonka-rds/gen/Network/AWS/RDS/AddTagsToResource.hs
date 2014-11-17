@@ -24,7 +24,7 @@
 -- an overview on tagging Amazon RDS resources, see Tagging Amazon RDS
 -- Resources.
 --
--- <AddTagsToResource.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddTagsToResource.html>
 module Network.AWS.RDS.AddTagsToResource
     (
     -- * Request

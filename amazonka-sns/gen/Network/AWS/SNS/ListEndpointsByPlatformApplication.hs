@@ -28,7 +28,7 @@
 -- records to return, NextToken will be null. For more information, see Using
 -- Amazon SNS Mobile Push Notifications.
 --
--- <ListEndpointsByPlatformApplication.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_ListEndpointsByPlatformApplication.html>
 module Network.AWS.SNS.ListEndpointsByPlatformApplication
     (
     -- * Request

@@ -22,7 +22,7 @@
 -- If no configuration ID is specified, returns information about all the HSM
 -- configurations owned by your AWS customer account.
 --
--- <DescribeHsmConfigurations.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHsmConfigurations.html>
 module Network.AWS.Redshift.DescribeHsmConfigurations
     (
     -- * Request

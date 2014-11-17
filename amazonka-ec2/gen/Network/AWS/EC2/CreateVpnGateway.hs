@@ -24,7 +24,7 @@
 -- virtual private gateways, see Adding a Hardware Virtual Private Gateway to
 -- Your VPC in the Amazon Virtual Private Cloud User Guide.
 --
--- <CreateVpnGateway.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html>
 module Network.AWS.EC2.CreateVpnGateway
     (
     -- * Request

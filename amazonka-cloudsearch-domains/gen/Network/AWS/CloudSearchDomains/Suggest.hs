@@ -33,7 +33,7 @@
 -- endpoints are also displayed on the domain dashboard in the Amazon
 -- CloudSearch console.
 --
--- <Suggest.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Suggest.html>
 module Network.AWS.CloudSearchDomains.Suggest
     (
     -- * Request

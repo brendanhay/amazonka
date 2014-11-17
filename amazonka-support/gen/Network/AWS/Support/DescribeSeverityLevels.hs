@@ -22,7 +22,7 @@
 -- case. The severity level for a case is also a field in the CaseDetails data
 -- type included in any CreateCase request.
 --
--- <DescribeSeverityLevels.html>
+-- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeSeverityLevels.html>
 module Network.AWS.Support.DescribeSeverityLevels
     (
     -- * Request

@@ -24,7 +24,7 @@
 -- network platform, and instance type. For more information, see Modifying
 -- Reserved Instances in the Amazon Elastic Compute Cloud User Guide.
 --
--- <ModifyReservedInstances.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyReservedInstances.html>
 module Network.AWS.EC2.ModifyReservedInstances
     (
     -- * Request

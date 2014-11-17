@@ -29,7 +29,7 @@
 -- 53 will deny your request with a HostedZoneNotEmpty error. For information
 -- about deleting records from your hosted zone, see ChangeResourceRecordSets.
 --
--- <DeleteHostedZone.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
 module Network.AWS.Route53.DeleteHostedZone
     (
     -- * Request

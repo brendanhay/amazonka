@@ -27,7 +27,7 @@
 -- Instance request does not terminate running Spot Instances associated with
 -- the request.
 --
--- <CancelSpotInstanceRequests.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotInstanceRequests.html>
 module Network.AWS.EC2.CancelSpotInstanceRequests
     (
     -- * Request

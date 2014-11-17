@@ -24,7 +24,7 @@
 -- Compute Cloud User Guide and Security Groups for Your VPC in the Amazon
 -- Virtual Private Cloud User Guide.
 --
--- <DescribeSecurityGroups.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html>
 module Network.AWS.EC2.DescribeSecurityGroups
     (
     -- * Request

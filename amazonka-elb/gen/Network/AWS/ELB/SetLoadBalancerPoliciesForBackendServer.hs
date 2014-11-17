@@ -30,7 +30,7 @@
 -- use DescribeLoadBalancers or DescribeLoadBalancerPolicies action to verify
 -- that the policy has been associated with the back-end server.
 --
--- <SetLoadBalancerPoliciesForBackendServer.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesForBackendServer.html>
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     (
     -- * Request

@@ -27,7 +27,7 @@
 -- unencrypted. For more information, see Copying an Amazon EBS Snapshot in
 -- the Amazon Elastic Compute Cloud User Guide.
 --
--- <CopySnapshot.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopySnapshot.html>
 module Network.AWS.EC2.CopySnapshot
     (
     -- * Request

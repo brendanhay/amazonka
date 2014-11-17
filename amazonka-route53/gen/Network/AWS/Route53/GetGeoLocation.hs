@@ -22,7 +22,7 @@
 -- 2013-04-01/geolocation resource with one of these options: continentcode |
 -- countrycode | countrycode and subdivisioncode.
 --
--- <GetGeoLocation.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html>
 module Network.AWS.Route53.GetGeoLocation
     (
     -- * Request

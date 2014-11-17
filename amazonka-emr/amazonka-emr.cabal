@@ -19,7 +19,7 @@ description:
     as web indexing, data mining, log file analysis, machine learning,
     scientific simulation, and data warehousing.
     .
-    /See:/ < AWS API Reference>
+    /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html AWS API Reference>
     .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!

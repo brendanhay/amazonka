@@ -11,7 +11,7 @@
 Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudwatch-logs)
-and [AWS API Reference]().
+and [AWS API Reference](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html).
 
 
 ## Contribute

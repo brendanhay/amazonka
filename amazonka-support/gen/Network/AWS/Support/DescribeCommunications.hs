@@ -27,7 +27,7 @@
 -- result set. Set MaxResults to the number of cases you want displayed on
 -- each page, and use NextToken to specify the resumption of pagination.
 --
--- <DescribeCommunications.html>
+-- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCommunications.html>
 module Network.AWS.Support.DescribeCommunications
     (
     -- * Request

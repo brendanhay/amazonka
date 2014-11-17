@@ -20,7 +20,7 @@
 
 -- | Deletes the specified version from the specified application.
 --
--- <DeleteApplicationVersion.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplicationVersion.html>
 module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     (
     -- * Request

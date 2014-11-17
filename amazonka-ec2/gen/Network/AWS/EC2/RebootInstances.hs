@@ -26,7 +26,7 @@
 -- information about troubleshooting, see Getting Console Output and Rebooting
 -- Instances in the Amazon Elastic Compute Cloud User Guide.
 --
--- <RebootInstances.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RebootInstances.html>
 module Network.AWS.EC2.RebootInstances
     (
     -- * Request

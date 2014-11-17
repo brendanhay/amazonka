@@ -22,7 +22,7 @@
 -- Protocol (CHAP) credentials information for a specified iSCSI target, one
 -- for each target-initiator pair.
 --
--- <DescribeChapCredentials.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeChapCredentials.html>
 module Network.AWS.StorageGateway.DescribeChapCredentials
     (
     -- * Request

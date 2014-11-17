@@ -42,7 +42,7 @@
 -- credentials, go to Creating Temporary Credentials to Enable Access for IAM
 -- Users in Using Temporary Security Credentials.
 --
--- <GetSessionToken.html>
+-- <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html>
 module Network.AWS.STS.GetSessionToken
     (
     -- * Request

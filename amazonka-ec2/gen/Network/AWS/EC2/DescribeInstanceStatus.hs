@@ -66,7 +66,7 @@
 -- Instance That Has a Scheduled Event in the Amazon Elastic Compute Cloud
 -- User Guide.
 --
--- <DescribeInstanceStatus.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html>
 module Network.AWS.EC2.DescribeInstanceStatus
     (
     -- * Request

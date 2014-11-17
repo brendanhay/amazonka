@@ -22,7 +22,7 @@
 -- alarms for the user are returned. Alarms can be retrieved by using only a
 -- prefix for the alarm name, the alarm state, or a prefix for any action.
 --
--- <DescribeAlarms.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html>
 module Network.AWS.CloudWatch.DescribeAlarms
     (
     -- * Request

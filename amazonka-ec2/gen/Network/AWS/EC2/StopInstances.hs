@@ -41,7 +41,7 @@
 -- Guide. For more information about troubleshooting, see Troubleshooting
 -- Stopping Your Instance in the Amazon Elastic Compute Cloud User Guide.
 --
--- <StopInstances.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StopInstances.html>
 module Network.AWS.EC2.StopInstances
     (
     -- * Request

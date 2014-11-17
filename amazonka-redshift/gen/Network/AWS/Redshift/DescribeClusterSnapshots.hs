@@ -24,7 +24,7 @@
 -- information is returned for snapshots owned by inactive AWS customer
 -- accounts.
 --
--- <DescribeClusterSnapshots.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSnapshots.html>
 module Network.AWS.Redshift.DescribeClusterSnapshots
     (
     -- * Request

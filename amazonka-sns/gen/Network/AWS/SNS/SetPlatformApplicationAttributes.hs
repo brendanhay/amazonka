@@ -22,7 +22,7 @@
 -- push notification services, such as APNS and GCM. For more information, see
 -- Using Amazon SNS Mobile Push Notifications.
 --
--- <SetPlatformApplicationAttributes.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html>
 module Network.AWS.SNS.SetPlatformApplicationAttributes
     (
     -- * Request

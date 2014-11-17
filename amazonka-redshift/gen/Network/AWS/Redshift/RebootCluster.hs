@@ -25,7 +25,7 @@
 -- reboot. For more information about managing clusters, go to Amazon Redshift
 -- Clusters in the Amazon Redshift Management Guide.
 --
--- <RebootCluster.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RebootCluster.html>
 module Network.AWS.Redshift.RebootCluster
     (
     -- * Request

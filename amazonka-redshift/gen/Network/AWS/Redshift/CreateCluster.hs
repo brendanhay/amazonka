@@ -26,7 +26,7 @@
 -- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Management
 -- Guide .
 --
--- <CreateCluster.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateCluster.html>
 module Network.AWS.Redshift.CreateCluster
     (
     -- * Request

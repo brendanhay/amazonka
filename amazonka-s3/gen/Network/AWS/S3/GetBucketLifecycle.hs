@@ -20,7 +20,7 @@
 
 -- | Returns the lifecycle configuration information set on the bucket.
 --
--- <GetBucketLifecycle.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLifecycle.html>
 module Network.AWS.S3.GetBucketLifecycle
     (
     -- * Request

@@ -28,7 +28,7 @@
 -- more information about working with snapshots, go to Amazon Redshift
 -- Snapshots in the Amazon Redshift Management Guide.
 --
--- <CopyClusterSnapshot.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CopyClusterSnapshot.html>
 module Network.AWS.Redshift.CopyClusterSnapshot
     (
     -- * Request

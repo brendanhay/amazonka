@@ -24,7 +24,7 @@
 -- an active VPC peering connection, or to delete a VPC peering connection
 -- request that you initiated, use DeleteVpcPeeringConnection.
 --
--- <RejectVpcPeeringConnection.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RejectVpcPeeringConnection.html>
 module Network.AWS.EC2.RejectVpcPeeringConnection
     (
     -- * Request

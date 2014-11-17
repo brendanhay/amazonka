@@ -23,7 +23,7 @@
 -- the active state. The owner of the requester VPC can delete a VPC peering
 -- connection in the pending-acceptance state.
 --
--- <DeleteVpcPeeringConnection.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpcPeeringConnection.html>
 module Network.AWS.EC2.DeleteVpcPeeringConnection
     (
     -- * Request

@@ -24,7 +24,7 @@
 -- you update CHAP credentials, all existing connections on the target are
 -- closed and initiators must reconnect with the new credentials.
 --
--- <UpdateChapCredentials.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateChapCredentials.html>
 module Network.AWS.StorageGateway.UpdateChapCredentials
     (
     -- * Request

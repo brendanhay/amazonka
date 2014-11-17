@@ -25,7 +25,7 @@
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- <DeleteInstance.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteInstance.html>
 module Network.AWS.OpsWorks.DeleteInstance
     (
     -- * Request

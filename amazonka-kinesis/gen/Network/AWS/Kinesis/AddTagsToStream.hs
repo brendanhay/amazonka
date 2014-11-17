@@ -23,7 +23,7 @@
 -- AddTagsToStream overwrites any existing tags that correspond to the
 -- specified tag keys.
 --
--- <AddTagsToStream.html>
+-- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html>
 module Network.AWS.Kinesis.AddTagsToStream
     (
     -- * Request

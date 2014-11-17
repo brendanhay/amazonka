@@ -21,7 +21,7 @@
 -- | The DescribeCacheEngineVersions operation returns a list of the available
 -- cache engines and their versions.
 --
--- <DescribeCacheEngineVersions.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheEngineVersions.html>
 module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Updates the specified application version to have the specified properties.
 --
--- <UpdateApplicationVersion.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplicationVersion.html>
 module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     (
     -- * Request

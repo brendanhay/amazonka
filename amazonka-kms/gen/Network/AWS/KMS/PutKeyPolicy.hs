@@ -20,7 +20,7 @@
 
 -- | Attaches a policy to the specified key.
 --
--- <PutKeyPolicy.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html>
 module Network.AWS.KMS.PutKeyPolicy
     (
     -- * Request

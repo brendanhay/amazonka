@@ -26,7 +26,7 @@
 -- get the job IDs for the jobs that you want to cancel, and to send a
 -- CancelJob request.
 --
--- <UpdatePipelineStatus.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineStatus.html>
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     (
     -- * Request

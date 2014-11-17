@@ -32,7 +32,7 @@
 -- snapshot ID. You can use this snapshot ID to check the snapshot progress or
 -- later use it when you want to create a volume from a snapshot.
 --
--- <CreateSnapshotFromVolumeRecoveryPoint.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshotFromVolumeRecoveryPoint.html>
 module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     (
     -- * Request

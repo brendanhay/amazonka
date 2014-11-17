@@ -24,7 +24,7 @@
 -- the specified name, that topic's ARN is returned without creating a new
 -- topic.
 --
--- <CreateTopic.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html>
 module Network.AWS.SNS.CreateTopic
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | List the grants for a specified key.
 --
--- <ListGrants.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html>
 module Network.AWS.KMS.ListGrants
     (
     -- * Request

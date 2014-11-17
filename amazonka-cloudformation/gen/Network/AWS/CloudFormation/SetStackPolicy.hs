@@ -20,7 +20,7 @@
 
 -- | Sets a stack policy for a specified stack.
 --
--- <SetStackPolicy.html>
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html>
 module Network.AWS.CloudFormation.SetStackPolicy
     (
     -- * Request

@@ -25,7 +25,7 @@
 -- Amazon S3 frees up the parts storage and stops charging you for the parts
 -- storage.
 --
--- <UploadPart.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/UploadPart.html>
 module Network.AWS.S3.UploadPart
     (
     -- * Request

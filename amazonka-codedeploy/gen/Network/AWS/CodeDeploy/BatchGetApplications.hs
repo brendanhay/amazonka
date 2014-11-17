@@ -20,7 +20,7 @@
 
 -- | Gets information about one or more applications.
 --
--- <BatchGetApplications.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetApplications.html>
 module Network.AWS.CodeDeploy.BatchGetApplications
     (
     -- * Request

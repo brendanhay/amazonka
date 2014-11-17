@@ -21,7 +21,7 @@
 -- | Returns a list of users that are in the specified group. You can paginate
 -- the results using the MaxItems and Marker parameters.
 --
--- <GetGroup.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html>
 module Network.AWS.IAM.GetGroup
     (
     -- * Request

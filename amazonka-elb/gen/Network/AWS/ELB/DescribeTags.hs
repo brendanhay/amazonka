@@ -20,7 +20,7 @@
 
 -- | Describes the tags associated with one or more load balancers.
 --
--- <DescribeTags.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeTags.html>
 module Network.AWS.ELB.DescribeTags
     (
     -- * Request

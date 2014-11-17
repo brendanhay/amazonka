@@ -23,7 +23,7 @@
 -- release of Domain Verification. The DeleteIdentity action is now preferred.
 -- This action is throttled at one request per second.
 --
--- <DeleteVerifiedEmailAddress.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteVerifiedEmailAddress.html>
 module Network.AWS.SES.DeleteVerifiedEmailAddress
     (
     -- * Request

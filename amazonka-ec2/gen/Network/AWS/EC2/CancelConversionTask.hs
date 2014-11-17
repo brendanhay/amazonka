@@ -26,7 +26,7 @@
 -- Command Line Tools to Import Your Virtual Machine to Amazon EC2 in the
 -- Amazon Elastic Compute Cloud User Guide.
 --
--- <CancelConversionTask.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelConversionTask.html>
 module Network.AWS.EC2.CancelConversionTask
     (
     -- * Request

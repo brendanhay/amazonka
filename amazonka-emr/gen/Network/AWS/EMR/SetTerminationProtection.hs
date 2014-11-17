@@ -32,7 +32,7 @@
 -- set the value to false. For more information, go to Protecting a Job Flow
 -- from Termination in the Amazon Elastic MapReduce Developer's Guide.
 --
--- <SetTerminationProtection.html>
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_SetTerminationProtection.html>
 module Network.AWS.EMR.SetTerminationProtection
     (
     -- * Request

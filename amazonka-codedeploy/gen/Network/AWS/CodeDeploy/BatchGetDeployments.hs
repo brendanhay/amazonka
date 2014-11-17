@@ -20,7 +20,7 @@
 
 -- | Gets information about one or more deployments.
 --
--- <BatchGetDeployments.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeployments.html>
 module Network.AWS.CodeDeploy.BatchGetDeployments
     (
     -- * Request

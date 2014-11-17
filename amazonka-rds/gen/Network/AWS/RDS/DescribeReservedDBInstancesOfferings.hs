@@ -20,7 +20,7 @@
 
 -- | Lists available reserved DB instance offerings.
 --
--- <DescribeReservedDBInstancesOfferings.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstancesOfferings.html>
 module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     (
     -- * Request

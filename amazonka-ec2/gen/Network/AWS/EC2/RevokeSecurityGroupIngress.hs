@@ -27,7 +27,7 @@
 -- Rule changes are propagated to instances within the security group as
 -- quickly as possible. However, a small delay might occur.
 --
--- <RevokeSecurityGroupIngress.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupIngress.html>
 module Network.AWS.EC2.RevokeSecurityGroupIngress
     (
     -- * Request

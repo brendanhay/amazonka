@@ -21,7 +21,7 @@
 -- | Copies the specified DBSnapshot. The source DBSnapshot must be in the
 -- "available" state.
 --
--- <CopyDBSnapshot.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBSnapshot.html>
 module Network.AWS.RDS.CopyDBSnapshot
     (
     -- * Request

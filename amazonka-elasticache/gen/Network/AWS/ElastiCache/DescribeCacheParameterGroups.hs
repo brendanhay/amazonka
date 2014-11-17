@@ -22,7 +22,7 @@
 -- parameter group descriptions. If a cache parameter group name is specified,
 -- the list will contain only the descriptions for that group.
 --
--- <DescribeCacheParameterGroups.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameterGroups.html>
 module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     (
     -- * Request

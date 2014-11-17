@@ -20,7 +20,7 @@
 
 -- | Validates a specified template.
 --
--- <ValidateTemplate.html>
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ValidateTemplate.html>
 module Network.AWS.CloudFormation.ValidateTemplate
     (
     -- * Request

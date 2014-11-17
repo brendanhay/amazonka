@@ -28,7 +28,7 @@
 -- object definitions are passed to the PutPipelineDefinition action and
 -- returned by the GetPipelineDefinition action.
 --
--- <PutPipelineDefinition.html>
+-- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html>
 module Network.AWS.DataPipeline.PutPipelineDefinition
     (
     -- * Request

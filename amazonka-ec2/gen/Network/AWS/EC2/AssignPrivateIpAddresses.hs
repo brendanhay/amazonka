@@ -28,7 +28,7 @@
 -- see Elastic IP Addresses in the Amazon Elastic Compute Cloud User Guide.
 -- AssignPrivateIpAddresses is available only in EC2-VPC.
 --
--- <AssignPrivateIpAddresses.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssignPrivateIpAddresses.html>
 module Network.AWS.EC2.AssignPrivateIpAddresses
     (
     -- * Request

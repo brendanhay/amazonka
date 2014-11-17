@@ -24,7 +24,7 @@
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- <DescribeVolumes.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeVolumes.html>
 module Network.AWS.OpsWorks.DescribeVolumes
     (
     -- * Request

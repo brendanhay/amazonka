@@ -27,7 +27,7 @@
 -- one. For more information, see Configuring Index Fields in the Amazon
 -- CloudSearch Developer Guide.
 --
--- <DefineIndexField.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineIndexField.html>
 module Network.AWS.CloudSearch.DefineIndexField
     (
     -- * Request

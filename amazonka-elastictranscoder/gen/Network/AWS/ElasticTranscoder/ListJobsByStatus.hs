@@ -22,7 +22,7 @@
 -- status. The response body contains one element for each job that satisfies
 -- the search criteria.
 --
--- <ListJobsByStatus.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByStatus.html>
 module Network.AWS.ElasticTranscoder.ListJobsByStatus
     (
     -- * Request

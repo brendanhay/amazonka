@@ -22,7 +22,7 @@
 -- After the virtual interface owner calls this function, the specified
 -- virtual interface will be created and made available for handling traffic.
 --
--- <ConfirmPublicVirtualInterface.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPublicVirtualInterface.html>
 module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     (
     -- * Request

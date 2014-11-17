@@ -23,7 +23,7 @@
 -- the ConfirmSubscription action with the token from the confirmation
 -- message. Confirmation tokens are valid for three days.
 --
--- <Subscribe.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html>
 module Network.AWS.SNS.Subscribe
     (
     -- * Request

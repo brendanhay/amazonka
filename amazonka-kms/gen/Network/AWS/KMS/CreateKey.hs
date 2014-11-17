@@ -24,7 +24,7 @@
 -- customer data. For more information about data keys, see GenerateDataKey
 -- and GenerateDataKeyWithoutPlaintext.
 --
--- <CreateKey.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html>
 module Network.AWS.KMS.CreateKey
     (
     -- * Request

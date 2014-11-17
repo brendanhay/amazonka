@@ -30,7 +30,7 @@
 -- Zone from a Load-Balanced Application in the Elastic Load Balancing
 -- Developer Guide.
 --
--- <DisableAvailabilityZonesForLoadBalancer.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DisableAvailabilityZonesForLoadBalancer.html>
 module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     (
     -- * Request

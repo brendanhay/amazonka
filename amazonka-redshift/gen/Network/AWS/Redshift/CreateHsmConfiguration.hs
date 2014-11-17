@@ -27,7 +27,7 @@
 -- information, go to Hardware Security Modules in the Amazon Redshift
 -- Management Guide.
 --
--- <CreateHsmConfiguration.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHsmConfiguration.html>
 module Network.AWS.Redshift.CreateHsmConfiguration
     (
     -- * Request

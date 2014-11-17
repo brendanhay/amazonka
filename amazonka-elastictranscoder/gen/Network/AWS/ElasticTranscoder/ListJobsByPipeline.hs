@@ -23,7 +23,7 @@
 -- specified pipeline. The response body contains one element for each job
 -- that satisfies the search criteria.
 --
--- <ListJobsByPipeline.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByPipeline.html>
 module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     (
     -- * Request

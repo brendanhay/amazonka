@@ -20,7 +20,7 @@
 
 -- | Terminates the specified environment.
 --
--- <TerminateEnvironment.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_TerminateEnvironment.html>
 module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     (
     -- * Request

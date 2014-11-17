@@ -26,7 +26,7 @@
 -- the following: Cross-Zone Load Balancing Connection Draining Access Logs
 -- Idle Connection Timeout.
 --
--- <ModifyLoadBalancerAttributes.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ModifyLoadBalancerAttributes.html>
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
     -- * Request

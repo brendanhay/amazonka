@@ -25,7 +25,7 @@
 -- except as specified below. The source DB instance must have backup
 -- retention enabled.
 --
--- <CreateDBInstanceReadReplica.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html>
 module Network.AWS.RDS.CreateDBInstanceReadReplica
     (
     -- * Request

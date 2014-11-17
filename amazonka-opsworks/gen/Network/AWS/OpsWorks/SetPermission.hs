@@ -24,7 +24,7 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
--- <SetPermission.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetPermission.html>
 module Network.AWS.OpsWorks.SetPermission
     (
     -- * Request

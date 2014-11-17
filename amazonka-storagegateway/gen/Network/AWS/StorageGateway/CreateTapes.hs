@@ -21,7 +21,7 @@
 -- | Creates one or more virtual tapes. You write data to the virtual tapes and
 -- then archive the tapes.
 --
--- <CreateTapes.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapes.html>
 module Network.AWS.StorageGateway.CreateTapes
     (
     -- * Request

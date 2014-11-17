@@ -20,7 +20,7 @@
 
 -- | Retrieves a policy attached to the specified key.
 --
--- <GetKeyPolicy.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html>
 module Network.AWS.KMS.GetKeyPolicy
     (
     -- * Request

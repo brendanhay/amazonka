@@ -28,7 +28,7 @@
 -- up to a total of five read replicas. Note: This action is valid only for
 -- Redis.
 --
--- <CreateReplicationGroup.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html>
 module Network.AWS.ElastiCache.CreateReplicationGroup
     (
     -- * Request

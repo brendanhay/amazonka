@@ -31,7 +31,7 @@
 -- continue this process until all the stream names have been collected in the
 -- list. ListStreams has a limit of 5 transactions per second per account.
 --
--- <ListStreams.html>
+-- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html>
 module Network.AWS.Kinesis.ListStreams
     (
     -- * Request

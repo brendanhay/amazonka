@@ -21,7 +21,7 @@
 -- | Deletes a log stream and permanently deletes all the archived log events
 -- associated with it.
 --
--- <DeleteLogStream.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogStream.html>
 module Network.AWS.CloudWatchLogs.DeleteLogStream
     (
     -- * Request

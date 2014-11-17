@@ -21,7 +21,7 @@
 -- | Retrieves the compiled information from a RequestEnvironmentInfo request.
 -- Related Topics RequestEnvironmentInfo.
 --
--- <RetrieveEnvironmentInfo.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RetrieveEnvironmentInfo.html>
 module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     (
     -- * Request

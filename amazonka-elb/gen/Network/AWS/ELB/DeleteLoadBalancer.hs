@@ -28,7 +28,7 @@
 -- design, if the load balancer does not exist or has already been deleted, a
 -- call to DeleteLoadBalancer action still succeeds.
 --
--- <DeleteLoadBalancer.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancer.html>
 module Network.AWS.ELB.DeleteLoadBalancer
     (
     -- * Request

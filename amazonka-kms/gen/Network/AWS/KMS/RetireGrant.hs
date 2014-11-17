@@ -22,7 +22,7 @@
 -- up. You should revoke a grant when you intend to actively deny operations
 -- that depend on it.
 --
--- <RetireGrant.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html>
 module Network.AWS.KMS.RetireGrant
     (
     -- * Request

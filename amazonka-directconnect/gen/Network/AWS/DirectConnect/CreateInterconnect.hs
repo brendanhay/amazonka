@@ -32,7 +32,7 @@
 -- to AWS resources by creating a virtual interface on their connection, using
 -- the VLAN assigned to them by the AWS Direct Connect partner.
 --
--- <CreateInterconnect.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateInterconnect.html>
 module Network.AWS.DirectConnect.CreateInterconnect
     (
     -- * Request

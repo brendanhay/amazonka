@@ -26,7 +26,7 @@
 -- endpoint owner can easily resubscribe to the topic if the Unsubscribe
 -- request was unintended.
 --
--- <Unsubscribe.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html>
 module Network.AWS.SNS.Unsubscribe
     (
     -- * Request

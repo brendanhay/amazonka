@@ -25,7 +25,7 @@
 -- client requires additional domains, go to
 -- http://aws.amazon.com/contact-us/simpledb-limit-request/.
 --
--- <CreateDomain.html>
+-- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_CreateDomain.html>
 module Network.AWS.SDB.CreateDomain
     (
     -- * Request

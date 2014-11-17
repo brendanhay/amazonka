@@ -20,7 +20,7 @@
 
 -- | Create a new origin access identity.
 --
--- <CreateCloudFrontOriginAccessIdentity.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateCloudFrontOriginAccessIdentity.html>
 module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     (
     -- * Request

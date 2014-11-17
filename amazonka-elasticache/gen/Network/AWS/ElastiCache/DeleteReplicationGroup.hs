@@ -26,7 +26,7 @@
 -- begins deleting the selected resources; you cannot cancel or revert this
 -- operation.
 --
--- <DeleteReplicationGroup.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteReplicationGroup.html>
 module Network.AWS.ElastiCache.DeleteReplicationGroup
     (
     -- * Request

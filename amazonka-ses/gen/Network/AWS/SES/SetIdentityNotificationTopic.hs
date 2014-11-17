@@ -25,7 +25,7 @@
 -- For more information about feedback notification, see the Amazon SES
 -- Developer Guide.
 --
--- <SetIdentityNotificationTopic.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityNotificationTopic.html>
 module Network.AWS.SES.SetIdentityNotificationTopic
     (
     -- * Request

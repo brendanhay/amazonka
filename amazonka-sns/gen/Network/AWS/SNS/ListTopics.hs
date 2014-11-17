@@ -23,7 +23,7 @@
 -- returned. Use the NextToken parameter in a new ListTopics call to get
 -- further results.
 --
--- <ListTopics.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html>
 module Network.AWS.SNS.ListTopics
     (
     -- * Request

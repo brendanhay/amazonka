@@ -20,7 +20,7 @@
 
 -- | Returns the website configuration for a bucket.
 --
--- <GetBucketWebsite.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketWebsite.html>
 module Network.AWS.S3.GetBucketWebsite
     (
     -- * Request

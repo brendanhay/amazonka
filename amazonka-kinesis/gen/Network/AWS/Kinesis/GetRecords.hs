@@ -57,7 +57,7 @@
 -- Monitoring Amazon Kinesis with Amazon CloudWatch in the Amazon Kinesis
 -- Developer Guide.
 --
--- <GetRecords.html>
+-- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html>
 module Network.AWS.Kinesis.GetRecords
     (
     -- * Request

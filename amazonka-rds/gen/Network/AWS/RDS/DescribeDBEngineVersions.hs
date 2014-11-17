@@ -20,7 +20,7 @@
 
 -- | Returns a list of the available DB engines.
 --
--- <DescribeDBEngineVersions.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBEngineVersions.html>
 module Network.AWS.RDS.DescribeDBEngineVersions
     (
     -- * Request

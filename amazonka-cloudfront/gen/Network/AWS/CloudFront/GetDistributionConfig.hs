@@ -20,7 +20,7 @@
 
 -- | Get the configuration information about a distribution.
 --
--- <GetDistributionConfig.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistributionConfig.html>
 module Network.AWS.CloudFront.GetDistributionConfig
     (
     -- * Request

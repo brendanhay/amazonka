@@ -23,7 +23,7 @@
 -- volumes is not preserved. For more information, see Creating an Instance
 -- Store-Backed Windows AMI.
 --
--- <BundleInstance.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html>
 module Network.AWS.EC2.BundleInstance
     (
     -- * Request

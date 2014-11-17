@@ -93,7 +93,7 @@ instance AWSService Lambda where
 
     handle = restError alwaysFail
 
-jsonOptions :: Options
+jsonOptions :: AesonOptions
 jsonOptions = defaultOptions
     { fieldLabelModifier = dropWhile (not . isUpper)
     }

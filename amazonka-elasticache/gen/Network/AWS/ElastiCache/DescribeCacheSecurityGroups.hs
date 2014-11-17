@@ -22,7 +22,7 @@
 -- group descriptions. If a cache security group name is specified, the list
 -- will contain only the description of that group.
 --
--- <DescribeCacheSecurityGroups.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSecurityGroups.html>
 module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     (
     -- * Request

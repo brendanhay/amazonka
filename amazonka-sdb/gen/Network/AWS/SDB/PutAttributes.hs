@@ -44,7 +44,7 @@
 -- pairs per item One billion attributes per domain 10 GB of total user data
 -- storage per domain.
 --
--- <PutAttributes.html>
+-- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_PutAttributes.html>
 module Network.AWS.SDB.PutAttributes
     (
     -- * Request

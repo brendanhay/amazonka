@@ -27,7 +27,7 @@
 -- creating an update template, updating a stack, and monitoring the progress
 -- of the update, see Updating a Stack.
 --
--- <UpdateStack.html>
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html>
 module Network.AWS.CloudFormation.UpdateStack
     (
     -- * Request

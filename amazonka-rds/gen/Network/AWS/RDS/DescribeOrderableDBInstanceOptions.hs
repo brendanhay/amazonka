@@ -20,7 +20,7 @@
 
 -- | Returns a list of orderable DB instance options for the specified engine.
 --
--- <DescribeOrderableDBInstanceOptions.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOrderableDBInstanceOptions.html>
 module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     (
     -- * Request

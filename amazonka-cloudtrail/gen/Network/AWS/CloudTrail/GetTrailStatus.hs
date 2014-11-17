@@ -22,7 +22,7 @@
 -- Fields include information on delivery errors, Amazon SNS and Amazon S3
 -- errors, and start and stop logging times for each trail.
 --
--- <GetTrailStatus.html>
+-- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrailStatus.html>
 module Network.AWS.CloudTrail.GetTrailStatus
     (
     -- * Request

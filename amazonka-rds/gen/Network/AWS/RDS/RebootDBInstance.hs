@@ -34,7 +34,7 @@
 -- as much as possible during the reboot process to reduce rollback activity
 -- for in-transit transactions.
 --
--- <RebootDBInstance.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html>
 module Network.AWS.RDS.RebootDBInstance
     (
     -- * Request

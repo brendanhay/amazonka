@@ -23,7 +23,7 @@
 -- or name. For more information, see Managing Server Certificates in the
 -- Using IAM guide.
 --
--- <UpdateServerCertificate.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html>
 module Network.AWS.IAM.UpdateServerCertificate
     (
     -- * Request

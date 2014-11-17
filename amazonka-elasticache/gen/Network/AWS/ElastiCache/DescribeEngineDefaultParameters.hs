@@ -21,7 +21,7 @@
 -- | The DescribeEngineDefaultParameters operation returns the default engine
 -- and system parameter information for the specified cache engine.
 --
--- <DescribeEngineDefaultParameters.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEngineDefaultParameters.html>
 module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     (
     -- * Request

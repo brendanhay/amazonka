@@ -21,7 +21,7 @@
 -- | Stops recording configurations of all the resources associated with the
 -- account.
 --
--- <StopConfigurationRecorder.html>
+-- <http://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html>
 module Network.AWS.Config.StopConfigurationRecorder
     (
     -- * Request

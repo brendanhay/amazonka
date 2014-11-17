@@ -29,7 +29,7 @@
 -- For more information, see Detaching an Amazon EBS Volume in the Amazon
 -- Elastic Compute Cloud User Guide.
 --
--- <DetachVolume.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVolume.html>
 module Network.AWS.EC2.DetachVolume
     (
     -- * Request

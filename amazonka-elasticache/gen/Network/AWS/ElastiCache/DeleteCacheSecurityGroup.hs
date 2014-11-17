@@ -20,7 +20,7 @@
 
 -- | The DeleteCacheSecurityGroup operation deletes a cache security group.
 --
--- <DeleteCacheSecurityGroup.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSecurityGroup.html>
 module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     (
     -- * Request

@@ -28,7 +28,7 @@
 -- you set MaxItems to a value greater than 100, Amazon Route 53 returns only
 -- the first 100.
 --
--- <ListHostedZones.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html>
 module Network.AWS.Route53.ListHostedZones
     (
     -- * Request

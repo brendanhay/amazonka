@@ -20,7 +20,7 @@
 
 -- | Removes the specified user from the specified group.
 --
--- <RemoveUserFromGroup.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveUserFromGroup.html>
 module Network.AWS.IAM.RemoveUserFromGroup
     (
     -- * Request

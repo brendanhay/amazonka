@@ -21,7 +21,7 @@
 -- | Deletes the specified group. The group must not contain any users or have
 -- any attached policies.
 --
--- <DeleteGroup.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroup.html>
 module Network.AWS.IAM.DeleteGroup
     (
     -- * Request

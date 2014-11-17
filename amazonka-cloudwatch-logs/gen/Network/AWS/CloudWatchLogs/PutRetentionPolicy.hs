@@ -22,7 +22,7 @@
 -- you to configure the number of days you want to retain log events in the
 -- specified log group.
 --
--- <PutRetentionPolicy.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html>
 module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     (
     -- * Request

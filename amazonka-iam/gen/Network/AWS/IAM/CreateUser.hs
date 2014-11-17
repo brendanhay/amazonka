@@ -22,7 +22,7 @@
 -- on the number of users you can create, see Limitations on IAM Entities in
 -- the Using IAM guide.
 --
--- <CreateUser.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html>
 module Network.AWS.IAM.CreateUser
     (
     -- * Request

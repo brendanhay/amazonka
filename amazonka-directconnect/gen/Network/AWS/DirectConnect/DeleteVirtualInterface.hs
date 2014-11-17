@@ -20,7 +20,7 @@
 
 -- | Deletes a virtual interface.
 --
--- <DeleteVirtualInterface.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteVirtualInterface.html>
 module Network.AWS.DirectConnect.DeleteVirtualInterface
     (
     -- * Request

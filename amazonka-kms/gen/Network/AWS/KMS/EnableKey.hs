@@ -21,7 +21,7 @@
 -- | Marks a key as enabled, thereby permitting its use. You can have up to 25
 -- enabled keys at one time.
 --
--- <EnableKey.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html>
 module Network.AWS.KMS.EnableKey
     (
     -- * Request

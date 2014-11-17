@@ -25,7 +25,7 @@
 -- operation returns up to MaxNumberOfDomains more domain names with each
 -- successive operation call.
 --
--- <ListDomains.html>
+-- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_ListDomains.html>
 module Network.AWS.SDB.ListDomains
     (
     -- * Request

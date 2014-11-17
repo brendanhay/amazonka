@@ -40,7 +40,7 @@
 -- OperationNotPermitted. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
 --
--- <RespondActivityTaskCompleted.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskCompleted.html>
 module Network.AWS.SWF.RespondActivityTaskCompleted
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Removes one or more tags from the specified load balancer.
 --
--- <RemoveTags.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_RemoveTags.html>
 module Network.AWS.ELB.RemoveTags
     (
     -- * Request

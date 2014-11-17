@@ -23,7 +23,7 @@
 -- invoked. This is not a permanent change. The next periodic alarm check (in
 -- about a minute) will set the alarm to its actual state.
 --
--- <SetAlarmState.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_SetAlarmState.html>
 module Network.AWS.CloudWatch.SetAlarmState
     (
     -- * Request

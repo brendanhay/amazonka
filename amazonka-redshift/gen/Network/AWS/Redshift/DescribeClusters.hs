@@ -24,7 +24,7 @@
 -- more information about managing clusters, go to Amazon Redshift Clusters in
 -- the Amazon Redshift Management Guide .
 --
--- <DescribeClusters.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusters.html>
 module Network.AWS.Redshift.DescribeClusters
     (
     -- * Request

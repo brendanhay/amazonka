@@ -31,7 +31,7 @@
 -- For details and example IAM policies, see Using IAM to Manage Access to
 -- Amazon SWF Workflows.
 --
--- <GetWorkflowExecutionHistory.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_GetWorkflowExecutionHistory.html>
 module Network.AWS.SWF.GetWorkflowExecutionHistory
     (
     -- * Request

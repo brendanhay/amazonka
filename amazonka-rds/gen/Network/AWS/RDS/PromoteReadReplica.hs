@@ -20,7 +20,7 @@
 
 -- | Promotes a read replica DB instance to a standalone DB instance.
 --
--- <PromoteReadReplica.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PromoteReadReplica.html>
 module Network.AWS.RDS.PromoteReadReplica
     (
     -- * Request

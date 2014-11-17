@@ -23,7 +23,7 @@
 -- filters to retrieve specific event source mappings. This operation requires
 -- permission for the lambda:ListEventSources action.
 --
--- <ListEventSources.html>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/API_ListEventSources.html>
 module Network.AWS.Lambda.ListEventSources
     (
     -- * Request

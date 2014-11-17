@@ -21,7 +21,7 @@
 -- | Describes the datafeed for Spot Instances. For more information, see Spot
 -- Instances in the Amazon Elastic Compute Cloud User Guide.
 --
--- <DescribeSpotDatafeedSubscription.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotDatafeedSubscription.html>
 module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     (
     -- * Request

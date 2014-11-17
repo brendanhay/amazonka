@@ -24,7 +24,7 @@
 -- managed via Amazon Virtual Private Cloud (VPC) console or the EC2
 -- CreateVpnGateway action.
 --
--- <DescribeVirtualGateways.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualGateways.html>
 module Network.AWS.DirectConnect.DescribeVirtualGateways
     (
     -- * Request

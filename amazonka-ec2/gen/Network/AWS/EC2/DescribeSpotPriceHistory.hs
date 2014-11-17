@@ -37,7 +37,7 @@
 -- specified; the response merely indicates the last time that the price
 -- changed.
 --
--- <DescribeSpotPriceHistory.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotPriceHistory.html>
 module Network.AWS.EC2.DescribeSpotPriceHistory
     (
     -- * Request

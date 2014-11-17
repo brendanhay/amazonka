@@ -25,7 +25,7 @@
 -- Configuring Access for a Search Domain in the Amazon CloudSearch Developer
 -- Guide.
 --
--- <DescribeServiceAccessPolicies.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeServiceAccessPolicies.html>
 module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     (
     -- * Request

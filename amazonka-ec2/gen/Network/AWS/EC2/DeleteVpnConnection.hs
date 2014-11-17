@@ -28,7 +28,7 @@
 -- customer gateway using the new configuration information returned with the
 -- new VPN connection ID.
 --
--- <DeleteVpnConnection.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpnConnection.html>
 module Network.AWS.EC2.DeleteVpnConnection
     (
     -- * Request

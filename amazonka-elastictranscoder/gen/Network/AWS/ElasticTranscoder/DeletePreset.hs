@@ -21,7 +21,7 @@
 -- | The DeletePreset operation removes a preset that you've added in an AWS
 -- region.
 --
--- <DeletePreset.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePreset.html>
 module Network.AWS.ElasticTranscoder.DeletePreset
     (
     -- * Request

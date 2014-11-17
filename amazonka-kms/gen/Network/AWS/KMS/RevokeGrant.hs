@@ -21,7 +21,7 @@
 -- | Revokes a grant. You can revoke a grant to actively deny operations that
 -- depend on it.
 --
--- <RevokeGrant.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html>
 module Network.AWS.KMS.RevokeGrant
     (
     -- * Request

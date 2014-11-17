@@ -22,7 +22,7 @@
 -- domains) for a specific AWS Account, regardless of verification status.
 -- This action is throttled at one request per second.
 --
--- <ListIdentities.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentities.html>
 module Network.AWS.SES.ListIdentities
     (
     -- * Request

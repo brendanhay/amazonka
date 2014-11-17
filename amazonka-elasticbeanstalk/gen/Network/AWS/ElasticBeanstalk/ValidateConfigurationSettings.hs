@@ -23,7 +23,7 @@
 -- returns a list of messages indicating any errors or warnings associated
 -- with the selection of option values.
 --
--- <ValidateConfigurationSettings.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ValidateConfigurationSettings.html>
 module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     (
     -- * Request

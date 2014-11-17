@@ -31,7 +31,7 @@
 -- more in the past may take in excess of 48 hours to become available from
 -- submission time using GetMetricStatistics.
 --
--- <PutMetricData.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html>
 module Network.AWS.CloudWatch.PutMetricData
     (
     -- * Request

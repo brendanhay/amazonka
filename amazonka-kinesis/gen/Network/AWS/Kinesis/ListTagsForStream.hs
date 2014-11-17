@@ -20,7 +20,7 @@
 
 -- | Lists the tags for the specified Amazon Kinesis stream.
 --
--- <ListTagsForStream.html>
+-- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListTagsForStream.html>
 module Network.AWS.Kinesis.ListTagsForStream
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Get the information about a distribution.
 --
--- <GetDistribution.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistribution.html>
 module Network.AWS.CloudFront.GetDistribution
     (
     -- * Request

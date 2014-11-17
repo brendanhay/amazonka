@@ -20,7 +20,7 @@
 
 -- | Adds the specified user to the specified group.
 --
--- <AddUserToGroup.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddUserToGroup.html>
 module Network.AWS.IAM.AddUserToGroup
     (
     -- * Request

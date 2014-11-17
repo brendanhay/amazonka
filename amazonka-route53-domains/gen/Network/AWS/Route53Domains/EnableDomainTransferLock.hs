@@ -24,7 +24,7 @@
 -- and completion of the action. If the request is not completed successfully,
 -- the domain registrant will be notified by email.
 --
--- <EnableDomainTransferLock.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-EnableDomainTransferLock.html>
 module Network.AWS.Route53Domains.EnableDomainTransferLock
     (
     -- * Request

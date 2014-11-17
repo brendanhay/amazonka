@@ -22,7 +22,7 @@
 -- subscription for a customer account. If you specify a subscription name,
 -- lists the description for that subscription.
 --
--- <DescribeEventSubscriptions.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventSubscriptions.html>
 module Network.AWS.Redshift.DescribeEventSubscriptions
     (
     -- * Request

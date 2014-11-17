@@ -22,7 +22,7 @@
 -- information about using a password policy, see Managing an IAM Password
 -- Policy in the Using IAM guide.
 --
--- <UpdateAccountPasswordPolicy.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html>
 module Network.AWS.IAM.UpdateAccountPasswordPolicy
     (
     -- * Request

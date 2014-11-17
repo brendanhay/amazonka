@@ -20,7 +20,7 @@
 
 -- | Lists the identities in a pool.
 --
--- <ListIdentities.html>
+-- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListIdentities.html>
 module Network.AWS.CognitoIdentity.ListIdentities
     (
     -- * Request

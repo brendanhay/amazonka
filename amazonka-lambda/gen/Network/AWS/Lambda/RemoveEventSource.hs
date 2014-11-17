@@ -22,7 +22,7 @@
 -- invoke the function for events in the associated source. This operation
 -- requires permission for the lambda:RemoveEventSource action.
 --
--- <RemoveEventSource.html>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/API_RemoveEventSource.html>
 module Network.AWS.Lambda.RemoveEventSource
     (
     -- * Request

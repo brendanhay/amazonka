@@ -20,7 +20,7 @@
 
 -- | Deletes the specified policy associated with the specified role.
 --
--- <DeleteRolePolicy.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePolicy.html>
 module Network.AWS.IAM.DeleteRolePolicy
     (
     -- * Request

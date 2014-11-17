@@ -30,7 +30,7 @@
 -- name, attribute names, or attribute values do not match an existing queue,
 -- CreateQueue returns an error. &amp;Attribute.1=this &amp;Attribute.2=that.
 --
--- <CreateQueue.html>
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html>
 module Network.AWS.SQS.CreateQueue
     (
     -- * Request

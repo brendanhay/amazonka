@@ -26,7 +26,7 @@
 -- access, see AddPermission or go to Shared Queues in the Amazon SQS
 -- Developer Guide.
 --
--- <GetQueueUrl.html>
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.html>
 module Network.AWS.SQS.GetQueueUrl
     (
     -- * Request

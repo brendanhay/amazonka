@@ -21,7 +21,7 @@
 -- | Deletes the specified customer gateway. You must delete the VPN connection
 -- before you can delete the customer gateway.
 --
--- <DeleteCustomerGateway.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteCustomerGateway.html>
 module Network.AWS.EC2.DeleteCustomerGateway
     (
     -- * Request

@@ -37,7 +37,7 @@
 -- For more information about subnets, see Your VPC and Subnets in the Amazon
 -- Virtual Private Cloud User Guide.
 --
--- <CreateSubnet.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSubnet.html>
 module Network.AWS.EC2.CreateSubnet
     (
     -- * Request

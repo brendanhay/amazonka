@@ -46,7 +46,7 @@
 -- about Amazon EBS snapshots, see Amazon EBS Snapshots in the Amazon Elastic
 -- Compute Cloud User Guide.
 --
--- <DescribeSnapshots.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>
 module Network.AWS.EC2.DescribeSnapshots
     (
     -- * Request

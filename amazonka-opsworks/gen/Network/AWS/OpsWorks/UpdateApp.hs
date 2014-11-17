@@ -23,7 +23,7 @@
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
--- <UpdateApp.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateApp.html>
 module Network.AWS.OpsWorks.UpdateApp
     (
     -- * Request

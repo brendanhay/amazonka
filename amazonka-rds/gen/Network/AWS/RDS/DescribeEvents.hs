@@ -24,7 +24,7 @@
 -- parameter group can be obtained by providing the name as a parameter. By
 -- default, the past hour of events are returned.
 --
--- <DescribeEvents.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html>
 module Network.AWS.RDS.DescribeEvents
     (
     -- * Request

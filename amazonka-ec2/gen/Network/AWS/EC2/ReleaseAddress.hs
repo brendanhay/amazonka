@@ -31,7 +31,7 @@
 -- you try to release it. Otherwise, Amazon EC2 returns an error
 -- (InvalidIPAddress.InUse).
 --
--- <ReleaseAddress.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseAddress.html>
 module Network.AWS.EC2.ReleaseAddress
     (
     -- * Request

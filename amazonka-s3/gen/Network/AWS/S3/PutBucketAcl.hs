@@ -20,7 +20,7 @@
 
 -- | Sets the permissions on a bucket using access control lists (ACL).
 --
--- <PutBucketAcl.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketAcl.html>
 module Network.AWS.S3.PutBucketAcl
     (
     -- * Request

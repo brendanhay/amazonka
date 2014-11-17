@@ -20,7 +20,7 @@
 
 -- | Gets a list of identity pools registered with Cognito.
 --
--- <ListIdentityPoolUsage.html>
+-- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListIdentityPoolUsage.html>
 module Network.AWS.CognitoSync.ListIdentityPoolUsage
     (
     -- * Request

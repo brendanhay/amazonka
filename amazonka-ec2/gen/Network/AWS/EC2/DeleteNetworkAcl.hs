@@ -21,7 +21,7 @@
 -- | Deletes the specified network ACL. You can't delete the ACL if it's
 -- associated with any subnets. You can't delete the default network ACL.
 --
--- <DeleteNetworkAcl.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkAcl.html>
 module Network.AWS.EC2.DeleteNetworkAcl
     (
     -- * Request

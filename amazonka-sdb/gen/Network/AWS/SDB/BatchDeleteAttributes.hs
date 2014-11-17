@@ -24,7 +24,7 @@
 -- limitations are enforced for this operation: 1 MB request size 25 item
 -- limit per BatchDeleteAttributes operation.
 --
--- <BatchDeleteAttributes.html>
+-- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchDeleteAttributes.html>
 module Network.AWS.SDB.BatchDeleteAttributes
     (
     -- * Request

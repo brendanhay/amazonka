@@ -36,7 +36,7 @@
 -- For details and example IAM policies, see Using IAM to Manage Access to
 -- Amazon SWF Workflows.
 --
--- <RespondActivityTaskFailed.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskFailed.html>
 module Network.AWS.SWF.RespondActivityTaskFailed
     (
     -- * Request

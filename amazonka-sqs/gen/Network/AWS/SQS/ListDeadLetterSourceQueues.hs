@@ -22,7 +22,7 @@
 -- configured with a dead letter queue. For more information about using dead
 -- letter queues, see Using Amazon SQS Dead Letter Queues.
 --
--- <ListDeadLetterSourceQueues.html>
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.html>
 module Network.AWS.SQS.ListDeadLetterSourceQueues
     (
     -- * Request

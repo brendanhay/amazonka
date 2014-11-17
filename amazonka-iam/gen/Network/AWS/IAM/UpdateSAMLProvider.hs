@@ -20,7 +20,7 @@
 
 -- | Updates the metadata document for an existing SAML provider.
 --
--- <UpdateSAMLProvider.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSAMLProvider.html>
 module Network.AWS.IAM.UpdateSAMLProvider
     (
     -- * Request

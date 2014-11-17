@@ -22,7 +22,7 @@
 -- a successful response from this operation, ElastiCache immediately begins
 -- deleting the snapshot; you cannot cancel or revert this operation.
 --
--- <DeleteSnapshot.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html>
 module Network.AWS.ElastiCache.DeleteSnapshot
     (
     -- * Request

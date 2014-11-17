@@ -22,7 +22,7 @@
 -- stacks, ListStackResources returns resource information for up to 90 days
 -- after the stack has been deleted.
 --
--- <ListStackResources.html>
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackResources.html>
 module Network.AWS.CloudFormation.ListStackResources
     (
     -- * Request

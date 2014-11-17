@@ -20,7 +20,7 @@
 
 -- | Describes Amazon RDS instances.
 --
--- <DescribeRdsDbInstances.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeRdsDbInstances.html>
 module Network.AWS.OpsWorks.DescribeRdsDbInstances
     (
     -- * Request

@@ -22,7 +22,7 @@
 -- the request parameters as selection criteria to return a subset of the
 -- objects in a bucket.
 --
--- <ListObjects.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjects.html>
 module Network.AWS.S3.ListObjects
     (
     -- * Request

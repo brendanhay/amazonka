@@ -20,7 +20,7 @@
 
 -- | Updates an Amazon RDS instance.
 --
--- <UpdateRdsDbInstance.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateRdsDbInstance.html>
 module Network.AWS.OpsWorks.UpdateRdsDbInstance
     (
     -- * Request

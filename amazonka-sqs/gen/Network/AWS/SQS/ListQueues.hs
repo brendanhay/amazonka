@@ -23,7 +23,7 @@
 -- parameter, only queues with a name beginning with the specified value are
 -- returned.
 --
--- <ListQueues.html>
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html>
 module Network.AWS.SQS.ListQueues
     (
     -- * Request

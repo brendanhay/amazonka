@@ -27,7 +27,7 @@
 -- list of your gateways-the response contains a marker that you can specify
 -- in your next request to fetch the next page of gateways.
 --
--- <ListGateways.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListGateways.html>
 module Network.AWS.StorageGateway.ListGateways
     (
     -- * Request

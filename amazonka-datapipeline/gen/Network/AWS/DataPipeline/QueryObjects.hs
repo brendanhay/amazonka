@@ -25,7 +25,7 @@
 -- to True, you should continue to call QueryObjects, passing in the returned
 -- value for marker, until HasMoreResults returns False.
 --
--- <QueryObjects.html>
+-- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_QueryObjects.html>
 module Network.AWS.DataPipeline.QueryObjects
     (
     -- * Request

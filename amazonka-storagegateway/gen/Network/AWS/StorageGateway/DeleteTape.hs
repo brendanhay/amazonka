@@ -20,7 +20,7 @@
 
 -- | Deletes the specified virtual tape.
 --
--- <DeleteTape.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteTape.html>
 module Network.AWS.StorageGateway.DeleteTape
     (
     -- * Request

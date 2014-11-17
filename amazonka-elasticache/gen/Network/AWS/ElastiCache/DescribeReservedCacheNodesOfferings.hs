@@ -21,7 +21,7 @@
 -- | The DescribeReservedCacheNodesOfferings operation lists available reserved
 -- cache node offerings.
 --
--- <DescribeReservedCacheNodesOfferings.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodesOfferings.html>
 module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     (
     -- * Request

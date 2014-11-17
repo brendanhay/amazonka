@@ -31,7 +31,7 @@
 -- RUNNING, WAITING, SHUTTING_DOWN, STARTING Amazon Elastic MapReduce can
 -- return a maximum of 512 job flow descriptions.
 --
--- <DescribeJobFlows.html>
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeJobFlows.html>
 module Network.AWS.EMR.DescribeJobFlows
     (
     -- * Request

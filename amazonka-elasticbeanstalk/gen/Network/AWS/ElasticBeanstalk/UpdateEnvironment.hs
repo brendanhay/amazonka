@@ -28,7 +28,7 @@
 -- DescribeConfigurationSettings for this environment returns two setting
 -- descriptions with different DeploymentStatus values.
 --
--- <UpdateEnvironment.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateEnvironment.html>
 module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     (
     -- * Request

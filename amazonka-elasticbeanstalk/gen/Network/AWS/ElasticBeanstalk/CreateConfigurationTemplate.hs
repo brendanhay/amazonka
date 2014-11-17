@@ -24,7 +24,7 @@
 -- DescribeConfigurationOptions DescribeConfigurationSettings
 -- ListAvailableSolutionStacks.
 --
--- <CreateConfigurationTemplate.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateConfigurationTemplate.html>
 module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     (
     -- * Request

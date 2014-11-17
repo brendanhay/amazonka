@@ -20,7 +20,7 @@ description:
     costs and scale to a petabyte or more for $1,000 per terabyte per year,
     less than a tenth of most other data warehousing solutions.
     .
-    /See:/ < AWS API Reference>
+    /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html AWS API Reference>
     .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!

@@ -23,7 +23,7 @@
 -- CustomerID, SourceType, SourceID, CreationTime, and Status. If you specify
 -- a SubscriptionName, lists the description for that subscription.
 --
--- <DescribeEventSubscriptions.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventSubscriptions.html>
 module Network.AWS.RDS.DescribeEventSubscriptions
     (
     -- * Request

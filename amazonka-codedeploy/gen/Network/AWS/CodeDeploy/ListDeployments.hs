@@ -21,7 +21,7 @@
 -- | Lists the deployments under a deployment group for an application
 -- registered within the AWS user account.
 --
--- <ListDeployments.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeployments.html>
 module Network.AWS.CodeDeploy.ListDeployments
     (
     -- * Request

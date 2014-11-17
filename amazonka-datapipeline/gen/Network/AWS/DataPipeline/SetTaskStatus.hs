@@ -24,7 +24,7 @@
 -- to call SetTaskStatus for tasks that are canceled by the web service during
 -- a call to ReportTaskProgress.
 --
--- <SetTaskStatus.html>
+-- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetTaskStatus.html>
 module Network.AWS.DataPipeline.SetTaskStatus
     (
     -- * Request

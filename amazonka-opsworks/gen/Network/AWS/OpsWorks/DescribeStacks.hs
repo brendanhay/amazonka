@@ -24,7 +24,7 @@
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- <DescribeStacks.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStacks.html>
 module Network.AWS.OpsWorks.DescribeStacks
     (
     -- * Request

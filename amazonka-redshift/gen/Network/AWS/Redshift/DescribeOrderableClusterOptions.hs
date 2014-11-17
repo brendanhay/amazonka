@@ -28,7 +28,7 @@
 -- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Management
 -- Guide.
 --
--- <DescribeOrderableClusterOptions.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeOrderableClusterOptions.html>
 module Network.AWS.Redshift.DescribeOrderableClusterOptions
     (
     -- * Request

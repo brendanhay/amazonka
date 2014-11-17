@@ -20,7 +20,7 @@
 
 -- | The ReadPreset operation gets detailed information about a preset.
 --
--- <ReadPreset.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPreset.html>
 module Network.AWS.ElasticTranscoder.ReadPreset
     (
     -- * Request

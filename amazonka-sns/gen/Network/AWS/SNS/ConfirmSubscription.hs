@@ -24,7 +24,7 @@
 -- Resource Name (ARN). This call requires an AWS signature only when the
 -- AuthenticateOnUnsubscribe flag is set to "true".
 --
--- <ConfirmSubscription.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html>
 module Network.AWS.SNS.ConfirmSubscription
     (
     -- * Request

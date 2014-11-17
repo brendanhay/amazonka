@@ -23,7 +23,7 @@
 -- be stopped. For more information, see Modifying Attributes of a Stopped
 -- Instance in the Amazon Elastic Compute Cloud User Guide.
 --
--- <ModifyInstanceAttribute.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstanceAttribute.html>
 module Network.AWS.EC2.ModifyInstanceAttribute
     (
     -- * Request

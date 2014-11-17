@@ -24,7 +24,7 @@
 -- was created 2010Feb05, the ListJobs operation would return Test2 followed
 -- by Test1.
 --
--- <ListJobs.html>
+-- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebListJobs.html>
 module Network.AWS.ImportExport.ListJobs
     (
     -- * Request

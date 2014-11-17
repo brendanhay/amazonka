@@ -20,7 +20,7 @@
 
 -- | Retrieves objects from Amazon S3.
 --
--- <GetObject.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObject.html>
 module Network.AWS.S3.GetObject
     (
     -- * Request

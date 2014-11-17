@@ -23,7 +23,7 @@
 -- running or not). To specify which gateway to describe, use the Amazon
 -- Resource Name (ARN) of the gateway in your request.
 --
--- <DescribeGatewayInformation.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeGatewayInformation.html>
 module Network.AWS.StorageGateway.DescribeGatewayInformation
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Update a streaming distribution.
 --
--- <UpdateStreamingDistribution.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateStreamingDistribution.html>
 module Network.AWS.CloudFront.UpdateStreamingDistribution
     (
     -- * Request

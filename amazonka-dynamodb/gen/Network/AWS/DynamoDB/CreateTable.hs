@@ -30,7 +30,7 @@
 -- indexes can be in the CREATING state at any given time. You can use the
 -- DescribeTable API to check the table status.
 --
--- <CreateTable.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html>
 module Network.AWS.DynamoDB.CreateTable
     (
     -- * Request

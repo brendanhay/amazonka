@@ -27,7 +27,7 @@
 -- merged. If the users to be merged are associated with the same public
 -- provider, but as two different users, an exception will be thrown.
 --
--- <MergeDeveloperIdentities.html>
+-- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_MergeDeveloperIdentities.html>
 module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     (
     -- * Request

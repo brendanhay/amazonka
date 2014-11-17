@@ -22,7 +22,7 @@
 -- (see AddEventSource). This operation requires permission for the
 -- lambda:GetEventSource action.
 --
--- <GetEventSource.html>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSource.html>
 module Network.AWS.Lambda.GetEventSource
     (
     -- * Request

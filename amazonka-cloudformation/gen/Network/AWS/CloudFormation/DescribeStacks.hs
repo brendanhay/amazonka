@@ -21,7 +21,7 @@
 -- | Returns the description for the specified stack; if no stack name was
 -- specified, then it returns the description for all the stacks created.
 --
--- <DescribeStacks.html>
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStacks.html>
 module Network.AWS.CloudFormation.DescribeStacks
     (
     -- * Request

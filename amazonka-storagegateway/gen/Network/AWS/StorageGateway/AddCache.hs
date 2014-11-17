@@ -25,7 +25,7 @@
 -- want to add cache, and one or more disk IDs that you want to configure as
 -- cache.
 --
--- <AddCache.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddCache.html>
 module Network.AWS.StorageGateway.AddCache
     (
     -- * Request

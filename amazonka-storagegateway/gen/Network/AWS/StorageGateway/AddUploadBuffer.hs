@@ -25,7 +25,7 @@
 -- upload buffer, and one or more disk IDs that you want to configure as
 -- upload buffer.
 --
--- <AddUploadBuffer.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddUploadBuffer.html>
 module Network.AWS.StorageGateway.AddUploadBuffer
     (
     -- * Request

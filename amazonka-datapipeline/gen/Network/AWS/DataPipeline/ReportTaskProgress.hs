@@ -31,7 +31,7 @@
 -- process the task and will reassign the task in a subsequent response to
 -- PollForTask. task runners should call ReportTaskProgress every 60 seconds.
 --
--- <ReportTaskProgress.html>
+-- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskProgress.html>
 module Network.AWS.DataPipeline.ReportTaskProgress
     (
     -- * Request

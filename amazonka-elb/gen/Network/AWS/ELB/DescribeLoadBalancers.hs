@@ -24,7 +24,7 @@
 -- to retrieve this information, you must provide the same account credentials
 -- that was used to create the load balancer.
 --
--- <DescribeLoadBalancers.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html>
 module Network.AWS.ELB.DescribeLoadBalancers
     (
     -- * Request

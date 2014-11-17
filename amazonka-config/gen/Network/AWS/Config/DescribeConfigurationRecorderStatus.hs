@@ -22,7 +22,7 @@
 -- configuration recorder is not specified, this action returns the status of
 -- all configuration recorder associated with the account.
 --
--- <DescribeConfigurationRecorderStatus.html>
+-- <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html>
 module Network.AWS.Config.DescribeConfigurationRecorderStatus
     (
     -- * Request

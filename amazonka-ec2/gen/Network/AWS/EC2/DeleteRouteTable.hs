@@ -22,7 +22,7 @@
 -- from any subnets before you can delete it. You can't delete the main route
 -- table.
 --
--- <DeleteRouteTable.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRouteTable.html>
 module Network.AWS.EC2.DeleteRouteTable
     (
     -- * Request

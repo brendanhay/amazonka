@@ -23,7 +23,7 @@
 -- a description of all virtual tapes found in the VTS associated with your
 -- account.
 --
--- <DescribeTapeArchives.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeArchives.html>
 module Network.AWS.StorageGateway.DescribeTapeArchives
     (
     -- * Request

@@ -25,7 +25,7 @@
 -- completed, if the delivery was successfully completed. Notification of
 -- delivery failure, if the delivery failed to complete.
 --
--- <DeliverConfigSnapshot.html>
+-- <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliverConfigSnapshot.html>
 module Network.AWS.Config.DeliverConfigSnapshot
     (
     -- * Request

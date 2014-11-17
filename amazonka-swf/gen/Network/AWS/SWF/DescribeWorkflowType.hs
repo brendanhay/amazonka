@@ -33,7 +33,7 @@
 -- OperationNotPermitted. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
 --
--- <DescribeWorkflowType.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowType.html>
 module Network.AWS.SWF.DescribeWorkflowType
     (
     -- * Request

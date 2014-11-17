@@ -20,7 +20,7 @@
 
 -- | Create a new invalidation.
 --
--- <CreateInvalidation.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateInvalidation.html>
 module Network.AWS.CloudFront.CreateInvalidation
     (
     -- * Request

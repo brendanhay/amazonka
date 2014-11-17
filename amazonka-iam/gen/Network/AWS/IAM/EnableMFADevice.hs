@@ -22,7 +22,7 @@
 -- name. When enabled, the MFA device is required for every subsequent login
 -- by the user name associated with the device.
 --
--- <EnableMFADevice.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html>
 module Network.AWS.IAM.EnableMFADevice
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Deletes a virtual MFA device.
 --
--- <DeleteVirtualMFADevice.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteVirtualMFADevice.html>
 module Network.AWS.IAM.DeleteVirtualMFADevice
     (
     -- * Request

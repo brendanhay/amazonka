@@ -20,7 +20,7 @@
 
 -- | Describes one or more of your VPCs.
 --
--- <DescribeVpcs.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpcs.html>
 module Network.AWS.EC2.DescribeVpcs
     (
     -- * Request

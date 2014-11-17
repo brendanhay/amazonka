@@ -21,7 +21,7 @@
 -- | The ModifyCacheSubnetGroup operation modifies an existing cache subnet
 -- group.
 --
--- <ModifyCacheSubnetGroup.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheSubnetGroup.html>
 module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     (
     -- * Request

@@ -23,7 +23,7 @@
 -- will remain in this state until the owner calls ConfirmConnection to
 -- confirm creation of the hosted connection.
 --
--- <ConfirmConnection.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmConnection.html>
 module Network.AWS.DirectConnect.ConfirmConnection
     (
     -- * Request

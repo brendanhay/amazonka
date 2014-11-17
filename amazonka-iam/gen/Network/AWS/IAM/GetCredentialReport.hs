@@ -22,7 +22,7 @@
 -- about the credential report, see Getting Credential Reports in the Using
 -- IAM guide.
 --
--- <GetCredentialReport.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetCredentialReport.html>
 module Network.AWS.IAM.GetCredentialReport
     (
     -- * Request

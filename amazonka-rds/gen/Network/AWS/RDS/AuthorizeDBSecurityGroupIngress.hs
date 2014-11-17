@@ -28,7 +28,7 @@
 -- EC2SecurityGroupId for non-VPC). For an overview of CIDR ranges, go to the
 -- Wikipedia Tutorial.
 --
--- <AuthorizeDBSecurityGroupIngress.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html>
 module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     (
     -- * Request

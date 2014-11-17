@@ -21,7 +21,7 @@
 -- | Unsubscribe from receiving notifications when a dataset is modified by
 -- another device.
 --
--- <UnsubscribeFromDataset.html>
+-- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UnsubscribeFromDataset.html>
 module Network.AWS.CognitoSync.UnsubscribeFromDataset
     (
     -- * Request

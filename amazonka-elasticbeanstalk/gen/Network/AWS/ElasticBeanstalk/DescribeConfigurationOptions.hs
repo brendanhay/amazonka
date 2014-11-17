@@ -24,7 +24,7 @@
 -- values, and an indication of the required action on a running environment
 -- if an option value is changed.
 --
--- <DescribeConfigurationOptions.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationOptions.html>
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     (
     -- * Request

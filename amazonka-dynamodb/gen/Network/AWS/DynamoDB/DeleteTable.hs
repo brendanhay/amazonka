@@ -28,7 +28,7 @@
 -- on that table are also deleted. Use the DescribeTable API to check the
 -- status of the table.
 --
--- <DeleteTable.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteTable.html>
 module Network.AWS.DynamoDB.DeleteTable
     (
     -- * Request

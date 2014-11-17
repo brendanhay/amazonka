@@ -29,7 +29,7 @@
 -- OperationNotPermitted. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
 --
--- <DescribeDomain.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeDomain.html>
 module Network.AWS.SWF.DescribeDomain
     (
     -- * Request

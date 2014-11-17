@@ -24,7 +24,7 @@
 -- information about route tables, see Route Tables in the Amazon Virtual
 -- Private Cloud User Guide.
 --
--- <ReplaceRoute.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRoute.html>
 module Network.AWS.EC2.ReplaceRoute
     (
     -- * Request

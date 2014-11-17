@@ -22,7 +22,7 @@
 -- parameter group. You can modify up to 20 parameters in a single request by
 -- submitting a list parameter name and value pairs.
 --
--- <ModifyCacheParameterGroup.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html>
 module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     (
     -- * Request

@@ -21,7 +21,7 @@
 -- | Displays all connections in this region. If a connection ID is provided,
 -- the call returns only that particular connection.
 --
--- <DescribeConnections.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnections.html>
 module Network.AWS.DirectConnect.DescribeConnections
     (
     -- * Request

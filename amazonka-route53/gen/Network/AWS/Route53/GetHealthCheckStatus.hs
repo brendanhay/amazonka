@@ -22,7 +22,7 @@
 -- 2013-04-01/healthcheck/health check ID/status resource. You can use this
 -- call to get a health check's current status.
 --
--- <GetHealthCheckStatus.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckStatus.html>
 module Network.AWS.Route53.GetHealthCheckStatus
     (
     -- * Request

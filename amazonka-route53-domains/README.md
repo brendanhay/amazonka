@@ -11,7 +11,7 @@
 Pending
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-route53-domains)
-and [AWS API Reference]().
+and [AWS API Reference](http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html).
 
 
 ## Contribute

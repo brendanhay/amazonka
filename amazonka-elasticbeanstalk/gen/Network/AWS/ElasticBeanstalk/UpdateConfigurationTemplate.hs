@@ -22,7 +22,7 @@
 -- properties or configuration option values. Related Topics
 -- DescribeConfigurationOptions.
 --
--- <UpdateConfigurationTemplate.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateConfigurationTemplate.html>
 module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     (
     -- * Request

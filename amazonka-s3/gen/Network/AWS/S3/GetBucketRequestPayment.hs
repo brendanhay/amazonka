@@ -20,7 +20,7 @@
 
 -- | Returns the request payment configuration of a bucket.
 --
--- <GetBucketRequestPayment.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketRequestPayment.html>
 module Network.AWS.S3.GetBucketRequestPayment
     (
     -- * Request

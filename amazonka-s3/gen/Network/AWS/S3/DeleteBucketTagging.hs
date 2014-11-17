@@ -20,7 +20,7 @@
 
 -- | Deletes the tags from the bucket.
 --
--- <DeleteBucketTagging.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketTagging.html>
 module Network.AWS.S3.DeleteBucketTagging
     (
     -- * Request

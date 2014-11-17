@@ -30,7 +30,7 @@
 -- batch must be in chronological ordered by their timestamp. The maximum
 -- number of log events in a batch is 1,000.
 --
--- <PutLogEvents.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html>
 module Network.AWS.CloudWatchLogs.PutLogEvents
     (
     -- * Request

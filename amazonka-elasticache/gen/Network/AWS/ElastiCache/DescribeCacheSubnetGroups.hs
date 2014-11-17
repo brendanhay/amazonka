@@ -22,7 +22,7 @@
 -- group descriptions. If a subnet group name is specified, the list will
 -- contain only the description of that group.
 --
--- <DescribeCacheSubnetGroups.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSubnetGroups.html>
 module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     (
     -- * Request

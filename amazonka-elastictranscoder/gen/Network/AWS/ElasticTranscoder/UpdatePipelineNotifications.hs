@@ -23,7 +23,7 @@
 -- you update notifications for a pipeline, Elastic Transcoder returns the
 -- values that you specified in the request.
 --
--- <UpdatePipelineNotifications.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineNotifications.html>
 module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     (
     -- * Request

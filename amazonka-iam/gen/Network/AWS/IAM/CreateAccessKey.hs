@@ -31,7 +31,7 @@
 -- you want to be able to access it again. If a secret key is lost, you can
 -- delete the access keys for the associated user and then create new keys.
 --
--- <CreateAccessKey.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html>
 module Network.AWS.IAM.CreateAccessKey
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Sets the tags for a bucket.
 --
--- <PutBucketTagging.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketTagging.html>
 module Network.AWS.S3.PutBucketTagging
     (
     -- * Request

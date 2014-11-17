@@ -22,7 +22,7 @@
 -- information about virtual private gateways, see Adding an IPsec Hardware
 -- VPN to Your VPC in the Amazon Virtual Private Cloud User Guide.
 --
--- <DescribeVpnGateways.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpnGateways.html>
 module Network.AWS.EC2.DescribeVpnGateways
     (
     -- * Request

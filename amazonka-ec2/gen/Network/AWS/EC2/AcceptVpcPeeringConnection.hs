@@ -23,7 +23,7 @@
 -- the owner of the peer VPC. Use the DescribeVpcPeeringConnections request to
 -- view your outstanding VPC peering connection requests.
 --
--- <AcceptVpcPeeringConnection.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AcceptVpcPeeringConnection.html>
 module Network.AWS.EC2.AcceptVpcPeeringConnection
     (
     -- * Request

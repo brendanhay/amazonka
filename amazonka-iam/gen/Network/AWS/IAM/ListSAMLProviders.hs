@@ -20,7 +20,7 @@
 
 -- | Lists the SAML providers in the account.
 --
--- <ListSAMLProviders.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSAMLProviders.html>
 module Network.AWS.IAM.ListSAMLProviders
     (
     -- * Request

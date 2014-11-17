@@ -9,7 +9,7 @@ import qualified GHC.Exts
 
 {% include "_include/service.ede" %}
 
-jsonOptions :: Options
+jsonOptions :: AesonOptions
 jsonOptions = defaultOptions
     { fieldLabelModifier = dropWhile (not . isUpper)
     }

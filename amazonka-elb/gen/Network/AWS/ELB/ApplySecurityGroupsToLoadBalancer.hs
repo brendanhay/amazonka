@@ -24,7 +24,7 @@
 -- Manage Security Groups in Amazon VPC in the Elastic Load Balancing
 -- Developer Guide.
 --
--- <ApplySecurityGroupsToLoadBalancer.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ApplySecurityGroupsToLoadBalancer.html>
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
     -- * Request

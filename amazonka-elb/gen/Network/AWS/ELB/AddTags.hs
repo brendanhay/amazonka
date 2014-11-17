@@ -25,7 +25,7 @@
 -- update the value of the key. For more information, see Tagging in the
 -- Elastic Load Balancing Developer Guide.
 --
--- <AddTags.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AddTags.html>
 module Network.AWS.ELB.AddTags
     (
     -- * Request

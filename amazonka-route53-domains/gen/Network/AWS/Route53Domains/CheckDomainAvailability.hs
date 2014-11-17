@@ -23,7 +23,7 @@
 -- domain is pending, you must submit another request to determine the
 -- availability of the domain name.
 --
--- <CheckDomainAvailability.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-CheckDomainAvailability.html>
 module Network.AWS.Route53Domains.CheckDomainAvailability
     (
     -- * Request

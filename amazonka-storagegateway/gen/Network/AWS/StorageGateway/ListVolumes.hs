@@ -28,7 +28,7 @@
 -- Marker field. You can use this Marker value in your subsequent request to
 -- retrieve the next set of volumes.
 --
--- <ListVolumes.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumes.html>
 module Network.AWS.StorageGateway.ListVolumes
     (
     -- * Request

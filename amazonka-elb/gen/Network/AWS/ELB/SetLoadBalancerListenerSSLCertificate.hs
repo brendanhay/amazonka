@@ -24,7 +24,7 @@
 -- updating your SSL certificate, see Updating an SSL Certificate for a Load
 -- Balancer in the Elastic Load Balancing Developer Guide.
 --
--- <SetLoadBalancerListenerSSLCertificate.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerListenerSSLCertificate.html>
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     (
     -- * Request

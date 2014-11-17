@@ -37,7 +37,7 @@
 -- steps to a job flow that is in one of the following states: STARTING,
 -- BOOTSTRAPPING, RUNNING, or WAITING.
 --
--- <AddJobFlowSteps.html>
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddJobFlowSteps.html>
 module Network.AWS.EMR.AddJobFlowSteps
     (
     -- * Request

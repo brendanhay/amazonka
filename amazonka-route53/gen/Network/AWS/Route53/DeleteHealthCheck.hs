@@ -28,7 +28,7 @@
 -- For information about disassociating the records from your health check,
 -- see ChangeResourceRecordSets.
 --
--- <DeleteHealthCheck.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html>
 module Network.AWS.Route53.DeleteHealthCheck
     (
     -- * Request

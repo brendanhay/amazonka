@@ -56,7 +56,7 @@
 -- more information, see Capacity Units Calculations in the Amazon DynamoDB
 -- Developer Guide.
 --
--- <BatchGetItem.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchGetItem.html>
 module Network.AWS.DynamoDB.BatchGetItem
     (
     -- * Request

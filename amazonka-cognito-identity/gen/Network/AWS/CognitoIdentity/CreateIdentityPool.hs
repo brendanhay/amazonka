@@ -22,7 +22,7 @@
 -- information that is specific to your AWS account. The limit on identity
 -- pools is 60 per account.
 --
--- <CreateIdentityPool.html>
+-- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CreateIdentityPool.html>
 module Network.AWS.CognitoIdentity.CreateIdentityPool
     (
     -- * Request

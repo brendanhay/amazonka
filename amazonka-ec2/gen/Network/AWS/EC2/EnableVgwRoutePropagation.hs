@@ -21,7 +21,7 @@
 -- | Enables a virtual private gateway (VGW) to propagate routes to the
 -- specified route table of a VPC.
 --
--- <EnableVgwRoutePropagation.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVgwRoutePropagation.html>
 module Network.AWS.EC2.EnableVgwRoutePropagation
     (
     -- * Request

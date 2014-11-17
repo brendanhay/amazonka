@@ -23,7 +23,7 @@
 -- response includes disk IDs that are configured as cache, and it includes
 -- the amount of cache allocated and used.
 --
--- <DescribeCache.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCache.html>
 module Network.AWS.StorageGateway.DescribeCache
     (
     -- * Request

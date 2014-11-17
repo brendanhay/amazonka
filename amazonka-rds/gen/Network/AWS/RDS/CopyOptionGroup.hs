@@ -20,7 +20,7 @@
 
 -- | Copies the specified Option Group.
 --
--- <CopyOptionGroup.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyOptionGroup.html>
 module Network.AWS.RDS.CopyOptionGroup
     (
     -- * Request

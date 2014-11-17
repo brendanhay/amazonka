@@ -21,7 +21,7 @@
 -- | Describes one or more regions that are currently available to you. For a
 -- list of the regions supported by Amazon EC2, see Regions and Endpoints.
 --
--- <DescribeRegions.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html>
 module Network.AWS.EC2.DescribeRegions
     (
     -- * Request

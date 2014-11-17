@@ -27,7 +27,7 @@
 -- immediately, revoke it. For more information about grants, see Grants.
 -- ListGrants RetireGrant RevokeGrant.
 --
--- <CreateGrant.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html>
 module Network.AWS.KMS.CreateGrant
     (
     -- * Request

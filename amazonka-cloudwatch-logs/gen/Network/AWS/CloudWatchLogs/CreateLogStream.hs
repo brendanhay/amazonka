@@ -24,7 +24,7 @@
 -- guidelines when naming a log stream: Log stream names can be between 1 and
 -- 512 characters long. The ':' colon character is not allowed.
 --
--- <CreateLogStream.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogStream.html>
 module Network.AWS.CloudWatchLogs.CreateLogStream
     (
     -- * Request

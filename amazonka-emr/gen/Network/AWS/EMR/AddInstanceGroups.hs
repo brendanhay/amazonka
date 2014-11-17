@@ -20,7 +20,7 @@
 
 -- | AddInstanceGroups adds an instance group to a running cluster.
 --
--- <AddInstanceGroups.html>
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddInstanceGroups.html>
 module Network.AWS.EMR.AddInstanceGroups
     (
     -- * Request

@@ -23,7 +23,7 @@
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- <StopStack.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StopStack.html>
 module Network.AWS.OpsWorks.StopStack
     (
     -- * Request

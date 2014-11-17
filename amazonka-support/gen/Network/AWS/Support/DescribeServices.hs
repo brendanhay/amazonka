@@ -29,7 +29,7 @@
 -- obtained programmatically. This practice ensures that you always have the
 -- most recent set of service and category codes.
 --
--- <DescribeServices.html>
+-- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeServices.html>
 module Network.AWS.Support.DescribeServices
     (
     -- * Request

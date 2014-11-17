@@ -25,7 +25,7 @@
 -- events occurring within the last hour are returned; however, you can
 -- retrieve up to 14 days' worth of events if necessary.
 --
--- <DescribeEvents.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html>
 module Network.AWS.ElastiCache.DescribeEvents
     (
     -- * Request

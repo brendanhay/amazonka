@@ -23,7 +23,7 @@
 -- but is eventually consistent. The status that can be set depends on the
 -- type of object.
 --
--- <SetStatus.html>
+-- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetStatus.html>
 module Network.AWS.DataPipeline.SetStatus
     (
     -- * Request

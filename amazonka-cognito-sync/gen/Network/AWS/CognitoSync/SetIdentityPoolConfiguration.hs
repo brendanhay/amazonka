@@ -20,7 +20,7 @@
 
 -- | Sets the necessary configuration for push sync.
 --
--- <SetIdentityPoolConfiguration.html>
+-- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SetIdentityPoolConfiguration.html>
 module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     (
     -- * Request

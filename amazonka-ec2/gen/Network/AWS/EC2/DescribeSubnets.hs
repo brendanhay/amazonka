@@ -21,7 +21,7 @@
 -- | Describes one or more of your subnets. For more information about subnets,
 -- see Your VPC and Subnets in the Amazon Virtual Private Cloud User Guide.
 --
--- <DescribeSubnets.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSubnets.html>
 module Network.AWS.EC2.DescribeSubnets
     (
     -- * Request

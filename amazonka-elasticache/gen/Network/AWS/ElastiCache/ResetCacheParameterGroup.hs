@@ -24,7 +24,7 @@
 -- entire cache parameter group, specify the ResetAllParameters and
 -- CacheParameterGroupName parameters.
 --
--- <ResetCacheParameterGroup.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ResetCacheParameterGroup.html>
 module Network.AWS.ElastiCache.ResetCacheParameterGroup
     (
     -- * Request

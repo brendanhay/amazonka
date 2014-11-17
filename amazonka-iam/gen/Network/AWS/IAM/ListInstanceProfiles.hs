@@ -23,7 +23,7 @@
 -- instance profiles, go to About Instance Profiles. You can paginate the
 -- results using the MaxItems and Marker parameters.
 --
--- <ListInstanceProfiles.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html>
 module Network.AWS.IAM.ListInstanceProfiles
     (
     -- * Request

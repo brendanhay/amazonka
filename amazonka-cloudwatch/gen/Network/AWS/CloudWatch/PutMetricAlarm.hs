@@ -25,7 +25,7 @@
 -- INSUFFICIENT_DATA. The alarm is evaluated and its StateValue is set
 -- appropriately. Any actions associated with the StateValue is then executed.
 --
--- <PutMetricAlarm.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html>
 module Network.AWS.CloudWatch.PutMetricAlarm
     (
     -- * Request

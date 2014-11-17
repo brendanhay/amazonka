@@ -26,7 +26,7 @@
 -- gateway. The activation process also associates your gateway with your
 -- account; for more information, see UpdateGatewayInformation.
 --
--- <ActivateGateway.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html>
 module Network.AWS.StorageGateway.ActivateGateway
     (
     -- * Request

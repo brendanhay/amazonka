@@ -21,7 +21,7 @@
 -- | Describes whether information, such as queries and connection attempts, is
 -- being logged for the specified Amazon Redshift cluster.
 --
--- <DescribeLoggingStatus.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeLoggingStatus.html>
 module Network.AWS.Redshift.DescribeLoggingStatus
     (
     -- * Request

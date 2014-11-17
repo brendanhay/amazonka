@@ -21,7 +21,7 @@
 -- | Disables the automatic copying of snapshots from one region to another
 -- region for a specified cluster.
 --
--- <DisableSnapshotCopy.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableSnapshotCopy.html>
 module Network.AWS.Redshift.DisableSnapshotCopy
     (
     -- * Request

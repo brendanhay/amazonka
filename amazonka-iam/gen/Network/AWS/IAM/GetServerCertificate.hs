@@ -20,7 +20,7 @@
 
 -- | Retrieves information about the specified server certificate.
 --
--- <GetServerCertificate.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html>
 module Network.AWS.IAM.GetServerCertificate
     (
     -- * Request

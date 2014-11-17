@@ -20,7 +20,7 @@
 
 -- | The DeleteCacheSubnetGroup operation deletes a cache subnet group.
 --
--- <DeleteCacheSubnetGroup.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSubnetGroup.html>
 module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     (
     -- * Request

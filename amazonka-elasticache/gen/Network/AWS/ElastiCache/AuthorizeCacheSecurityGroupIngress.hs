@@ -23,7 +23,7 @@
 -- Amazon EC2, and Amazon EC2 security groups are used as the authorization
 -- mechanism.
 --
--- <AuthorizeCacheSecurityGroupIngress.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html>
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     (
     -- * Request

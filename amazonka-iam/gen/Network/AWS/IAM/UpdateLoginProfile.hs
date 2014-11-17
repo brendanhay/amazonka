@@ -22,7 +22,7 @@
 -- passwords by calling ChangePassword. For more information about modifying
 -- passwords, see Managing Passwords in the Using IAM guide.
 --
--- <UpdateLoginProfile.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html>
 module Network.AWS.IAM.UpdateLoginProfile
     (
     -- * Request

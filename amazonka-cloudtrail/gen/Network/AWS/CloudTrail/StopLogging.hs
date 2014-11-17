@@ -23,7 +23,7 @@
 -- action. You can update a trail without stopping it first. This action is
 -- the only way to stop recording.
 --
--- <StopLogging.html>
+-- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html>
 module Network.AWS.CloudTrail.StopLogging
     (
     -- * Request

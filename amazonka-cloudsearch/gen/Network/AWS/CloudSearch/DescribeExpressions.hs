@@ -25,7 +25,7 @@
 -- more information, see Configuring Expressions in the Amazon CloudSearch
 -- Developer Guide.
 --
--- <DescribeExpressions.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeExpressions.html>
 module Network.AWS.CloudSearch.DescribeExpressions
     (
     -- * Request

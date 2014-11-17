@@ -21,7 +21,7 @@
 -- | Deletes a DBSnapshot. If the snapshot is being copied, the copy operation
 -- is terminated.
 --
--- <DeleteDBSnapshot.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSnapshot.html>
 module Network.AWS.RDS.DeleteDBSnapshot
     (
     -- * Request

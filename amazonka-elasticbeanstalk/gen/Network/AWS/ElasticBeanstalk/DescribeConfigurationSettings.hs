@@ -27,7 +27,7 @@
 -- either in the process of deployment or that failed to deploy. Related
 -- Topics DeleteEnvironmentConfiguration.
 --
--- <DescribeConfigurationSettings.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html>
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     (
     -- * Request

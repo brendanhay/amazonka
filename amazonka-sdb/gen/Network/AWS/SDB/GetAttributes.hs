@@ -25,7 +25,7 @@
 -- returned. The system does not return an error as it cannot guarantee the
 -- item does not exist on other replicas.
 --
--- <GetAttributes.html>
+-- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_GetAttributes.html>
 module Network.AWS.SDB.GetAttributes
     (
     -- * Request

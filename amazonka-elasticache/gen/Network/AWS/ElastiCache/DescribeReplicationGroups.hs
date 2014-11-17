@@ -22,7 +22,7 @@
 -- particular replication group. If no identifier is specified,
 -- DescribeReplicationGroups returns information about all replication groups.
 --
--- <DescribeReplicationGroups.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html>
 module Network.AWS.ElastiCache.DescribeReplicationGroups
     (
     -- * Request

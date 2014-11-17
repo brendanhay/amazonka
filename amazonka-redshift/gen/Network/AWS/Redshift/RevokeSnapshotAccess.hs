@@ -24,7 +24,7 @@
 -- snapshots, go to Amazon Redshift Snapshots in the Amazon Redshift
 -- Management Guide.
 --
--- <RevokeSnapshotAccess.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeSnapshotAccess.html>
 module Network.AWS.Redshift.RevokeSnapshotAccess
     (
     -- * Request

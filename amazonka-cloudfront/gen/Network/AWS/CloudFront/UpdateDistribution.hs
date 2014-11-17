@@ -20,7 +20,7 @@
 
 -- | Update a distribution.
 --
--- <UpdateDistribution.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateDistribution.html>
 module Network.AWS.CloudFront.UpdateDistribution
     (
     -- * Request

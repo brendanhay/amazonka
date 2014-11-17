@@ -24,7 +24,7 @@
 -- to create or have been deleted by specifying the unique stack identifier
 -- (stack ID).
 --
--- <DescribeStackEvents.html>
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html>
 module Network.AWS.CloudFormation.DescribeStackEvents
     (
     -- * Request

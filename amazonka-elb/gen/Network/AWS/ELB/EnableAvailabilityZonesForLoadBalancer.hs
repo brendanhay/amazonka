@@ -26,7 +26,7 @@
 -- Application to an Additional Availability Zone in the Elastic Load
 -- Balancing Developer Guide.
 --
--- <EnableAvailabilityZonesForLoadBalancer.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_EnableAvailabilityZonesForLoadBalancer.html>
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (
     -- * Request

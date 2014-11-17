@@ -22,7 +22,7 @@
 -- attributes) in the domain are deleted as well. The DeleteDomain operation
 -- might take 10 or more seconds to complete.
 --
--- <DeleteDomain.html>
+-- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteDomain.html>
 module Network.AWS.SDB.DeleteDomain
     (
     -- * Request

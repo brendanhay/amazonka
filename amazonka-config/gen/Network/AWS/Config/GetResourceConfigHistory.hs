@@ -24,7 +24,7 @@
 -- page. If a limit is specified, a nextToken is returned as part of the
 -- result that you can use to continue this request.
 --
--- <GetResourceConfigHistory.html>
+-- <http://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html>
 module Network.AWS.Config.GetResourceConfigHistory
     (
     -- * Request

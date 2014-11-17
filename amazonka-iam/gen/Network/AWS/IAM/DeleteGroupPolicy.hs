@@ -20,7 +20,7 @@
 
 -- | Deletes the specified policy that is associated with the specified group.
 --
--- <DeleteGroupPolicy.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroupPolicy.html>
 module Network.AWS.IAM.DeleteGroupPolicy
     (
     -- * Request

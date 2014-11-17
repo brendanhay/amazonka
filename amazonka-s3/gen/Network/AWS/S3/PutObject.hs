@@ -20,7 +20,7 @@
 
 -- | Adds an object to a bucket.
 --
--- <PutObject.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObject.html>
 module Network.AWS.S3.PutObject
     (
     -- * Request

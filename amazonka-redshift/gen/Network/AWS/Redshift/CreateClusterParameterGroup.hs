@@ -27,7 +27,7 @@
 -- information about managing parameter groups, go to Amazon Redshift
 -- Parameter Groups in the Amazon Redshift Management Guide.
 --
--- <CreateClusterParameterGroup.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterParameterGroup.html>
 module Network.AWS.Redshift.CreateClusterParameterGroup
     (
     -- * Request

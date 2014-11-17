@@ -24,7 +24,7 @@
 -- to process are affected in addition to jobs that you submit after you
 -- change settings.
 --
--- <UpdatePipeline.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipeline.html>
 module Network.AWS.ElasticTranscoder.UpdatePipeline
     (
     -- * Request

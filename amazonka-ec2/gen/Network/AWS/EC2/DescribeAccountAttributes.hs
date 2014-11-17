@@ -20,7 +20,7 @@
 
 -- | Describes the specified attribute of your AWS account.
 --
--- <DescribeAccountAttributes.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAccountAttributes.html>
 module Network.AWS.EC2.DescribeAccountAttributes
     (
     -- * Request

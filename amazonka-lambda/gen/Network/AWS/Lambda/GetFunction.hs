@@ -25,7 +25,7 @@
 -- as parameters when uploading the function. This operation requires
 -- permission for the lambda:GetFunction action.
 --
--- <GetFunction.html>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunction.html>
 module Network.AWS.Lambda.GetFunction
     (
     -- * Request

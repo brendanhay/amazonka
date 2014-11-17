@@ -24,7 +24,7 @@
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- <DescribeInstances.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeInstances.html>
 module Network.AWS.OpsWorks.DescribeInstances
     (
     -- * Request

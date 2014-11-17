@@ -20,7 +20,7 @@
 
 -- | List invalidation batches.
 --
--- <ListInvalidations.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations.html>
 module Network.AWS.CloudFront.ListInvalidations
     (
     -- * Request

@@ -25,7 +25,7 @@
 -- calls. For more information on modifying snapshot permissions, see Sharing
 -- Snapshots in the Amazon Elastic Compute Cloud User Guide.
 --
--- <ModifySnapshotAttribute.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySnapshotAttribute.html>
 module Network.AWS.EC2.ModifySnapshotAttribute
     (
     -- * Request

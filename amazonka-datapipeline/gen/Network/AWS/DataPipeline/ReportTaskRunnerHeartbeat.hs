@@ -24,7 +24,7 @@
 -- use this call to detect when the task runner application has failed and
 -- restart a new instance.
 --
--- <ReportTaskRunnerHeartbeat.html>
+-- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskRunnerHeartbeat.html>
 module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Delete a streaming distribution.
 --
--- <DeleteStreamingDistribution.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteStreamingDistribution.html>
 module Network.AWS.CloudFront.DeleteStreamingDistribution
     (
     -- * Request

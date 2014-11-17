@@ -23,7 +23,7 @@
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- <DeleteApp.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteApp.html>
 module Network.AWS.OpsWorks.DeleteApp
     (
     -- * Request

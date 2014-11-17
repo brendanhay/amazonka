@@ -28,7 +28,7 @@
 -- renew before the end of the renewal period that is listed on the Gandi
 -- website so we can complete processing before the deadline.
 --
--- <EnableDomainAutoRenew.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-EnableDomainAutoRenew.html>
 module Network.AWS.Route53Domains.EnableDomainAutoRenew
     (
     -- * Request

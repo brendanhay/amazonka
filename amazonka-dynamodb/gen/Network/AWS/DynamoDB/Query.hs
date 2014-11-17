@@ -37,7 +37,7 @@
 -- support eventually consistent reads only, so do not specify ConsistentRead
 -- when querying a global secondary index.
 --
--- <Query.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html>
 module Network.AWS.DynamoDB.Query
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Returns AWS resources for this environment.
 --
--- <DescribeEnvironmentResources.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentResources.html>
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     (
     -- * Request

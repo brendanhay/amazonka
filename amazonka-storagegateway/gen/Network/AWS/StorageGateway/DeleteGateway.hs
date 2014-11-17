@@ -33,7 +33,7 @@
 -- your snapshots using the Amazon EC2 console. For more information, see the
 -- AWS Storage Gateway Detail Page.
 --
--- <DeleteGateway.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteGateway.html>
 module Network.AWS.StorageGateway.DeleteGateway
     (
     -- * Request

@@ -25,7 +25,7 @@
 -- does not fail or return an error if you call the action for a provider that
 -- was already deleted.
 --
--- <DeleteOpenIDConnectProvider.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteOpenIDConnectProvider.html>
 module Network.AWS.IAM.DeleteOpenIDConnectProvider
     (
     -- * Request

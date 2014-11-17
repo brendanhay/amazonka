@@ -20,7 +20,7 @@
 
 -- | Gets information about a deployment configuration.
 --
--- <GetDeploymentConfig.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentConfig.html>
 module Network.AWS.CodeDeploy.GetDeploymentConfig
     (
     -- * Request

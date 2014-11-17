@@ -20,7 +20,7 @@
 
 -- | Gets information about a deployment.
 --
--- <GetDeployment.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeployment.html>
 module Network.AWS.CodeDeploy.GetDeployment
     (
     -- * Request

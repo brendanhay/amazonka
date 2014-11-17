@@ -23,7 +23,7 @@
 -- Deleting an Amazon EBS Volume in the Amazon Elastic Compute Cloud User
 -- Guide.
 --
--- <DeleteVolume.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVolume.html>
 module Network.AWS.EC2.DeleteVolume
     (
     -- * Request

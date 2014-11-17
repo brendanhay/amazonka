@@ -22,7 +22,7 @@
 -- verification status and (for domain identities) the verification token for
 -- each identity. This action is throttled at one request per second.
 --
--- <GetIdentityVerificationAttributes.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityVerificationAttributes.html>
 module Network.AWS.SES.GetIdentityVerificationAttributes
     (
     -- * Request

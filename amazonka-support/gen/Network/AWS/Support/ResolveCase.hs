@@ -21,7 +21,7 @@
 -- | Takes a CaseId and returns the initial state of the case along with the
 -- state of the case after the call to ResolveCase completed.
 --
--- <ResolveCase.html>
+-- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html>
 module Network.AWS.Support.ResolveCase
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Lists the deployment configurations within the AWS user account.
 --
--- <ListDeploymentConfigs.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentConfigs.html>
 module Network.AWS.CodeDeploy.ListDeploymentConfigs
     (
     -- * Request

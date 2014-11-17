@@ -20,7 +20,7 @@
 
 -- | Changes an existing application's name.
 --
--- <UpdateApplication.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateApplication.html>
 module Network.AWS.CodeDeploy.UpdateApplication
     (
     -- * Request

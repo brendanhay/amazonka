@@ -20,7 +20,7 @@
 
 -- | Checks if the specified CNAME is available.
 --
--- <CheckDNSAvailability.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CheckDNSAvailability.html>
 module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     (
     -- * Request

@@ -29,7 +29,7 @@
 -- before you can delete the snapshot. For more information, see Deleting an
 -- Amazon EBS Snapshot in the Amazon Elastic Compute Cloud User Guide.
 --
--- <DeleteSnapshot.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSnapshot.html>
 module Network.AWS.EC2.DeleteSnapshot
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Gets information about an Amazon EC2 instance as part of a deployment.
 --
--- <GetDeploymentInstance.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentInstance.html>
 module Network.AWS.CodeDeploy.GetDeploymentInstance
     (
     -- * Request

@@ -19,7 +19,7 @@ description:
     managing time-consuming database administration tasks, freeing you up
     to focus on your applications and business.
     .
-    /See:/ < AWS API Reference>
+    /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html AWS API Reference>
     .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!

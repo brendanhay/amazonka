@@ -20,7 +20,7 @@
 
 -- | Gets information about an application.
 --
--- <GetApplication.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplication.html>
 module Network.AWS.CodeDeploy.GetApplication
     (
     -- * Request

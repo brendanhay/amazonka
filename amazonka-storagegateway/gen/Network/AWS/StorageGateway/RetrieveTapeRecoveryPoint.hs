@@ -23,7 +23,7 @@
 -- the tape is consistent. If your gateway crashes, virtual tapes that have
 -- recovery points can be recovered to a new gateway.
 --
--- <RetrieveTapeRecoveryPoint.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeRecoveryPoint.html>
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     (
     -- * Request

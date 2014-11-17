@@ -20,7 +20,7 @@
 
 -- | Provides more detail about the cluster step.
 --
--- <DescribeStep.html>
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeStep.html>
 module Network.AWS.EMR.DescribeStep
     (
     -- * Request

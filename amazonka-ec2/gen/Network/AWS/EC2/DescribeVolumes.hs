@@ -27,7 +27,7 @@
 -- remaining results. For more information about Amazon EBS volumes, see
 -- Amazon EBS Volumes in the Amazon Elastic Compute Cloud User Guide.
 --
--- <DescribeVolumes.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html>
 module Network.AWS.EC2.DescribeVolumes
     (
     -- * Request

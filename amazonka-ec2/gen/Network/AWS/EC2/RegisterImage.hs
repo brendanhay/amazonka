@@ -29,7 +29,7 @@
 -- volume invalidates its registration. If you make changes to an image,
 -- deregister the previous image and register the new image.
 --
--- <RegisterImage.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RegisterImage.html>
 module Network.AWS.EC2.RegisterImage
     (
     -- * Request

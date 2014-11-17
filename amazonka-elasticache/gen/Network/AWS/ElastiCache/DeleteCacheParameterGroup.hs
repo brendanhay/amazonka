@@ -22,7 +22,7 @@
 -- parameter group. You cannot delete a cache parameter group if it is
 -- associated with any cache clusters.
 --
--- <DeleteCacheParameterGroup.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheParameterGroup.html>
 module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     (
     -- * Request

@@ -24,7 +24,7 @@
 -- instances become available to Amazon EMR to use for jobs, and the IP
 -- addresses for cluster instances, etc.
 --
--- <ListInstances.html>
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstances.html>
 module Network.AWS.EMR.ListInstances
     (
     -- * Request

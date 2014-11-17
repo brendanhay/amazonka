@@ -20,7 +20,7 @@
 
 -- | Updates a user pool.
 --
--- <UpdateIdentityPool.html>
+-- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UpdateIdentityPool.html>
 module Network.AWS.CognitoIdentity.UpdateIdentityPool
     (
     -- * Request

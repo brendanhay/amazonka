@@ -25,7 +25,7 @@
 -- event categories for a given SourceType in the Events topic in the Amazon
 -- RDS User Guide or by using the DescribeEventCategories action.
 --
--- <ModifyEventSubscription.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyEventSubscription.html>
 module Network.AWS.RDS.ModifyEventSubscription
     (
     -- * Request

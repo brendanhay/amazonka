@@ -20,7 +20,7 @@
 
 -- | Deletes an Amazon Redshift event notification subscription.
 --
--- <DeleteEventSubscription.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteEventSubscription.html>
 module Network.AWS.Redshift.DeleteEventSubscription
     (
     -- * Request

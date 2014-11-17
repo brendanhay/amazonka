@@ -24,7 +24,7 @@
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- <UpdateVolume.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateVolume.html>
 module Network.AWS.OpsWorks.UpdateVolume
     (
     -- * Request

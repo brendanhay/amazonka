@@ -43,7 +43,7 @@
 -- domain name server of your choice. For more information about DHCP options,
 -- see DHCP Options Sets in the Amazon Virtual Private Cloud User Guide.
 --
--- <CreateDhcpOptions.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateDhcpOptions.html>
 module Network.AWS.EC2.CreateDhcpOptions
     (
     -- * Request

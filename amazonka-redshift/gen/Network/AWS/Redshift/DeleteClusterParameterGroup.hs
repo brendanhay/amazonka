@@ -20,7 +20,7 @@
 
 -- | Deletes a specified Amazon Redshift parameter group.
 --
--- <DeleteClusterParameterGroup.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterParameterGroup.html>
 module Network.AWS.Redshift.DeleteClusterParameterGroup
     (
     -- * Request

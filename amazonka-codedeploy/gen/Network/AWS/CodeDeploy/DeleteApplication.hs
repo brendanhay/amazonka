@@ -20,7 +20,7 @@
 
 -- | Deletes an application.
 --
--- <DeleteApplication.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteApplication.html>
 module Network.AWS.CodeDeploy.DeleteApplication
     (
     -- * Request

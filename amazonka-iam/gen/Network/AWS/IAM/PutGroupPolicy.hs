@@ -24,7 +24,7 @@
 -- associate with a group, see Limitations on IAM Entities in the Using IAM
 -- guide.
 --
--- <PutGroupPolicy.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html>
 module Network.AWS.IAM.PutGroupPolicy
     (
     -- * Request

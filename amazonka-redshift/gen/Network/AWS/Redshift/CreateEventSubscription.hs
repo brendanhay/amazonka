@@ -39,7 +39,7 @@
 -- generated from all Amazon Redshift sources belonging to your AWS account.
 -- You must specify a source type if you specify a source ID.
 --
--- <CreateEventSubscription.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateEventSubscription.html>
 module Network.AWS.Redshift.CreateEventSubscription
     (
     -- * Request

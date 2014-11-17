@@ -22,7 +22,7 @@
 -- configurations. The application versions will not be deleted from your
 -- Amazon S3 bucket.
 --
--- <DeleteApplication.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplication.html>
 module Network.AWS.ElasticBeanstalk.DeleteApplication
     (
     -- * Request

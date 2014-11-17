@@ -22,7 +22,7 @@
 -- gateway after the retrieval process is initiated. The virtual tape is
 -- returned to the VTS.
 --
--- <CancelRetrieval.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelRetrieval.html>
 module Network.AWS.StorageGateway.CancelRetrieval
     (
     -- * Request

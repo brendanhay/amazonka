@@ -45,7 +45,7 @@
 -- calling the EnableVolumeIO action and then check the volume for data
 -- consistency.
 --
--- <DescribeVolumeStatus.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeStatus.html>
 module Network.AWS.EC2.DescribeVolumeStatus
     (
     -- * Request

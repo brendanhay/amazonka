@@ -23,7 +23,7 @@
 -- DBSubnetGroup. For an overview of CIDR ranges, go to the Wikipedia
 -- Tutorial.
 --
--- <DescribeDBSubnetGroups.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSubnetGroups.html>
 module Network.AWS.RDS.DescribeDBSubnetGroups
     (
     -- * Request

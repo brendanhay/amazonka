@@ -20,7 +20,7 @@
 
 -- | Deregisters an Amazon RDS instance.
 --
--- <DeregisterRdsDbInstance.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterRdsDbInstance.html>
 module Network.AWS.OpsWorks.DeregisterRdsDbInstance
     (
     -- * Request

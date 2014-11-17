@@ -22,7 +22,7 @@
 -- metrics can be used with GetMetricStatistics to obtain statistical data for
 -- a given metric.
 --
--- <ListMetrics.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html>
 module Network.AWS.CloudWatch.ListMetrics
     (
     -- * Request

@@ -22,7 +22,7 @@
 -- information about roles, go to Working with Roles. For more information
 -- about instance profiles, go to About Instance Profiles.
 --
--- <AddRoleToInstanceProfile.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddRoleToInstanceProfile.html>
 module Network.AWS.IAM.AddRoleToInstanceProfile
     (
     -- * Request

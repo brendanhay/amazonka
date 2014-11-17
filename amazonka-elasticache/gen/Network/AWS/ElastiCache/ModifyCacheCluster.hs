@@ -22,7 +22,7 @@
 -- You can use this operation to change one or more cluster configuration
 -- parameters by specifying the parameters and the new values.
 --
--- <ModifyCacheCluster.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html>
 module Network.AWS.ElastiCache.ModifyCacheCluster
     (
     -- * Request

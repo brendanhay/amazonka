@@ -27,7 +27,7 @@
 -- Redshift cluster. For more information about managing parameter groups, go
 -- to Purchasing Reserved Nodes in the Amazon Redshift Management Guide.
 --
--- <DescribeReservedNodeOfferings.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodeOfferings.html>
 module Network.AWS.Redshift.DescribeReservedNodeOfferings
     (
     -- * Request

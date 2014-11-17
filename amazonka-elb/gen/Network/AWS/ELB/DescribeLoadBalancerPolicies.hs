@@ -26,7 +26,7 @@
 -- the specified sample policies, or descriptions of all the sample policies.
 -- The names of the sample policies have the ELBSample- prefix.
 --
--- <DescribeLoadBalancerPolicies.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicies.html>
 module Network.AWS.ELB.DescribeLoadBalancerPolicies
     (
     -- * Request

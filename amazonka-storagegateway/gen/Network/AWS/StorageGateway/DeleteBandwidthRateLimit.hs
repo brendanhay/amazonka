@@ -24,7 +24,7 @@
 -- unchanged. To specify which gateway to work with, use the Amazon Resource
 -- Name (ARN) of the gateway in your request.
 --
--- <DeleteBandwidthRateLimit.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteBandwidthRateLimit.html>
 module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     (
     -- * Request

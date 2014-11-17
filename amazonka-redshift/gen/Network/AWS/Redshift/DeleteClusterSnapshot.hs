@@ -26,7 +26,7 @@
 -- other accounts are authorized to access the snapshot, you must revoke all
 -- of the authorizations before you can delete the snapshot.
 --
--- <DeleteClusterSnapshot.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSnapshot.html>
 module Network.AWS.Redshift.DeleteClusterSnapshot
     (
     -- * Request

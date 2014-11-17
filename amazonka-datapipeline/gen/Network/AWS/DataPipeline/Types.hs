@@ -129,7 +129,7 @@ instance AWSService DataPipeline where
 
     handle = jsonError alwaysFail
 
-jsonOptions :: Options
+jsonOptions :: AesonOptions
 jsonOptions = defaultOptions
     { fieldLabelModifier = dropWhile (not . isUpper)
     }

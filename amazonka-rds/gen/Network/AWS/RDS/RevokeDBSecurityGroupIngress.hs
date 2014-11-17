@@ -23,7 +23,7 @@
 -- CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either
 -- EC2SecurityGroupName or EC2SecurityGroupId).
 --
--- <RevokeDBSecurityGroupIngress.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RevokeDBSecurityGroupIngress.html>
 module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     (
     -- * Request

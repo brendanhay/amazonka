@@ -51,7 +51,7 @@
 -- successful response, the effects of that change will be visible in a
 -- subsequent call to ListResourceRecordSets by that process.
 --
--- <ListResourceRecordSets.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html>
 module Network.AWS.Route53.ListResourceRecordSets
     (
     -- * Request

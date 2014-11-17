@@ -23,7 +23,7 @@
 -- configuration replaces the old one. For more information, see Configuring
 -- Expressions in the Amazon CloudSearch Developer Guide.
 --
--- <DefineExpression.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineExpression.html>
 module Network.AWS.CloudSearch.DefineExpression
     (
     -- * Request

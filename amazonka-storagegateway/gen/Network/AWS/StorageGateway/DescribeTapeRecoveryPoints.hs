@@ -24,7 +24,7 @@
 -- your gateway crashes, virtual tapes that have recovery points can be
 -- recovered to a new gateway.
 --
--- <DescribeTapeRecoveryPoints.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeRecoveryPoints.html>
 module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     (
     -- * Request

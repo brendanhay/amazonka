@@ -20,7 +20,7 @@
 
 -- | Creates a new bucket.
 --
--- <CreateBucket.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateBucket.html>
 module Network.AWS.S3.CreateBucket
     (
     -- * Request

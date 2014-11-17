@@ -24,7 +24,7 @@
 -- PutPipelineDefinition actions. A pipeline cannot be modified after it has
 -- been successfully activated.
 --
--- <ActivatePipeline.html>
+-- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ActivatePipeline.html>
 module Network.AWS.DataPipeline.ActivatePipeline
     (
     -- * Request

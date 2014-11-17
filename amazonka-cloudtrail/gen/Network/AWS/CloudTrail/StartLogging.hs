@@ -20,7 +20,7 @@
 
 -- | Starts the recording of AWS API calls and log file delivery for a trail.
 --
--- <StartLogging.html>
+-- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html>
 module Network.AWS.CloudTrail.StartLogging
     (
     -- * Request

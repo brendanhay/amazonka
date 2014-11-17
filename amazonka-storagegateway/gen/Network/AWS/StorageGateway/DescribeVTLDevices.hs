@@ -22,7 +22,7 @@
 -- specified gateway. In the response, AWS Storage Gateway returns VTL device
 -- information. The list of VTL devices must be from one gateway.
 --
--- <DescribeVTLDevices.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeVTLDevices.html>
 module Network.AWS.StorageGateway.DescribeVTLDevices
     (
     -- * Request

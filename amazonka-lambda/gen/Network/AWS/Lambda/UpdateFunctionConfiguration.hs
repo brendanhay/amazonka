@@ -24,7 +24,7 @@
 -- function and cannot be used to update the function's code. This operation
 -- requires permission for the lambda:UpdateFunctionConfiguration action.
 --
--- <UpdateFunctionConfiguration.html>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionConfiguration.html>
 module Network.AWS.Lambda.UpdateFunctionConfiguration
     (
     -- * Request

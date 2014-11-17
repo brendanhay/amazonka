@@ -26,7 +26,7 @@
 -- the schedule information, including when you want the snapshot to begin on
 -- a day and the frequency (in hours) of snapshots.
 --
--- <UpdateSnapshotSchedule.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSnapshotSchedule.html>
 module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     (
     -- * Request

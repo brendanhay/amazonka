@@ -33,7 +33,7 @@
 -- International Telecommunication Union publication Recommendation ITU-T
 -- H.264: Advanced video coding for generic audiovisual services.
 --
--- <CreatePreset.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePreset.html>
 module Network.AWS.ElasticTranscoder.CreatePreset
     (
     -- * Request

@@ -23,7 +23,7 @@ description:
     coordinating them without worrying about underlying complexities such
     as tracking their progress and maintaining their state.
     .
-    /See:/ < AWS API Reference>
+    /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html AWS API Reference>
     .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!

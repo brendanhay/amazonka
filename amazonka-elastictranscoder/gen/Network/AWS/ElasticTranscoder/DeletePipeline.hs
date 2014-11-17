@@ -23,7 +23,7 @@
 -- contain any active jobs). If the pipeline is currently in use,
 -- DeletePipeline returns an error.
 --
--- <DeletePipeline.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePipeline.html>
 module Network.AWS.ElasticTranscoder.DeletePipeline
     (
     -- * Request

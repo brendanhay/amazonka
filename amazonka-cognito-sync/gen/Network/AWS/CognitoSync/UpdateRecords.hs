@@ -24,7 +24,7 @@
 -- its own data. You should use Amazon Cognito Identity service to retrieve
 -- the credentials necessary to make this API call.
 --
--- <UpdateRecords.html>
+-- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UpdateRecords.html>
 module Network.AWS.CognitoSync.UpdateRecords
     (
     -- * Request

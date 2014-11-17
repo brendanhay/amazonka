@@ -21,7 +21,7 @@
 -- | Returns list of event descriptions matching criteria up to the last 6
 -- weeks.
 --
--- <DescribeEvents.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEvents.html>
 module Network.AWS.ElasticBeanstalk.DescribeEvents
     (
     -- * Request

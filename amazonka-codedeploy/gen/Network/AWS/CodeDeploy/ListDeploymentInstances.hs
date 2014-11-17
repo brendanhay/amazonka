@@ -21,7 +21,7 @@
 -- | Lists the Amazon EC2 instances for a deployment within the AWS user
 -- account.
 --
--- <ListDeploymentInstances.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentInstances.html>
 module Network.AWS.CodeDeploy.ListDeploymentInstances
     (
     -- * Request

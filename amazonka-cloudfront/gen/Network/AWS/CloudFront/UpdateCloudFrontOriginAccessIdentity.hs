@@ -20,7 +20,7 @@
 
 -- | Update an origin access identity.
 --
--- <UpdateCloudFrontOriginAccessIdentity.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateCloudFrontOriginAccessIdentity.html>
 module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     (
     -- * Request

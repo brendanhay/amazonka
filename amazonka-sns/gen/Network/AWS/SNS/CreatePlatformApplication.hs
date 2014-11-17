@@ -33,7 +33,7 @@
 -- CreatePlatformEndpoint action. For more information, see Using Amazon SNS
 -- Mobile Push Notifications.
 --
--- <CreatePlatformApplication.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html>
 module Network.AWS.SNS.CreatePlatformApplication
     (
     -- * Request

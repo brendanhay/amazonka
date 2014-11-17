@@ -20,7 +20,7 @@
 
 -- | This operation removes the website configuration from the bucket.
 --
--- <DeleteBucketWebsite.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketWebsite.html>
 module Network.AWS.S3.DeleteBucketWebsite
     (
     -- * Request

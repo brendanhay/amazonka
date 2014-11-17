@@ -33,7 +33,7 @@
 -- web browsers. For more information, see Enabling Application-Controlled
 -- Session Stickiness in the Elastic Load Balancing Developer Guide.
 --
--- <CreateAppCookieStickinessPolicy.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateAppCookieStickinessPolicy.html>
 module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     (
     -- * Request

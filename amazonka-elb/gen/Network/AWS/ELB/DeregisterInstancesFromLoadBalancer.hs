@@ -26,7 +26,7 @@
 -- Balancing Developer Guide. You can use DescribeLoadBalancers to verify if
 -- the instance is deregistered from the load balancer.
 --
--- <DeregisterInstancesFromLoadBalancer.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeregisterInstancesFromLoadBalancer.html>
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     (
     -- * Request

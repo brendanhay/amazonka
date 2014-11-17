@@ -20,7 +20,7 @@
 
 -- | Restores an archived copy of an object back into Amazon S3.
 --
--- <RestoreObject.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/RestoreObject.html>
 module Network.AWS.S3.RestoreObject
     (
     -- * Request

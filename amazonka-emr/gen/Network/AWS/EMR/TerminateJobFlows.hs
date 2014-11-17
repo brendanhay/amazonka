@@ -27,7 +27,7 @@
 -- flow to completely terminate and release allocated resources, such as
 -- Amazon EC2 instances.
 --
--- <TerminateJobFlows.html>
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_TerminateJobFlows.html>
 module Network.AWS.EMR.TerminateJobFlows
     (
     -- * Request

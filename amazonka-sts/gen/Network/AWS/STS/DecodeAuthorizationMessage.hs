@@ -36,7 +36,7 @@
 -- requested action. The requested resource. The values of condition keys in
 -- the context of the user's request.
 --
--- <DecodeAuthorizationMessage.html>
+-- <http://docs.aws.amazon.com/STS/latest/APIReference/API_DecodeAuthorizationMessage.html>
 module Network.AWS.STS.DecodeAuthorizationMessage
     (
     -- * Request

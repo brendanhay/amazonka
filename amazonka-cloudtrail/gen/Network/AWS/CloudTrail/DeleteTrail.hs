@@ -20,7 +20,7 @@
 
 -- | Deletes a trail.
 --
--- <DeleteTrail.html>
+-- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteTrail.html>
 module Network.AWS.CloudTrail.DeleteTrail
     (
     -- * Request

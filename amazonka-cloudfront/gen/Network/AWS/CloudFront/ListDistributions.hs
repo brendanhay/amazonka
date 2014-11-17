@@ -20,7 +20,7 @@
 
 -- | List distributions.
 --
--- <ListDistributions.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributions.html>
 module Network.AWS.CloudFront.ListDistributions
     (
     -- * Request

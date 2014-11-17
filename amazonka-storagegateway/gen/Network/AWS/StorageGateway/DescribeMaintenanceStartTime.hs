@@ -22,7 +22,7 @@
 -- including the day and time of the week. Note that values are in terms of
 -- the gateway's time zone.
 --
--- <DescribeMaintenanceStartTime.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeMaintenanceStartTime.html>
 module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     (
     -- * Request

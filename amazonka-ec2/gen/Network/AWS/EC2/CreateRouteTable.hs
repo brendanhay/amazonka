@@ -23,7 +23,7 @@
 -- information about route tables, see Route Tables in the Amazon Virtual
 -- Private Cloud User Guide.
 --
--- <CreateRouteTable.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRouteTable.html>
 module Network.AWS.EC2.CreateRouteTable
     (
     -- * Request

@@ -21,7 +21,7 @@
 -- | Deletes all specified alarms. In the event of an error, no alarms are
 -- deleted.
 --
--- <DeleteAlarms.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAlarms.html>
 module Network.AWS.CloudWatch.DeleteAlarms
     (
     -- * Request

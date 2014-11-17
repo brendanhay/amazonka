@@ -20,7 +20,7 @@
 
 -- | Creates an application version for the specified application.
 --
--- <CreateApplicationVersion.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplicationVersion.html>
 module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     (
     -- * Request

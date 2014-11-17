@@ -31,7 +31,7 @@
 -- more information, see How Amazon SQS Queues Work in the Amazon SQS
 -- Developer Guide.
 --
--- <DeleteQueue.html>
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html>
 module Network.AWS.SQS.DeleteQueue
     (
     -- * Request

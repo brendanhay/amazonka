@@ -20,7 +20,7 @@
 
 -- | Returns the region the bucket resides in.
 --
--- <GetBucketLocation.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLocation.html>
 module Network.AWS.S3.GetBucketLocation
     (
     -- * Request

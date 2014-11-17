@@ -20,7 +20,7 @@
 
 -- | Verifies a domain. This action is throttled at one request per second.
 --
--- <VerifyDomainIdentity.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainIdentity.html>
 module Network.AWS.SES.VerifyDomainIdentity
     (
     -- * Request

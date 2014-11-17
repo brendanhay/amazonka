@@ -23,7 +23,7 @@
 -- value associated with the job. You can only return information about jobs
 -- you own.
 --
--- <GetStatus.html>
+-- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetStatus.html>
 module Network.AWS.ImportExport.GetStatus
     (
     -- * Request

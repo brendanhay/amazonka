@@ -21,7 +21,7 @@
 -- | This operation returns the operation IDs of operations that are not yet
 -- complete.
 --
--- <ListOperations.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListOperations.html>
 module Network.AWS.Route53Domains.ListOperations
     (
     -- * Request

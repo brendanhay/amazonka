@@ -22,7 +22,7 @@
 -- user must have an attached policy that explicitly grants permissions. For
 -- more information on user permissions, see Managing User Permissions.
 --
--- <DeleteUserProfile.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteUserProfile.html>
 module Network.AWS.OpsWorks.DeleteUserProfile
     (
     -- * Request

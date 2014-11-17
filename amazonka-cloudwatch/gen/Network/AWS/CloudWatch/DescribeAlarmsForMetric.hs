@@ -21,7 +21,7 @@
 -- | Retrieves all alarms for a single metric. Specify a statistic, period, or
 -- unit to filter the set of alarms further.
 --
--- <DescribeAlarmsForMetric.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmsForMetric.html>
 module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     (
     -- * Request

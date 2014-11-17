@@ -27,7 +27,7 @@
 -- after a DeleteAttributes or PutAttributes operation (write) might not
 -- return updated item data.
 --
--- <DeleteAttributes.html>
+-- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteAttributes.html>
 module Network.AWS.SDB.DeleteAttributes
     (
     -- * Request

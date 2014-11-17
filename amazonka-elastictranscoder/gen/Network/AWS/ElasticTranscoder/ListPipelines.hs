@@ -21,7 +21,7 @@
 -- | The ListPipelines operation gets a list of the pipelines associated with
 -- the current AWS account.
 --
--- <ListPipelines.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPipelines.html>
 module Network.AWS.ElasticTranscoder.ListPipelines
     (
     -- * Request

@@ -22,7 +22,7 @@
 -- on modifying snapshot permissions, see Sharing Snapshots in the Amazon
 -- Elastic Compute Cloud User Guide.
 --
--- <ResetSnapshotAttribute.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetSnapshotAttribute.html>
 module Network.AWS.EC2.ResetSnapshotAttribute
     (
     -- * Request

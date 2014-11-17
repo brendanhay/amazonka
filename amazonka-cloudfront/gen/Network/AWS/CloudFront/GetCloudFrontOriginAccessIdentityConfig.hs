@@ -20,7 +20,7 @@
 
 -- | Get the configuration information about an origin access identity.
 --
--- <GetCloudFrontOriginAccessIdentityConfig.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetCloudFrontOriginAccessIdentityConfig.html>
 module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
     (
     -- * Request

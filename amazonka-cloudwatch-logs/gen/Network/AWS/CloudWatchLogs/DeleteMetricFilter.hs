@@ -20,7 +20,7 @@
 
 -- | Deletes a metric filter associated with the specified log group.
 --
--- <DeleteMetricFilter.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteMetricFilter.html>
 module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     (
     -- * Request

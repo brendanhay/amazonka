@@ -26,7 +26,7 @@
 -- (alias/). An alias that begins with "aws" after the forward slash
 -- (alias/aws...) is reserved by Amazon Web Services (AWS).
 --
--- <CreateAlias.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html>
 module Network.AWS.KMS.CreateAlias
     (
     -- * Request

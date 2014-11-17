@@ -21,7 +21,7 @@
 -- | Subscribes to receive notifications when a dataset is modified by another
 -- device.
 --
--- <SubscribeToDataset.html>
+-- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SubscribeToDataset.html>
 module Network.AWS.CognitoSync.SubscribeToDataset
     (
     -- * Request

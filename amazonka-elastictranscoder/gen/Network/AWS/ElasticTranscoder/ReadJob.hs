@@ -20,7 +20,7 @@
 
 -- | The ReadJob operation returns detailed information about a job.
 --
--- <ReadJob.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadJob.html>
 module Network.AWS.ElasticTranscoder.ReadJob
     (
     -- * Request

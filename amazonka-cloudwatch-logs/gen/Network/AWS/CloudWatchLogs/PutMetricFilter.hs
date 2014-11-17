@@ -22,7 +22,7 @@
 -- group. Metric filters allow you to configure rules to extract metric data
 -- from log events ingested through PutLogEvents requests.
 --
--- <PutMetricFilter.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutMetricFilter.html>
 module Network.AWS.CloudWatchLogs.PutMetricFilter
     (
     -- * Request

@@ -22,7 +22,7 @@
 -- cache cluster run the same protocol-compliant cache engine software, either
 -- Memcached or Redis.
 --
--- <CreateCacheCluster.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html>
 module Network.AWS.ElastiCache.CreateCacheCluster
     (
     -- * Request

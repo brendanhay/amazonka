@@ -22,7 +22,7 @@
 -- understand the implications of changing a group's path or name. For more
 -- information, see Renaming Users and Groups in the Using IAM guide.
 --
--- <UpdateGroup.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateGroup.html>
 module Network.AWS.IAM.UpdateGroup
     (
     -- * Request

@@ -32,7 +32,7 @@
 -- For more information, see Using IAM to Manage Access to Amazon SWF
 -- Workflows.
 --
--- <RespondDecisionTaskCompleted.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondDecisionTaskCompleted.html>
 module Network.AWS.SWF.RespondDecisionTaskCompleted
     (
     -- * Request

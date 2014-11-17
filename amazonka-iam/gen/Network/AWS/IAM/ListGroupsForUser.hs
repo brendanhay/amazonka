@@ -21,7 +21,7 @@
 -- | Lists the groups the specified user belongs to. You can paginate the
 -- results using the MaxItems and Marker parameters.
 --
--- <ListGroupsForUser.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupsForUser.html>
 module Network.AWS.IAM.ListGroupsForUser
     (
     -- * Request

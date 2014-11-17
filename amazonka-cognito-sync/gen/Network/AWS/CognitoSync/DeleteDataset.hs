@@ -23,7 +23,7 @@
 -- no longer report the merge. Any consequent operation on this dataset will
 -- result in a ResourceNotFoundException.
 --
--- <DeleteDataset.html>
+-- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DeleteDataset.html>
 module Network.AWS.CognitoSync.DeleteDataset
     (
     -- * Request

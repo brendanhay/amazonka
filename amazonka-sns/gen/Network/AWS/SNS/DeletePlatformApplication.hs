@@ -22,7 +22,7 @@
 -- notification services, such as APNS and GCM. For more information, see
 -- Using Amazon SNS Mobile Push Notifications.
 --
--- <DeletePlatformApplication.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_DeletePlatformApplication.html>
 module Network.AWS.SNS.DeletePlatformApplication
     (
     -- * Request

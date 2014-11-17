@@ -26,7 +26,7 @@
 -- state to switch to detached before you can delete the VPC or attach a
 -- different VPC to the virtual private gateway.
 --
--- <DetachVpnGateway.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVpnGateway.html>
 module Network.AWS.EC2.DetachVpnGateway
     (
     -- * Request

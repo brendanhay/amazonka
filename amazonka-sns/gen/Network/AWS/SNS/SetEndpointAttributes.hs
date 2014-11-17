@@ -22,7 +22,7 @@
 -- push notification services, such as GCM and APNS. For more information, see
 -- Using Amazon SNS Mobile Push Notifications.
 --
--- <SetEndpointAttributes.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html>
 module Network.AWS.SNS.SetEndpointAttributes
     (
     -- * Request

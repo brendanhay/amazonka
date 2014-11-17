@@ -20,7 +20,7 @@
 
 -- | Creates a new deployment configuration.
 --
--- <CreateDeploymentConfig.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentConfig.html>
 module Network.AWS.CodeDeploy.CreateDeploymentConfig
     (
     -- * Request

@@ -22,7 +22,7 @@
 -- interconnect ID is provided, it will only return this particular
 -- interconnect.
 --
--- <DescribeInterconnects.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnects.html>
 module Network.AWS.DirectConnect.DescribeInterconnects
     (
     -- * Request

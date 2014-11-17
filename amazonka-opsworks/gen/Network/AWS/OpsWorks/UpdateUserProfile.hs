@@ -23,7 +23,7 @@
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- <UpdateUserProfile.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateUserProfile.html>
 module Network.AWS.OpsWorks.UpdateUserProfile
     (
     -- * Request

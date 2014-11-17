@@ -22,7 +22,7 @@
 -- snapshot. For more information about working with snapshots, go to Amazon
 -- Redshift Snapshots in the Amazon Redshift Management Guide.
 --
--- <AuthorizeSnapshotAccess.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeSnapshotAccess.html>
 module Network.AWS.Redshift.AuthorizeSnapshotAccess
     (
     -- * Request

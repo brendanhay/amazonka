@@ -20,7 +20,7 @@
 
 -- | Cancels a bundling operation for an instance store-backed Windows instance.
 --
--- <CancelBundleTask.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelBundleTask.html>
 module Network.AWS.EC2.CancelBundleTask
     (
     -- * Request

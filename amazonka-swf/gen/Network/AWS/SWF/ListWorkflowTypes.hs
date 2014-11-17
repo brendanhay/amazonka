@@ -30,7 +30,7 @@
 -- by throwing OperationNotPermitted. For details and example IAM policies,
 -- see Using IAM to Manage Access to Amazon SWF Workflows.
 --
--- <ListWorkflowTypes.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListWorkflowTypes.html>
 module Network.AWS.SWF.ListWorkflowTypes
     (
     -- * Request

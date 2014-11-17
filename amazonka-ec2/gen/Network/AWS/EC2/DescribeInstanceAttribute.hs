@@ -24,7 +24,7 @@
 -- instanceInitiatedShutdownBehavior | rootDeviceName | blockDeviceMapping |
 -- productCodes | sourceDestCheck | groupSet | ebsOptimized | sriovNetSupport.
 --
--- <DescribeInstanceAttribute.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceAttribute.html>
 module Network.AWS.EC2.DescribeInstanceAttribute
     (
     -- * Request

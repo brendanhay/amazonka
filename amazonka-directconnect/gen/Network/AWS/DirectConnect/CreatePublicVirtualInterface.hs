@@ -23,7 +23,7 @@
 -- supports sending traffic to public services of AWS such as Amazon Simple
 -- Storage Service (Amazon S3).
 --
--- <CreatePublicVirtualInterface.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePublicVirtualInterface.html>
 module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     (
     -- * Request

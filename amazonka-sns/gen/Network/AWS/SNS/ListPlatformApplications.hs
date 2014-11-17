@@ -27,7 +27,7 @@
 -- previous call. When there are no more records to return, NextToken will be
 -- null. For more information, see Using Amazon SNS Mobile Push Notifications.
 --
--- <ListPlatformApplications.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html>
 module Network.AWS.SNS.ListPlatformApplications
     (
     -- * Request

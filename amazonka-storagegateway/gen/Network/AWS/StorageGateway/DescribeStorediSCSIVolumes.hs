@@ -23,7 +23,7 @@
 -- gateway. In the response Amazon Storage Gateway returns volume information
 -- sorted by volume ARNs.
 --
--- <DescribeStorediSCSIVolumes.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeStorediSCSIVolumes.html>
 module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     (
     -- * Request

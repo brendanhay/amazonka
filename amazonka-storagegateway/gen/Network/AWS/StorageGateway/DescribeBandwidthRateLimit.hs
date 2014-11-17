@@ -26,7 +26,7 @@
 -- which gateway to describe, use the Amazon Resource Name (ARN) of the
 -- gateway in your request.
 --
--- <DescribeBandwidthRateLimit.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeBandwidthRateLimit.html>
 module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     (
     -- * Request

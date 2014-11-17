@@ -20,7 +20,7 @@
 
 -- | Get the information about an invalidation.
 --
--- <GetInvalidation.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetInvalidation.html>
 module Network.AWS.CloudFront.GetInvalidation
     (
     -- * Request

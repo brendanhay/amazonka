@@ -22,7 +22,7 @@
 -- can view and modify the logging parameters. To set the logging status of a
 -- bucket, you must be the bucket owner.
 --
--- <PutBucketLogging.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLogging.html>
 module Network.AWS.S3.PutBucketLogging
     (
     -- * Request

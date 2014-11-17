@@ -25,7 +25,7 @@
 -- the response body. You can also limit the number of log streams returned in
 -- the response by specifying the limit parameter in the request.
 --
--- <DescribeLogStreams.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html>
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
     (
     -- * Request

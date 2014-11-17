@@ -25,7 +25,7 @@
 -- IAM role, checks read access to the input and output buckets, and tries to
 -- send a test notification to Amazon SNS topics that you specify.
 --
--- <TestRole.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/TestRole.html>
 module Network.AWS.ElasticTranscoder.TestRole
     (
     -- * Request

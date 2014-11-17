@@ -27,7 +27,7 @@
 -- retrieve the full pipeline definition instead of metadata about the
 -- pipeline, call the GetPipelineDefinition action.
 --
--- <DescribePipelines.html>
+-- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html>
 module Network.AWS.DataPipeline.DescribePipelines
     (
     -- * Request

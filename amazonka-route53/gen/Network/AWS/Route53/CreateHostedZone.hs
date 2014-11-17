@@ -35,7 +35,7 @@
 -- would assign those 4 NS records for the zone, instead of alloting a new
 -- one.
 --
--- <CreateHostedZone.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html>
 module Network.AWS.Route53.CreateHostedZone
     (
     -- * Request

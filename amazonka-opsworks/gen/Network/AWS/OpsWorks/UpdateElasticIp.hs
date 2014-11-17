@@ -24,7 +24,7 @@
 -- that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- <UpdateElasticIp.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateElasticIp.html>
 module Network.AWS.OpsWorks.UpdateElasticIp
     (
     -- * Request

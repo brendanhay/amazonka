@@ -21,7 +21,7 @@
 -- | The DescribeCacheParameters operation returns the detailed parameter list
 -- for a particular cache parameter group.
 --
--- <DescribeCacheParameters.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameters.html>
 module Network.AWS.ElastiCache.DescribeCacheParameters
     (
     -- * Request

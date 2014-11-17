@@ -20,7 +20,7 @@
 
 -- | Attempts to stop an ongoing deployment.
 --
--- <StopDeployment.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_StopDeployment.html>
 module Network.AWS.CodeDeploy.StopDeployment
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Deletes a deployment group.
 --
--- <DeleteDeploymentGroup.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentGroup.html>
 module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     (
     -- * Request

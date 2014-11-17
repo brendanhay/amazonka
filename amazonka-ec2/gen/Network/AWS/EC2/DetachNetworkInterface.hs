@@ -20,7 +20,7 @@
 
 -- | Detaches a network interface from an instance.
 --
--- <DetachNetworkInterface.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachNetworkInterface.html>
 module Network.AWS.EC2.DetachNetworkInterface
     (
     -- * Request

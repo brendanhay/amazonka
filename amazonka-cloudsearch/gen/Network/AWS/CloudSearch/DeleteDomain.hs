@@ -22,7 +22,7 @@
 -- been deleted, it cannot be recovered. For more information, see Deleting a
 -- Search Domain in the Amazon CloudSearch Developer Guide.
 --
--- <DeleteDomain.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteDomain.html>
 module Network.AWS.CloudSearch.DeleteDomain
     (
     -- * Request

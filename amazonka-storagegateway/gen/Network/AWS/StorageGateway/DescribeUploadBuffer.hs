@@ -24,7 +24,7 @@
 -- upload buffer space, and it includes the amount of upload buffer space
 -- allocated and used.
 --
--- <DescribeUploadBuffer.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeUploadBuffer.html>
 module Network.AWS.StorageGateway.DescribeUploadBuffer
     (
     -- * Request

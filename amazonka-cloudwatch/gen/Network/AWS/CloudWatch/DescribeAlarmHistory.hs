@@ -22,7 +22,7 @@
 -- item type. If an alarm name is not specified, Amazon CloudWatch returns
 -- histories for all of the owner's alarms.
 --
--- <DescribeAlarmHistory.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html>
 module Network.AWS.CloudWatch.DescribeAlarmHistory
     (
     -- * Request

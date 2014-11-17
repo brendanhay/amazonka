@@ -20,7 +20,7 @@
 
 -- | Lists the parts that have been uploaded for a specific multipart upload.
 --
--- <ListParts.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListParts.html>
 module Network.AWS.S3.ListParts
     (
     -- * Request

@@ -22,7 +22,7 @@
 -- table, when it was created, the primary key schema, and any indexes on the
 -- table.
 --
--- <DescribeTable.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html>
 module Network.AWS.DynamoDB.DescribeTable
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | The CancelJob operation cancels an unfinished job.
 --
--- <CancelJob.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CancelJob.html>
 module Network.AWS.ElasticTranscoder.CancelJob
     (
     -- * Request

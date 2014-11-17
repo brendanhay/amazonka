@@ -20,7 +20,7 @@
 
 -- | Allows a topic owner to set an attribute of the topic to a new value.
 --
--- <SetTopicAttributes.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_SetTopicAttributes.html>
 module Network.AWS.SNS.SetTopicAttributes
     (
     -- * Request

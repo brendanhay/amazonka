@@ -23,7 +23,7 @@
 -- a product code owner needs to verify whether another user's instance is
 -- eligible for support.
 --
--- <ConfirmProductInstance.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ConfirmProductInstance.html>
 module Network.AWS.EC2.ConfirmProductInstance
     (
     -- * Request

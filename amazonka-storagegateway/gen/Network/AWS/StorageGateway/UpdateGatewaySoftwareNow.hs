@@ -26,7 +26,7 @@
 -- for Windows and Linux, see Customizing Your Windows iSCSI Settings and
 -- Customizing Your Linux iSCSI Settings, respectively.
 --
--- <UpdateGatewaySoftwareNow.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.html>
 module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     (
     -- * Request

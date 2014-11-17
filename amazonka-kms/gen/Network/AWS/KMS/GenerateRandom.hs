@@ -20,7 +20,7 @@
 
 -- | Generates an unpredictable byte string.
 --
--- <GenerateRandom.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html>
 module Network.AWS.KMS.GenerateRandom
     (
     -- * Request

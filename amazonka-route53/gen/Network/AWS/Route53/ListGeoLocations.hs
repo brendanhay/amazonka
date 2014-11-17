@@ -31,7 +31,7 @@
 -- StartCountryCode, StartSubdivisionCode to control the geo location that the
 -- list begins with.
 --
--- <ListGeoLocations.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html>
 module Network.AWS.Route53.ListGeoLocations
     (
     -- * Request

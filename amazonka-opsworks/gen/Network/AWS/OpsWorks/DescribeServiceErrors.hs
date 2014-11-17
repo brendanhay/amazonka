@@ -23,7 +23,7 @@
 -- for the stack, or an attached policy that explicitly grants permissions.
 -- For more information on user permissions, see Managing User Permissions.
 --
--- <DescribeServiceErrors.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeServiceErrors.html>
 module Network.AWS.OpsWorks.DescribeServiceErrors
     (
     -- * Request

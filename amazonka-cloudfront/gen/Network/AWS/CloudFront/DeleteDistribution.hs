@@ -20,7 +20,7 @@
 
 -- | Delete a distribution.
 --
--- <DeleteDistribution.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteDistribution.html>
 module Network.AWS.CloudFront.DeleteDistribution
     (
     -- * Request

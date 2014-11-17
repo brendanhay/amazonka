@@ -20,7 +20,7 @@
 
 -- | Updates the specified application to have the specified properties.
 --
--- <UpdateApplication.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplication.html>
 module Network.AWS.ElasticBeanstalk.UpdateApplication
     (
     -- * Request

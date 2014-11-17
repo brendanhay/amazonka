@@ -22,7 +22,7 @@
 -- Markers) in the bucket must be deleted before the bucket itself can be
 -- deleted.
 --
--- <DeleteBucket.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucket.html>
 module Network.AWS.S3.DeleteBucket
     (
     -- * Request

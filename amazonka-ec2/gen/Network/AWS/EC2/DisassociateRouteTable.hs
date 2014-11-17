@@ -23,7 +23,7 @@
 -- the routes in the VPC's main route table. For more information about route
 -- tables, see Route Tables in the Amazon Virtual Private Cloud User Guide.
 --
--- <DisassociateRouteTable.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisassociateRouteTable.html>
 module Network.AWS.EC2.DisassociateRouteTable
     (
     -- * Request

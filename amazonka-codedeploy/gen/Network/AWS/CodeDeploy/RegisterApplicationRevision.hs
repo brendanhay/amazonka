@@ -20,7 +20,7 @@
 
 -- | Registers with AWS CodeDeploy a revision for the specified application.
 --
--- <RegisterApplicationRevision.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterApplicationRevision.html>
 module Network.AWS.CodeDeploy.RegisterApplicationRevision
     (
     -- * Request

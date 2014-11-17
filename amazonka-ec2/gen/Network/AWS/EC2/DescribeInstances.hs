@@ -27,7 +27,7 @@
 -- appear in the returned results. This interval is usually less than one
 -- hour.
 --
--- <DescribeInstances.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html>
 module Network.AWS.EC2.DescribeInstances
     (
     -- * Request

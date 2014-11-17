@@ -20,7 +20,7 @@
 
 -- | Deletes the lifecycle configuration from the bucket.
 --
--- <DeleteBucketLifecycle.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketLifecycle.html>
 module Network.AWS.S3.DeleteBucketLifecycle
     (
     -- * Request

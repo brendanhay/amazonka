@@ -32,7 +32,7 @@
 -- creating DNS records using DKIM tokens, go to the Amazon SES Developer
 -- Guide.
 --
--- <GetIdentityDkimAttributes.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityDkimAttributes.html>
 module Network.AWS.SES.GetIdentityDkimAttributes
     (
     -- * Request

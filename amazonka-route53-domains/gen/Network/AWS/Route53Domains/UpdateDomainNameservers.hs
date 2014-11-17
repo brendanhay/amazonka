@@ -26,7 +26,7 @@
 -- request is not completed successfully, the domain registrant will be
 -- notified by email.
 --
--- <UpdateDomainNameservers.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainNameservers.html>
 module Network.AWS.Route53Domains.UpdateDomainNameservers
     (
     -- * Request

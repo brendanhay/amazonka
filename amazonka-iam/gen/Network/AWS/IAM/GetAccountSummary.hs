@@ -22,7 +22,7 @@
 -- quotas. For information about limitations on IAM entities, see Limitations
 -- on IAM Entities in the Using IAM guide.
 --
--- <GetAccountSummary.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html>
 module Network.AWS.IAM.GetAccountSummary
     (
     -- * Request

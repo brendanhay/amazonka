@@ -21,7 +21,7 @@
 -- | Creates an application that has one configuration template named default
 -- and no application versions.
 --
--- <CreateApplication.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html>
 module Network.AWS.ElasticBeanstalk.CreateApplication
     (
     -- * Request

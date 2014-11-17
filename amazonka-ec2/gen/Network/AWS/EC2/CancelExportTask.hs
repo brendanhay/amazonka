@@ -23,7 +23,7 @@
 -- task is complete or is in the process of transferring the final disk image,
 -- the command fails and returns an error.
 --
--- <CancelExportTask.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelExportTask.html>
 module Network.AWS.EC2.CancelExportTask
     (
     -- * Request

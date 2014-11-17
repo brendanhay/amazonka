@@ -24,7 +24,7 @@
 -- groups, go to Amazon Redshift Cluster Subnet Groups in the Amazon Redshift
 -- Management Guide.
 --
--- <CreateClusterSubnetGroup.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSubnetGroup.html>
 module Network.AWS.Redshift.CreateClusterSubnetGroup
     (
     -- * Request

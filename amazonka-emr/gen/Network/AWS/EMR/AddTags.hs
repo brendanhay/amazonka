@@ -23,7 +23,7 @@
 -- EMR resource allocation costs. For more information, see Tagging Amazon EMR
 -- Resources.
 --
--- <AddTags.html>
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddTags.html>
 module Network.AWS.EMR.AddTags
     (
     -- * Request

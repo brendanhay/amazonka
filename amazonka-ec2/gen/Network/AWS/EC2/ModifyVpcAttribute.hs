@@ -20,7 +20,7 @@
 
 -- | Modifies the specified attribute of the specified VPC.
 --
--- <ModifyVpcAttribute.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVpcAttribute.html>
 module Network.AWS.EC2.ModifyVpcAttribute
     (
     -- * Request

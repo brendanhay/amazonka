@@ -25,7 +25,7 @@
 -- more information, see Regions and Availability Zones in the Amazon Elastic
 -- Compute Cloud User Guide.
 --
--- <DescribeAvailabilityZones.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAvailabilityZones.html>
 module Network.AWS.EC2.DescribeAvailabilityZones
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Lists the applications registered within the AWS user account.
 --
--- <ListApplications.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplications.html>
 module Network.AWS.CodeDeploy.ListApplications
     (
     -- * Request

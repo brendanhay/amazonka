@@ -22,7 +22,7 @@
 -- endpoint. The output from ListTables is paginated, with each page returning
 -- a maximum of 100 table names.
 --
--- <ListTables.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html>
 module Network.AWS.DynamoDB.ListTables
     (
     -- * Request

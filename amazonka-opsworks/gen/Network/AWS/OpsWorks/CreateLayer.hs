@@ -24,7 +24,7 @@
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- <CreateLayer.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateLayer.html>
 module Network.AWS.OpsWorks.CreateLayer
     (
     -- * Request

@@ -25,7 +25,7 @@
 -- Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/'
 -- (forward slash), and '.' (period).
 --
--- <CreateLogGroup.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogGroup.html>
 module Network.AWS.CloudWatchLogs.CreateLogGroup
     (
     -- * Request

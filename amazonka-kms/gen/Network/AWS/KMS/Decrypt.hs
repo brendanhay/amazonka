@@ -21,7 +21,7 @@
 -- | Decrypts ciphertext. Ciphertext is plaintext that has been previously
 -- encrypted by using the Encrypt function.
 --
--- <Decrypt.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html>
 module Network.AWS.KMS.Decrypt
     (
     -- * Request

@@ -21,7 +21,7 @@
 -- | Indexes the search suggestions. For more information, see Configuring
 -- Suggesters in the Amazon CloudSearch Developer Guide.
 --
--- <BuildSuggesters.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_BuildSuggesters.html>
 module Network.AWS.CloudSearch.BuildSuggesters
     (
     -- * Request

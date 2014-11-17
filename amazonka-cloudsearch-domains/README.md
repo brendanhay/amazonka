@@ -11,7 +11,7 @@
 Pending
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudsearch-domains)
-and [AWS API Reference]().
+and [AWS API Reference](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html).
 
 
 ## Contribute

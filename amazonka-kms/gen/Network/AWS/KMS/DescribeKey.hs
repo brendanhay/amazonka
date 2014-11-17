@@ -20,7 +20,7 @@
 
 -- | Provides detailed information about the specified customer master key.
 --
--- <DescribeKey.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html>
 module Network.AWS.KMS.DescribeKey
     (
     -- * Request

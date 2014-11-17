@@ -20,7 +20,7 @@
 
 -- | Returns the detailed parameter list for a particular DB parameter group.
 --
--- <DescribeDBParameters.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameters.html>
 module Network.AWS.RDS.DescribeDBParameters
     (
     -- * Request

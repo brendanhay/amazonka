@@ -21,7 +21,7 @@
 -- | Retrieves the password policy for the AWS account. For more information
 -- about using a password policy, go to Managing an IAM Password Policy.
 --
--- <GetAccountPasswordPolicy.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountPasswordPolicy.html>
 module Network.AWS.IAM.GetAccountPasswordPolicy
     (
     -- * Request

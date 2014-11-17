@@ -47,7 +47,7 @@
 -- OperationNotPermitted. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
 --
--- <PollForDecisionTask.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForDecisionTask.html>
 module Network.AWS.SWF.PollForDecisionTask
     (
     -- * Request

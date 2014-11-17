@@ -33,7 +33,7 @@
 -- error. For more information, see Stopping Instances in the Amazon Elastic
 -- Compute Cloud User Guide.
 --
--- <StartInstances.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StartInstances.html>
 module Network.AWS.EC2.StartInstances
     (
     -- * Request

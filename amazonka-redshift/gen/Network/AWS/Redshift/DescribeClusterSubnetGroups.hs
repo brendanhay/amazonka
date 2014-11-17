@@ -23,7 +23,7 @@
 -- information about all cluster subnet groups that are defined in you AWS
 -- account.
 --
--- <DescribeClusterSubnetGroups.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSubnetGroups.html>
 module Network.AWS.Redshift.DescribeClusterSubnetGroups
     (
     -- * Request

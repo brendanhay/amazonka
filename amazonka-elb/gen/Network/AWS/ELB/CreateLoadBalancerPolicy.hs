@@ -23,7 +23,7 @@
 -- balancer and that can be applied to the front-end listener, or the back-end
 -- application server, depending on your policy type.
 --
--- <CreateLoadBalancerPolicy.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerPolicy.html>
 module Network.AWS.ELB.CreateLoadBalancerPolicy
     (
     -- * Request

@@ -17,14 +17,14 @@ module Network.AWS.Data.Internal.JSON
     , (.:?)
 
     -- * Re-exported
-    , FromJSON (..)
+    , FromJSON     (..)
     , genericParseJSON
 
-    , ToJSON   (..)
+    , ToJSON       (..)
     , genericToJSON
     , encode
 
-    , Options  (..)
+    , AesonOptions (..)
     , defaultOptions
     ) where
 
@@ -33,6 +33,8 @@ import           Data.Aeson.Types    hiding ((.:), (.:?))
 import           Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
 import           Data.Text           (Text)
+
+type AesonOptions = Options
 
 (.:) :: FromJSON a => Object -> Text -> Either String a
 o .: k =

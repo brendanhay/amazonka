@@ -24,7 +24,7 @@
 -- the initial status of all change batch requests. - INSYNC indicates that
 -- the changes have replicated to all Amazon Route 53 DNS servers.
 --
--- <GetChange.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html>
 module Network.AWS.Route53.GetChange
     (
     -- * Request

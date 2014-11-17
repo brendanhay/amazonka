@@ -24,7 +24,7 @@
 -- information, see Using the Command Line Tools to Import Your Virtual
 -- Machine to Amazon EC2 in the Amazon Elastic Compute Cloud User Guide.
 --
--- <ImportVolume.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportVolume.html>
 module Network.AWS.EC2.ImportVolume
     (
     -- * Request

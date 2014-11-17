@@ -20,7 +20,7 @@
 
 -- | The CopySnapshot operation makes a copy of an existing snapshot.
 --
--- <CopySnapshot.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CopySnapshot.html>
 module Network.AWS.ElastiCache.CopySnapshot
     (
     -- * Request

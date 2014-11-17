@@ -20,7 +20,7 @@
 
 -- | Copies the specified DBParameterGroup.
 --
--- <CopyDBParameterGroup.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBParameterGroup.html>
 module Network.AWS.RDS.CopyDBParameterGroup
     (
     -- * Request

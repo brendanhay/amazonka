@@ -34,7 +34,7 @@
 -- propagated to affected instances as quickly as possible. However, a small
 -- delay might occur.
 --
--- <AuthorizeSecurityGroupEgress.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html>
 module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     (
     -- * Request

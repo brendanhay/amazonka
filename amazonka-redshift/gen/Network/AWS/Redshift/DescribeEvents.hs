@@ -24,7 +24,7 @@
 -- providing the name as a parameter. By default, the past hour of events are
 -- returned.
 --
--- <DescribeEvents.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEvents.html>
 module Network.AWS.Redshift.DescribeEvents
     (
     -- * Request

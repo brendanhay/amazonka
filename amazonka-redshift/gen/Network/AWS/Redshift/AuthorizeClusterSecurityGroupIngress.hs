@@ -30,7 +30,7 @@
 -- about managing security groups, go to Working with Security Groups in the
 -- Amazon Redshift Management Guide.
 --
--- <AuthorizeClusterSecurityGroupIngress.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeClusterSecurityGroupIngress.html>
 module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     (
     -- * Request

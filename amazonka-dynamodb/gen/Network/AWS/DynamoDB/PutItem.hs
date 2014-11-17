@@ -35,7 +35,7 @@
 -- description below. For more information about using this API, see Working
 -- with Items in the Amazon DynamoDB Developer Guide.
 --
--- <PutItem.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html>
 module Network.AWS.DynamoDB.PutItem
     (
     -- * Request

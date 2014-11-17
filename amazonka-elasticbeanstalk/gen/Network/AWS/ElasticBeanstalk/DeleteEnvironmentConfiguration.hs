@@ -26,7 +26,7 @@
 -- whether the deployment is in process or has failed. The draft configuration
 -- remains in existence until it is deleted with this action.
 --
--- <DeleteEnvironmentConfiguration.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteEnvironmentConfiguration.html>
 module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     (
     -- * Request

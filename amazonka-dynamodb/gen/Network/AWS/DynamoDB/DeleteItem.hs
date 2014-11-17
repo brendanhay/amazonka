@@ -29,7 +29,7 @@
 -- conditions are met, DynamoDB performs the delete. Otherwise, the item is
 -- not deleted.
 --
--- <DeleteItem.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html>
 module Network.AWS.DynamoDB.DeleteItem
     (
     -- * Request

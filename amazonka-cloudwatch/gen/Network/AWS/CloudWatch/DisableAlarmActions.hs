@@ -22,7 +22,7 @@
 -- disabled the alarm's state may change, but none of the alarm's actions will
 -- execute.
 --
--- <DisableAlarmActions.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.html>
 module Network.AWS.CloudWatch.DisableAlarmActions
     (
     -- * Request

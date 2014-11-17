@@ -24,7 +24,7 @@
 -- console. This operation requires permission for the lambda:InvokeAsync
 -- action.
 --
--- <InvokeAsync.html>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/API_InvokeAsync.html>
 module Network.AWS.Lambda.InvokeAsync
     (
     -- * Request

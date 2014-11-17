@@ -35,7 +35,7 @@
 -- endpoints are also displayed on the domain dashboard in the Amazon
 -- CloudSearch console.
 --
--- <Search.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Search.html>
 module Network.AWS.CloudSearchDomains.Search
     (
     -- * Request

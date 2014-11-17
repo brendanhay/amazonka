@@ -24,7 +24,7 @@
 -- VerifyEmailIdentity action is now preferred. This action is throttled at
 -- one request per second.
 --
--- <VerifyEmailAddress.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailAddress.html>
 module Network.AWS.SES.VerifyEmailAddress
     (
     -- * Request

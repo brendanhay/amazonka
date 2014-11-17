@@ -20,7 +20,7 @@
 
 -- | Gets information about an application revision.
 --
--- <GetApplicationRevision.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplicationRevision.html>
 module Network.AWS.CodeDeploy.GetApplicationRevision
     (
     -- * Request

@@ -23,7 +23,7 @@
 -- ID in the Using IAM guide. You can paginate the results using the MaxItems
 -- and Marker parameters.
 --
--- <ListAccountAliases.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliases.html>
 module Network.AWS.IAM.ListAccountAliases
     (
     -- * Request

@@ -30,7 +30,7 @@
 -- action for the IAM role. It also requires permission for the
 -- lambda:AddEventSource action.
 --
--- <AddEventSource.html>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/API_AddEventSource.html>
 module Network.AWS.Lambda.AddEventSource
     (
     -- * Request

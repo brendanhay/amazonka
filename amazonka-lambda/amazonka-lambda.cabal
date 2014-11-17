@@ -26,7 +26,7 @@ description:
     scale automatically from a few requests per day to thousands per
     second.
     .
-    /See:/ < AWS API Reference>
+    /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html AWS API Reference>
     .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!

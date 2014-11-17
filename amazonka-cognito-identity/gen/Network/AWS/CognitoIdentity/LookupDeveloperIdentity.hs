@@ -28,7 +28,7 @@
 -- values and is the same as the request. Otherwise a
 -- ResourceConflictException is thrown.
 --
--- <LookupDeveloperIdentity.html>
+-- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_LookupDeveloperIdentity.html>
 module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     (
     -- * Request

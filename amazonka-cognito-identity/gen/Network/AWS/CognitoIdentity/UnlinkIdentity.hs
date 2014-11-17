@@ -22,7 +22,7 @@
 -- be considered new identities next time they are seen. Removing the last
 -- linked login will make this identity inaccessible.
 --
--- <UnlinkIdentity.html>
+-- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkIdentity.html>
 module Network.AWS.CognitoIdentity.UnlinkIdentity
     (
     -- * Request

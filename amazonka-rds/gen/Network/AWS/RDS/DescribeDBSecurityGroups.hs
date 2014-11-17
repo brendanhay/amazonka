@@ -22,7 +22,7 @@
 -- specified, the list will contain only the descriptions of the specified DB
 -- security group.
 --
--- <DescribeDBSecurityGroups.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSecurityGroups.html>
 module Network.AWS.RDS.DescribeDBSecurityGroups
     (
     -- * Request

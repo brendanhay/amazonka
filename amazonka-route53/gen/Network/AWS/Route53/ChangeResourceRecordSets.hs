@@ -39,7 +39,7 @@
 -- elements. The sum of the number of characters (including spaces) in all
 -- Value elements in a request cannot exceed 32,000 characters.
 --
--- <ChangeResourceRecordSets.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html>
 module Network.AWS.Route53.ChangeResourceRecordSets
     (
     -- * Request

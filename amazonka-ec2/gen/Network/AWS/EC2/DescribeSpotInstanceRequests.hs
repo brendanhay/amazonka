@@ -30,7 +30,7 @@
 -- identifier of the instance. Alternatively, you can use DescribeInstances
 -- with a filter to look for instances where the instance lifecycle is spot.
 --
--- <DescribeSpotInstanceRequests.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotInstanceRequests.html>
 module Network.AWS.EC2.DescribeSpotInstanceRequests
     (
     -- * Request

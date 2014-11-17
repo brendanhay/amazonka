@@ -34,7 +34,7 @@
 -- For details and example IAM policies, see Using IAM to Manage Access to
 -- Amazon SWF Workflows.
 --
--- <DeprecateActivityType.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateActivityType.html>
 module Network.AWS.SWF.DeprecateActivityType
     (
     -- * Request

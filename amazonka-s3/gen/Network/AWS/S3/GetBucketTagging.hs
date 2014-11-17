@@ -20,7 +20,7 @@
 
 -- | Returns the tag set associated with the bucket.
 --
--- <GetBucketTagging.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketTagging.html>
 module Network.AWS.S3.GetBucketTagging
     (
     -- * Request

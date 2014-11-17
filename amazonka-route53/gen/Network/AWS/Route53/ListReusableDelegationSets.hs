@@ -28,7 +28,7 @@
 -- maximum of 100 items. If you set MaxItems to a value greater than 100,
 -- Amazon Route 53 returns only the first 100.
 --
--- <ListReusableDelegationSets.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListReusableDelegationSets.html>
 module Network.AWS.Route53.ListReusableDelegationSets
     (
     -- * Request

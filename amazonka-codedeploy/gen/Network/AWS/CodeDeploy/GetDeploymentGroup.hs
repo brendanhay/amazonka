@@ -20,7 +20,7 @@
 
 -- | Gets information about a deployment group.
 --
--- <GetDeploymentGroup.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentGroup.html>
 module Network.AWS.CodeDeploy.GetDeploymentGroup
     (
     -- * Request

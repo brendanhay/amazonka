@@ -23,7 +23,7 @@
 -- template for up to 90 days after the stack has been deleted. If the
 -- template does not exist, a ValidationError is returned.
 --
--- <GetTemplate.html>
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html>
 module Network.AWS.CloudFormation.GetTemplate
     (
     -- * Request

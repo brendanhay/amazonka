@@ -21,7 +21,7 @@
 -- | Adds a statement to a topic's access control policy, granting access for
 -- the specified AWS accounts to the specified actions.
 --
--- <AddPermission.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_AddPermission.html>
 module Network.AWS.SNS.AddPermission
     (
     -- * Request

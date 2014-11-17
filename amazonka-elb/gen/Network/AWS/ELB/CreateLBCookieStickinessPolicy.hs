@@ -33,7 +33,7 @@
 -- more information, see Enabling Duration-Based Session Stickiness in the
 -- Elastic Load Balancing Developer Guide.
 --
--- <CreateLBCookieStickinessPolicy.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLBCookieStickinessPolicy.html>
 module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     (
     -- * Request

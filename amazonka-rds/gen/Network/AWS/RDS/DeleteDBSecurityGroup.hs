@@ -20,7 +20,7 @@
 
 -- | Deletes a DB security group.
 --
--- <DeleteDBSecurityGroup.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSecurityGroup.html>
 module Network.AWS.RDS.DeleteDBSecurityGroup
     (
     -- * Request

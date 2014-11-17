@@ -25,7 +25,7 @@
 -- UpdateHealthCheckResponse element, which contains metadata about the health
 -- check.
 --
--- <UpdateHealthCheck.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html>
 module Network.AWS.Route53.UpdateHealthCheck
     (
     -- * Request

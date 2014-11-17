@@ -27,7 +27,7 @@
 -- AssociateVPCWithHostedZoneRequest you made. See GetChange operation for how
 -- to track the progress of your change.
 --
--- <AssociateVPCWithHostedZone.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html>
 module Network.AWS.Route53.AssociateVPCWithHostedZone
     (
     -- * Request

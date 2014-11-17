@@ -29,7 +29,7 @@
 -- you provision your virtual device, you should ensure that the information
 -- is destroyed following secure procedures.
 --
--- <CreateVirtualMFADevice.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html>
 module Network.AWS.IAM.CreateVirtualMFADevice
     (
     -- * Request

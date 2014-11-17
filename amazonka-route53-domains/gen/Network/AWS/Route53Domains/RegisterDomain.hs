@@ -36,7 +36,7 @@
 -- based on the top-level domain. For more information, see Amazon Route 53
 -- Pricing.
 --
--- <RegisterDomain.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-RegisterDomain.html>
 module Network.AWS.Route53Domains.RegisterDomain
     (
     -- * Request

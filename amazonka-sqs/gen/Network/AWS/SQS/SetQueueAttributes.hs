@@ -23,7 +23,7 @@
 -- to propagate throughout the SQS system. Changes made to the
 -- MessageRetentionPeriod attribute can take up to 15 minutes.
 --
--- <SetQueueAttributes.html>
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SetQueueAttributes.html>
 module Network.AWS.SQS.SetQueueAttributes
     (
     -- * Request

@@ -23,7 +23,7 @@
 -- this action can be used in a CreateLoadBalancerPolicy action to instantiate
 -- specific policy configurations that will be applied to a load balancer.
 --
--- <DescribeLoadBalancerPolicyTypes.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicyTypes.html>
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
     -- * Request

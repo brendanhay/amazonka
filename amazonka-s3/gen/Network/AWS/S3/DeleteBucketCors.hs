@@ -20,7 +20,7 @@
 
 -- | Deletes the cors configuration information set for the bucket.
 --
--- <DeleteBucketCors.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketCors.html>
 module Network.AWS.S3.DeleteBucketCors
     (
     -- * Request

@@ -21,7 +21,7 @@
 -- | Unassigns one or more secondary private IP addresses from a network
 -- interface.
 --
--- <UnassignPrivateIpAddresses.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnassignPrivateIpAddresses.html>
 module Network.AWS.EC2.UnassignPrivateIpAddresses
     (
     -- * Request

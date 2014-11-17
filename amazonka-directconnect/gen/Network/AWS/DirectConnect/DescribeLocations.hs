@@ -22,7 +22,7 @@
 -- These are the locations that may be selected when calling CreateConnection
 -- or CreateInterconnect.
 --
--- <DescribeLocations.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html>
 module Network.AWS.DirectConnect.DescribeLocations
     (
     -- * Request

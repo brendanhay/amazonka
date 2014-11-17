@@ -20,7 +20,7 @@
 
 -- | Deletes the specified virtual tape from the virtual tape shelf (VTS).
 --
--- <DeleteTapeArchive.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteTapeArchive.html>
 module Network.AWS.StorageGateway.DeleteTapeArchive
     (
     -- * Request

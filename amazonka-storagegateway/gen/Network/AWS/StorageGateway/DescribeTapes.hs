@@ -22,7 +22,7 @@
 -- virtual tapes. If a TapeARN is not specified, returns a description of all
 -- virtual tapes associated with the specified gateway.
 --
--- <DescribeTapes.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapes.html>
 module Network.AWS.StorageGateway.DescribeTapes
     (
     -- * Request

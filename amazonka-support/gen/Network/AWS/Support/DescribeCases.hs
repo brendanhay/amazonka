@@ -27,7 +27,7 @@
 -- values, which specify where to paginate the returned records represented by
 -- the CaseDetails objects.
 --
--- <DescribeCases.html>
+-- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCases.html>
 module Network.AWS.Support.DescribeCases
     (
     -- * Request

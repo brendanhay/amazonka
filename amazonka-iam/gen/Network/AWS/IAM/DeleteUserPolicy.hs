@@ -20,7 +20,7 @@
 
 -- | Deletes the specified policy associated with the specified user.
 --
--- <DeleteUserPolicy.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPolicy.html>
 module Network.AWS.IAM.DeleteUserPolicy
     (
     -- * Request

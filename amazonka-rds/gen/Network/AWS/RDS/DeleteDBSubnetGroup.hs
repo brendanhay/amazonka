@@ -20,7 +20,7 @@
 
 -- | Deletes a DB subnet group.
 --
--- <DeleteDBSubnetGroup.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSubnetGroup.html>
 module Network.AWS.RDS.DeleteDBSubnetGroup
     (
     -- * Request

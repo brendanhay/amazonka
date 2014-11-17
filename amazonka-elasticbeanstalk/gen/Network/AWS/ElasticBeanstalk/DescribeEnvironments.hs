@@ -20,7 +20,7 @@
 
 -- | Returns descriptions for existing environments.
 --
--- <DescribeEnvironments.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html>
 module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     (
     -- * Request

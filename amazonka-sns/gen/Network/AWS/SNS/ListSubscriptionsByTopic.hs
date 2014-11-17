@@ -23,7 +23,7 @@
 -- subscriptions, a NextToken is also returned. Use the NextToken parameter in
 -- a new ListSubscriptionsByTopic call to get further results.
 --
--- <ListSubscriptionsByTopic.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptionsByTopic.html>
 module Network.AWS.SNS.ListSubscriptionsByTopic
     (
     -- * Request

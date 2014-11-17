@@ -22,7 +22,7 @@
 -- placement groups and cluster instances, see Cluster Instances in the Amazon
 -- Elastic Compute Cloud User Guide.
 --
--- <DescribePlacementGroups.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePlacementGroups.html>
 module Network.AWS.EC2.DescribePlacementGroups
     (
     -- * Request

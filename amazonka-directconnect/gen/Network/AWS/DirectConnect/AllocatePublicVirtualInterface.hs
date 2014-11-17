@@ -26,7 +26,7 @@
 -- completed, the virtual interface will be in 'Confirming' state, and will
 -- not be available for handling traffic.
 --
--- <AllocatePublicVirtualInterface.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePublicVirtualInterface.html>
 module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     (
     -- * Request

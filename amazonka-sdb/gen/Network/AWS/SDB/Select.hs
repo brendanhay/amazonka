@@ -28,7 +28,7 @@
 -- of results. For information on how to construct select expressions, see
 -- Using Select to Create Amazon SimpleDB Queries in the Developer Guide.
 --
--- <Select.html>
+-- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_Select.html>
 module Network.AWS.SDB.Select
     (
     -- * Request

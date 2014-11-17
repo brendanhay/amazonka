@@ -21,7 +21,7 @@
 -- | Returns information about provisioned RDS instances. This API supports
 -- pagination.
 --
--- <DescribeDBInstances.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html>
 module Network.AWS.RDS.DescribeDBInstances
     (
     -- * Request

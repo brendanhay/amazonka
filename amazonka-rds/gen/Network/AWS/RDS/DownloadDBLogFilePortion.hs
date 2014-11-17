@@ -20,7 +20,7 @@
 
 -- | Downloads all or a portion of the specified log file.
 --
--- <DownloadDBLogFilePortion.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DownloadDBLogFilePortion.html>
 module Network.AWS.RDS.DownloadDBLogFilePortion
     (
     -- * Request

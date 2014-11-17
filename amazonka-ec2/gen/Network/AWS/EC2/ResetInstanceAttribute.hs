@@ -27,7 +27,7 @@
 -- information, see NAT Instances in the Amazon Virtual Private Cloud User
 -- Guide.
 --
--- <ResetInstanceAttribute.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetInstanceAttribute.html>
 module Network.AWS.EC2.ResetInstanceAttribute
     (
     -- * Request

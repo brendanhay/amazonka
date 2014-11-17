@@ -26,7 +26,7 @@
 -- This API cannot be used to delete a cache cluster that is the last read
 -- replica of a replication group that has automatic failover mode enabled.
 --
--- <DeleteCacheCluster.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html>
 module Network.AWS.ElastiCache.DeleteCacheCluster
     (
     -- * Request

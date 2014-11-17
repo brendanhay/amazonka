@@ -20,7 +20,7 @@
 
 -- | Set the website configuration for a bucket.
 --
--- <PutBucketWebsite.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketWebsite.html>
 module Network.AWS.S3.PutBucketWebsite
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Attaches a network interface to an instance.
 --
--- <AttachNetworkInterface.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachNetworkInterface.html>
 module Network.AWS.EC2.AttachNetworkInterface
     (
     -- * Request

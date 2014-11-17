@@ -20,7 +20,7 @@
 
 -- | Deletes the specified configuration template.
 --
--- <DeleteConfigurationTemplate.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteConfigurationTemplate.html>
 module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     (
     -- * Request

@@ -22,7 +22,7 @@
 -- Marketplace. For more information, see Reserved Instance Marketplace in the
 -- Amazon Elastic Compute Cloud User Guide.
 --
--- <CancelReservedInstancesListing.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelReservedInstancesListing.html>
 module Network.AWS.EC2.CancelReservedInstancesListing
     (
     -- * Request

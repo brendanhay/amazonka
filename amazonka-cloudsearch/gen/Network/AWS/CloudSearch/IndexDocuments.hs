@@ -22,7 +22,7 @@
 -- indexing options. This operation must be invoked to activate options whose
 -- OptionStatus is RequiresIndexDocuments.
 --
--- <IndexDocuments.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_IndexDocuments.html>
 module Network.AWS.CloudSearch.IndexDocuments
     (
     -- * Request

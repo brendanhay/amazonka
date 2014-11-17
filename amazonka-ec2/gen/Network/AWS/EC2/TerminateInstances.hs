@@ -34,7 +34,7 @@
 -- Guide. For more information about troubleshooting, see Troubleshooting
 -- Terminating Your Instance in the Amazon Elastic Compute Cloud User Guide.
 --
--- <TerminateInstances.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-TerminateInstances.html>
 module Network.AWS.EC2.TerminateInstances
     (
     -- * Request

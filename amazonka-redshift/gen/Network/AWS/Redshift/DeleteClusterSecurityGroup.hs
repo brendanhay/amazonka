@@ -22,7 +22,7 @@
 -- security groups, go to Amazon Redshift Cluster Security Groups in the
 -- Amazon Redshift Management Guide.
 --
--- <DeleteClusterSecurityGroup.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSecurityGroup.html>
 module Network.AWS.Redshift.DeleteClusterSecurityGroup
     (
     -- * Request

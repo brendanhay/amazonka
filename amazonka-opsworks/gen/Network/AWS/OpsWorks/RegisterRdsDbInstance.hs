@@ -20,7 +20,7 @@
 
 -- | Registers an Amazon RDS instance with a stack.
 --
--- <RegisterRdsDbInstance.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterRdsDbInstance.html>
 module Network.AWS.OpsWorks.RegisterRdsDbInstance
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Enables actions for the specified alarms.
 --
--- <EnableAlarmActions.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.html>
 module Network.AWS.CloudWatch.EnableAlarmActions
     (
     -- * Request

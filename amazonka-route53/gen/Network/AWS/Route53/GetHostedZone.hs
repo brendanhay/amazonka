@@ -23,7 +23,7 @@
 -- four Route 53 name servers that were assigned to the hosted zone when you
 -- created it.
 --
--- <GetHostedZone.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html>
 module Network.AWS.Route53.GetHostedZone
     (
     -- * Request

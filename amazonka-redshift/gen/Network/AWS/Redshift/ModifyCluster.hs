@@ -29,7 +29,7 @@
 -- When resizing a cluster, you must specify both the number of nodes and the
 -- node type even if one of the parameters does not change.
 --
--- <ModifyCluster.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyCluster.html>
 module Network.AWS.Redshift.ModifyCluster
     (
     -- * Request

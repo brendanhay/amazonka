@@ -21,7 +21,7 @@
 -- | Describes one or more of your key pairs. For more information about key
 -- pairs, see Key Pairs in the Amazon Elastic Compute Cloud User Guide.
 --
--- <DescribeKeyPairs.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html>
 module Network.AWS.EC2.DescribeKeyPairs
     (
     -- * Request

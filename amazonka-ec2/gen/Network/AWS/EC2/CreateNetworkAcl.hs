@@ -23,7 +23,7 @@
 -- For more information about network ACLs, see Network ACLs in the Amazon
 -- Virtual Private Cloud User Guide.
 --
--- <CreateNetworkAcl.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkAcl.html>
 module Network.AWS.EC2.CreateNetworkAcl
     (
     -- * Request

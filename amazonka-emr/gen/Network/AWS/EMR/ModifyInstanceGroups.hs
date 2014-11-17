@@ -23,7 +23,7 @@
 -- instance count for the group and the instance group ID. The call will
 -- either succeed or fail atomically.
 --
--- <ModifyInstanceGroups.html>
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ModifyInstanceGroups.html>
 module Network.AWS.EMR.ModifyInstanceGroups
     (
     -- * Request

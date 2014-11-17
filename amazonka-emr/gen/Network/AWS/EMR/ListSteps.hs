@@ -20,7 +20,7 @@
 
 -- | Provides a list of steps for the cluster.
 --
--- <ListSteps.html>
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListSteps.html>
 module Network.AWS.EMR.ListSteps
     (
     -- * Request

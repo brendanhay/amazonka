@@ -23,7 +23,7 @@
 -- information, see Elastic IP Addresses in the Amazon Elastic Compute Cloud
 -- User Guide.
 --
--- <DescribeAddresses.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAddresses.html>
 module Network.AWS.EC2.DescribeAddresses
     (
     -- * Request

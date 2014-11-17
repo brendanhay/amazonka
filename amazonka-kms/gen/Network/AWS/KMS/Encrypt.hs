@@ -20,7 +20,7 @@
 
 -- | Encrypts plaintext into ciphertext by using a customer master key.
 --
--- <Encrypt.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html>
 module Network.AWS.KMS.Encrypt
     (
     -- * Request

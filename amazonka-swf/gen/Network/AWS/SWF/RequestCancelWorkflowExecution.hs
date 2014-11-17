@@ -33,7 +33,7 @@
 -- details and example IAM policies, see Using IAM to Manage Access to Amazon
 -- SWF Workflows.
 --
--- <RequestCancelWorkflowExecution.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RequestCancelWorkflowExecution.html>
 module Network.AWS.SWF.RequestCancelWorkflowExecution
     (
     -- * Request

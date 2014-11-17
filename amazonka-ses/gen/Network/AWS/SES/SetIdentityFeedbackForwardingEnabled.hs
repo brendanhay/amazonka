@@ -25,7 +25,7 @@
 -- action is throttled at one request per second. For more information about
 -- using notifications with Amazon SES, see the Amazon SES Developer Guide.
 --
--- <SetIdentityFeedbackForwardingEnabled.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityFeedbackForwardingEnabled.html>
 module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Returns the access control list (ACL) of an object.
 --
--- <GetObjectAcl.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectAcl.html>
 module Network.AWS.S3.GetObjectAcl
     (
     -- * Request

@@ -23,7 +23,7 @@
 -- action is throttled at one request per second. For more information about
 -- using notifications with Amazon SES, see the Amazon SES Developer Guide.
 --
--- <GetIdentityNotificationAttributes.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityNotificationAttributes.html>
 module Network.AWS.SES.GetIdentityNotificationAttributes
     (
     -- * Request

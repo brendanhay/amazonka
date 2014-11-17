@@ -22,7 +22,7 @@
 -- the available state. For more information about working with snapshots, go
 -- to Amazon Redshift Snapshots in the Amazon Redshift Management Guide.
 --
--- <CreateClusterSnapshot.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSnapshot.html>
 module Network.AWS.Redshift.CreateClusterSnapshot
     (
     -- * Request

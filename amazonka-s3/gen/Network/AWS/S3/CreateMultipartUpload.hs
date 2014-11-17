@@ -25,7 +25,7 @@
 -- multipart upload, Amazon S3 frees up the parts storage and stops charging
 -- you for the parts storage.
 --
--- <CreateMultipartUpload.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateMultipartUpload.html>
 module Network.AWS.S3.CreateMultipartUpload
     (
     -- * Request

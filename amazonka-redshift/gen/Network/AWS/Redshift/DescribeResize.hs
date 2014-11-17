@@ -25,7 +25,7 @@
 -- resize. A resize operation can be requested using ModifyCluster and
 -- specifying a different number or type of nodes for the cluster.
 --
--- <DescribeResize.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeResize.html>
 module Network.AWS.Redshift.DescribeResize
     (
     -- * Request

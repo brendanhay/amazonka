@@ -22,7 +22,7 @@
 -- is not specified, this action returns the details of all delivery channels
 -- associated with the account.
 --
--- <DescribeDeliveryChannels.html>
+-- <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannels.html>
 module Network.AWS.Config.DescribeDeliveryChannels
     (
     -- * Request

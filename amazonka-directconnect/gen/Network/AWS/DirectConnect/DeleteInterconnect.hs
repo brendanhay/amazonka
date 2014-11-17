@@ -20,7 +20,7 @@
 
 -- | Deletes the specified interconnect.
 --
--- <DeleteInterconnect.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteInterconnect.html>
 module Network.AWS.DirectConnect.DeleteInterconnect
     (
     -- * Request

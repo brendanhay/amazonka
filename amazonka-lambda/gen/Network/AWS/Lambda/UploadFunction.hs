@@ -25,7 +25,7 @@
 -- code and metadata. This operation requires permission for the
 -- lambda:UploadFunction action.
 --
--- <UploadFunction.html>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/API_UploadFunction.html>
 module Network.AWS.Lambda.UploadFunction
     (
     -- * Request

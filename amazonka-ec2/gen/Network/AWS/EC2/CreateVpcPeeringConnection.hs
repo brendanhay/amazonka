@@ -28,7 +28,7 @@
 -- overlapping CIDR blocks results in the VPC peering connection having a
 -- status of failed.
 --
--- <CreateVpcPeeringConnection.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpcPeeringConnection.html>
 module Network.AWS.EC2.CreateVpcPeeringConnection
     (
     -- * Request

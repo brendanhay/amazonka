@@ -25,7 +25,7 @@
 -- gateway to start, use the Amazon Resource Name (ARN) of the gateway in your
 -- request.
 --
--- <StartGateway.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_StartGateway.html>
 module Network.AWS.StorageGateway.StartGateway
     (
     -- * Request

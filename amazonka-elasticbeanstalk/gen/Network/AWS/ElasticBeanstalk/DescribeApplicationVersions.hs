@@ -20,7 +20,7 @@
 
 -- | Returns descriptions for existing application versions.
 --
--- <DescribeApplicationVersions.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplicationVersions.html>
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     (
     -- * Request

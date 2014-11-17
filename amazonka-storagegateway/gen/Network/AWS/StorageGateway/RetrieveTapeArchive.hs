@@ -26,7 +26,7 @@
 -- another gateway. You must archive the tape again before you can retrieve it
 -- to another gateway.
 --
--- <RetrieveTapeArchive.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeArchive.html>
 module Network.AWS.StorageGateway.RetrieveTapeArchive
     (
     -- * Request

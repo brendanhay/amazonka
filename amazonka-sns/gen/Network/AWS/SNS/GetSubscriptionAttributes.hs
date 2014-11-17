@@ -20,7 +20,7 @@
 
 -- | Returns all of the properties of a subscription.
 --
--- <GetSubscriptionAttributes.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html>
 module Network.AWS.SNS.GetSubscriptionAttributes
     (
     -- * Request

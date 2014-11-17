@@ -24,7 +24,7 @@
 -- AttachmentDetails objects that are returned by the DescribeCommunications
 -- operation.
 --
--- <DescribeAttachment.html>
+-- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeAttachment.html>
 module Network.AWS.Support.DescribeAttachment
     (
     -- * Request

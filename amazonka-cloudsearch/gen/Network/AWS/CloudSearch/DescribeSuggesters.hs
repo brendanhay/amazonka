@@ -26,7 +26,7 @@
 -- changes. For more information, see Getting Search Suggestions in the Amazon
 -- CloudSearch Developer Guide.
 --
--- <DescribeSuggesters.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeSuggesters.html>
 module Network.AWS.CloudSearch.DescribeSuggesters
     (
     -- * Request

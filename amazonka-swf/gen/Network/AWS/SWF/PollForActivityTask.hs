@@ -39,7 +39,7 @@
 -- action fails by throwing OperationNotPermitted. For details and example IAM
 -- policies, see Using IAM to Manage Access to Amazon SWF Workflows.
 --
--- <PollForActivityTask.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForActivityTask.html>
 module Network.AWS.SWF.PollForActivityTask
     (
     -- * Request

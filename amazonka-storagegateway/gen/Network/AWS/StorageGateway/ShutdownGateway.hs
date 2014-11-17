@@ -30,7 +30,7 @@
 -- DeleteGateway) to no longer pay software charges associated with the
 -- gateway.
 --
--- <ShutdownGateway.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ShutdownGateway.html>
 module Network.AWS.StorageGateway.ShutdownGateway
     (
     -- * Request

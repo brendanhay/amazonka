@@ -20,7 +20,7 @@
 
 -- | Enables rotation of the specified customer master key.
 --
--- <EnableKeyRotation.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html>
 module Network.AWS.KMS.EnableKeyRotation
     (
     -- * Request

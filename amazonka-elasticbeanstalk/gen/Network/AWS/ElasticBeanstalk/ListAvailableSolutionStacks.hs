@@ -20,7 +20,7 @@
 
 -- | Returns a list of the available solution stack names.
 --
--- <ListAvailableSolutionStacks.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html>
 module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     (
     -- * Request

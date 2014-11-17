@@ -37,7 +37,7 @@
 -- AuthorizeSecurityGroupIngress, AuthorizeSecurityGroupEgress,
 -- RevokeSecurityGroupIngress, and RevokeSecurityGroupEgress.
 --
--- <CreateSecurityGroup.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html>
 module Network.AWS.EC2.CreateSecurityGroup
     (
     -- * Request

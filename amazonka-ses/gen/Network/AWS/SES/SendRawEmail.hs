@@ -39,7 +39,7 @@
 -- maximum number of emails you can send in a 24-hour period. For information
 -- about your sending quota, go to the Amazon SES Developer Guide.
 --
--- <SendRawEmail.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html>
 module Network.AWS.SES.SendRawEmail
     (
     -- * Request

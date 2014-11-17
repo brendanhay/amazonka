@@ -24,7 +24,7 @@
 -- snapshots cannot be copied with this method. For more information, see
 -- Copying AMIs in the Amazon Elastic Compute Cloud User Guide.
 --
--- <CopyImage.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopyImage.html>
 module Network.AWS.EC2.CopyImage
     (
     -- * Request

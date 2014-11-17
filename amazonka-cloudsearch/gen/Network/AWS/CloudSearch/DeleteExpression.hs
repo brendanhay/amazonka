@@ -21,7 +21,7 @@
 -- | Removes an Expression from the search domain. For more information, see
 -- Configuring Expressions in the Amazon CloudSearch Developer Guide.
 --
--- <DeleteExpression.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteExpression.html>
 module Network.AWS.CloudSearch.DeleteExpression
     (
     -- * Request

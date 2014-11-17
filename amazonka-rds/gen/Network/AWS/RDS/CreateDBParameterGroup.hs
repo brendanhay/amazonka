@@ -37,7 +37,7 @@
 -- of the Amazon RDS console or the DescribeDBParameters command to verify
 -- that your DB parameter group has been created or modified.
 --
--- <CreateDBParameterGroup.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBParameterGroup.html>
 module Network.AWS.RDS.CreateDBParameterGroup
     (
     -- * Request

@@ -22,7 +22,7 @@
 -- account alias, see Using an Alias for Your AWS Account ID in the Using IAM
 -- guide.
 --
--- <DeleteAccountAlias.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountAlias.html>
 module Network.AWS.IAM.DeleteAccountAlias
     (
     -- * Request

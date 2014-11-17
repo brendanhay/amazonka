@@ -25,7 +25,7 @@
 -- Identity service to retrieve the credentials necessary to make this API
 -- call.
 --
--- <ListRecords.html>
+-- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListRecords.html>
 module Network.AWS.CognitoSync.ListRecords
     (
     -- * Request

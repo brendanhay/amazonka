@@ -21,7 +21,7 @@
 -- | This operation returns the AuthCode for the domain. To transfer a domain to
 -- another registrar, you provide this value to the new registrar.
 --
--- <RetrieveDomainAuthCode.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-RetrieveDomainAuthCode.html>
 module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     (
     -- * Request

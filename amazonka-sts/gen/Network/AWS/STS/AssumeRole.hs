@@ -74,7 +74,7 @@
 -- device. The TokenCode is the time-based one-time password (TOTP) that the
 -- MFA devices produces.
 --
--- <AssumeRole.html>
+-- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html>
 module Network.AWS.STS.AssumeRole
     (
     -- * Request

@@ -36,7 +36,7 @@
 -- OperationNotPermitted. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
 --
--- <RegisterWorkflowType.html>
+-- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterWorkflowType.html>
 module Network.AWS.SWF.RegisterWorkflowType
     (
     -- * Request

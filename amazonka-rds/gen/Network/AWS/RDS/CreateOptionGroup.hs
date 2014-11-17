@@ -20,7 +20,7 @@
 
 -- | Creates a new option group. You can create up to 20 option groups.
 --
--- <CreateOptionGroup.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateOptionGroup.html>
 module Network.AWS.RDS.CreateOptionGroup
     (
     -- * Request

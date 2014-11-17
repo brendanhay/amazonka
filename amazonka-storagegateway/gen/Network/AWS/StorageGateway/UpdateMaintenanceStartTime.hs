@@ -22,7 +22,7 @@
 -- information, including day and time of the week. The maintenance time is
 -- the time in your gateway's time zone.
 --
--- <UpdateMaintenanceStartTime.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.html>
 module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     (
     -- * Request

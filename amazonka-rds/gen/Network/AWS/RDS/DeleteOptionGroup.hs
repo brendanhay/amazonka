@@ -20,7 +20,7 @@
 
 -- | Deletes an existing option group.
 --
--- <DeleteOptionGroup.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteOptionGroup.html>
 module Network.AWS.RDS.DeleteOptionGroup
     (
     -- * Request

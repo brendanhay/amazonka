@@ -22,7 +22,7 @@
 -- specified check IDs. Check IDs can be obtained by calling
 -- DescribeTrustedAdvisorChecks.
 --
--- <DescribeTrustedAdvisorCheckRefreshStatuses.html>
+-- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.html>
 module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     (
     -- * Request

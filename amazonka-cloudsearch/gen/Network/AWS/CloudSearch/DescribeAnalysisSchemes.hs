@@ -26,7 +26,7 @@
 -- pending changes. For more information, see Configuring Analysis Schemes in
 -- the Amazon CloudSearch Developer Guide.
 --
--- <DescribeAnalysisSchemes.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAnalysisSchemes.html>
 module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     (
     -- * Request

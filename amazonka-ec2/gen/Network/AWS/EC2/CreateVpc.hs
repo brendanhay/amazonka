@@ -27,7 +27,7 @@
 -- (AmazonProvidedDNS). For more information about DHCP options, see DHCP
 -- Options Sets in the Amazon Virtual Private Cloud User Guide.
 --
--- <CreateVpc.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpc.html>
 module Network.AWS.EC2.CreateVpc
     (
     -- * Request

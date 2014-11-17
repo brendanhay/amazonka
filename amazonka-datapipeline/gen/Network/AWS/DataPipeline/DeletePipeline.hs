@@ -26,7 +26,7 @@
 -- SetStatus with the status set to Pause on individual components. Components
 -- that are paused by SetStatus can be resumed.
 --
--- <DeletePipeline.html>
+-- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeletePipeline.html>
 module Network.AWS.DataPipeline.DeletePipeline
     (
     -- * Request

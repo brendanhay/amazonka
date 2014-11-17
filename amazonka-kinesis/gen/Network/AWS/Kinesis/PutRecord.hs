@@ -45,7 +45,7 @@
 -- for only 24 hours from the time that they are added to an Amazon Kinesis
 -- stream.
 --
--- <PutRecord.html>
+-- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html>
 module Network.AWS.Kinesis.PutRecord
     (
     -- * Request

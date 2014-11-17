@@ -24,7 +24,7 @@
 -- operation after a CreateJob request but before the data transfer starts and
 -- you can only use it on jobs you own.
 --
--- <UpdateJob.html>
+-- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebUpdateJob.html>
 module Network.AWS.ImportExport.UpdateJob
     (
     -- * Request

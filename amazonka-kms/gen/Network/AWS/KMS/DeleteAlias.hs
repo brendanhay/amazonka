@@ -20,7 +20,7 @@
 
 -- | Deletes the specified alias.
 --
--- <DeleteAlias.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html>
 module Network.AWS.KMS.DeleteAlias
     (
     -- * Request

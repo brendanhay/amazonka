@@ -20,7 +20,7 @@
 
 -- | Lists all of the key aliases in the account.
 --
--- <ListAliases.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html>
 module Network.AWS.KMS.ListAliases
     (
     -- * Request

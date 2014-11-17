@@ -22,7 +22,7 @@
 -- If the user has not been assigned a password, the action returns a 404
 -- (NoSuchEntity) error.
 --
--- <GetLoginProfile.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html>
 module Network.AWS.IAM.GetLoginProfile
     (
     -- * Request

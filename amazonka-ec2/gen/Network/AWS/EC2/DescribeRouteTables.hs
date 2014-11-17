@@ -22,7 +22,7 @@
 -- route tables, see Route Tables in the Amazon Virtual Private Cloud User
 -- Guide.
 --
--- <DescribeRouteTables.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRouteTables.html>
 module Network.AWS.EC2.DescribeRouteTables
     (
     -- * Request

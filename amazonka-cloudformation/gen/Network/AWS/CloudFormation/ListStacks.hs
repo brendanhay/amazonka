@@ -24,7 +24,7 @@
 -- StackStatusFilter is specified, summary information for all stacks is
 -- returned (including existing stacks and stacks that have been deleted).
 --
--- <ListStacks.html>
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStacks.html>
 module Network.AWS.CloudFormation.ListStacks
     (
     -- * Request

@@ -28,7 +28,7 @@
 -- (yellow), "error" (red), or "not_available". Timestamp. The time of the
 -- last refresh of the check. CheckId. The unique identifier for the check.
 --
--- <DescribeTrustedAdvisorCheckResult.html>
+-- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckResult.html>
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     (
     -- * Request

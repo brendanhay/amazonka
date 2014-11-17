@@ -24,7 +24,7 @@
 -- information, see Configuring Availability Options in the Amazon CloudSearch
 -- Developer Guide.
 --
--- <DescribeAvailabilityOptions.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAvailabilityOptions.html>
 module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     (
     -- * Request

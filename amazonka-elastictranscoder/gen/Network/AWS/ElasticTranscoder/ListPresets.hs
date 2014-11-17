@@ -21,7 +21,7 @@
 -- | The ListPresets operation gets a list of the default presets included with
 -- Elastic Transcoder and the presets that you've added in an AWS region.
 --
--- <ListPresets.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPresets.html>
 module Network.AWS.ElasticTranscoder.ListPresets
     (
     -- * Request

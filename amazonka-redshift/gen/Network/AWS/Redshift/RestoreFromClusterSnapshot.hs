@@ -29,7 +29,7 @@
 -- about working with snapshots, go to Amazon Redshift Snapshots in the Amazon
 -- Redshift Management Guide.
 --
--- <RestoreFromClusterSnapshot.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RestoreFromClusterSnapshot.html>
 module Network.AWS.Redshift.RestoreFromClusterSnapshot
     (
     -- * Request

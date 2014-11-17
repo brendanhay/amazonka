@@ -23,7 +23,7 @@
 -- list contains statistics for a 15-minute interval. This action is throttled
 -- at one request per second.
 --
--- <GetSendStatistics.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendStatistics.html>
 module Network.AWS.SES.GetSendStatistics
     (
     -- * Request

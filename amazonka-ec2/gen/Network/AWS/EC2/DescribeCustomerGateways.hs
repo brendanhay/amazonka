@@ -22,7 +22,7 @@
 -- about VPN customer gateways, see Adding a Hardware Virtual Private Gateway
 -- to Your VPC in the Amazon Virtual Private Cloud User Guide.
 --
--- <DescribeCustomerGateways.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeCustomerGateways.html>
 module Network.AWS.EC2.DescribeCustomerGateways
     (
     -- * Request

@@ -24,7 +24,7 @@
 -- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Management
 -- Guide.
 --
--- <DescribeClusterVersions.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterVersions.html>
 module Network.AWS.Redshift.DescribeClusterVersions
     (
     -- * Request

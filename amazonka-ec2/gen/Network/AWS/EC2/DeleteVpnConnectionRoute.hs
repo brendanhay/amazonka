@@ -23,7 +23,7 @@
 -- route allows traffic to be routed from the virtual private gateway to the
 -- VPN customer gateway.
 --
--- <DeleteVpnConnectionRoute.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpnConnectionRoute.html>
 module Network.AWS.EC2.DeleteVpnConnectionRoute
     (
     -- * Request

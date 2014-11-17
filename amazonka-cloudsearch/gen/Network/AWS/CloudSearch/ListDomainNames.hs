@@ -20,7 +20,7 @@
 
 -- | Lists all search domains owned by an account.
 --
--- <ListDomainNames.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ListDomainNames.html>
 module Network.AWS.CloudSearch.ListDomainNames
     (
     -- * Request

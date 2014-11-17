@@ -25,7 +25,7 @@
 -- response body. You can also limit the number of metric filters returned in
 -- the response by specifying the limit parameter in the request.
 --
--- <DescribeMetricFilters.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html>
 module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     (
     -- * Request

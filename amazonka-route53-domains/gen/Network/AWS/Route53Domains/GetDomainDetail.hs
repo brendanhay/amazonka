@@ -21,7 +21,7 @@
 -- | This operation returns detailed information about the domain. The domain's
 -- contact information is also returned as part of the output.
 --
--- <GetDomainDetail.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetDomainDetail.html>
 module Network.AWS.Route53Domains.GetDomainDetail
     (
     -- * Request

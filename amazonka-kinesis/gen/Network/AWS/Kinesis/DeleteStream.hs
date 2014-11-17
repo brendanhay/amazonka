@@ -32,7 +32,7 @@
 -- the stream, which is returned in StreamStatus. DeleteStream has a limit of
 -- 5 transactions per second per account.
 --
--- <DeleteStream.html>
+-- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html>
 module Network.AWS.Kinesis.DeleteStream
     (
     -- * Request

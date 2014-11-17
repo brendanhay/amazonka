@@ -23,7 +23,7 @@
 -- decrypted and then encrypted. This operation can also be used to change the
 -- encryption context of a ciphertext.
 --
--- <ReEncrypt.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html>
 module Network.AWS.KMS.ReEncrypt
     (
     -- * Request

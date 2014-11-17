@@ -22,7 +22,7 @@
 -- group. A cache parameter group is a collection of parameters that you apply
 -- to all of the nodes in a cache cluster.
 --
--- <CreateCacheParameterGroup.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheParameterGroup.html>
 module Network.AWS.ElastiCache.CreateCacheParameterGroup
     (
     -- * Request

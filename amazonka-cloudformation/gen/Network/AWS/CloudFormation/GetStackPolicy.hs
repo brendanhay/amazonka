@@ -21,7 +21,7 @@
 -- | Returns the stack policy for a specified stack. If a stack doesn't have a
 -- policy, a null value is returned.
 --
--- <GetStackPolicy.html>
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetStackPolicy.html>
 module Network.AWS.CloudFormation.GetStackPolicy
     (
     -- * Request

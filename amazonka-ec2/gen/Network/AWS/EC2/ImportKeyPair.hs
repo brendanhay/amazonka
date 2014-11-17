@@ -26,7 +26,7 @@
 -- information about key pairs, see Key Pairs in the Amazon Elastic Compute
 -- Cloud User Guide.
 --
--- <ImportKeyPair.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportKeyPair.html>
 module Network.AWS.EC2.ImportKeyPair
     (
     -- * Request

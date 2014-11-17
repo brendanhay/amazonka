@@ -32,7 +32,7 @@
 -- permission to access a security group for your VPC. The security groups
 -- must all be for the same VPC.
 --
--- <AuthorizeSecurityGroupIngress.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html>
 module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     (
     -- * Request

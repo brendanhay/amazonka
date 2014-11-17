@@ -22,7 +22,7 @@
 -- recorder name is not specified, this action returns the names of all the
 -- configuration recorders associated with the account.
 --
--- <DescribeConfigurationRecorders.html>
+-- <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html>
 module Network.AWS.Config.DescribeConfigurationRecorders
     (
     -- * Request

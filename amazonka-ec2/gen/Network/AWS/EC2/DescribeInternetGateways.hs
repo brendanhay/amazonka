@@ -20,7 +20,7 @@
 
 -- | Describes one or more of your Internet gateways.
 --
--- <DescribeInternetGateways.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInternetGateways.html>
 module Network.AWS.EC2.DescribeInternetGateways
     (
     -- * Request

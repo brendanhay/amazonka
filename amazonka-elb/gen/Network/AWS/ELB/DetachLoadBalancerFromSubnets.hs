@@ -25,7 +25,7 @@
 -- removed, the load balancer will balance the traffic among the remaining
 -- routable subnets for the load balancer.
 --
--- <DetachLoadBalancerFromSubnets.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DetachLoadBalancerFromSubnets.html>
 module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     (
     -- * Request

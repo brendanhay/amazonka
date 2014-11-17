@@ -27,7 +27,7 @@
 -- created. The API action DescribeDBInstance is used to monitor the status of
 -- this operation. The action cannot be canceled or reverted once submitted.
 --
--- <DeleteDBInstance.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBInstance.html>
 module Network.AWS.RDS.DeleteDBInstance
     (
     -- * Request

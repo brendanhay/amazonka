@@ -22,7 +22,7 @@
 -- account alias, see Using an Alias for Your AWS Account ID in the Using IAM
 -- guide.
 --
--- <CreateAccountAlias.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccountAlias.html>
 module Network.AWS.IAM.CreateAccountAlias
     (
     -- * Request

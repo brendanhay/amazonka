@@ -20,7 +20,7 @@
 
 -- | Creates a new application.
 --
--- <CreateApplication.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateApplication.html>
 module Network.AWS.CodeDeploy.CreateApplication
     (
     -- * Request

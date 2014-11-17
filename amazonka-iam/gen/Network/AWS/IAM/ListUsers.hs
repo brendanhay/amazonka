@@ -23,7 +23,7 @@
 -- none, the action returns an empty list. You can paginate the results using
 -- the MaxItems and Marker parameters.
 --
--- <ListUsers.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html>
 module Network.AWS.IAM.ListUsers
     (
     -- * Request

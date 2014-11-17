@@ -39,7 +39,7 @@
 -- timeout value, not the value you set with the ChangeMessageVisibility
 -- action.
 --
--- <ChangeMessageVisibility.html>
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibility.html>
 module Network.AWS.SQS.ChangeMessageVisibility
     (
     -- * Request

@@ -41,7 +41,7 @@
 -- timeout for the queue is used for the returned messages. For more
 -- information, see Visibility Timeout in the Amazon SQS Developer Guide.
 --
--- <ReceiveMessage.html>
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html>
 module Network.AWS.SQS.ReceiveMessage
     (
     -- * Request

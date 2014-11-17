@@ -44,7 +44,7 @@
 -- an AWS Support case number. Case numbers are used by the DescribeCases
 -- operation to retrieve existing AWS Support cases.
 --
--- <CreateCase.html>
+-- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html>
 module Network.AWS.Support.CreateCase
     (
     -- * Request

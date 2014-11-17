@@ -68,7 +68,7 @@
 -- requests in the batch. Any individual item in a batch exceeds 400 KB. The
 -- total request size exceeds 16 MB.
 --
--- <BatchWriteItem.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchWriteItem.html>
 module Network.AWS.DynamoDB.BatchWriteItem
     (
     -- * Request

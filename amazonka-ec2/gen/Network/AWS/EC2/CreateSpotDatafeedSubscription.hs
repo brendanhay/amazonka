@@ -23,7 +23,7 @@
 -- information, see Spot Instances in the Amazon Elastic Compute Cloud User
 -- Guide.
 --
--- <CreateSpotDatafeedSubscription.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSpotDatafeedSubscription.html>
 module Network.AWS.EC2.CreateSpotDatafeedSubscription
     (
     -- * Request

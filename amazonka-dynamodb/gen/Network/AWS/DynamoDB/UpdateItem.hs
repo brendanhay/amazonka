@@ -26,7 +26,7 @@
 -- attribute values in the same UpdateItem operation using the ReturnValues
 -- parameter.
 --
--- <UpdateItem.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html>
 module Network.AWS.DynamoDB.UpdateItem
     (
     -- * Request

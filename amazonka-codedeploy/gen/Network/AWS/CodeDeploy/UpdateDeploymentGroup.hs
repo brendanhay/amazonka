@@ -20,7 +20,7 @@
 
 -- | Changes information about an existing deployment group.
 --
--- <UpdateDeploymentGroup.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateDeploymentGroup.html>
 module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     (
     -- * Request

@@ -21,7 +21,7 @@
 -- | Deletes the endpoint from Amazon SNS. This action is idempotent. For more
 -- information, see Using Amazon SNS Mobile Push Notifications.
 --
--- <DeleteEndpoint.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_DeleteEndpoint.html>
 module Network.AWS.SNS.DeleteEndpoint
     (
     -- * Request

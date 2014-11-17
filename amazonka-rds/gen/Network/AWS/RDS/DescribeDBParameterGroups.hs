@@ -22,7 +22,7 @@
 -- is specified, the list will contain only the description of the specified
 -- DB parameter group.
 --
--- <DescribeDBParameterGroups.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameterGroups.html>
 module Network.AWS.RDS.DescribeDBParameterGroups
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Purchases a reserved DB instance offering.
 --
--- <PurchaseReservedDBInstancesOffering.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html>
 module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     (
     -- * Request

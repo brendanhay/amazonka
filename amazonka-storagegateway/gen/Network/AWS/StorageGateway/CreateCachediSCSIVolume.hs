@@ -27,7 +27,7 @@
 -- (ARN), its size, and the iSCSI target ARN that initiators can use to
 -- connect to the volume target.
 --
--- <CreateCachediSCSIVolume.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateCachediSCSIVolume.html>
 module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     (
     -- * Request

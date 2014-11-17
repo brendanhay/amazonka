@@ -40,7 +40,7 @@
 -- Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference in the
 -- Amazon CloudWatch Developer Guide.
 --
--- <GetMetricStatistics.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html>
 module Network.AWS.CloudWatch.GetMetricStatistics
     (
     -- * Request

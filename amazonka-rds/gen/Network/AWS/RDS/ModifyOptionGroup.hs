@@ -20,7 +20,7 @@
 
 -- | Modifies an existing option group.
 --
--- <ModifyOptionGroup.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyOptionGroup.html>
 module Network.AWS.RDS.ModifyOptionGroup
     (
     -- * Request

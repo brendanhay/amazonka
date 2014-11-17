@@ -26,7 +26,7 @@
 -- the resources used per Availability Zone. For more information, see
 -- Configuring Scaling Options in the Amazon CloudSearch Developer Guide.
 --
--- <UpdateScalingParameters.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateScalingParameters.html>
 module Network.AWS.CloudSearch.UpdateScalingParameters
     (
     -- * Request

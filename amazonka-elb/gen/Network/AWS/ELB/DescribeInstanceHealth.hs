@@ -24,7 +24,7 @@
 -- provide the same account credentials as those that were used to create the
 -- load balancer.
 --
--- <DescribeInstanceHealth.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeInstanceHealth.html>
 module Network.AWS.ELB.DescribeInstanceHealth
     (
     -- * Request

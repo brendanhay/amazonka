@@ -20,7 +20,7 @@
 
 -- | Registers a device to receive push sync notifications.
 --
--- <RegisterDevice.html>
+-- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_RegisterDevice.html>
 module Network.AWS.CognitoSync.RegisterDevice
     (
     -- * Request

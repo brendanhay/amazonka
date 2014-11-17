@@ -11,7 +11,7 @@
 Amazon Cognito is a web service that facilitates the delivery of scoped, temporary credentials to mobile devices or other untrusted environments. Amazon Cognito uniquely identifies a device or user and supplies the user with a consistent identity throughout the lifetime of an application. Amazon Cognito lets users authenticate with third-party identity providers (Facebook, Google, or Login with Amazon). As a developer, you decide which identity providers to trust. You can also choose to support unauthenticated access from your application. Your users are provided with Cognito tokens that uniquely identify their device and any information provided about third-party logins.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cognito-identity)
-and [AWS API Reference]().
+and [AWS API Reference](http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html).
 
 
 ## Contribute

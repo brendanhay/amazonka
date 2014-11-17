@@ -34,7 +34,7 @@
 -- number of emails you can send in a 24-hour period. For information about
 -- your sending quota, go to the Amazon SES Developer Guide.
 --
--- <SendEmail.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SendEmail.html>
 module Network.AWS.SES.SendEmail
     (
     -- * Request

@@ -20,7 +20,7 @@
 
 -- | Gets the access control policy for the bucket.
 --
--- <GetBucketAcl.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketAcl.html>
 module Network.AWS.S3.GetBucketAcl
     (
     -- * Request

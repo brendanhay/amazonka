@@ -66,7 +66,7 @@
 -- federation and shows an example of how to use web identity federation to
 -- get access to content in Amazon S3.
 --
--- <AssumeRoleWithWebIdentity.html>
+-- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html>
 module Network.AWS.STS.AssumeRoleWithWebIdentity
     (
     -- * Request

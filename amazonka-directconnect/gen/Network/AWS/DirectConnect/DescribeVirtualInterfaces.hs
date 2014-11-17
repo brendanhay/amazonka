@@ -29,7 +29,7 @@
 -- returned. If a virtual interface ID is provided, only this particular
 -- virtual interface will be returned.
 --
--- <DescribeVirtualInterfaces.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualInterfaces.html>
 module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     (
     -- * Request

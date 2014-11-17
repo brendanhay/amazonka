@@ -33,7 +33,7 @@
 -- Temporary Security Credentials for SAML Federation in the Using Temporary
 -- Credentials guide.
 --
--- <CreateSAMLProvider.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html>
 module Network.AWS.IAM.CreateSAMLProvider
     (
     -- * Request

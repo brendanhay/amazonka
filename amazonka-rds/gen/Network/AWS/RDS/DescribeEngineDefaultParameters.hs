@@ -21,7 +21,7 @@
 -- | Returns the default engine and system parameter information for the
 -- specified database engine.
 --
--- <DescribeEngineDefaultParameters.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEngineDefaultParameters.html>
 module Network.AWS.RDS.DescribeEngineDefaultParameters
     (
     -- * Request

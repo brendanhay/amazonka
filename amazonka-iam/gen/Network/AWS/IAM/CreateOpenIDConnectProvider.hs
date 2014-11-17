@@ -29,7 +29,7 @@
 -- IdP uses. You get all of this information from the OIDC IdP that you want
 -- to use for access to AWS.
 --
--- <CreateOpenIDConnectProvider.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html>
 module Network.AWS.IAM.CreateOpenIDConnectProvider
     (
     -- * Request

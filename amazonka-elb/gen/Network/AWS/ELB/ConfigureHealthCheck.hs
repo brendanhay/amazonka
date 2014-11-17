@@ -22,7 +22,7 @@
 -- of your back-end instances. For more information, see Health Check in the
 -- Elastic Load Balancing Developer Guide.
 --
--- <ConfigureHealthCheck.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ConfigureHealthCheck.html>
 module Network.AWS.ELB.ConfigureHealthCheck
     (
     -- * Request

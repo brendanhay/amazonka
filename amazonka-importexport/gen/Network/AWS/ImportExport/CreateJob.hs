@@ -24,7 +24,7 @@
 -- you can use in other operations, a signature that you use to identify your
 -- storage device, and the address where you should ship your storage device.
 --
--- <CreateJob.html>
+-- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCreateJob.html>
 module Network.AWS.ImportExport.CreateJob
     (
     -- * Request

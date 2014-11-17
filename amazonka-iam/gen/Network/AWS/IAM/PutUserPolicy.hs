@@ -24,7 +24,7 @@
 -- associate with a user, see Limitations on IAM Entities in the Using IAM
 -- guide.
 --
--- <PutUserPolicy.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html>
 module Network.AWS.IAM.PutUserPolicy
     (
     -- * Request

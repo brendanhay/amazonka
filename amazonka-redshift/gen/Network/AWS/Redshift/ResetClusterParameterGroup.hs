@@ -24,7 +24,7 @@
 -- ResetAllParameters parameter. For parameter changes to take effect you must
 -- reboot any associated clusters.
 --
--- <ResetClusterParameterGroup.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ResetClusterParameterGroup.html>
 module Network.AWS.Redshift.ResetClusterParameterGroup
     (
     -- * Request

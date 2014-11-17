@@ -27,7 +27,7 @@
 -- under the AWS account, you can use this action to manage root credentials
 -- even if the AWS account has no associated users.
 --
--- <UploadSigningCertificate.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html>
 module Network.AWS.IAM.UploadSigningCertificate
     (
     -- * Request

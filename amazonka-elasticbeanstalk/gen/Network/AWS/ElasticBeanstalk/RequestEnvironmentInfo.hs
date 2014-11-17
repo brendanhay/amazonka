@@ -24,7 +24,7 @@
 -- environment. Use RetrieveEnvironmentInfo to access the compiled
 -- information. Related Topics RetrieveEnvironmentInfo.
 --
--- <RequestEnvironmentInfo.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RequestEnvironmentInfo.html>
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
     -- * Request

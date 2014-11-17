@@ -20,7 +20,7 @@
 
 -- | Swaps the CNAMEs of two environments.
 --
--- <SwapEnvironmentCNAMEs.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_SwapEnvironmentCNAMEs.html>
 module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     (
     -- * Request

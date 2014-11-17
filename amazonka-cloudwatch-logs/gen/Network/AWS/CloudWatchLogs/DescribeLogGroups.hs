@@ -25,7 +25,7 @@
 -- the response body. You can also limit the number of log groups returned in
 -- the response by specifying the limit parameter in the request.
 --
--- <DescribeLogGroups.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html>
 module Network.AWS.CloudWatchLogs.DescribeLogGroups
     (
     -- * Request

@@ -23,7 +23,7 @@
 -- groups, go to Amazon Redshift Cluster Security Groups in the Amazon
 -- Redshift Management Guide.
 --
--- <CreateClusterSecurityGroup.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSecurityGroup.html>
 module Network.AWS.Redshift.CreateClusterSecurityGroup
     (
     -- * Request

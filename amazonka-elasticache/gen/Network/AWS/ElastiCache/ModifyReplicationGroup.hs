@@ -21,7 +21,7 @@
 -- | The ModifyReplicationGroup operation modifies the settings for a
 -- replication group.
 --
--- <ModifyReplicationGroup.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html>
 module Network.AWS.ElastiCache.ModifyReplicationGroup
     (
     -- * Request

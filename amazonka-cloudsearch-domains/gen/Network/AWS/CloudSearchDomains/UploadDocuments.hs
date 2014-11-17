@@ -38,7 +38,7 @@
 -- Developer Guide. For more information about uploading data for indexing,
 -- see Uploading Data in the Amazon CloudSearch Developer Guide.
 --
--- <UploadDocuments.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UploadDocuments.html>
 module Network.AWS.CloudSearchDomains.UploadDocuments
     (
     -- * Request

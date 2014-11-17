@@ -21,7 +21,7 @@
 -- | Deletes the specified identity (email address or domain) from the list of
 -- verified identities. This action is throttled at one request per second.
 --
--- <DeleteIdentity.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentity.html>
 module Network.AWS.SES.DeleteIdentity
     (
     -- * Request

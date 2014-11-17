@@ -22,7 +22,7 @@
 -- messages. You can use this operation to validate the correctness of a
 -- metric filter pattern.
 --
--- <TestMetricFilter.html>
+-- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TestMetricFilter.html>
 module Network.AWS.CloudWatchLogs.TestMetricFilter
     (
     -- * Request

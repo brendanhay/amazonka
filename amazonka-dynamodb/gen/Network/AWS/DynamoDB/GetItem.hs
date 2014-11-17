@@ -25,7 +25,7 @@
 -- true. Although a strongly consistent read might take more time than an
 -- eventually consistent read, it always returns the last updated value.
 --
--- <GetItem.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html>
 module Network.AWS.DynamoDB.GetItem
     (
     -- * Request

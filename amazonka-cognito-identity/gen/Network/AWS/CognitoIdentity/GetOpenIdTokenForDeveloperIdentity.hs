@@ -32,7 +32,7 @@
 -- providing the existing IdentityId. This API will create the identity in the
 -- specified IdentityPoolId.
 --
--- <GetOpenIdTokenForDeveloperIdentity.html>
+-- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.html>
 module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     (
     -- * Request

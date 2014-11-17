@@ -20,7 +20,7 @@
 
 -- | Returns the descriptions of existing applications.
 --
--- <DescribeApplications.html>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplications.html>
 module Network.AWS.ElasticBeanstalk.DescribeApplications
     (
     -- * Request

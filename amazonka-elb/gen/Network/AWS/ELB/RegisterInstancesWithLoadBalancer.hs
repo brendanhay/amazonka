@@ -40,7 +40,7 @@
 -- DescribeInstanceHealth action to check the state of the newly registered
 -- instances.
 --
--- <RegisterInstancesWithLoadBalancer.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_RegisterInstancesWithLoadBalancer.html>
 module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     (
     -- * Request

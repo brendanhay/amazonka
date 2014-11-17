@@ -22,7 +22,7 @@
 -- AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.
 --
--- <EstimateTemplateCost.html>
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_EstimateTemplateCost.html>
 module Network.AWS.CloudFormation.EstimateTemplateCost
     (
     -- * Request

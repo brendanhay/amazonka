@@ -22,7 +22,7 @@
 -- subnets. The operation replaces the existing list of subnets with the new
 -- list of subnets.
 --
--- <ModifyClusterSubnetGroup.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSubnetGroup.html>
 module Network.AWS.Redshift.ModifyClusterSubnetGroup
     (
     -- * Request

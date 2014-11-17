@@ -22,7 +22,7 @@
 -- Internet and the VPC. The VPC must not contain any running instances with
 -- Elastic IP addresses.
 --
--- <DetachInternetGateway.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachInternetGateway.html>
 module Network.AWS.EC2.DetachInternetGateway
     (
     -- * Request

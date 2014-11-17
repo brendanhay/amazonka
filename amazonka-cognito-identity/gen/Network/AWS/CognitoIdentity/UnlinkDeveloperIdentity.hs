@@ -24,7 +24,7 @@
 -- well as the developer user identifier, the Cognito identity becomes
 -- inaccessible.
 --
--- <UnlinkDeveloperIdentity.html>
+-- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkDeveloperIdentity.html>
 module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     (
     -- * Request

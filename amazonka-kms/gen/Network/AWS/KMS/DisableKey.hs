@@ -20,7 +20,7 @@
 
 -- | Marks a key as disabled, thereby preventing its use.
 --
--- <DisableKey.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html>
 module Network.AWS.KMS.DisableKey
     (
     -- * Request

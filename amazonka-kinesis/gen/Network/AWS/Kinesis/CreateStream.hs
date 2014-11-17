@@ -46,7 +46,7 @@
 -- the stream status, which is returned in StreamStatus. CreateStream has a
 -- limit of 5 transactions per second per account.
 --
--- <CreateStream.html>
+-- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html>
 module Network.AWS.Kinesis.CreateStream
     (
     -- * Request

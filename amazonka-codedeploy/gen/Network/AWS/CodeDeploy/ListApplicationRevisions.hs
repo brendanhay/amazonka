@@ -20,7 +20,7 @@
 
 -- | Lists information about revisions for an application.
 --
--- <ListApplicationRevisions.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplicationRevisions.html>
 module Network.AWS.CodeDeploy.ListApplicationRevisions
     (
     -- * Request

@@ -27,7 +27,7 @@
 -- marks the delegationSet associated with that particular hosted zone as
 -- reusable.
 --
--- <CreateReusableDelegationSet.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html>
 module Network.AWS.Route53.CreateReusableDelegationSet
     (
     -- * Request

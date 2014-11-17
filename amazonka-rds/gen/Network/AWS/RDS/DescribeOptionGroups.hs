@@ -20,7 +20,7 @@
 
 -- | Describes the available option groups.
 --
--- <DescribeOptionGroups.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOptionGroups.html>
 module Network.AWS.RDS.DescribeOptionGroups
     (
     -- * Request

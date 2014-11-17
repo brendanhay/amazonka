@@ -29,7 +29,7 @@
 -- Instances and Reserved Instance Marketplace in the Amazon Elastic Compute
 -- Cloud User Guide.
 --
--- <PurchaseReservedInstancesOffering.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-PurchaseReservedInstancesOffering.html>
 module Network.AWS.EC2.PurchaseReservedInstancesOffering
     (
     -- * Request

@@ -23,7 +23,7 @@
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- <UpdateInstance.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateInstance.html>
 module Network.AWS.OpsWorks.UpdateInstance
     (
     -- * Request

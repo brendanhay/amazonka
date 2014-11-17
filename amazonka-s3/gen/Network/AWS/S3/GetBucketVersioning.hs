@@ -20,7 +20,7 @@
 
 -- | Returns the versioning state of a bucket.
 --
--- <GetBucketVersioning.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketVersioning.html>
 module Network.AWS.S3.GetBucketVersioning
     (
     -- * Request

@@ -25,7 +25,7 @@
 -- any applications running on the instance. For more information about
 -- instance profiles, go to About Instance Profiles.
 --
--- <DeleteInstanceProfile.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteInstanceProfile.html>
 module Network.AWS.IAM.DeleteInstanceProfile
     (
     -- * Request

@@ -23,7 +23,7 @@
 -- IAM determines the user name implicitly based on the AWS access key ID used
 -- to sign the request.
 --
--- <GetUser.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html>
 module Network.AWS.IAM.GetUser
     (
     -- * Request

@@ -32,7 +32,7 @@
 -- owner can retrieve it. For Windows instances, the instance console output
 -- displays the last three system event log errors.
 --
--- <GetConsoleOutput.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetConsoleOutput.html>
 module Network.AWS.EC2.GetConsoleOutput
     (
     -- * Request

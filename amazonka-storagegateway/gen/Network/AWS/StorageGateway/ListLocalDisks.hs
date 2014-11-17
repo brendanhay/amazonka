@@ -24,7 +24,7 @@
 -- specifying which are configured as working storage, stored volume or not
 -- configured at all.
 --
--- <ListLocalDisks.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListLocalDisks.html>
 module Network.AWS.StorageGateway.ListLocalDisks
     (
     -- * Request

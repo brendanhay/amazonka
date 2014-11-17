@@ -30,7 +30,7 @@
 -- second. For more information about Easy DKIM signing, go to the Amazon SES
 -- Developer Guide.
 --
--- <SetIdentityDkimEnabled.html>
+-- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityDkimEnabled.html>
 module Network.AWS.SES.SetIdentityDkimEnabled
     (
     -- * Request

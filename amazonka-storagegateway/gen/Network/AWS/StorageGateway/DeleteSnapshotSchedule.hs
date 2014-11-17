@@ -24,7 +24,7 @@
 -- Working with Snapshots. In the DeleteSnapshotSchedule request, you identify
 -- the volume by providing its Amazon Resource Name (ARN).
 --
--- <DeleteSnapshotSchedule.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteSnapshotSchedule.html>
 module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     (
     -- * Request

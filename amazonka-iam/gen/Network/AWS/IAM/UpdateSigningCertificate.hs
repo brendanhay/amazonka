@@ -28,7 +28,7 @@
 -- For information about rotating certificates, see Managing Keys and
 -- Certificates in the Using IAM guide.
 --
--- <UpdateSigningCertificate.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSigningCertificate.html>
 module Network.AWS.IAM.UpdateSigningCertificate
     (
     -- * Request

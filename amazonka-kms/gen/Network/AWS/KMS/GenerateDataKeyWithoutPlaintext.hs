@@ -21,7 +21,7 @@
 -- | Returns a key wrapped by a customer master key without the plaintext copy
 -- of that key. To retrieve the plaintext, see GenerateDataKey.
 --
--- <GenerateDataKeyWithoutPlaintext.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html>
 module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     (
     -- * Request

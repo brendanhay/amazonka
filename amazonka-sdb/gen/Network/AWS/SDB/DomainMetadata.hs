@@ -22,7 +22,7 @@
 -- created, the number of items and attributes in the domain, and the size of
 -- the attribute names and values.
 --
--- <DomainMetadata.html>
+-- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DomainMetadata.html>
 module Network.AWS.SDB.DomainMetadata
     (
     -- * Request

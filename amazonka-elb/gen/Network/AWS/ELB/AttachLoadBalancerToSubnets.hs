@@ -24,7 +24,7 @@
 -- For more information, see Deploy Elastic Load Balancing in Amazon VPC in
 -- the Elastic Load Balancing Developer Guide.
 --
--- <AttachLoadBalancerToSubnets.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AttachLoadBalancerToSubnets.html>
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (
     -- * Request

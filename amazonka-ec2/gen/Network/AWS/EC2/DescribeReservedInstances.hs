@@ -22,7 +22,7 @@
 -- more information about Reserved Instances, see Reserved Instances in the
 -- Amazon Elastic Compute Cloud User Guide.
 --
--- <DescribeReservedInstances.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstances.html>
 module Network.AWS.EC2.DescribeReservedInstances
     (
     -- * Request

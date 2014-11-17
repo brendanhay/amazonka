@@ -21,7 +21,7 @@
 -- | The DescribeReservedCacheNodes operation returns information about reserved
 -- cache nodes for this account, or about a specified reserved cache node.
 --
--- <DescribeReservedCacheNodes.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodes.html>
 module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     (
     -- * Request

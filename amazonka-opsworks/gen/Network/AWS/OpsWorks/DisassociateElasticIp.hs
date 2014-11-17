@@ -25,7 +25,7 @@
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
 --
--- <DisassociateElasticIp.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DisassociateElasticIp.html>
 module Network.AWS.OpsWorks.DisassociateElasticIp
     (
     -- * Request

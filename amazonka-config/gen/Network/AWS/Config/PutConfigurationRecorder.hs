@@ -23,7 +23,7 @@
 -- recorder. To change the role, call the action on the existing configuration
 -- recorder and specify a role.
 --
--- <PutConfigurationRecorder.html>
+-- <http://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html>
 module Network.AWS.Config.PutConfigurationRecorder
     (
     -- * Request

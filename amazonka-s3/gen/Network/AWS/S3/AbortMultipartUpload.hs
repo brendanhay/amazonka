@@ -22,7 +22,7 @@
 -- you don't get charged for the part storage, you should call the List Parts
 -- operation and ensure the parts list is empty.
 --
--- <AbortMultipartUpload.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/AbortMultipartUpload.html>
 module Network.AWS.S3.AbortMultipartUpload
     (
     -- * Request

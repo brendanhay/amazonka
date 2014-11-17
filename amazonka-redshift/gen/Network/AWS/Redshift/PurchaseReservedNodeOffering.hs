@@ -26,7 +26,7 @@
 -- more information about managing parameter groups, go to Purchasing Reserved
 -- Nodes in the Amazon Redshift Management Guide.
 --
--- <PurchaseReservedNodeOffering.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_PurchaseReservedNodeOffering.html>
 module Network.AWS.Redshift.PurchaseReservedNodeOffering
     (
     -- * Request

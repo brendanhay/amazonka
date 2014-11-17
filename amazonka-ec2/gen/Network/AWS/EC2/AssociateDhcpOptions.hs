@@ -28,7 +28,7 @@
 -- on the instance. For more information, see DHCP Options Sets in the Amazon
 -- Virtual Private Cloud User Guide.
 --
--- <AssociateDhcpOptions.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDhcpOptions.html>
 module Network.AWS.EC2.AssociateDhcpOptions
     (
     -- * Request

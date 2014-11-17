@@ -20,7 +20,7 @@
 
 -- | 
 --
--- <ListTagsForResource.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResource.html>
 module Network.AWS.Route53.ListTagsForResource
     (
     -- * Request

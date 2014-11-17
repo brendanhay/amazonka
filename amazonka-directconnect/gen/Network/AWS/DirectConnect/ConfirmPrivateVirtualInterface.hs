@@ -23,7 +23,7 @@
 -- virtual interface will be created and attached to the given virtual private
 -- gateway, and will be available for handling traffic.
 --
--- <ConfirmPrivateVirtualInterface.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.html>
 module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     (
     -- * Request

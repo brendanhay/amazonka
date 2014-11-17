@@ -21,7 +21,7 @@
 -- | Returns detailed information about all of the attributes associated with
 -- the specified load balancer.
 --
--- <DescribeLoadBalancerAttributes.html>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerAttributes.html>
 module Network.AWS.ELB.DescribeLoadBalancerAttributes
     (
     -- * Request

@@ -21,7 +21,7 @@
 -- | Modifies an existing DB subnet group. DB subnet groups must contain at
 -- least one subnet in at least two AZs in the region.
 --
--- <ModifyDBSubnetGroup.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSubnetGroup.html>
 module Network.AWS.RDS.ModifyDBSubnetGroup
     (
     -- * Request

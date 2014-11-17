@@ -44,7 +44,7 @@
 -- Using Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
 -- &amp;Attribute.1=this &amp;Attribute.2=that.
 --
--- <GetQueueAttributes.html>
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.html>
 module Network.AWS.SQS.GetQueueAttributes
     (
     -- * Request

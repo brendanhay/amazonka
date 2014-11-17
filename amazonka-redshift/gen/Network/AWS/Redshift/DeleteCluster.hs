@@ -32,7 +32,7 @@
 -- deleting the cluster. For more information about managing clusters, go to
 -- Amazon Redshift Clusters in the Amazon Redshift Management Guide .
 --
--- <DeleteCluster.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteCluster.html>
 module Network.AWS.Redshift.DeleteCluster
     (
     -- * Request

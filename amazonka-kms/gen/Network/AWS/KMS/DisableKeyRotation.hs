@@ -20,7 +20,7 @@
 
 -- | Disables rotation of the specified key.
 --
--- <DisableKeyRotation.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKeyRotation.html>
 module Network.AWS.KMS.DisableKeyRotation
     (
     -- * Request

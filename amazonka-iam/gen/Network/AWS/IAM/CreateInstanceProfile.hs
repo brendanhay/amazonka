@@ -23,7 +23,7 @@
 -- profiles you can create, see Limitations on IAM Entities in the Using IAM
 -- guide.
 --
--- <CreateInstanceProfile.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html>
 module Network.AWS.IAM.CreateInstanceProfile
     (
     -- * Request

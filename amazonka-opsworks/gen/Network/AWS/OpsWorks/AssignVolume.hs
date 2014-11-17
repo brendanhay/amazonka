@@ -26,7 +26,7 @@
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- <AssignVolume.html>
+-- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignVolume.html>
 module Network.AWS.OpsWorks.AssignVolume
     (
     -- * Request

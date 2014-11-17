@@ -20,7 +20,7 @@
 
 -- | The ReadPipeline operation gets detailed information about a pipeline.
 --
--- <ReadPipeline.html>
+-- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPipeline.html>
 module Network.AWS.ElasticTranscoder.ReadPipeline
     (
     -- * Request

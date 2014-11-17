@@ -25,7 +25,7 @@
 -- IDs that are configured as working storage, and it includes the amount of
 -- working storage allocated and used.
 --
--- <DescribeWorkingStorage.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeWorkingStorage.html>
 module Network.AWS.StorageGateway.DescribeWorkingStorage
     (
     -- * Request

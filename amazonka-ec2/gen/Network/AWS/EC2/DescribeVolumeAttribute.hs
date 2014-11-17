@@ -23,7 +23,7 @@
 -- volumes, see Amazon EBS Volumes in the Amazon Elastic Compute Cloud User
 -- Guide.
 --
--- <DescribeVolumeAttribute.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeAttribute.html>
 module Network.AWS.EC2.DescribeVolumeAttribute
     (
     -- * Request

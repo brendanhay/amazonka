@@ -21,7 +21,7 @@
 -- | Describes the specified attribute of the specified VPC. You can specify
 -- only one attribute at a time.
 --
--- <DescribeVpcAttribute.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpcAttribute.html>
 module Network.AWS.EC2.DescribeVpcAttribute
     (
     -- * Request

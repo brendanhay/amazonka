@@ -20,7 +20,7 @@
 
 -- | Lists information about the OpenID Connect providers in the AWS account.
 --
--- <ListOpenIDConnectProviders.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html>
 module Network.AWS.IAM.ListOpenIDConnectProviders
     (
     -- * Request

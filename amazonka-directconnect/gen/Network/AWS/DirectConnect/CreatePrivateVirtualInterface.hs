@@ -22,7 +22,7 @@
 -- that transports AWS Direct Connect traffic. A private virtual interface
 -- supports sending traffic to a single virtual private cloud (VPC).
 --
--- <CreatePrivateVirtualInterface.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePrivateVirtualInterface.html>
 module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     (
     -- * Request

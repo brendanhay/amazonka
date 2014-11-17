@@ -20,7 +20,7 @@
 
 -- | Deletes the specified cluster subnet group.
 --
--- <DeleteClusterSubnetGroup.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSubnetGroup.html>
 module Network.AWS.Redshift.DeleteClusterSubnetGroup
     (
     -- * Request

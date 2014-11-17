@@ -22,7 +22,7 @@
 -- deleted if it is currently in use. Also, predefined configurations cannot
 -- be deleted.
 --
--- <DeleteDeploymentConfig.html>
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentConfig.html>
 module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     (
     -- * Request

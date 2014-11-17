@@ -24,7 +24,7 @@
 -- configure router and firewall rules to allow health checkers to check the
 -- health of your resources.
 --
--- <GetCheckerIpRanges.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetCheckerIpRanges.html>
 module Network.AWS.Route53.GetCheckerIpRanges
     (
     -- * Request

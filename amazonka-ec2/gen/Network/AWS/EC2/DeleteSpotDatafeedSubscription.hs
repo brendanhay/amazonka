@@ -21,7 +21,7 @@
 -- | Deletes the datafeed for Spot Instances. For more information, see Spot
 -- Instances in the Amazon Elastic Compute Cloud User Guide.
 --
--- <DeleteSpotDatafeedSubscription.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSpotDatafeedSubscription.html>
 module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     (
     -- * Request

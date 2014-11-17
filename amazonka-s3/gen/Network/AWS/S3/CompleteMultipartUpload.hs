@@ -20,7 +20,7 @@
 
 -- | Completes a multipart upload by assembling previously uploaded parts.
 --
--- <CompleteMultipartUpload.html>
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/CompleteMultipartUpload.html>
 module Network.AWS.S3.CompleteMultipartUpload
     (
     -- * Request

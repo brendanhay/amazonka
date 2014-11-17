@@ -23,7 +23,7 @@
 -- options by associating either a new set of options or the default set of
 -- options with the VPC.
 --
--- <DeleteDhcpOptions.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteDhcpOptions.html>
 module Network.AWS.EC2.DeleteDhcpOptions
     (
     -- * Request

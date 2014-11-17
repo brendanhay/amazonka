@@ -20,7 +20,7 @@
 
 -- | Deletes an RDS event notification subscription.
 --
--- <DeleteEventSubscription.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteEventSubscription.html>
 module Network.AWS.RDS.DeleteEventSubscription
     (
     -- * Request

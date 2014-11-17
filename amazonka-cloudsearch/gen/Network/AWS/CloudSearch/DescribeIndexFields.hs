@@ -25,7 +25,7 @@
 -- more information, see Getting Domain Information in the Amazon CloudSearch
 -- Developer Guide.
 --
--- <DescribeIndexFields.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeIndexFields.html>
 module Network.AWS.CloudSearch.DescribeIndexFields
     (
     -- * Request

@@ -54,7 +54,7 @@
 -- Configuring a Relying Party and Claims in Using IAM. Creating a Role for
 -- SAML-Based Federation in Using IAM.
 --
--- <AssumeRoleWithSAML.html>
+-- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html>
 module Network.AWS.STS.AssumeRoleWithSAML
     (
     -- * Request

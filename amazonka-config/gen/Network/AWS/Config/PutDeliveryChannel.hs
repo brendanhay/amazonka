@@ -27,7 +27,7 @@
 -- bucket or the SNS topic, this action will keep the existing value for the
 -- parameter that is not changed.
 --
--- <PutDeliveryChannel.html>
+-- <http://docs.aws.amazon.com/config/latest/APIReference/API_PutDeliveryChannel.html>
 module Network.AWS.Config.PutDeliveryChannel
     (
     -- * Request

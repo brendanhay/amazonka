@@ -27,7 +27,7 @@
 -- DisassociateVPCFromHostedZoneRequest you made. See GetChange operation for
 -- how to track the progress of your change.
 --
--- <DisassociateVPCFromHostedZone.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DisassociateVPCFromHostedZone.html>
 module Network.AWS.Route53.DisassociateVPCFromHostedZone
     (
     -- * Request

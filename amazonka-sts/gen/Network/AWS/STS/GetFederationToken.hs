@@ -69,7 +69,7 @@
 -- see Creating Temporary Credentials to Enable Access for Federated Users in
 -- Using Temporary Security Credentials.
 --
--- <GetFederationToken.html>
+-- <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html>
 module Network.AWS.STS.GetFederationToken
     (
     -- * Request

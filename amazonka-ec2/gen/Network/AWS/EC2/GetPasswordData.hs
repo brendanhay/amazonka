@@ -29,7 +29,7 @@
 -- moments. We recommend that you wait up to 15 minutes after launching an
 -- instance before trying to retrieve the generated password.
 --
--- <GetPasswordData.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetPasswordData.html>
 module Network.AWS.EC2.GetPasswordData
     (
     -- * Request

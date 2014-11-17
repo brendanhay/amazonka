@@ -20,7 +20,7 @@
 
 -- | Lists the customer master keys.
 --
--- <ListKeys.html>
+-- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html>
 module Network.AWS.KMS.ListKeys
     (
     -- * Request

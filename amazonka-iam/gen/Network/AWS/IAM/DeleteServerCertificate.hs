@@ -28,7 +28,7 @@
 -- For more information, go to DeleteLoadBalancerListeners in the Elastic Load
 -- Balancing API Reference.
 --
--- <DeleteServerCertificate.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServerCertificate.html>
 module Network.AWS.IAM.DeleteServerCertificate
     (
     -- * Request

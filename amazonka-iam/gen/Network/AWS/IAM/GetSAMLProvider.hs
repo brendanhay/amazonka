@@ -21,7 +21,7 @@
 -- | Returns the SAML provider metadocument that was uploaded when the provider
 -- was created or updated.
 --
--- <GetSAMLProvider.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html>
 module Network.AWS.IAM.GetSAMLProvider
     (
     -- * Request

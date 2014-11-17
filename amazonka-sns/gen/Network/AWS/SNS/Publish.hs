@@ -28,7 +28,7 @@
 -- with the CreatePlatformEndpoint action. The second example below shows a
 -- request and response for publishing to a mobile endpoint.
 --
--- <Publish.html>
+-- <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html>
 module Network.AWS.SNS.Publish
     (
     -- * Request

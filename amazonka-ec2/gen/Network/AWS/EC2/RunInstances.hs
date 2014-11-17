@@ -38,7 +38,7 @@
 -- Do If An Instance Immediately Terminates, and Troubleshooting Connecting to
 -- Your Instance in the Amazon Elastic Compute Cloud User Guide.
 --
--- <RunInstances.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html>
 module Network.AWS.EC2.RunInstances
     (
     -- * Request

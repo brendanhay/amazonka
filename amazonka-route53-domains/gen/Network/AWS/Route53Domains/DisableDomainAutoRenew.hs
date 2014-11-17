@@ -21,7 +21,7 @@
 -- | This operation disables automatic renewal of domain registration for the
 -- specified domain.
 --
--- <DisableDomainAutoRenew.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-DisableDomainAutoRenew.html>
 module Network.AWS.Route53Domains.DisableDomainAutoRenew
     (
     -- * Request

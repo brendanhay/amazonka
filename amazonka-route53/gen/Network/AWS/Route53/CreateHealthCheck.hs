@@ -24,7 +24,7 @@
 -- response returns the CreateHealthCheckResponse element that contains
 -- metadata about the health check.
 --
--- <CreateHealthCheck.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html>
 module Network.AWS.Route53.CreateHealthCheck
     (
     -- * Request

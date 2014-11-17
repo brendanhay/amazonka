@@ -25,7 +25,7 @@
 -- 3986. For more information about RFC 3986, go to
 -- http://www.faqs.org/rfcs/rfc3986.html.
 --
--- <GetRole.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html>
 module Network.AWS.IAM.GetRole
     (
     -- * Request

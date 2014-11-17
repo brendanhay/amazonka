@@ -22,7 +22,7 @@
 -- a specified amount of bandwidth for use by a hosted connection on the given
 -- interconnect.
 --
--- <AllocateConnectionOnInterconnect.html>
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.html>
 module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     (
     -- * Request

@@ -26,7 +26,7 @@
 -- information, see Getting Information about a Search Domain in the Amazon
 -- CloudSearch Developer Guide.
 --
--- <DescribeDomains.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeDomains.html>
 module Network.AWS.CloudSearch.DescribeDomains
     (
     -- * Request

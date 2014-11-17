@@ -22,7 +22,7 @@
 -- network ACLs, see Network ACLs in the Amazon Virtual Private Cloud User
 -- Guide.
 --
--- <ReplaceNetworkAclEntry.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkAclEntry.html>
 module Network.AWS.EC2.ReplaceNetworkAclEntry
     (
     -- * Request

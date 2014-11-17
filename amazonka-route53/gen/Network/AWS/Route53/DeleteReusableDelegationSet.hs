@@ -27,7 +27,7 @@
 -- to delete a reusable delegation set that contains associated hosted zones,
 -- Route 53 will deny your request with a DelegationSetInUse error.
 --
--- <DeleteReusableDelegationSet.html>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteReusableDelegationSet.html>
 module Network.AWS.Route53.DeleteReusableDelegationSet
     (
     -- * Request

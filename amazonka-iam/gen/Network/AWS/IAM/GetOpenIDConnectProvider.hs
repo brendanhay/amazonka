@@ -20,7 +20,7 @@
 
 -- | Returns information about the specified OpenID Connect provider.
 --
--- <GetOpenIDConnectProvider.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html>
 module Network.AWS.IAM.GetOpenIDConnectProvider
     (
     -- * Request

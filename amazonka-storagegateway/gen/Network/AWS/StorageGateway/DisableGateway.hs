@@ -24,7 +24,7 @@
 -- reachable or not functioning. Once a gateway is disabled it cannot be
 -- enabled.
 --
--- <DisableGateway.html>
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DisableGateway.html>
 module Network.AWS.StorageGateway.DisableGateway
     (
     -- * Request

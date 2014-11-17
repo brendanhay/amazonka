@@ -21,7 +21,7 @@
 -- | Creates a new search domain. For more information, see Creating a Search
 -- Domain in the Amazon CloudSearch Developer Guide.
 --
--- <CreateDomain.html>
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_CreateDomain.html>
 module Network.AWS.CloudSearch.CreateDomain
     (
     -- * Request

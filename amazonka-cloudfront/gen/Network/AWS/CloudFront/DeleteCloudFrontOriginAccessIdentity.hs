@@ -20,7 +20,7 @@
 
 -- | Delete an origin access identity.
 --
--- <DeleteCloudFrontOriginAccessIdentity.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteCloudFrontOriginAccessIdentity.html>
 module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     (
     -- * Request

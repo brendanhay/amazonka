@@ -35,7 +35,7 @@
 -- are currently being removed from the cache cluster, no endpoint information
 -- for the removed nodes is displayed.
 --
--- <DescribeCacheClusters.html>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheClusters.html>
 module Network.AWS.ElastiCache.DescribeCacheClusters
     (
     -- * Request

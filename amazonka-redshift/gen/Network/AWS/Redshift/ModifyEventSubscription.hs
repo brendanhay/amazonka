@@ -20,7 +20,7 @@
 
 -- | Modifies an existing Amazon Redshift event notification subscription.
 --
--- <ModifyEventSubscription.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyEventSubscription.html>
 module Network.AWS.Redshift.ModifyEventSubscription
     (
     -- * Request

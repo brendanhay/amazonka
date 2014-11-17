@@ -40,7 +40,7 @@
 -- information, see Amazon Elastic Block Store and Amazon EBS Encryption in
 -- the Amazon Elastic Compute Cloud User Guide.
 --
--- <CreateSnapshot.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSnapshot.html>
 module Network.AWS.EC2.CreateSnapshot
     (
     -- * Request

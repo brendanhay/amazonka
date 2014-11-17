@@ -24,7 +24,7 @@
 -- groups, go to Amazon Redshift Cluster Security Groups in the Amazon
 -- Redshift Management Guide.
 --
--- <DescribeClusterSecurityGroups.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html>
 module Network.AWS.Redshift.DescribeClusterSecurityGroups
     (
     -- * Request

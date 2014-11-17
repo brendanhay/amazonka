@@ -22,7 +22,7 @@
 -- monitoring instances, see Monitoring Your Instances and Volumes in the
 -- Amazon Elastic Compute Cloud User Guide.
 --
--- <MonitorInstances.html>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MonitorInstances.html>
 module Network.AWS.EC2.MonitorInstances
     (
     -- * Request

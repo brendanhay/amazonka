@@ -22,7 +22,7 @@
 -- exist, the action returns an empty list. You can paginate the results using
 -- the MaxItems and Marker parameters.
 --
--- <ListServerCertificates.html>
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificates.html>
 module Network.AWS.IAM.ListServerCertificates
     (
     -- * Request

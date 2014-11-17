@@ -36,7 +36,7 @@
 -- will be notified of events generated from all RDS sources belonging to your
 -- customer account.
 --
--- <CreateEventSubscription.html>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateEventSubscription.html>
 module Network.AWS.RDS.CreateEventSubscription
     (
     -- * Request

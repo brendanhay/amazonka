@@ -25,7 +25,7 @@
 -- when the call returns an HTTP status code of 200. &amp;Attribute.1=this
 -- &amp;Attribute.2=that.
 --
--- <DeleteMessageBatch.html>
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html>
 module Network.AWS.SQS.DeleteMessageBatch
     (
     -- * Request

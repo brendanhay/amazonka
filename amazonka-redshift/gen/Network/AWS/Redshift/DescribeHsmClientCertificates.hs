@@ -22,7 +22,7 @@
 -- certificate ID is specified, returns information about all the HSM
 -- certificates owned by your AWS customer account.
 --
--- <DescribeHsmClientCertificates.html>
+-- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHsmClientCertificates.html>
 module Network.AWS.Redshift.DescribeHsmClientCertificates
     (
     -- * Request

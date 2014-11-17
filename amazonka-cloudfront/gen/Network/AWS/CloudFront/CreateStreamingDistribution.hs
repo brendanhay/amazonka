@@ -20,7 +20,7 @@
 
 -- | Create a new streaming distribution.
 --
--- <CreateStreamingDistribution.html>
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateStreamingDistribution.html>
 module Network.AWS.CloudFront.CreateStreamingDistribution
     (
     -- * Request

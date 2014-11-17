@@ -32,7 +32,7 @@
 -- add, modify or delete indexes using UpdateTable. Indexes can only be
 -- defined at table creation time.
 --
--- <UpdateTable.html>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html>
 module Network.AWS.DynamoDB.UpdateTable
     (
     -- * Request

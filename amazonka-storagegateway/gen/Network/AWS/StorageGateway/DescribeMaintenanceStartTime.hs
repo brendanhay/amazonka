@@ -132,7 +132,7 @@ instance AWSRequest DescribeMaintenanceStartTime where
     type Sv DescribeMaintenanceStartTime = StorageGateway
     type Rs DescribeMaintenanceStartTime = DescribeMaintenanceStartTimeResponse
 
-    request  = post
+    request  = post "DescribeMaintenanceStartTime"
     response = jsonResponse
 
 instance FromJSON DescribeMaintenanceStartTimeResponse where

@@ -194,7 +194,7 @@ instance AWSRequest BatchGetItem where
     type Sv BatchGetItem = DynamoDB
     type Rs BatchGetItem = BatchGetItemResponse
 
-    request  = post
+    request  = post "BatchGetItem"
     response = jsonResponse
 
 instance FromJSON BatchGetItemResponse where

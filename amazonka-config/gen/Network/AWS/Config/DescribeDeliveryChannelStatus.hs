@@ -113,7 +113,7 @@ instance AWSRequest DescribeDeliveryChannelStatus where
     type Sv DescribeDeliveryChannelStatus = Config
     type Rs DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatusResponse
 
-    request  = post
+    request  = post "DescribeDeliveryChannelStatus"
     response = jsonResponse
 
 instance FromJSON DescribeDeliveryChannelStatusResponse where

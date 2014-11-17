@@ -334,7 +334,7 @@ instance AWSRequest CreateStack where
     type Sv CreateStack = OpsWorks
     type Rs CreateStack = CreateStackResponse
 
-    request  = post
+    request  = post "CreateStack"
     response = jsonResponse
 
 instance FromJSON CreateStackResponse where

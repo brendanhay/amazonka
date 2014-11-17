@@ -99,7 +99,7 @@ instance AWSRequest GetKeyRotationStatus where
     type Sv GetKeyRotationStatus = KMS
     type Rs GetKeyRotationStatus = GetKeyRotationStatusResponse
 
-    request  = post
+    request  = post "GetKeyRotationStatus"
     response = jsonResponse
 
 instance FromJSON GetKeyRotationStatusResponse where

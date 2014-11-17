@@ -115,7 +115,7 @@ instance AWSRequest ListBootstrapActions where
     type Sv ListBootstrapActions = EMR
     type Rs ListBootstrapActions = ListBootstrapActionsResponse
 
-    request  = post
+    request  = post "ListBootstrapActions"
     response = jsonResponse
 
 instance FromJSON ListBootstrapActionsResponse where

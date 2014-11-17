@@ -112,7 +112,7 @@ instance AWSRequest RegisterElasticIp where
     type Sv RegisterElasticIp = OpsWorks
     type Rs RegisterElasticIp = RegisterElasticIpResponse
 
-    request  = post
+    request  = post "RegisterElasticIp"
     response = jsonResponse
 
 instance FromJSON RegisterElasticIpResponse where

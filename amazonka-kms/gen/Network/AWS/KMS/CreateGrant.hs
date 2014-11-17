@@ -168,7 +168,7 @@ instance AWSRequest CreateGrant where
     type Sv CreateGrant = KMS
     type Rs CreateGrant = CreateGrantResponse
 
-    request  = post
+    request  = post "CreateGrant"
     response = jsonResponse
 
 instance FromJSON CreateGrantResponse where

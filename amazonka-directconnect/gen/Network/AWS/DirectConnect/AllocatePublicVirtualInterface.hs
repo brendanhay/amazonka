@@ -258,7 +258,7 @@ instance AWSRequest AllocatePublicVirtualInterface where
     type Sv AllocatePublicVirtualInterface = DirectConnect
     type Rs AllocatePublicVirtualInterface = AllocatePublicVirtualInterfaceResponse
 
-    request  = post
+    request  = post "AllocatePublicVirtualInterface"
     response = jsonResponse
 
 instance FromJSON AllocatePublicVirtualInterfaceResponse where

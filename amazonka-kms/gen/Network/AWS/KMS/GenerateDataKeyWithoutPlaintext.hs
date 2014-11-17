@@ -153,7 +153,7 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext where
     type Sv GenerateDataKeyWithoutPlaintext = KMS
     type Rs GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintextResponse
 
-    request  = post
+    request  = post "GenerateDataKeyWithoutPlaintext"
     response = jsonResponse
 
 instance FromJSON GenerateDataKeyWithoutPlaintextResponse where

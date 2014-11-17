@@ -199,7 +199,7 @@ instance AWSRequest CreateApp where
     type Sv CreateApp = OpsWorks
     type Rs CreateApp = CreateAppResponse
 
-    request  = post
+    request  = post "CreateApp"
     response = jsonResponse
 
 instance FromJSON CreateAppResponse where

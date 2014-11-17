@@ -82,5 +82,5 @@ instance AWSRequest StartLogging where
     type Sv StartLogging = CloudTrail
     type Rs StartLogging = StartLoggingResponse
 
-    request  = post
+    request  = post "StartLogging"
     response = nullResponse StartLoggingResponse

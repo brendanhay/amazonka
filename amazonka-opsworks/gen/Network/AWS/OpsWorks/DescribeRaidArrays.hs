@@ -116,7 +116,7 @@ instance AWSRequest DescribeRaidArrays where
     type Sv DescribeRaidArrays = OpsWorks
     type Rs DescribeRaidArrays = DescribeRaidArraysResponse
 
-    request  = post
+    request  = post "DescribeRaidArrays"
     response = jsonResponse
 
 instance FromJSON DescribeRaidArraysResponse where

@@ -791,11 +791,12 @@ instance AWSService SWF where
     type Er SWF = JSONError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "SWF"
-        , _svcPrefix   = "swf"
-        , _svcVersion  = "2012-01-25"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "SWF"
+        , _svcPrefix       = "swf"
+        , _svcVersion      = "2012-01-25"
+        , _svcTargetPrefix = Just "SimpleWorkflowService"
+        , _svcJSONVersion  = Just "1.0"
         }
 
     handle = jsonError alwaysFail

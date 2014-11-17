@@ -200,5 +200,5 @@ instance AWSRequest UpdateInstance where
     type Sv UpdateInstance = OpsWorks
     type Rs UpdateInstance = UpdateInstanceResponse
 
-    request  = post
+    request  = post "UpdateInstance"
     response = nullResponse UpdateInstanceResponse

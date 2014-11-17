@@ -240,7 +240,7 @@ instance AWSRequest CreatePrivateVirtualInterface where
     type Sv CreatePrivateVirtualInterface = DirectConnect
     type Rs CreatePrivateVirtualInterface = CreatePrivateVirtualInterfaceResponse
 
-    request  = post
+    request  = post "CreatePrivateVirtualInterface"
     response = jsonResponse
 
 instance FromJSON CreatePrivateVirtualInterfaceResponse where

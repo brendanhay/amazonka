@@ -118,7 +118,7 @@ instance AWSRequest DescribePipelines where
     type Sv DescribePipelines = DataPipeline
     type Rs DescribePipelines = DescribePipelinesResponse
 
-    request  = post
+    request  = post "DescribePipelines"
     response = jsonResponse
 
 instance FromJSON DescribePipelinesResponse where

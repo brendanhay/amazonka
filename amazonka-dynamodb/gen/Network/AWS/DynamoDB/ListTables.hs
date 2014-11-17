@@ -131,7 +131,7 @@ instance AWSRequest ListTables where
     type Sv ListTables = DynamoDB
     type Rs ListTables = ListTablesResponse
 
-    request  = post
+    request  = post "ListTables"
     response = jsonResponse
 
 instance FromJSON ListTablesResponse where

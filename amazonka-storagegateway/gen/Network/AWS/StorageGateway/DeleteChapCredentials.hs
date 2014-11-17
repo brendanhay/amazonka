@@ -120,7 +120,7 @@ instance AWSRequest DeleteChapCredentials where
     type Sv DeleteChapCredentials = StorageGateway
     type Rs DeleteChapCredentials = DeleteChapCredentialsResponse
 
-    request  = post
+    request  = post "DeleteChapCredentials"
     response = jsonResponse
 
 instance FromJSON DeleteChapCredentialsResponse where

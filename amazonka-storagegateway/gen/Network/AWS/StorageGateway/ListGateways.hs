@@ -121,7 +121,7 @@ instance AWSRequest ListGateways where
     type Sv ListGateways = StorageGateway
     type Rs ListGateways = ListGatewaysResponse
 
-    request  = post
+    request  = post "ListGateways"
     response = jsonResponse
 
 instance FromJSON ListGatewaysResponse where

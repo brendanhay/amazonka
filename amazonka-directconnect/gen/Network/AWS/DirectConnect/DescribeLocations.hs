@@ -88,7 +88,7 @@ instance AWSRequest DescribeLocations where
     type Sv DescribeLocations = DirectConnect
     type Rs DescribeLocations = DescribeLocationsResponse
 
-    request  = post
+    request  = post "DescribeLocations"
     response = jsonResponse
 
 instance FromJSON DescribeLocationsResponse where

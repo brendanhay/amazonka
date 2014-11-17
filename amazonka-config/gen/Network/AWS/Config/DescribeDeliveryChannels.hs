@@ -111,7 +111,7 @@ instance AWSRequest DescribeDeliveryChannels where
     type Sv DescribeDeliveryChannels = Config
     type Rs DescribeDeliveryChannels = DescribeDeliveryChannelsResponse
 
-    request  = post
+    request  = post "DescribeDeliveryChannels"
     response = jsonResponse
 
 instance FromJSON DescribeDeliveryChannelsResponse where

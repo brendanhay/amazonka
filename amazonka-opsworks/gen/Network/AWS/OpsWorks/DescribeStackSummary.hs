@@ -101,7 +101,7 @@ instance AWSRequest DescribeStackSummary where
     type Sv DescribeStackSummary = OpsWorks
     type Rs DescribeStackSummary = DescribeStackSummaryResponse
 
-    request  = post
+    request  = post "DescribeStackSummary"
     response = jsonResponse
 
 instance FromJSON DescribeStackSummaryResponse where

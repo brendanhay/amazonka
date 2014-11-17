@@ -58,7 +58,7 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request.RestJSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 

@@ -333,7 +333,7 @@ instance AWSRequest GetDomainDetail where
     type Sv GetDomainDetail = Route53Domains
     type Rs GetDomainDetail = GetDomainDetailResponse
 
-    request  = post
+    request  = post "GetDomainDetail"
     response = jsonResponse
 
 instance FromJSON GetDomainDetailResponse where

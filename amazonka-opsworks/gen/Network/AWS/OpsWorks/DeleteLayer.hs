@@ -87,5 +87,5 @@ instance AWSRequest DeleteLayer where
     type Sv DeleteLayer = OpsWorks
     type Rs DeleteLayer = DeleteLayerResponse
 
-    request  = post
+    request  = post "DeleteLayer"
     response = nullResponse DeleteLayerResponse

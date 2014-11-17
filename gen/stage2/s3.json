@@ -5282,7 +5282,7 @@
             "namespace": "Network.AWS.S3.AbortMultipartUpload",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "AbortMultipartUpload",
@@ -5704,7 +5704,7 @@
             "namespace": "Network.AWS.S3.CompleteMultipartUpload",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "CompleteMultipartUpload",
@@ -6161,7 +6161,7 @@
             "namespace": "Network.AWS.S3.CopyObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "CopyObject",
@@ -7279,7 +7279,7 @@
             "namespace": "Network.AWS.S3.CreateBucket",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "CreateBucket",
@@ -7843,7 +7843,7 @@
             "namespace": "Network.AWS.S3.CreateMultipartUpload",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "CreateMultipartUpload",
@@ -8616,7 +8616,7 @@
             "namespace": "Network.AWS.S3.DeleteBucket",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "DeleteBucket",
@@ -8737,7 +8737,7 @@
             "namespace": "Network.AWS.S3.DeleteBucketCors",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "DeleteBucketCors",
@@ -8863,7 +8863,7 @@
             "namespace": "Network.AWS.S3.DeleteBucketLifecycle",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "DeleteBucketLifecycle",
@@ -8989,7 +8989,7 @@
             "namespace": "Network.AWS.S3.DeleteBucketPolicy",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "DeleteBucketPolicy",
@@ -9115,7 +9115,7 @@
             "namespace": "Network.AWS.S3.DeleteBucketTagging",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "DeleteBucketTagging",
@@ -9241,7 +9241,7 @@
             "namespace": "Network.AWS.S3.DeleteBucketWebsite",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "DeleteBucketWebsite",
@@ -9437,7 +9437,7 @@
             "namespace": "Network.AWS.S3.DeleteObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "DeleteObject",
@@ -9704,7 +9704,7 @@
             "namespace": "Network.AWS.S3.DeleteObjects",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "DeleteObjects",
@@ -9946,7 +9946,7 @@
             "namespace": "Network.AWS.S3.GetBucketAcl",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetBucketAcl",
@@ -10119,7 +10119,7 @@
             "namespace": "Network.AWS.S3.GetBucketCors",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetBucketCors",
@@ -10292,7 +10292,7 @@
             "namespace": "Network.AWS.S3.GetBucketLifecycle",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetBucketLifecycle",
@@ -10465,7 +10465,7 @@
             "namespace": "Network.AWS.S3.GetBucketLocation",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetBucketLocation",
@@ -10636,7 +10636,7 @@
             "namespace": "Network.AWS.S3.GetBucketLogging",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetBucketLogging",
@@ -10848,7 +10848,7 @@
             "namespace": "Network.AWS.S3.GetBucketNotification",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetBucketNotification",
@@ -11034,7 +11034,7 @@
             "namespace": "Network.AWS.S3.GetBucketPolicy",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetBucketPolicy",
@@ -11207,7 +11207,7 @@
             "namespace": "Network.AWS.S3.GetBucketRequestPayment",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetBucketRequestPayment",
@@ -11380,7 +11380,7 @@
             "namespace": "Network.AWS.S3.GetBucketTagging",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetBucketTagging",
@@ -11565,7 +11565,7 @@
             "namespace": "Network.AWS.S3.GetBucketVersioning",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetBucketVersioning",
@@ -11805,7 +11805,7 @@
             "namespace": "Network.AWS.S3.GetBucketWebsite",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetBucketWebsite",
@@ -12668,7 +12668,7 @@
             "namespace": "Network.AWS.S3.GetObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetObject",
@@ -13397,7 +13397,7 @@
             "namespace": "Network.AWS.S3.GetObjectAcl",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetObjectAcl",
@@ -13634,7 +13634,7 @@
             "namespace": "Network.AWS.S3.GetObjectTorrent",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "GetObjectTorrent",
@@ -13779,7 +13779,7 @@
             "namespace": "Network.AWS.S3.HeadBucket",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "HeadBucket",
@@ -14596,7 +14596,7 @@
             "namespace": "Network.AWS.S3.HeadObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "HeadObject",
@@ -15127,7 +15127,7 @@
             "namespace": "Network.AWS.S3.ListBuckets",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "ListBuckets",
@@ -15534,7 +15534,7 @@
             "namespace": "Network.AWS.S3.ListMultipartUploads",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "pager": {
@@ -16223,7 +16223,7 @@
             "namespace": "Network.AWS.S3.ListObjectVersions",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "pager": {
@@ -16828,7 +16828,7 @@
             "namespace": "Network.AWS.S3.ListObjects",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "pager": {
@@ -17417,7 +17417,7 @@
             "namespace": "Network.AWS.S3.ListParts",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "pager": {
@@ -17666,7 +17666,7 @@
             "namespace": "Network.AWS.S3.PutBucketAcl",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutBucketAcl",
@@ -18048,7 +18048,7 @@
             "namespace": "Network.AWS.S3.PutBucketCors",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutBucketCors",
@@ -18232,7 +18232,7 @@
             "namespace": "Network.AWS.S3.PutBucketLifecycle",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutBucketLifecycle",
@@ -18416,7 +18416,7 @@
             "namespace": "Network.AWS.S3.PutBucketLogging",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutBucketLogging",
@@ -18600,7 +18600,7 @@
             "namespace": "Network.AWS.S3.PutBucketNotification",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutBucketNotification",
@@ -18784,7 +18784,7 @@
             "namespace": "Network.AWS.S3.PutBucketPolicy",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutBucketPolicy",
@@ -18969,7 +18969,7 @@
             "namespace": "Network.AWS.S3.PutBucketRequestPayment",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutBucketRequestPayment",
@@ -19153,7 +19153,7 @@
             "namespace": "Network.AWS.S3.PutBucketTagging",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutBucketTagging",
@@ -19337,7 +19337,7 @@
             "namespace": "Network.AWS.S3.PutBucketVersioning",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutBucketVersioning",
@@ -19554,7 +19554,7 @@
             "namespace": "Network.AWS.S3.PutBucketWebsite",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutBucketWebsite",
@@ -19973,7 +19973,7 @@
             "namespace": "Network.AWS.S3.PutObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutObject",
@@ -20848,7 +20848,7 @@
             "namespace": "Network.AWS.S3.PutObjectAcl",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "PutObjectAcl",
@@ -21266,7 +21266,7 @@
             "namespace": "Network.AWS.S3.RestoreObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "RestoreObject",
@@ -21654,7 +21654,7 @@
             "namespace": "Network.AWS.S3.UploadPart",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "UploadPart",
@@ -22310,7 +22310,7 @@
             "namespace": "Network.AWS.S3.UploadPartCopy",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.S3.Types"
             ],
             "name": "UploadPartCopy",

@@ -119,7 +119,7 @@ instance AWSRequest CreateDeploymentConfig where
     type Sv CreateDeploymentConfig = CodeDeploy
     type Rs CreateDeploymentConfig = CreateDeploymentConfigResponse
 
-    request  = post
+    request  = post "CreateDeploymentConfig"
     response = jsonResponse
 
 instance FromJSON CreateDeploymentConfigResponse where

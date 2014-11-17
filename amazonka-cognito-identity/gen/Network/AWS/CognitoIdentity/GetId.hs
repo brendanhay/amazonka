@@ -119,7 +119,7 @@ instance AWSRequest GetId where
     type Sv GetId = CognitoIdentity
     type Rs GetId = GetIdResponse
 
-    request  = post
+    request  = post "GetId"
     response = jsonResponse
 
 instance FromJSON GetIdResponse where

@@ -430,11 +430,12 @@ instance AWSService OpsWorks where
     type Er OpsWorks = JSONError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "OpsWorks"
-        , _svcPrefix   = "opsworks"
-        , _svcVersion  = "2013-02-18"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "OpsWorks"
+        , _svcPrefix       = "opsworks"
+        , _svcVersion      = "2013-02-18"
+        , _svcTargetPrefix = Just "OpsWorks_20130218"
+        , _svcJSONVersion  = Just "1.1"
         }
 
     handle = jsonError alwaysFail

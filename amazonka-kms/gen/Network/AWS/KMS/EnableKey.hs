@@ -84,5 +84,5 @@ instance AWSRequest EnableKey where
     type Sv EnableKey = KMS
     type Rs EnableKey = EnableKeyResponse
 
-    request  = post
+    request  = post "EnableKey"
     response = nullResponse EnableKeyResponse

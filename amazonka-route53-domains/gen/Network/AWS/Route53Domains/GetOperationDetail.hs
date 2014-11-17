@@ -148,7 +148,7 @@ instance AWSRequest GetOperationDetail where
     type Sv GetOperationDetail = Route53Domains
     type Rs GetOperationDetail = GetOperationDetailResponse
 
-    request  = post
+    request  = post "GetOperationDetail"
     response = jsonResponse
 
 instance FromJSON GetOperationDetailResponse where

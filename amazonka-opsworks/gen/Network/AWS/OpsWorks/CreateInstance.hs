@@ -262,7 +262,7 @@ instance AWSRequest CreateInstance where
     type Sv CreateInstance = OpsWorks
     type Rs CreateInstance = CreateInstanceResponse
 
-    request  = post
+    request  = post "CreateInstance"
     response = jsonResponse
 
 instance FromJSON CreateInstanceResponse where

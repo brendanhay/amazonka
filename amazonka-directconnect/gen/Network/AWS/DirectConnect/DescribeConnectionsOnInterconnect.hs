@@ -105,7 +105,7 @@ instance AWSRequest DescribeConnectionsOnInterconnect where
     type Sv DescribeConnectionsOnInterconnect = DirectConnect
     type Rs DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnectResponse
 
-    request  = post
+    request  = post "DescribeConnectionsOnInterconnect"
     response = jsonResponse
 
 instance FromJSON DescribeConnectionsOnInterconnectResponse where

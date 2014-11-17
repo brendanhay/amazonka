@@ -239,7 +239,7 @@ instance AWSRequest CreatePublicVirtualInterface where
     type Sv CreatePublicVirtualInterface = DirectConnect
     type Rs CreatePublicVirtualInterface = CreatePublicVirtualInterfaceResponse
 
-    request  = post
+    request  = post "CreatePublicVirtualInterface"
     response = jsonResponse
 
 instance FromJSON CreatePublicVirtualInterfaceResponse where

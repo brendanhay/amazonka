@@ -108,7 +108,7 @@ instance AWSRequest DisableDomainTransferLock where
     type Sv DisableDomainTransferLock = Route53Domains
     type Rs DisableDomainTransferLock = DisableDomainTransferLockResponse
 
-    request  = post
+    request  = post "DisableDomainTransferLock"
     response = jsonResponse
 
 instance FromJSON DisableDomainTransferLockResponse where

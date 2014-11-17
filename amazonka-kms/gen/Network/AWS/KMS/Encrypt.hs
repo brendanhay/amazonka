@@ -139,7 +139,7 @@ instance AWSRequest Encrypt where
     type Sv Encrypt = KMS
     type Rs Encrypt = EncryptResponse
 
-    request  = post
+    request  = post "Encrypt"
     response = jsonResponse
 
 instance FromJSON EncryptResponse where

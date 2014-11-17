@@ -105,7 +105,7 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
     type Sv RefreshTrustedAdvisorCheck = Support
     type Rs RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheckResponse
 
-    request  = post
+    request  = post "RefreshTrustedAdvisorCheck"
     response = jsonResponse
 
 instance FromJSON RefreshTrustedAdvisorCheckResponse where

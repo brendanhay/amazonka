@@ -84,5 +84,5 @@ instance AWSRequest UpdateMyUserProfile where
     type Sv UpdateMyUserProfile = OpsWorks
     type Rs UpdateMyUserProfile = UpdateMyUserProfileResponse
 
-    request  = post
+    request  = post "UpdateMyUserProfile"
     response = nullResponse UpdateMyUserProfileResponse

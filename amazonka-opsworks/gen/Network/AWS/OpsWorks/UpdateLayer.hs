@@ -227,5 +227,5 @@ instance AWSRequest UpdateLayer where
     type Sv UpdateLayer = OpsWorks
     type Rs UpdateLayer = UpdateLayerResponse
 
-    request  = post
+    request  = post "UpdateLayer"
     response = nullResponse UpdateLayerResponse

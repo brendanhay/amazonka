@@ -102,11 +102,12 @@ instance AWSService CognitoSync where
     type Er CognitoSync = RESTError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "CognitoSync"
-        , _svcPrefix   = "cognito-sync"
-        , _svcVersion  = "2014-06-30"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "CognitoSync"
+        , _svcPrefix       = "cognito-sync"
+        , _svcVersion      = "2014-06-30"
+        , _svcTargetPrefix = Nothing
+        , _svcJSONVersion  = Just "1.1"
         }
 
     handle = restError alwaysFail

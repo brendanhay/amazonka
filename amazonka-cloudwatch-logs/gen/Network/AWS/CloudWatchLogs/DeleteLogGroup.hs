@@ -82,5 +82,5 @@ instance AWSRequest DeleteLogGroup where
     type Sv DeleteLogGroup = CloudWatchLogs
     type Rs DeleteLogGroup = DeleteLogGroupResponse
 
-    request  = post
+    request  = post "DeleteLogGroup"
     response = nullResponse DeleteLogGroupResponse

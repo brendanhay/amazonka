@@ -92,11 +92,12 @@ instance AWSService Kinesis where
     type Er Kinesis = JSONError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "Kinesis"
-        , _svcPrefix   = "kinesis"
-        , _svcVersion  = "2013-12-02"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "Kinesis"
+        , _svcPrefix       = "kinesis"
+        , _svcVersion      = "2013-12-02"
+        , _svcTargetPrefix = Just "Kinesis_20131202"
+        , _svcJSONVersion  = Just "1.1"
         }
 
     handle = jsonError alwaysFail

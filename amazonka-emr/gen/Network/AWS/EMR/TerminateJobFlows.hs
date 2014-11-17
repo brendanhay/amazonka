@@ -94,5 +94,5 @@ instance AWSRequest TerminateJobFlows where
     type Sv TerminateJobFlows = EMR
     type Rs TerminateJobFlows = TerminateJobFlowsResponse
 
-    request  = post
+    request  = post "TerminateJobFlows"
     response = nullResponse TerminateJobFlowsResponse

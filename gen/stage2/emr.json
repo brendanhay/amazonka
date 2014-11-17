@@ -31,6 +31,7 @@
         "version": "2009-03-31",
         "documentation": "Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do such tasks as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.",
         "xmlNamespace": "https://elasticmapreduce.amazonaws.com/doc/2009-03-31/",
+        "jsonVersion": "1.1",
         "endpoint": "Regional",
         "endpointPrefix": "elasticmapreduce",
         "targetPrefix": "ElasticMapReduce"

@@ -62,11 +62,12 @@ instance AWSService STS where
     type Er STS = RESTError
 
     service = Service
-        { _svcEndpoint = global
-        , _svcAbbrev   = "STS"
-        , _svcPrefix   = "sts"
-        , _svcVersion  = "2011-06-15"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = global
+        , _svcAbbrev       = "STS"
+        , _svcPrefix       = "sts"
+        , _svcVersion      = "2011-06-15"
+        , _svcTargetPrefix = Nothing
+        , _svcJSONVersion  = Nothing
         }
 
     handle = restError alwaysFail

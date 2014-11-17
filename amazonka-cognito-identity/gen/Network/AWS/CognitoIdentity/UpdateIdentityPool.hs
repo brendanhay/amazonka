@@ -211,7 +211,7 @@ instance AWSRequest UpdateIdentityPool where
     type Sv UpdateIdentityPool = CognitoIdentity
     type Rs UpdateIdentityPool = UpdateIdentityPoolResponse
 
-    request  = post
+    request  = post "UpdateIdentityPool"
     response = jsonResponse
 
 instance FromJSON UpdateIdentityPoolResponse where

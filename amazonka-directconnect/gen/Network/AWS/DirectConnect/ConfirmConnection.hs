@@ -98,7 +98,7 @@ instance AWSRequest ConfirmConnection where
     type Sv ConfirmConnection = DirectConnect
     type Rs ConfirmConnection = ConfirmConnectionResponse
 
-    request  = post
+    request  = post "ConfirmConnection"
     response = jsonResponse
 
 instance FromJSON ConfirmConnectionResponse where

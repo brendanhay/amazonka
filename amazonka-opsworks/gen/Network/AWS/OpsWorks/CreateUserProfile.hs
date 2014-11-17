@@ -132,7 +132,7 @@ instance AWSRequest CreateUserProfile where
     type Sv CreateUserProfile = OpsWorks
     type Rs CreateUserProfile = CreateUserProfileResponse
 
-    request  = post
+    request  = post "CreateUserProfile"
     response = jsonResponse
 
 instance FromJSON CreateUserProfileResponse where

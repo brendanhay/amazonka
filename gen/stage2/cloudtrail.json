@@ -21,6 +21,7 @@
         "version": "2013-11-01",
         "documentation": "CloudTrail is a web service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. The recorded information includes the identity of the user, the start time of the AWS API call, the source IP address, the request parameters, and the response elements returned by the service.",
         "xmlNamespace": "https://cloudtrail.amazonaws.com/doc/2013-11-01/",
+        "jsonVersion": "1.1",
         "endpoint": "Regional",
         "endpointPrefix": "cloudtrail",
         "targetPrefix": "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101"

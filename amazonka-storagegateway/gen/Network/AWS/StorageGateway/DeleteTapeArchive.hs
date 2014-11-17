@@ -98,7 +98,7 @@ instance AWSRequest DeleteTapeArchive where
     type Sv DeleteTapeArchive = StorageGateway
     type Rs DeleteTapeArchive = DeleteTapeArchiveResponse
 
-    request  = post
+    request  = post "DeleteTapeArchive"
     response = jsonResponse
 
 instance FromJSON DeleteTapeArchiveResponse where

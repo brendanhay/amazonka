@@ -111,7 +111,7 @@ instance AWSRequest AddWorkingStorage where
     type Sv AddWorkingStorage = StorageGateway
     type Rs AddWorkingStorage = AddWorkingStorageResponse
 
-    request  = post
+    request  = post "AddWorkingStorage"
     response = jsonResponse
 
 instance FromJSON AddWorkingStorageResponse where

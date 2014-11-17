@@ -95,5 +95,5 @@ instance AWSRequest AddTagsToStream where
     type Sv AddTagsToStream = Kinesis
     type Rs AddTagsToStream = AddTagsToStreamResponse
 
-    request  = post
+    request  = post "AddTagsToStream"
     response = nullResponse AddTagsToStreamResponse

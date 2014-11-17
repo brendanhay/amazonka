@@ -140,7 +140,7 @@ instance AWSRequest PutPipelineDefinition where
     type Sv PutPipelineDefinition = DataPipeline
     type Rs PutPipelineDefinition = PutPipelineDefinitionResponse
 
-    request  = post
+    request  = post "PutPipelineDefinition"
     response = jsonResponse
 
 instance FromJSON PutPipelineDefinitionResponse where

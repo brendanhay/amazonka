@@ -83,5 +83,5 @@ instance AWSRequest DisableKey where
     type Sv DisableKey = KMS
     type Rs DisableKey = DisableKeyResponse
 
-    request  = post
+    request  = post "DisableKey"
     response = nullResponse DisableKeyResponse

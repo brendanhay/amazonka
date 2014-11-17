@@ -153,7 +153,7 @@ instance AWSRequest CreateTapes where
     type Sv CreateTapes = StorageGateway
     type Rs CreateTapes = CreateTapesResponse
 
-    request  = post
+    request  = post "CreateTapes"
     response = jsonResponse
 
 instance FromJSON CreateTapesResponse where

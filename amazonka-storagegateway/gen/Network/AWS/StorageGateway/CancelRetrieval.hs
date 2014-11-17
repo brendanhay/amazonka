@@ -109,7 +109,7 @@ instance AWSRequest CancelRetrieval where
     type Sv CancelRetrieval = StorageGateway
     type Rs CancelRetrieval = CancelRetrievalResponse
 
-    request  = post
+    request  = post "CancelRetrieval"
     response = jsonResponse
 
 instance FromJSON CancelRetrievalResponse where

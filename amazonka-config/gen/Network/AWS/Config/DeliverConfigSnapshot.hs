@@ -103,7 +103,7 @@ instance AWSRequest DeliverConfigSnapshot where
     type Sv DeliverConfigSnapshot = Config
     type Rs DeliverConfigSnapshot = DeliverConfigSnapshotResponse
 
-    request  = post
+    request  = post "DeliverConfigSnapshot"
     response = jsonResponse
 
 instance FromJSON DeliverConfigSnapshotResponse where

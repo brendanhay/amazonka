@@ -168,7 +168,7 @@ instance AWSRequest QueryObjects where
     type Sv QueryObjects = DataPipeline
     type Rs QueryObjects = QueryObjectsResponse
 
-    request  = post
+    request  = post "QueryObjects"
     response = jsonResponse
 
 instance FromJSON QueryObjectsResponse where

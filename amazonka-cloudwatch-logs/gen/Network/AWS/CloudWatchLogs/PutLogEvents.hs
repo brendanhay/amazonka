@@ -134,7 +134,7 @@ instance AWSRequest PutLogEvents where
     type Sv PutLogEvents = CloudWatchLogs
     type Rs PutLogEvents = PutLogEventsResponse
 
-    request  = post
+    request  = post "PutLogEvents"
     response = jsonResponse
 
 instance FromJSON PutLogEventsResponse where

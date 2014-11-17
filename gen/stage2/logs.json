@@ -28,6 +28,7 @@
         "version": "2014-03-28",
         "documentation": "Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files.",
         "xmlNamespace": "https://logs.amazonaws.com/doc/2014-03-28/",
+        "jsonVersion": "1.1",
         "endpoint": "Regional",
         "endpointPrefix": "logs",
         "targetPrefix": "Logs_20140328"

@@ -163,7 +163,7 @@ instance AWSRequest CreateCachediSCSIVolume where
     type Sv CreateCachediSCSIVolume = StorageGateway
     type Rs CreateCachediSCSIVolume = CreateCachediSCSIVolumeResponse
 
-    request  = post
+    request  = post "CreateCachediSCSIVolume"
     response = jsonResponse
 
 instance FromJSON CreateCachediSCSIVolumeResponse where

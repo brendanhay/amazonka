@@ -107,7 +107,7 @@ instance AWSRequest ListApplications where
     type Sv ListApplications = CodeDeploy
     type Rs ListApplications = ListApplicationsResponse
 
-    request  = post
+    request  = post "ListApplications"
     response = jsonResponse
 
 instance FromJSON ListApplicationsResponse where

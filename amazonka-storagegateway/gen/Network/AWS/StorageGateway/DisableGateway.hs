@@ -99,7 +99,7 @@ instance AWSRequest DisableGateway where
     type Sv DisableGateway = StorageGateway
     type Rs DisableGateway = DisableGatewayResponse
 
-    request  = post
+    request  = post "DisableGateway"
     response = jsonResponse
 
 instance FromJSON DisableGatewayResponse where

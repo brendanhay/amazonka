@@ -87,5 +87,5 @@ instance AWSRequest UnassignVolume where
     type Sv UnassignVolume = OpsWorks
     type Rs UnassignVolume = UnassignVolumeResponse
 
-    request  = post
+    request  = post "UnassignVolume"
     response = nullResponse UnassignVolumeResponse

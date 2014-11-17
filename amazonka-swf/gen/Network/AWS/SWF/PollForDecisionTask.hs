@@ -261,7 +261,7 @@ instance AWSRequest PollForDecisionTask where
     type Sv PollForDecisionTask = SWF
     type Rs PollForDecisionTask = PollForDecisionTaskResponse
 
-    request  = post
+    request  = post "PollForDecisionTask"
     response = jsonResponse
 
 instance FromJSON PollForDecisionTaskResponse where

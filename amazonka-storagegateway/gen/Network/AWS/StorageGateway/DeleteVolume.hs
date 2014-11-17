@@ -108,7 +108,7 @@ instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = StorageGateway
     type Rs DeleteVolume = DeleteVolumeResponse
 
-    request  = post
+    request  = post "DeleteVolume"
     response = jsonResponse
 
 instance FromJSON DeleteVolumeResponse where

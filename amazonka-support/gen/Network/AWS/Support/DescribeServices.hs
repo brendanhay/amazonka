@@ -122,7 +122,7 @@ instance AWSRequest DescribeServices where
     type Sv DescribeServices = Support
     type Rs DescribeServices = DescribeServicesResponse
 
-    request  = post
+    request  = post "DescribeServices"
     response = jsonResponse
 
 instance FromJSON DescribeServicesResponse where

@@ -86,5 +86,5 @@ instance AWSRequest StopLogging where
     type Sv StopLogging = CloudTrail
     type Rs StopLogging = StopLoggingResponse
 
-    request  = post
+    request  = post "StopLogging"
     response = nullResponse StopLoggingResponse

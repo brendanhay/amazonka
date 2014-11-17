@@ -113,5 +113,5 @@ instance AWSRequest RespondActivityTaskCanceled where
     type Sv RespondActivityTaskCanceled = SWF
     type Rs RespondActivityTaskCanceled = RespondActivityTaskCanceledResponse
 
-    request  = post
+    request  = post "RespondActivityTaskCanceled"
     response = nullResponse RespondActivityTaskCanceledResponse

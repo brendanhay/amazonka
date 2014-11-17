@@ -155,7 +155,7 @@ instance AWSRequest DescribeObjects where
     type Sv DescribeObjects = DataPipeline
     type Rs DescribeObjects = DescribeObjectsResponse
 
-    request  = post
+    request  = post "DescribeObjects"
     response = jsonResponse
 
 instance FromJSON DescribeObjectsResponse where

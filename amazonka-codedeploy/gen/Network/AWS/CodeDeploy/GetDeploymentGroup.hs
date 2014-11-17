@@ -110,7 +110,7 @@ instance AWSRequest GetDeploymentGroup where
     type Sv GetDeploymentGroup = CodeDeploy
     type Rs GetDeploymentGroup = GetDeploymentGroupResponse
 
-    request  = post
+    request  = post "GetDeploymentGroup"
     response = jsonResponse
 
 instance FromJSON GetDeploymentGroupResponse where

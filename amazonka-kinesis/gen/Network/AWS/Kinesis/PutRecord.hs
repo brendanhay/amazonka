@@ -192,7 +192,7 @@ instance AWSRequest PutRecord where
     type Sv PutRecord = Kinesis
     type Rs PutRecord = PutRecordResponse
 
-    request  = post
+    request  = post "PutRecord"
     response = jsonResponse
 
 instance FromJSON PutRecordResponse where

@@ -88,5 +88,5 @@ instance AWSRequest PutConfigurationRecorder where
     type Sv PutConfigurationRecorder = Config
     type Rs PutConfigurationRecorder = PutConfigurationRecorderResponse
 
-    request  = post
+    request  = post "PutConfigurationRecorder"
     response = nullResponse PutConfigurationRecorderResponse

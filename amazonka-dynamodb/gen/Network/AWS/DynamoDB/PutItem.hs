@@ -410,7 +410,7 @@ instance AWSRequest PutItem where
     type Sv PutItem = DynamoDB
     type Rs PutItem = PutItemResponse
 
-    request  = post
+    request  = post "PutItem"
     response = jsonResponse
 
 instance FromJSON PutItemResponse where

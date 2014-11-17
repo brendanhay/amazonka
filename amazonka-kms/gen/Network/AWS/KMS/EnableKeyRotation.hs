@@ -83,5 +83,5 @@ instance AWSRequest EnableKeyRotation where
     type Sv EnableKeyRotation = KMS
     type Rs EnableKeyRotation = EnableKeyRotationResponse
 
-    request  = post
+    request  = post "EnableKeyRotation"
     response = nullResponse EnableKeyRotationResponse

@@ -136,7 +136,7 @@ instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
     type Sv CreateSnapshotFromVolumeRecoveryPoint = StorageGateway
     type Rs CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPointResponse
 
-    request  = post
+    request  = post "CreateSnapshotFromVolumeRecoveryPoint"
     response = jsonResponse
 
 instance FromJSON CreateSnapshotFromVolumeRecoveryPointResponse where

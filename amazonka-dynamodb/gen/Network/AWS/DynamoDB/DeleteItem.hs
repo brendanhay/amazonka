@@ -398,7 +398,7 @@ instance AWSRequest DeleteItem where
     type Sv DeleteItem = DynamoDB
     type Rs DeleteItem = DeleteItemResponse
 
-    request  = post
+    request  = post "DeleteItem"
     response = jsonResponse
 
 instance FromJSON DeleteItemResponse where

@@ -136,7 +136,7 @@ instance AWSRequest AddCommunicationToCase where
     type Sv AddCommunicationToCase = Support
     type Rs AddCommunicationToCase = AddCommunicationToCaseResponse
 
-    request  = post
+    request  = post "AddCommunicationToCase"
     response = jsonResponse
 
 instance FromJSON AddCommunicationToCaseResponse where

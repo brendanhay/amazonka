@@ -98,7 +98,7 @@ instance AWSRequest DescribeCluster where
     type Sv DescribeCluster = EMR
     type Rs DescribeCluster = DescribeClusterResponse
 
-    request  = post
+    request  = post "DescribeCluster"
     response = jsonResponse
 
 instance FromJSON DescribeClusterResponse where

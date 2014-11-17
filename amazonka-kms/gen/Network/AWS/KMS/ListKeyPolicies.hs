@@ -143,7 +143,7 @@ instance AWSRequest ListKeyPolicies where
     type Sv ListKeyPolicies = KMS
     type Rs ListKeyPolicies = ListKeyPoliciesResponse
 
-    request  = post
+    request  = post "ListKeyPolicies"
     response = jsonResponse
 
 instance FromJSON ListKeyPoliciesResponse where

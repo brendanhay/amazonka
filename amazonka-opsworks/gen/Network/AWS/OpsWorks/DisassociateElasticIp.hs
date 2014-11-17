@@ -87,5 +87,5 @@ instance AWSRequest DisassociateElasticIp where
     type Sv DisassociateElasticIp = OpsWorks
     type Rs DisassociateElasticIp = DisassociateElasticIpResponse
 
-    request  = post
+    request  = post "DisassociateElasticIp"
     response = nullResponse DisassociateElasticIpResponse

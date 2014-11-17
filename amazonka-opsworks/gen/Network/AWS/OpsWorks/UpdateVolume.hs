@@ -104,5 +104,5 @@ instance AWSRequest UpdateVolume where
     type Sv UpdateVolume = OpsWorks
     type Rs UpdateVolume = UpdateVolumeResponse
 
-    request  = post
+    request  = post "UpdateVolume"
     response = nullResponse UpdateVolumeResponse

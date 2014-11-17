@@ -109,7 +109,7 @@ instance AWSRequest DescribeUserProfiles where
     type Sv DescribeUserProfiles = OpsWorks
     type Rs DescribeUserProfiles = DescribeUserProfilesResponse
 
-    request  = post
+    request  = post "DescribeUserProfiles"
     response = jsonResponse
 
 instance FromJSON DescribeUserProfilesResponse where

@@ -144,7 +144,7 @@ instance AWSRequest DescribeTapeRecoveryPoints where
     type Sv DescribeTapeRecoveryPoints = StorageGateway
     type Rs DescribeTapeRecoveryPoints = DescribeTapeRecoveryPointsResponse
 
-    request  = post
+    request  = post "DescribeTapeRecoveryPoints"
     response = jsonResponse
 
 instance FromJSON DescribeTapeRecoveryPointsResponse where

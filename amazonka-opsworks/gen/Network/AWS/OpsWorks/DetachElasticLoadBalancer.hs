@@ -99,5 +99,5 @@ instance AWSRequest DetachElasticLoadBalancer where
     type Sv DetachElasticLoadBalancer = OpsWorks
     type Rs DetachElasticLoadBalancer = DetachElasticLoadBalancerResponse
 
-    request  = post
+    request  = post "DetachElasticLoadBalancer"
     response = nullResponse DetachElasticLoadBalancerResponse

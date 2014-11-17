@@ -404,11 +404,12 @@ instance AWSService CloudFront where
     type Er CloudFront = RESTError
 
     service = Service
-        { _svcEndpoint = global
-        , _svcAbbrev   = "CloudFront"
-        , _svcPrefix   = "cloudfront"
-        , _svcVersion  = "2014-05-31"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = global
+        , _svcAbbrev       = "CloudFront"
+        , _svcPrefix       = "cloudfront"
+        , _svcVersion      = "2014-05-31"
+        , _svcTargetPrefix = Nothing
+        , _svcJSONVersion  = Nothing
         }
 
     handle = restError alwaysFail

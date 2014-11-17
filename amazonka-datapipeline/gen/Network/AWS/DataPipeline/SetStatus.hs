@@ -107,5 +107,5 @@ instance AWSRequest SetStatus where
     type Sv SetStatus = DataPipeline
     type Rs SetStatus = SetStatusResponse
 
-    request  = post
+    request  = post "SetStatus"
     response = nullResponse SetStatusResponse

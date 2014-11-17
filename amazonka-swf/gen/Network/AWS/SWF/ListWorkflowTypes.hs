@@ -177,7 +177,7 @@ instance AWSRequest ListWorkflowTypes where
     type Sv ListWorkflowTypes = SWF
     type Rs ListWorkflowTypes = ListWorkflowTypesResponse
 
-    request  = post
+    request  = post "ListWorkflowTypes"
     response = jsonResponse
 
 instance FromJSON ListWorkflowTypesResponse where

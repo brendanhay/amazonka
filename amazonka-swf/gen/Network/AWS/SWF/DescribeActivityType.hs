@@ -136,7 +136,7 @@ instance AWSRequest DescribeActivityType where
     type Sv DescribeActivityType = SWF
     type Rs DescribeActivityType = DescribeActivityTypeResponse
 
-    request  = post
+    request  = post "DescribeActivityType"
     response = jsonResponse
 
 instance FromJSON DescribeActivityTypeResponse where

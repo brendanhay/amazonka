@@ -84,5 +84,5 @@ instance AWSRequest DeleteIdentityPool where
     type Sv DeleteIdentityPool = CognitoIdentity
     type Rs DeleteIdentityPool = DeleteIdentityPoolResponse
 
-    request  = post
+    request  = post "DeleteIdentityPool"
     response = nullResponse DeleteIdentityPoolResponse

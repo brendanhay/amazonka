@@ -97,7 +97,7 @@ instance AWSRequest GetDeployment where
     type Sv GetDeployment = CodeDeploy
     type Rs GetDeployment = GetDeploymentResponse
 
-    request  = post
+    request  = post "GetDeployment"
     response = jsonResponse
 
 instance FromJSON GetDeploymentResponse where

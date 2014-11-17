@@ -131,7 +131,7 @@ instance AWSRequest CreatePipeline where
     type Sv CreatePipeline = DataPipeline
     type Rs CreatePipeline = CreatePipelineResponse
 
-    request  = post
+    request  = post "CreatePipeline"
     response = jsonResponse
 
 instance FromJSON CreatePipelineResponse where

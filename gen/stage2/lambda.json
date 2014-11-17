@@ -1072,7 +1072,7 @@
             "namespace": "Network.AWS.Lambda.AddEventSource",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
             "name": "AddEventSource",
@@ -1283,7 +1283,7 @@
             "namespace": "Network.AWS.Lambda.DeleteFunction",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
             "name": "DeleteFunction",
@@ -1657,7 +1657,7 @@
             "namespace": "Network.AWS.Lambda.GetEventSource",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
             "name": "GetEventSource",
@@ -1835,7 +1835,7 @@
             "namespace": "Network.AWS.Lambda.GetFunction",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
             "name": "GetFunction",
@@ -2294,7 +2294,7 @@
             "namespace": "Network.AWS.Lambda.GetFunctionConfiguration",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
             "name": "GetFunctionConfiguration",
@@ -2468,7 +2468,7 @@
             "namespace": "Network.AWS.Lambda.InvokeAsync",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
             "name": "InvokeAsync",
@@ -2673,7 +2673,7 @@
             "namespace": "Network.AWS.Lambda.ListEventSources",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
             "name": "ListEventSources",
@@ -2935,7 +2935,7 @@
             "namespace": "Network.AWS.Lambda.ListFunctions",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
             "name": "ListFunctions",
@@ -3073,7 +3073,7 @@
             "namespace": "Network.AWS.Lambda.RemoveEventSource",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
             "name": "RemoveEventSource",
@@ -3532,7 +3532,7 @@
             "namespace": "Network.AWS.Lambda.UpdateFunctionConfiguration",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
             "name": "UpdateFunctionConfiguration",
@@ -4145,7 +4145,7 @@
             "namespace": "Network.AWS.Lambda.UploadFunction",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
             "name": "UploadFunction",

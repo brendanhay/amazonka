@@ -146,7 +146,7 @@ instance AWSRequest MergeDeveloperIdentities where
     type Sv MergeDeveloperIdentities = CognitoIdentity
     type Rs MergeDeveloperIdentities = MergeDeveloperIdentitiesResponse
 
-    request  = post
+    request  = post "MergeDeveloperIdentities"
     response = jsonResponse
 
 instance FromJSON MergeDeveloperIdentitiesResponse where

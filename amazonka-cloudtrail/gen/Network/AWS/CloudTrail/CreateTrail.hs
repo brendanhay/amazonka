@@ -230,7 +230,7 @@ instance AWSRequest CreateTrail where
     type Sv CreateTrail = CloudTrail
     type Rs CreateTrail = CreateTrailResponse
 
-    request  = post
+    request  = post "CreateTrail"
     response = jsonResponse
 
 instance FromJSON CreateTrailResponse where

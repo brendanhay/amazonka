@@ -289,5 +289,5 @@ instance AWSRequest UpdateStack where
     type Sv UpdateStack = OpsWorks
     type Rs UpdateStack = UpdateStackResponse
 
-    request  = post
+    request  = post "UpdateStack"
     response = nullResponse UpdateStackResponse

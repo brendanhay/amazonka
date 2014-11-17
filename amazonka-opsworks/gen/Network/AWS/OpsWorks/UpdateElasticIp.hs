@@ -95,5 +95,5 @@ instance AWSRequest UpdateElasticIp where
     type Sv UpdateElasticIp = OpsWorks
     type Rs UpdateElasticIp = UpdateElasticIpResponse
 
-    request  = post
+    request  = post "UpdateElasticIp"
     response = nullResponse UpdateElasticIpResponse

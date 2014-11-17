@@ -142,7 +142,7 @@ instance AWSRequest DescribeTapes where
     type Sv DescribeTapes = StorageGateway
     type Rs DescribeTapes = DescribeTapesResponse
 
-    request  = post
+    request  = post "DescribeTapes"
     response = jsonResponse
 
 instance FromJSON DescribeTapesResponse where

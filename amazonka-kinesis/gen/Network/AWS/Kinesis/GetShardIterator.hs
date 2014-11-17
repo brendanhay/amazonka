@@ -169,7 +169,7 @@ instance AWSRequest GetShardIterator where
     type Sv GetShardIterator = Kinesis
     type Rs GetShardIterator = GetShardIteratorResponse
 
-    request  = post
+    request  = post "GetShardIterator"
     response = jsonResponse
 
 instance FromJSON GetShardIteratorResponse where

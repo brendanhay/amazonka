@@ -107,7 +107,7 @@ instance AWSRequest AddUploadBuffer where
     type Sv AddUploadBuffer = StorageGateway
     type Rs AddUploadBuffer = AddUploadBufferResponse
 
-    request  = post
+    request  = post "AddUploadBuffer"
     response = jsonResponse
 
 instance FromJSON AddUploadBufferResponse where

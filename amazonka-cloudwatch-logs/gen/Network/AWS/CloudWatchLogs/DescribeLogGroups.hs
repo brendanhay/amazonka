@@ -129,7 +129,7 @@ instance AWSRequest DescribeLogGroups where
     type Sv DescribeLogGroups = CloudWatchLogs
     type Rs DescribeLogGroups = DescribeLogGroupsResponse
 
-    request  = post
+    request  = post "DescribeLogGroups"
     response = jsonResponse
 
 instance FromJSON DescribeLogGroupsResponse where

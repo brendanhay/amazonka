@@ -115,7 +115,7 @@ instance AWSRequest DescribeConfigurationRecorderStatus where
     type Sv DescribeConfigurationRecorderStatus = Config
     type Rs DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatusResponse
 
-    request  = post
+    request  = post "DescribeConfigurationRecorderStatus"
     response = jsonResponse
 
 instance FromJSON DescribeConfigurationRecorderStatusResponse where

@@ -107,7 +107,7 @@ instance AWSRequest AddCache where
     type Sv AddCache = StorageGateway
     type Rs AddCache = AddCacheResponse
 
-    request  = post
+    request  = post "AddCache"
     response = jsonResponse
 
 instance FromJSON AddCacheResponse where

@@ -178,7 +178,7 @@ instance AWSRequest ActivateGateway where
     type Sv ActivateGateway = StorageGateway
     type Rs ActivateGateway = ActivateGatewayResponse
 
-    request  = post
+    request  = post "ActivateGateway"
     response = jsonResponse
 
 instance FromJSON ActivateGatewayResponse where

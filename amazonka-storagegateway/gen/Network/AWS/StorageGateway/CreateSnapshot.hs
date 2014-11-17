@@ -136,7 +136,7 @@ instance AWSRequest CreateSnapshot where
     type Sv CreateSnapshot = StorageGateway
     type Rs CreateSnapshot = CreateSnapshotResponse
 
-    request  = post
+    request  = post "CreateSnapshot"
     response = jsonResponse
 
 instance FromJSON CreateSnapshotResponse where

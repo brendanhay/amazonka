@@ -116,7 +116,7 @@ instance AWSRequest AddInstanceGroups where
     type Sv AddInstanceGroups = EMR
     type Rs AddInstanceGroups = AddInstanceGroupsResponse
 
-    request  = post
+    request  = post "AddInstanceGroups"
     response = jsonResponse
 
 instance FromJSON AddInstanceGroupsResponse where

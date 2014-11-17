@@ -97,5 +97,5 @@ instance AWSRequest AssignVolume where
     type Sv AssignVolume = OpsWorks
     type Rs AssignVolume = AssignVolumeResponse
 
-    request  = post
+    request  = post "AssignVolume"
     response = nullResponse AssignVolumeResponse

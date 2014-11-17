@@ -119,5 +119,5 @@ instance AWSRequest RespondActivityTaskFailed where
     type Sv RespondActivityTaskFailed = SWF
     type Rs RespondActivityTaskFailed = RespondActivityTaskFailedResponse
 
-    request  = post
+    request  = post "RespondActivityTaskFailed"
     response = nullResponse RespondActivityTaskFailedResponse

@@ -136,7 +136,7 @@ instance AWSRequest DescribeStream where
     type Sv DescribeStream = Kinesis
     type Rs DescribeStream = DescribeStreamResponse
 
-    request  = post
+    request  = post "DescribeStream"
     response = jsonResponse
 
 instance FromJSON DescribeStreamResponse where

@@ -206,7 +206,7 @@ instance AWSRequest GetItem where
     type Sv GetItem = DynamoDB
     type Rs GetItem = GetItemResponse
 
-    request  = post
+    request  = post "GetItem"
     response = jsonResponse
 
 instance FromJSON GetItemResponse where

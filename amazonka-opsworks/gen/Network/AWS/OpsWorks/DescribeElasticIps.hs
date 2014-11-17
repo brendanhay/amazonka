@@ -129,7 +129,7 @@ instance AWSRequest DescribeElasticIps where
     type Sv DescribeElasticIps = OpsWorks
     type Rs DescribeElasticIps = DescribeElasticIpsResponse
 
-    request  = post
+    request  = post "DescribeElasticIps"
     response = jsonResponse
 
 instance FromJSON DescribeElasticIpsResponse where

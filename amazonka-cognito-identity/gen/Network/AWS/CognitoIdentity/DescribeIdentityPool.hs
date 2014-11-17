@@ -156,7 +156,7 @@ instance AWSRequest DescribeIdentityPool where
     type Sv DescribeIdentityPool = CognitoIdentity
     type Rs DescribeIdentityPool = DescribeIdentityPoolResponse
 
-    request  = post
+    request  = post "DescribeIdentityPool"
     response = jsonResponse
 
 instance FromJSON DescribeIdentityPoolResponse where

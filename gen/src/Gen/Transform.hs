@@ -74,6 +74,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         , _svChecksum       = checksum
         , _svXmlNamespace   = fromMaybe xmlNamespace (s1 ^. mXmlNamespace)
         , _svTargetPrefix   = s1 ^. mTargetPrefix
+        , _svJsonVersion    = s1 ^. mJsonVersion
         , _svError          = errorType protocol abbrev
         }
 

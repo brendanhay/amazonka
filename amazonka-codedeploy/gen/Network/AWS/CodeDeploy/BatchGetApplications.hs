@@ -110,7 +110,7 @@ instance AWSRequest BatchGetApplications where
     type Sv BatchGetApplications = CodeDeploy
     type Rs BatchGetApplications = BatchGetApplicationsResponse
 
-    request  = post
+    request  = post "BatchGetApplications"
     response = jsonResponse
 
 instance FromJSON BatchGetApplicationsResponse where

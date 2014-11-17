@@ -85,5 +85,5 @@ instance AWSRequest StopStack where
     type Sv StopStack = OpsWorks
     type Rs StopStack = StopStackResponse
 
-    request  = post
+    request  = post "StopStack"
     response = nullResponse StopStackResponse

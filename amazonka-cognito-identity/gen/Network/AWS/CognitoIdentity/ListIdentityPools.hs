@@ -116,7 +116,7 @@ instance AWSRequest ListIdentityPools where
     type Sv ListIdentityPools = CognitoIdentity
     type Rs ListIdentityPools = ListIdentityPoolsResponse
 
-    request  = post
+    request  = post "ListIdentityPools"
     response = jsonResponse
 
 instance FromJSON ListIdentityPoolsResponse where

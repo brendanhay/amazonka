@@ -231,7 +231,7 @@ instance AWSRequest ListClosedWorkflowExecutions where
     type Sv ListClosedWorkflowExecutions = SWF
     type Rs ListClosedWorkflowExecutions = ListClosedWorkflowExecutionsResponse
 
-    request  = post
+    request  = post "ListClosedWorkflowExecutions"
     response = jsonResponse
 
 instance FromJSON ListClosedWorkflowExecutionsResponse where

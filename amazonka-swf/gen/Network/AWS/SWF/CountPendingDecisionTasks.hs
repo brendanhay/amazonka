@@ -130,7 +130,7 @@ instance AWSRequest CountPendingDecisionTasks where
     type Sv CountPendingDecisionTasks = SWF
     type Rs CountPendingDecisionTasks = CountPendingDecisionTasksResponse
 
-    request  = post
+    request  = post "CountPendingDecisionTasks"
     response = jsonResponse
 
 instance FromJSON CountPendingDecisionTasksResponse where

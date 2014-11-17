@@ -91,5 +91,5 @@ instance AWSRequest ModifyInstanceGroups where
     type Sv ModifyInstanceGroups = EMR
     type Rs ModifyInstanceGroups = ModifyInstanceGroupsResponse
 
-    request  = post
+    request  = post "ModifyInstanceGroups"
     response = nullResponse ModifyInstanceGroupsResponse

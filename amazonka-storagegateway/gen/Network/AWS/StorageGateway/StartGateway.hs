@@ -99,7 +99,7 @@ instance AWSRequest StartGateway where
     type Sv StartGateway = StorageGateway
     type Rs StartGateway = StartGatewayResponse
 
-    request  = post
+    request  = post "StartGateway"
     response = jsonResponse
 
 instance FromJSON StartGatewayResponse where

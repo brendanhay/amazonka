@@ -87,5 +87,5 @@ instance AWSRequest StartConfigurationRecorder where
     type Sv StartConfigurationRecorder = Config
     type Rs StartConfigurationRecorder = StartConfigurationRecorderResponse
 
-    request  = post
+    request  = post "StartConfigurationRecorder"
     response = nullResponse StartConfigurationRecorderResponse

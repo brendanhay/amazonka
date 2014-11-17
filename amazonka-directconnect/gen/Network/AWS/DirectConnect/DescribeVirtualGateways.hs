@@ -92,7 +92,7 @@ instance AWSRequest DescribeVirtualGateways where
     type Sv DescribeVirtualGateways = DirectConnect
     type Rs DescribeVirtualGateways = DescribeVirtualGatewaysResponse
 
-    request  = post
+    request  = post "DescribeVirtualGateways"
     response = jsonResponse
 
 instance FromJSON DescribeVirtualGatewaysResponse where

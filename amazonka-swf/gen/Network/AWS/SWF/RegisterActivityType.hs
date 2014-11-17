@@ -216,5 +216,5 @@ instance AWSRequest RegisterActivityType where
     type Sv RegisterActivityType = SWF
     type Rs RegisterActivityType = RegisterActivityTypeResponse
 
-    request  = post
+    request  = post "RegisterActivityType"
     response = nullResponse RegisterActivityTypeResponse

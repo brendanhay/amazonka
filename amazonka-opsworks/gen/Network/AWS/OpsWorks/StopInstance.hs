@@ -89,5 +89,5 @@ instance AWSRequest StopInstance where
     type Sv StopInstance = OpsWorks
     type Rs StopInstance = StopInstanceResponse
 
-    request  = post
+    request  = post "StopInstance"
     response = nullResponse StopInstanceResponse

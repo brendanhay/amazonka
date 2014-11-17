@@ -101,7 +101,7 @@ instance AWSRequest DescribeConnections where
     type Sv DescribeConnections = DirectConnect
     type Rs DescribeConnections = DescribeConnectionsResponse
 
-    request  = post
+    request  = post "DescribeConnections"
     response = jsonResponse
 
 instance FromJSON DescribeConnectionsResponse where

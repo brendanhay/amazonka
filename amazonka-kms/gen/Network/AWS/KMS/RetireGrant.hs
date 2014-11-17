@@ -84,5 +84,5 @@ instance AWSRequest RetireGrant where
     type Sv RetireGrant = KMS
     type Rs RetireGrant = RetireGrantResponse
 
-    request  = post
+    request  = post "RetireGrant"
     response = nullResponse RetireGrantResponse

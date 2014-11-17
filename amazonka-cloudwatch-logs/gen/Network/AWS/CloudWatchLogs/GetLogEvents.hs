@@ -181,7 +181,7 @@ instance AWSRequest GetLogEvents where
     type Sv GetLogEvents = CloudWatchLogs
     type Rs GetLogEvents = GetLogEventsResponse
 
-    request  = post
+    request  = post "GetLogEvents"
     response = jsonResponse
 
 instance FromJSON GetLogEventsResponse where

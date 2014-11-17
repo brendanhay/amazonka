@@ -209,7 +209,7 @@ instance AWSRequest CreateTable where
     type Sv CreateTable = DynamoDB
     type Rs CreateTable = CreateTableResponse
 
-    request  = post
+    request  = post "CreateTable"
     response = jsonResponse
 
 instance FromJSON CreateTableResponse where

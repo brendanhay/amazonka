@@ -104,5 +104,5 @@ instance AWSRequest RegisterApplicationRevision where
     type Sv RegisterApplicationRevision = CodeDeploy
     type Rs RegisterApplicationRevision = RegisterApplicationRevisionResponse
 
-    request  = post
+    request  = post "RegisterApplicationRevision"
     response = nullResponse RegisterApplicationRevisionResponse

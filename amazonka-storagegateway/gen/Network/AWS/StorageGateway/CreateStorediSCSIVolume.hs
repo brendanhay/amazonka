@@ -198,7 +198,7 @@ instance AWSRequest CreateStorediSCSIVolume where
     type Sv CreateStorediSCSIVolume = StorageGateway
     type Rs CreateStorediSCSIVolume = CreateStorediSCSIVolumeResponse
 
-    request  = post
+    request  = post "CreateStorediSCSIVolume"
     response = jsonResponse
 
 instance FromJSON CreateStorediSCSIVolumeResponse where

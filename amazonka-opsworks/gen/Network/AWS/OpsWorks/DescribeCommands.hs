@@ -128,7 +128,7 @@ instance AWSRequest DescribeCommands where
     type Sv DescribeCommands = OpsWorks
     type Rs DescribeCommands = DescribeCommandsResponse
 
-    request  = post
+    request  = post "DescribeCommands"
     response = jsonResponse
 
 instance FromJSON DescribeCommandsResponse where

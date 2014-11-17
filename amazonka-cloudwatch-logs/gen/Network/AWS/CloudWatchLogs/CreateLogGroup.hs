@@ -86,5 +86,5 @@ instance AWSRequest CreateLogGroup where
     type Sv CreateLogGroup = CloudWatchLogs
     type Rs CreateLogGroup = CreateLogGroupResponse
 
-    request  = post
+    request  = post "CreateLogGroup"
     response = nullResponse CreateLogGroupResponse

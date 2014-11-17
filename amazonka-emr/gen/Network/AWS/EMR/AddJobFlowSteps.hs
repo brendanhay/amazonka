@@ -129,7 +129,7 @@ instance AWSRequest AddJobFlowSteps where
     type Sv AddJobFlowSteps = EMR
     type Rs AddJobFlowSteps = AddJobFlowStepsResponse
 
-    request  = post
+    request  = post "AddJobFlowSteps"
     response = jsonResponse
 
 instance FromJSON AddJobFlowStepsResponse where

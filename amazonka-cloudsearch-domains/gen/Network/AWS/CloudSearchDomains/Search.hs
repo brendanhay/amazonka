@@ -68,7 +68,7 @@ module Network.AWS.CloudSearchDomains.Search
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request.RestJSON
 import Network.AWS.CloudSearchDomains.Types
 import qualified GHC.Exts
 

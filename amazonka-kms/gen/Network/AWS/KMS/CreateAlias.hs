@@ -100,5 +100,5 @@ instance AWSRequest CreateAlias where
     type Sv CreateAlias = KMS
     type Rs CreateAlias = CreateAliasResponse
 
-    request  = post
+    request  = post "CreateAlias"
     response = nullResponse CreateAliasResponse

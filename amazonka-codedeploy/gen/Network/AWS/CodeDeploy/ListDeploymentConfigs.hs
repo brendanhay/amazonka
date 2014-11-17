@@ -112,7 +112,7 @@ instance AWSRequest ListDeploymentConfigs where
     type Sv ListDeploymentConfigs = CodeDeploy
     type Rs ListDeploymentConfigs = ListDeploymentConfigsResponse
 
-    request  = post
+    request  = post "ListDeploymentConfigs"
     response = jsonResponse
 
 instance FromJSON ListDeploymentConfigsResponse where

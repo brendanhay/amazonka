@@ -114,7 +114,7 @@ instance AWSRequest DescribeTimeBasedAutoScaling where
     type Sv DescribeTimeBasedAutoScaling = OpsWorks
     type Rs DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScalingResponse
 
-    request  = post
+    request  = post "DescribeTimeBasedAutoScaling"
     response = jsonResponse
 
 instance FromJSON DescribeTimeBasedAutoScalingResponse where

@@ -133,7 +133,7 @@ instance AWSRequest ListDeploymentGroups where
     type Sv ListDeploymentGroups = CodeDeploy
     type Rs ListDeploymentGroups = ListDeploymentGroupsResponse
 
-    request  = post
+    request  = post "ListDeploymentGroups"
     response = jsonResponse
 
 instance FromJSON ListDeploymentGroupsResponse where

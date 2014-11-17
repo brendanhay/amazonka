@@ -198,7 +198,7 @@ instance AWSRequest PollForActivityTask where
     type Sv PollForActivityTask = SWF
     type Rs PollForActivityTask = PollForActivityTaskResponse
 
-    request  = post
+    request  = post "PollForActivityTask"
     response = jsonResponse
 
 instance FromJSON PollForActivityTaskResponse where

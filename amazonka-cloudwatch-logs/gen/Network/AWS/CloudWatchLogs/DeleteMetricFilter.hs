@@ -90,5 +90,5 @@ instance AWSRequest DeleteMetricFilter where
     type Sv DeleteMetricFilter = CloudWatchLogs
     type Rs DeleteMetricFilter = DeleteMetricFilterResponse
 
-    request  = post
+    request  = post "DeleteMetricFilter"
     response = nullResponse DeleteMetricFilterResponse

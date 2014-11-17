@@ -164,7 +164,7 @@ instance AWSRequest ReEncrypt where
     type Sv ReEncrypt = KMS
     type Rs ReEncrypt = ReEncryptResponse
 
-    request  = post
+    request  = post "ReEncrypt"
     response = jsonResponse
 
 instance FromJSON ReEncryptResponse where

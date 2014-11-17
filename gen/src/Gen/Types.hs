@@ -268,9 +268,9 @@ requestNS p = NS ["Network", "AWS", "Request", s]
   where
     s = case p of
         Json     -> "JSON"
-        RestJson -> "JSON"
-        Xml      -> "XML"
-        RestXml  -> "XML"
+        RestJson -> "RestJSON"
+        Xml      -> "RestXML"
+        RestXml  -> "RestXML"
         Query    -> "Query"
         Ec2      -> "Query"
 

@@ -173,7 +173,7 @@ instance AWSRequest UpdateDeploymentGroup where
     type Sv UpdateDeploymentGroup = CodeDeploy
     type Rs UpdateDeploymentGroup = UpdateDeploymentGroupResponse
 
-    request  = post
+    request  = post "UpdateDeploymentGroup"
     response = jsonResponse
 
 instance FromJSON UpdateDeploymentGroupResponse where

@@ -39,7 +39,7 @@ module Network.AWS.Lambda.RemoveEventSource
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request.RestJSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 

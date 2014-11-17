@@ -213,7 +213,7 @@ instance AWSRequest AllocateConnectionOnInterconnect where
     type Sv AllocateConnectionOnInterconnect = DirectConnect
     type Rs AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnectResponse
 
-    request  = post
+    request  = post "AllocateConnectionOnInterconnect"
     response = jsonResponse
 
 instance FromJSON AllocateConnectionOnInterconnectResponse where

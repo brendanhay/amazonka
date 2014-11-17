@@ -106,5 +106,5 @@ instance AWSRequest DeleteInstance where
     type Sv DeleteInstance = OpsWorks
     type Rs DeleteInstance = DeleteInstanceResponse
 
-    request  = post
+    request  = post "DeleteInstance"
     response = nullResponse DeleteInstanceResponse

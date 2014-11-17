@@ -132,7 +132,7 @@ instance AWSRequest ListAliases where
     type Sv ListAliases = KMS
     type Rs ListAliases = ListAliasesResponse
 
-    request  = post
+    request  = post "ListAliases"
     response = jsonResponse
 
 instance FromJSON ListAliasesResponse where

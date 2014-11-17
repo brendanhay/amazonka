@@ -101,5 +101,5 @@ instance AWSRequest UpdateRdsDbInstance where
     type Sv UpdateRdsDbInstance = OpsWorks
     type Rs UpdateRdsDbInstance = UpdateRdsDbInstanceResponse
 
-    request  = post
+    request  = post "UpdateRdsDbInstance"
     response = nullResponse UpdateRdsDbInstanceResponse

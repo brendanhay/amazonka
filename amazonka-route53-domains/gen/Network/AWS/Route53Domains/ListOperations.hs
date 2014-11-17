@@ -126,7 +126,7 @@ instance AWSRequest ListOperations where
     type Sv ListOperations = Route53Domains
     type Rs ListOperations = ListOperationsResponse
 
-    request  = post
+    request  = post "ListOperations"
     response = jsonResponse
 
 instance FromJSON ListOperationsResponse where

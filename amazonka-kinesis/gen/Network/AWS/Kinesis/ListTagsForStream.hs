@@ -134,7 +134,7 @@ instance AWSRequest ListTagsForStream where
     type Sv ListTagsForStream = Kinesis
     type Rs ListTagsForStream = ListTagsForStreamResponse
 
-    request  = post
+    request  = post "ListTagsForStream"
     response = jsonResponse
 
 instance FromJSON ListTagsForStreamResponse where

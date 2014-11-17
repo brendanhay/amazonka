@@ -107,7 +107,7 @@ instance AWSRequest DeleteGateway where
     type Sv DeleteGateway = StorageGateway
     type Rs DeleteGateway = DeleteGatewayResponse
 
-    request  = post
+    request  = post "DeleteGateway"
     response = jsonResponse
 
 instance FromJSON DeleteGatewayResponse where

@@ -134,7 +134,7 @@ instance AWSRequest RecordActivityTaskHeartbeat where
     type Sv RecordActivityTaskHeartbeat = SWF
     type Rs RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeatResponse
 
-    request  = post
+    request  = post "RecordActivityTaskHeartbeat"
     response = jsonResponse
 
 instance FromJSON RecordActivityTaskHeartbeatResponse where

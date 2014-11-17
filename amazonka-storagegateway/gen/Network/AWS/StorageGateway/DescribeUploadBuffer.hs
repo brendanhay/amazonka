@@ -126,7 +126,7 @@ instance AWSRequest DescribeUploadBuffer where
     type Sv DescribeUploadBuffer = StorageGateway
     type Rs DescribeUploadBuffer = DescribeUploadBufferResponse
 
-    request  = post
+    request  = post "DescribeUploadBuffer"
     response = jsonResponse
 
 instance FromJSON DescribeUploadBufferResponse where

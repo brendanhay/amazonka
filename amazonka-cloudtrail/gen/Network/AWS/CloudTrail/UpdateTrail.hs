@@ -232,7 +232,7 @@ instance AWSRequest UpdateTrail where
     type Sv UpdateTrail = CloudTrail
     type Rs UpdateTrail = UpdateTrailResponse
 
-    request  = post
+    request  = post "UpdateTrail"
     response = jsonResponse
 
 instance FromJSON UpdateTrailResponse where

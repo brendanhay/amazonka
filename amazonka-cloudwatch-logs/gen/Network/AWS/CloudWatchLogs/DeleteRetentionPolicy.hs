@@ -82,5 +82,5 @@ instance AWSRequest DeleteRetentionPolicy where
     type Sv DeleteRetentionPolicy = CloudWatchLogs
     type Rs DeleteRetentionPolicy = DeleteRetentionPolicyResponse
 
-    request  = post
+    request  = post "DeleteRetentionPolicy"
     response = nullResponse DeleteRetentionPolicyResponse

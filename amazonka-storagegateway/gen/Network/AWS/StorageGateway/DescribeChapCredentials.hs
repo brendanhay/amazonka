@@ -117,7 +117,7 @@ instance AWSRequest DescribeChapCredentials where
     type Sv DescribeChapCredentials = StorageGateway
     type Rs DescribeChapCredentials = DescribeChapCredentialsResponse
 
-    request  = post
+    request  = post "DescribeChapCredentials"
     response = jsonResponse
 
 instance FromJSON DescribeChapCredentialsResponse where

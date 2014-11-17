@@ -134,5 +134,5 @@ instance AWSRequest SignalWorkflowExecution where
     type Sv SignalWorkflowExecution = SWF
     type Rs SignalWorkflowExecution = SignalWorkflowExecutionResponse
 
-    request  = post
+    request  = post "SignalWorkflowExecution"
     response = nullResponse SignalWorkflowExecutionResponse

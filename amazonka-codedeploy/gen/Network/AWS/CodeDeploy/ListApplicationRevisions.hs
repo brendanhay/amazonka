@@ -180,7 +180,7 @@ instance AWSRequest ListApplicationRevisions where
     type Sv ListApplicationRevisions = CodeDeploy
     type Rs ListApplicationRevisions = ListApplicationRevisionsResponse
 
-    request  = post
+    request  = post "ListApplicationRevisions"
     response = jsonResponse
 
 instance FromJSON ListApplicationRevisionsResponse where

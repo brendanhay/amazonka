@@ -93,5 +93,5 @@ instance AWSRequest RevokeGrant where
     type Sv RevokeGrant = KMS
     type Rs RevokeGrant = RevokeGrantResponse
 
-    request  = post
+    request  = post "RevokeGrant"
     response = nullResponse RevokeGrantResponse

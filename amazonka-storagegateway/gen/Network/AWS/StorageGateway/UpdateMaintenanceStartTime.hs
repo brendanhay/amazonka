@@ -133,7 +133,7 @@ instance AWSRequest UpdateMaintenanceStartTime where
     type Sv UpdateMaintenanceStartTime = StorageGateway
     type Rs UpdateMaintenanceStartTime = UpdateMaintenanceStartTimeResponse
 
-    request  = post
+    request  = post "UpdateMaintenanceStartTime"
     response = jsonResponse
 
 instance FromJSON UpdateMaintenanceStartTimeResponse where

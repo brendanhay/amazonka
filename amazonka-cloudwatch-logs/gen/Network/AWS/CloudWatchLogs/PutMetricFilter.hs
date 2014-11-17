@@ -113,5 +113,5 @@ instance AWSRequest PutMetricFilter where
     type Sv PutMetricFilter = CloudWatchLogs
     type Rs PutMetricFilter = PutMetricFilterResponse
 
-    request  = post
+    request  = post "PutMetricFilter"
     response = nullResponse PutMetricFilterResponse

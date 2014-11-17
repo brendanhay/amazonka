@@ -85,5 +85,5 @@ instance AWSRequest StartStack where
     type Sv StartStack = OpsWorks
     type Rs StartStack = StartStackResponse
 
-    request  = post
+    request  = post "StartStack"
     response = nullResponse StartStackResponse

@@ -494,7 +494,7 @@ instance AWSRequest UpdateItem where
     type Sv UpdateItem = DynamoDB
     type Rs UpdateItem = UpdateItemResponse
 
-    request  = post
+    request  = post "UpdateItem"
     response = jsonResponse
 
 instance FromJSON UpdateItemResponse where

@@ -108,7 +108,7 @@ instance AWSRequest CancelArchival where
     type Sv CancelArchival = StorageGateway
     type Rs CancelArchival = CancelArchivalResponse
 
-    request  = post
+    request  = post "CancelArchival"
     response = jsonResponse
 
 instance FromJSON CancelArchivalResponse where

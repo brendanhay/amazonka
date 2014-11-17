@@ -96,7 +96,7 @@ instance AWSRequest DeleteInterconnect where
     type Sv DeleteInterconnect = DirectConnect
     type Rs DeleteInterconnect = DeleteInterconnectResponse
 
-    request  = post
+    request  = post "DeleteInterconnect"
     response = jsonResponse
 
 instance FromJSON DeleteInterconnectResponse where

@@ -111,7 +111,7 @@ instance AWSRequest RegisterVolume where
     type Sv RegisterVolume = OpsWorks
     type Rs RegisterVolume = RegisterVolumeResponse
 
-    request  = post
+    request  = post "RegisterVolume"
     response = jsonResponse
 
 instance FromJSON RegisterVolumeResponse where

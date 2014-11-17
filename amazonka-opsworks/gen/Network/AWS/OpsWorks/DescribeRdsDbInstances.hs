@@ -114,7 +114,7 @@ instance AWSRequest DescribeRdsDbInstances where
     type Sv DescribeRdsDbInstances = OpsWorks
     type Rs DescribeRdsDbInstances = DescribeRdsDbInstancesResponse
 
-    request  = post
+    request  = post "DescribeRdsDbInstances"
     response = jsonResponse
 
 instance FromJSON DescribeRdsDbInstancesResponse where

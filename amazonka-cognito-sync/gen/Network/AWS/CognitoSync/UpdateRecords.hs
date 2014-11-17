@@ -49,7 +49,7 @@ module Network.AWS.CognitoSync.UpdateRecords
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.JSON
+import Network.AWS.Request.RestJSON
 import Network.AWS.CognitoSync.Types
 import qualified GHC.Exts
 

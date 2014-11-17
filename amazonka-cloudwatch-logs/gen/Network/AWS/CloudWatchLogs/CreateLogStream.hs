@@ -94,5 +94,5 @@ instance AWSRequest CreateLogStream where
     type Sv CreateLogStream = CloudWatchLogs
     type Rs CreateLogStream = CreateLogStreamResponse
 
-    request  = post
+    request  = post "CreateLogStream"
     response = nullResponse CreateLogStreamResponse

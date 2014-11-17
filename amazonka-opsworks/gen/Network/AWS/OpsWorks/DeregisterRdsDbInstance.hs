@@ -83,5 +83,5 @@ instance AWSRequest DeregisterRdsDbInstance where
     type Sv DeregisterRdsDbInstance = OpsWorks
     type Rs DeregisterRdsDbInstance = DeregisterRdsDbInstanceResponse
 
-    request  = post
+    request  = post "DeregisterRdsDbInstance"
     response = nullResponse DeregisterRdsDbInstanceResponse

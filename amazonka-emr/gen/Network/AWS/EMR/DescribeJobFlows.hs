@@ -141,7 +141,7 @@ instance AWSRequest DescribeJobFlows where
     type Sv DescribeJobFlows = EMR
     type Rs DescribeJobFlows = DescribeJobFlowsResponse
 
-    request  = post
+    request  = post "DescribeJobFlows"
     response = jsonResponse
 
 instance FromJSON DescribeJobFlowsResponse where

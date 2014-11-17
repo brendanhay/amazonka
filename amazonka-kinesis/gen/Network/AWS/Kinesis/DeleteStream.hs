@@ -94,5 +94,5 @@ instance AWSRequest DeleteStream where
     type Sv DeleteStream = Kinesis
     type Rs DeleteStream = DeleteStreamResponse
 
-    request  = post
+    request  = post "DeleteStream"
     response = nullResponse DeleteStreamResponse

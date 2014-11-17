@@ -262,11 +262,12 @@ instance AWSService AutoScaling where
     type Er AutoScaling = RESTError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "AutoScaling"
-        , _svcPrefix   = "autoscaling"
-        , _svcVersion  = "2011-01-01"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "AutoScaling"
+        , _svcPrefix       = "autoscaling"
+        , _svcVersion      = "2011-01-01"
+        , _svcTargetPrefix = Nothing
+        , _svcJSONVersion  = Nothing
         }
 
     handle = restError alwaysFail

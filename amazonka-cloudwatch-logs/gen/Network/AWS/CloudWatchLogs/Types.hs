@@ -100,11 +100,12 @@ instance AWSService CloudWatchLogs where
     type Er CloudWatchLogs = JSONError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "CloudWatchLogs"
-        , _svcPrefix   = "logs"
-        , _svcVersion  = "2014-03-28"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "CloudWatchLogs"
+        , _svcPrefix       = "logs"
+        , _svcVersion      = "2014-03-28"
+        , _svcTargetPrefix = Just "Logs_20140328"
+        , _svcJSONVersion  = Just "1.1"
         }
 
     handle = jsonError alwaysFail

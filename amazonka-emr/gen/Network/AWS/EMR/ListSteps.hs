@@ -123,7 +123,7 @@ instance AWSRequest ListSteps where
     type Sv ListSteps = EMR
     type Rs ListSteps = ListStepsResponse
 
-    request  = post
+    request  = post "ListSteps"
     response = jsonResponse
 
 instance FromJSON ListStepsResponse where

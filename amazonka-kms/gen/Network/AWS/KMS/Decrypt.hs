@@ -131,7 +131,7 @@ instance AWSRequest Decrypt where
     type Sv Decrypt = KMS
     type Rs Decrypt = DecryptResponse
 
-    request  = post
+    request  = post "Decrypt"
     response = jsonResponse
 
 instance FromJSON DecryptResponse where

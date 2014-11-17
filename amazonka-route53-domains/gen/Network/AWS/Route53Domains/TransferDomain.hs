@@ -258,7 +258,7 @@ instance AWSRequest TransferDomain where
     type Sv TransferDomain = Route53Domains
     type Rs TransferDomain = TransferDomainResponse
 
-    request  = post
+    request  = post "TransferDomain"
     response = jsonResponse
 
 instance FromJSON TransferDomainResponse where

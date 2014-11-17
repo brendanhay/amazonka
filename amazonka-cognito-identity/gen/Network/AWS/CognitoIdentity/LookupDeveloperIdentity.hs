@@ -178,7 +178,7 @@ instance AWSRequest LookupDeveloperIdentity where
     type Sv LookupDeveloperIdentity = CognitoIdentity
     type Rs LookupDeveloperIdentity = LookupDeveloperIdentityResponse
 
-    request  = post
+    request  = post "LookupDeveloperIdentity"
     response = jsonResponse
 
 instance FromJSON LookupDeveloperIdentityResponse where

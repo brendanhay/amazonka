@@ -104,7 +104,7 @@ instance AWSRequest ShutdownGateway where
     type Sv ShutdownGateway = StorageGateway
     type Rs ShutdownGateway = ShutdownGatewayResponse
 
-    request  = post
+    request  = post "ShutdownGateway"
     response = jsonResponse
 
 instance FromJSON ShutdownGatewayResponse where

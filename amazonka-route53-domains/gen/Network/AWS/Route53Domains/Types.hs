@@ -107,11 +107,12 @@ instance AWSService Route53Domains where
     type Er Route53Domains = JSONError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "Route53Domains"
-        , _svcPrefix   = "route53domains"
-        , _svcVersion  = "2014-05-15"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "Route53Domains"
+        , _svcPrefix       = "route53domains"
+        , _svcVersion      = "2014-05-15"
+        , _svcTargetPrefix = Just "Route53Domains_v20140515"
+        , _svcJSONVersion  = Just "1.1"
         }
 
     handle = jsonError alwaysFail

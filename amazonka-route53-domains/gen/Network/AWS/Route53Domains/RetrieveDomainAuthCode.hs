@@ -102,7 +102,7 @@ instance AWSRequest RetrieveDomainAuthCode where
     type Sv RetrieveDomainAuthCode = Route53Domains
     type Rs RetrieveDomainAuthCode = RetrieveDomainAuthCodeResponse
 
-    request  = post
+    request  = post "RetrieveDomainAuthCode"
     response = jsonResponse
 
 instance FromJSON RetrieveDomainAuthCodeResponse where

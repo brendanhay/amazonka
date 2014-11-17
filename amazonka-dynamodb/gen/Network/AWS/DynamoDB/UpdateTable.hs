@@ -129,7 +129,7 @@ instance AWSRequest UpdateTable where
     type Sv UpdateTable = DynamoDB
     type Rs UpdateTable = UpdateTableResponse
 
-    request  = post
+    request  = post "UpdateTable"
     response = jsonResponse
 
 instance FromJSON UpdateTableResponse where

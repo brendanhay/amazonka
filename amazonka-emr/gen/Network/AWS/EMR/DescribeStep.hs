@@ -106,7 +106,7 @@ instance AWSRequest DescribeStep where
     type Sv DescribeStep = EMR
     type Rs DescribeStep = DescribeStepResponse
 
-    request  = post
+    request  = post "DescribeStep"
     response = jsonResponse
 
 instance FromJSON DescribeStepResponse where

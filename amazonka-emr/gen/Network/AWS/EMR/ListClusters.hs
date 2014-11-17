@@ -137,7 +137,7 @@ instance AWSRequest ListClusters where
     type Sv ListClusters = EMR
     type Rs ListClusters = ListClustersResponse
 
-    request  = post
+    request  = post "ListClusters"
     response = jsonResponse
 
 instance FromJSON ListClustersResponse where

@@ -53,7 +53,7 @@ module Network.AWS.S3.ListParts
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request.RestXML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 

@@ -151,5 +151,5 @@ instance AWSRequest TerminateWorkflowExecution where
     type Sv TerminateWorkflowExecution = SWF
     type Rs TerminateWorkflowExecution = TerminateWorkflowExecutionResponse
 
-    request  = post
+    request  = post "TerminateWorkflowExecution"
     response = nullResponse TerminateWorkflowExecutionResponse

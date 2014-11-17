@@ -101,5 +101,5 @@ instance AWSRequest SetVisibleToAllUsers where
     type Sv SetVisibleToAllUsers = EMR
     type Rs SetVisibleToAllUsers = SetVisibleToAllUsersResponse
 
-    request  = post
+    request  = post "SetVisibleToAllUsers"
     response = nullResponse SetVisibleToAllUsersResponse

@@ -238,7 +238,7 @@ instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = Route53Domains
     type Rs RegisterDomain = RegisterDomainResponse
 
-    request  = post
+    request  = post "RegisterDomain"
     response = jsonResponse
 
 instance FromJSON RegisterDomainResponse where

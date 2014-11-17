@@ -86,5 +86,5 @@ instance AWSRequest RebootInstance where
     type Sv RebootInstance = OpsWorks
     type Rs RebootInstance = RebootInstanceResponse
 
-    request  = post
+    request  = post "RebootInstance"
     response = nullResponse RebootInstanceResponse

@@ -106,7 +106,7 @@ instance AWSRequest ListLocalDisks where
     type Sv ListLocalDisks = StorageGateway
     type Rs ListLocalDisks = ListLocalDisksResponse
 
-    request  = post
+    request  = post "ListLocalDisks"
     response = jsonResponse
 
 instance FromJSON ListLocalDisksResponse where

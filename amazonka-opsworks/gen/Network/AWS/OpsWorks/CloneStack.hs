@@ -364,7 +364,7 @@ instance AWSRequest CloneStack where
     type Sv CloneStack = OpsWorks
     type Rs CloneStack = CloneStackResponse
 
-    request  = post
+    request  = post "CloneStack"
     response = jsonResponse
 
 instance FromJSON CloneStackResponse where

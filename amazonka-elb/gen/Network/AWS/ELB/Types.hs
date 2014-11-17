@@ -221,11 +221,12 @@ instance AWSService ELB where
     type Er ELB = RESTError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "ELB"
-        , _svcPrefix   = "elasticloadbalancing"
-        , _svcVersion  = "2012-06-01"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "ELB"
+        , _svcPrefix       = "elasticloadbalancing"
+        , _svcVersion      = "2012-06-01"
+        , _svcTargetPrefix = Nothing
+        , _svcJSONVersion  = Nothing
         }
 
     handle = restError alwaysFail

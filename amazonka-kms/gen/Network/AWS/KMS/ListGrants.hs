@@ -142,7 +142,7 @@ instance AWSRequest ListGrants where
     type Sv ListGrants = KMS
     type Rs ListGrants = ListGrantsResponse
 
-    request  = post
+    request  = post "ListGrants"
     response = jsonResponse
 
 instance FromJSON ListGrantsResponse where

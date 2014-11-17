@@ -91,5 +91,5 @@ instance AWSRequest PutDeliveryChannel where
     type Sv PutDeliveryChannel = Config
     type Rs PutDeliveryChannel = PutDeliveryChannelResponse
 
-    request  = post
+    request  = post "PutDeliveryChannel"
     response = nullResponse PutDeliveryChannelResponse

@@ -104,7 +104,7 @@ instance AWSRequest DeleteTable where
     type Sv DeleteTable = DynamoDB
     type Rs DeleteTable = DeleteTableResponse
 
-    request  = post
+    request  = post "DeleteTable"
     response = jsonResponse
 
 instance FromJSON DeleteTableResponse where

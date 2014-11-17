@@ -126,5 +126,5 @@ instance AWSRequest SetPermission where
     type Sv SetPermission = OpsWorks
     type Rs SetPermission = SetPermissionResponse
 
-    request  = post
+    request  = post "SetPermission"
     response = nullResponse SetPermissionResponse

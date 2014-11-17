@@ -137,7 +137,7 @@ instance AWSRequest DescribeVolumes where
     type Sv DescribeVolumes = OpsWorks
     type Rs DescribeVolumes = DescribeVolumesResponse
 
-    request  = post
+    request  = post "DescribeVolumes"
     response = jsonResponse
 
 instance FromJSON DescribeVolumesResponse where

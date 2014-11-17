@@ -682,6 +682,7 @@ data Service = Service
     , _svChecksum       :: !Checksum
     , _svXmlNamespace   :: !Text
     , _svTargetPrefix   :: Maybe Text
+    , _svJsonVersion    :: Maybe Text
     , _svError          :: !Text
     } deriving (Eq, Show)
 

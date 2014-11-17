@@ -113,5 +113,5 @@ instance AWSRequest RegisterRdsDbInstance where
     type Sv RegisterRdsDbInstance = OpsWorks
     type Rs RegisterRdsDbInstance = RegisterRdsDbInstanceResponse
 
-    request  = post
+    request  = post "RegisterRdsDbInstance"
     response = nullResponse RegisterRdsDbInstanceResponse

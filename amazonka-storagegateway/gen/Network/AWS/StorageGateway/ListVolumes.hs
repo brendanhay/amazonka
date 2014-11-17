@@ -140,7 +140,7 @@ instance AWSRequest ListVolumes where
     type Sv ListVolumes = StorageGateway
     type Rs ListVolumes = ListVolumesResponse
 
-    request  = post
+    request  = post "ListVolumes"
     response = jsonResponse
 
 instance FromJSON ListVolumesResponse where

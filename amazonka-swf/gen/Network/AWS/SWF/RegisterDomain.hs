@@ -121,5 +121,5 @@ instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = SWF
     type Rs RegisterDomain = RegisterDomainResponse
 
-    request  = post
+    request  = post "RegisterDomain"
     response = nullResponse RegisterDomainResponse

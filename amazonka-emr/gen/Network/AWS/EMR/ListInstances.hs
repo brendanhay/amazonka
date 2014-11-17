@@ -138,7 +138,7 @@ instance AWSRequest ListInstances where
     type Sv ListInstances = EMR
     type Rs ListInstances = ListInstancesResponse
 
-    request  = post
+    request  = post "ListInstances"
     response = jsonResponse
 
 instance FromJSON ListInstancesResponse where

@@ -179,7 +179,7 @@ instance AWSRequest ListActivityTypes where
     type Sv ListActivityTypes = SWF
     type Rs ListActivityTypes = ListActivityTypesResponse
 
-    request  = post
+    request  = post "ListActivityTypes"
     response = jsonResponse
 
 instance FromJSON ListActivityTypesResponse where

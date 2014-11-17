@@ -114,7 +114,7 @@ instance AWSRequest DescribeDomain where
     type Sv DescribeDomain = SWF
     type Rs DescribeDomain = DescribeDomainResponse
 
-    request  = post
+    request  = post "DescribeDomain"
     response = jsonResponse
 
 instance FromJSON DescribeDomainResponse where

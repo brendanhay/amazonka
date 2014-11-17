@@ -113,7 +113,7 @@ instance AWSRequest UpdateGatewayInformation where
     type Sv UpdateGatewayInformation = StorageGateway
     type Rs UpdateGatewayInformation = UpdateGatewayInformationResponse
 
-    request  = post
+    request  = post "UpdateGatewayInformation"
     response = jsonResponse
 
 instance FromJSON UpdateGatewayInformationResponse where

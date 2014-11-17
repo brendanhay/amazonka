@@ -143,7 +143,7 @@ instance AWSRequest PollForTask where
     type Sv PollForTask = DataPipeline
     type Rs PollForTask = PollForTaskResponse
 
-    request  = post
+    request  = post "PollForTask"
     response = jsonResponse
 
 instance FromJSON PollForTaskResponse where

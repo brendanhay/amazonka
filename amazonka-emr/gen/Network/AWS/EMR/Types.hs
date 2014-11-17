@@ -422,11 +422,12 @@ instance AWSService EMR where
     type Er EMR = JSONError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "EMR"
-        , _svcPrefix   = "elasticmapreduce"
-        , _svcVersion  = "2009-03-31"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "EMR"
+        , _svcPrefix       = "elasticmapreduce"
+        , _svcVersion      = "2009-03-31"
+        , _svcTargetPrefix = Just "ElasticMapReduce"
+        , _svcJSONVersion  = Just "1.1"
         }
 
     handle = jsonError alwaysFail

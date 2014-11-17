@@ -513,7 +513,7 @@ instance AWSRequest Query where
     type Sv Query = DynamoDB
     type Rs Query = QueryResponse
 
-    request  = post
+    request  = post "Query"
     response = jsonResponse
 
 instance FromJSON QueryResponse where

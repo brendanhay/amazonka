@@ -98,7 +98,7 @@ instance AWSRequest GetApplication where
     type Sv GetApplication = CodeDeploy
     type Rs GetApplication = GetApplicationResponse
 
-    request  = post
+    request  = post "GetApplication"
     response = jsonResponse
 
 instance FromJSON GetApplicationResponse where

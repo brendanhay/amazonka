@@ -98,5 +98,5 @@ instance AWSRequest AddTags where
     type Sv AddTags = EMR
     type Rs AddTags = AddTagsResponse
 
-    request  = post
+    request  = post "AddTags"
     response = nullResponse AddTagsResponse

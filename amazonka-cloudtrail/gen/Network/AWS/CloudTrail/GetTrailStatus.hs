@@ -198,7 +198,7 @@ instance AWSRequest GetTrailStatus where
     type Sv GetTrailStatus = CloudTrail
     type Rs GetTrailStatus = GetTrailStatusResponse
 
-    request  = post
+    request  = post "GetTrailStatus"
     response = jsonResponse
 
 instance FromJSON GetTrailStatusResponse where

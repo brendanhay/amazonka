@@ -178,11 +178,12 @@ instance AWSService StorageGateway where
     type Er StorageGateway = JSONError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "StorageGateway"
-        , _svcPrefix   = "storagegateway"
-        , _svcVersion  = "2013-06-30"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "StorageGateway"
+        , _svcPrefix       = "storagegateway"
+        , _svcVersion      = "2013-06-30"
+        , _svcTargetPrefix = Just "StorageGateway_20130630"
+        , _svcJSONVersion  = Just "1.1"
         }
 
     handle = jsonError alwaysFail

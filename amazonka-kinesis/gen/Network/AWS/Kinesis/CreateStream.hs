@@ -128,5 +128,5 @@ instance AWSRequest CreateStream where
     type Sv CreateStream = Kinesis
     type Rs CreateStream = CreateStreamResponse
 
-    request  = post
+    request  = post "CreateStream"
     response = nullResponse CreateStreamResponse

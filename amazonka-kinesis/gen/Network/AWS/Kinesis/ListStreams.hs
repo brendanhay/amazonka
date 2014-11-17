@@ -130,7 +130,7 @@ instance AWSRequest ListStreams where
     type Sv ListStreams = Kinesis
     type Rs ListStreams = ListStreamsResponse
 
-    request  = post
+    request  = post "ListStreams"
     response = jsonResponse
 
 instance FromJSON ListStreamsResponse where

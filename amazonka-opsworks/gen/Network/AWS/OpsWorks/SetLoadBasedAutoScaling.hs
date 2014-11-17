@@ -118,5 +118,5 @@ instance AWSRequest SetLoadBasedAutoScaling where
     type Sv SetLoadBasedAutoScaling = OpsWorks
     type Rs SetLoadBasedAutoScaling = SetLoadBasedAutoScalingResponse
 
-    request  = post
+    request  = post "SetLoadBasedAutoScaling"
     response = nullResponse SetLoadBasedAutoScalingResponse

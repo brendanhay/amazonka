@@ -86,5 +86,5 @@ instance AWSRequest DeleteDeliveryChannel where
     type Sv DeleteDeliveryChannel = Config
     type Rs DeleteDeliveryChannel = DeleteDeliveryChannelResponse
 
-    request  = post
+    request  = post "DeleteDeliveryChannel"
     response = nullResponse DeleteDeliveryChannelResponse

@@ -114,7 +114,7 @@ instance AWSRequest ConfirmPrivateVirtualInterface where
     type Sv ConfirmPrivateVirtualInterface = DirectConnect
     type Rs ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterfaceResponse
 
-    request  = post
+    request  = post "ConfirmPrivateVirtualInterface"
     response = jsonResponse
 
 instance FromJSON ConfirmPrivateVirtualInterfaceResponse where

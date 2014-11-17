@@ -84,5 +84,5 @@ instance AWSRequest DeleteApplication where
     type Sv DeleteApplication = CodeDeploy
     type Rs DeleteApplication = DeleteApplicationResponse
 
-    request  = post
+    request  = post "DeleteApplication"
     response = nullResponse DeleteApplicationResponse

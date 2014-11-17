@@ -108,7 +108,7 @@ instance AWSRequest GetKeyPolicy where
     type Sv GetKeyPolicy = KMS
     type Rs GetKeyPolicy = GetKeyPolicyResponse
 
-    request  = post
+    request  = post "GetKeyPolicy"
     response = jsonResponse
 
 instance FromJSON GetKeyPolicyResponse where

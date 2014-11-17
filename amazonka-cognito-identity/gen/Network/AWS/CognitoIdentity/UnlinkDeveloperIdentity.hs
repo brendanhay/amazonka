@@ -122,5 +122,5 @@ instance AWSRequest UnlinkDeveloperIdentity where
     type Sv UnlinkDeveloperIdentity = CognitoIdentity
     type Rs UnlinkDeveloperIdentity = UnlinkDeveloperIdentityResponse
 
-    request  = post
+    request  = post "UnlinkDeveloperIdentity"
     response = nullResponse UnlinkDeveloperIdentityResponse

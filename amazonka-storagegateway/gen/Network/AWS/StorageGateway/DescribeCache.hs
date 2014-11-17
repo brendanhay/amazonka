@@ -151,7 +151,7 @@ instance AWSRequest DescribeCache where
     type Sv DescribeCache = StorageGateway
     type Rs DescribeCache = DescribeCacheResponse
 
-    request  = post
+    request  = post "DescribeCache"
     response = jsonResponse
 
 instance FromJSON DescribeCacheResponse where

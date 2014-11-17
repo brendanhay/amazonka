@@ -163,7 +163,7 @@ instance AWSRequest CountOpenWorkflowExecutions where
     type Sv CountOpenWorkflowExecutions = SWF
     type Rs CountOpenWorkflowExecutions = CountOpenWorkflowExecutionsResponse
 
-    request  = post
+    request  = post "CountOpenWorkflowExecutions"
     response = jsonResponse
 
 instance FromJSON CountOpenWorkflowExecutionsResponse where

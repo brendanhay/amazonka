@@ -98,7 +98,7 @@ instance AWSRequest CreateApplication where
     type Sv CreateApplication = CodeDeploy
     type Rs CreateApplication = CreateApplicationResponse
 
-    request  = post
+    request  = post "CreateApplication"
     response = jsonResponse
 
 instance FromJSON CreateApplicationResponse where

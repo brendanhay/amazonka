@@ -107,5 +107,5 @@ instance AWSRequest DeprecateWorkflowType where
     type Sv DeprecateWorkflowType = SWF
     type Rs DeprecateWorkflowType = DeprecateWorkflowTypeResponse
 
-    request  = post
+    request  = post "DeprecateWorkflowType"
     response = nullResponse DeprecateWorkflowTypeResponse

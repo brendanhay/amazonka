@@ -101,7 +101,7 @@ instance AWSRequest DescribeAttachment where
     type Sv DescribeAttachment = Support
     type Rs DescribeAttachment = DescribeAttachmentResponse
 
-    request  = post
+    request  = post "DescribeAttachment"
     response = jsonResponse
 
 instance FromJSON DescribeAttachmentResponse where

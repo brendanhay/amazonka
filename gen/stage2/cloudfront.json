@@ -5979,7 +5979,7 @@
             "namespace": "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "CreateCloudFrontOriginAccessIdentity",
@@ -6215,7 +6215,7 @@
             "namespace": "Network.AWS.CloudFront.CreateDistribution",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "CreateDistribution",
@@ -6418,7 +6418,7 @@
             "namespace": "Network.AWS.CloudFront.CreateInvalidation",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "CreateInvalidation",
@@ -6675,7 +6675,7 @@
             "namespace": "Network.AWS.CloudFront.CreateStreamingDistribution",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "CreateStreamingDistribution",
@@ -6801,7 +6801,7 @@
             "namespace": "Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "DeleteCloudFrontOriginAccessIdentity",
@@ -6939,7 +6939,7 @@
             "namespace": "Network.AWS.CloudFront.DeleteDistribution",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "DeleteDistribution",
@@ -7077,7 +7077,7 @@
             "namespace": "Network.AWS.CloudFront.DeleteStreamingDistribution",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "DeleteStreamingDistribution",
@@ -7292,7 +7292,7 @@
             "namespace": "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "GetCloudFrontOriginAccessIdentity",
@@ -7489,7 +7489,7 @@
             "namespace": "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "GetCloudFrontOriginAccessIdentityConfig",
@@ -7690,7 +7690,7 @@
             "namespace": "Network.AWS.CloudFront.GetDistribution",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "GetDistribution",
@@ -7887,7 +7887,7 @@
             "namespace": "Network.AWS.CloudFront.GetDistributionConfig",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "GetDistributionConfig",
@@ -8069,7 +8069,7 @@
             "namespace": "Network.AWS.CloudFront.GetInvalidation",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "GetInvalidation",
@@ -8285,7 +8285,7 @@
             "namespace": "Network.AWS.CloudFront.GetStreamingDistribution",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "GetStreamingDistribution",
@@ -8482,7 +8482,7 @@
             "namespace": "Network.AWS.CloudFront.GetStreamingDistributionConfig",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "GetStreamingDistributionConfig",
@@ -8664,7 +8664,7 @@
             "namespace": "Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "pager": {
@@ -8868,7 +8868,7 @@
             "namespace": "Network.AWS.CloudFront.ListDistributions",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "pager": {
@@ -9072,7 +9072,7 @@
             "namespace": "Network.AWS.CloudFront.ListInvalidations",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "pager": {
@@ -9313,7 +9313,7 @@
             "namespace": "Network.AWS.CloudFront.ListStreamingDistributions",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "pager": {
@@ -9536,7 +9536,7 @@
             "namespace": "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "UpdateCloudFrontOriginAccessIdentity",
@@ -9795,7 +9795,7 @@
             "namespace": "Network.AWS.CloudFront.UpdateDistribution",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "UpdateDistribution",
@@ -10054,7 +10054,7 @@
             "namespace": "Network.AWS.CloudFront.UpdateStreamingDistribution",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.XML",
+                "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
             "name": "UpdateStreamingDistribution",

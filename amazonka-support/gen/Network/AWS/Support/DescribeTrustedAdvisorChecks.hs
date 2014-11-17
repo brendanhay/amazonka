@@ -107,7 +107,7 @@ instance AWSRequest DescribeTrustedAdvisorChecks where
     type Sv DescribeTrustedAdvisorChecks = Support
     type Rs DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecksResponse
 
-    request  = post
+    request  = post "DescribeTrustedAdvisorChecks"
     response = jsonResponse
 
 instance FromJSON DescribeTrustedAdvisorChecksResponse where

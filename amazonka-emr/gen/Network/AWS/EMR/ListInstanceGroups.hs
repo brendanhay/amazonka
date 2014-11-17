@@ -115,7 +115,7 @@ instance AWSRequest ListInstanceGroups where
     type Sv ListInstanceGroups = EMR
     type Rs ListInstanceGroups = ListInstanceGroupsResponse
 
-    request  = post
+    request  = post "ListInstanceGroups"
     response = jsonResponse
 
 instance FromJSON ListInstanceGroupsResponse where

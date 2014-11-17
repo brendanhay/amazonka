@@ -92,5 +92,5 @@ instance AWSRequest UpdateApplication where
     type Sv UpdateApplication = CodeDeploy
     type Rs UpdateApplication = UpdateApplicationResponse
 
-    request  = post
+    request  = post "UpdateApplication"
     response = nullResponse UpdateApplicationResponse

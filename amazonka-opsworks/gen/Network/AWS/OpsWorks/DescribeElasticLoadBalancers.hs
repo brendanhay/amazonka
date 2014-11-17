@@ -119,7 +119,7 @@ instance AWSRequest DescribeElasticLoadBalancers where
     type Sv DescribeElasticLoadBalancers = OpsWorks
     type Rs DescribeElasticLoadBalancers = DescribeElasticLoadBalancersResponse
 
-    request  = post
+    request  = post "DescribeElasticLoadBalancers"
     response = jsonResponse
 
 instance FromJSON DescribeElasticLoadBalancersResponse where

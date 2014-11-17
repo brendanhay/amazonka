@@ -129,7 +129,7 @@ instance AWSRequest DescribeServiceErrors where
     type Sv DescribeServiceErrors = OpsWorks
     type Rs DescribeServiceErrors = DescribeServiceErrorsResponse
 
-    request  = post
+    request  = post "DescribeServiceErrors"
     response = jsonResponse
 
 instance FromJSON DescribeServiceErrorsResponse where

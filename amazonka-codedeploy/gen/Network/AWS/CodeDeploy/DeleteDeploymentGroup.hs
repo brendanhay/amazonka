@@ -121,7 +121,7 @@ instance AWSRequest DeleteDeploymentGroup where
     type Sv DeleteDeploymentGroup = CodeDeploy
     type Rs DeleteDeploymentGroup = DeleteDeploymentGroupResponse
 
-    request  = post
+    request  = post "DeleteDeploymentGroup"
     response = jsonResponse
 
 instance FromJSON DeleteDeploymentGroupResponse where

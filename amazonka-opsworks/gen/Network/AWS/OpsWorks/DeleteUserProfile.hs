@@ -84,5 +84,5 @@ instance AWSRequest DeleteUserProfile where
     type Sv DeleteUserProfile = OpsWorks
     type Rs DeleteUserProfile = DeleteUserProfileResponse
 
-    request  = post
+    request  = post "DeleteUserProfile"
     response = nullResponse DeleteUserProfileResponse

@@ -88,5 +88,5 @@ instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = DataPipeline
     type Rs DeletePipeline = DeletePipelineResponse
 
-    request  = post
+    request  = post "DeletePipeline"
     response = nullResponse DeletePipelineResponse

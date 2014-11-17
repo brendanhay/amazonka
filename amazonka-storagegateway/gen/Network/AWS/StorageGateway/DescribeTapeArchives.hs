@@ -137,7 +137,7 @@ instance AWSRequest DescribeTapeArchives where
     type Sv DescribeTapeArchives = StorageGateway
     type Rs DescribeTapeArchives = DescribeTapeArchivesResponse
 
-    request  = post
+    request  = post "DescribeTapeArchives"
     response = jsonResponse
 
 instance FromJSON DescribeTapeArchivesResponse where

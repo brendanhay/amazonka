@@ -138,7 +138,7 @@ instance AWSRequest DescribeLogStreams where
     type Sv DescribeLogStreams = CloudWatchLogs
     type Rs DescribeLogStreams = DescribeLogStreamsResponse
 
-    request  = post
+    request  = post "DescribeLogStreams"
     response = jsonResponse
 
 instance FromJSON DescribeLogStreamsResponse where

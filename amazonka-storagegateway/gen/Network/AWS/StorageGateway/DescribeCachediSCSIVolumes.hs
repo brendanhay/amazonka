@@ -114,7 +114,7 @@ instance AWSRequest DescribeCachediSCSIVolumes where
     type Sv DescribeCachediSCSIVolumes = StorageGateway
     type Rs DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumesResponse
 
-    request  = post
+    request  = post "DescribeCachediSCSIVolumes"
     response = jsonResponse
 
 instance FromJSON DescribeCachediSCSIVolumesResponse where

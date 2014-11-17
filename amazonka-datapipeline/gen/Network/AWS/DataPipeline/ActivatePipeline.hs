@@ -86,5 +86,5 @@ instance AWSRequest ActivatePipeline where
     type Sv ActivatePipeline = DataPipeline
     type Rs ActivatePipeline = ActivatePipelineResponse
 
-    request  = post
+    request  = post "ActivatePipeline"
     response = nullResponse ActivatePipelineResponse

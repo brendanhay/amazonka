@@ -13,5 +13,5 @@ instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
     type Rs {{ request.name }} = {{ response.name }}
 
-    request  = {{ method }}
+    request  = {{ method }}{% if protocol == "json" %} "{{ name }}"{% endif %}
 {% include "_include/response.ede" %}

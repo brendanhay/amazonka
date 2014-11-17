@@ -188,7 +188,7 @@ instance AWSRequest CreateConnection where
     type Sv CreateConnection = DirectConnect
     type Rs CreateConnection = CreateConnectionResponse
 
-    request  = post
+    request  = post "CreateConnection"
     response = jsonResponse
 
 instance FromJSON CreateConnectionResponse where

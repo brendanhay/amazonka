@@ -188,11 +188,12 @@ instance AWSService IAM where
     type Er IAM = RESTError
 
     service = Service
-        { _svcEndpoint = global
-        , _svcAbbrev   = "IAM"
-        , _svcPrefix   = "iam"
-        , _svcVersion  = "2010-05-08"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = global
+        , _svcAbbrev       = "IAM"
+        , _svcPrefix       = "iam"
+        , _svcVersion      = "2010-05-08"
+        , _svcTargetPrefix = Nothing
+        , _svcJSONVersion  = Nothing
         }
 
     handle = restError alwaysFail

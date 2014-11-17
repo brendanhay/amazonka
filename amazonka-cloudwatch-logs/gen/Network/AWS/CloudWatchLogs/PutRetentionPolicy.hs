@@ -93,5 +93,5 @@ instance AWSRequest PutRetentionPolicy where
     type Sv PutRetentionPolicy = CloudWatchLogs
     type Rs PutRetentionPolicy = PutRetentionPolicyResponse
 
-    request  = post
+    request  = post "PutRetentionPolicy"
     response = nullResponse PutRetentionPolicyResponse

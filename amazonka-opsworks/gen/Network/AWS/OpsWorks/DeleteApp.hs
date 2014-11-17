@@ -85,5 +85,5 @@ instance AWSRequest DeleteApp where
     type Sv DeleteApp = OpsWorks
     type Rs DeleteApp = DeleteAppResponse
 
-    request  = post
+    request  = post "DeleteApp"
     response = nullResponse DeleteAppResponse

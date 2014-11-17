@@ -113,7 +113,7 @@ instance AWSRequest TestMetricFilter where
     type Sv TestMetricFilter = CloudWatchLogs
     type Rs TestMetricFilter = TestMetricFilterResponse
 
-    request  = post
+    request  = post "TestMetricFilter"
     response = jsonResponse
 
 instance FromJSON TestMetricFilterResponse where

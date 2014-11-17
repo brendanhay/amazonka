@@ -131,7 +131,7 @@ instance AWSRequest ListKeys where
     type Sv ListKeys = KMS
     type Rs ListKeys = ListKeysResponse
 
-    request  = post
+    request  = post "ListKeys"
     response = jsonResponse
 
 instance FromJSON ListKeysResponse where

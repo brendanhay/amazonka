@@ -91,5 +91,5 @@ instance AWSRequest DeleteLogStream where
     type Sv DeleteLogStream = CloudWatchLogs
     type Rs DeleteLogStream = DeleteLogStreamResponse
 
-    request  = post
+    request  = post "DeleteLogStream"
     response = nullResponse DeleteLogStreamResponse

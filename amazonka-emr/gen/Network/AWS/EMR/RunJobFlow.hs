@@ -260,7 +260,7 @@ instance AWSRequest RunJobFlow where
     type Sv RunJobFlow = EMR
     type Rs RunJobFlow = RunJobFlowResponse
 
-    request  = post
+    request  = post "RunJobFlow"
     response = jsonResponse
 
 instance FromJSON RunJobFlowResponse where

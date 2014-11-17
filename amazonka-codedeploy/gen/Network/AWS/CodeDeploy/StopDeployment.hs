@@ -106,7 +106,7 @@ instance AWSRequest StopDeployment where
     type Sv StopDeployment = CodeDeploy
     type Rs StopDeployment = StopDeploymentResponse
 
-    request  = post
+    request  = post "StopDeployment"
     response = jsonResponse
 
 instance FromJSON StopDeploymentResponse where

@@ -82,5 +82,5 @@ instance AWSRequest DeleteAlias where
     type Sv DeleteAlias = KMS
     type Rs DeleteAlias = DeleteAliasResponse
 
-    request  = post
+    request  = post "DeleteAlias"
     response = nullResponse DeleteAliasResponse

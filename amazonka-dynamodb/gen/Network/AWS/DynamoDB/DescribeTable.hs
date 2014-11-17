@@ -97,7 +97,7 @@ instance AWSRequest DescribeTable where
     type Sv DescribeTable = DynamoDB
     type Rs DescribeTable = DescribeTableResponse
 
-    request  = post
+    request  = post "DescribeTable"
     response = jsonResponse
 
 instance FromJSON DescribeTableResponse where

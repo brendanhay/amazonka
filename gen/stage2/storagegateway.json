@@ -61,6 +61,7 @@
         "version": "2013-06-30",
         "documentation": "AWS Storage Gateway is a service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between your on-premises IT environment and AWS's storage infrastructure.",
         "xmlNamespace": "https://storagegateway.amazonaws.com/doc/2013-06-30/",
+        "jsonVersion": "1.1",
         "endpoint": "Regional",
         "endpointPrefix": "storagegateway",
         "targetPrefix": "StorageGateway_20130630"

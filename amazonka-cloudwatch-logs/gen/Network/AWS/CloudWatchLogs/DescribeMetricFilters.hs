@@ -139,7 +139,7 @@ instance AWSRequest DescribeMetricFilters where
     type Sv DescribeMetricFilters = CloudWatchLogs
     type Rs DescribeMetricFilters = DescribeMetricFiltersResponse
 
-    request  = post
+    request  = post "DescribeMetricFilters"
     response = jsonResponse
 
 instance FromJSON DescribeMetricFiltersResponse where

@@ -97,7 +97,7 @@ instance AWSRequest GenerateRandom where
     type Sv GenerateRandom = KMS
     type Rs GenerateRandom = GenerateRandomResponse
 
-    request  = post
+    request  = post "GenerateRandom"
     response = jsonResponse
 
 instance FromJSON GenerateRandomResponse where

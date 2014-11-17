@@ -17,6 +17,7 @@
         "version": "2013-01-01",
         "documentation": "Pending",
         "xmlNamespace": "https://cloudsearchdomain.amazonaws.com/doc/2013-01-01/",
+        "jsonVersion": "1.1",
         "endpoint": "Regional",
         "endpointPrefix": "cloudsearchdomain"
     },
@@ -974,7 +975,7 @@
             "namespace": "Network.AWS.CloudSearchDomains.Search",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CloudSearchDomains.Types"
             ],
             "name": "Search",
@@ -1538,7 +1539,7 @@
             "namespace": "Network.AWS.CloudSearchDomains.Suggest",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CloudSearchDomains.Types"
             ],
             "name": "Suggest",
@@ -1828,7 +1829,7 @@
             "namespace": "Network.AWS.CloudSearchDomains.UploadDocuments",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CloudSearchDomains.Types"
             ],
             "name": "UploadDocuments",

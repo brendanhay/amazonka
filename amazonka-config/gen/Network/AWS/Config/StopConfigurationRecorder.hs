@@ -86,5 +86,5 @@ instance AWSRequest StopConfigurationRecorder where
     type Sv StopConfigurationRecorder = Config
     type Rs StopConfigurationRecorder = StopConfigurationRecorderResponse
 
-    request  = post
+    request  = post "StopConfigurationRecorder"
     response = nullResponse StopConfigurationRecorderResponse

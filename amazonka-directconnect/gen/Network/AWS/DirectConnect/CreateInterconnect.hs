@@ -173,7 +173,7 @@ instance AWSRequest CreateInterconnect where
     type Sv CreateInterconnect = DirectConnect
     type Rs CreateInterconnect = CreateInterconnectResponse
 
-    request  = post
+    request  = post "CreateInterconnect"
     response = jsonResponse
 
 instance FromJSON CreateInterconnectResponse where

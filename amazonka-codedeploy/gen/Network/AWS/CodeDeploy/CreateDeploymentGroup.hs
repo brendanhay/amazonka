@@ -179,7 +179,7 @@ instance AWSRequest CreateDeploymentGroup where
     type Sv CreateDeploymentGroup = CodeDeploy
     type Rs CreateDeploymentGroup = CreateDeploymentGroupResponse
 
-    request  = post
+    request  = post "CreateDeploymentGroup"
     response = jsonResponse
 
 instance FromJSON CreateDeploymentGroupResponse where

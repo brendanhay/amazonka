@@ -95,5 +95,5 @@ instance AWSRequest DeprecateDomain where
     type Sv DeprecateDomain = SWF
     type Rs DeprecateDomain = DeprecateDomainResponse
 
-    request  = post
+    request  = post "DeprecateDomain"
     response = nullResponse DeprecateDomainResponse

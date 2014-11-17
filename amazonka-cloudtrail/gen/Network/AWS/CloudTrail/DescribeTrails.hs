@@ -108,7 +108,7 @@ instance AWSRequest DescribeTrails where
     type Sv DescribeTrails = CloudTrail
     type Rs DescribeTrails = DescribeTrailsResponse
 
-    request  = post
+    request  = post "DescribeTrails"
     response = jsonResponse
 
 instance FromJSON DescribeTrailsResponse where

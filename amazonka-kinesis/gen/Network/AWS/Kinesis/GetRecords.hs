@@ -159,7 +159,7 @@ instance AWSRequest GetRecords where
     type Sv GetRecords = Kinesis
     type Rs GetRecords = GetRecordsResponse
 
-    request  = post
+    request  = post "GetRecords"
     response = jsonResponse
 
 instance FromJSON GetRecordsResponse where

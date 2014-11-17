@@ -120,7 +120,7 @@ instance AWSRequest GetOpenIdToken where
     type Sv GetOpenIdToken = CognitoIdentity
     type Rs GetOpenIdToken = GetOpenIdTokenResponse
 
-    request  = post
+    request  = post "GetOpenIdToken"
     response = jsonResponse
 
 instance FromJSON GetOpenIdTokenResponse where

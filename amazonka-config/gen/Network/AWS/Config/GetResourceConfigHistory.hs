@@ -174,7 +174,7 @@ instance AWSRequest GetResourceConfigHistory where
     type Sv GetResourceConfigHistory = Config
     type Rs GetResourceConfigHistory = GetResourceConfigHistoryResponse
 
-    request  = post
+    request  = post "GetResourceConfigHistory"
     response = jsonResponse
 
 instance FromJSON GetResourceConfigHistoryResponse where

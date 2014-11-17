@@ -117,7 +117,7 @@ instance AWSRequest DescribeApps where
     type Sv DescribeApps = OpsWorks
     type Rs DescribeApps = DescribeAppsResponse
 
-    request  = post
+    request  = post "DescribeApps"
     response = jsonResponse
 
 instance FromJSON DescribeAppsResponse where

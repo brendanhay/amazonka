@@ -109,7 +109,7 @@ instance AWSRequest ResolveCase where
     type Sv ResolveCase = Support
     type Rs ResolveCase = ResolveCaseResponse
 
-    request  = post
+    request  = post "ResolveCase"
     response = jsonResponse
 
 instance FromJSON ResolveCaseResponse where

@@ -82,5 +82,5 @@ instance AWSRequest DeleteTrail where
     type Sv DeleteTrail = CloudTrail
     type Rs DeleteTrail = DeleteTrailResponse
 
-    request  = post
+    request  = post "DeleteTrail"
     response = nullResponse DeleteTrailResponse

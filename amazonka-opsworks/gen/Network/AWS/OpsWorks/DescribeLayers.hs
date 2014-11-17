@@ -116,7 +116,7 @@ instance AWSRequest DescribeLayers where
     type Sv DescribeLayers = OpsWorks
     type Rs DescribeLayers = DescribeLayersResponse
 
-    request  = post
+    request  = post "DescribeLayers"
     response = jsonResponse
 
 instance FromJSON DescribeLayersResponse where

@@ -157,7 +157,7 @@ instance AWSRequest CreateDeployment where
     type Sv CreateDeployment = OpsWorks
     type Rs CreateDeployment = CreateDeploymentResponse
 
-    request  = post
+    request  = post "CreateDeployment"
     response = jsonResponse
 
 instance FromJSON CreateDeploymentResponse where

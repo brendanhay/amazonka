@@ -27,6 +27,7 @@
         "version": "2014-06-30",
         "documentation": "Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.",
         "xmlNamespace": "https://cognito-sync.amazonaws.com/doc/2014-06-30/",
+        "jsonVersion": "1.1",
         "endpoint": "Regional",
         "endpointPrefix": "cognito-sync"
     },
@@ -1095,7 +1096,7 @@
             "namespace": "Network.AWS.CognitoSync.DeleteDataset",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "DeleteDataset",
@@ -1315,7 +1316,7 @@
             "namespace": "Network.AWS.CognitoSync.DescribeDataset",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "DescribeDataset",
@@ -1535,7 +1536,7 @@
             "namespace": "Network.AWS.CognitoSync.DescribeIdentityPoolUsage",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "DescribeIdentityPoolUsage",
@@ -1700,7 +1701,7 @@
             "namespace": "Network.AWS.CognitoSync.DescribeIdentityUsage",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "DescribeIdentityUsage",
@@ -1897,7 +1898,7 @@
             "namespace": "Network.AWS.CognitoSync.GetIdentityPoolConfiguration",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "GetIdentityPoolConfiguration",
@@ -2107,7 +2108,7 @@
             "namespace": "Network.AWS.CognitoSync.ListDatasets",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "ListDatasets",
@@ -2432,7 +2433,7 @@
             "namespace": "Network.AWS.CognitoSync.ListIdentityPoolUsage",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "ListIdentityPoolUsage",
@@ -2824,7 +2825,7 @@
             "namespace": "Network.AWS.CognitoSync.ListRecords",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "ListRecords",
@@ -3184,7 +3185,7 @@
             "namespace": "Network.AWS.CognitoSync.RegisterDevice",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "RegisterDevice",
@@ -3441,7 +3442,7 @@
             "namespace": "Network.AWS.CognitoSync.SetIdentityPoolConfiguration",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "SetIdentityPoolConfiguration",
@@ -3576,7 +3577,7 @@
             "namespace": "Network.AWS.CognitoSync.SubscribeToDataset",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "SubscribeToDataset",
@@ -3787,7 +3788,7 @@
             "namespace": "Network.AWS.CognitoSync.UnsubscribeFromDataset",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "UnsubscribeFromDataset",
@@ -4045,7 +4046,7 @@
             "namespace": "Network.AWS.CognitoSync.UpdateRecords",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request.JSON",
+                "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
             "name": "UpdateRecords",

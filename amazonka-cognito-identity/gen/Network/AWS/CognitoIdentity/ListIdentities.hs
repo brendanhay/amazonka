@@ -135,7 +135,7 @@ instance AWSRequest ListIdentities where
     type Sv ListIdentities = CognitoIdentity
     type Rs ListIdentities = ListIdentitiesResponse
 
-    request  = post
+    request  = post "ListIdentities"
     response = jsonResponse
 
 instance FromJSON ListIdentitiesResponse where

@@ -165,7 +165,7 @@ instance AWSRequest GenerateDataKey where
     type Sv GenerateDataKey = KMS
     type Rs GenerateDataKey = GenerateDataKeyResponse
 
-    request  = post
+    request  = post "GenerateDataKey"
     response = jsonResponse
 
 instance FromJSON GenerateDataKeyResponse where

@@ -405,7 +405,7 @@ instance AWSRequest Scan where
     type Sv Scan = DynamoDB
     type Rs Scan = ScanResponse
 
-    request  = post
+    request  = post "Scan"
     response = jsonResponse
 
 instance FromJSON ScanResponse where

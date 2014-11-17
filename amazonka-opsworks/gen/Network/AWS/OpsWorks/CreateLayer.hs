@@ -261,7 +261,7 @@ instance AWSRequest CreateLayer where
     type Sv CreateLayer = OpsWorks
     type Rs CreateLayer = CreateLayerResponse
 
-    request  = post
+    request  = post "CreateLayer"
     response = jsonResponse
 
 instance FromJSON CreateLayerResponse where

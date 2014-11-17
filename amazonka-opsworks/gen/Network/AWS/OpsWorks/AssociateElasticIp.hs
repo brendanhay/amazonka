@@ -97,5 +97,5 @@ instance AWSRequest AssociateElasticIp where
     type Sv AssociateElasticIp = OpsWorks
     type Rs AssociateElasticIp = AssociateElasticIpResponse
 
-    request  = post
+    request  = post "AssociateElasticIp"
     response = nullResponse AssociateElasticIpResponse

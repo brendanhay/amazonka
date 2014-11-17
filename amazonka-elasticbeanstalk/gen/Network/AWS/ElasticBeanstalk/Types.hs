@@ -278,11 +278,12 @@ instance AWSService ElasticBeanstalk where
     type Er ElasticBeanstalk = RESTError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "ElasticBeanstalk"
-        , _svcPrefix   = "elasticbeanstalk"
-        , _svcVersion  = "2010-12-01"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "ElasticBeanstalk"
+        , _svcPrefix       = "elasticbeanstalk"
+        , _svcVersion      = "2010-12-01"
+        , _svcTargetPrefix = Nothing
+        , _svcJSONVersion  = Nothing
         }
 
     handle = restError alwaysFail

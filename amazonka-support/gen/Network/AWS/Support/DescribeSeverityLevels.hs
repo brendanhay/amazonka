@@ -107,7 +107,7 @@ instance AWSRequest DescribeSeverityLevels where
     type Sv DescribeSeverityLevels = Support
     type Rs DescribeSeverityLevels = DescribeSeverityLevelsResponse
 
-    request  = post
+    request  = post "DescribeSeverityLevels"
     response = jsonResponse
 
 instance FromJSON DescribeSeverityLevelsResponse where

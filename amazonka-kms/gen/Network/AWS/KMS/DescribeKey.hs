@@ -97,7 +97,7 @@ instance AWSRequest DescribeKey where
     type Sv DescribeKey = KMS
     type Rs DescribeKey = DescribeKeyResponse
 
-    request  = post
+    request  = post "DescribeKey"
     response = jsonResponse
 
 instance FromJSON DescribeKeyResponse where

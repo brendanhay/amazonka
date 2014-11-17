@@ -170,5 +170,5 @@ instance AWSRequest UpdateApp where
     type Sv UpdateApp = OpsWorks
     type Rs UpdateApp = UpdateAppResponse
 
-    request  = post
+    request  = post "UpdateApp"
     response = nullResponse UpdateAppResponse

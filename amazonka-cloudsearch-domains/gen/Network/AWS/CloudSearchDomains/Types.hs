@@ -106,11 +106,12 @@ instance AWSService CloudSearchDomains where
     type Er CloudSearchDomains = RESTError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "CloudSearchDomains"
-        , _svcPrefix   = "cloudsearchdomain"
-        , _svcVersion  = "2013-01-01"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "CloudSearchDomains"
+        , _svcPrefix       = "cloudsearchdomain"
+        , _svcVersion      = "2013-01-01"
+        , _svcTargetPrefix = Nothing
+        , _svcJSONVersion  = Just "1.1"
         }
 
     handle = restError alwaysFail

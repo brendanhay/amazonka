@@ -121,7 +121,7 @@ instance AWSRequest CreateKey where
     type Sv CreateKey = KMS
     type Rs CreateKey = CreateKeyResponse
 
-    request  = post
+    request  = post "CreateKey"
     response = jsonResponse
 
 instance FromJSON CreateKeyResponse where

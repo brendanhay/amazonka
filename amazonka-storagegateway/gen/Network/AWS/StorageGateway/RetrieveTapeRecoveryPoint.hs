@@ -110,7 +110,7 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
     type Sv RetrieveTapeRecoveryPoint = StorageGateway
     type Rs RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPointResponse
 
-    request  = post
+    request  = post "RetrieveTapeRecoveryPoint"
     response = jsonResponse
 
 instance FromJSON RetrieveTapeRecoveryPointResponse where

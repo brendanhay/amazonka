@@ -428,11 +428,12 @@ instance AWSService S3 where
     type Er S3 = RESTError
 
     service = Service
-        { _svcEndpoint = global
-        , _svcAbbrev   = "S3"
-        , _svcPrefix   = "s3"
-        , _svcVersion  = "2006-03-01"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = global
+        , _svcAbbrev       = "S3"
+        , _svcPrefix       = "s3"
+        , _svcVersion      = "2006-03-01"
+        , _svcTargetPrefix = Nothing
+        , _svcJSONVersion  = Nothing
         }
 
     handle = restError alwaysFail

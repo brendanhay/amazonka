@@ -160,7 +160,7 @@ instance AWSRequest DescribeGatewayInformation where
     type Sv DescribeGatewayInformation = StorageGateway
     type Rs DescribeGatewayInformation = DescribeGatewayInformationResponse
 
-    request  = post
+    request  = post "DescribeGatewayInformation"
     response = jsonResponse
 
 instance FromJSON DescribeGatewayInformationResponse where

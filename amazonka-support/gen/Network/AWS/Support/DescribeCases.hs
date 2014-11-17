@@ -193,7 +193,7 @@ instance AWSRequest DescribeCases where
     type Sv DescribeCases = Support
     type Rs DescribeCases = DescribeCasesResponse
 
-    request  = post
+    request  = post "DescribeCases"
     response = jsonResponse
 
 instance FromJSON DescribeCasesResponse where

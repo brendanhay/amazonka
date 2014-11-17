@@ -133,7 +133,7 @@ instance AWSRequest DescribeSnapshotSchedule where
     type Sv DescribeSnapshotSchedule = StorageGateway
     type Rs DescribeSnapshotSchedule = DescribeSnapshotScheduleResponse
 
-    request  = post
+    request  = post "DescribeSnapshotSchedule"
     response = jsonResponse
 
 instance FromJSON DescribeSnapshotScheduleResponse where

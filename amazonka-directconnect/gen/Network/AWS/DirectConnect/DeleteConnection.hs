@@ -165,7 +165,7 @@ instance AWSRequest DeleteConnection where
     type Sv DeleteConnection = DirectConnect
     type Rs DeleteConnection = DeleteConnectionResponse
 
-    request  = post
+    request  = post "DeleteConnection"
     response = jsonResponse
 
 instance FromJSON DeleteConnectionResponse where

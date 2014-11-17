@@ -99,5 +99,5 @@ instance AWSRequest AttachElasticLoadBalancer where
     type Sv AttachElasticLoadBalancer = OpsWorks
     type Rs AttachElasticLoadBalancer = AttachElasticLoadBalancerResponse
 
-    request  = post
+    request  = post "AttachElasticLoadBalancer"
     response = nullResponse AttachElasticLoadBalancerResponse

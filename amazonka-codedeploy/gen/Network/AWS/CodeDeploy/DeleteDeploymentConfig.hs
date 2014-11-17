@@ -86,5 +86,5 @@ instance AWSRequest DeleteDeploymentConfig where
     type Sv DeleteDeploymentConfig = CodeDeploy
     type Rs DeleteDeploymentConfig = DeleteDeploymentConfigResponse
 
-    request  = post
+    request  = post "DeleteDeploymentConfig"
     response = nullResponse DeleteDeploymentConfigResponse

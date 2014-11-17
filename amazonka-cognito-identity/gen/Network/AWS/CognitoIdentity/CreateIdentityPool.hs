@@ -207,7 +207,7 @@ instance AWSRequest CreateIdentityPool where
     type Sv CreateIdentityPool = CognitoIdentity
     type Rs CreateIdentityPool = CreateIdentityPoolResponse
 
-    request  = post
+    request  = post "CreateIdentityPool"
     response = jsonResponse
 
 instance FromJSON CreateIdentityPoolResponse where

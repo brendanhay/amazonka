@@ -111,11 +111,12 @@ instance AWSService SES where
     type Er SES = RESTError
 
     service = Service
-        { _svcEndpoint = regional
-        , _svcAbbrev   = "SES"
-        , _svcPrefix   = "email"
-        , _svcVersion  = "2010-12-01"
-        , _svcTarget   = Nothing
+        { _svcEndpoint     = regional
+        , _svcAbbrev       = "SES"
+        , _svcPrefix       = "email"
+        , _svcVersion      = "2010-12-01"
+        , _svcTargetPrefix = Nothing
+        , _svcJSONVersion  = Nothing
         }
 
     handle = restError alwaysFail

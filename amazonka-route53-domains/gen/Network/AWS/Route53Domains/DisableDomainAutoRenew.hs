@@ -82,5 +82,5 @@ instance AWSRequest DisableDomainAutoRenew where
     type Sv DisableDomainAutoRenew = Route53Domains
     type Rs DisableDomainAutoRenew = DisableDomainAutoRenewResponse
 
-    request  = post
+    request  = post "DisableDomainAutoRenew"
     response = nullResponse DisableDomainAutoRenewResponse

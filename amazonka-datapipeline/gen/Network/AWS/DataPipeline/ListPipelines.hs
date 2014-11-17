@@ -125,7 +125,7 @@ instance AWSRequest ListPipelines where
     type Sv ListPipelines = DataPipeline
     type Rs ListPipelines = ListPipelinesResponse
 
-    request  = post
+    request  = post "ListPipelines"
     response = jsonResponse
 
 instance FromJSON ListPipelinesResponse where

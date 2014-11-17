@@ -166,7 +166,7 @@ instance AWSRequest GetOpenIdTokenForDeveloperIdentity where
     type Sv GetOpenIdTokenForDeveloperIdentity = CognitoIdentity
     type Rs GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentityResponse
 
-    request  = post
+    request  = post "GetOpenIdTokenForDeveloperIdentity"
     response = jsonResponse
 
 instance FromJSON GetOpenIdTokenForDeveloperIdentityResponse where

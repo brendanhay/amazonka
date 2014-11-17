@@ -14,7 +14,10 @@
 module Network.AWS.Data.Internal.Sensitive where
 
 import Control.Lens.TH
+import Data.Monoid
+import Data.String
 import Network.AWS.Data.Internal.ByteString
+import Network.AWS.Data.Internal.JSON
 import Network.AWS.Data.Internal.Query
 import Network.AWS.Data.Internal.Text
 import Network.AWS.Data.Internal.XML
@@ -23,12 +26,16 @@ newtype Sensitive a = Sensitive { unSensitive :: a }
     deriving
         ( Eq
         , Ord
+        , IsString
+        , Monoid
         , ToByteString
         , FromText
         , ToText
         , FromXML
         , ToXML
         , ToQuery
+        , ToJSON
+        , FromJSON
         )
 
 instance Show (Sensitive a) where

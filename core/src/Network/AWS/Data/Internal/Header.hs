@@ -28,7 +28,6 @@ import           Data.List                            (deleteBy)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                            (Text)
-import qualified Data.Text                            as Text
 import qualified Data.Text.Encoding                   as Text
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
@@ -38,10 +37,10 @@ hHost :: HeaderName
 hHost = "Host"
 
 hAMZToken :: HeaderName
-hAMZToken = "X-AMZ-Security-Token"
+hAMZToken = "X-Amz-Security-Token"
 
-hMetaPrefix :: HeaderName
-hMetaPrefix = "X-AMZ-"
+hAMZTarget :: HeaderName
+hAMZTarget = "X-Amz-Target"
 
 hAMZAuth :: HeaderName
 hAMZAuth = "X-Amzn-Authorization"
@@ -49,13 +48,16 @@ hAMZAuth = "X-Amzn-Authorization"
 hAMZDate :: HeaderName
 hAMZDate = "X-Amz-Date"
 
+hMetaPrefix :: HeaderName
+hMetaPrefix = "X-Amz-"
+
 class ToHeaders a where
     toHeaders :: a -> [Header]
     toHeaders = const mempty
 
 infixl 6 =:
 
-(=:) :: ToHeader a => ByteString -> a -> [Header]
+(=:) :: ToHeader a => HeaderName -> a -> [Header]
 (=:) = toHeader
 
 hdr :: HeaderName -> ByteString -> [Header] -> [Header]
@@ -65,7 +67,7 @@ hdrs :: [Header] -> [Header] -> [Header]
 hdrs xs ys = Fold.foldr' (uncurry hdr) ys xs
 
 class ToHeader a where
-    toHeader :: ByteString -> a -> [Header]
+    toHeader :: HeaderName -> a -> [Header]
 
 instance ToHeader Text where
     toHeader k = toHeader k . Text.encodeUtf8
@@ -74,10 +76,10 @@ instance ToHeader ByteString where
     toHeader k = toHeader k . Just
 
 instance ToByteString a => ToHeader (Maybe a) where
-    toHeader k = maybe [] (\v -> [(CI.mk k, toBS v)])
+    toHeader k = maybe [] (\v -> [(k, toBS v)])
 
 instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
-    toHeader p = map (\(k, v) -> (CI.mk (p <> toBS k), toBS v)) . Map.toList
+    toHeader p = map (\(k, v) -> (p <> CI.mk (toBS k), toBS v)) . Map.toList
 
 infixl 6 ~:, ~:?, ~:!
 

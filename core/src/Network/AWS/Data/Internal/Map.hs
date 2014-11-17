@@ -71,7 +71,7 @@ infixl 6 ~::
         <$> fromText (Text.decodeUtf8 v)
 
 instance (ToByteString k, ToByteString v) => ToHeader (Map k v) where
-    toHeader p = map (bimap (CI.mk . mappend p . toBS) toBS)
+    toHeader k = map (bimap (mappend k . CI.mk . toBS) toBS)
         . Map.toList
         . toHashMap
 

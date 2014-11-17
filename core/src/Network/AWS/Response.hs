@@ -37,7 +37,6 @@ import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Response)
 import           Network.HTTP.Types
 import qualified Text.XML                     as XML
-import           Text.XML                     (Node)
 import           Text.XML.Cursor
 
 nullResponse :: (MonadResource m, AWSService (Sv a))

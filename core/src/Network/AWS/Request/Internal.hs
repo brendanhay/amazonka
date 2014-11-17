@@ -13,9 +13,9 @@
 module Network.AWS.Request.Internal
     (
     -- * Requests
-      get
-    , head
-    , delete
+      get'
+    , delete'
+    , head'
 
     -- * Lenses
     , method
@@ -35,30 +35,21 @@ import           Network.AWS.Types
 import qualified Network.HTTP.Client.Internal as HTTP
 import qualified Network.HTTP.Types           as HTTP
 import           Network.HTTP.Types.Method
-import           Prelude                      hiding (head)
 
-get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-get x = def
+get' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+get' x = def
     & rqPath    .~ Text.encodeUtf8 (toPath x)
     & rqQuery   .~ toQuery x
     & rqHeaders .~ toHeaders x
-{-# INLINE get #-}
+{-# INLINE get' #-}
 
-head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-head x = get x & rqMethod .~ HEAD
-{-# INLINE head #-}
+delete' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+delete' x = get' x & rqMethod .~ DELETE
+{-# INLINE delete' #-}
 
-delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-delete x = get x & rqMethod .~ DELETE
-{-# INLINE delete #-}
-
--- post :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
--- post x = put x & rqMethod .~ POST
--- {-# INLINE post #-}
-
--- put :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
--- put x = get x & rqMethod .~ PUT & rqBody .~ toBody x
--- {-# INLINE put #-}
+head' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+head' x = get' x & rqMethod .~ HEAD
+{-# INLINE head' #-}
 
 method :: Lens' HTTP.Request HTTP.Method
 method f x = f (HTTP.method x) <&> \y -> x { HTTP.method = y }

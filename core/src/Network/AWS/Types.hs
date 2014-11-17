@@ -340,11 +340,12 @@ custom = Custom
 
 -- | Attributes specific to an AWS service.
 data Service a = Service
-    { _svcAbbrev   :: !Text
-    , _svcEndpoint :: !Endpoint
-    , _svcPrefix   :: ByteString
-    , _svcVersion  :: ByteString
-    , _svcTarget   :: Maybe ByteString
+    { _svcAbbrev       :: !Text
+    , _svcEndpoint     :: !Endpoint
+    , _svcPrefix       :: ByteString
+    , _svcVersion      :: ByteString
+    , _svcTargetPrefix :: Maybe ByteString
+    , _svcJSONVersion  :: Maybe ByteString
     }
 
 -- | An unsigned request.
@@ -432,10 +433,7 @@ instance ToText Zone where
 
 -- | A service's query action.
 newtype Action = Action Text
-    deriving (Eq, Ord, Show, IsString)
-
-instance ToQuery Action where
-    toQuery (Action a) = toQuery ("Action" :: ByteString, a)
+    deriving (Eq, Ord, Show, IsString, ToText, ToByteString)
 
 data Empty = Empty
     deriving (Eq, Show)

@@ -1,3 +1,7 @@
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+
 -- Module      : Network.AWS.Request.JSON
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -9,24 +13,30 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Request.JSON
-    ( get
-    , delete
-    , post
-    , put
+    ( post
     ) where
 
-import Control.Lens
+import Control.Applicative
+import Control.Lens                 hiding (Action)
 import Data.Aeson
-import Data.Default.Class
+import Data.Monoid
 import Network.AWS.Data
 import Network.AWS.Request.Internal
 import Network.AWS.Types
-import Network.HTTP.Types.Method
+import Network.HTTP.Types.Header
 
-post :: ToJSON a => a -> Request a
-post x = put x & rqMethod .~ POST
+post :: forall a. (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a, ToJSON a)
+     => Action
+     -> a
+     -> Request a
+post a x = get' x & rqHeaders <>~ hs & rqBody .~ toBody (toJSON x)
+  where
+    hs = toHeader hAMZTarget   target
+        ++ toHeader hContentType content
+
+    target  = (\p -> p <> "." <> toBS a) <$> _svcTargetPrefix svc
+    content = ("application/x-amz-json-" <>) <$> _svcJSONVersion svc
+
+    svc :: Service (Sv a)
+    svc = service
 {-# INLINE post #-}
-
-put :: ToJSON a => a -> Request a
-put x = def & rqMethod .~ PUT & rqBody .~ toBody (toJSON x)
-{-# INLINE put #-}

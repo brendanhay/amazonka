@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "CloudFormation",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.CloudFormation",
         "protocol": "query",
         "imports": [
@@ -57,6 +58,7 @@
             "Network.AWS.CloudFormation.UpdateStack",
             "Network.AWS.CloudFormation.ValidateTemplate"
         ],
+        "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon CloudFormation",
         "version": "0.0.0",
@@ -2475,6 +2477,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html",
             "namespace": "Network.AWS.CloudFormation.CancelUpdateStack",
             "protocol": "query",
             "imports": [
@@ -2638,6 +2641,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html",
             "namespace": "Network.AWS.CloudFormation.CreateStack",
             "protocol": "query",
             "imports": [
@@ -3100,6 +3104,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStack.html",
             "namespace": "Network.AWS.CloudFormation.DeleteStack",
             "protocol": "query",
             "imports": [
@@ -3274,6 +3279,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html",
             "namespace": "Network.AWS.CloudFormation.DescribeStackEvents",
             "protocol": "query",
             "imports": [
@@ -3459,6 +3465,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html",
             "namespace": "Network.AWS.CloudFormation.DescribeStackResource",
             "protocol": "query",
             "imports": [
@@ -3638,6 +3645,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResources.html",
             "namespace": "Network.AWS.CloudFormation.DescribeStackResources",
             "protocol": "query",
             "imports": [
@@ -3861,6 +3869,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStacks.html",
             "namespace": "Network.AWS.CloudFormation.DescribeStacks",
             "protocol": "query",
             "imports": [
@@ -4048,6 +4057,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_EstimateTemplateCost.html",
             "namespace": "Network.AWS.CloudFormation.EstimateTemplateCost",
             "protocol": "query",
             "imports": [
@@ -4259,6 +4269,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetStackPolicy.html",
             "namespace": "Network.AWS.CloudFormation.GetStackPolicy",
             "protocol": "query",
             "imports": [
@@ -4422,6 +4433,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html",
             "namespace": "Network.AWS.CloudFormation.GetTemplate",
             "protocol": "query",
             "imports": [
@@ -4680,6 +4692,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplateSummary.html",
             "namespace": "Network.AWS.CloudFormation.GetTemplateSummary",
             "protocol": "query",
             "imports": [
@@ -4903,6 +4916,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackResources.html",
             "namespace": "Network.AWS.CloudFormation.ListStackResources",
             "protocol": "query",
             "imports": [
@@ -5102,6 +5116,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStacks.html",
             "namespace": "Network.AWS.CloudFormation.ListStacks",
             "protocol": "query",
             "imports": [
@@ -5242,6 +5257,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html",
             "namespace": "Network.AWS.CloudFormation.SetStackPolicy",
             "protocol": "query",
             "imports": [
@@ -5408,6 +5424,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SignalResource.html",
             "namespace": "Network.AWS.CloudFormation.SignalResource",
             "protocol": "query",
             "imports": [
@@ -5653,6 +5670,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html",
             "namespace": "Network.AWS.CloudFormation.UpdateStack",
             "protocol": "query",
             "imports": [
@@ -6196,6 +6214,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ValidateTemplate.html",
             "namespace": "Network.AWS.CloudFormation.ValidateTemplate",
             "protocol": "query",
             "imports": [

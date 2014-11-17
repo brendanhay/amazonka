@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "Config",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/config/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.Config",
         "protocol": "json",
         "imports": [
@@ -46,6 +47,7 @@
             "Network.AWS.Config.StopConfigurationRecorder",
             "Network.AWS.Config.Types"
         ],
+        "url": "http://docs.aws.amazon.com/config/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Config",
         "version": "0.0.0",
@@ -1584,6 +1586,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html",
             "namespace": "Network.AWS.Config.DeleteDeliveryChannel",
             "protocol": "json",
             "imports": [
@@ -1743,6 +1746,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/config/latest/APIReference/API_DeliverConfigSnapshot.html",
             "namespace": "Network.AWS.Config.DeliverConfigSnapshot",
             "protocol": "json",
             "imports": [
@@ -1902,6 +1906,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html",
             "namespace": "Network.AWS.Config.DescribeConfigurationRecorderStatus",
             "protocol": "json",
             "imports": [
@@ -2061,6 +2066,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html",
             "namespace": "Network.AWS.Config.DescribeConfigurationRecorders",
             "protocol": "json",
             "imports": [
@@ -2220,6 +2226,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannelStatus.html",
             "namespace": "Network.AWS.Config.DescribeDeliveryChannelStatus",
             "protocol": "json",
             "imports": [
@@ -2379,6 +2386,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannels.html",
             "namespace": "Network.AWS.Config.DescribeDeliveryChannels",
             "protocol": "json",
             "imports": [
@@ -2549,6 +2557,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html",
             "namespace": "Network.AWS.Config.GetResourceConfigHistory",
             "protocol": "json",
             "imports": [
@@ -2813,6 +2822,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html",
             "namespace": "Network.AWS.Config.PutConfigurationRecorder",
             "protocol": "json",
             "imports": [
@@ -2922,6 +2932,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/config/latest/APIReference/API_PutDeliveryChannel.html",
             "namespace": "Network.AWS.Config.PutDeliveryChannel",
             "protocol": "json",
             "imports": [
@@ -3031,6 +3042,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html",
             "namespace": "Network.AWS.Config.StartConfigurationRecorder",
             "protocol": "json",
             "imports": [
@@ -3143,6 +3155,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html",
             "namespace": "Network.AWS.Config.StopConfigurationRecorder",
             "protocol": "json",
             "imports": [

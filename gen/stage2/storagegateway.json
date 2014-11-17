@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "StorageGateway",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.StorageGateway",
         "protocol": "json",
         "imports": [
@@ -118,6 +119,7 @@
             "Network.AWS.StorageGateway.UpdateMaintenanceStartTime",
             "Network.AWS.StorageGateway.UpdateSnapshotSchedule"
         ],
+        "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Storage Gateway",
         "version": "0.0.0",
@@ -2559,6 +2561,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html",
             "namespace": "Network.AWS.StorageGateway.ActivateGateway",
             "protocol": "json",
             "imports": [
@@ -2870,6 +2873,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddCache.html",
             "namespace": "Network.AWS.StorageGateway.AddCache",
             "protocol": "json",
             "imports": [
@@ -3041,6 +3045,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddUploadBuffer.html",
             "namespace": "Network.AWS.StorageGateway.AddUploadBuffer",
             "protocol": "json",
             "imports": [
@@ -3212,6 +3217,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddWorkingStorage.html",
             "namespace": "Network.AWS.StorageGateway.AddWorkingStorage",
             "protocol": "json",
             "imports": [
@@ -3383,6 +3389,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelArchival.html",
             "namespace": "Network.AWS.StorageGateway.CancelArchival",
             "protocol": "json",
             "imports": [
@@ -3553,6 +3560,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelRetrieval.html",
             "namespace": "Network.AWS.StorageGateway.CancelRetrieval",
             "protocol": "json",
             "imports": [
@@ -3735,6 +3743,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateCachediSCSIVolume.html",
             "namespace": "Network.AWS.StorageGateway.CreateCachediSCSIVolume",
             "protocol": "json",
             "imports": [
@@ -4030,6 +4039,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshot.html",
             "namespace": "Network.AWS.StorageGateway.CreateSnapshot",
             "protocol": "json",
             "imports": [
@@ -4240,6 +4250,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshotFromVolumeRecoveryPoint.html",
             "namespace": "Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint",
             "protocol": "json",
             "imports": [
@@ -4450,6 +4461,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateStorediSCSIVolume.html",
             "namespace": "Network.AWS.StorageGateway.CreateStorediSCSIVolume",
             "protocol": "json",
             "imports": [
@@ -4734,6 +4746,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapes.html",
             "namespace": "Network.AWS.StorageGateway.CreateTapes",
             "protocol": "json",
             "imports": [
@@ -4988,6 +5001,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteBandwidthRateLimit.html",
             "namespace": "Network.AWS.StorageGateway.DeleteBandwidthRateLimit",
             "protocol": "json",
             "imports": [
@@ -5170,6 +5184,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteChapCredentials.html",
             "namespace": "Network.AWS.StorageGateway.DeleteChapCredentials",
             "protocol": "json",
             "imports": [
@@ -5340,6 +5355,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteGateway.html",
             "namespace": "Network.AWS.StorageGateway.DeleteGateway",
             "protocol": "json",
             "imports": [
@@ -5499,6 +5515,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteSnapshotSchedule.html",
             "namespace": "Network.AWS.StorageGateway.DeleteSnapshotSchedule",
             "protocol": "json",
             "imports": [
@@ -5658,6 +5675,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteTape.html",
             "namespace": "Network.AWS.StorageGateway.DeleteTape",
             "protocol": "json",
             "imports": [
@@ -5828,6 +5846,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteTapeArchive.html",
             "namespace": "Network.AWS.StorageGateway.DeleteTapeArchive",
             "protocol": "json",
             "imports": [
@@ -5987,6 +6006,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteVolume.html",
             "namespace": "Network.AWS.StorageGateway.DeleteVolume",
             "protocol": "json",
             "imports": [
@@ -6186,6 +6206,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeBandwidthRateLimit.html",
             "namespace": "Network.AWS.StorageGateway.DescribeBandwidthRateLimit",
             "protocol": "json",
             "imports": [
@@ -6497,6 +6518,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCache.html",
             "namespace": "Network.AWS.StorageGateway.DescribeCache",
             "protocol": "json",
             "imports": [
@@ -6656,6 +6678,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCachediSCSIVolumes.html",
             "namespace": "Network.AWS.StorageGateway.DescribeCachediSCSIVolumes",
             "protocol": "json",
             "imports": [
@@ -6815,6 +6838,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeChapCredentials.html",
             "namespace": "Network.AWS.StorageGateway.DescribeChapCredentials",
             "protocol": "json",
             "imports": [
@@ -7125,6 +7149,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeGatewayInformation.html",
             "namespace": "Network.AWS.StorageGateway.DescribeGatewayInformation",
             "protocol": "json",
             "imports": [
@@ -7380,6 +7405,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeMaintenanceStartTime.html",
             "namespace": "Network.AWS.StorageGateway.DescribeMaintenanceStartTime",
             "protocol": "json",
             "imports": [
@@ -7635,6 +7661,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeSnapshotSchedule.html",
             "namespace": "Network.AWS.StorageGateway.DescribeSnapshotSchedule",
             "protocol": "json",
             "imports": [
@@ -7794,6 +7821,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeStorediSCSIVolumes.html",
             "namespace": "Network.AWS.StorageGateway.DescribeStorediSCSIVolumes",
             "protocol": "json",
             "imports": [
@@ -7964,6 +7992,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeArchives.html",
             "namespace": "Network.AWS.StorageGateway.DescribeTapeArchives",
             "protocol": "json",
             "imports": [
@@ -8209,6 +8238,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeRecoveryPoints.html",
             "namespace": "Network.AWS.StorageGateway.DescribeTapeRecoveryPoints",
             "protocol": "json",
             "imports": [
@@ -8427,6 +8457,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapes.html",
             "namespace": "Network.AWS.StorageGateway.DescribeTapes",
             "protocol": "json",
             "imports": [
@@ -8730,6 +8761,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeUploadBuffer.html",
             "namespace": "Network.AWS.StorageGateway.DescribeUploadBuffer",
             "protocol": "json",
             "imports": [
@@ -8928,6 +8960,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeVTLDevices.html",
             "namespace": "Network.AWS.StorageGateway.DescribeVTLDevices",
             "protocol": "json",
             "imports": [
@@ -9231,6 +9264,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeWorkingStorage.html",
             "namespace": "Network.AWS.StorageGateway.DescribeWorkingStorage",
             "protocol": "json",
             "imports": [
@@ -9390,6 +9424,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DisableGateway.html",
             "namespace": "Network.AWS.StorageGateway.DisableGateway",
             "protocol": "json",
             "imports": [
@@ -9560,6 +9595,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListGateways.html",
             "namespace": "Network.AWS.StorageGateway.ListGateways",
             "protocol": "json",
             "imports": [
@@ -9749,6 +9785,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListLocalDisks.html",
             "namespace": "Network.AWS.StorageGateway.ListLocalDisks",
             "protocol": "json",
             "imports": [
@@ -9919,6 +9956,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeRecoveryPoints.html",
             "namespace": "Network.AWS.StorageGateway.ListVolumeRecoveryPoints",
             "protocol": "json",
             "imports": [
@@ -10117,6 +10155,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumes.html",
             "namespace": "Network.AWS.StorageGateway.ListVolumes",
             "protocol": "json",
             "imports": [
@@ -10324,6 +10363,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeArchive.html",
             "namespace": "Network.AWS.StorageGateway.RetrieveTapeArchive",
             "protocol": "json",
             "imports": [
@@ -10494,6 +10534,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeRecoveryPoint.html",
             "namespace": "Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint",
             "protocol": "json",
             "imports": [
@@ -10664,6 +10705,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ShutdownGateway.html",
             "namespace": "Network.AWS.StorageGateway.ShutdownGateway",
             "protocol": "json",
             "imports": [
@@ -10823,6 +10865,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_StartGateway.html",
             "namespace": "Network.AWS.StorageGateway.StartGateway",
             "protocol": "json",
             "imports": [
@@ -10982,6 +11025,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateBandwidthRateLimit.html",
             "namespace": "Network.AWS.StorageGateway.UpdateBandwidthRateLimit",
             "protocol": "json",
             "imports": [
@@ -11193,6 +11237,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateChapCredentials.html",
             "namespace": "Network.AWS.StorageGateway.UpdateChapCredentials",
             "protocol": "json",
             "imports": [
@@ -11420,6 +11465,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewayInformation.html",
             "namespace": "Network.AWS.StorageGateway.UpdateGatewayInformation",
             "protocol": "json",
             "imports": [
@@ -11619,6 +11665,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.html",
             "namespace": "Network.AWS.StorageGateway.UpdateGatewaySoftwareNow",
             "protocol": "json",
             "imports": [
@@ -11778,6 +11825,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.html",
             "namespace": "Network.AWS.StorageGateway.UpdateMaintenanceStartTime",
             "protocol": "json",
             "imports": [
@@ -12004,6 +12052,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSnapshotSchedule.html",
             "namespace": "Network.AWS.StorageGateway.UpdateSnapshotSchedule",
             "protocol": "json",
             "imports": [

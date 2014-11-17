@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "ElasticBeanstalk",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html",
         "namespace": "Network.AWS.ElasticBeanstalk",
         "protocol": "query",
         "imports": [
@@ -81,6 +82,7 @@
             "Network.AWS.ElasticBeanstalk.UpdateEnvironment",
             "Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings"
         ],
+        "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html",
         "protocol": "query",
         "name": "Amazon Elastic Beanstalk",
         "version": "0.0.0",
@@ -3808,6 +3810,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CheckDNSAvailability.html",
             "namespace": "Network.AWS.ElasticBeanstalk.CheckDNSAvailability",
             "protocol": "query",
             "imports": [
@@ -3969,6 +3972,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html",
             "namespace": "Network.AWS.ElasticBeanstalk.CreateApplication",
             "protocol": "query",
             "imports": [
@@ -4147,6 +4151,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplicationVersion.html",
             "namespace": "Network.AWS.ElasticBeanstalk.CreateApplicationVersion",
             "protocol": "query",
             "imports": [
@@ -4632,6 +4637,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateConfigurationTemplate.html",
             "namespace": "Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate",
             "protocol": "query",
             "imports": [
@@ -5351,6 +5357,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateEnvironment.html",
             "namespace": "Network.AWS.ElasticBeanstalk.CreateEnvironment",
             "protocol": "query",
             "imports": [
@@ -5827,6 +5834,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateStorageLocation.html",
             "namespace": "Network.AWS.ElasticBeanstalk.CreateStorageLocation",
             "protocol": "query",
             "imports": [
@@ -5889,6 +5897,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplication.html",
             "namespace": "Network.AWS.ElasticBeanstalk.DeleteApplication",
             "protocol": "query",
             "imports": [
@@ -6022,6 +6031,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplicationVersion.html",
             "namespace": "Network.AWS.ElasticBeanstalk.DeleteApplicationVersion",
             "protocol": "query",
             "imports": [
@@ -6188,6 +6198,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteConfigurationTemplate.html",
             "namespace": "Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate",
             "protocol": "query",
             "imports": [
@@ -6320,6 +6331,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteEnvironmentConfiguration.html",
             "namespace": "Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration",
             "protocol": "query",
             "imports": [
@@ -6499,6 +6511,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplicationVersions.html",
             "namespace": "Network.AWS.ElasticBeanstalk.DescribeApplicationVersions",
             "protocol": "query",
             "imports": [
@@ -6678,6 +6691,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplications.html",
             "namespace": "Network.AWS.ElasticBeanstalk.DescribeApplications",
             "protocol": "query",
             "imports": [
@@ -6852,6 +6866,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationOptions.html",
             "namespace": "Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions",
             "protocol": "query",
             "imports": [
@@ -7129,6 +7144,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html",
             "namespace": "Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings",
             "protocol": "query",
             "imports": [
@@ -7340,6 +7356,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentResources.html",
             "namespace": "Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources",
             "protocol": "query",
             "imports": [
@@ -7519,6 +7536,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html",
             "namespace": "Network.AWS.ElasticBeanstalk.DescribeEnvironments",
             "protocol": "query",
             "imports": [
@@ -7841,6 +7859,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEvents.html",
             "namespace": "Network.AWS.ElasticBeanstalk.DescribeEvents",
             "protocol": "query",
             "imports": [
@@ -8336,6 +8355,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html",
             "namespace": "Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks",
             "protocol": "query",
             "imports": [
@@ -8398,6 +8418,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RebuildEnvironment.html",
             "namespace": "Network.AWS.ElasticBeanstalk.RebuildEnvironment",
             "protocol": "query",
             "imports": [
@@ -8530,6 +8551,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RequestEnvironmentInfo.html",
             "namespace": "Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo",
             "protocol": "query",
             "imports": [
@@ -8696,6 +8718,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RestartAppServer.html",
             "namespace": "Network.AWS.ElasticBeanstalk.RestartAppServer",
             "protocol": "query",
             "imports": [
@@ -8875,6 +8898,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RetrieveEnvironmentInfo.html",
             "namespace": "Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo",
             "protocol": "query",
             "imports": [
@@ -9041,6 +9065,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_SwapEnvironmentCNAMEs.html",
             "namespace": "Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs",
             "protocol": "query",
             "imports": [
@@ -9661,6 +9686,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_TerminateEnvironment.html",
             "namespace": "Network.AWS.ElasticBeanstalk.TerminateEnvironment",
             "protocol": "query",
             "imports": [
@@ -9871,6 +9897,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplication.html",
             "namespace": "Network.AWS.ElasticBeanstalk.UpdateApplication",
             "protocol": "query",
             "imports": [
@@ -10049,6 +10076,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplicationVersion.html",
             "namespace": "Network.AWS.ElasticBeanstalk.UpdateApplicationVersion",
             "protocol": "query",
             "imports": [
@@ -10469,6 +10497,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateConfigurationTemplate.html",
             "namespace": "Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate",
             "protocol": "query",
             "imports": [
@@ -11122,6 +11151,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateEnvironment.html",
             "namespace": "Network.AWS.ElasticBeanstalk.UpdateEnvironment",
             "protocol": "query",
             "imports": [
@@ -11498,6 +11528,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ValidateConfigurationSettings.html",
             "namespace": "Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings",
             "protocol": "query",
             "imports": [

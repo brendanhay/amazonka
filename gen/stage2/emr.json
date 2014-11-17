@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "EMR",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html",
         "namespace": "Network.AWS.EMR",
         "protocol": "json",
         "imports": [
@@ -58,6 +59,7 @@
             "Network.AWS.EMR.TerminateJobFlows",
             "Network.AWS.EMR.Types"
         ],
+        "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html",
         "protocol": "json",
         "name": "Amazon Elastic MapReduce",
         "version": "0.0.0",
@@ -6133,6 +6135,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddInstanceGroups.html",
             "namespace": "Network.AWS.EMR.AddInstanceGroups",
             "protocol": "json",
             "imports": [
@@ -6304,6 +6307,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddJobFlowSteps.html",
             "namespace": "Network.AWS.EMR.AddJobFlowSteps",
             "protocol": "json",
             "imports": [
@@ -6427,6 +6431,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddTags.html",
             "namespace": "Network.AWS.EMR.AddTags",
             "protocol": "json",
             "imports": [
@@ -6595,6 +6600,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeCluster.html",
             "namespace": "Network.AWS.EMR.DescribeCluster",
             "protocol": "json",
             "imports": [
@@ -6754,6 +6760,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeJobFlows.html",
             "namespace": "Network.AWS.EMR.DescribeJobFlows",
             "protocol": "json",
             "imports": [
@@ -6978,6 +6985,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeStep.html",
             "namespace": "Network.AWS.EMR.DescribeStep",
             "protocol": "json",
             "imports": [
@@ -7159,6 +7167,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListBootstrapActions.html",
             "namespace": "Network.AWS.EMR.ListBootstrapActions",
             "protocol": "json",
             "imports": [
@@ -7349,6 +7358,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListClusters.html",
             "namespace": "Network.AWS.EMR.ListClusters",
             "protocol": "json",
             "imports": [
@@ -7594,6 +7604,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstanceGroups.html",
             "namespace": "Network.AWS.EMR.ListInstanceGroups",
             "protocol": "json",
             "imports": [
@@ -7784,6 +7795,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstances.html",
             "namespace": "Network.AWS.EMR.ListInstances",
             "protocol": "json",
             "imports": [
@@ -8030,6 +8042,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListSteps.html",
             "namespace": "Network.AWS.EMR.ListSteps",
             "protocol": "json",
             "imports": [
@@ -8190,6 +8203,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ModifyInstanceGroups.html",
             "namespace": "Network.AWS.EMR.ModifyInstanceGroups",
             "protocol": "json",
             "imports": [
@@ -8301,6 +8315,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RemoveTags.html",
             "namespace": "Network.AWS.EMR.RemoveTags",
             "protocol": "json",
             "imports": [
@@ -8472,6 +8487,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RunJobFlow.html",
             "namespace": "Network.AWS.EMR.RunJobFlow",
             "protocol": "json",
             "imports": [
@@ -8903,6 +8919,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_SetTerminationProtection.html",
             "namespace": "Network.AWS.EMR.SetTerminationProtection",
             "protocol": "json",
             "imports": [
@@ -9027,6 +9044,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_SetVisibleToAllUsers.html",
             "namespace": "Network.AWS.EMR.SetVisibleToAllUsers",
             "protocol": "json",
             "imports": [
@@ -9151,6 +9169,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_TerminateJobFlows.html",
             "namespace": "Network.AWS.EMR.TerminateJobFlows",
             "protocol": "json",
             "imports": [

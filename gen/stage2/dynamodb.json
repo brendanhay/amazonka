@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "DynamoDB",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.DynamoDB",
         "protocol": "json",
         "imports": [
@@ -50,6 +51,7 @@
             "Network.AWS.DynamoDB.UpdateItem",
             "Network.AWS.DynamoDB.UpdateTable"
         ],
+        "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon DynamoDB",
         "version": "0.0.0",
@@ -3107,6 +3109,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchGetItem.html",
             "namespace": "Network.AWS.DynamoDB.BatchGetItem",
             "protocol": "json",
             "imports": [
@@ -3315,6 +3318,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchWriteItem.html",
             "namespace": "Network.AWS.DynamoDB.BatchWriteItem",
             "protocol": "json",
             "imports": [
@@ -3510,6 +3514,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html",
             "namespace": "Network.AWS.DynamoDB.CreateTable",
             "protocol": "json",
             "imports": [
@@ -3831,6 +3836,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html",
             "namespace": "Network.AWS.DynamoDB.DeleteItem",
             "protocol": "json",
             "imports": [
@@ -4223,6 +4229,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteTable.html",
             "namespace": "Network.AWS.DynamoDB.DeleteTable",
             "protocol": "json",
             "imports": [
@@ -4380,6 +4387,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html",
             "namespace": "Network.AWS.DynamoDB.DescribeTable",
             "protocol": "json",
             "imports": [
@@ -4550,6 +4558,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html",
             "namespace": "Network.AWS.DynamoDB.GetItem",
             "protocol": "json",
             "imports": [
@@ -4872,6 +4881,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html",
             "namespace": "Network.AWS.DynamoDB.ListTables",
             "protocol": "json",
             "imports": [
@@ -5089,6 +5099,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html",
             "namespace": "Network.AWS.DynamoDB.PutItem",
             "protocol": "json",
             "imports": [
@@ -5578,6 +5589,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html",
             "namespace": "Network.AWS.DynamoDB.Query",
             "protocol": "json",
             "imports": [
@@ -6243,6 +6255,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html",
             "namespace": "Network.AWS.DynamoDB.Scan",
             "protocol": "json",
             "imports": [
@@ -6796,6 +6809,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html",
             "namespace": "Network.AWS.DynamoDB.UpdateItem",
             "protocol": "json",
             "imports": [
@@ -7244,6 +7258,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html",
             "namespace": "Network.AWS.DynamoDB.UpdateTable",
             "protocol": "json",
             "imports": [

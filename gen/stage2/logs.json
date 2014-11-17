@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "CloudWatchLogs",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.CloudWatchLogs",
         "protocol": "json",
         "imports": [
@@ -52,6 +53,7 @@
             "Network.AWS.CloudWatchLogs.TestMetricFilter",
             "Network.AWS.CloudWatchLogs.Types"
         ],
+        "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon CloudWatch Logs",
         "version": "0.0.0",
@@ -1025,6 +1027,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogGroup.html",
             "namespace": "Network.AWS.CloudWatchLogs.CreateLogGroup",
             "protocol": "json",
             "imports": [
@@ -1137,6 +1140,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogStream.html",
             "namespace": "Network.AWS.CloudWatchLogs.CreateLogStream",
             "protocol": "json",
             "imports": [
@@ -1260,6 +1264,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogGroup.html",
             "namespace": "Network.AWS.CloudWatchLogs.DeleteLogGroup",
             "protocol": "json",
             "imports": [
@@ -1372,6 +1377,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogStream.html",
             "namespace": "Network.AWS.CloudWatchLogs.DeleteLogStream",
             "protocol": "json",
             "imports": [
@@ -1495,6 +1501,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteMetricFilter.html",
             "namespace": "Network.AWS.CloudWatchLogs.DeleteMetricFilter",
             "protocol": "json",
             "imports": [
@@ -1618,6 +1625,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html",
             "namespace": "Network.AWS.CloudWatchLogs.DeleteRetentionPolicy",
             "protocol": "json",
             "imports": [
@@ -1788,6 +1796,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html",
             "namespace": "Network.AWS.CloudWatchLogs.DescribeLogGroups",
             "protocol": "json",
             "imports": [
@@ -1997,6 +2006,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html",
             "namespace": "Network.AWS.CloudWatchLogs.DescribeLogStreams",
             "protocol": "json",
             "imports": [
@@ -2235,6 +2245,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html",
             "namespace": "Network.AWS.CloudWatchLogs.DescribeMetricFilters",
             "protocol": "json",
             "imports": [
@@ -2501,6 +2512,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html",
             "namespace": "Network.AWS.CloudWatchLogs.GetLogEvents",
             "protocol": "json",
             "imports": [
@@ -2812,6 +2824,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html",
             "namespace": "Network.AWS.CloudWatchLogs.PutLogEvents",
             "protocol": "json",
             "imports": [
@@ -2991,6 +3004,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutMetricFilter.html",
             "namespace": "Network.AWS.CloudWatchLogs.PutMetricFilter",
             "protocol": "json",
             "imports": [
@@ -3169,6 +3183,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html",
             "namespace": "Network.AWS.CloudWatchLogs.PutRetentionPolicy",
             "protocol": "json",
             "imports": [
@@ -3339,6 +3354,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TestMetricFilter.html",
             "namespace": "Network.AWS.CloudWatchLogs.TestMetricFilter",
             "protocol": "json",
             "imports": [

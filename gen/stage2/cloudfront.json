@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "CloudFront",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.CloudFront",
         "protocol": "rest-xml",
         "imports": [
@@ -65,6 +66,7 @@
             "Network.AWS.CloudFront.UpdateDistribution",
             "Network.AWS.CloudFront.UpdateStreamingDistribution"
         ],
+        "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html",
         "protocol": "rest-xml",
         "name": "Amazon CloudFront",
         "version": "0.0.0",
@@ -5971,6 +5973,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateCloudFrontOriginAccessIdentity.html",
             "namespace": "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity",
             "protocol": "rest-xml",
             "imports": [
@@ -6203,6 +6206,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateDistribution.html",
             "namespace": "Network.AWS.CloudFront.CreateDistribution",
             "protocol": "rest-xml",
             "imports": [
@@ -6402,6 +6406,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateInvalidation.html",
             "namespace": "Network.AWS.CloudFront.CreateInvalidation",
             "protocol": "rest-xml",
             "imports": [
@@ -6655,6 +6660,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateStreamingDistribution.html",
             "namespace": "Network.AWS.CloudFront.CreateStreamingDistribution",
             "protocol": "rest-xml",
             "imports": [
@@ -6777,6 +6783,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteCloudFrontOriginAccessIdentity.html",
             "namespace": "Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity",
             "protocol": "rest-xml",
             "imports": [
@@ -6911,6 +6918,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteDistribution.html",
             "namespace": "Network.AWS.CloudFront.DeleteDistribution",
             "protocol": "rest-xml",
             "imports": [
@@ -7045,6 +7053,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteStreamingDistribution.html",
             "namespace": "Network.AWS.CloudFront.DeleteStreamingDistribution",
             "protocol": "rest-xml",
             "imports": [
@@ -7256,6 +7265,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetCloudFrontOriginAccessIdentity.html",
             "namespace": "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity",
             "protocol": "rest-xml",
             "imports": [
@@ -7449,6 +7459,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetCloudFrontOriginAccessIdentityConfig.html",
             "namespace": "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig",
             "protocol": "rest-xml",
             "imports": [
@@ -7646,6 +7657,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistribution.html",
             "namespace": "Network.AWS.CloudFront.GetDistribution",
             "protocol": "rest-xml",
             "imports": [
@@ -7839,6 +7851,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistributionConfig.html",
             "namespace": "Network.AWS.CloudFront.GetDistributionConfig",
             "protocol": "rest-xml",
             "imports": [
@@ -8017,6 +8030,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetInvalidation.html",
             "namespace": "Network.AWS.CloudFront.GetInvalidation",
             "protocol": "rest-xml",
             "imports": [
@@ -8229,6 +8243,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetStreamingDistribution.html",
             "namespace": "Network.AWS.CloudFront.GetStreamingDistribution",
             "protocol": "rest-xml",
             "imports": [
@@ -8422,6 +8437,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetStreamingDistributionConfig.html",
             "namespace": "Network.AWS.CloudFront.GetStreamingDistributionConfig",
             "protocol": "rest-xml",
             "imports": [
@@ -8600,6 +8616,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListCloudFrontOriginAccessIdentities.html",
             "namespace": "Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities",
             "protocol": "rest-xml",
             "imports": [
@@ -8798,6 +8815,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributions.html",
             "namespace": "Network.AWS.CloudFront.ListDistributions",
             "protocol": "rest-xml",
             "imports": [
@@ -8996,6 +9014,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations.html",
             "namespace": "Network.AWS.CloudFront.ListInvalidations",
             "protocol": "rest-xml",
             "imports": [
@@ -9233,6 +9252,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListStreamingDistributions.html",
             "namespace": "Network.AWS.CloudFront.ListStreamingDistributions",
             "protocol": "rest-xml",
             "imports": [
@@ -9450,6 +9470,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateCloudFrontOriginAccessIdentity.html",
             "namespace": "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity",
             "protocol": "rest-xml",
             "imports": [
@@ -9705,6 +9726,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateDistribution.html",
             "namespace": "Network.AWS.CloudFront.UpdateDistribution",
             "protocol": "rest-xml",
             "imports": [
@@ -9960,6 +9982,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateStreamingDistribution.html",
             "namespace": "Network.AWS.CloudFront.UpdateStreamingDistribution",
             "protocol": "rest-xml",
             "imports": [

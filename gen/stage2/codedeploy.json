@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "CodeDeploy",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.CodeDeploy",
         "protocol": "json",
         "imports": [
@@ -74,6 +75,7 @@
             "Network.AWS.CodeDeploy.UpdateApplication",
             "Network.AWS.CodeDeploy.UpdateDeploymentGroup"
         ],
+        "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon CodeDeploy",
         "version": "0.0.0",
@@ -2824,6 +2826,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetApplications.html",
             "namespace": "Network.AWS.CodeDeploy.BatchGetApplications",
             "protocol": "json",
             "imports": [
@@ -2983,6 +2986,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeployments.html",
             "namespace": "Network.AWS.CodeDeploy.BatchGetDeployments",
             "protocol": "json",
             "imports": [
@@ -3142,6 +3146,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateApplication.html",
             "namespace": "Network.AWS.CodeDeploy.CreateApplication",
             "protocol": "json",
             "imports": [
@@ -3301,6 +3306,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html",
             "namespace": "Network.AWS.CodeDeploy.CreateDeployment",
             "protocol": "json",
             "imports": [
@@ -3583,6 +3589,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentConfig.html",
             "namespace": "Network.AWS.CodeDeploy.CreateDeploymentConfig",
             "protocol": "json",
             "imports": [
@@ -3753,6 +3760,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html",
             "namespace": "Network.AWS.CodeDeploy.CreateDeploymentGroup",
             "protocol": "json",
             "imports": [
@@ -3988,6 +3996,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteApplication.html",
             "namespace": "Network.AWS.CodeDeploy.DeleteApplication",
             "protocol": "json",
             "imports": [
@@ -4100,6 +4109,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentConfig.html",
             "namespace": "Network.AWS.CodeDeploy.DeleteDeploymentConfig",
             "protocol": "json",
             "imports": [
@@ -4259,6 +4269,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentGroup.html",
             "namespace": "Network.AWS.CodeDeploy.DeleteDeploymentGroup",
             "protocol": "json",
             "imports": [
@@ -4427,6 +4438,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplication.html",
             "namespace": "Network.AWS.CodeDeploy.GetApplication",
             "protocol": "json",
             "imports": [
@@ -4625,6 +4637,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplicationRevision.html",
             "namespace": "Network.AWS.CodeDeploy.GetApplicationRevision",
             "protocol": "json",
             "imports": [
@@ -4792,6 +4805,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeployment.html",
             "namespace": "Network.AWS.CodeDeploy.GetDeployment",
             "protocol": "json",
             "imports": [
@@ -4949,6 +4963,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentConfig.html",
             "namespace": "Network.AWS.CodeDeploy.GetDeploymentConfig",
             "protocol": "json",
             "imports": [
@@ -5106,6 +5121,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentGroup.html",
             "namespace": "Network.AWS.CodeDeploy.GetDeploymentGroup",
             "protocol": "json",
             "imports": [
@@ -5274,6 +5290,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentInstance.html",
             "namespace": "Network.AWS.CodeDeploy.GetDeploymentInstance",
             "protocol": "json",
             "imports": [
@@ -5455,6 +5472,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplicationRevisions.html",
             "namespace": "Network.AWS.CodeDeploy.ListApplicationRevisions",
             "protocol": "json",
             "imports": [
@@ -5778,6 +5796,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplications.html",
             "namespace": "Network.AWS.CodeDeploy.ListApplications",
             "protocol": "json",
             "imports": [
@@ -5948,6 +5967,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentConfigs.html",
             "namespace": "Network.AWS.CodeDeploy.ListDeploymentConfigs",
             "protocol": "json",
             "imports": [
@@ -6146,6 +6166,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentGroups.html",
             "namespace": "Network.AWS.CodeDeploy.ListDeploymentGroups",
             "protocol": "json",
             "imports": [
@@ -6329,6 +6350,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentInstances.html",
             "namespace": "Network.AWS.CodeDeploy.ListDeploymentInstances",
             "protocol": "json",
             "imports": [
@@ -6540,6 +6562,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeployments.html",
             "namespace": "Network.AWS.CodeDeploy.ListDeployments",
             "protocol": "json",
             "imports": [
@@ -6746,6 +6769,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterApplicationRevision.html",
             "namespace": "Network.AWS.CodeDeploy.RegisterApplicationRevision",
             "protocol": "json",
             "imports": [
@@ -6956,6 +6980,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_StopDeployment.html",
             "namespace": "Network.AWS.CodeDeploy.StopDeployment",
             "protocol": "json",
             "imports": [
@@ -7068,6 +7093,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateApplication.html",
             "namespace": "Network.AWS.CodeDeploy.UpdateApplication",
             "protocol": "json",
             "imports": [
@@ -7238,6 +7264,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateDeploymentGroup.html",
             "namespace": "Network.AWS.CodeDeploy.UpdateDeploymentGroup",
             "protocol": "json",
             "imports": [

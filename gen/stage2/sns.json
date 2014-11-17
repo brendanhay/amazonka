@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "SNS",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/sns/latest/api/Welcome.html",
         "namespace": "Network.AWS.SNS",
         "protocol": "query",
         "imports": [
@@ -73,6 +74,7 @@
             "Network.AWS.SNS.Types",
             "Network.AWS.SNS.Unsubscribe"
         ],
+        "url": "http://docs.aws.amazon.com/sns/latest/api/Welcome.html",
         "protocol": "query",
         "name": "Amazon Simple Notification Service",
         "version": "0.0.0",
@@ -577,6 +579,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_AddPermission.html",
             "namespace": "Network.AWS.SNS.AddPermission",
             "protocol": "query",
             "imports": [
@@ -823,6 +826,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html",
             "namespace": "Network.AWS.SNS.ConfirmSubscription",
             "protocol": "query",
             "imports": [
@@ -1036,6 +1040,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html",
             "namespace": "Network.AWS.SNS.CreatePlatformApplication",
             "protocol": "query",
             "imports": [
@@ -1248,6 +1253,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformEndpoint.html",
             "namespace": "Network.AWS.SNS.CreatePlatformEndpoint",
             "protocol": "query",
             "imports": [
@@ -1493,6 +1499,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html",
             "namespace": "Network.AWS.SNS.CreateTopic",
             "protocol": "query",
             "imports": [
@@ -1609,6 +1616,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_DeleteEndpoint.html",
             "namespace": "Network.AWS.SNS.DeleteEndpoint",
             "protocol": "query",
             "imports": [
@@ -1725,6 +1733,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_DeletePlatformApplication.html",
             "namespace": "Network.AWS.SNS.DeletePlatformApplication",
             "protocol": "query",
             "imports": [
@@ -1841,6 +1850,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_DeleteTopic.html",
             "namespace": "Network.AWS.SNS.DeleteTopic",
             "protocol": "query",
             "imports": [
@@ -2004,6 +2014,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html",
             "namespace": "Network.AWS.SNS.GetEndpointAttributes",
             "protocol": "query",
             "imports": [
@@ -2167,6 +2178,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_GetPlatformApplicationAttributes.html",
             "namespace": "Network.AWS.SNS.GetPlatformApplicationAttributes",
             "protocol": "query",
             "imports": [
@@ -2330,6 +2342,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html",
             "namespace": "Network.AWS.SNS.GetSubscriptionAttributes",
             "protocol": "query",
             "imports": [
@@ -2493,6 +2506,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_GetTopicAttributes.html",
             "namespace": "Network.AWS.SNS.GetTopicAttributes",
             "protocol": "query",
             "imports": [
@@ -2667,6 +2681,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_ListEndpointsByPlatformApplication.html",
             "namespace": "Network.AWS.SNS.ListEndpointsByPlatformApplication",
             "protocol": "query",
             "imports": [
@@ -2866,6 +2881,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html",
             "namespace": "Network.AWS.SNS.ListPlatformApplications",
             "protocol": "query",
             "imports": [
@@ -3047,6 +3063,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html",
             "namespace": "Network.AWS.SNS.ListSubscriptions",
             "protocol": "query",
             "imports": [
@@ -3228,6 +3245,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptionsByTopic.html",
             "namespace": "Network.AWS.SNS.ListSubscriptionsByTopic",
             "protocol": "query",
             "imports": [
@@ -3427,6 +3445,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html",
             "namespace": "Network.AWS.SNS.ListTopics",
             "protocol": "query",
             "imports": [
@@ -3597,6 +3616,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_Publish.html",
             "namespace": "Network.AWS.SNS.Publish",
             "protocol": "query",
             "imports": [
@@ -3861,6 +3881,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_RemovePermission.html",
             "namespace": "Network.AWS.SNS.RemovePermission",
             "protocol": "query",
             "imports": [
@@ -3993,6 +4014,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html",
             "namespace": "Network.AWS.SNS.SetEndpointAttributes",
             "protocol": "query",
             "imports": [
@@ -4125,6 +4147,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html",
             "namespace": "Network.AWS.SNS.SetPlatformApplicationAttributes",
             "protocol": "query",
             "imports": [
@@ -4257,6 +4280,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html",
             "namespace": "Network.AWS.SNS.SetSubscriptionAttributes",
             "protocol": "query",
             "imports": [
@@ -4423,6 +4447,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_SetTopicAttributes.html",
             "namespace": "Network.AWS.SNS.SetTopicAttributes",
             "protocol": "query",
             "imports": [
@@ -4636,6 +4661,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html",
             "namespace": "Network.AWS.SNS.Subscribe",
             "protocol": "query",
             "imports": [
@@ -4802,6 +4828,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html",
             "namespace": "Network.AWS.SNS.Unsubscribe",
             "protocol": "query",
             "imports": [

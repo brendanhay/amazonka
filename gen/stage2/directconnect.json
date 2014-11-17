@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "DirectConnect",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.DirectConnect",
         "protocol": "json",
         "imports": [
@@ -62,6 +63,7 @@
             "Network.AWS.DirectConnect.DescribeVirtualInterfaces",
             "Network.AWS.DirectConnect.Types"
         ],
+        "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Direct Connect",
         "version": "0.0.0",
@@ -2414,6 +2416,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.html",
             "namespace": "Network.AWS.DirectConnect.AllocateConnectionOnInterconnect",
             "protocol": "json",
             "imports": [
@@ -3043,6 +3046,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePrivateVirtualInterface.html",
             "namespace": "Network.AWS.DirectConnect.AllocatePrivateVirtualInterface",
             "protocol": "json",
             "imports": [
@@ -3615,6 +3619,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePublicVirtualInterface.html",
             "namespace": "Network.AWS.DirectConnect.AllocatePublicVirtualInterface",
             "protocol": "json",
             "imports": [
@@ -3812,6 +3817,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmConnection.html",
             "namespace": "Network.AWS.DirectConnect.ConfirmConnection",
             "protocol": "json",
             "imports": [
@@ -3971,6 +3977,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.html",
             "namespace": "Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface",
             "protocol": "json",
             "imports": [
@@ -4141,6 +4148,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPublicVirtualInterface.html",
             "namespace": "Network.AWS.DirectConnect.ConfirmPublicVirtualInterface",
             "protocol": "json",
             "imports": [
@@ -4508,6 +4516,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html",
             "namespace": "Network.AWS.DirectConnect.CreateConnection",
             "protocol": "json",
             "imports": [
@@ -4830,6 +4839,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateInterconnect.html",
             "namespace": "Network.AWS.DirectConnect.CreateInterconnect",
             "protocol": "json",
             "imports": [
@@ -5403,6 +5413,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePrivateVirtualInterface.html",
             "namespace": "Network.AWS.DirectConnect.CreatePrivateVirtualInterface",
             "protocol": "json",
             "imports": [
@@ -5947,6 +5958,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePublicVirtualInterface.html",
             "namespace": "Network.AWS.DirectConnect.CreatePublicVirtualInterface",
             "protocol": "json",
             "imports": [
@@ -6324,6 +6336,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteConnection.html",
             "namespace": "Network.AWS.DirectConnect.DeleteConnection",
             "protocol": "json",
             "imports": [
@@ -6483,6 +6496,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteInterconnect.html",
             "namespace": "Network.AWS.DirectConnect.DeleteInterconnect",
             "protocol": "json",
             "imports": [
@@ -6642,6 +6656,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteVirtualInterface.html",
             "namespace": "Network.AWS.DirectConnect.DeleteVirtualInterface",
             "protocol": "json",
             "imports": [
@@ -6801,6 +6816,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnections.html",
             "namespace": "Network.AWS.DirectConnect.DescribeConnections",
             "protocol": "json",
             "imports": [
@@ -6959,6 +6975,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnectionsOnInterconnect.html",
             "namespace": "Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect",
             "protocol": "json",
             "imports": [
@@ -7118,6 +7135,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnects.html",
             "namespace": "Network.AWS.DirectConnect.DescribeInterconnects",
             "protocol": "json",
             "imports": [
@@ -7276,6 +7294,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html",
             "namespace": "Network.AWS.DirectConnect.DescribeLocations",
             "protocol": "json",
             "imports": [
@@ -7385,6 +7404,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualGateways.html",
             "namespace": "Network.AWS.DirectConnect.DescribeVirtualGateways",
             "protocol": "json",
             "imports": [
@@ -7494,6 +7514,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualInterfaces.html",
             "namespace": "Network.AWS.DirectConnect.DescribeVirtualInterfaces",
             "protocol": "json",
             "imports": [

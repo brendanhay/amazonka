@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "ElastiCache",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.ElastiCache",
         "protocol": "query",
         "imports": [
@@ -91,6 +92,7 @@
             "Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress",
             "Network.AWS.ElastiCache.Types"
         ],
+        "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon ElastiCache",
         "version": "0.0.0",
@@ -5273,6 +5275,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html",
             "namespace": "Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress",
             "protocol": "query",
             "imports": [
@@ -5483,6 +5486,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CopySnapshot.html",
             "namespace": "Network.AWS.ElastiCache.CopySnapshot",
             "protocol": "query",
             "imports": [
@@ -5660,6 +5664,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html",
             "namespace": "Network.AWS.ElastiCache.CreateCacheCluster",
             "protocol": "query",
             "imports": [
@@ -6465,6 +6470,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheParameterGroup.html",
             "namespace": "Network.AWS.ElastiCache.CreateCacheParameterGroup",
             "protocol": "query",
             "imports": [
@@ -6675,6 +6681,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSecurityGroup.html",
             "namespace": "Network.AWS.ElastiCache.CreateCacheSecurityGroup",
             "protocol": "query",
             "imports": [
@@ -6852,6 +6859,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html",
             "namespace": "Network.AWS.ElastiCache.CreateCacheSubnetGroup",
             "protocol": "query",
             "imports": [
@@ -7063,6 +7071,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html",
             "namespace": "Network.AWS.ElastiCache.CreateReplicationGroup",
             "protocol": "query",
             "imports": [
@@ -7868,6 +7877,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html",
             "namespace": "Network.AWS.ElastiCache.CreateSnapshot",
             "protocol": "query",
             "imports": [
@@ -8045,6 +8055,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html",
             "namespace": "Network.AWS.ElastiCache.DeleteCacheCluster",
             "protocol": "query",
             "imports": [
@@ -8178,6 +8189,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheParameterGroup.html",
             "namespace": "Network.AWS.ElastiCache.DeleteCacheParameterGroup",
             "protocol": "query",
             "imports": [
@@ -8294,6 +8306,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSecurityGroup.html",
             "namespace": "Network.AWS.ElastiCache.DeleteCacheSecurityGroup",
             "protocol": "query",
             "imports": [
@@ -8410,6 +8423,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSubnetGroup.html",
             "namespace": "Network.AWS.ElastiCache.DeleteCacheSubnetGroup",
             "protocol": "query",
             "imports": [
@@ -8571,6 +8585,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteReplicationGroup.html",
             "namespace": "Network.AWS.ElastiCache.DeleteReplicationGroup",
             "protocol": "query",
             "imports": [
@@ -8782,6 +8797,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html",
             "namespace": "Network.AWS.ElastiCache.DeleteSnapshot",
             "protocol": "query",
             "imports": [
@@ -8956,6 +8972,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheClusters.html",
             "namespace": "Network.AWS.ElastiCache.DescribeCacheClusters",
             "protocol": "query",
             "imports": [
@@ -9220,6 +9237,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheEngineVersions.html",
             "namespace": "Network.AWS.ElastiCache.DescribeCacheEngineVersions",
             "protocol": "query",
             "imports": [
@@ -9550,6 +9568,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameterGroups.html",
             "namespace": "Network.AWS.ElastiCache.DescribeCacheParameterGroups",
             "protocol": "query",
             "imports": [
@@ -9809,6 +9828,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameters.html",
             "namespace": "Network.AWS.ElastiCache.DescribeCacheParameters",
             "protocol": "query",
             "imports": [
@@ -10074,6 +10094,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSecurityGroups.html",
             "namespace": "Network.AWS.ElastiCache.DescribeCacheSecurityGroups",
             "protocol": "query",
             "imports": [
@@ -10305,6 +10326,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSubnetGroups.html",
             "namespace": "Network.AWS.ElastiCache.DescribeCacheSubnetGroups",
             "protocol": "query",
             "imports": [
@@ -10523,6 +10545,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEngineDefaultParameters.html",
             "namespace": "Network.AWS.ElastiCache.DescribeEngineDefaultParameters",
             "protocol": "query",
             "imports": [
@@ -10755,6 +10778,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html",
             "namespace": "Network.AWS.ElastiCache.DescribeEvents",
             "protocol": "query",
             "imports": [
@@ -11118,6 +11142,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html",
             "namespace": "Network.AWS.ElastiCache.DescribeReplicationGroups",
             "protocol": "query",
             "imports": [
@@ -11349,6 +11374,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodes.html",
             "namespace": "Network.AWS.ElastiCache.DescribeReservedCacheNodes",
             "protocol": "query",
             "imports": [
@@ -11745,6 +11771,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodesOfferings.html",
             "namespace": "Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings",
             "protocol": "query",
             "imports": [
@@ -12108,6 +12135,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html",
             "namespace": "Network.AWS.ElastiCache.DescribeSnapshots",
             "protocol": "query",
             "imports": [
@@ -12392,6 +12420,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html",
             "namespace": "Network.AWS.ElastiCache.ModifyCacheCluster",
             "protocol": "query",
             "imports": [
@@ -13034,6 +13063,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html",
             "namespace": "Network.AWS.ElastiCache.ModifyCacheParameterGroup",
             "protocol": "query",
             "imports": [
@@ -13211,6 +13241,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheSubnetGroup.html",
             "namespace": "Network.AWS.ElastiCache.ModifyCacheSubnetGroup",
             "protocol": "query",
             "imports": [
@@ -13422,6 +13453,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html",
             "namespace": "Network.AWS.ElastiCache.ModifyReplicationGroup",
             "protocol": "query",
             "imports": [
@@ -14062,6 +14094,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html",
             "namespace": "Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering",
             "protocol": "query",
             "imports": [
@@ -14273,6 +14306,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebootCacheCluster.html",
             "namespace": "Network.AWS.ElastiCache.RebootCacheCluster",
             "protocol": "query",
             "imports": [
@@ -14453,6 +14487,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ResetCacheParameterGroup.html",
             "namespace": "Network.AWS.ElastiCache.ResetCacheParameterGroup",
             "protocol": "query",
             "imports": [
@@ -14663,6 +14698,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RevokeCacheSecurityGroupIngress.html",
             "namespace": "Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress",
             "protocol": "query",
             "imports": [

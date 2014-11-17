@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "Route53",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.Route53",
         "protocol": "rest-xml",
         "imports": [
@@ -77,6 +78,7 @@
             "Network.AWS.Route53.Types",
             "Network.AWS.Route53.UpdateHealthCheck"
         ],
+        "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html",
         "protocol": "rest-xml",
         "name": "Amazon Route 53",
         "version": "0.0.0",
@@ -2432,6 +2434,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html",
             "namespace": "Network.AWS.Route53.AssociateVPCWithHostedZone",
             "protocol": "rest-xml",
             "imports": [
@@ -2636,6 +2639,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html",
             "namespace": "Network.AWS.Route53.ChangeResourceRecordSets",
             "protocol": "rest-xml",
             "imports": [
@@ -2766,6 +2770,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeTagsForResource.html",
             "namespace": "Network.AWS.Route53.ChangeTagsForResource",
             "protocol": "rest-xml",
             "imports": [
@@ -3020,6 +3025,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html",
             "namespace": "Network.AWS.Route53.CreateHealthCheck",
             "protocol": "rest-xml",
             "imports": [
@@ -3291,6 +3297,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html",
             "namespace": "Network.AWS.Route53.CreateHostedZone",
             "protocol": "rest-xml",
             "imports": [
@@ -3562,6 +3569,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html",
             "namespace": "Network.AWS.Route53.CreateReusableDelegationSet",
             "protocol": "rest-xml",
             "imports": [
@@ -3686,6 +3694,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html",
             "namespace": "Network.AWS.Route53.DeleteHealthCheck",
             "protocol": "rest-xml",
             "imports": [
@@ -3847,6 +3856,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html",
             "namespace": "Network.AWS.Route53.DeleteHostedZone",
             "protocol": "rest-xml",
             "imports": [
@@ -3963,6 +3973,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteReusableDelegationSet.html",
             "namespace": "Network.AWS.Route53.DeleteReusableDelegationSet",
             "protocol": "rest-xml",
             "imports": [
@@ -4124,6 +4135,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_DisassociateVPCFromHostedZone.html",
             "namespace": "Network.AWS.Route53.DisassociateVPCFromHostedZone",
             "protocol": "rest-xml",
             "imports": [
@@ -4328,6 +4340,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html",
             "namespace": "Network.AWS.Route53.GetChange",
             "protocol": "rest-xml",
             "imports": [
@@ -4492,6 +4505,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetCheckerIpRanges.html",
             "namespace": "Network.AWS.Route53.GetCheckerIpRanges",
             "protocol": "rest-xml",
             "imports": [
@@ -4599,6 +4613,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html",
             "namespace": "Network.AWS.Route53.GetGeoLocation",
             "protocol": "rest-xml",
             "imports": [
@@ -4809,6 +4824,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html",
             "namespace": "Network.AWS.Route53.GetHealthCheck",
             "protocol": "rest-xml",
             "imports": [
@@ -4975,6 +4991,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckCount.html",
             "namespace": "Network.AWS.Route53.GetHealthCheckCount",
             "protocol": "rest-xml",
             "imports": [
@@ -5084,6 +5101,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckLastFailureReason.html",
             "namespace": "Network.AWS.Route53.GetHealthCheckLastFailureReason",
             "protocol": "rest-xml",
             "imports": [
@@ -5251,6 +5269,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckStatus.html",
             "namespace": "Network.AWS.Route53.GetHealthCheckStatus",
             "protocol": "rest-xml",
             "imports": [
@@ -5458,6 +5477,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html",
             "namespace": "Network.AWS.Route53.GetHostedZone",
             "protocol": "rest-xml",
             "imports": [
@@ -5619,6 +5639,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html",
             "namespace": "Network.AWS.Route53.GetReusableDelegationSet",
             "protocol": "rest-xml",
             "imports": [
@@ -5906,6 +5927,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html",
             "namespace": "Network.AWS.Route53.ListGeoLocations",
             "protocol": "rest-xml",
             "imports": [
@@ -6247,6 +6269,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html",
             "namespace": "Network.AWS.Route53.ListHealthChecks",
             "protocol": "rest-xml",
             "imports": [
@@ -6530,6 +6553,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html",
             "namespace": "Network.AWS.Route53.ListHostedZones",
             "protocol": "rest-xml",
             "imports": [
@@ -6874,6 +6898,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html",
             "namespace": "Network.AWS.Route53.ListResourceRecordSets",
             "protocol": "rest-xml",
             "imports": [
@@ -7273,6 +7298,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListReusableDelegationSets.html",
             "namespace": "Network.AWS.Route53.ListReusableDelegationSets",
             "protocol": "rest-xml",
             "imports": [
@@ -7450,6 +7476,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResource.html",
             "namespace": "Network.AWS.Route53.ListTagsForResource",
             "protocol": "rest-xml",
             "imports": [
@@ -7632,6 +7659,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResources.html",
             "namespace": "Network.AWS.Route53.ListTagsForResources",
             "protocol": "rest-xml",
             "imports": [
@@ -7804,6 +7832,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html",
             "namespace": "Network.AWS.Route53.UpdateHealthCheck",
             "protocol": "rest-xml",
             "imports": [

@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "ImportExport",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html",
         "namespace": "Network.AWS.ImportExport",
         "protocol": "query",
         "imports": [
@@ -33,6 +34,7 @@
             "Network.AWS.ImportExport.Types",
             "Network.AWS.ImportExport.UpdateJob"
         ],
+        "url": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html",
         "protocol": "query",
         "name": "Amazon Import/Export",
         "version": "0.0.0",
@@ -262,6 +264,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCancelJob.html",
             "namespace": "Network.AWS.ImportExport.CancelJob",
             "protocol": "query",
             "imports": [
@@ -553,6 +556,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCreateJob.html",
             "namespace": "Network.AWS.ImportExport.CreateJob",
             "protocol": "query",
             "imports": [
@@ -1207,6 +1211,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetStatus.html",
             "namespace": "Network.AWS.ImportExport.GetStatus",
             "protocol": "query",
             "imports": [
@@ -1385,6 +1390,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebListJobs.html",
             "namespace": "Network.AWS.ImportExport.ListJobs",
             "protocol": "query",
             "imports": [
@@ -1588,6 +1594,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebUpdateJob.html",
             "namespace": "Network.AWS.ImportExport.UpdateJob",
             "protocol": "query",
             "imports": [

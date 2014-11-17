@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "CloudSearch",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html",
         "namespace": "Network.AWS.CloudSearch",
         "protocol": "query",
         "imports": [
@@ -71,6 +72,7 @@
             "Network.AWS.CloudSearch.UpdateScalingParameters",
             "Network.AWS.CloudSearch.UpdateServiceAccessPolicies"
         ],
+        "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html",
         "protocol": "query",
         "name": "Amazon CloudSearch",
         "version": "0.0.0",
@@ -4394,6 +4396,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_BuildSuggesters.html",
             "namespace": "Network.AWS.CloudSearch.BuildSuggesters",
             "protocol": "query",
             "imports": [
@@ -4555,6 +4558,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_CreateDomain.html",
             "namespace": "Network.AWS.CloudSearch.CreateDomain",
             "protocol": "query",
             "imports": [
@@ -4716,6 +4720,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineAnalysisScheme.html",
             "namespace": "Network.AWS.CloudSearch.DefineAnalysisScheme",
             "protocol": "query",
             "imports": [
@@ -4892,6 +4897,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineExpression.html",
             "namespace": "Network.AWS.CloudSearch.DefineExpression",
             "protocol": "query",
             "imports": [
@@ -5068,6 +5074,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineIndexField.html",
             "namespace": "Network.AWS.CloudSearch.DefineIndexField",
             "protocol": "query",
             "imports": [
@@ -5244,6 +5251,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineSuggester.html",
             "namespace": "Network.AWS.CloudSearch.DefineSuggester",
             "protocol": "query",
             "imports": [
@@ -5420,6 +5428,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteAnalysisScheme.html",
             "namespace": "Network.AWS.CloudSearch.DeleteAnalysisScheme",
             "protocol": "query",
             "imports": [
@@ -5597,6 +5606,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteDomain.html",
             "namespace": "Network.AWS.CloudSearch.DeleteDomain",
             "protocol": "query",
             "imports": [
@@ -5758,6 +5768,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteExpression.html",
             "namespace": "Network.AWS.CloudSearch.DeleteExpression",
             "protocol": "query",
             "imports": [
@@ -5935,6 +5946,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteIndexField.html",
             "namespace": "Network.AWS.CloudSearch.DeleteIndexField",
             "protocol": "query",
             "imports": [
@@ -6112,6 +6124,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteSuggester.html",
             "namespace": "Network.AWS.CloudSearch.DeleteSuggester",
             "protocol": "query",
             "imports": [
@@ -6291,6 +6304,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAnalysisSchemes.html",
             "namespace": "Network.AWS.CloudSearch.DescribeAnalysisSchemes",
             "protocol": "query",
             "imports": [
@@ -6502,6 +6516,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAvailabilityOptions.html",
             "namespace": "Network.AWS.CloudSearch.DescribeAvailabilityOptions",
             "protocol": "query",
             "imports": [
@@ -6682,6 +6697,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeDomains.html",
             "namespace": "Network.AWS.CloudSearch.DescribeDomains",
             "protocol": "query",
             "imports": [
@@ -6845,6 +6861,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeExpressions.html",
             "namespace": "Network.AWS.CloudSearch.DescribeExpressions",
             "protocol": "query",
             "imports": [
@@ -7058,6 +7075,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeIndexFields.html",
             "namespace": "Network.AWS.CloudSearch.DescribeIndexFields",
             "protocol": "query",
             "imports": [
@@ -7269,6 +7287,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeScalingParameters.html",
             "namespace": "Network.AWS.CloudSearch.DescribeScalingParameters",
             "protocol": "query",
             "imports": [
@@ -7430,6 +7449,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeServiceAccessPolicies.html",
             "namespace": "Network.AWS.CloudSearch.DescribeServiceAccessPolicies",
             "protocol": "query",
             "imports": [
@@ -7610,6 +7630,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeSuggesters.html",
             "namespace": "Network.AWS.CloudSearch.DescribeSuggesters",
             "protocol": "query",
             "imports": [
@@ -7824,6 +7845,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_IndexDocuments.html",
             "namespace": "Network.AWS.CloudSearch.IndexDocuments",
             "protocol": "query",
             "imports": [
@@ -7987,6 +8009,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ListDomainNames.html",
             "namespace": "Network.AWS.CloudSearch.ListDomainNames",
             "protocol": "query",
             "imports": [
@@ -8094,6 +8117,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateAvailabilityOptions.html",
             "namespace": "Network.AWS.CloudSearch.UpdateAvailabilityOptions",
             "protocol": "query",
             "imports": [
@@ -8271,6 +8295,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateScalingParameters.html",
             "namespace": "Network.AWS.CloudSearch.UpdateScalingParameters",
             "protocol": "query",
             "imports": [
@@ -8447,6 +8472,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateServiceAccessPolicies.html",
             "namespace": "Network.AWS.CloudSearch.UpdateServiceAccessPolicies",
             "protocol": "query",
             "imports": [

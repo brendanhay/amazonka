@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "CloudTrail",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.CloudTrail",
         "protocol": "json",
         "imports": [
@@ -38,6 +39,7 @@
             "Network.AWS.CloudTrail.Types",
             "Network.AWS.CloudTrail.UpdateTrail"
         ],
+        "url": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon CloudTrail",
         "version": "0.0.0",
@@ -487,6 +489,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateTrail.html",
             "namespace": "Network.AWS.CloudTrail.CreateTrail",
             "protocol": "json",
             "imports": [
@@ -751,6 +754,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteTrail.html",
             "namespace": "Network.AWS.CloudTrail.DeleteTrail",
             "protocol": "json",
             "imports": [
@@ -910,6 +914,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DescribeTrails.html",
             "namespace": "Network.AWS.CloudTrail.DescribeTrails",
             "protocol": "json",
             "imports": [
@@ -1277,6 +1282,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrailStatus.html",
             "namespace": "Network.AWS.CloudTrail.GetTrailStatus",
             "protocol": "json",
             "imports": [
@@ -1389,6 +1395,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html",
             "namespace": "Network.AWS.CloudTrail.StartLogging",
             "protocol": "json",
             "imports": [
@@ -1501,6 +1508,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html",
             "namespace": "Network.AWS.CloudTrail.StopLogging",
             "protocol": "json",
             "imports": [
@@ -1812,6 +1820,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateTrail.html",
             "namespace": "Network.AWS.CloudTrail.UpdateTrail",
             "protocol": "json",
             "imports": [

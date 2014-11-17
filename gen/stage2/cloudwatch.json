@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "CloudWatch",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.CloudWatch",
         "protocol": "query",
         "imports": [
@@ -45,6 +46,7 @@
             "Network.AWS.CloudWatch.SetAlarmState",
             "Network.AWS.CloudWatch.Types"
         ],
+        "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon CloudWatch",
         "version": "0.0.0",
@@ -1741,6 +1743,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAlarms.html",
             "namespace": "Network.AWS.CloudWatch.DeleteAlarms",
             "protocol": "query",
             "imports": [
@@ -1915,6 +1918,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html",
             "namespace": "Network.AWS.CloudWatch.DescribeAlarmHistory",
             "protocol": "query",
             "imports": [
@@ -2245,6 +2249,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html",
             "namespace": "Network.AWS.CloudWatch.DescribeAlarms",
             "protocol": "query",
             "imports": [
@@ -2564,6 +2569,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmsForMetric.html",
             "namespace": "Network.AWS.CloudWatch.DescribeAlarmsForMetric",
             "protocol": "query",
             "imports": [
@@ -2828,6 +2834,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.html",
             "namespace": "Network.AWS.CloudWatch.DisableAlarmActions",
             "protocol": "query",
             "imports": [
@@ -2944,6 +2951,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.html",
             "namespace": "Network.AWS.CloudWatch.EnableAlarmActions",
             "protocol": "query",
             "imports": [
@@ -3118,6 +3126,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html",
             "namespace": "Network.AWS.CloudWatch.GetMetricStatistics",
             "protocol": "query",
             "imports": [
@@ -3506,6 +3515,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html",
             "namespace": "Network.AWS.CloudWatch.ListMetrics",
             "protocol": "query",
             "imports": [
@@ -3711,6 +3721,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html",
             "namespace": "Network.AWS.CloudWatch.PutMetricAlarm",
             "protocol": "query",
             "imports": [
@@ -4272,6 +4283,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html",
             "namespace": "Network.AWS.CloudWatch.PutMetricData",
             "protocol": "query",
             "imports": [
@@ -4404,6 +4416,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_SetAlarmState.html",
             "namespace": "Network.AWS.CloudWatch.SetAlarmState",
             "protocol": "query",
             "imports": [

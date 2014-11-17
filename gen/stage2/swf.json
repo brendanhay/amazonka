@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "SWF",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html",
         "namespace": "Network.AWS.SWF",
         "protocol": "json",
         "imports": [
@@ -86,6 +87,7 @@
             "Network.AWS.SWF.TerminateWorkflowExecution",
             "Network.AWS.SWF.Types"
         ],
+        "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Simple Workflow Service",
         "version": "0.0.0",
@@ -12129,6 +12131,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountClosedWorkflowExecutions.html",
             "namespace": "Network.AWS.SWF.CountClosedWorkflowExecutions",
             "protocol": "json",
             "imports": [
@@ -12452,6 +12455,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountOpenWorkflowExecutions.html",
             "namespace": "Network.AWS.SWF.CountOpenWorkflowExecutions",
             "protocol": "json",
             "imports": [
@@ -12719,6 +12723,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountPendingActivityTasks.html",
             "namespace": "Network.AWS.SWF.CountPendingActivityTasks",
             "protocol": "json",
             "imports": [
@@ -12901,6 +12906,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountPendingDecisionTasks.html",
             "namespace": "Network.AWS.SWF.CountPendingDecisionTasks",
             "protocol": "json",
             "imports": [
@@ -13023,6 +13029,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateActivityType.html",
             "namespace": "Network.AWS.SWF.DeprecateActivityType",
             "protocol": "json",
             "imports": [
@@ -13145,6 +13152,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateDomain.html",
             "namespace": "Network.AWS.SWF.DeprecateDomain",
             "protocol": "json",
             "imports": [
@@ -13257,6 +13265,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateWorkflowType.html",
             "namespace": "Network.AWS.SWF.DeprecateWorkflowType",
             "protocol": "json",
             "imports": [
@@ -13437,6 +13446,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeActivityType.html",
             "namespace": "Network.AWS.SWF.DescribeActivityType",
             "protocol": "json",
             "imports": [
@@ -13617,6 +13627,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeDomain.html",
             "namespace": "Network.AWS.SWF.DescribeDomain",
             "protocol": "json",
             "imports": [
@@ -13872,6 +13883,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowExecution.html",
             "namespace": "Network.AWS.SWF.DescribeWorkflowExecution",
             "protocol": "json",
             "imports": [
@@ -14052,6 +14064,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowType.html",
             "namespace": "Network.AWS.SWF.DescribeWorkflowType",
             "protocol": "json",
             "imports": [
@@ -14232,6 +14245,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_GetWorkflowExecutionHistory.html",
             "namespace": "Network.AWS.SWF.GetWorkflowExecutionHistory",
             "protocol": "json",
             "imports": [
@@ -14505,6 +14519,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListActivityTypes.html",
             "namespace": "Network.AWS.SWF.ListActivityTypes",
             "protocol": "json",
             "imports": [
@@ -14807,6 +14822,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListClosedWorkflowExecutions.html",
             "namespace": "Network.AWS.SWF.ListClosedWorkflowExecutions",
             "protocol": "json",
             "imports": [
@@ -15220,6 +15236,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListDomains.html",
             "namespace": "Network.AWS.SWF.ListDomains",
             "protocol": "json",
             "imports": [
@@ -15466,6 +15483,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListOpenWorkflowExecutions.html",
             "namespace": "Network.AWS.SWF.ListOpenWorkflowExecutions",
             "protocol": "json",
             "imports": [
@@ -15823,6 +15841,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListWorkflowTypes.html",
             "namespace": "Network.AWS.SWF.ListWorkflowTypes",
             "protocol": "json",
             "imports": [
@@ -16238,6 +16257,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForActivityTask.html",
             "namespace": "Network.AWS.SWF.PollForActivityTask",
             "protocol": "json",
             "imports": [
@@ -16588,6 +16608,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForDecisionTask.html",
             "namespace": "Network.AWS.SWF.PollForDecisionTask",
             "protocol": "json",
             "imports": [
@@ -16878,6 +16899,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RecordActivityTaskHeartbeat.html",
             "namespace": "Network.AWS.SWF.RecordActivityTaskHeartbeat",
             "protocol": "json",
             "imports": [
@@ -17002,6 +17024,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterActivityType.html",
             "namespace": "Network.AWS.SWF.RegisterActivityType",
             "protocol": "json",
             "imports": [
@@ -17321,6 +17344,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterDomain.html",
             "namespace": "Network.AWS.SWF.RegisterDomain",
             "protocol": "json",
             "imports": [
@@ -17473,6 +17497,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterWorkflowType.html",
             "namespace": "Network.AWS.SWF.RegisterWorkflowType",
             "protocol": "json",
             "imports": [
@@ -17764,6 +17789,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RequestCancelWorkflowExecution.html",
             "namespace": "Network.AWS.SWF.RequestCancelWorkflowExecution",
             "protocol": "json",
             "imports": [
@@ -17916,6 +17942,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskCanceled.html",
             "namespace": "Network.AWS.SWF.RespondActivityTaskCanceled",
             "protocol": "json",
             "imports": [
@@ -18040,6 +18067,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskCompleted.html",
             "namespace": "Network.AWS.SWF.RespondActivityTaskCompleted",
             "protocol": "json",
             "imports": [
@@ -18164,6 +18192,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskFailed.html",
             "namespace": "Network.AWS.SWF.RespondActivityTaskFailed",
             "protocol": "json",
             "imports": [
@@ -18316,6 +18345,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondDecisionTaskCompleted.html",
             "namespace": "Network.AWS.SWF.RespondDecisionTaskCompleted",
             "protocol": "json",
             "imports": [
@@ -18467,6 +18497,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_SignalWorkflowExecution.html",
             "namespace": "Network.AWS.SWF.SignalWorkflowExecution",
             "protocol": "json",
             "imports": [
@@ -18722,6 +18753,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_StartWorkflowExecution.html",
             "namespace": "Network.AWS.SWF.StartWorkflowExecution",
             "protocol": "json",
             "imports": [
@@ -19041,6 +19073,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_TerminateWorkflowExecution.html",
             "namespace": "Network.AWS.SWF.TerminateWorkflowExecution",
             "protocol": "json",
             "imports": [

@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "OpsWorks",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.OpsWorks",
         "protocol": "json",
         "imports": [
@@ -144,6 +145,7 @@
             "Network.AWS.OpsWorks.UpdateUserProfile",
             "Network.AWS.OpsWorks.UpdateVolume"
         ],
+        "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon OpsWorks",
         "version": "0.0.0",
@@ -7656,6 +7658,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignVolume.html",
             "namespace": "Network.AWS.OpsWorks.AssignVolume",
             "protocol": "json",
             "imports": [
@@ -7780,6 +7783,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssociateElasticIp.html",
             "namespace": "Network.AWS.OpsWorks.AssociateElasticIp",
             "protocol": "json",
             "imports": [
@@ -7904,6 +7908,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AttachElasticLoadBalancer.html",
             "namespace": "Network.AWS.OpsWorks.AttachElasticLoadBalancer",
             "protocol": "json",
             "imports": [
@@ -8074,6 +8079,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CloneStack.html",
             "namespace": "Network.AWS.OpsWorks.CloneStack",
             "protocol": "json",
             "imports": [
@@ -8776,6 +8782,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateApp.html",
             "namespace": "Network.AWS.OpsWorks.CreateApp",
             "protocol": "json",
             "imports": [
@@ -9198,6 +9205,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateDeployment.html",
             "namespace": "Network.AWS.OpsWorks.CreateDeployment",
             "protocol": "json",
             "imports": [
@@ -9480,6 +9488,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateInstance.html",
             "namespace": "Network.AWS.OpsWorks.CreateInstance",
             "protocol": "json",
             "imports": [
@@ -10015,6 +10024,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateLayer.html",
             "namespace": "Network.AWS.OpsWorks.CreateLayer",
             "protocol": "json",
             "imports": [
@@ -10549,6 +10559,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateStack.html",
             "namespace": "Network.AWS.OpsWorks.CreateStack",
             "protocol": "json",
             "imports": [
@@ -11167,6 +11178,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateUserProfile.html",
             "namespace": "Network.AWS.OpsWorks.CreateUserProfile",
             "protocol": "json",
             "imports": [
@@ -11347,6 +11359,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteApp.html",
             "namespace": "Network.AWS.OpsWorks.DeleteApp",
             "protocol": "json",
             "imports": [
@@ -11459,6 +11472,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteInstance.html",
             "namespace": "Network.AWS.OpsWorks.DeleteInstance",
             "protocol": "json",
             "imports": [
@@ -11611,6 +11625,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteLayer.html",
             "namespace": "Network.AWS.OpsWorks.DeleteLayer",
             "protocol": "json",
             "imports": [
@@ -11723,6 +11738,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteStack.html",
             "namespace": "Network.AWS.OpsWorks.DeleteStack",
             "protocol": "json",
             "imports": [
@@ -11835,6 +11851,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteUserProfile.html",
             "namespace": "Network.AWS.OpsWorks.DeleteUserProfile",
             "protocol": "json",
             "imports": [
@@ -11947,6 +11964,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterElasticIp.html",
             "namespace": "Network.AWS.OpsWorks.DeregisterElasticIp",
             "protocol": "json",
             "imports": [
@@ -12059,6 +12077,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterRdsDbInstance.html",
             "namespace": "Network.AWS.OpsWorks.DeregisterRdsDbInstance",
             "protocol": "json",
             "imports": [
@@ -12171,6 +12190,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterVolume.html",
             "namespace": "Network.AWS.OpsWorks.DeregisterVolume",
             "protocol": "json",
             "imports": [
@@ -12330,6 +12350,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeApps.html",
             "namespace": "Network.AWS.OpsWorks.DescribeApps",
             "protocol": "json",
             "imports": [
@@ -12500,6 +12521,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeCommands.html",
             "namespace": "Network.AWS.OpsWorks.DescribeCommands",
             "protocol": "json",
             "imports": [
@@ -12698,6 +12720,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeDeployments.html",
             "namespace": "Network.AWS.OpsWorks.DescribeDeployments",
             "protocol": "json",
             "imports": [
@@ -12896,6 +12919,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticIps.html",
             "namespace": "Network.AWS.OpsWorks.DescribeElasticIps",
             "protocol": "json",
             "imports": [
@@ -13094,6 +13118,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticLoadBalancers.html",
             "namespace": "Network.AWS.OpsWorks.DescribeElasticLoadBalancers",
             "protocol": "json",
             "imports": [
@@ -13264,6 +13289,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeInstances.html",
             "namespace": "Network.AWS.OpsWorks.DescribeInstances",
             "protocol": "json",
             "imports": [
@@ -13462,6 +13488,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLayers.html",
             "namespace": "Network.AWS.OpsWorks.DescribeLayers",
             "protocol": "json",
             "imports": [
@@ -13632,6 +13659,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLoadBasedAutoScaling.html",
             "namespace": "Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling",
             "protocol": "json",
             "imports": [
@@ -13789,6 +13817,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeMyUserProfile.html",
             "namespace": "Network.AWS.OpsWorks.DescribeMyUserProfile",
             "protocol": "json",
             "imports": [
@@ -13898,6 +13927,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribePermissions.html",
             "namespace": "Network.AWS.OpsWorks.DescribePermissions",
             "protocol": "json",
             "imports": [
@@ -14068,6 +14098,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeRaidArrays.html",
             "namespace": "Network.AWS.OpsWorks.DescribeRaidArrays",
             "protocol": "json",
             "imports": [
@@ -14238,6 +14269,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeRdsDbInstances.html",
             "namespace": "Network.AWS.OpsWorks.DescribeRdsDbInstances",
             "protocol": "json",
             "imports": [
@@ -14409,6 +14441,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeServiceErrors.html",
             "namespace": "Network.AWS.OpsWorks.DescribeServiceErrors",
             "protocol": "json",
             "imports": [
@@ -14605,6 +14638,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStackSummary.html",
             "namespace": "Network.AWS.OpsWorks.DescribeStackSummary",
             "protocol": "json",
             "imports": [
@@ -14764,6 +14798,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStacks.html",
             "namespace": "Network.AWS.OpsWorks.DescribeStacks",
             "protocol": "json",
             "imports": [
@@ -14923,6 +14958,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeTimeBasedAutoScaling.html",
             "namespace": "Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling",
             "protocol": "json",
             "imports": [
@@ -15082,6 +15118,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeUserProfiles.html",
             "namespace": "Network.AWS.OpsWorks.DescribeUserProfiles",
             "protocol": "json",
             "imports": [
@@ -15241,6 +15278,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeVolumes.html",
             "namespace": "Network.AWS.OpsWorks.DescribeVolumes",
             "protocol": "json",
             "imports": [
@@ -15420,6 +15458,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DetachElasticLoadBalancer.html",
             "namespace": "Network.AWS.OpsWorks.DetachElasticLoadBalancer",
             "protocol": "json",
             "imports": [
@@ -15543,6 +15582,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DisassociateElasticIp.html",
             "namespace": "Network.AWS.OpsWorks.DisassociateElasticIp",
             "protocol": "json",
             "imports": [
@@ -15714,6 +15754,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_GetHostnameSuggestion.html",
             "namespace": "Network.AWS.OpsWorks.GetHostnameSuggestion",
             "protocol": "json",
             "imports": [
@@ -15826,6 +15867,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RebootInstance.html",
             "namespace": "Network.AWS.OpsWorks.RebootInstance",
             "protocol": "json",
             "imports": [
@@ -15985,6 +16027,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterElasticIp.html",
             "namespace": "Network.AWS.OpsWorks.RegisterElasticIp",
             "protocol": "json",
             "imports": [
@@ -16108,6 +16151,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterRdsDbInstance.html",
             "namespace": "Network.AWS.OpsWorks.RegisterRdsDbInstance",
             "protocol": "json",
             "imports": [
@@ -16334,6 +16378,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterVolume.html",
             "namespace": "Network.AWS.OpsWorks.RegisterVolume",
             "protocol": "json",
             "imports": [
@@ -16458,6 +16503,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetLoadBasedAutoScaling.html",
             "namespace": "Network.AWS.OpsWorks.SetLoadBasedAutoScaling",
             "protocol": "json",
             "imports": [
@@ -16637,6 +16683,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetPermission.html",
             "namespace": "Network.AWS.OpsWorks.SetPermission",
             "protocol": "json",
             "imports": [
@@ -16845,6 +16892,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetTimeBasedAutoScaling.html",
             "namespace": "Network.AWS.OpsWorks.SetTimeBasedAutoScaling",
             "protocol": "json",
             "imports": [
@@ -16968,6 +17016,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StartInstance.html",
             "namespace": "Network.AWS.OpsWorks.StartInstance",
             "protocol": "json",
             "imports": [
@@ -17080,6 +17129,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StartStack.html",
             "namespace": "Network.AWS.OpsWorks.StartStack",
             "protocol": "json",
             "imports": [
@@ -17192,6 +17242,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StopInstance.html",
             "namespace": "Network.AWS.OpsWorks.StopInstance",
             "protocol": "json",
             "imports": [
@@ -17304,6 +17355,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StopStack.html",
             "namespace": "Network.AWS.OpsWorks.StopStack",
             "protocol": "json",
             "imports": [
@@ -17416,6 +17468,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UnassignVolume.html",
             "namespace": "Network.AWS.OpsWorks.UnassignVolume",
             "protocol": "json",
             "imports": [
@@ -17528,6 +17581,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateApp.html",
             "namespace": "Network.AWS.OpsWorks.UpdateApp",
             "protocol": "json",
             "imports": [
@@ -17875,6 +17929,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateElasticIp.html",
             "namespace": "Network.AWS.OpsWorks.UpdateElasticIp",
             "protocol": "json",
             "imports": [
@@ -17999,6 +18054,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateInstance.html",
             "namespace": "Network.AWS.OpsWorks.UpdateInstance",
             "protocol": "json",
             "imports": [
@@ -18375,6 +18431,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateLayer.html",
             "namespace": "Network.AWS.OpsWorks.UpdateLayer",
             "protocol": "json",
             "imports": [
@@ -18834,6 +18891,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateMyUserProfile.html",
             "namespace": "Network.AWS.OpsWorks.UpdateMyUserProfile",
             "protocol": "json",
             "imports": [
@@ -18945,6 +19003,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateRdsDbInstance.html",
             "namespace": "Network.AWS.OpsWorks.UpdateRdsDbInstance",
             "protocol": "json",
             "imports": [
@@ -19097,6 +19156,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateStack.html",
             "namespace": "Network.AWS.OpsWorks.UpdateStack",
             "protocol": "json",
             "imports": [
@@ -19640,6 +19700,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateUserProfile.html",
             "namespace": "Network.AWS.OpsWorks.UpdateUserProfile",
             "protocol": "json",
             "imports": [
@@ -19820,6 +19881,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateVolume.html",
             "namespace": "Network.AWS.OpsWorks.UpdateVolume",
             "protocol": "json",
             "imports": [

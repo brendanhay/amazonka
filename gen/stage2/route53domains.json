@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "Route53Domains",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html",
         "namespace": "Network.AWS.Route53Domains",
         "protocol": "json",
         "imports": [
@@ -54,6 +55,7 @@
             "Network.AWS.Route53Domains.UpdateDomainContactPrivacy",
             "Network.AWS.Route53Domains.UpdateDomainNameservers"
         ],
+        "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html",
         "protocol": "json",
         "name": "Amazon Route 53 Domains",
         "version": "0.0.0",
@@ -1317,6 +1319,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-CheckDomainAvailability.html",
             "namespace": "Network.AWS.Route53Domains.CheckDomainAvailability",
             "protocol": "json",
             "imports": [
@@ -1441,6 +1444,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-DisableDomainAutoRenew.html",
             "namespace": "Network.AWS.Route53Domains.DisableDomainAutoRenew",
             "protocol": "json",
             "imports": [
@@ -1601,6 +1605,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-DisableDomainTransferLock.html",
             "namespace": "Network.AWS.Route53Domains.DisableDomainTransferLock",
             "protocol": "json",
             "imports": [
@@ -1713,6 +1718,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-EnableDomainAutoRenew.html",
             "namespace": "Network.AWS.Route53Domains.EnableDomainAutoRenew",
             "protocol": "json",
             "imports": [
@@ -1873,6 +1879,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-EnableDomainTransferLock.html",
             "namespace": "Network.AWS.Route53Domains.EnableDomainTransferLock",
             "protocol": "json",
             "imports": [
@@ -2576,6 +2583,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetDomainDetail.html",
             "namespace": "Network.AWS.Route53Domains.GetDomainDetail",
             "protocol": "json",
             "imports": [
@@ -2859,6 +2867,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetOperationDetail.html",
             "namespace": "Network.AWS.Route53Domains.GetOperationDetail",
             "protocol": "json",
             "imports": [
@@ -3029,6 +3038,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListDomains.html",
             "namespace": "Network.AWS.Route53Domains.ListDomains",
             "protocol": "json",
             "imports": [
@@ -3210,6 +3220,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListOperations.html",
             "namespace": "Network.AWS.Route53Domains.ListOperations",
             "protocol": "json",
             "imports": [
@@ -3381,6 +3392,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-RegisterDomain.html",
             "namespace": "Network.AWS.Route53Domains.RegisterDomain",
             "protocol": "json",
             "imports": [
@@ -3776,6 +3788,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-RetrieveDomainAuthCode.html",
             "namespace": "Network.AWS.Route53Domains.RetrieveDomainAuthCode",
             "protocol": "json",
             "imports": [
@@ -3936,6 +3949,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-TransferDomain.html",
             "namespace": "Network.AWS.Route53Domains.TransferDomain",
             "protocol": "json",
             "imports": [
@@ -4387,6 +4401,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainContact.html",
             "namespace": "Network.AWS.Route53Domains.UpdateDomainContact",
             "protocol": "json",
             "imports": [
@@ -4614,6 +4629,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainContactPrivacy.html",
             "namespace": "Network.AWS.Route53Domains.UpdateDomainContactPrivacy",
             "protocol": "json",
             "imports": [
@@ -4842,6 +4858,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainNameservers.html",
             "namespace": "Network.AWS.Route53Domains.UpdateDomainNameservers",
             "protocol": "json",
             "imports": [

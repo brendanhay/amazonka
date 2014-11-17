@@ -4,6 +4,7 @@
         "checksum": "md5",
         "abbrev": "S3",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html",
         "namespace": "Network.AWS.S3",
         "protocol": "rest-xml",
         "imports": [
@@ -123,6 +124,7 @@
             "Network.AWS.S3.UploadPart",
             "Network.AWS.S3.UploadPartCopy"
         ],
+        "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html",
         "protocol": "rest-xml",
         "name": "Amazon Simple Storage Service",
         "version": "0.0.0",
@@ -5274,6 +5276,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/AbortMultipartUpload.html",
             "namespace": "Network.AWS.S3.AbortMultipartUpload",
             "protocol": "rest-xml",
             "imports": [
@@ -5692,6 +5695,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/CompleteMultipartUpload.html",
             "namespace": "Network.AWS.S3.CompleteMultipartUpload",
             "protocol": "rest-xml",
             "imports": [
@@ -6145,6 +6149,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/CopyObject.html",
             "namespace": "Network.AWS.S3.CopyObject",
             "protocol": "rest-xml",
             "imports": [
@@ -7259,6 +7264,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/CreateBucket.html",
             "namespace": "Network.AWS.S3.CreateBucket",
             "protocol": "rest-xml",
             "imports": [
@@ -7819,6 +7825,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/CreateMultipartUpload.html",
             "namespace": "Network.AWS.S3.CreateMultipartUpload",
             "protocol": "rest-xml",
             "imports": [
@@ -8588,6 +8595,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucket.html",
             "namespace": "Network.AWS.S3.DeleteBucket",
             "protocol": "rest-xml",
             "imports": [
@@ -8705,6 +8713,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketCors.html",
             "namespace": "Network.AWS.S3.DeleteBucketCors",
             "protocol": "rest-xml",
             "imports": [
@@ -8827,6 +8836,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketLifecycle.html",
             "namespace": "Network.AWS.S3.DeleteBucketLifecycle",
             "protocol": "rest-xml",
             "imports": [
@@ -8949,6 +8959,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketPolicy.html",
             "namespace": "Network.AWS.S3.DeleteBucketPolicy",
             "protocol": "rest-xml",
             "imports": [
@@ -9071,6 +9082,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketTagging.html",
             "namespace": "Network.AWS.S3.DeleteBucketTagging",
             "protocol": "rest-xml",
             "imports": [
@@ -9193,6 +9205,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketWebsite.html",
             "namespace": "Network.AWS.S3.DeleteBucketWebsite",
             "protocol": "rest-xml",
             "imports": [
@@ -9385,6 +9398,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObject.html",
             "namespace": "Network.AWS.S3.DeleteObject",
             "protocol": "rest-xml",
             "imports": [
@@ -9648,6 +9662,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObjects.html",
             "namespace": "Network.AWS.S3.DeleteObjects",
             "protocol": "rest-xml",
             "imports": [
@@ -9886,6 +9901,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketAcl.html",
             "namespace": "Network.AWS.S3.GetBucketAcl",
             "protocol": "rest-xml",
             "imports": [
@@ -10055,6 +10071,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketCors.html",
             "namespace": "Network.AWS.S3.GetBucketCors",
             "protocol": "rest-xml",
             "imports": [
@@ -10224,6 +10241,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLifecycle.html",
             "namespace": "Network.AWS.S3.GetBucketLifecycle",
             "protocol": "rest-xml",
             "imports": [
@@ -10393,6 +10411,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLocation.html",
             "namespace": "Network.AWS.S3.GetBucketLocation",
             "protocol": "rest-xml",
             "imports": [
@@ -10560,6 +10579,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLogging.html",
             "namespace": "Network.AWS.S3.GetBucketLogging",
             "protocol": "rest-xml",
             "imports": [
@@ -10768,6 +10788,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketNotification.html",
             "namespace": "Network.AWS.S3.GetBucketNotification",
             "protocol": "rest-xml",
             "imports": [
@@ -10950,6 +10971,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketPolicy.html",
             "namespace": "Network.AWS.S3.GetBucketPolicy",
             "protocol": "rest-xml",
             "imports": [
@@ -11119,6 +11141,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketRequestPayment.html",
             "namespace": "Network.AWS.S3.GetBucketRequestPayment",
             "protocol": "rest-xml",
             "imports": [
@@ -11288,6 +11311,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketTagging.html",
             "namespace": "Network.AWS.S3.GetBucketTagging",
             "protocol": "rest-xml",
             "imports": [
@@ -11469,6 +11493,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketVersioning.html",
             "namespace": "Network.AWS.S3.GetBucketVersioning",
             "protocol": "rest-xml",
             "imports": [
@@ -11705,6 +11730,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketWebsite.html",
             "namespace": "Network.AWS.S3.GetBucketWebsite",
             "protocol": "rest-xml",
             "imports": [
@@ -12564,6 +12590,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetObject.html",
             "namespace": "Network.AWS.S3.GetObject",
             "protocol": "rest-xml",
             "imports": [
@@ -13289,6 +13316,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectAcl.html",
             "namespace": "Network.AWS.S3.GetObjectAcl",
             "protocol": "rest-xml",
             "imports": [
@@ -13522,6 +13550,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectTorrent.html",
             "namespace": "Network.AWS.S3.GetObjectTorrent",
             "protocol": "rest-xml",
             "imports": [
@@ -13663,6 +13692,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/HeadBucket.html",
             "namespace": "Network.AWS.S3.HeadBucket",
             "protocol": "rest-xml",
             "imports": [
@@ -14476,6 +14506,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/HeadObject.html",
             "namespace": "Network.AWS.S3.HeadObject",
             "protocol": "rest-xml",
             "imports": [
@@ -15003,6 +15034,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/ListBuckets.html",
             "namespace": "Network.AWS.S3.ListBuckets",
             "protocol": "rest-xml",
             "imports": [
@@ -15404,6 +15436,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/ListMultipartUploads.html",
             "namespace": "Network.AWS.S3.ListMultipartUploads",
             "protocol": "rest-xml",
             "imports": [
@@ -16089,6 +16122,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjectVersions.html",
             "namespace": "Network.AWS.S3.ListObjectVersions",
             "protocol": "rest-xml",
             "imports": [
@@ -16690,6 +16724,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjects.html",
             "namespace": "Network.AWS.S3.ListObjects",
             "protocol": "rest-xml",
             "imports": [
@@ -17275,6 +17310,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/ListParts.html",
             "namespace": "Network.AWS.S3.ListParts",
             "protocol": "rest-xml",
             "imports": [
@@ -17520,6 +17556,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketAcl.html",
             "namespace": "Network.AWS.S3.PutBucketAcl",
             "protocol": "rest-xml",
             "imports": [
@@ -17898,6 +17935,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketCors.html",
             "namespace": "Network.AWS.S3.PutBucketCors",
             "protocol": "rest-xml",
             "imports": [
@@ -18078,6 +18116,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLifecycle.html",
             "namespace": "Network.AWS.S3.PutBucketLifecycle",
             "protocol": "rest-xml",
             "imports": [
@@ -18258,6 +18297,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLogging.html",
             "namespace": "Network.AWS.S3.PutBucketLogging",
             "protocol": "rest-xml",
             "imports": [
@@ -18438,6 +18478,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketNotification.html",
             "namespace": "Network.AWS.S3.PutBucketNotification",
             "protocol": "rest-xml",
             "imports": [
@@ -18618,6 +18659,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketPolicy.html",
             "namespace": "Network.AWS.S3.PutBucketPolicy",
             "protocol": "rest-xml",
             "imports": [
@@ -18799,6 +18841,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketRequestPayment.html",
             "namespace": "Network.AWS.S3.PutBucketRequestPayment",
             "protocol": "rest-xml",
             "imports": [
@@ -18979,6 +19022,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketTagging.html",
             "namespace": "Network.AWS.S3.PutBucketTagging",
             "protocol": "rest-xml",
             "imports": [
@@ -19159,6 +19203,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketVersioning.html",
             "namespace": "Network.AWS.S3.PutBucketVersioning",
             "protocol": "rest-xml",
             "imports": [
@@ -19372,6 +19417,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketWebsite.html",
             "namespace": "Network.AWS.S3.PutBucketWebsite",
             "protocol": "rest-xml",
             "imports": [
@@ -19787,6 +19833,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutObject.html",
             "namespace": "Network.AWS.S3.PutObject",
             "protocol": "rest-xml",
             "imports": [
@@ -20658,6 +20705,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/PutObjectAcl.html",
             "namespace": "Network.AWS.S3.PutObjectAcl",
             "protocol": "rest-xml",
             "imports": [
@@ -21072,6 +21120,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/RestoreObject.html",
             "namespace": "Network.AWS.S3.RestoreObject",
             "protocol": "rest-xml",
             "imports": [
@@ -21456,6 +21505,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/UploadPart.html",
             "namespace": "Network.AWS.S3.UploadPart",
             "protocol": "rest-xml",
             "imports": [
@@ -22108,6 +22158,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/UploadPartCopy.html",
             "namespace": "Network.AWS.S3.UploadPartCopy",
             "protocol": "rest-xml",
             "imports": [

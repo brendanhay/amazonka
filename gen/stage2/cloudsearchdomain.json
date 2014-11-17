@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "CloudSearchDomains",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html",
         "namespace": "Network.AWS.CloudSearchDomains",
         "protocol": "rest-json",
         "imports": [
@@ -29,6 +30,7 @@
             "Network.AWS.CloudSearchDomains.Types",
             "Network.AWS.CloudSearchDomains.UploadDocuments"
         ],
+        "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html",
         "protocol": "rest-json",
         "name": "Amazon CloudSearch Domain",
         "version": "0.0.0",
@@ -966,6 +968,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Search.html",
             "namespace": "Network.AWS.CloudSearchDomains.Search",
             "protocol": "rest-json",
             "imports": [
@@ -1524,6 +1527,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Suggest.html",
             "namespace": "Network.AWS.CloudSearchDomains.Suggest",
             "protocol": "rest-json",
             "imports": [
@@ -1808,6 +1812,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UploadDocuments.html",
             "namespace": "Network.AWS.CloudSearchDomains.UploadDocuments",
             "protocol": "rest-json",
             "imports": [

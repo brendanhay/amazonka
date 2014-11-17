@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "Support",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.Support",
         "protocol": "json",
         "imports": [
@@ -52,6 +53,7 @@
             "Network.AWS.Support.ResolveCase",
             "Network.AWS.Support.Types"
         ],
+        "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Support",
         "version": "0.0.0",
@@ -2182,6 +2184,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddAttachmentsToSet.html",
             "namespace": "Network.AWS.Support.AddAttachmentsToSet",
             "protocol": "json",
             "imports": [
@@ -2350,6 +2353,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddCommunicationToCase.html",
             "namespace": "Network.AWS.Support.AddCommunicationToCase",
             "protocol": "json",
             "imports": [
@@ -2577,6 +2581,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html",
             "namespace": "Network.AWS.Support.CreateCase",
             "protocol": "json",
             "imports": [
@@ -2942,6 +2947,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeAttachment.html",
             "namespace": "Network.AWS.Support.DescribeAttachment",
             "protocol": "json",
             "imports": [
@@ -3112,6 +3118,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCases.html",
             "namespace": "Network.AWS.Support.DescribeCases",
             "protocol": "json",
             "imports": [
@@ -3497,6 +3504,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCommunications.html",
             "namespace": "Network.AWS.Support.DescribeCommunications",
             "protocol": "json",
             "imports": [
@@ -3760,6 +3768,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeServices.html",
             "namespace": "Network.AWS.Support.DescribeServices",
             "protocol": "json",
             "imports": [
@@ -3930,6 +3939,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeSeverityLevels.html",
             "namespace": "Network.AWS.Support.DescribeSeverityLevels",
             "protocol": "json",
             "imports": [
@@ -4088,6 +4098,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.html",
             "namespace": "Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses",
             "protocol": "json",
             "imports": [
@@ -4245,6 +4256,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckResult.html",
             "namespace": "Network.AWS.Support.DescribeTrustedAdvisorCheckResult",
             "protocol": "json",
             "imports": [
@@ -4416,6 +4428,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckSummaries.html",
             "namespace": "Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries",
             "protocol": "json",
             "imports": [
@@ -4575,6 +4588,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html",
             "namespace": "Network.AWS.Support.DescribeTrustedAdvisorChecks",
             "protocol": "json",
             "imports": [
@@ -4732,6 +4746,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html",
             "namespace": "Network.AWS.Support.RefreshTrustedAdvisorCheck",
             "protocol": "json",
             "imports": [
@@ -4903,6 +4918,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html",
             "namespace": "Network.AWS.Support.ResolveCase",
             "protocol": "json",
             "imports": [

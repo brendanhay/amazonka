@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "SDB",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html",
         "namespace": "Network.AWS.SDB",
         "protocol": "query",
         "imports": [
@@ -43,6 +44,7 @@
             "Network.AWS.SDB.Select",
             "Network.AWS.SDB.Types"
         ],
+        "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html",
         "protocol": "query",
         "name": "Amazon SimpleDB",
         "version": "0.0.0",
@@ -665,6 +667,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchDeleteAttributes.html",
             "namespace": "Network.AWS.SDB.BatchDeleteAttributes",
             "protocol": "query",
             "imports": [
@@ -797,6 +800,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchPutAttributes.html",
             "namespace": "Network.AWS.SDB.BatchPutAttributes",
             "protocol": "query",
             "imports": [
@@ -929,6 +933,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_CreateDomain.html",
             "namespace": "Network.AWS.SDB.CreateDomain",
             "protocol": "query",
             "imports": [
@@ -1045,6 +1050,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteAttributes.html",
             "namespace": "Network.AWS.SDB.DeleteAttributes",
             "protocol": "query",
             "imports": [
@@ -1243,6 +1249,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteDomain.html",
             "namespace": "Network.AWS.SDB.DeleteDomain",
             "protocol": "query",
             "imports": [
@@ -1558,6 +1565,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DomainMetadata.html",
             "namespace": "Network.AWS.SDB.DomainMetadata",
             "protocol": "query",
             "imports": [
@@ -1721,6 +1729,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_GetAttributes.html",
             "namespace": "Network.AWS.SDB.GetAttributes",
             "protocol": "query",
             "imports": [
@@ -1979,6 +1988,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_ListDomains.html",
             "namespace": "Network.AWS.SDB.ListDomains",
             "protocol": "query",
             "imports": [
@@ -2119,6 +2129,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_PutAttributes.html",
             "namespace": "Network.AWS.SDB.PutAttributes",
             "protocol": "query",
             "imports": [
@@ -2375,6 +2386,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_Select.html",
             "namespace": "Network.AWS.SDB.Select",
             "protocol": "query",
             "imports": [

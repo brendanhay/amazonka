@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "IAM",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.IAM",
         "protocol": "query",
         "imports": [
@@ -189,6 +190,7 @@
             "Network.AWS.IAM.UploadServerCertificate",
             "Network.AWS.IAM.UploadSigningCertificate"
         ],
+        "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Identity and Access Management",
         "version": "0.0.0",
@@ -2603,6 +2605,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddClientIDToOpenIDConnectProvider.html",
             "namespace": "Network.AWS.IAM.AddClientIDToOpenIDConnectProvider",
             "protocol": "query",
             "imports": [
@@ -2735,6 +2738,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddRoleToInstanceProfile.html",
             "namespace": "Network.AWS.IAM.AddRoleToInstanceProfile",
             "protocol": "query",
             "imports": [
@@ -2867,6 +2871,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddUserToGroup.html",
             "namespace": "Network.AWS.IAM.AddUserToGroup",
             "protocol": "query",
             "imports": [
@@ -2999,6 +3004,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html",
             "namespace": "Network.AWS.IAM.ChangePassword",
             "protocol": "query",
             "imports": [
@@ -3176,6 +3182,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html",
             "namespace": "Network.AWS.IAM.CreateAccessKey",
             "protocol": "query",
             "imports": [
@@ -3291,6 +3298,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccountAlias.html",
             "namespace": "Network.AWS.IAM.CreateAccountAlias",
             "protocol": "query",
             "imports": [
@@ -3452,6 +3460,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html",
             "namespace": "Network.AWS.IAM.CreateGroup",
             "protocol": "query",
             "imports": [
@@ -3630,6 +3639,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html",
             "namespace": "Network.AWS.IAM.CreateInstanceProfile",
             "protocol": "query",
             "imports": [
@@ -3808,6 +3818,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateLoginProfile.html",
             "namespace": "Network.AWS.IAM.CreateLoginProfile",
             "protocol": "query",
             "imports": [
@@ -4021,6 +4032,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html",
             "namespace": "Network.AWS.IAM.CreateOpenIDConnectProvider",
             "protocol": "query",
             "imports": [
@@ -4232,6 +4244,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html",
             "namespace": "Network.AWS.IAM.CreateRole",
             "protocol": "query",
             "imports": [
@@ -4445,6 +4458,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html",
             "namespace": "Network.AWS.IAM.CreateSAMLProvider",
             "protocol": "query",
             "imports": [
@@ -4622,6 +4636,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html",
             "namespace": "Network.AWS.IAM.CreateUser",
             "protocol": "query",
             "imports": [
@@ -4800,6 +4815,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html",
             "namespace": "Network.AWS.IAM.CreateVirtualMFADevice",
             "protocol": "query",
             "imports": [
@@ -4933,6 +4949,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html",
             "namespace": "Network.AWS.IAM.DeactivateMFADevice",
             "protocol": "query",
             "imports": [
@@ -5065,6 +5082,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html",
             "namespace": "Network.AWS.IAM.DeleteAccessKey",
             "protocol": "query",
             "imports": [
@@ -5198,6 +5216,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountAlias.html",
             "namespace": "Network.AWS.IAM.DeleteAccountAlias",
             "protocol": "query",
             "imports": [
@@ -5314,6 +5333,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountPasswordPolicy.html",
             "namespace": "Network.AWS.IAM.DeleteAccountPasswordPolicy",
             "protocol": "query",
             "imports": [
@@ -5376,6 +5396,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroup.html",
             "namespace": "Network.AWS.IAM.DeleteGroup",
             "protocol": "query",
             "imports": [
@@ -5492,6 +5513,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroupPolicy.html",
             "namespace": "Network.AWS.IAM.DeleteGroupPolicy",
             "protocol": "query",
             "imports": [
@@ -5624,6 +5646,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteInstanceProfile.html",
             "namespace": "Network.AWS.IAM.DeleteInstanceProfile",
             "protocol": "query",
             "imports": [
@@ -5740,6 +5763,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteLoginProfile.html",
             "namespace": "Network.AWS.IAM.DeleteLoginProfile",
             "protocol": "query",
             "imports": [
@@ -5856,6 +5880,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteOpenIDConnectProvider.html",
             "namespace": "Network.AWS.IAM.DeleteOpenIDConnectProvider",
             "protocol": "query",
             "imports": [
@@ -5972,6 +5997,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRole.html",
             "namespace": "Network.AWS.IAM.DeleteRole",
             "protocol": "query",
             "imports": [
@@ -6088,6 +6114,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePolicy.html",
             "namespace": "Network.AWS.IAM.DeleteRolePolicy",
             "protocol": "query",
             "imports": [
@@ -6220,6 +6247,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSAMLProvider.html",
             "namespace": "Network.AWS.IAM.DeleteSAMLProvider",
             "protocol": "query",
             "imports": [
@@ -6336,6 +6364,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServerCertificate.html",
             "namespace": "Network.AWS.IAM.DeleteServerCertificate",
             "protocol": "query",
             "imports": [
@@ -6452,6 +6481,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html",
             "namespace": "Network.AWS.IAM.DeleteSigningCertificate",
             "protocol": "query",
             "imports": [
@@ -6585,6 +6615,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html",
             "namespace": "Network.AWS.IAM.DeleteUser",
             "protocol": "query",
             "imports": [
@@ -6701,6 +6732,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPolicy.html",
             "namespace": "Network.AWS.IAM.DeleteUserPolicy",
             "protocol": "query",
             "imports": [
@@ -6833,6 +6865,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteVirtualMFADevice.html",
             "namespace": "Network.AWS.IAM.DeleteVirtualMFADevice",
             "protocol": "query",
             "imports": [
@@ -6949,6 +6982,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html",
             "namespace": "Network.AWS.IAM.EnableMFADevice",
             "protocol": "query",
             "imports": [
@@ -7206,6 +7240,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html",
             "namespace": "Network.AWS.IAM.GenerateCredentialReport",
             "protocol": "query",
             "imports": [
@@ -7313,6 +7348,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountPasswordPolicy.html",
             "namespace": "Network.AWS.IAM.GetAccountPasswordPolicy",
             "protocol": "query",
             "imports": [
@@ -7422,6 +7458,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html",
             "namespace": "Network.AWS.IAM.GetAccountSummary",
             "protocol": "query",
             "imports": [
@@ -7570,6 +7607,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetCredentialReport.html",
             "namespace": "Network.AWS.IAM.GetCredentialReport",
             "protocol": "query",
             "imports": [
@@ -7747,6 +7785,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html",
             "namespace": "Network.AWS.IAM.GetGroup",
             "protocol": "query",
             "imports": [
@@ -8008,6 +8047,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html",
             "namespace": "Network.AWS.IAM.GetGroupPolicy",
             "protocol": "query",
             "imports": [
@@ -8185,6 +8225,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html",
             "namespace": "Network.AWS.IAM.GetInstanceProfile",
             "protocol": "query",
             "imports": [
@@ -8346,6 +8387,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html",
             "namespace": "Network.AWS.IAM.GetLoginProfile",
             "protocol": "query",
             "imports": [
@@ -8577,6 +8619,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html",
             "namespace": "Network.AWS.IAM.GetOpenIDConnectProvider",
             "protocol": "query",
             "imports": [
@@ -8738,6 +8781,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html",
             "namespace": "Network.AWS.IAM.GetRole",
             "protocol": "query",
             "imports": [
@@ -8941,6 +8985,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html",
             "namespace": "Network.AWS.IAM.GetRolePolicy",
             "protocol": "query",
             "imports": [
@@ -9160,6 +9205,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html",
             "namespace": "Network.AWS.IAM.GetSAMLProvider",
             "protocol": "query",
             "imports": [
@@ -9321,6 +9367,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html",
             "namespace": "Network.AWS.IAM.GetServerCertificate",
             "protocol": "query",
             "imports": [
@@ -9482,6 +9529,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html",
             "namespace": "Network.AWS.IAM.GetUser",
             "protocol": "query",
             "imports": [
@@ -9684,6 +9732,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUserPolicy.html",
             "namespace": "Network.AWS.IAM.GetUserPolicy",
             "protocol": "query",
             "imports": [
@@ -9902,6 +9951,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html",
             "namespace": "Network.AWS.IAM.ListAccessKeys",
             "protocol": "query",
             "imports": [
@@ -10162,6 +10212,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliases.html",
             "namespace": "Network.AWS.IAM.ListAccountAliases",
             "protocol": "query",
             "imports": [
@@ -10389,6 +10440,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html",
             "namespace": "Network.AWS.IAM.ListGroupPolicies",
             "protocol": "query",
             "imports": [
@@ -10649,6 +10701,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroups.html",
             "namespace": "Network.AWS.IAM.ListGroups",
             "protocol": "query",
             "imports": [
@@ -10908,6 +10961,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupsForUser.html",
             "namespace": "Network.AWS.IAM.ListGroupsForUser",
             "protocol": "query",
             "imports": [
@@ -11168,6 +11222,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html",
             "namespace": "Network.AWS.IAM.ListInstanceProfiles",
             "protocol": "query",
             "imports": [
@@ -11427,6 +11482,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html",
             "namespace": "Network.AWS.IAM.ListInstanceProfilesForRole",
             "protocol": "query",
             "imports": [
@@ -11687,6 +11743,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADevices.html",
             "namespace": "Network.AWS.IAM.ListMFADevices",
             "protocol": "query",
             "imports": [
@@ -11907,6 +11964,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html",
             "namespace": "Network.AWS.IAM.ListOpenIDConnectProviders",
             "protocol": "query",
             "imports": [
@@ -12056,6 +12114,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRolePolicies.html",
             "namespace": "Network.AWS.IAM.ListRolePolicies",
             "protocol": "query",
             "imports": [
@@ -12316,6 +12375,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRoles.html",
             "namespace": "Network.AWS.IAM.ListRoles",
             "protocol": "query",
             "imports": [
@@ -12536,6 +12596,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSAMLProviders.html",
             "namespace": "Network.AWS.IAM.ListSAMLProviders",
             "protocol": "query",
             "imports": [
@@ -12684,6 +12745,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificates.html",
             "namespace": "Network.AWS.IAM.ListServerCertificates",
             "protocol": "query",
             "imports": [
@@ -12943,6 +13005,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSigningCertificates.html",
             "namespace": "Network.AWS.IAM.ListSigningCertificates",
             "protocol": "query",
             "imports": [
@@ -13203,6 +13266,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserPolicies.html",
             "namespace": "Network.AWS.IAM.ListUserPolicies",
             "protocol": "query",
             "imports": [
@@ -13463,6 +13527,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html",
             "namespace": "Network.AWS.IAM.ListUsers",
             "protocol": "query",
             "imports": [
@@ -13722,6 +13787,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListVirtualMFADevices.html",
             "namespace": "Network.AWS.IAM.ListVirtualMFADevices",
             "protocol": "query",
             "imports": [
@@ -13895,6 +13961,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html",
             "namespace": "Network.AWS.IAM.PutGroupPolicy",
             "protocol": "query",
             "imports": [
@@ -14060,6 +14127,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html",
             "namespace": "Network.AWS.IAM.PutRolePolicy",
             "protocol": "query",
             "imports": [
@@ -14225,6 +14293,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html",
             "namespace": "Network.AWS.IAM.PutUserPolicy",
             "protocol": "query",
             "imports": [
@@ -14390,6 +14459,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveClientIDFromOpenIDConnectProvider.html",
             "namespace": "Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider",
             "protocol": "query",
             "imports": [
@@ -14522,6 +14592,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html",
             "namespace": "Network.AWS.IAM.RemoveRoleFromInstanceProfile",
             "protocol": "query",
             "imports": [
@@ -14654,6 +14725,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveUserFromGroup.html",
             "namespace": "Network.AWS.IAM.RemoveUserFromGroup",
             "protocol": "query",
             "imports": [
@@ -14786,6 +14858,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_ResyncMFADevice.html",
             "namespace": "Network.AWS.IAM.ResyncMFADevice",
             "protocol": "query",
             "imports": [
@@ -14984,6 +15057,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccessKey.html",
             "namespace": "Network.AWS.IAM.UpdateAccessKey",
             "protocol": "query",
             "imports": [
@@ -15150,6 +15224,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html",
             "namespace": "Network.AWS.IAM.UpdateAccountPasswordPolicy",
             "protocol": "query",
             "imports": [
@@ -15513,6 +15588,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html",
             "namespace": "Network.AWS.IAM.UpdateAssumeRolePolicy",
             "protocol": "query",
             "imports": [
@@ -15645,6 +15721,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateGroup.html",
             "namespace": "Network.AWS.IAM.UpdateGroup",
             "protocol": "query",
             "imports": [
@@ -15811,6 +15888,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html",
             "namespace": "Network.AWS.IAM.UpdateLoginProfile",
             "protocol": "query",
             "imports": [
@@ -15977,6 +16055,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIDConnectProviderThumbprint.html",
             "namespace": "Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint",
             "protocol": "query",
             "imports": [
@@ -16157,6 +16236,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSAMLProvider.html",
             "namespace": "Network.AWS.IAM.UpdateSAMLProvider",
             "protocol": "query",
             "imports": [
@@ -16289,6 +16369,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html",
             "namespace": "Network.AWS.IAM.UpdateServerCertificate",
             "protocol": "query",
             "imports": [
@@ -16455,6 +16536,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSigningCertificate.html",
             "namespace": "Network.AWS.IAM.UpdateSigningCertificate",
             "protocol": "query",
             "imports": [
@@ -16621,6 +16703,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateUser.html",
             "namespace": "Network.AWS.IAM.UpdateUser",
             "protocol": "query",
             "imports": [
@@ -16832,6 +16915,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html",
             "namespace": "Network.AWS.IAM.UploadServerCertificate",
             "protocol": "query",
             "imports": [
@@ -17109,6 +17193,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html",
             "namespace": "Network.AWS.IAM.UploadSigningCertificate",
             "protocol": "query",
             "imports": [

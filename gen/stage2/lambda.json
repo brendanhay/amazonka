@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "Lambda",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html",
         "namespace": "Network.AWS.Lambda",
         "protocol": "rest-json",
         "imports": [
@@ -45,6 +46,7 @@
             "Network.AWS.Lambda.UpdateFunctionConfiguration",
             "Network.AWS.Lambda.UploadFunction"
         ],
+        "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html",
         "protocol": "rest-json",
         "name": "Amazon Lambda",
         "version": "0.0.0",
@@ -1064,6 +1066,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_AddEventSource.html",
             "namespace": "Network.AWS.Lambda.AddEventSource",
             "protocol": "rest-json",
             "imports": [
@@ -1271,6 +1274,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteFunction.html",
             "namespace": "Network.AWS.Lambda.DeleteFunction",
             "protocol": "rest-json",
             "imports": [
@@ -1641,6 +1645,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSource.html",
             "namespace": "Network.AWS.Lambda.GetEventSource",
             "protocol": "rest-json",
             "imports": [
@@ -1815,6 +1820,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunction.html",
             "namespace": "Network.AWS.Lambda.GetFunction",
             "protocol": "rest-json",
             "imports": [
@@ -2270,6 +2276,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html",
             "namespace": "Network.AWS.Lambda.GetFunctionConfiguration",
             "protocol": "rest-json",
             "imports": [
@@ -2440,6 +2447,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_InvokeAsync.html",
             "namespace": "Network.AWS.Lambda.InvokeAsync",
             "protocol": "rest-json",
             "imports": [
@@ -2641,6 +2649,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_ListEventSources.html",
             "namespace": "Network.AWS.Lambda.ListEventSources",
             "protocol": "rest-json",
             "imports": [
@@ -2897,6 +2906,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctions.html",
             "namespace": "Network.AWS.Lambda.ListFunctions",
             "protocol": "rest-json",
             "imports": [
@@ -3029,6 +3039,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_RemoveEventSource.html",
             "namespace": "Network.AWS.Lambda.RemoveEventSource",
             "protocol": "rest-json",
             "imports": [
@@ -3484,6 +3495,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionConfiguration.html",
             "namespace": "Network.AWS.Lambda.UpdateFunctionConfiguration",
             "protocol": "rest-json",
             "imports": [
@@ -4093,6 +4105,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_UploadFunction.html",
             "namespace": "Network.AWS.Lambda.UploadFunction",
             "protocol": "rest-json",
             "imports": [

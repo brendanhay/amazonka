@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "DataPipeline",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.DataPipeline",
         "protocol": "json",
         "imports": [
@@ -56,6 +57,7 @@
             "Network.AWS.DataPipeline.Types",
             "Network.AWS.DataPipeline.ValidatePipelineDefinition"
         ],
+        "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Data Pipeline",
         "version": "0.0.0",
@@ -1099,6 +1101,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ActivatePipeline.html",
             "namespace": "Network.AWS.DataPipeline.ActivatePipeline",
             "protocol": "json",
             "imports": [
@@ -1259,6 +1262,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_CreatePipeline.html",
             "namespace": "Network.AWS.DataPipeline.CreatePipeline",
             "protocol": "json",
             "imports": [
@@ -1411,6 +1415,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeletePipeline.html",
             "namespace": "Network.AWS.DataPipeline.DeletePipeline",
             "protocol": "json",
             "imports": [
@@ -1609,6 +1614,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribeObjects.html",
             "namespace": "Network.AWS.DataPipeline.DescribeObjects",
             "protocol": "json",
             "imports": [
@@ -1844,6 +1850,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html",
             "namespace": "Network.AWS.DataPipeline.DescribePipelines",
             "protocol": "json",
             "imports": [
@@ -2004,6 +2011,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_EvaluateExpression.html",
             "namespace": "Network.AWS.DataPipeline.EvaluateExpression",
             "protocol": "json",
             "imports": [
@@ -2202,6 +2210,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html",
             "namespace": "Network.AWS.DataPipeline.GetPipelineDefinition",
             "protocol": "json",
             "imports": [
@@ -2412,6 +2421,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ListPipelines.html",
             "namespace": "Network.AWS.DataPipeline.ListPipelines",
             "protocol": "json",
             "imports": [
@@ -2576,6 +2586,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PollForTask.html",
             "namespace": "Network.AWS.DataPipeline.PollForTask",
             "protocol": "json",
             "imports": [
@@ -2814,6 +2825,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html",
             "namespace": "Network.AWS.DataPipeline.PutPipelineDefinition",
             "protocol": "json",
             "imports": [
@@ -3024,6 +3036,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_QueryObjects.html",
             "namespace": "Network.AWS.DataPipeline.QueryObjects",
             "protocol": "json",
             "imports": [
@@ -3286,6 +3299,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskProgress.html",
             "namespace": "Network.AWS.DataPipeline.ReportTaskProgress",
             "protocol": "json",
             "imports": [
@@ -3445,6 +3459,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskRunnerHeartbeat.html",
             "namespace": "Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat",
             "protocol": "json",
             "imports": [
@@ -3597,6 +3612,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetStatus.html",
             "namespace": "Network.AWS.DataPipeline.SetStatus",
             "protocol": "json",
             "imports": [
@@ -3749,6 +3765,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetTaskStatus.html",
             "namespace": "Network.AWS.DataPipeline.SetTaskStatus",
             "protocol": "json",
             "imports": [
@@ -4044,6 +4061,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ValidatePipelineDefinition.html",
             "namespace": "Network.AWS.DataPipeline.ValidatePipelineDefinition",
             "protocol": "json",
             "imports": [

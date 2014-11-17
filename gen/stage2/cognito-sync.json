@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "CognitoSync",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.CognitoSync",
         "protocol": "rest-json",
         "imports": [
@@ -49,6 +50,7 @@
             "Network.AWS.CognitoSync.UnsubscribeFromDataset",
             "Network.AWS.CognitoSync.UpdateRecords"
         ],
+        "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/Welcome.html",
         "protocol": "rest-json",
         "name": "Amazon Cognito Sync",
         "version": "0.0.0",
@@ -1087,6 +1089,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DeleteDataset.html",
             "namespace": "Network.AWS.CognitoSync.DeleteDataset",
             "protocol": "rest-json",
             "imports": [
@@ -1303,6 +1306,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeDataset.html",
             "namespace": "Network.AWS.CognitoSync.DescribeDataset",
             "protocol": "rest-json",
             "imports": [
@@ -1519,6 +1523,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityPoolUsage.html",
             "namespace": "Network.AWS.CognitoSync.DescribeIdentityPoolUsage",
             "protocol": "rest-json",
             "imports": [
@@ -1680,6 +1685,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityUsage.html",
             "namespace": "Network.AWS.CognitoSync.DescribeIdentityUsage",
             "protocol": "rest-json",
             "imports": [
@@ -1873,6 +1879,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetIdentityPoolConfiguration.html",
             "namespace": "Network.AWS.CognitoSync.GetIdentityPoolConfiguration",
             "protocol": "rest-json",
             "imports": [
@@ -2079,6 +2086,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListDatasets.html",
             "namespace": "Network.AWS.CognitoSync.ListDatasets",
             "protocol": "rest-json",
             "imports": [
@@ -2400,6 +2408,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListIdentityPoolUsage.html",
             "namespace": "Network.AWS.CognitoSync.ListIdentityPoolUsage",
             "protocol": "rest-json",
             "imports": [
@@ -2786,6 +2795,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListRecords.html",
             "namespace": "Network.AWS.CognitoSync.ListRecords",
             "protocol": "rest-json",
             "imports": [
@@ -3142,6 +3152,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_RegisterDevice.html",
             "namespace": "Network.AWS.CognitoSync.RegisterDevice",
             "protocol": "rest-json",
             "imports": [
@@ -3395,6 +3406,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SetIdentityPoolConfiguration.html",
             "namespace": "Network.AWS.CognitoSync.SetIdentityPoolConfiguration",
             "protocol": "rest-json",
             "imports": [
@@ -3526,6 +3538,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SubscribeToDataset.html",
             "namespace": "Network.AWS.CognitoSync.SubscribeToDataset",
             "protocol": "rest-json",
             "imports": [
@@ -3733,6 +3746,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UnsubscribeFromDataset.html",
             "namespace": "Network.AWS.CognitoSync.UnsubscribeFromDataset",
             "protocol": "rest-json",
             "imports": [
@@ -3987,6 +4001,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UpdateRecords.html",
             "namespace": "Network.AWS.CognitoSync.UpdateRecords",
             "protocol": "rest-json",
             "imports": [

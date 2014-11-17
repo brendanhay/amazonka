@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "Kinesis",
         "error": "JSONError",
+        "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.Kinesis",
         "protocol": "json",
         "imports": [
@@ -48,6 +49,7 @@
             "Network.AWS.Kinesis.SplitShard",
             "Network.AWS.Kinesis.Types"
         ],
+        "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Kinesis",
         "version": "0.0.0",
@@ -763,6 +765,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html",
             "namespace": "Network.AWS.Kinesis.AddTagsToStream",
             "protocol": "json",
             "imports": [
@@ -886,6 +889,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html",
             "namespace": "Network.AWS.Kinesis.CreateStream",
             "protocol": "json",
             "imports": [
@@ -1009,6 +1013,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html",
             "namespace": "Network.AWS.Kinesis.DeleteStream",
             "protocol": "json",
             "imports": [
@@ -1166,6 +1171,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html",
             "namespace": "Network.AWS.Kinesis.DescribeStream",
             "protocol": "json",
             "imports": [
@@ -1384,6 +1390,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html",
             "namespace": "Network.AWS.Kinesis.GetRecords",
             "protocol": "json",
             "imports": [
@@ -1555,6 +1562,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html",
             "namespace": "Network.AWS.Kinesis.GetShardIterator",
             "protocol": "json",
             "imports": [
@@ -1795,6 +1803,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html",
             "namespace": "Network.AWS.Kinesis.ListStreams",
             "protocol": "json",
             "imports": [
@@ -1985,6 +1994,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListTagsForStream.html",
             "namespace": "Network.AWS.Kinesis.ListTagsForStream",
             "protocol": "json",
             "imports": [
@@ -2137,6 +2147,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_MergeShards.html",
             "namespace": "Network.AWS.Kinesis.MergeShards",
             "protocol": "json",
             "imports": [
@@ -2347,6 +2358,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html",
             "namespace": "Network.AWS.Kinesis.PutRecord",
             "protocol": "json",
             "imports": [
@@ -2554,6 +2566,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_RemoveTagsFromStream.html",
             "namespace": "Network.AWS.Kinesis.RemoveTagsFromStream",
             "protocol": "json",
             "imports": [
@@ -2677,6 +2690,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_SplitShard.html",
             "namespace": "Network.AWS.Kinesis.SplitShard",
             "protocol": "json",
             "imports": [

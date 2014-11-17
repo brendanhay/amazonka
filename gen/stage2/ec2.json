@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "EC2",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.EC2",
         "protocol": "ec2",
         "imports": [
@@ -333,6 +334,7 @@
             "Network.AWS.EC2.UnassignPrivateIpAddresses",
             "Network.AWS.EC2.UnmonitorInstances"
         ],
+        "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html",
         "protocol": "ec2",
         "name": "Amazon Elastic Compute Cloud",
         "version": "0.0.0",
@@ -21857,6 +21859,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AcceptVpcPeeringConnection.html",
             "namespace": "Network.AWS.EC2.AcceptVpcPeeringConnection",
             "protocol": "ec2",
             "imports": [
@@ -22076,6 +22079,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html",
             "namespace": "Network.AWS.EC2.AllocateAddress",
             "protocol": "ec2",
             "imports": [
@@ -22208,6 +22212,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssignPrivateIpAddresses.html",
             "namespace": "Network.AWS.EC2.AssignPrivateIpAddresses",
             "protocol": "ec2",
             "imports": [
@@ -22454,6 +22459,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateAddress.html",
             "namespace": "Network.AWS.EC2.AssociateAddress",
             "protocol": "ec2",
             "imports": [
@@ -22751,6 +22757,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDhcpOptions.html",
             "namespace": "Network.AWS.EC2.AssociateDhcpOptions",
             "protocol": "ec2",
             "imports": [
@@ -22964,6 +22971,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateRouteTable.html",
             "namespace": "Network.AWS.EC2.AssociateRouteTable",
             "protocol": "ec2",
             "imports": [
@@ -23130,6 +23138,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachInternetGateway.html",
             "namespace": "Network.AWS.EC2.AttachInternetGateway",
             "protocol": "ec2",
             "imports": [
@@ -23343,6 +23352,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachNetworkInterface.html",
             "namespace": "Network.AWS.EC2.AttachNetworkInterface",
             "protocol": "ec2",
             "imports": [
@@ -23713,6 +23723,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVolume.html",
             "namespace": "Network.AWS.EC2.AttachVolume",
             "protocol": "ec2",
             "imports": [
@@ -23957,6 +23968,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVpnGateway.html",
             "namespace": "Network.AWS.EC2.AttachVpnGateway",
             "protocol": "ec2",
             "imports": [
@@ -24123,6 +24135,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html",
             "namespace": "Network.AWS.EC2.AuthorizeSecurityGroupEgress",
             "protocol": "ec2",
             "imports": [
@@ -24486,6 +24499,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html",
             "namespace": "Network.AWS.EC2.AuthorizeSecurityGroupIngress",
             "protocol": "ec2",
             "imports": [
@@ -24926,6 +24940,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html",
             "namespace": "Network.AWS.EC2.BundleInstance",
             "protocol": "ec2",
             "imports": [
@@ -25136,6 +25151,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelBundleTask.html",
             "namespace": "Network.AWS.EC2.CancelBundleTask",
             "protocol": "ec2",
             "imports": [
@@ -25269,6 +25285,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelConversionTask.html",
             "namespace": "Network.AWS.EC2.CancelConversionTask",
             "protocol": "ec2",
             "imports": [
@@ -25435,6 +25452,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelExportTask.html",
             "namespace": "Network.AWS.EC2.CancelExportTask",
             "protocol": "ec2",
             "imports": [
@@ -25598,6 +25616,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelReservedInstancesListing.html",
             "namespace": "Network.AWS.EC2.CancelReservedInstancesListing",
             "protocol": "ec2",
             "imports": [
@@ -25761,6 +25780,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotInstanceRequests.html",
             "namespace": "Network.AWS.EC2.CancelSpotInstanceRequests",
             "protocol": "ec2",
             "imports": [
@@ -25940,6 +25960,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ConfirmProductInstance.html",
             "namespace": "Network.AWS.EC2.ConfirmProductInstance",
             "protocol": "ec2",
             "imports": [
@@ -26153,6 +26174,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopyImage.html",
             "namespace": "Network.AWS.EC2.CopyImage",
             "protocol": "ec2",
             "imports": [
@@ -26465,6 +26487,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopySnapshot.html",
             "namespace": "Network.AWS.EC2.CopySnapshot",
             "protocol": "ec2",
             "imports": [
@@ -26775,6 +26798,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateCustomerGateway.html",
             "namespace": "Network.AWS.EC2.CreateCustomerGateway",
             "protocol": "ec2",
             "imports": [
@@ -27019,6 +27043,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateDhcpOptions.html",
             "namespace": "Network.AWS.EC2.CreateDhcpOptions",
             "protocol": "ec2",
             "imports": [
@@ -27197,6 +27222,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateImage.html",
             "namespace": "Network.AWS.EC2.CreateImage",
             "protocol": "ec2",
             "imports": [
@@ -27506,6 +27532,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInstanceExportTask.html",
             "namespace": "Network.AWS.EC2.CreateInstanceExportTask",
             "protocol": "ec2",
             "imports": [
@@ -27749,6 +27776,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInternetGateway.html",
             "namespace": "Network.AWS.EC2.CreateInternetGateway",
             "protocol": "ec2",
             "imports": [
@@ -27950,6 +27978,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateKeyPair.html",
             "namespace": "Network.AWS.EC2.CreateKeyPair",
             "protocol": "ec2",
             "imports": [
@@ -28128,6 +28157,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkAcl.html",
             "namespace": "Network.AWS.EC2.CreateNetworkAcl",
             "protocol": "ec2",
             "imports": [
@@ -28261,6 +28291,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkAclEntry.html",
             "namespace": "Network.AWS.EC2.CreateNetworkAclEntry",
             "protocol": "ec2",
             "imports": [
@@ -28669,6 +28700,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkInterface.html",
             "namespace": "Network.AWS.EC2.CreateNetworkInterface",
             "protocol": "ec2",
             "imports": [
@@ -28966,6 +28998,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreatePlacementGroup.html",
             "namespace": "Network.AWS.EC2.CreatePlacementGroup",
             "protocol": "ec2",
             "imports": [
@@ -29179,6 +29212,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateReservedInstancesListing.html",
             "namespace": "Network.AWS.EC2.CreateReservedInstancesListing",
             "protocol": "ec2",
             "imports": [
@@ -29377,6 +29411,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html",
             "namespace": "Network.AWS.EC2.CreateRoute",
             "protocol": "ec2",
             "imports": [
@@ -29720,6 +29755,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRouteTable.html",
             "namespace": "Network.AWS.EC2.CreateRouteTable",
             "protocol": "ec2",
             "imports": [
@@ -29900,6 +29936,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html",
             "namespace": "Network.AWS.EC2.CreateSecurityGroup",
             "protocol": "ec2",
             "imports": [
@@ -30409,6 +30446,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSnapshot.html",
             "namespace": "Network.AWS.EC2.CreateSnapshot",
             "protocol": "ec2",
             "imports": [
@@ -30620,6 +30658,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSpotDatafeedSubscription.html",
             "namespace": "Network.AWS.EC2.CreateSpotDatafeedSubscription",
             "protocol": "ec2",
             "imports": [
@@ -30831,6 +30870,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSubnet.html",
             "namespace": "Network.AWS.EC2.CreateSubnet",
             "protocol": "ec2",
             "imports": [
@@ -31030,6 +31070,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html",
             "namespace": "Network.AWS.EC2.CreateTags",
             "protocol": "ec2",
             "imports": [
@@ -31504,6 +31545,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html",
             "namespace": "Network.AWS.EC2.CreateVolume",
             "protocol": "ec2",
             "imports": [
@@ -31847,6 +31889,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpc.html",
             "namespace": "Network.AWS.EC2.CreateVpc",
             "protocol": "ec2",
             "imports": [
@@ -32058,6 +32101,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpcPeeringConnection.html",
             "namespace": "Network.AWS.EC2.CreateVpcPeeringConnection",
             "protocol": "ec2",
             "imports": [
@@ -32301,6 +32345,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnConnection.html",
             "namespace": "Network.AWS.EC2.CreateVpnConnection",
             "protocol": "ec2",
             "imports": [
@@ -32532,6 +32577,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnConnectionRoute.html",
             "namespace": "Network.AWS.EC2.CreateVpnConnectionRoute",
             "protocol": "ec2",
             "imports": [
@@ -32709,6 +32755,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html",
             "namespace": "Network.AWS.EC2.CreateVpnGateway",
             "protocol": "ec2",
             "imports": [
@@ -32875,6 +32922,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteCustomerGateway.html",
             "namespace": "Network.AWS.EC2.DeleteCustomerGateway",
             "protocol": "ec2",
             "imports": [
@@ -33008,6 +33056,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteDhcpOptions.html",
             "namespace": "Network.AWS.EC2.DeleteDhcpOptions",
             "protocol": "ec2",
             "imports": [
@@ -33141,6 +33190,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteInternetGateway.html",
             "namespace": "Network.AWS.EC2.DeleteInternetGateway",
             "protocol": "ec2",
             "imports": [
@@ -33274,6 +33324,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteKeyPair.html",
             "namespace": "Network.AWS.EC2.DeleteKeyPair",
             "protocol": "ec2",
             "imports": [
@@ -33407,6 +33458,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkAcl.html",
             "namespace": "Network.AWS.EC2.DeleteNetworkAcl",
             "protocol": "ec2",
             "imports": [
@@ -33540,6 +33592,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkAclEntry.html",
             "namespace": "Network.AWS.EC2.DeleteNetworkAclEntry",
             "protocol": "ec2",
             "imports": [
@@ -33739,6 +33792,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkInterface.html",
             "namespace": "Network.AWS.EC2.DeleteNetworkInterface",
             "protocol": "ec2",
             "imports": [
@@ -33872,6 +33926,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeletePlacementGroup.html",
             "namespace": "Network.AWS.EC2.DeletePlacementGroup",
             "protocol": "ec2",
             "imports": [
@@ -34005,6 +34060,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRoute.html",
             "namespace": "Network.AWS.EC2.DeleteRoute",
             "protocol": "ec2",
             "imports": [
@@ -34171,6 +34227,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRouteTable.html",
             "namespace": "Network.AWS.EC2.DeleteRouteTable",
             "protocol": "ec2",
             "imports": [
@@ -34304,6 +34361,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html",
             "namespace": "Network.AWS.EC2.DeleteSecurityGroup",
             "protocol": "ec2",
             "imports": [
@@ -34469,6 +34527,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSnapshot.html",
             "namespace": "Network.AWS.EC2.DeleteSnapshot",
             "protocol": "ec2",
             "imports": [
@@ -34602,6 +34661,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSpotDatafeedSubscription.html",
             "namespace": "Network.AWS.EC2.DeleteSpotDatafeedSubscription",
             "protocol": "ec2",
             "imports": [
@@ -34716,6 +34776,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSubnet.html",
             "namespace": "Network.AWS.EC2.DeleteSubnet",
             "protocol": "ec2",
             "imports": [
@@ -34849,6 +34910,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteTags.html",
             "namespace": "Network.AWS.EC2.DeleteTags",
             "protocol": "ec2",
             "imports": [
@@ -35013,6 +35075,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVolume.html",
             "namespace": "Network.AWS.EC2.DeleteVolume",
             "protocol": "ec2",
             "imports": [
@@ -35146,6 +35209,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpc.html",
             "namespace": "Network.AWS.EC2.DeleteVpc",
             "protocol": "ec2",
             "imports": [
@@ -35325,6 +35389,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpcPeeringConnection.html",
             "namespace": "Network.AWS.EC2.DeleteVpcPeeringConnection",
             "protocol": "ec2",
             "imports": [
@@ -35458,6 +35523,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpnConnection.html",
             "namespace": "Network.AWS.EC2.DeleteVpnConnection",
             "protocol": "ec2",
             "imports": [
@@ -35591,6 +35657,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpnConnectionRoute.html",
             "namespace": "Network.AWS.EC2.DeleteVpnConnectionRoute",
             "protocol": "ec2",
             "imports": [
@@ -35723,6 +35790,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpnGateway.html",
             "namespace": "Network.AWS.EC2.DeleteVpnGateway",
             "protocol": "ec2",
             "imports": [
@@ -35856,6 +35924,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeregisterImage.html",
             "namespace": "Network.AWS.EC2.DeregisterImage",
             "protocol": "ec2",
             "imports": [
@@ -36036,6 +36105,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAccountAttributes.html",
             "namespace": "Network.AWS.EC2.DescribeAccountAttributes",
             "protocol": "ec2",
             "imports": [
@@ -36215,6 +36285,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAddresses.html",
             "namespace": "Network.AWS.EC2.DescribeAddresses",
             "protocol": "ec2",
             "imports": [
@@ -36459,6 +36530,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAvailabilityZones.html",
             "namespace": "Network.AWS.EC2.DescribeAvailabilityZones",
             "protocol": "ec2",
             "imports": [
@@ -36670,6 +36742,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeBundleTasks.html",
             "namespace": "Network.AWS.EC2.DescribeBundleTasks",
             "protocol": "ec2",
             "imports": [
@@ -36881,6 +36954,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeConversionTasks.html",
             "namespace": "Network.AWS.EC2.DescribeConversionTasks",
             "protocol": "ec2",
             "imports": [
@@ -37092,6 +37166,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeCustomerGateways.html",
             "namespace": "Network.AWS.EC2.DescribeCustomerGateways",
             "protocol": "ec2",
             "imports": [
@@ -37303,6 +37378,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeDhcpOptions.html",
             "namespace": "Network.AWS.EC2.DescribeDhcpOptions",
             "protocol": "ec2",
             "imports": [
@@ -37514,6 +37590,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeExportTasks.html",
             "namespace": "Network.AWS.EC2.DescribeExportTasks",
             "protocol": "ec2",
             "imports": [
@@ -37856,6 +37933,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImageAttribute.html",
             "namespace": "Network.AWS.EC2.DescribeImageAttribute",
             "protocol": "ec2",
             "imports": [
@@ -38069,6 +38147,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImages.html",
             "namespace": "Network.AWS.EC2.DescribeImages",
             "protocol": "ec2",
             "imports": [
@@ -38693,6 +38772,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceAttribute.html",
             "namespace": "Network.AWS.EC2.DescribeInstanceAttribute",
             "protocol": "ec2",
             "imports": [
@@ -38917,6 +38997,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html",
             "namespace": "Network.AWS.EC2.DescribeInstanceStatus",
             "protocol": "ec2",
             "imports": [
@@ -39246,6 +39327,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html",
             "namespace": "Network.AWS.EC2.DescribeInstances",
             "protocol": "ec2",
             "imports": [
@@ -39531,6 +39613,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInternetGateways.html",
             "namespace": "Network.AWS.EC2.DescribeInternetGateways",
             "protocol": "ec2",
             "imports": [
@@ -39742,6 +39825,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html",
             "namespace": "Network.AWS.EC2.DescribeKeyPairs",
             "protocol": "ec2",
             "imports": [
@@ -39953,6 +40037,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkAcls.html",
             "namespace": "Network.AWS.EC2.DescribeNetworkAcls",
             "protocol": "ec2",
             "imports": [
@@ -40259,6 +40344,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkInterfaceAttribute.html",
             "namespace": "Network.AWS.EC2.DescribeNetworkInterfaceAttribute",
             "protocol": "ec2",
             "imports": [
@@ -40472,6 +40558,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkInterfaces.html",
             "namespace": "Network.AWS.EC2.DescribeNetworkInterfaces",
             "protocol": "ec2",
             "imports": [
@@ -40683,6 +40770,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePlacementGroups.html",
             "namespace": "Network.AWS.EC2.DescribePlacementGroups",
             "protocol": "ec2",
             "imports": [
@@ -40894,6 +40982,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html",
             "namespace": "Network.AWS.EC2.DescribeRegions",
             "protocol": "ec2",
             "imports": [
@@ -41105,6 +41194,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstances.html",
             "namespace": "Network.AWS.EC2.DescribeReservedInstances",
             "protocol": "ec2",
             "imports": [
@@ -41349,6 +41439,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesListings.html",
             "namespace": "Network.AWS.EC2.DescribeReservedInstancesListings",
             "protocol": "ec2",
             "imports": [
@@ -41571,6 +41662,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesModifications.html",
             "namespace": "Network.AWS.EC2.DescribeReservedInstancesModifications",
             "protocol": "ec2",
             "imports": [
@@ -41801,6 +41893,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesOfferings.html",
             "namespace": "Network.AWS.EC2.DescribeReservedInstancesOfferings",
             "protocol": "ec2",
             "imports": [
@@ -42383,6 +42476,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRouteTables.html",
             "namespace": "Network.AWS.EC2.DescribeRouteTables",
             "protocol": "ec2",
             "imports": [
@@ -42594,6 +42688,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html",
             "namespace": "Network.AWS.EC2.DescribeSecurityGroups",
             "protocol": "ec2",
             "imports": [
@@ -42877,6 +42972,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshotAttribute.html",
             "namespace": "Network.AWS.EC2.DescribeSnapshotAttribute",
             "protocol": "ec2",
             "imports": [
@@ -43090,6 +43186,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html",
             "namespace": "Network.AWS.EC2.DescribeSnapshots",
             "protocol": "ec2",
             "imports": [
@@ -43365,6 +43462,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotDatafeedSubscription.html",
             "namespace": "Network.AWS.EC2.DescribeSpotDatafeedSubscription",
             "protocol": "ec2",
             "imports": [
@@ -43526,6 +43624,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotInstanceRequests.html",
             "namespace": "Network.AWS.EC2.DescribeSpotInstanceRequests",
             "protocol": "ec2",
             "imports": [
@@ -43748,6 +43847,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotPriceHistory.html",
             "namespace": "Network.AWS.EC2.DescribeSpotPriceHistory",
             "protocol": "ec2",
             "imports": [
@@ -44165,6 +44265,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSubnets.html",
             "namespace": "Network.AWS.EC2.DescribeSubnets",
             "protocol": "ec2",
             "imports": [
@@ -44387,6 +44488,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeTags.html",
             "namespace": "Network.AWS.EC2.DescribeTags",
             "protocol": "ec2",
             "imports": [
@@ -44678,6 +44780,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeAttribute.html",
             "namespace": "Network.AWS.EC2.DescribeVolumeAttribute",
             "protocol": "ec2",
             "imports": [
@@ -44902,6 +45005,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeStatus.html",
             "namespace": "Network.AWS.EC2.DescribeVolumeStatus",
             "protocol": "ec2",
             "imports": [
@@ -45198,6 +45302,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html",
             "namespace": "Network.AWS.EC2.DescribeVolumes",
             "protocol": "ec2",
             "imports": [
@@ -45514,6 +45619,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpcAttribute.html",
             "namespace": "Network.AWS.EC2.DescribeVpcAttribute",
             "protocol": "ec2",
             "imports": [
@@ -45727,6 +45833,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpcPeeringConnections.html",
             "namespace": "Network.AWS.EC2.DescribeVpcPeeringConnections",
             "protocol": "ec2",
             "imports": [
@@ -45938,6 +46045,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpcs.html",
             "namespace": "Network.AWS.EC2.DescribeVpcs",
             "protocol": "ec2",
             "imports": [
@@ -46149,6 +46257,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpnConnections.html",
             "namespace": "Network.AWS.EC2.DescribeVpnConnections",
             "protocol": "ec2",
             "imports": [
@@ -46360,6 +46469,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpnGateways.html",
             "namespace": "Network.AWS.EC2.DescribeVpnGateways",
             "protocol": "ec2",
             "imports": [
@@ -46524,6 +46634,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachInternetGateway.html",
             "namespace": "Network.AWS.EC2.DetachInternetGateway",
             "protocol": "ec2",
             "imports": [
@@ -46690,6 +46801,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachNetworkInterface.html",
             "namespace": "Network.AWS.EC2.DetachNetworkInterface",
             "protocol": "ec2",
             "imports": [
@@ -47027,6 +47139,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVolume.html",
             "namespace": "Network.AWS.EC2.DetachVolume",
             "protocol": "ec2",
             "imports": [
@@ -47259,6 +47372,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVpnGateway.html",
             "namespace": "Network.AWS.EC2.DetachVpnGateway",
             "protocol": "ec2",
             "imports": [
@@ -47425,6 +47539,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisableVgwRoutePropagation.html",
             "namespace": "Network.AWS.EC2.DisableVgwRoutePropagation",
             "protocol": "ec2",
             "imports": [
@@ -47557,6 +47672,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisassociateAddress.html",
             "namespace": "Network.AWS.EC2.DisassociateAddress",
             "protocol": "ec2",
             "imports": [
@@ -47722,6 +47838,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisassociateRouteTable.html",
             "namespace": "Network.AWS.EC2.DisassociateRouteTable",
             "protocol": "ec2",
             "imports": [
@@ -47855,6 +47972,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVgwRoutePropagation.html",
             "namespace": "Network.AWS.EC2.EnableVgwRoutePropagation",
             "protocol": "ec2",
             "imports": [
@@ -47987,6 +48105,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVolumeIO.html",
             "namespace": "Network.AWS.EC2.EnableVolumeIO",
             "protocol": "ec2",
             "imports": [
@@ -48207,6 +48326,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetConsoleOutput.html",
             "namespace": "Network.AWS.EC2.GetConsoleOutput",
             "protocol": "ec2",
             "imports": [
@@ -48427,6 +48547,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetPasswordData.html",
             "namespace": "Network.AWS.EC2.GetPasswordData",
             "protocol": "ec2",
             "imports": [
@@ -48605,6 +48726,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportInstance.html",
             "namespace": "Network.AWS.EC2.ImportInstance",
             "protocol": "ec2",
             "imports": [
@@ -48895,6 +49017,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportKeyPair.html",
             "namespace": "Network.AWS.EC2.ImportKeyPair",
             "protocol": "ec2",
             "imports": [
@@ -49105,6 +49228,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportVolume.html",
             "namespace": "Network.AWS.EC2.ImportVolume",
             "protocol": "ec2",
             "imports": [
@@ -49336,6 +49460,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyImageAttribute.html",
             "namespace": "Network.AWS.EC2.ModifyImageAttribute",
             "protocol": "ec2",
             "imports": [
@@ -49732,6 +49857,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstanceAttribute.html",
             "namespace": "Network.AWS.EC2.ModifyInstanceAttribute",
             "protocol": "ec2",
             "imports": [
@@ -50293,6 +50419,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyNetworkInterfaceAttribute.html",
             "namespace": "Network.AWS.EC2.ModifyNetworkInterfaceAttribute",
             "protocol": "ec2",
             "imports": [
@@ -50604,6 +50731,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyReservedInstances.html",
             "namespace": "Network.AWS.EC2.ModifyReservedInstances",
             "protocol": "ec2",
             "imports": [
@@ -50768,6 +50896,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySnapshotAttribute.html",
             "namespace": "Network.AWS.EC2.ModifySnapshotAttribute",
             "protocol": "ec2",
             "imports": [
@@ -51065,6 +51194,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySubnetAttribute.html",
             "namespace": "Network.AWS.EC2.ModifySubnetAttribute",
             "protocol": "ec2",
             "imports": [
@@ -51197,6 +51327,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVolumeAttribute.html",
             "namespace": "Network.AWS.EC2.ModifyVolumeAttribute",
             "protocol": "ec2",
             "imports": [
@@ -51362,6 +51493,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVpcAttribute.html",
             "namespace": "Network.AWS.EC2.ModifyVpcAttribute",
             "protocol": "ec2",
             "imports": [
@@ -51574,6 +51706,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MonitorInstances.html",
             "namespace": "Network.AWS.EC2.MonitorInstances",
             "protocol": "ec2",
             "imports": [
@@ -51753,6 +51886,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-PurchaseReservedInstancesOffering.html",
             "namespace": "Network.AWS.EC2.PurchaseReservedInstancesOffering",
             "protocol": "ec2",
             "imports": [
@@ -51951,6 +52085,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RebootInstances.html",
             "namespace": "Network.AWS.EC2.RebootInstances",
             "protocol": "ec2",
             "imports": [
@@ -52130,6 +52265,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RegisterImage.html",
             "namespace": "Network.AWS.EC2.RegisterImage",
             "protocol": "ec2",
             "imports": [
@@ -52605,6 +52741,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RejectVpcPeeringConnection.html",
             "namespace": "Network.AWS.EC2.RejectVpcPeeringConnection",
             "protocol": "ec2",
             "imports": [
@@ -52738,6 +52875,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseAddress.html",
             "namespace": "Network.AWS.EC2.ReleaseAddress",
             "protocol": "ec2",
             "imports": [
@@ -52950,6 +53088,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkAclAssociation.html",
             "namespace": "Network.AWS.EC2.ReplaceNetworkAclAssociation",
             "protocol": "ec2",
             "imports": [
@@ -53116,6 +53255,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkAclEntry.html",
             "namespace": "Network.AWS.EC2.ReplaceNetworkAclEntry",
             "protocol": "ec2",
             "imports": [
@@ -53479,6 +53619,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRoute.html",
             "namespace": "Network.AWS.EC2.ReplaceRoute",
             "protocol": "ec2",
             "imports": [
@@ -53824,6 +53965,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRouteTableAssociation.html",
             "namespace": "Network.AWS.EC2.ReplaceRouteTableAssociation",
             "protocol": "ec2",
             "imports": [
@@ -53990,6 +54132,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReportInstanceStatus.html",
             "namespace": "Network.AWS.EC2.ReportInstanceStatus",
             "protocol": "ec2",
             "imports": [
@@ -54335,6 +54478,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotInstances.html",
             "namespace": "Network.AWS.EC2.RequestSpotInstances",
             "protocol": "ec2",
             "imports": [
@@ -54698,6 +54842,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetImageAttribute.html",
             "namespace": "Network.AWS.EC2.ResetImageAttribute",
             "protocol": "ec2",
             "imports": [
@@ -54864,6 +55009,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetInstanceAttribute.html",
             "namespace": "Network.AWS.EC2.ResetInstanceAttribute",
             "protocol": "ec2",
             "imports": [
@@ -55030,6 +55176,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetNetworkInterfaceAttribute.html",
             "namespace": "Network.AWS.EC2.ResetNetworkInterfaceAttribute",
             "protocol": "ec2",
             "imports": [
@@ -55196,6 +55343,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetSnapshotAttribute.html",
             "namespace": "Network.AWS.EC2.ResetSnapshotAttribute",
             "protocol": "ec2",
             "imports": [
@@ -55362,6 +55510,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupEgress.html",
             "namespace": "Network.AWS.EC2.RevokeSecurityGroupEgress",
             "protocol": "ec2",
             "imports": [
@@ -55725,6 +55874,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupIngress.html",
             "namespace": "Network.AWS.EC2.RevokeSecurityGroupIngress",
             "protocol": "ec2",
             "imports": [
@@ -56262,6 +56412,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html",
             "namespace": "Network.AWS.EC2.RunInstances",
             "protocol": "ec2",
             "imports": [
@@ -57134,6 +57285,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StartInstances.html",
             "namespace": "Network.AWS.EC2.StartInstances",
             "protocol": "ec2",
             "imports": [
@@ -57346,6 +57498,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StopInstances.html",
             "namespace": "Network.AWS.EC2.StopInstances",
             "protocol": "ec2",
             "imports": [
@@ -57558,6 +57711,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-TerminateInstances.html",
             "namespace": "Network.AWS.EC2.TerminateInstances",
             "protocol": "ec2",
             "imports": [
@@ -57690,6 +57844,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnassignPrivateIpAddresses.html",
             "namespace": "Network.AWS.EC2.UnassignPrivateIpAddresses",
             "protocol": "ec2",
             "imports": [
@@ -57870,6 +58025,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnmonitorInstances.html",
             "namespace": "Network.AWS.EC2.UnmonitorInstances",
             "protocol": "ec2",
             "imports": [

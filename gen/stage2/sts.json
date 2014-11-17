@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "STS",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.STS",
         "protocol": "query",
         "imports": [
@@ -35,6 +36,7 @@
             "Network.AWS.STS.GetSessionToken",
             "Network.AWS.STS.Types"
         ],
+        "url": "http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Security Token Service",
         "version": "0.0.0",
@@ -435,6 +437,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html",
             "namespace": "Network.AWS.STS.AssumeRole",
             "protocol": "query",
             "imports": [
@@ -959,6 +962,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html",
             "namespace": "Network.AWS.STS.AssumeRoleWithSAML",
             "protocol": "query",
             "imports": [
@@ -1361,6 +1365,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html",
             "namespace": "Network.AWS.STS.AssumeRoleWithWebIdentity",
             "protocol": "query",
             "imports": [
@@ -1673,6 +1678,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/STS/latest/APIReference/API_DecodeAuthorizationMessage.html",
             "namespace": "Network.AWS.STS.DecodeAuthorizationMessage",
             "protocol": "query",
             "imports": [
@@ -1875,6 +1881,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html",
             "namespace": "Network.AWS.STS.GetFederationToken",
             "protocol": "query",
             "imports": [
@@ -2086,6 +2093,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html",
             "namespace": "Network.AWS.STS.GetSessionToken",
             "protocol": "query",
             "imports": [

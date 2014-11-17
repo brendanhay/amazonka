@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "SES",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.SES",
         "protocol": "query",
         "imports": [
@@ -59,6 +60,7 @@
             "Network.AWS.SES.VerifyEmailAddress",
             "Network.AWS.SES.VerifyEmailIdentity"
         ],
+        "url": "http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Simple Email Service",
         "version": "0.0.0",
@@ -999,6 +1001,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentity.html",
             "namespace": "Network.AWS.SES.DeleteIdentity",
             "protocol": "query",
             "imports": [
@@ -1115,6 +1118,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteVerifiedEmailAddress.html",
             "namespace": "Network.AWS.SES.DeleteVerifiedEmailAddress",
             "protocol": "query",
             "imports": [
@@ -1278,6 +1282,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityDkimAttributes.html",
             "namespace": "Network.AWS.SES.GetIdentityDkimAttributes",
             "protocol": "query",
             "imports": [
@@ -1441,6 +1446,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityNotificationAttributes.html",
             "namespace": "Network.AWS.SES.GetIdentityNotificationAttributes",
             "protocol": "query",
             "imports": [
@@ -1604,6 +1610,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityVerificationAttributes.html",
             "namespace": "Network.AWS.SES.GetIdentityVerificationAttributes",
             "protocol": "query",
             "imports": [
@@ -1807,6 +1814,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendQuota.html",
             "namespace": "Network.AWS.SES.GetSendQuota",
             "protocol": "query",
             "imports": [
@@ -1916,6 +1924,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendStatistics.html",
             "namespace": "Network.AWS.SES.GetSendStatistics",
             "protocol": "query",
             "imports": [
@@ -2037,6 +2046,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentities.html",
             "namespace": "Network.AWS.SES.ListIdentities",
             "protocol": "query",
             "imports": [
@@ -2258,6 +2268,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_ListVerifiedEmailAddresses.html",
             "namespace": "Network.AWS.SES.ListVerifiedEmailAddresses",
             "protocol": "query",
             "imports": [
@@ -2368,6 +2379,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_SendEmail.html",
             "namespace": "Network.AWS.SES.SendEmail",
             "protocol": "query",
             "imports": [
@@ -2647,6 +2659,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html",
             "namespace": "Network.AWS.SES.SendRawEmail",
             "protocol": "query",
             "imports": [
@@ -2812,6 +2825,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityDkimEnabled.html",
             "namespace": "Network.AWS.SES.SetIdentityDkimEnabled",
             "protocol": "query",
             "imports": [
@@ -2944,6 +2958,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityFeedbackForwardingEnabled.html",
             "namespace": "Network.AWS.SES.SetIdentityFeedbackForwardingEnabled",
             "protocol": "query",
             "imports": [
@@ -3076,6 +3091,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityNotificationTopic.html",
             "namespace": "Network.AWS.SES.SetIdentityNotificationTopic",
             "protocol": "query",
             "imports": [
@@ -3290,6 +3306,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainDkim.html",
             "namespace": "Network.AWS.SES.VerifyDomainDkim",
             "protocol": "query",
             "imports": [
@@ -3454,6 +3471,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainIdentity.html",
             "namespace": "Network.AWS.SES.VerifyDomainIdentity",
             "protocol": "query",
             "imports": [
@@ -3570,6 +3588,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailAddress.html",
             "namespace": "Network.AWS.SES.VerifyEmailAddress",
             "protocol": "query",
             "imports": [
@@ -3686,6 +3705,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailIdentity.html",
             "namespace": "Network.AWS.SES.VerifyEmailIdentity",
             "protocol": "query",
             "imports": [

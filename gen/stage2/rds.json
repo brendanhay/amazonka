@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "RDS",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.RDS",
         "protocol": "query",
         "imports": [
@@ -131,6 +132,7 @@
             "Network.AWS.RDS.RevokeDBSecurityGroupIngress",
             "Network.AWS.RDS.Types"
         ],
+        "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Relational Database Service",
         "version": "0.0.0",
@@ -7347,6 +7349,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddSourceIdentifierToSubscription.html",
             "namespace": "Network.AWS.RDS.AddSourceIdentifierToSubscription",
             "protocol": "query",
             "imports": [
@@ -7479,6 +7482,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddTagsToResource.html",
             "namespace": "Network.AWS.RDS.AddTagsToResource",
             "protocol": "query",
             "imports": [
@@ -7656,6 +7660,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html",
             "namespace": "Network.AWS.RDS.AuthorizeDBSecurityGroupIngress",
             "protocol": "query",
             "imports": [
@@ -7933,6 +7938,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBParameterGroup.html",
             "namespace": "Network.AWS.RDS.CopyDBParameterGroup",
             "protocol": "query",
             "imports": [
@@ -8176,6 +8182,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBSnapshot.html",
             "namespace": "Network.AWS.RDS.CopyDBSnapshot",
             "protocol": "query",
             "imports": [
@@ -8386,6 +8393,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyOptionGroup.html",
             "namespace": "Network.AWS.RDS.CopyOptionGroup",
             "protocol": "query",
             "imports": [
@@ -8629,6 +8637,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html",
             "namespace": "Network.AWS.RDS.CreateDBInstance",
             "protocol": "query",
             "imports": [
@@ -9664,6 +9673,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html",
             "namespace": "Network.AWS.RDS.CreateDBInstanceReadReplica",
             "protocol": "query",
             "imports": [
@@ -10171,6 +10181,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBParameterGroup.html",
             "namespace": "Network.AWS.RDS.CreateDBParameterGroup",
             "protocol": "query",
             "imports": [
@@ -10414,6 +10425,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSecurityGroup.html",
             "namespace": "Network.AWS.RDS.CreateDBSecurityGroup",
             "protocol": "query",
             "imports": [
@@ -10624,6 +10636,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSnapshot.html",
             "namespace": "Network.AWS.RDS.CreateDBSnapshot",
             "protocol": "query",
             "imports": [
@@ -10834,6 +10847,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSubnetGroup.html",
             "namespace": "Network.AWS.RDS.CreateDBSubnetGroup",
             "protocol": "query",
             "imports": [
@@ -11077,6 +11091,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateEventSubscription.html",
             "namespace": "Network.AWS.RDS.CreateEventSubscription",
             "protocol": "query",
             "imports": [
@@ -11419,6 +11434,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateOptionGroup.html",
             "namespace": "Network.AWS.RDS.CreateOptionGroup",
             "protocol": "query",
             "imports": [
@@ -11695,6 +11711,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBInstance.html",
             "namespace": "Network.AWS.RDS.DeleteDBInstance",
             "protocol": "query",
             "imports": [
@@ -11861,6 +11878,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBParameterGroup.html",
             "namespace": "Network.AWS.RDS.DeleteDBParameterGroup",
             "protocol": "query",
             "imports": [
@@ -11977,6 +11995,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSecurityGroup.html",
             "namespace": "Network.AWS.RDS.DeleteDBSecurityGroup",
             "protocol": "query",
             "imports": [
@@ -12138,6 +12157,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSnapshot.html",
             "namespace": "Network.AWS.RDS.DeleteDBSnapshot",
             "protocol": "query",
             "imports": [
@@ -12254,6 +12274,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSubnetGroup.html",
             "namespace": "Network.AWS.RDS.DeleteDBSubnetGroup",
             "protocol": "query",
             "imports": [
@@ -12415,6 +12436,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteEventSubscription.html",
             "namespace": "Network.AWS.RDS.DeleteEventSubscription",
             "protocol": "query",
             "imports": [
@@ -12531,6 +12553,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteOptionGroup.html",
             "namespace": "Network.AWS.RDS.DeleteOptionGroup",
             "protocol": "query",
             "imports": [
@@ -12705,6 +12728,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBEngineVersions.html",
             "namespace": "Network.AWS.RDS.DescribeDBEngineVersions",
             "protocol": "query",
             "imports": [
@@ -13100,6 +13124,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html",
             "namespace": "Network.AWS.RDS.DescribeDBInstances",
             "protocol": "query",
             "imports": [
@@ -13363,6 +13388,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBLogFiles.html",
             "namespace": "Network.AWS.RDS.DescribeDBLogFiles",
             "protocol": "query",
             "imports": [
@@ -13726,6 +13752,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameterGroups.html",
             "namespace": "Network.AWS.RDS.DescribeDBParameterGroups",
             "protocol": "query",
             "imports": [
@@ -13989,6 +14016,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameters.html",
             "namespace": "Network.AWS.RDS.DescribeDBParameters",
             "protocol": "query",
             "imports": [
@@ -14286,6 +14314,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSecurityGroups.html",
             "namespace": "Network.AWS.RDS.DescribeDBSecurityGroups",
             "protocol": "query",
             "imports": [
@@ -14549,6 +14578,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshots.html",
             "namespace": "Network.AWS.RDS.DescribeDBSnapshots",
             "protocol": "query",
             "imports": [
@@ -14878,6 +14908,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSubnetGroups.html",
             "namespace": "Network.AWS.RDS.DescribeDBSubnetGroups",
             "protocol": "query",
             "imports": [
@@ -15128,6 +15159,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEngineDefaultParameters.html",
             "namespace": "Network.AWS.RDS.DescribeEngineDefaultParameters",
             "protocol": "query",
             "imports": [
@@ -15381,6 +15413,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventCategories.html",
             "namespace": "Network.AWS.RDS.DescribeEventCategories",
             "protocol": "query",
             "imports": [
@@ -15570,6 +15603,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventSubscriptions.html",
             "namespace": "Network.AWS.RDS.DescribeEventSubscriptions",
             "protocol": "query",
             "imports": [
@@ -15833,6 +15867,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html",
             "namespace": "Network.AWS.RDS.DescribeEvents",
             "protocol": "query",
             "imports": [
@@ -16261,6 +16296,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOptionGroupOptions.html",
             "namespace": "Network.AWS.RDS.DescribeOptionGroupOptions",
             "protocol": "query",
             "imports": [
@@ -16558,6 +16594,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOptionGroups.html",
             "namespace": "Network.AWS.RDS.DescribeOptionGroups",
             "protocol": "query",
             "imports": [
@@ -16887,6 +16924,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOrderableDBInstanceOptions.html",
             "namespace": "Network.AWS.RDS.DescribeOrderableDBInstanceOptions",
             "protocol": "query",
             "imports": [
@@ -17283,6 +17321,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstances.html",
             "namespace": "Network.AWS.RDS.DescribeReservedDBInstances",
             "protocol": "query",
             "imports": [
@@ -17744,6 +17783,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstancesOfferings.html",
             "namespace": "Network.AWS.RDS.DescribeReservedDBInstancesOfferings",
             "protocol": "query",
             "imports": [
@@ -18201,6 +18241,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DownloadDBLogFilePortion.html",
             "namespace": "Network.AWS.RDS.DownloadDBLogFilePortion",
             "protocol": "query",
             "imports": [
@@ -18455,6 +18496,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ListTagsForResource.html",
             "namespace": "Network.AWS.RDS.ListTagsForResource",
             "protocol": "query",
             "imports": [
@@ -18632,6 +18674,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html",
             "namespace": "Network.AWS.RDS.ModifyDBInstance",
             "protocol": "query",
             "imports": [
@@ -19439,6 +19482,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBParameterGroup.html",
             "namespace": "Network.AWS.RDS.ModifyDBParameterGroup",
             "protocol": "query",
             "imports": [
@@ -19616,6 +19660,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSubnetGroup.html",
             "namespace": "Network.AWS.RDS.ModifyDBSubnetGroup",
             "protocol": "query",
             "imports": [
@@ -19827,6 +19872,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyEventSubscription.html",
             "namespace": "Network.AWS.RDS.ModifyEventSubscription",
             "protocol": "query",
             "imports": [
@@ -20104,6 +20150,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyOptionGroup.html",
             "namespace": "Network.AWS.RDS.ModifyOptionGroup",
             "protocol": "query",
             "imports": [
@@ -20347,6 +20394,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PromoteReadReplica.html",
             "namespace": "Network.AWS.RDS.PromoteReadReplica",
             "protocol": "query",
             "imports": [
@@ -20558,6 +20606,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html",
             "namespace": "Network.AWS.RDS.PurchaseReservedDBInstancesOffering",
             "protocol": "query",
             "imports": [
@@ -20801,6 +20850,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html",
             "namespace": "Network.AWS.RDS.RebootDBInstance",
             "protocol": "query",
             "imports": [
@@ -20979,6 +21029,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveSourceIdentifierFromSubscription.html",
             "namespace": "Network.AWS.RDS.RemoveSourceIdentifierFromSubscription",
             "protocol": "query",
             "imports": [
@@ -21111,6 +21162,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveTagsFromResource.html",
             "namespace": "Network.AWS.RDS.RemoveTagsFromResource",
             "protocol": "query",
             "imports": [
@@ -21291,6 +21343,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBParameterGroup.html",
             "namespace": "Network.AWS.RDS.ResetDBParameterGroup",
             "protocol": "query",
             "imports": [
@@ -21501,6 +21554,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.html",
             "namespace": "Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot",
             "protocol": "query",
             "imports": [
@@ -22206,6 +22260,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.html",
             "namespace": "Network.AWS.RDS.RestoreDBInstanceToPointInTime",
             "protocol": "query",
             "imports": [
@@ -22977,6 +23032,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RevokeDBSecurityGroupIngress.html",
             "namespace": "Network.AWS.RDS.RevokeDBSecurityGroupIngress",
             "protocol": "query",
             "imports": [

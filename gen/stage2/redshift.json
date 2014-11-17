@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "Redshift",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.Redshift",
         "protocol": "query",
         "imports": [
@@ -129,6 +130,7 @@
             "Network.AWS.Redshift.RotateEncryptionKey",
             "Network.AWS.Redshift.Types"
         ],
+        "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Redshift",
         "version": "0.0.0",
@@ -6033,6 +6035,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeClusterSecurityGroupIngress.html",
             "namespace": "Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress",
             "protocol": "query",
             "imports": [
@@ -6277,6 +6280,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeSnapshotAccess.html",
             "namespace": "Network.AWS.Redshift.AuthorizeSnapshotAccess",
             "protocol": "query",
             "imports": [
@@ -6488,6 +6492,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_CopyClusterSnapshot.html",
             "namespace": "Network.AWS.Redshift.CopyClusterSnapshot",
             "protocol": "query",
             "imports": [
@@ -6699,6 +6704,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateCluster.html",
             "namespace": "Network.AWS.Redshift.CreateCluster",
             "protocol": "query",
             "imports": [
@@ -7537,6 +7543,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterParameterGroup.html",
             "namespace": "Network.AWS.Redshift.CreateClusterParameterGroup",
             "protocol": "query",
             "imports": [
@@ -7747,6 +7754,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSecurityGroup.html",
             "namespace": "Network.AWS.Redshift.CreateClusterSecurityGroup",
             "protocol": "query",
             "imports": [
@@ -7924,6 +7932,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSnapshot.html",
             "namespace": "Network.AWS.Redshift.CreateClusterSnapshot",
             "protocol": "query",
             "imports": [
@@ -8101,6 +8110,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSubnetGroup.html",
             "namespace": "Network.AWS.Redshift.CreateClusterSubnetGroup",
             "protocol": "query",
             "imports": [
@@ -8312,6 +8322,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateEventSubscription.html",
             "namespace": "Network.AWS.Redshift.CreateEventSubscription",
             "protocol": "query",
             "imports": [
@@ -8655,6 +8666,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHsmClientCertificate.html",
             "namespace": "Network.AWS.Redshift.CreateHsmClientCertificate",
             "protocol": "query",
             "imports": [
@@ -8816,6 +8828,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHsmConfiguration.html",
             "namespace": "Network.AWS.Redshift.CreateHsmConfiguration",
             "protocol": "query",
             "imports": [
@@ -9125,6 +9138,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteCluster.html",
             "namespace": "Network.AWS.Redshift.DeleteCluster",
             "protocol": "query",
             "imports": [
@@ -9291,6 +9305,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterParameterGroup.html",
             "namespace": "Network.AWS.Redshift.DeleteClusterParameterGroup",
             "protocol": "query",
             "imports": [
@@ -9407,6 +9422,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSecurityGroup.html",
             "namespace": "Network.AWS.Redshift.DeleteClusterSecurityGroup",
             "protocol": "query",
             "imports": [
@@ -9568,6 +9584,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSnapshot.html",
             "namespace": "Network.AWS.Redshift.DeleteClusterSnapshot",
             "protocol": "query",
             "imports": [
@@ -9701,6 +9718,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSubnetGroup.html",
             "namespace": "Network.AWS.Redshift.DeleteClusterSubnetGroup",
             "protocol": "query",
             "imports": [
@@ -9817,6 +9835,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteEventSubscription.html",
             "namespace": "Network.AWS.Redshift.DeleteEventSubscription",
             "protocol": "query",
             "imports": [
@@ -9933,6 +9952,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHsmClientCertificate.html",
             "namespace": "Network.AWS.Redshift.DeleteHsmClientCertificate",
             "protocol": "query",
             "imports": [
@@ -10049,6 +10069,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHsmConfiguration.html",
             "namespace": "Network.AWS.Redshift.DeleteHsmConfiguration",
             "protocol": "query",
             "imports": [
@@ -10223,6 +10244,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameterGroups.html",
             "namespace": "Network.AWS.Redshift.DescribeClusterParameterGroups",
             "protocol": "query",
             "imports": [
@@ -10454,6 +10476,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameters.html",
             "namespace": "Network.AWS.Redshift.DescribeClusterParameters",
             "protocol": "query",
             "imports": [
@@ -10719,6 +10742,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html",
             "namespace": "Network.AWS.Redshift.DescribeClusterSecurityGroups",
             "protocol": "query",
             "imports": [
@@ -10950,6 +10974,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSnapshots.html",
             "namespace": "Network.AWS.Redshift.DescribeClusterSnapshots",
             "protocol": "query",
             "imports": [
@@ -11346,6 +11371,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSubnetGroups.html",
             "namespace": "Network.AWS.Redshift.DescribeClusterSubnetGroups",
             "protocol": "query",
             "imports": [
@@ -11577,6 +11603,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterVersions.html",
             "namespace": "Network.AWS.Redshift.DescribeClusterVersions",
             "protocol": "query",
             "imports": [
@@ -11841,6 +11868,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusters.html",
             "namespace": "Network.AWS.Redshift.DescribeClusters",
             "protocol": "query",
             "imports": [
@@ -12059,6 +12087,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDefaultClusterParameters.html",
             "namespace": "Network.AWS.Redshift.DescribeDefaultClusterParameters",
             "protocol": "query",
             "imports": [
@@ -12280,6 +12309,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventCategories.html",
             "namespace": "Network.AWS.Redshift.DescribeEventCategories",
             "protocol": "query",
             "imports": [
@@ -12453,6 +12483,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventSubscriptions.html",
             "namespace": "Network.AWS.Redshift.DescribeEventSubscriptions",
             "protocol": "query",
             "imports": [
@@ -12684,6 +12715,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEvents.html",
             "namespace": "Network.AWS.Redshift.DescribeEvents",
             "protocol": "query",
             "imports": [
@@ -13047,6 +13079,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHsmClientCertificates.html",
             "namespace": "Network.AWS.Redshift.DescribeHsmClientCertificates",
             "protocol": "query",
             "imports": [
@@ -13278,6 +13311,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHsmConfigurations.html",
             "namespace": "Network.AWS.Redshift.DescribeHsmConfigurations",
             "protocol": "query",
             "imports": [
@@ -13622,6 +13656,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeLoggingStatus.html",
             "namespace": "Network.AWS.Redshift.DescribeLoggingStatus",
             "protocol": "query",
             "imports": [
@@ -13796,6 +13831,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeOrderableClusterOptions.html",
             "namespace": "Network.AWS.Redshift.DescribeOrderableClusterOptions",
             "protocol": "query",
             "imports": [
@@ -14060,6 +14096,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodeOfferings.html",
             "namespace": "Network.AWS.Redshift.DescribeReservedNodeOfferings",
             "protocol": "query",
             "imports": [
@@ -14291,6 +14328,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodes.html",
             "namespace": "Network.AWS.Redshift.DescribeReservedNodes",
             "protocol": "query",
             "imports": [
@@ -14803,6 +14841,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeResize.html",
             "namespace": "Network.AWS.Redshift.DescribeResize",
             "protocol": "query",
             "imports": [
@@ -15090,6 +15129,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableLogging.html",
             "namespace": "Network.AWS.Redshift.DisableLogging",
             "protocol": "query",
             "imports": [
@@ -15251,6 +15291,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableSnapshotCopy.html",
             "namespace": "Network.AWS.Redshift.DisableSnapshotCopy",
             "protocol": "query",
             "imports": [
@@ -15538,6 +15579,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableLogging.html",
             "namespace": "Network.AWS.Redshift.EnableLogging",
             "protocol": "query",
             "imports": [
@@ -15749,6 +15791,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableSnapshotCopy.html",
             "namespace": "Network.AWS.Redshift.EnableSnapshotCopy",
             "protocol": "query",
             "imports": [
@@ -15960,6 +16003,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyCluster.html",
             "namespace": "Network.AWS.Redshift.ModifyCluster",
             "protocol": "query",
             "imports": [
@@ -16581,6 +16625,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterParameterGroup.html",
             "namespace": "Network.AWS.Redshift.ModifyClusterParameterGroup",
             "protocol": "query",
             "imports": [
@@ -16758,6 +16803,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSubnetGroup.html",
             "namespace": "Network.AWS.Redshift.ModifyClusterSubnetGroup",
             "protocol": "query",
             "imports": [
@@ -16969,6 +17015,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyEventSubscription.html",
             "namespace": "Network.AWS.Redshift.ModifyEventSubscription",
             "protocol": "query",
             "imports": [
@@ -17312,6 +17359,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifySnapshotCopyRetentionPeriod.html",
             "namespace": "Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod",
             "protocol": "query",
             "imports": [
@@ -17489,6 +17537,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_PurchaseReservedNodeOffering.html",
             "namespace": "Network.AWS.Redshift.PurchaseReservedNodeOffering",
             "protocol": "query",
             "imports": [
@@ -17667,6 +17716,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_RebootCluster.html",
             "namespace": "Network.AWS.Redshift.RebootCluster",
             "protocol": "query",
             "imports": [
@@ -17842,6 +17892,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_ResetClusterParameterGroup.html",
             "namespace": "Network.AWS.Redshift.ResetClusterParameterGroup",
             "protocol": "query",
             "imports": [
@@ -18052,6 +18103,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_RestoreFromClusterSnapshot.html",
             "namespace": "Network.AWS.Redshift.RestoreFromClusterSnapshot",
             "protocol": "query",
             "imports": [
@@ -18725,6 +18777,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeClusterSecurityGroupIngress.html",
             "namespace": "Network.AWS.Redshift.RevokeClusterSecurityGroupIngress",
             "protocol": "query",
             "imports": [
@@ -18969,6 +19022,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeSnapshotAccess.html",
             "namespace": "Network.AWS.Redshift.RevokeSnapshotAccess",
             "protocol": "query",
             "imports": [
@@ -19180,6 +19234,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_RotateEncryptionKey.html",
             "namespace": "Network.AWS.Redshift.RotateEncryptionKey",
             "protocol": "query",
             "imports": [

@@ -189,7 +189,7 @@ operation a proto base ns ss pgs n o = do
   where
     op rq rs pg = Operation
         { _opName             = n
-        , _opUrl              = stripText "/" base <> "/" <> n <> ".html"
+        , _opUrl              = base <> n <> ".html"
         , _opService          = a
         , _opProtocol         = proto
         , _opNamespace        = operationNS a n

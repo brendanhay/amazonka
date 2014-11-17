@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "AutoScaling",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.AutoScaling",
         "protocol": "query",
         "imports": [
@@ -113,6 +114,7 @@
             "Network.AWS.AutoScaling.Types",
             "Network.AWS.AutoScaling.UpdateAutoScalingGroup"
         ],
+        "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Auto Scaling",
         "version": "0.0.0",
@@ -4114,6 +4116,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachInstances.html",
             "namespace": "Network.AWS.AutoScaling.AttachInstances",
             "protocol": "query",
             "imports": [
@@ -4247,6 +4250,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CompleteLifecycleAction.html",
             "namespace": "Network.AWS.AutoScaling.CompleteLifecycleAction",
             "protocol": "query",
             "imports": [
@@ -4445,6 +4449,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateAutoScalingGroup.html",
             "namespace": "Network.AWS.AutoScaling.CreateAutoScalingGroup",
             "protocol": "query",
             "imports": [
@@ -5006,6 +5011,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html",
             "namespace": "Network.AWS.AutoScaling.CreateLaunchConfiguration",
             "protocol": "query",
             "imports": [
@@ -5600,6 +5606,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html",
             "namespace": "Network.AWS.AutoScaling.CreateOrUpdateTags",
             "protocol": "query",
             "imports": [
@@ -5715,6 +5722,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html",
             "namespace": "Network.AWS.AutoScaling.DeleteAutoScalingGroup",
             "protocol": "query",
             "imports": [
@@ -5848,6 +5856,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLaunchConfiguration.html",
             "namespace": "Network.AWS.AutoScaling.DeleteLaunchConfiguration",
             "protocol": "query",
             "imports": [
@@ -5964,6 +5973,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLifecycleHook.html",
             "namespace": "Network.AWS.AutoScaling.DeleteLifecycleHook",
             "protocol": "query",
             "imports": [
@@ -6096,6 +6106,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteNotificationConfiguration.html",
             "namespace": "Network.AWS.AutoScaling.DeleteNotificationConfiguration",
             "protocol": "query",
             "imports": [
@@ -6228,6 +6239,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeletePolicy.html",
             "namespace": "Network.AWS.AutoScaling.DeletePolicy",
             "protocol": "query",
             "imports": [
@@ -6361,6 +6373,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html",
             "namespace": "Network.AWS.AutoScaling.DeleteScheduledAction",
             "protocol": "query",
             "imports": [
@@ -6494,6 +6507,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteTags.html",
             "namespace": "Network.AWS.AutoScaling.DeleteTags",
             "protocol": "query",
             "imports": [
@@ -6668,6 +6682,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAccountLimits.html",
             "namespace": "Network.AWS.AutoScaling.DescribeAccountLimits",
             "protocol": "query",
             "imports": [
@@ -6777,6 +6792,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAdjustmentTypes.html",
             "namespace": "Network.AWS.AutoScaling.DescribeAdjustmentTypes",
             "protocol": "query",
             "imports": [
@@ -6897,6 +6913,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html",
             "namespace": "Network.AWS.AutoScaling.DescribeAutoScalingGroups",
             "protocol": "query",
             "imports": [
@@ -7128,6 +7145,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html",
             "namespace": "Network.AWS.AutoScaling.DescribeAutoScalingInstances",
             "protocol": "query",
             "imports": [
@@ -7349,6 +7367,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingNotificationTypes.html",
             "namespace": "Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes",
             "protocol": "query",
             "imports": [
@@ -7469,6 +7488,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html",
             "namespace": "Network.AWS.AutoScaling.DescribeLaunchConfigurations",
             "protocol": "query",
             "imports": [
@@ -7690,6 +7710,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHookTypes.html",
             "namespace": "Network.AWS.AutoScaling.DescribeLifecycleHookTypes",
             "protocol": "query",
             "imports": [
@@ -7799,6 +7820,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHooks.html",
             "namespace": "Network.AWS.AutoScaling.DescribeLifecycleHooks",
             "protocol": "query",
             "imports": [
@@ -7990,6 +8012,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeMetricCollectionTypes.html",
             "namespace": "Network.AWS.AutoScaling.DescribeMetricCollectionTypes",
             "protocol": "query",
             "imports": [
@@ -8110,6 +8133,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html",
             "namespace": "Network.AWS.AutoScaling.DescribeNotificationConfigurations",
             "protocol": "query",
             "imports": [
@@ -8341,6 +8365,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePolicies.html",
             "namespace": "Network.AWS.AutoScaling.DescribePolicies",
             "protocol": "query",
             "imports": [
@@ -8605,6 +8630,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingActivities.html",
             "namespace": "Network.AWS.AutoScaling.DescribeScalingActivities",
             "protocol": "query",
             "imports": [
@@ -8858,6 +8884,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingProcessTypes.html",
             "namespace": "Network.AWS.AutoScaling.DescribeScalingProcessTypes",
             "protocol": "query",
             "imports": [
@@ -8978,6 +9005,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html",
             "namespace": "Network.AWS.AutoScaling.DescribeScheduledActions",
             "protocol": "query",
             "imports": [
@@ -9308,6 +9336,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTags.html",
             "namespace": "Network.AWS.AutoScaling.DescribeTags",
             "protocol": "query",
             "imports": [
@@ -9528,6 +9557,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTerminationPolicyTypes.html",
             "namespace": "Network.AWS.AutoScaling.DescribeTerminationPolicyTypes",
             "protocol": "query",
             "imports": [
@@ -9637,6 +9667,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachInstances.html",
             "namespace": "Network.AWS.AutoScaling.DetachInstances",
             "protocol": "query",
             "imports": [
@@ -9803,6 +9834,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DisableMetricsCollection.html",
             "namespace": "Network.AWS.AutoScaling.DisableMetricsCollection",
             "protocol": "query",
             "imports": [
@@ -9936,6 +9968,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnableMetricsCollection.html",
             "namespace": "Network.AWS.AutoScaling.EnableMetricsCollection",
             "protocol": "query",
             "imports": [
@@ -10149,6 +10182,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnterStandby.html",
             "namespace": "Network.AWS.AutoScaling.EnterStandby",
             "protocol": "query",
             "imports": [
@@ -10315,6 +10349,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExecutePolicy.html",
             "namespace": "Network.AWS.AutoScaling.ExecutePolicy",
             "protocol": "query",
             "imports": [
@@ -10528,6 +10563,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExitStandby.html",
             "namespace": "Network.AWS.AutoScaling.ExitStandby",
             "protocol": "query",
             "imports": [
@@ -10661,6 +10697,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutLifecycleHook.html",
             "namespace": "Network.AWS.AutoScaling.PutLifecycleHook",
             "protocol": "query",
             "imports": [
@@ -10992,6 +11029,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutNotificationConfiguration.html",
             "namespace": "Network.AWS.AutoScaling.PutNotificationConfiguration",
             "protocol": "query",
             "imports": [
@@ -11205,6 +11243,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScalingPolicy.html",
             "namespace": "Network.AWS.AutoScaling.PutScalingPolicy",
             "protocol": "query",
             "imports": [
@@ -11470,6 +11509,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScheduledUpdateGroupAction.html",
             "namespace": "Network.AWS.AutoScaling.PutScheduledUpdateGroupAction",
             "protocol": "query",
             "imports": [
@@ -11834,6 +11874,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_RecordLifecycleActionHeartbeat.html",
             "namespace": "Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat",
             "protocol": "query",
             "imports": [
@@ -11999,6 +12040,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ResumeProcesses.html",
             "namespace": "Network.AWS.AutoScaling.ResumeProcesses",
             "protocol": "query",
             "imports": [
@@ -12132,6 +12174,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetDesiredCapacity.html",
             "namespace": "Network.AWS.AutoScaling.SetDesiredCapacity",
             "protocol": "query",
             "imports": [
@@ -12298,6 +12341,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetInstanceHealth.html",
             "namespace": "Network.AWS.AutoScaling.SetInstanceHealth",
             "protocol": "query",
             "imports": [
@@ -12464,6 +12508,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SuspendProcesses.html",
             "namespace": "Network.AWS.AutoScaling.SuspendProcesses",
             "protocol": "query",
             "imports": [
@@ -12642,6 +12687,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_TerminateInstanceInAutoScalingGroup.html",
             "namespace": "Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup",
             "protocol": "query",
             "imports": [
@@ -12774,6 +12820,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html",
             "namespace": "Network.AWS.AutoScaling.UpdateAutoScalingGroup",
             "protocol": "query",
             "imports": [

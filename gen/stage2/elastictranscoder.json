@@ -4,6 +4,7 @@
         "checksum": "sha256",
         "abbrev": "ElasticTranscoder",
         "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html",
         "namespace": "Network.AWS.ElasticTranscoder",
         "protocol": "rest-json",
         "imports": [
@@ -57,6 +58,7 @@
             "Network.AWS.ElasticTranscoder.UpdatePipelineNotifications",
             "Network.AWS.ElasticTranscoder.UpdatePipelineStatus"
         ],
+        "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html",
         "protocol": "rest-json",
         "name": "Amazon Elastic Transcoder",
         "version": "0.0.0",
@@ -4381,6 +4383,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CancelJob.html",
             "namespace": "Network.AWS.ElasticTranscoder.CancelJob",
             "protocol": "rest-json",
             "imports": [
@@ -4542,6 +4545,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreateJob.html",
             "namespace": "Network.AWS.ElasticTranscoder.CreateJob",
             "protocol": "rest-json",
             "imports": [
@@ -4822,6 +4826,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePipeline.html",
             "namespace": "Network.AWS.ElasticTranscoder.CreatePipeline",
             "protocol": "rest-json",
             "imports": [
@@ -5143,6 +5148,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePreset.html",
             "namespace": "Network.AWS.ElasticTranscoder.CreatePreset",
             "protocol": "rest-json",
             "imports": [
@@ -5378,6 +5384,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePipeline.html",
             "namespace": "Network.AWS.ElasticTranscoder.DeletePipeline",
             "protocol": "rest-json",
             "imports": [
@@ -5494,6 +5501,7 @@
                 "optional": [],
                 "fields": []
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePreset.html",
             "namespace": "Network.AWS.ElasticTranscoder.DeletePreset",
             "protocol": "rest-json",
             "imports": [
@@ -5668,6 +5676,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByPipeline.html",
             "namespace": "Network.AWS.ElasticTranscoder.ListJobsByPipeline",
             "protocol": "rest-json",
             "imports": [
@@ -5901,6 +5910,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByStatus.html",
             "namespace": "Network.AWS.ElasticTranscoder.ListJobsByStatus",
             "protocol": "rest-json",
             "imports": [
@@ -6134,6 +6144,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPipelines.html",
             "namespace": "Network.AWS.ElasticTranscoder.ListPipelines",
             "protocol": "rest-json",
             "imports": [
@@ -6332,6 +6343,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPresets.html",
             "namespace": "Network.AWS.ElasticTranscoder.ListPresets",
             "protocol": "rest-json",
             "imports": [
@@ -6517,6 +6529,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadJob.html",
             "namespace": "Network.AWS.ElasticTranscoder.ReadJob",
             "protocol": "rest-json",
             "imports": [
@@ -6678,6 +6691,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPipeline.html",
             "namespace": "Network.AWS.ElasticTranscoder.ReadPipeline",
             "protocol": "rest-json",
             "imports": [
@@ -6839,6 +6853,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPreset.html",
             "namespace": "Network.AWS.ElasticTranscoder.ReadPreset",
             "protocol": "rest-json",
             "imports": [
@@ -7014,6 +7029,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/TestRole.html",
             "namespace": "Network.AWS.ElasticTranscoder.TestRole",
             "protocol": "rest-json",
             "imports": [
@@ -7239,6 +7255,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipeline.html",
             "namespace": "Network.AWS.ElasticTranscoder.UpdatePipeline",
             "protocol": "rest-json",
             "imports": [
@@ -7551,6 +7568,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineNotifications.html",
             "namespace": "Network.AWS.ElasticTranscoder.UpdatePipelineNotifications",
             "protocol": "rest-json",
             "imports": [
@@ -7726,6 +7744,7 @@
                     }
                 ]
             },
+            "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineStatus.html",
             "namespace": "Network.AWS.ElasticTranscoder.UpdatePipelineStatus",
             "protocol": "rest-json",
             "imports": [
